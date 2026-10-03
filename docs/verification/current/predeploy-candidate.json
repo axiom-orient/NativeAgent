@@ -6,13 +6,15 @@
     "packageIdentity": "NativeAgent",
     "product": "NativeAgentSumday",
     "plannedVersion": null,
-    "reviewState": "OWNER_APPROVED_BRANCH_CONSUMPTION",
-    "consumptionRequirement": "main branch; consuming Package.resolved records the selected commit"
+    "reviewState": "OWNER_REVIEWED_PUBLIC_REPOSITORY",
+    "consumptionRequirement": "REMOTE_SPM_BLOCKED_UNTIL_LOCAL_PATH_DEPENDENCIES_ARE_REMOVED",
+    "releaseStatus": "BLOCKED_BY_REMOTE_LOCAL_PATH_DEPENDENCIES"
   },
   "publication": {
     "githubRepositoryCreated": true,
     "pushed": true,
-    "tagCreated": false
+    "tagCreated": false,
+    "withdrawnVersion": "0.1.0"
   },
   "checks": [
     {
@@ -91,14 +93,21 @@
       "status": "FAIL",
       "command": "xcodebuild -resolvePackageDependencies -project App/Sumday.xcodeproj -scheme sumday -quiet",
       "result": "SwiftPM rejected NativeAgent 0.1.0 because its root manifest depends on unstable local path package NativeAgentPackage. The Package.resolved file was not updated.",
-      "resolution": "Use the public main branch for the sole SumDay consumer; the checked-in Package.resolved pins the commit."
+      "resolution": "Branch and revision requirements fail for the same local package(path:) graph; retain the app local dependency until the package graph is restructured."
+    },
+    {
+      "name": "Xcode branch dependency resolution",
+      "status": "FAIL",
+      "command": "xcodebuild -resolvePackageDependencies -project App/Sumday.xcodeproj -scheme sumday",
+      "result": "SwiftPM rejected NativeAgent main because remote package 'nativeagent' depends on local package 'nativeagentpackage'; the Package.resolved file was not updated."
     }
   ],
   "limits": [
     "Sumday.xcodeproj has not yet been changed to consume the remote dependency; this follows publication of the reviewed package candidate.",
     "No iOS Simulator/device execution, native provider qualification, real account, model inference, or live image generation was run.",
     "Production release remains BLOCKED by the SDK qualification gates.",
-    "The root product is not consumable through a stable semantic-version tag while its manifest retains local path dependencies. The public 0.1.0 tag is withdrawn; branch consumption is the current supported route for SumDay."
+    "The root product is not consumable through a stable semantic-version tag while its manifest retains local path dependencies. The public 0.1.0 tag is withdrawn; branch consumption is the current supported route for SumDay.",
+    "NativeAgentSumday cannot currently be resolved from the public Git repository, whether pinned by tag or branch. SumDay must retain the local copy until a remote-resolvable root manifest is reviewed and resolved."
   ],
   "observedRecovery": [
     "The first fresh macOS build stopped on ENOSPC while task-owned scratch directories filled the disk. Those task scratch directories were removed and a clean macOS 15 build passed."

@@ -18,9 +18,9 @@
     "Knowledge/ASK/Package.resolved",
     "SOURCE_MANIFEST.json"
   ],
-  "note": "Self-excluding inventory of the Git index for the public branch-consumption candidate. Build outputs, SwiftPM state, editor state, bytecode, intentionally ignored package lockfiles and this manifest are excluded; public verification records use environment placeholders. The tree is not externally signed and does not qualify native/live production behavior.",
+  "note": "Self-excluding inventory of the Git index for the public NativeAgent source-of-truth repository. Root SwiftPM remote consumption is blocked by local path dependencies; build outputs, SwiftPM state, editor state, bytecode, intentionally ignored package lockfiles and this manifest are excluded. Public verification records use environment placeholders. The tree is not externally signed and does not qualify native/live production behavior.",
   "fileCount": 1934,
-  "uncompressedBytes": 22292774,
+  "uncompressedBytes": 22293559,
   "files": [
     {
       "path": ".gitignore",
@@ -7314,8 +7314,8 @@
     },
     {
       "path": "Package.swift",
-      "bytes": 2900,
-      "sha256": "5d4d2aa11ccabce47b1e99c526fc5b69cc8deb50ea160df8e7254c4ad4400b79"
+      "bytes": 2820,
+      "sha256": "b155a4ad5d534a5eb8b1b83de542cc67d5dd6e490422ee7862a41c6fdb3bf96e"
     },
     {
       "path": "Providers/ANALYSIS.md",
@@ -8144,8 +8144,8 @@
     },
     {
       "path": "docs/PACKAGING.md",
-      "bytes": 3323,
-      "sha256": "7c588f2ed2b82eb88fa29dc8efc927df1d9799fecd9333159b55fe1d96e4da12"
+      "bytes": 3460,
+      "sha256": "49330985ef656eb0221df7ff9876c262ca94dc2443404eff5e6781095040f2b4"
     },
     {
       "path": "docs/PLAN.md",
@@ -8464,8 +8464,8 @@
     },
     {
       "path": "docs/verification/current/predeploy-candidate.json",
-      "bytes": 5328,
-      "sha256": "0475a03ecc644b5156606bc2b21f363ce71e34aff6360ac4090f5bb4f7668e4f"
+      "bytes": 6056,
+      "sha256": "6a09fddac6a06fa2e7247b495eff153850b5f6762c0383490d1106f8f60ab4c7"
     },
     {
       "path": "docs/verification/current/provenance.json",

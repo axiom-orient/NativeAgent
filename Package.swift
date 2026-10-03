@@ -1,9 +1,8 @@
 // swift-tools-version: 6.2
 import PackageDescription
 
-// This distribution profile keeps selected packages independent while giving
-// Sumday one branch-pinned dependency-graph product. Its local package edges
-// prevent stable-version resolution; Package.resolved pins the consuming app.
+// This distribution profile is a local source-graph composition. Its sibling
+// package(path:) edges are not consumable from a remote Git dependency yet.
 let package = Package(
     name: "NativeAgent",
     platforms: [.iOS(.v17), .macOS(.v15)],

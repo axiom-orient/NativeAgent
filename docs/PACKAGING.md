@@ -56,12 +56,13 @@ ChatGPT Account package and one host-owned account session.
 
 ## Version and release boundary
 
-The root distribution graph currently uses local path dependencies to its
-independent subpackages. SwiftPM therefore rejects it when requested as a stable
-Git tag. SumDay consumes the public `main` branch and commits its selected
-revision in the app's checked-in `Package.resolved`. Do not claim a semantic
-release until the root graph no longer depends on local packages. Do not retarget
-a released tag.
+The root distribution graph currently uses `.package(path:)` dependencies to
+its independent subpackages. SwiftPM rejects this graph when the repository is
+consumed remotely, for stable tags and for branch/revision requirements. The
+public repository is the source of truth, but it is not yet an SPM-resolvable
+remote dependency. Keep SumDay on its current local package until the root graph
+is flattened into root targets or those dependencies are independently
+published. Do not create another release tag until a remote consumer resolves.
 
 `swift build` or package tests verify only the executed package/host boundary.
 Apple SDK compilation, native callbacks, Keychain, device lifecycle, account
