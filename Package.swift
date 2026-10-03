@@ -163,6 +163,7 @@ let package = Package(
                 .target(name: "LanguageModelRuntime"),
                 .target(name: "ModelArtifactStore"),
                 .target(name: "ModelHub"),
+                .product(name: "HuggingFace", package: "swift-huggingface"),
                 .target(name: "LeapSDK")
             ],
             path: "Providers/LEAP/Sources/LEAPProvider",
@@ -184,6 +185,7 @@ let package = Package(
         .binaryTarget(name: "LeapSDK", url: "https://github.com/Liquid4All/leap-sdk/releases/download/v0.10.13-SNAPSHOT/LeapSDK.xcframework.zip", checksum: "99abbed6967de43dfa2b3ad03350f4146bf9ab9194a2fbc719d239066e6becc3"),
         .target(
             name: "MarkdownSyntax",
+            dependencies: [.product(name: "Markdown", package: "swift-markdown")],
             path: "Knowledge/ASK/Packages/DocumentCore/Sources/MarkdownSyntax"
         ),
         .target(

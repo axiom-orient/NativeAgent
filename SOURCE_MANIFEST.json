@@ -1,7 +1,7 @@
 {
   "schema": "nativeagent.source-manifest/1",
   "algorithm": "SHA-256",
-  "root": "NativeAgent-predeploy-20261003",
+  "root": "NativeAgent",
   "exclusions": [
     ".DS_Store",
     "._*",
@@ -18,9 +18,9 @@
     "Knowledge/ASK/Package.resolved",
     "SOURCE_MANIFEST.json"
   ],
-  "note": "Self-excluding Git-index inventory for the flattened public NativeAgent SwiftPM candidate. The root manifest has no local package dependencies; nested source manifests remain for development. Build outputs, SwiftPM state, editor state, bytecode, ignored package lockfiles and this manifest are excluded. Public verification records use environment placeholders. The tree is not externally signed and does not qualify native/live production behavior.",
-  "fileCount": 1934,
-  "uncompressedBytes": 22308687,
+  "note": "Self-excluding Git-index inventory of the published NativeAgent SwiftPM source. Entries reflect staged source bytes, not unstaged local edits. Build outputs, SwiftPM state, editor state, ignored files and this manifest are excluded. This inventory does not qualify native or live behavior.",
+  "fileCount": 1935,
+  "uncompressedBytes": 22311595,
   "files": [
     {
       "path": ".gitignore",
@@ -7314,8 +7314,8 @@
     },
     {
       "path": "Package.swift",
-      "bytes": 13530,
-      "sha256": "0f7740d0c2af6c7b765677e823976823b72dccc4f95075b99495c9fa2fcc8a12"
+      "bytes": 13690,
+      "sha256": "36f2db7b68c20a9636893afca4a632137add8cd78a26b208af0ca9dbc3e49a51"
     },
     {
       "path": "Providers/ANALYSIS.md",
@@ -9661,6 +9661,11 @@
       "path": "tools/package-closure.py",
       "bytes": 7055,
       "sha256": "5efb17dd2b7174a92b78b716fbde12e328e0f0aa495d14262fb783060b02f8ca"
+    },
+    {
+      "path": "tools/test-distribution-manifest.py",
+      "bytes": 2748,
+      "sha256": "1fc4d3c21165182110ecbc041c50e5f85fe11ace1f52649e641234b46419f9c8"
     },
     {
       "path": "tools/test-package-closure.py",
