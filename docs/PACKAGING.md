@@ -3,10 +3,10 @@
 ## Remote product
 
 The repository root is a package collection, not one runtime or one public API
-module. Its root `Package.swift` adds the `NativeAgentSumday` distribution
-product. That product declares the current Sumday dependency closure once while
-preserving each package's module and state owner. It adds no provider routing,
-credential state, storage, or runtime lifecycle.
+module. Its root `Package.swift` exposes `NativeAgentSumday`. The root manifest
+defines the selected dependency targets against their existing source paths, so
+a remote Git consumer does not traverse `.package(path:)` edges. The product adds
+no provider routing, credential state, storage, or runtime lifecycle.
 
 Add the repository once as an SPM dependency and select
 `NativeAgentSumday`. App source continues to import concrete modules, for
@@ -14,11 +14,12 @@ example `NativeAgent`, `NativeAgentDomain`, `LanguageModelRuntime`, `ASK`,
 `ChatGPTText`, or `NativeAgentUI`. The selected product is a package-graph
 composition for Sumday, not a replacement facade API.
 
-The remote root exposes only this composition product. Nested packages keep
-their independent manifests for local development and focused qualification;
-SwiftPM does not let a Git URL select an arbitrary nested `Package.swift`.
-Add another remote composition only when a real consumer and its exact product
-closure are established.
+The remote root exposes only this composition product. Nested package manifests
+remain for local development and focused qualification; their source targets
+are referenced directly by the root distribution manifest. SwiftPM does not let
+a Git URL select an arbitrary nested `Package.swift`. Add another remote
+composition only when a real consumer and its exact product closure are
+established.
 
 ## Source package closures
 
@@ -56,13 +57,15 @@ ChatGPT Account package and one host-owned account session.
 
 ## Version and release boundary
 
-The root distribution graph currently uses `.package(path:)` dependencies to
-its independent subpackages. SwiftPM rejects this graph when the repository is
-consumed remotely, for stable tags and for branch/revision requirements. The
-public repository is the source of truth, but it is not yet an SPM-resolvable
-remote dependency. Keep SumDay on its current local package until the root graph
-is flattened into root targets or those dependencies are independently
-published. Do not create another release tag until a remote consumer resolves.
+The root distribution graph has no local package dependencies. It targets the
+selected modules directly from the repository source tree and declares only its
+two upstream remote packages. The prior path-based root was rejected by SwiftPM
+for tag, branch, and revision requirements and its `0.1.0` tag was withdrawn.
+The flattened root manifest contains 34 targets (the 33-target selected module
+closure plus `NativeAgentSumday`) and resolves its six pinned transitive package
+versions locally. The app's remote Xcode resolution is still pending. The next
+release candidate is `0.1.1`; publish its tag only after remote Xcode resolution
+and owner review. Do not retarget a published tag.
 
 `swift build` or package tests verify only the executed package/host boundary.
 Apple SDK compilation, native callbacks, Keychain, device lifecycle, account

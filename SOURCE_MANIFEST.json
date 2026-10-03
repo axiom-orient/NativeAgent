@@ -18,9 +18,9 @@
     "Knowledge/ASK/Package.resolved",
     "SOURCE_MANIFEST.json"
   ],
-  "note": "Self-excluding inventory of the Git index for the public NativeAgent source-of-truth repository. Root SwiftPM remote consumption is blocked by local path dependencies; build outputs, SwiftPM state, editor state, bytecode, intentionally ignored package lockfiles and this manifest are excluded. Public verification records use environment placeholders. The tree is not externally signed and does not qualify native/live production behavior.",
+  "note": "Self-excluding Git-index inventory for the flattened public NativeAgent SwiftPM candidate. The root manifest has no local package dependencies; nested source manifests remain for development. Build outputs, SwiftPM state, editor state, bytecode, ignored package lockfiles and this manifest are excluded. Public verification records use environment placeholders. The tree is not externally signed and does not qualify native/live production behavior.",
   "fileCount": 1934,
-  "uncompressedBytes": 22293559,
+  "uncompressedBytes": 22308332,
   "files": [
     {
       "path": ".gitignore",
@@ -7314,8 +7314,8 @@
     },
     {
       "path": "Package.swift",
-      "bytes": 2820,
-      "sha256": "b155a4ad5d534a5eb8b1b83de542cc67d5dd6e490422ee7862a41c6fdb3bf96e"
+      "bytes": 13530,
+      "sha256": "0f7740d0c2af6c7b765677e823976823b72dccc4f95075b99495c9fa2fcc8a12"
     },
     {
       "path": "Providers/ANALYSIS.md",
@@ -8144,8 +8144,8 @@
     },
     {
       "path": "docs/PACKAGING.md",
-      "bytes": 3460,
-      "sha256": "49330985ef656eb0221df7ff9876c262ca94dc2443404eff5e6781095040f2b4"
+      "bytes": 3697,
+      "sha256": "e40edd32c2b8f8d96f7eba8c3189e7bd16a82feabd95cd84c4e93d907fe316b7"
     },
     {
       "path": "docs/PLAN.md",
@@ -8464,8 +8464,8 @@
     },
     {
       "path": "docs/verification/current/predeploy-candidate.json",
-      "bytes": 6056,
-      "sha256": "6a09fddac6a06fa2e7247b495eff153850b5f6762c0383490d1106f8f60ab4c7"
+      "bytes": 9882,
+      "sha256": "4e0d249c5a58c1c030d239f3e3f062289caf71a0a247c4feaf0dcdfb11f0ee46"
     },
     {
       "path": "docs/verification/current/provenance.json",

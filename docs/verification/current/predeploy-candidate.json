@@ -5,10 +5,12 @@
     "repository": "axiom-orient/NativeAgent",
     "packageIdentity": "NativeAgent",
     "product": "NativeAgentSumday",
-    "plannedVersion": null,
-    "reviewState": "OWNER_REVIEWED_PUBLIC_REPOSITORY",
-    "consumptionRequirement": "REMOTE_SPM_BLOCKED_UNTIL_LOCAL_PATH_DEPENDENCIES_ARE_REMOVED",
-    "releaseStatus": "BLOCKED_BY_REMOTE_LOCAL_PATH_DEPENDENCIES"
+    "plannedVersion": "0.1.1",
+    "reviewState": "AWAITING_OWNER_REVIEW",
+    "consumptionRequirement": "NativeAgentSumday 0.1.1; awaiting remote dependency resolution and owner review",
+    "releaseStatus": "AWAITING_REMOTE_XCODE_RESOLUTION_AND_OWNER_REVIEW",
+    "rootManifestSHA256": "0f7740d0c2af6c7b765677e823976823b72dccc4f95075b99495c9fa2fcc8a12",
+    "remoteSPMStatus": "FLATTENED_ROOT_RESOLUTION_PASS; REMOTE_XCODE_RESOLUTION_PENDING"
   },
   "publication": {
     "githubRepositoryCreated": true,
@@ -21,13 +23,19 @@
       "name": "iOS package product build",
       "status": "PASS",
       "command": "swift build --package-path $NATIVEAGENT_ROOT --product NativeAgentSumday --triple arm64-apple-ios17.0 --sdk /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS27.0.sdk --scratch-path $TMPDIR/nativeagent-predeploy-ios17",
-      "result": "NativeAgentSumday built for arm64 iOS 17 with iPhoneOS 27 SDK."
+      "result": "NativeAgentSumday built for arm64 iOS 17 with iPhoneOS 27 SDK.",
+      "evidenceRevision": "934aa6ac35c5c07ad354e343ed7ce5968a11aa0a",
+      "evidenceSourceManifestSHA256": "1f3257ca10d599581a6e968306ed5f719848993e0fe624ccfb0b279ac52db28e",
+      "scopeNote": "Recorded before flattening the root distribution manifest; not verification of the current remote target graph."
     },
     {
       "name": "macOS package product build",
       "status": "PASS",
       "command": "swift build --package-path $NATIVEAGENT_ROOT --product NativeAgentSumday --triple arm64-apple-macosx15.0 --scratch-path $TMPDIR/nativeagent-predeploy-macos15",
-      "result": "NativeAgentSumday built for arm64 macOS 15."
+      "result": "NativeAgentSumday built for arm64 macOS 15.",
+      "evidenceRevision": "934aa6ac35c5c07ad354e343ed7ce5968a11aa0a",
+      "evidenceSourceManifestSHA256": "1f3257ca10d599581a6e968306ed5f719848993e0fe624ccfb0b279ac52db28e",
+      "scopeNote": "Recorded before flattening the root distribution manifest; not verification of the current remote target graph."
     },
     {
       "name": "SwiftPM consumer smoke build",
@@ -51,63 +59,100 @@
         "NativeAgentUI",
         "NativeAgentSumday"
       ],
-      "scope": "Local package-path consumer smoke only; this does not prove stable Git-tag resolution."
+      "scope": "Local package-path consumer smoke only; this does not prove stable Git-tag resolution.",
+      "evidenceRevision": "934aa6ac35c5c07ad354e343ed7ce5968a11aa0a",
+      "evidenceSourceManifestSHA256": "1f3257ca10d599581a6e968306ed5f719848993e0fe624ccfb0b279ac52db28e",
+      "scopeNote": "Recorded before flattening the root distribution manifest; not verification of the current remote target graph."
     },
     {
       "name": "LocalBackendTests",
       "status": "PASS",
       "command": "swift test --package-path $NATIVEAGENT_ROOT/Model/LanguageModelRuntime --filter LocalBackendTests --triple arm64-apple-macosx15.0 --scratch-path $TMPDIR/nativeagent-predeploy-runtime",
-      "result": "14 tests passed."
+      "result": "14 tests passed.",
+      "evidenceRevision": "934aa6ac35c5c07ad354e343ed7ce5968a11aa0a",
+      "evidenceSourceManifestSHA256": "1f3257ca10d599581a6e968306ed5f719848993e0fe624ccfb0b279ac52db28e",
+      "scopeNote": "Recorded before flattening the root distribution manifest; not verification of the current remote target graph."
     },
     {
       "name": "ASKPublicAPITests",
       "status": "PASS",
       "command": "swift test --package-path $NATIVEAGENT_ROOT/Knowledge/ASK --filter ASKPublicAPITests --triple arm64-apple-macosx15.0 --scratch-path $TMPDIR/nativeagent-predeploy-ask",
-      "result": "7 tests passed."
+      "result": "7 tests passed.",
+      "evidenceRevision": "934aa6ac35c5c07ad354e343ed7ce5968a11aa0a",
+      "evidenceSourceManifestSHA256": "1f3257ca10d599581a6e968306ed5f719848993e0fe624ccfb0b279ac52db28e",
+      "scopeNote": "Recorded before flattening the root distribution manifest; not verification of the current remote target graph."
     },
     {
       "name": "SQLitePreparationTests",
       "status": "PASS",
       "command": "swift test --package-path $NATIVEAGENT_ROOT/Agent/NativeAgentPackage --filter SQLitePreparationTests --triple arm64-apple-macosx15.0 --scratch-path $TMPDIR/nativeagent-predeploy-store",
-      "result": "4 tests and 13 parameter cases passed."
+      "result": "4 tests and 13 parameter cases passed.",
+      "evidenceRevision": "934aa6ac35c5c07ad354e343ed7ce5968a11aa0a",
+      "evidenceSourceManifestSHA256": "1f3257ca10d599581a6e968306ed5f719848993e0fe624ccfb0b279ac52db28e",
+      "scopeNote": "Recorded before flattening the root distribution manifest; not verification of the current remote target graph."
     },
     {
       "name": "Static package boundary and Swift syntax check",
       "status": "PASS",
       "command": "python3 tools/check-boundaries.py",
-      "result": "55 manifests, 509 static assertions, and 1252 Swift files parsed."
+      "result": "55 manifests, 509 static assertions, and 1252 Swift files parsed.",
+      "evidenceRevision": "934aa6ac35c5c07ad354e343ed7ce5968a11aa0a",
+      "evidenceSourceManifestSHA256": "1f3257ca10d599581a6e968306ed5f719848993e0fe624ccfb0b279ac52db28e",
+      "scopeNote": "Recorded before flattening the root distribution manifest; not verification of the current remote target graph."
     },
     {
       "name": "Document link/content checker",
       "status": "NOT_RUN",
       "command": "python3 tools/check-documents.py",
-      "reason": "The checker requires markdown-it-py; the tool reported that dependency unavailable and that no check was run."
+      "reason": "The checker requires markdown-it-py; the tool reported that dependency unavailable and that no check was run.",
+      "evidenceRevision": "934aa6ac35c5c07ad354e343ed7ce5968a11aa0a",
+      "evidenceSourceManifestSHA256": "1f3257ca10d599581a6e968306ed5f719848993e0fe624ccfb0b279ac52db28e",
+      "scopeNote": "Recorded before flattening the root distribution manifest; not verification of the current remote target graph."
     },
     {
       "name": "Credential pattern scan",
       "status": "PARTIAL",
-      "result": "No live credentials or credential files found. The custom pattern scan reported two benign matches in an SVG token-count test identifier and an MCP qualification placeholder. gitleaks is not installed."
+      "result": "No live credentials or credential files found. The custom pattern scan reported two benign matches in an SVG token-count test identifier and an MCP qualification placeholder. gitleaks is not installed.",
+      "evidenceRevision": "934aa6ac35c5c07ad354e343ed7ce5968a11aa0a",
+      "evidenceSourceManifestSHA256": "1f3257ca10d599581a6e968306ed5f719848993e0fe624ccfb0b279ac52db28e",
+      "scopeNote": "Recorded before flattening the root distribution manifest; not verification of the current remote target graph."
     },
     {
       "name": "Xcode stable-tag dependency resolution",
       "status": "FAIL",
       "command": "xcodebuild -resolvePackageDependencies -project App/Sumday.xcodeproj -scheme sumday -quiet",
       "result": "SwiftPM rejected NativeAgent 0.1.0 because its root manifest depends on unstable local path package NativeAgentPackage. The Package.resolved file was not updated.",
-      "resolution": "Branch and revision requirements fail for the same local package(path:) graph; retain the app local dependency until the package graph is restructured."
+      "resolution": "Branch and revision requirements fail for the same local package(path:) graph; retain the app local dependency until the package graph is restructured.",
+      "evidenceRevision": "934aa6ac35c5c07ad354e343ed7ce5968a11aa0a"
     },
     {
       "name": "Xcode branch dependency resolution",
       "status": "FAIL",
       "command": "xcodebuild -resolvePackageDependencies -project App/Sumday.xcodeproj -scheme sumday",
-      "result": "SwiftPM rejected NativeAgent main because remote package 'nativeagent' depends on local package 'nativeagentpackage'; the Package.resolved file was not updated."
+      "result": "SwiftPM rejected NativeAgent main because remote package 'nativeagent' depends on local package 'nativeagentpackage'; the Package.resolved file was not updated.",
+      "evidenceRevision": "f792c11fc7216a4ee6d080c69454fd6eab1dee60"
+    },
+    {
+      "name": "Flattened root remote dependency resolution",
+      "status": "PASS",
+      "command": "swift package resolve --package-path $NATIVEAGENT_ROOT",
+      "reason": "The corrected flattened Package.swift is not yet pushed to the remote main branch.",
+      "result": "The flattened root manifest resolved two direct remote packages and six locked transitive packages without local package dependencies.",
+      "rootManifestSHA256": "0f7740d0c2af6c7b765677e823976823b72dccc4f95075b99495c9fa2fcc8a12",
+      "scope": "Manifest/dependency resolution only; no source build or tests were run."
+    },
+    {
+      "name": "Remote Xcode branch dependency resolution after flattening",
+      "status": "NOT_RUN",
+      "command": "xcodebuild -resolvePackageDependencies -project App/Sumday.xcodeproj -scheme sumday",
+      "reason": "The flattened root manifest has not yet been pushed to main."
     }
   ],
   "limits": [
-    "Sumday.xcodeproj has not yet been changed to consume the remote dependency; this follows publication of the reviewed package candidate.",
-    "No iOS Simulator/device execution, native provider qualification, real account, model inference, or live image generation was run.",
-    "Production release remains BLOCKED by the SDK qualification gates.",
-    "The root product is not consumable through a stable semantic-version tag while its manifest retains local path dependencies. The public 0.1.0 tag is withdrawn; branch consumption is the current supported route for SumDay.",
-    "NativeAgentSumday cannot currently be resolved from the public Git repository, whether pinned by tag or branch. SumDay must retain the local copy until a remote-resolvable root manifest is reviewed and resolved."
+    "The flattened root manifest has resolved locally; the remote Xcode consumer must resolve the pushed commit before the local SDK copy can be retired.",
+    "This cleanup/migration turn runs no app build or tests. Product compilation, Simulator/device execution, native provider qualification, real account, model inference, and live image generation remain unverified.",
+    "Production release remains blocked by the native/live SDK qualification gates.",
+    "The withdrawn 0.1.0 tag is not used. The replacement 0.1.1 tag awaits remote consumer resolution and owner review."
   ],
   "observedRecovery": [
     "The first fresh macOS build stopped on ENOSPC while task-owned scratch directories filled the disk. Those task scratch directories were removed and a clean macOS 15 build passed."
