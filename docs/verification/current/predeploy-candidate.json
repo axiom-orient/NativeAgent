@@ -1,0 +1,96 @@
+{
+  "schema": "nativeagent.predeploy-candidate-verification/1",
+  "date": "2026-10-03",
+  "candidate": {
+    "repository": "axiom-orient/NativeAgent",
+    "packageIdentity": "NativeAgent",
+    "product": "NativeAgentSumday",
+    "plannedVersion": "0.1.0",
+    "reviewState": "AWAITING_OWNER_REVIEW"
+  },
+  "publication": {
+    "githubRepositoryCreated": false,
+    "pushed": false,
+    "tagCreated": false
+  },
+  "checks": [
+    {
+      "name": "iOS package product build",
+      "status": "PASS",
+      "command": "swift build --package-path $NATIVEAGENT_ROOT --product NativeAgentSumday --triple arm64-apple-ios17.0 --sdk /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS27.0.sdk --scratch-path $TMPDIR/nativeagent-predeploy-ios17",
+      "result": "NativeAgentSumday built for arm64 iOS 17 with iPhoneOS 27 SDK."
+    },
+    {
+      "name": "macOS package product build",
+      "status": "PASS",
+      "command": "swift build --package-path $NATIVEAGENT_ROOT --product NativeAgentSumday --triple arm64-apple-macosx15.0 --scratch-path $TMPDIR/nativeagent-predeploy-macos15",
+      "result": "NativeAgentSumday built for arm64 macOS 15."
+    },
+    {
+      "name": "SwiftPM consumer smoke build",
+      "status": "PASS",
+      "result": "A separate consumer depended on the local NativeAgent root product and compiled imports for 14 concrete modules plus NativeAgentSumday.",
+      "command": "swift build --package-path $TMPDIR/nativeagent-consumer-smoke --triple arm64-apple-macosx15.0 --scratch-path $TMPDIR/nativeagent-consumer-smoke-build",
+      "imports": [
+        "ASK",
+        "ChatGPTAccount",
+        "ChatGPTImage",
+        "ChatGPTImageCapability",
+        "ChatGPTText",
+        "LanguageModelCore",
+        "LanguageModelRuntime",
+        "LEAPProvider",
+        "ModelArtifactStore",
+        "NativeAgent",
+        "NativeAgentDomain",
+        "NativeAgentManager",
+        "NativeAgentPresentation",
+        "NativeAgentUI",
+        "NativeAgentSumday"
+      ]
+    },
+    {
+      "name": "LocalBackendTests",
+      "status": "PASS",
+      "command": "swift test --package-path $NATIVEAGENT_ROOT/Model/LanguageModelRuntime --filter LocalBackendTests --triple arm64-apple-macosx15.0 --scratch-path $TMPDIR/nativeagent-predeploy-runtime",
+      "result": "14 tests passed."
+    },
+    {
+      "name": "ASKPublicAPITests",
+      "status": "PASS",
+      "command": "swift test --package-path $NATIVEAGENT_ROOT/Knowledge/ASK --filter ASKPublicAPITests --triple arm64-apple-macosx15.0 --scratch-path $TMPDIR/nativeagent-predeploy-ask",
+      "result": "7 tests passed."
+    },
+    {
+      "name": "SQLitePreparationTests",
+      "status": "PASS",
+      "command": "swift test --package-path $NATIVEAGENT_ROOT/Agent/NativeAgentPackage --filter SQLitePreparationTests --triple arm64-apple-macosx15.0 --scratch-path $TMPDIR/nativeagent-predeploy-store",
+      "result": "4 tests and 13 parameter cases passed."
+    },
+    {
+      "name": "Static package boundary and Swift syntax check",
+      "status": "PASS",
+      "command": "python3 tools/check-boundaries.py",
+      "result": "55 manifests, 509 static assertions, and 1252 Swift files parsed."
+    },
+    {
+      "name": "Document link/content checker",
+      "status": "NOT_RUN",
+      "command": "python3 tools/check-documents.py",
+      "reason": "The checker requires markdown-it-py; the tool reported that dependency unavailable and that no check was run."
+    },
+    {
+      "name": "Credential pattern scan",
+      "status": "PARTIAL",
+      "result": "No live credentials or credential files found. The custom pattern scan reported two benign matches in an SVG token-count test identifier and an MCP qualification placeholder. gitleaks is not installed."
+    }
+  ],
+  "limits": [
+    "Sumday.xcodeproj has not yet been changed to consume the remote dependency; this follows publication of the reviewed package candidate.",
+    "No iOS Simulator/device execution, native provider qualification, real account, model inference, or live image generation was run.",
+    "Production release remains BLOCKED by the SDK qualification gates."
+  ],
+  "observedRecovery": [
+    "The first fresh macOS build stopped on ENOSPC while task-owned scratch directories filled the disk. Those task scratch directories were removed and a clean macOS 15 build passed."
+  ]
+}

@@ -1,0 +1,62 @@
+{
+  "date": "2026-09-20",
+  "status": "PARTIAL",
+  "documentation": "PASS",
+  "verifiedCommonRefactoring": "PASS",
+  "productionReadiness": "NOT_RUN",
+  "remainingP1": [
+    "F06 ChatGPT owned producer/transport settlement",
+    "native/Apple/artifact and real host/ASK integration qualification"
+  ],
+  "counts": {
+    "Core": 56,
+    "Runtime": 98,
+    "Facade": 3,
+    "Hub": 10,
+    "AppleCommon": 10,
+    "AgentKernelSwiftTesting": 571,
+    "AgentKernelXCTest": 3,
+    "ChatGPTWire": 22,
+    "KnowledgeCore": 36,
+    "KnowledgeRuntime": 109,
+    "newTests": 21
+  },
+  "reports": [
+    "portable.json",
+    "native-kernel.json",
+    "chatgpt-wire.json",
+    "knowledge-local.json",
+    "cancellation-repeat.json",
+    "swift-lint.json",
+    "compiler-warning-review.json",
+    "static-checks.json",
+    "manifest-evaluation.json",
+    "document-check.json",
+    "semantic-review.json",
+    "public-api-snapshot.json",
+    "provenance.json",
+    "evidence-source-check.json",
+    "environment-gates.json",
+    "document-checker-tests.json",
+    "final-diff-review.json"
+  ],
+  "limitations": "No new mocks/stubs substituted for production functionality. No whole-repository or native warning-free claim. Failed environment commands remain FAIL and capability qualification NOT_RUN.",
+  "static": {
+    "status": "PASS",
+    "assertions": 482,
+    "swiftSyntaxFiles": 1223
+  },
+  "documentCheck": {
+    "status": "PASS",
+    "documents": 159,
+    "activeAnalysesChecked": 14,
+    "relativeLinksChecked": 481,
+    "externalLinksNotFetched": 47,
+    "errors": [],
+    "limits": [
+      "No runtime proof.",
+      "External URL availability is not checked.",
+      "Link existence is not semantic correctness."
+    ]
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "output": "$DATA_ROOT/build/consumer-source.zip",
+  "sha256": "229f3532148e129de00b1a0f990bb7f960aaea086cf62cfebbe17caac5fb8c16",
+  "packageCount": 6,
+  "fileCount": 99,
+  "entries": [
+    "Providers/ChatGPT/Image",
+    "Providers/ChatGPT/TextProvider"
+  ]
+}

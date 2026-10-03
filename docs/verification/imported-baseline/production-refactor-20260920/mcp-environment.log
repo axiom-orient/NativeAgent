@@ -1,0 +1,2 @@
+Fetching https://github.com/axiom-orient/swiftMcp.git
+error: Git command 'git -C $DATA_ROOT/build/isolated-cache-mcp-environment/repositories/swiftMcp-e499a16c config --get remote.origin.url' failed: fatal: cannot change to '$DATA_ROOT/build/isolated-cache-mcp-environment/repositories/swiftMcp-e499a16c': No such file or directory

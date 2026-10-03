@@ -1,0 +1,114 @@
+[
+  {
+    "name": "chatgpt-composition-environment",
+    "command": [
+      "swift",
+      "test",
+      "--package-path",
+      "Qualification/ChatGPTCompositionChecks",
+      "--scratch-path",
+      "$DATA_ROOT/build/environment-chatgpt-composition",
+      "-j",
+      "4",
+      "-Xswiftc",
+      "-warnings-as-errors"
+    ],
+    "exitCode": 1,
+    "status": "FAILED_ENVIRONMENT",
+    "swiftTestingCount": null,
+    "xctestCount": null,
+    "seconds": 47.46,
+    "log": "docs/verification/current/chatgpt-composition-environment.log",
+    "observations": [
+      "$DATA_ROOT/work/NativeAI-Production-20260920/Agent/NativeAgent/Sources/NativeAgentManager/Response/AgentResponseLanguage.swift:2:8: error: no such module 'NaturalLanguage'",
+      "   |        `- error: no such module 'NaturalLanguage'",
+      "$DATA_ROOT/work/NativeAI-Production-20260920/Agent/NativeAgent/Sources/NativeAgentManager/Response/AgentResponseLanguage.swift:2:8: error: no such module 'NaturalLanguage'",
+      "   |        `- error: no such module 'NaturalLanguage'",
+      "$DATA_ROOT/work/NativeAI-Production-20260920/Agent/NativeAgent/Sources/NativeAgentManager/Response/AgentResponseLanguage.swift:2:8: error: no such module 'NaturalLanguage'",
+      "   |        `- error: no such module 'NaturalLanguage'"
+    ]
+  },
+  {
+    "name": "artifact-environment",
+    "command": [
+      "swift",
+      "test",
+      "--package-path",
+      "Model/ModelArtifactStore",
+      "--scratch-path",
+      "$DATA_ROOT/build/environment-artifact",
+      "-j",
+      "4",
+      "-Xswiftc",
+      "-warnings-as-errors"
+    ],
+    "exitCode": 1,
+    "status": "FAILED_ENVIRONMENT",
+    "swiftTestingCount": null,
+    "xctestCount": null,
+    "seconds": 8.29,
+    "log": "docs/verification/current/artifact-environment.log",
+    "observations": [
+      "$DATA_ROOT/work/NativeAI-Production-20260920/Model/ModelArtifactStore/Sources/ModelArtifactStore/ArtifactLock.swift:1:8: error: no such module 'CryptoKit'",
+      "    |        `- error: no such module 'CryptoKit'",
+      "error: emit-module command failed with exit code 1 (use -v to see invocation)",
+      "$DATA_ROOT/work/NativeAI-Production-20260920/Model/ModelArtifactStore/Sources/ModelArtifactStore/ArtifactLock.swift:1:8: error: no such module 'CryptoKit'",
+      "    |        `- error: no such module 'CryptoKit'",
+      "$DATA_ROOT/work/NativeAI-Production-20260920/Model/ModelArtifactStore/Sources/ModelArtifactStore/ArtifactLock.swift:1:8: error: no such module 'CryptoKit'"
+    ]
+  },
+  {
+    "name": "ask-agent-environment",
+    "command": [
+      "swift",
+      "test",
+      "--package-path",
+      "Knowledge/ASK/Packages/ASKAgentTools",
+      "--scratch-path",
+      "$DATA_ROOT/build/environment-ask-agent",
+      "-j",
+      "4",
+      "-Xswiftc",
+      "-warnings-as-errors",
+      "--cache-path",
+      "$DATA_ROOT/build/isolated-cache-ask-agent-environment"
+    ],
+    "exitCode": 1,
+    "status": "FAILED_DEPENDENCY_RESOLUTION",
+    "swiftTestingCount": null,
+    "xctestCount": null,
+    "seconds": 4.82,
+    "log": "docs/verification/current/ask-agent-environment.log",
+    "observations": [
+      "error: Git command 'git -C $DATA_ROOT/build/isolated-cache-ask-agent-environment/repositories/swift-markdown-5ccdcf70 config --get remote.origin.url' failed: fatal: cannot change to '$DATA_ROOT/build/isolated-cache-ask-agent-environment/repositories/swift-markdown-5ccdcf70': No such file or directory"
+    ],
+    "initialDiagnostic": "ask-agent-environment-initial.log"
+  },
+  {
+    "name": "mcp-environment",
+    "command": [
+      "swift",
+      "test",
+      "--package-path",
+      "Agent/NativeAgent/Packages/NativeAgentMCP",
+      "--scratch-path",
+      "$DATA_ROOT/build/environment-mcp",
+      "-j",
+      "4",
+      "-Xswiftc",
+      "-warnings-as-errors",
+      "--cache-path",
+      "$DATA_ROOT/build/isolated-cache-mcp-environment"
+    ],
+    "exitCode": 1,
+    "status": "FAILED_DEPENDENCY_RESOLUTION",
+    "swiftTestingCount": null,
+    "xctestCount": null,
+    "seconds": 5.87,
+    "log": "docs/verification/current/mcp-environment.log",
+    "observations": [
+      "error: Git command 'git -C $DATA_ROOT/build/isolated-cache-mcp-environment/repositories/swiftMcp-e499a16c config --get remote.origin.url' failed: fatal: cannot change to '$DATA_ROOT/build/isolated-cache-mcp-environment/repositories/swiftMcp-e499a16c': No such file or directory"
+    ],
+    "initialDiagnostic": "mcp-environment-initial.log"
+  }
+]

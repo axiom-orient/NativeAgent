@@ -1,0 +1,55 @@
+{
+  "status": "PASS",
+  "candidateArchive": {
+    "status": "PASS",
+    "entries": 1917,
+    "payloadHashesVerified": 1916,
+    "zipSHA256": "5f09f240af0aa99262e1ed69ea7e5ffd03f245e2c1240cac5295dbc2b18a72d3",
+    "zipBytes": 6199655,
+    "manifestSHA256": "c9509f37408d1e9a9f9b9c30618a2035f5f6b1911493ef00517f9f8ea98affe8"
+  },
+  "command": [
+    "swift",
+    "test",
+    "--package-path",
+    "$DATA_ROOT/nativeai-build/archive-recheck/NativeAI-Production-20260920/Providers/ChatGPT/Account",
+    "--scratch-path",
+    "$DATA_ROOT/nativeai-build/archive-account",
+    "-j",
+    "4",
+    "-Xswiftc",
+    "-warnings-as-errors"
+  ],
+  "exitCode": 0,
+  "durationSeconds": 19.527,
+  "swiftTestingCount": 50,
+  "sourceHashes": {
+    "Providers/ChatGPT/Account/Package.swift": "6b946fd22add14e9962106a9e9c22a2e44fe0cba8ff93a4e86d6f7c045a23eb9",
+    "Providers/ChatGPT/Account/Tests/ChatGPTAccountTests/AccountMutationTests.swift": "986962daa807794b6995ed3dd64269b7ec088989bf8bc2e12555db40bc27ca8c",
+    "Providers/ChatGPT/Account/Tests/ChatGPTAccountTests/CallbackRequestTests.swift": "247b4e896bf5c4e803cf4fc7b75ad66bde31eddb653cb8da780cf621de1015b7",
+    "Providers/ChatGPT/Account/Tests/ChatGPTAccountTests/UnprovedOperationOwnershipTests.swift": "14a6cec32bcb99be7f5f67767bf7678030736177f347487f4981b4a081958dff",
+    "Providers/ChatGPT/Account/Tests/ChatGPTAccountTests/CredentialValidationTests.swift": "714ca961b1dd7fba311d6399acc63df8097167b08ca38de8c17927e8f32804c0",
+    "Providers/ChatGPT/Account/Tests/ChatGPTAccountTests/CallbackStateTests.swift": "efcbd8712ba779ee1c9cfbe97517821691b372fb87bb8547f3f755cc8da77d3e",
+    "Providers/ChatGPT/Account/Tests/ChatGPTAccountTests/SignInLifecycleTests.swift": "20869cc86e7f18000f509bfe0af2d37d2719ef33b2a25dff7cb7993292355ca0",
+    "Providers/ChatGPT/Account/Tests/ChatGPTAccountTests/AccountLifecycleTests.swift": "613401eded8cadc4043dcaaafb592eb9bc5c6226ec4eeb308f17169a2e865c82",
+    "Providers/ChatGPT/Account/Tests/ChatGPTAccountTests/AccountTestPorts.swift": "00f20042fc3e63e738197119b05d3d4e3937f6d568b6e4b22b27e89af547c0bd",
+    "Providers/ChatGPT/Account/Tests/ChatGPTAccountTests/LocalhostCallbackServerTests.swift": "ecef4aeed058f785ec88a1eec4e62a29584fd025e98039d001a6caeecb5b624f",
+    "Providers/ChatGPT/Account/Sources/ChatGPTAccount/ChatGPTSharedOperation.swift": "f52f1212aecdac1972a8e634ef05c24893d52b620b4536f50d4db60f1396e10c",
+    "Providers/ChatGPT/Account/Sources/ChatGPTAccount/ChatGPTCallbackState.swift": "45f31e9533df1fd58dc038a6bc4ad2cc9117b20fd18d66b91a36e9786ad827e8",
+    "Providers/ChatGPT/Account/Sources/ChatGPTAccount/ChatGPTTransport.swift": "bd431ba416c00a0ca572e995633fcebe8266f6b2dd0bc2a8022a117e29641e03",
+    "Providers/ChatGPT/Account/Sources/ChatGPTAccount/ChatGPTAccountPayload.swift": "d60c83f4332119b246f013a21f7700f578c3ebc7003a5b16f5255e39e7db9147",
+    "Providers/ChatGPT/Account/Sources/ChatGPTAccount/ChatGPTSignInSession.swift": "1c00cefabb22183efbd3e462bb530aad18f9110825df2d89aa76bc15cc27745d",
+    "Providers/ChatGPT/Account/Sources/ChatGPTAccount/ChatGPTProtocol.swift": "5416c09485b167e5d148d1be73afce64c75cf2dac274c5db0313a32fdb946b36",
+    "Providers/ChatGPT/Account/Sources/ChatGPTAccount/ChatGPTAccountSession.swift": "11e34cc4ebb805a5cdbcd55d092c2aef879db7ebb46e4fbbcc99163b53998649",
+    "Providers/ChatGPT/Account/Sources/ChatGPTAccount/ChatGPTCredentials.swift": "52d4a7556cf85b1fcd999d9dca7bb4fb10b4991f61ed7aa24d754de2b60d7def",
+    "Providers/ChatGPT/Account/Sources/ChatGPTAccount/LocalhostCallbackServer.swift": "556ad84eacd80711b06b45677accde1199e1391451e258ae93f4f91fdffaedfe",
+    "Providers/ChatGPT/Account/Sources/ChatGPTAccount/ChatGPTCallbackRequest.swift": "6049d7af5d29a493a3d73e461a72cffb012fc8d48b80f73228d16768a9fe6537",
+    "Providers/ChatGPT/Account/Sources/ChatGPTAccount/ChatGPTKeychainStore.swift": "7ba0f0e0d4f5d6551fa6bea986ff885e0b1c233cc1741aa3bb266c7481937149"
+  },
+  "log": "archive-account-tests.log",
+  "limits": [
+    "Actual Account manifest compiled/tested from full archive extraction.",
+    "Apple conditional code excluded; 14 native tests NOT_RUN.",
+    "Candidate archive predates appended qualification evidence. Final ZIP source identity must be checked separately."
+  ]
+}

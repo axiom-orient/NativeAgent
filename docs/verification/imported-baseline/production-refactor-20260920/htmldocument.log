@@ -1,0 +1,215 @@
+Building for debugging...
+[0/13] Write sources
+[2/13] Write swift-version--1BA0962812E73E12.txt
+[4/27] Compiling HTMLDocument CSSSelector.swift
+[5/27] Compiling HTMLDocument HTMLEntities.swift
+[6/27] Compiling HTMLDocument HTMLParser.swift
+[7/27] Compiling HTMLDocument HTMLTagRules.swift
+[8/27] Compiling HTMLDocument HTMLTokenizer.swift
+[9/31] Compiling HTMLDocument HTMLTypes.swift
+[10/31] Compiling HTMLDocument MDSwiftCoreError.swift
+[11/31] Compiling HTMLDocument ParsingSupport.swift
+[12/31] Compiling HTMLDocument SanitizerPolicy.swift
+[13/31] Compiling HTMLDocument Cleaner.swift
+[14/31] Compiling HTMLDocument DOMTreeBuilder.swift
+[15/31] Compiling HTMLDocument HTMLSerializer.swift
+[16/31] Compiling HTMLDocument Nodes.swift
+[17/31] Emitting module HTMLDocument
+[18/31] Compiling HTMLDocument SelectorEngine.swift
+[19/31] Compiling HTMLDocument MDSwift.swift
+[20/31] Compiling HTMLDocument HTMLDataDecoder.swift
+[21/31] Compiling HTMLDocument SelectorCache.swift
+[22/32] Wrapping AST for HTMLDocument for debugging
+[24/42] Emitting module HTMLDocumentTests
+[25/44] Compiling HTMLDocumentTests CSSSelectorParserTests.swift
+[26/44] Compiling HTMLDocumentTests HTMLParserTests.swift
+[27/44] Compiling HTMLDocumentTests HTMLTokenizerTests.swift
+[28/44] Compiling HTMLDocumentTests SafelistTests.swift
+[29/44] Compiling HTMLDocumentTests CleanerTests.swift
+[30/44] Compiling HTMLDocumentTests DocumentTests.swift
+[31/44] Compiling HTMLDocumentTests SelectorCacheTests.swift
+[32/44] Compiling HTMLDocumentTests FacadeEndToEndTests.swift
+[33/44] Compiling HTMLDocumentTests RealWorldExtractionTests.swift
+[34/44] Compiling HTMLDocumentTests SelectorEngineTests.swift
+[35/44] Compiling HTMLDocumentTests HTMLDataDecoderTests.swift
+[36/45] $DATA_ROOT/build/htmldocument/x86_64-unknown-linux-gnu/debug/HTMLDocumentPackageDiscoveredTests.derived/all-discovered-tests.swift
+[37/45] Write sources
+[38/45] Wrapping AST for HTMLDocumentTests for debugging
+[40/48] Emitting module HTMLDocumentPackageDiscoveredTests
+[41/48] Compiling HTMLDocumentPackageDiscoveredTests all-discovered-tests.swift
+[42/48] Compiling HTMLDocumentPackageDiscoveredTests HTMLDocumentTests.swift
+[43/49] $DATA_ROOT/build/htmldocument/x86_64-unknown-linux-gnu/debug/HTMLDocumentPackageTests.derived/runner.swift
+[44/49] Write sources
+[45/49] Wrapping AST for HTMLDocumentPackageDiscoveredTests for debugging
+[47/51] Emitting module HTMLDocumentPackageTests
+[48/51] Compiling HTMLDocumentPackageTests runner.swift
+[49/52] Wrapping AST for HTMLDocumentPackageTests for debugging
+[50/52] Write Objects.LinkFileList
+[51/52] Linking HTMLDocumentPackageTests.xctest
+Build complete! (12.91s)
+Test Suite 'All tests' started at 2026-09-20 06:55:21.590
+Test Suite 'debug.xctest' started at 2026-09-20 06:55:21.596
+Test Suite 'CSSSelectorParserTests' started at 2026-09-20 06:55:21.596
+Test Case 'CSSSelectorParserTests.testParsesAttributePrefixSuffixAndContainsOperators' started at 2026-09-20 06:55:21.596
+Test Case 'CSSSelectorParserTests.testParsesAttributePrefixSuffixAndContainsOperators' passed (0.003 seconds)
+Test Case 'CSSSelectorParserTests.testParsesContainsArgumentWithParenthesesAndEscapedDelimiter' started at 2026-09-20 06:55:21.599
+Test Case 'CSSSelectorParserTests.testParsesContainsArgumentWithParenthesesAndEscapedDelimiter' passed (0.0 seconds)
+Test Case 'CSSSelectorParserTests.testParsesGroupedSelectors' started at 2026-09-20 06:55:21.600
+Test Case 'CSSSelectorParserTests.testParsesGroupedSelectors' passed (0.024 seconds)
+Test Case 'CSSSelectorParserTests.testParsesNthChildExpressions' started at 2026-09-20 06:55:21.624
+Test Case 'CSSSelectorParserTests.testParsesNthChildExpressions' passed (0.001 seconds)
+Test Case 'CSSSelectorParserTests.testParsesRealWorldCombinators' started at 2026-09-20 06:55:21.624
+Test Case 'CSSSelectorParserTests.testParsesRealWorldCombinators' passed (0.0 seconds)
+Test Case 'CSSSelectorParserTests.testParsesRelativeHasContainsOwnAndStructuralSelectors' started at 2026-09-20 06:55:21.625
+Test Case 'CSSSelectorParserTests.testParsesRelativeHasContainsOwnAndStructuralSelectors' passed (0.0 seconds)
+Test Case 'CSSSelectorParserTests.testParsesRelativeSiblingHasSelectors' started at 2026-09-20 06:55:21.625
+Test Case 'CSSSelectorParserTests.testParsesRelativeSiblingHasSelectors' passed (0.0 seconds)
+Test Case 'CSSSelectorParserTests.testParsesTagClassAndChildCombinator' started at 2026-09-20 06:55:21.625
+Test Case 'CSSSelectorParserTests.testParsesTagClassAndChildCombinator' passed (0.0 seconds)
+Test Case 'CSSSelectorParserTests.testRejectsInvalidNthExpression' started at 2026-09-20 06:55:21.625
+Test Case 'CSSSelectorParserTests.testRejectsInvalidNthExpression' passed (0.0 seconds)
+Test Case 'CSSSelectorParserTests.testRejectsUnsupportedPseudoSelectorSyntax' started at 2026-09-20 06:55:21.626
+Test Case 'CSSSelectorParserTests.testRejectsUnsupportedPseudoSelectorSyntax' passed (0.0 seconds)
+Test Suite 'CSSSelectorParserTests' passed at 2026-09-20 06:55:21.626
+	 Executed 10 tests, with 0 failures (0 unexpected) in 0.03 (0.03) seconds
+Test Suite 'CleanerTests' started at 2026-09-20 06:55:21.626
+Test Case 'CleanerTests.testAllowedResolvedBaseSchemeRemainsAcceptedCaseInsensitively' started at 2026-09-20 06:55:21.626
+Test Case 'CleanerTests.testAllowedResolvedBaseSchemeRemainsAcceptedCaseInsensitively' passed (0.005 seconds)
+Test Case 'CleanerTests.testBasicPresetEnforcesRelAndDropsJavascriptHref' started at 2026-09-20 06:55:21.631
+Test Case 'CleanerTests.testBasicPresetEnforcesRelAndDropsJavascriptHref' passed (0.0 seconds)
+Test Case 'CleanerTests.testBasicWithImagesAllowsHTTPImagesOnly' started at 2026-09-20 06:55:21.631
+Test Case 'CleanerTests.testBasicWithImagesAllowsHTTPImagesOnly' passed (0.0 seconds)
+Test Case 'CleanerTests.testColonAfterPathSeparatorRemainsARelativeURL' started at 2026-09-20 06:55:21.631
+Test Case 'CleanerTests.testColonAfterPathSeparatorRemainsARelativeURL' passed (0.0 seconds)
+Test Case 'CleanerTests.testControlCharactersInSchemeDoNotBypassProtocolSafelist' started at 2026-09-20 06:55:21.632
+Test Case 'CleanerTests.testControlCharactersInSchemeDoNotBypassProtocolSafelist' passed (0.001 seconds)
+Test Case 'CleanerTests.testIsValidHonorsSeparateHeadAndBodySafelists' started at 2026-09-20 06:55:21.633
+Test Case 'CleanerTests.testIsValidHonorsSeparateHeadAndBodySafelists' passed (0.0 seconds)
+Test Case 'CleanerTests.testIsValidReflectsSanitizerChanges' started at 2026-09-20 06:55:21.633
+Test Case 'CleanerTests.testIsValidReflectsSanitizerChanges' passed (0.0 seconds)
+Test Case 'CleanerTests.testMalformedBaseKeepsExistingRelativeFallback' started at 2026-09-20 06:55:21.633
+Test Case 'CleanerTests.testMalformedBaseKeepsExistingRelativeFallback' passed (0.005 seconds)
+Test Case 'CleanerTests.testMalformedSchemeIsRejectedInsteadOfTreatedAsRelative' started at 2026-09-20 06:55:21.639
+Test Case 'CleanerTests.testMalformedSchemeIsRejectedInsteadOfTreatedAsRelative' passed (0.0 seconds)
+Test Case 'CleanerTests.testNonASCIISchemeIsNotAcceptedAsAllowedProtocol' started at 2026-09-20 06:55:21.639
+Test Case 'CleanerTests.testNonASCIISchemeIsNotAcceptedAsAllowedProtocol' passed (0.0 seconds)
+Test Case 'CleanerTests.testPreserveRelativeLinksKeepsSlashPrefixedURLs' started at 2026-09-20 06:55:21.639
+Test Case 'CleanerTests.testPreserveRelativeLinksKeepsSlashPrefixedURLs' passed (0.0 seconds)
+Test Case 'CleanerTests.testRelativeLinksResolveOnlyForSlashPrefixedURLs' started at 2026-09-20 06:55:21.640
+Test Case 'CleanerTests.testRelativeLinksResolveOnlyForSlashPrefixedURLs' passed (0.0 seconds)
+Test Case 'CleanerTests.testResolvedSlashLinksRejectDisallowedBaseSchemes' started at 2026-09-20 06:55:21.640
+Test Case 'CleanerTests.testResolvedSlashLinksRejectDisallowedBaseSchemes' passed (0.0 seconds)
+Test Case 'CleanerTests.testSeparateHeadAndBodySafelists' started at 2026-09-20 06:55:21.640
+Test Case 'CleanerTests.testSeparateHeadAndBodySafelists' passed (0.0 seconds)
+Test Case 'CleanerTests.testSimpleTextPresetDropsLinksAndPreservesBold' started at 2026-09-20 06:55:21.641
+Test Case 'CleanerTests.testSimpleTextPresetDropsLinksAndPreservesBold' passed (0.1 seconds)
+Test Case 'CleanerTests.testWhitelistNoneNormalizesNBSPToSpace' started at 2026-09-20 06:55:21.741
+Test Case 'CleanerTests.testWhitelistNoneNormalizesNBSPToSpace' passed (0.001 seconds)
+Test Suite 'CleanerTests' passed at 2026-09-20 06:55:21.742
+	 Executed 16 tests, with 0 failures (0 unexpected) in 0.116 (0.116) seconds
+Test Suite 'DocumentTests' started at 2026-09-20 06:55:21.742
+Test Case 'DocumentTests.testDocumentCleansWithSafelist' started at 2026-09-20 06:55:21.742
+Test Case 'DocumentTests.testDocumentCleansWithSafelist' passed (0.0 seconds)
+Test Case 'DocumentTests.testImplicitTableContainerSerializesDeterministically' started at 2026-09-20 06:55:21.742
+Test Case 'DocumentTests.testImplicitTableContainerSerializesDeterministically' passed (0.0 seconds)
+Test Case 'DocumentTests.testParseSerializeRoundTripForSimpleDocument' started at 2026-09-20 06:55:21.743
+Test Case 'DocumentTests.testParseSerializeRoundTripForSimpleDocument' passed (0.0 seconds)
+Test Suite 'DocumentTests' passed at 2026-09-20 06:55:21.743
+	 Executed 3 tests, with 0 failures (0 unexpected) in 0.001 (0.001) seconds
+Test Suite 'FacadeEndToEndTests' started at 2026-09-20 06:55:21.743
+Test Case 'FacadeEndToEndTests.testCleanAndIsValid' started at 2026-09-20 06:55:21.743
+Test Case 'FacadeEndToEndTests.testCleanAndIsValid' passed (0.0 seconds)
+Test Case 'FacadeEndToEndTests.testParseHTMLDataThroughFacade' started at 2026-09-20 06:55:21.744
+Test Case 'FacadeEndToEndTests.testParseHTMLDataThroughFacade' passed (0.1 seconds)
+Test Case 'FacadeEndToEndTests.testParseSelectAndSerialize' started at 2026-09-20 06:55:21.844
+Test Case 'FacadeEndToEndTests.testParseSelectAndSerialize' passed (0.003 seconds)
+Test Case 'FacadeEndToEndTests.testSelectsDeclarativeInteractiveHTMLMetadata' started at 2026-09-20 06:55:21.847
+Test Case 'FacadeEndToEndTests.testSelectsDeclarativeInteractiveHTMLMetadata' passed (0.001 seconds)
+Test Suite 'FacadeEndToEndTests' passed at 2026-09-20 06:55:21.848
+	 Executed 4 tests, with 0 failures (0 unexpected) in 0.105 (0.105) seconds
+Test Suite 'HTMLDataDecoderTests' started at 2026-09-20 06:55:21.848
+Test Case 'HTMLDataDecoderTests.testParsesFileURL' started at 2026-09-20 06:55:21.848
+Test Case 'HTMLDataDecoderTests.testParsesFileURL' passed (0.007 seconds)
+Test Case 'HTMLDataDecoderTests.testParsesUTF8Data' started at 2026-09-20 06:55:21.855
+Test Case 'HTMLDataDecoderTests.testParsesUTF8Data' passed (0.0 seconds)
+Test Case 'HTMLDataDecoderTests.testRejectsNonFileURL' started at 2026-09-20 06:55:21.855
+Test Case 'HTMLDataDecoderTests.testRejectsNonFileURL' passed (0.0 seconds)
+Test Suite 'HTMLDataDecoderTests' passed at 2026-09-20 06:55:21.855
+	 Executed 3 tests, with 0 failures (0 unexpected) in 0.007 (0.007) seconds
+Test Suite 'HTMLParserTests' started at 2026-09-20 06:55:21.855
+Test Case 'HTMLParserTests.testAutoClosesParagraphs' started at 2026-09-20 06:55:21.855
+Test Case 'HTMLParserTests.testAutoClosesParagraphs' passed (0.0 seconds)
+Test Case 'HTMLParserTests.testInsertsImplicitTBodyForRows' started at 2026-09-20 06:55:21.855
+Test Case 'HTMLParserTests.testInsertsImplicitTBodyForRows' passed (0.0 seconds)
+Test Case 'HTMLParserTests.testNormalizesAttributesAndDecodesEntities' started at 2026-09-20 06:55:21.855
+Test Case 'HTMLParserTests.testNormalizesAttributesAndDecodesEntities' passed (0.0 seconds)
+Test Case 'HTMLParserTests.testParsesUTF8BytesInCore' started at 2026-09-20 06:55:21.856
+Test Case 'HTMLParserTests.testParsesUTF8BytesInCore' passed (0.0 seconds)
+Test Case 'HTMLParserTests.testTreatsScriptAsRawText' started at 2026-09-20 06:55:21.856
+Test Case 'HTMLParserTests.testTreatsScriptAsRawText' passed (0.0 seconds)
+Test Suite 'HTMLParserTests' passed at 2026-09-20 06:55:21.856
+	 Executed 5 tests, with 0 failures (0 unexpected) in 0.001 (0.001) seconds
+Test Suite 'HTMLTokenizerTests' started at 2026-09-20 06:55:21.856
+Test Case 'HTMLTokenizerTests.testConsumesRawTextUntilMatchingClosingTag' started at 2026-09-20 06:55:21.856
+Test Case 'HTMLTokenizerTests.testConsumesRawTextUntilMatchingClosingTag' passed (0.102 seconds)
+Test Case 'HTMLTokenizerTests.testPreservesSlashInUnquotedAttributeValues' started at 2026-09-20 06:55:21.958
+Test Case 'HTMLTokenizerTests.testPreservesSlashInUnquotedAttributeValues' passed (0.0 seconds)
+Test Case 'HTMLTokenizerTests.testRecognizesExplicitSelfClosingTagAfterUnquotedURL' started at 2026-09-20 06:55:21.958
+Test Case 'HTMLTokenizerTests.testRecognizesExplicitSelfClosingTagAfterUnquotedURL' passed (0.0 seconds)
+Test Case 'HTMLTokenizerTests.testSkipsProcessingInstructions' started at 2026-09-20 06:55:21.959
+Test Case 'HTMLTokenizerTests.testSkipsProcessingInstructions' passed (0.0 seconds)
+Test Case 'HTMLTokenizerTests.testTokenizesCommentsDoctypeAndTags' started at 2026-09-20 06:55:21.959
+Test Case 'HTMLTokenizerTests.testTokenizesCommentsDoctypeAndTags' passed (0.0 seconds)
+Test Suite 'HTMLTokenizerTests' passed at 2026-09-20 06:55:21.959
+	 Executed 5 tests, with 0 failures (0 unexpected) in 0.103 (0.103) seconds
+Test Suite 'RealWorldExtractionTests' started at 2026-09-20 06:55:21.959
+Test Case 'RealWorldExtractionTests.testExtractsAlternativeToStyleCardsDespiteInterstitialAdSlots' started at 2026-09-20 06:55:21.959
+Test Case 'RealWorldExtractionTests.testExtractsAlternativeToStyleCardsDespiteInterstitialAdSlots' passed (0.002 seconds)
+Test Case 'RealWorldExtractionTests.testExtractsHackerNewsStyleStoriesWithRelativeHasMetadataGuard' started at 2026-09-20 06:55:21.961
+Test Case 'RealWorldExtractionTests.testExtractsHackerNewsStyleStoriesWithRelativeHasMetadataGuard' passed (0.001 seconds)
+Test Case 'RealWorldExtractionTests.testExtractsOrganicProductHuntStyleCardsFromSectionScopedFeed' started at 2026-09-20 06:55:21.962
+Test Case 'RealWorldExtractionTests.testExtractsOrganicProductHuntStyleCardsFromSectionScopedFeed' passed (0.001 seconds)
+Test Case 'RealWorldExtractionTests.testExtractsRedditStyleCommunityEntriesFromOwnTextSectionMarker' started at 2026-09-20 06:55:21.963
+Test Case 'RealWorldExtractionTests.testExtractsRedditStyleCommunityEntriesFromOwnTextSectionMarker' passed (0.004 seconds)
+Test Suite 'RealWorldExtractionTests' passed at 2026-09-20 06:55:21.967
+	 Executed 4 tests, with 0 failures (0 unexpected) in 0.008 (0.008) seconds
+Test Suite 'SafelistTests' started at 2026-09-20 06:55:21.967
+Test Case 'SafelistTests.testAddAttributesImplicitlyAddsTag' started at 2026-09-20 06:55:21.967
+Test Case 'SafelistTests.testAddAttributesImplicitlyAddsTag' passed (0.0 seconds)
+Test Case 'SafelistTests.testAllPseudoTagAppliesToEveryTag' started at 2026-09-20 06:55:21.968
+Test Case 'SafelistTests.testAllPseudoTagAppliesToEveryTag' passed (0.0 seconds)
+Test Case 'SafelistTests.testBasicPresetContainsAnchorRules' started at 2026-09-20 06:55:21.968
+Test Case 'SafelistTests.testBasicPresetContainsAnchorRules' passed (0.0 seconds)
+Test Suite 'SafelistTests' passed at 2026-09-20 06:55:21.968
+	 Executed 3 tests, with 0 failures (0 unexpected) in 0.001 (0.001) seconds
+Test Suite 'SelectorEngineTests' started at 2026-09-20 06:55:21.968
+Test Case 'SelectorEngineTests.testElementSelectionCanMatchRoot' started at 2026-09-20 06:55:21.968
+Test Case 'SelectorEngineTests.testElementSelectionCanMatchRoot' passed (0.002 seconds)
+Test Case 'SelectorEngineTests.testGroupedSelectorsDeduplicateMatches' started at 2026-09-20 06:55:21.971
+Test Case 'SelectorEngineTests.testGroupedSelectorsDeduplicateMatches' passed (0.0 seconds)
+Test Case 'SelectorEngineTests.testMatchesContainsOwnAgainstDirectTextOnly' started at 2026-09-20 06:55:21.971
+Test Case 'SelectorEngineTests.testMatchesContainsOwnAgainstDirectTextOnly' passed (0.0 seconds)
+Test Case 'SelectorEngineTests.testMatchesHackerNewsStyleAdjacentMetadataRows' started at 2026-09-20 06:55:21.971
+Test Case 'SelectorEngineTests.testMatchesHackerNewsStyleAdjacentMetadataRows' passed (0.001 seconds)
+Test Case 'SelectorEngineTests.testMatchesProductHuntStyleDataTestSelectors' started at 2026-09-20 06:55:21.972
+Test Case 'SelectorEngineTests.testMatchesProductHuntStyleDataTestSelectors' passed (0.0 seconds)
+Test Case 'SelectorEngineTests.testMatchesRelativeGeneralSiblingSelectorsInsideHas' started at 2026-09-20 06:55:21.973
+Test Case 'SelectorEngineTests.testMatchesRelativeGeneralSiblingSelectorsInsideHas' passed (0.006 seconds)
+Test Case 'SelectorEngineTests.testMatchesStructuralSelectorsWithInterstitialBlocks' started at 2026-09-20 06:55:21.979
+Test Case 'SelectorEngineTests.testMatchesStructuralSelectorsWithInterstitialBlocks' passed (0.001 seconds)
+Test Case 'SelectorEngineTests.testSelectsByTagClassIdAndAttribute' started at 2026-09-20 06:55:21.979
+Test Case 'SelectorEngineTests.testSelectsByTagClassIdAndAttribute' passed (0.0 seconds)
+Test Suite 'SelectorEngineTests' passed at 2026-09-20 06:55:21.980
+	 Executed 8 tests, with 0 failures (0 unexpected) in 0.011 (0.011) seconds
+Test Suite 'debug.xctest' passed at 2026-09-20 06:55:21.980
+	 Executed 61 tests, with 0 failures (0 unexpected) in 0.382 (0.382) seconds
+Test Suite 'All tests' passed at 2026-09-20 06:55:21.980
+	 Executed 61 tests, with 0 failures (0 unexpected) in 0.382 (0.382) seconds
+◇ Test run started.
+↳ Testing Library Version: 6.2.1 (c9d57c83568b06d)
+↳ Target Platform: x86_64-unknown-linux-gnu
+◇ Suite SelectorCacheTests started.
+◇ Test cachesAndEvictsSelectors() started.
+✔ Test cachesAndEvictsSelectors() passed after 0.001 seconds.
+✔ Suite SelectorCacheTests passed after 0.001 seconds.
+✔ Test run with 1 test in 1 suite passed after 0.001 seconds.

@@ -1,0 +1,290 @@
+{
+  "sourceAndToolPaths": [
+    "Model/LanguageModelCore/Sources/LanguageModelCore/Contracts/LanguageModel.swift",
+    "Model/LanguageModelRuntime/Sources/LanguageModelRuntime/ClientLanguageModel.swift",
+    "Model/LanguageModelRuntime/Sources/LanguageModelRuntime/ModelRunControl.swift",
+    "Model/LanguageModelRuntime/Sources/LanguageModelRuntime/ModelRuntime.swift",
+    "Providers/ChatGPT/Account/Package.swift",
+    "Providers/ChatGPT/Account/Sources/ChatGPTAccount/ChatGPTAccountSession.swift",
+    "Providers/ChatGPT/Account/Sources/ChatGPTAccount/ChatGPTCredentials.swift",
+    "Providers/ChatGPT/Account/Sources/ChatGPTAccount/ChatGPTSharedOperation.swift",
+    "Providers/ChatGPT/Account/Sources/ChatGPTAccount/ChatGPTTransport.swift",
+    "Providers/ChatGPT/Account/Sources/ChatGPTAccount/LocalhostCallbackServer.swift",
+    "Providers/ChatGPT/Image/Package.swift",
+    "Providers/ChatGPT/Image/Sources/ChatGPTImage/ChatGPTImageClient.swift",
+    "Providers/ChatGPT/Text/Package.swift",
+    "Providers/ChatGPT/Text/Sources/ChatGPTText/ChatGPTModelClient.swift",
+    "Providers/ChatGPT/Text/Sources/ChatGPTText/ChatGPTTextWire.swift",
+    "Qualification/ChatGPTCompositionChecks/Tests/ChatGPTCompositionTests/ChatGPTTransportLifecycleTests.swift",
+    "tools/verify-portable.py",
+    "Model/LanguageModelCore/Tests/LanguageModelCoreTests/DrainFailureOwnershipTests.swift",
+    "Model/LanguageModelRuntime/Tests/LanguageModelRuntimeTests/FailedInvocationRetentionTests.swift",
+    "Providers/ChatGPT/Account/Sources/ChatGPTAccount/ChatGPTKeychainStore.swift",
+    "Providers/ChatGPT/Account/Sources/ChatGPTAccount/ChatGPTSignInSession.swift",
+    "Providers/ChatGPT/Account/Tests/ChatGPTAccountTests/AccountLifecycleTests.swift",
+    "Providers/ChatGPT/Account/Tests/ChatGPTAccountTests/AccountMutationTests.swift",
+    "Providers/ChatGPT/Account/Tests/ChatGPTAccountTests/AccountTestPorts.swift",
+    "Providers/ChatGPT/Account/Tests/ChatGPTAccountTests/CredentialValidationTests.swift",
+    "Providers/ChatGPT/Account/Tests/ChatGPTAccountTests/SignInLifecycleTests.swift",
+    "Providers/ChatGPT/Account/Tests/ChatGPTAccountTests/UnprovedOperationOwnershipTests.swift",
+    "Providers/ChatGPT/Image/Tests/ChatGPTImageTests/ImageCompletionTests.swift",
+    "Providers/ChatGPT/Text/Tests/ChatGPTTextTests/ChatGPTModelCompletionTests.swift"
+  ],
+  "testFunctionsInChangedFiles": [
+    {
+      "path": "Qualification/ChatGPTCompositionChecks/Tests/ChatGPTCompositionTests/ChatGPTTransportLifecycleTests.swift",
+      "function": "nativeTaskReceiptAloneDoesNotAuthorizeRelease"
+    },
+    {
+      "path": "Qualification/ChatGPTCompositionChecks/Tests/ChatGPTCompositionTests/ChatGPTTransportLifecycleTests.swift",
+      "function": "earlyInvalidationDoesNotMasqueradeAsNativeCompletion"
+    },
+    {
+      "path": "Qualification/ChatGPTCompositionChecks/Tests/ChatGPTCompositionTests/ChatGPTTransportLifecycleTests.swift",
+      "function": "legacyStreamDoesNotInventNativeCompletion"
+    },
+    {
+      "path": "Qualification/ChatGPTCompositionChecks/Tests/ChatGPTCompositionTests/ChatGPTTransportLifecycleTests.swift",
+      "function": "sseEOFWaitsForTransportSettlement"
+    },
+    {
+      "path": "Qualification/ChatGPTCompositionChecks/Tests/ChatGPTCompositionTests/ChatGPTTransportLifecycleTests.swift",
+      "function": "sseCancellationStillDrainsFromCancelledWaiter"
+    },
+    {
+      "path": "Qualification/ChatGPTCompositionChecks/Tests/ChatGPTCompositionTests/ChatGPTTransportLifecycleTests.swift",
+      "function": "rejectedHTTPAttemptDrainsBeforeExposingRetryable401"
+    },
+    {
+      "path": "Qualification/ChatGPTCompositionChecks/Tests/ChatGPTCompositionTests/ChatGPTTransportLifecycleTests.swift",
+      "function": "malformedSSEDrainsBeforeReportingParserFailure"
+    },
+    {
+      "path": "Qualification/ChatGPTCompositionChecks/Tests/ChatGPTCompositionTests/ChatGPTTransportLifecycleTests.swift",
+      "function": "unprovedTransportDrainFailsBothSSEPorts"
+    },
+    {
+      "path": "Qualification/ChatGPTCompositionChecks/Tests/ChatGPTCompositionTests/ChatGPTTransportLifecycleTests.swift",
+      "function": "imageResponseWaitsForTheSameTransportBoundary"
+    },
+    {
+      "path": "Qualification/ChatGPTCompositionChecks/Tests/ChatGPTCompositionTests/ChatGPTTransportLifecycleTests.swift",
+      "function": "imageParseFailureCancelsAndJoinsTransport"
+    },
+    {
+      "path": "Qualification/ChatGPTCompositionChecks/Tests/ChatGPTCompositionTests/ChatGPTTransportLifecycleTests.swift",
+      "function": "imageNeverReturnsSuccessWhenTransportDrainFails"
+    },
+    {
+      "path": "Qualification/ChatGPTCompositionChecks/Tests/ChatGPTCompositionTests/ChatGPTTransportLifecycleTests.swift",
+      "function": "cancellationDuringImageDrainCannotReturnSuccess"
+    },
+    {
+      "path": "Qualification/ChatGPTCompositionChecks/Tests/ChatGPTCompositionTests/ChatGPTTransportLifecycleTests.swift",
+      "function": "request"
+    },
+    {
+      "path": "Qualification/ChatGPTCompositionChecks/Tests/ChatGPTCompositionTests/ChatGPTTransportLifecycleTests.swift",
+      "function": "cancel"
+    },
+    {
+      "path": "Qualification/ChatGPTCompositionChecks/Tests/ChatGPTCompositionTests/ChatGPTTransportLifecycleTests.swift",
+      "function": "waitUntilJoined"
+    },
+    {
+      "path": "Qualification/ChatGPTCompositionChecks/Tests/ChatGPTCompositionTests/ChatGPTTransportLifecycleTests.swift",
+      "function": "release"
+    },
+    {
+      "path": "Qualification/ChatGPTCompositionChecks/Tests/ChatGPTCompositionTests/ChatGPTTransportLifecycleTests.swift",
+      "function": "increment"
+    },
+    {
+      "path": "Model/LanguageModelCore/Tests/LanguageModelCoreTests/DrainFailureOwnershipTests.swift",
+      "function": "drainFailureRetainsOwnerWithoutPublishingItAsDiagnostics"
+    },
+    {
+      "path": "Model/LanguageModelRuntime/Tests/LanguageModelRuntimeTests/FailedInvocationRetentionTests.swift",
+      "function": "quarantineRetainsExactFailedInvocationAfterPumpExits"
+    },
+    {
+      "path": "Providers/ChatGPT/Account/Tests/ChatGPTAccountTests/AccountLifecycleTests.swift",
+      "function": "signOutJoinsRefreshBeforeDeletingCredentials"
+    },
+    {
+      "path": "Providers/ChatGPT/Account/Tests/ChatGPTAccountTests/AccountLifecycleTests.swift",
+      "function": "concurrentSignOutsShareCleanup"
+    },
+    {
+      "path": "Providers/ChatGPT/Account/Tests/ChatGPTAccountTests/AccountLifecycleTests.swift",
+      "function": "cancelledAccessDoesNotStartRefresh"
+    },
+    {
+      "path": "Providers/ChatGPT/Account/Tests/ChatGPTAccountTests/AccountMutationTests.swift",
+      "function": "cancelledSignOutCallerStillJoinsCleanup"
+    },
+    {
+      "path": "Providers/ChatGPT/Account/Tests/ChatGPTAccountTests/AccountMutationTests.swift",
+      "function": "signOutBlocksNewAuthorizationUntilCleanupSettles"
+    },
+    {
+      "path": "Providers/ChatGPT/Account/Tests/ChatGPTAccountTests/AccountMutationTests.swift",
+      "function": "deleteFailureBlocksAccessUntilExplicitSuccessfulSignOut"
+    },
+    {
+      "path": "Providers/ChatGPT/Account/Tests/ChatGPTAccountTests/AccountMutationTests.swift",
+      "function": "failedRefreshDrainCannotBeRetriedOrReportedAsSuccessfulLogout"
+    },
+    {
+      "path": "Providers/ChatGPT/Account/Tests/ChatGPTAccountTests/AccountMutationTests.swift",
+      "function": "simultaneousExpiredCredentialReadsUseOneRefresh"
+    },
+    {
+      "path": "Providers/ChatGPT/Account/Tests/ChatGPTAccountTests/AccountMutationTests.swift",
+      "function": "refreshRejectionPreservesOnlyRecoverableCredentials"
+    },
+    {
+      "path": "Providers/ChatGPT/Account/Tests/ChatGPTAccountTests/AccountMutationTests.swift",
+      "function": "clockInjectionControlsExpirationWithoutWallClockSleeps"
+    },
+    {
+      "path": "Providers/ChatGPT/Account/Tests/ChatGPTAccountTests/AccountMutationTests.swift",
+      "function": "staleAuthorizationSnapshotIsInvalidAfterSignOut"
+    },
+    {
+      "path": "Providers/ChatGPT/Account/Tests/ChatGPTAccountTests/AccountMutationTests.swift",
+      "function": "cancelledCleanupWaiterCannotCancelOwnedSharedTask"
+    },
+    {
+      "path": "Providers/ChatGPT/Account/Tests/ChatGPTAccountTests/AccountMutationTests.swift",
+      "function": "lastConsumerCancellationStillCancelsOrdinarySharedWork"
+    },
+    {
+      "path": "Providers/ChatGPT/Account/Tests/ChatGPTAccountTests/AccountMutationTests.swift",
+      "function": "failedAuthenticatedGETDrainRemainsBlockedAfterCredentialsAreDeleted"
+    },
+    {
+      "path": "Providers/ChatGPT/Account/Tests/ChatGPTAccountTests/AccountMutationTests.swift",
+      "function": "refreshPersistenceFailureNeverReusesPossiblyRotatedRefreshToken"
+    },
+    {
+      "path": "Providers/ChatGPT/Account/Tests/ChatGPTAccountTests/AccountMutationTests.swift",
+      "function": "permanentRejectionDeleteFailureBlocksExistingAuthorization"
+    },
+    {
+      "path": "Providers/ChatGPT/Account/Tests/ChatGPTAccountTests/AccountTestPorts.swift",
+      "function": "expiredToken"
+    },
+    {
+      "path": "Providers/ChatGPT/Account/Tests/ChatGPTAccountTests/AccountTestPorts.swift",
+      "function": "signInBody"
+    },
+    {
+      "path": "Providers/ChatGPT/Account/Tests/ChatGPTAccountTests/CredentialValidationTests.swift",
+      "function": "unsafeAccountHeaderValuesAreRejected"
+    },
+    {
+      "path": "Providers/ChatGPT/Account/Tests/ChatGPTAccountTests/CredentialValidationTests.swift",
+      "function": "nonfiniteCredentialExpirationIsRejected"
+    },
+    {
+      "path": "Providers/ChatGPT/Account/Tests/ChatGPTAccountTests/CredentialValidationTests.swift",
+      "function": "invalidExpirationDurationIsRejected"
+    },
+    {
+      "path": "Providers/ChatGPT/Account/Tests/ChatGPTAccountTests/CredentialValidationTests.swift",
+      "function": "expirationBoundaryIsDeterministic"
+    },
+    {
+      "path": "Providers/ChatGPT/Account/Tests/ChatGPTAccountTests/CredentialValidationTests.swift",
+      "function": "transportReceiptFailureIsJoinedOnceAndOverridesParsingFailure"
+    },
+    {
+      "path": "Providers/ChatGPT/Account/Tests/ChatGPTAccountTests/CredentialValidationTests.swift",
+      "function": "increment"
+    },
+    {
+      "path": "Providers/ChatGPT/Account/Tests/ChatGPTAccountTests/SignInLifecycleTests.swift",
+      "function": "signInCommitsOnlyValidatedAccount"
+    },
+    {
+      "path": "Providers/ChatGPT/Account/Tests/ChatGPTAccountTests/SignInLifecycleTests.swift",
+      "function": "replacementWaitsForOldRefreshAndCannotCommitItsLateToken"
+    },
+    {
+      "path": "Providers/ChatGPT/Account/Tests/ChatGPTAccountTests/SignInLifecycleTests.swift",
+      "function": "logoutWinsAgainstLateCallback"
+    },
+    {
+      "path": "Providers/ChatGPT/Account/Tests/ChatGPTAccountTests/SignInLifecycleTests.swift",
+      "function": "cancelledSignInCleanupCallerStillWaitsForListenerStop"
+    },
+    {
+      "path": "Providers/ChatGPT/Account/Tests/ChatGPTAccountTests/SignInLifecycleTests.swift",
+      "function": "invalidOAuthCallbackNeverDispatchesTokenExchange"
+    },
+    {
+      "path": "Providers/ChatGPT/Account/Tests/ChatGPTAccountTests/SignInLifecycleTests.swift",
+      "function": "transportDrainFailureDuringSignInBlocksNewAccountWork"
+    },
+    {
+      "path": "Providers/ChatGPT/Account/Tests/ChatGPTAccountTests/SignInLifecycleTests.swift",
+      "function": "cancelledReplacementReleasesItsAdmissionGateAfterJoiningRefresh"
+    },
+    {
+      "path": "Providers/ChatGPT/Account/Tests/ChatGPTAccountTests/SignInLifecycleTests.swift",
+      "function": "signInAfterLogoutReportsAuthorizationAndCanBeLoggedOutAgain"
+    },
+    {
+      "path": "Providers/ChatGPT/Account/Tests/ChatGPTAccountTests/SignInLifecycleTests.swift",
+      "function": "callbackFailureStopsListenerAndPreservesFailedStop"
+    },
+    {
+      "path": "Providers/ChatGPT/Account/Tests/ChatGPTAccountTests/UnprovedOperationOwnershipTests.swift",
+      "function": "accountRetainsEveryAlreadyAdmittedFailedOperation"
+    },
+    {
+      "path": "Providers/ChatGPT/Image/Tests/ChatGPTImageTests/ImageCompletionTests.swift",
+      "function": "failedImageDrainQuarantinesSharedClientAndRetainsInvocation"
+    },
+    {
+      "path": "Providers/ChatGPT/Image/Tests/ChatGPTImageTests/ImageCompletionTests.swift",
+      "function": "settledImageParseFailureDoesNotQuarantineClient"
+    },
+    {
+      "path": "Providers/ChatGPT/Image/Tests/ChatGPTImageTests/ImageCompletionTests.swift",
+      "function": "invalidImagePromptDoesNotEnterTransport"
+    },
+    {
+      "path": "Providers/ChatGPT/Text/Tests/ChatGPTTextTests/ChatGPTModelCompletionTests.swift",
+      "function": "failedAccountDrainFailsModelProducerReceipt"
+    },
+    {
+      "path": "Providers/ChatGPT/Text/Tests/ChatGPTTextTests/ChatGPTModelCompletionTests.swift",
+      "function": "unsupportedHostDoesNotSilentlyCreateAnAccount"
+    },
+    {
+      "path": "Providers/ChatGPT/Text/Tests/ChatGPTTextTests/ChatGPTModelCompletionTests.swift",
+      "function": "settledAuthenticationFailureDoesNotBecomeFailedProducerDrain"
+    },
+    {
+      "path": "Providers/ChatGPT/Text/Tests/ChatGPTTextTests/ChatGPTModelCompletionTests.swift",
+      "function": "request"
+    }
+  ],
+  "publicAPI": {
+    "removed": [],
+    "preserved": "existing product/main target/entry signatures/serialized errors; no ABI stability assertion",
+    "added": [
+      "ModelExecutorDrainFailure.init(_:retaining:)",
+      "Service SPI ChatGPTTransportDrainFailure"
+    ],
+    "semanticFixes": [
+      "cancelled logout caller still joins auth cleanup",
+      "failed local receipt quarantines and retains owner",
+      "OAuth invalid_grant permanently rejects stale credential",
+      "failed credential persistence blocks auto-retry"
+    ]
+  },
+  "reviewer": "same-agent critical self-review; no independent reviewer"
+}

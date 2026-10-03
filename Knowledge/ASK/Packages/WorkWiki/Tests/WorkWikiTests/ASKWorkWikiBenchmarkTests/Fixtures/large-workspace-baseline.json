@@ -1,0 +1,9 @@
+{
+  "schemaVersion": 1,
+  "documentCount": 12,
+  "minimumIndexedCount": 12,
+  "maximumSkippedCount": 0,
+  "minimumEvidenceHitCount": 1,
+  "maximumWorkflowSeconds": 60.0,
+  "maximumTotalSeconds": 60.0
+}

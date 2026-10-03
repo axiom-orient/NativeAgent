@@ -1,0 +1,139 @@
+{
+  "status": "PASS",
+  "scope": "Scoped portable implementation/build/test/static/consumer/archive verification only. Not production release or native qualification.",
+  "productionRelease": "BLOCKED",
+  "platform": "Linux-6.18.44-x86_64-with-glibc2.41",
+  "swift": "Swift version 6.2.1 (swift-6.2.1-RELEASE)\nTarget: x86_64-unknown-linux-gnu",
+  "inputArchiveSHA256": "97be9e72e78251423217e3a5ce794715e003b907bcab4e1236fe0ffd4616d16c",
+  "counts": {
+    "portableSwiftTesting": {
+      "model-core": 57,
+      "model-runtime": 99,
+      "native-language-models": 3,
+      "model-hub": 10,
+      "apple-system-contract": 10,
+      "chatgpt-account": 50,
+      "chatgpt-text": 3,
+      "chatgpt-image": 3
+    },
+    "selectedAgentKernelSwiftTesting": 571,
+    "localHTTPWireSwiftTesting": 44,
+    "uniqueSwiftTesting": 850,
+    "xctest": 3,
+    "totalUniqueSwiftTests": 853,
+    "pythonTests": 23,
+    "nativeSocketTestsNotRun": 14,
+    "note": "Release/repetitions/archive reruns and parameterized cases do not increase unique-test totals."
+  },
+  "verified": {
+    "portableDebug": {
+      "status": "PASS",
+      "report": "portable.json"
+    },
+    "selectedAgentKernel": {
+      "status": "PASS",
+      "report": "native-kernel.json",
+      "limit": "Exact-source qualification manifest excluding Manager; not full Agent host."
+    },
+    "optimized": {
+      "status": "PASS",
+      "report": "release.json",
+      "scope": "Account(50), Text(3), Image(3) tests; TextProvider build."
+    },
+    "repeat": {
+      "status": "PASS",
+      "report": "repeat-runs.json",
+      "scope": "Account/Text/Image each three passes."
+    },
+    "actualLocalHTTP": {
+      "status": "PASS",
+      "report": "chatgpt-wire-repeat.json",
+      "scope": "44 tests, three passes. Real local URLSession sockets, not remote ChatGPT."
+    },
+    "publicConsumer": {
+      "status": "PASS",
+      "report": "consumer-qualification.json",
+      "packages": 6,
+      "payloadSourceHashesMatched": 103,
+      "scope": "Public README APIs compile/link, Core and explicit unsupported-host behavior run; no login/model/image live calls."
+    },
+    "static": {
+      "status": "PASS",
+      "report": "static-checks.json",
+      "manifests": 53,
+      "assertions": 482,
+      "swiftSyntaxFiles": 1241,
+      "limit": "Parsing is not Apple SDK typecheck."
+    },
+    "python": {
+      "status": "PASS",
+      "closure": 9,
+      "releaseBoundary": 14,
+      "logs": [
+        "supervisor-closure.log",
+        "supervisor-release-boundary.log"
+      ]
+    },
+    "documents": {
+      "status": "PASS",
+      "report": "document-check.json",
+      "documents": 165,
+      "relativeLinks": 536,
+      "limit": "Relative link/shape validation, not external URL availability or semantic proof."
+    },
+    "preservation": {
+      "status": "PASS",
+      "report": "change-review.json",
+      "unexpectedFileLoss": 0,
+      "manifestCountUnchanged": 53,
+      "historicalEvidenceFilesMovedByteIdentically": 108
+    },
+    "sourceIdentity": {
+      "status": "PASS",
+      "report": "provenance.json"
+    },
+    "archiveExtraction": {
+      "status": "PASS",
+      "report": "archive-recheck.json",
+      "swiftTestingCount": 50,
+      "limit": "Full candidate ZIP extracted and actual Account manifest tested. Final ZIP appends evidence; qualified source identity separately verified when sealed."
+    }
+  },
+  "criticalReview": {
+    "rounds": 3,
+    "kind": "Same-worker critical self-review from ownership, failure/framing, minimality/public-contract perspectives; no independent external reviewer.",
+    "report": "../../production/IMPLEMENTATION_REVIEW.md"
+  },
+  "regressionsAndHarnessEvents": {
+    "originalDefects": "regressions/baseline-probes.json",
+    "newParserCRLFRegression": "regressions/account-round1-fixed.log",
+    "fixedParserFinal": "chatgpt-account.log",
+    "observerInterruption": "regressions/interrupted-portable.json",
+    "documentReportBootstrap": "regressions/document-report-bootstrap.json",
+    "note": "Raw RED/failing evidence preserved. Document checker first reported its own not-yet-created report; second run checked the generated report and all links. Raw HTTP CRLF test payloads excluded from authored whitespace lint."
+  },
+  "notRun": [
+    {
+      "name": "CallbackNativeTests / Keychain / PKCE",
+      "status": "NOT_RUN",
+      "reason": "Apple SDK unavailable. Direct Network/CryptoKit import probes failed; conditional code excluded by Linux builds."
+    },
+    {
+      "name": "Full ChatGPT composition / artifact / Apple providers",
+      "status": "NOT_RUN",
+      "reason": "Required Apple SDK unavailable. Full failing builds not repeated after SDK probes."
+    },
+    {
+      "name": "ASKAgentTools / MCP / MigrationHold native parity",
+      "status": "NOT_RUN",
+      "reason": "Unchanged optional dependency/native scope. Prior resolution/tools-version failures retained only as imported evidence; not relabeled as new runs."
+    },
+    {
+      "name": "Actual ChatGPT account / images / host UI / vendor inference",
+      "status": "NOT_RUN",
+      "reason": "No credentials, approved remote quota/effects, Apple host/device or model artifacts."
+    }
+  ],
+  "remainingPlan": "../../PLAN.md",
+  "delivery": "Full source SwiftPM package collection, not a signed app or native binary. Final SOURCE_MANIFEST excludes itself; external ZIP SHA-256 seals all bytes."
+}

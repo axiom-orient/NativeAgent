@@ -1,0 +1,74 @@
+{
+  "status": "PASS_WITH_UNKNOWNS",
+  "method": "Critical self-review of current code/callers/tests, not independent-agent review or formal proof.",
+  "reviewed": [
+    {
+      "claim": "Store/Runtime/Session/LocalBackend are different material state owners",
+      "source": [
+        "Model/LanguageModelRuntime/Sources/LanguageModelRuntime/ModelExecutorStore.swift",
+        "Model/LanguageModelRuntime/Sources/LanguageModelRuntime/ModelRuntime.swift",
+        "Model/LanguageModelRuntime/Sources/LanguageModelRuntime/ModelSession.swift",
+        "Model/LanguageModelRuntime/Sources/LanguageModelRuntime/LocalBackend.swift"
+      ],
+      "verdict": "Maintain boundaries; store caches runtime and one admission lane per configuration, not a global executor pool."
+    },
+    {
+      "claim": "ChatGPT consumer EOF is not actual provider settlement",
+      "source": [
+        "Providers/ChatGPT/Text/Sources/ChatGPTText/ChatGPTModelClient.swift",
+        "Providers/ChatGPT/Account/Sources/ChatGPTAccount/ChatGPTTransport.swift"
+      ],
+      "verdict": "F06 left explicit; wire PASS not promoted."
+    },
+    {
+      "claim": "Approval/execution versus canonical knowledge",
+      "source": [
+        "Knowledge/ASK/Packages/ASKAgentTools/Sources",
+        "Knowledge/ASK/Sources/ASK/ASKExecutor.swift",
+        "Agent/NativeAgent/Sources/NativeAgentExecution/AgentLoop"
+      ],
+      "verdict": "Adapter binds plan, Agent authorizes effects, ASK owns journal/receipt. Trusted host direct invocation is separate."
+    },
+    {
+      "claim": "Failure diagnostic preservation",
+      "source": [
+        "Model/LanguageModelCore/Sources/LanguageModelCore/Contracts/ModelGeneration.swift"
+      ],
+      "verdict": "Corrected overclaim: code/message only; modelFailureDetails empty, raw underlying error not guaranteed."
+    },
+    {
+      "claim": "Architecture does not certify current provider behavior",
+      "source": [
+        "docs/SPEC.md",
+        "docs/ARCHITECTURE.md",
+        "docs/IMPLEMENTATION_STATUS.md",
+        "docs/PLAN.md"
+      ],
+      "verdict": "Normative preservation and actual limitations separated; unresolved consumer policies remain decision needed."
+    },
+    {
+      "claim": "Independent optional products not deleted as unused",
+      "source": [
+        "Agent/NativeAgent/Package.swift",
+        "Knowledge/ASK/Packages/ASKTutor/Package.swift",
+        "MigrationHold/README.md"
+      ],
+      "verdict": "Hold/resources/skills/provider adapters retained."
+    },
+    {
+      "claim": "Hub direct install result versus combined installAndLoad failure",
+      "source": [
+        "Model/ModelHub/Sources/ModelHub/HubModelInstaller.swift"
+      ],
+      "verdict": "Direct install preserves observed success after cancellation. Combined convenience API can fail in load after install; no global rollback/partial receipt promised. Documented existing two-phase alternative; no unapproved public error expansion."
+    }
+  ],
+  "coverage": "14 material analysis documents; each has public boundaries, actual paths, owner, capability state, findings and verification scope. Root Current indexes every one.",
+  "knownUnknowns": [
+    "Native SDK internals/thread/driver behaviors",
+    "All format/corpus/OS UI implementations",
+    "Real account, remote effects, user host composition",
+    "Apple generic API/held feature parity"
+  ],
+  "cleanup": "cleanup-review.json"
+}

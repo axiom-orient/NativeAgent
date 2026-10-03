@@ -1,0 +1,869 @@
+{
+  "sourceSHA256": "4405a0e48da8c903f0e9a4dfebcdc66d948701528876d8a5a1e4a3521826bb32",
+  "items": [
+    {
+      "id": "Q-001",
+      "sourceLine": 9,
+      "section": "1. 공통 Runtime",
+      "criterion": "입력 | invalid descriptor/schema/limits | effect 시작 전 typed failure",
+      "status": "PASS_CONTRACT",
+      "evidenceOrGap": "Core/Runtime tests; enumerated boundaries only, not exhaustive scheduler proof"
+    },
+    {
+      "id": "Q-002",
+      "sourceLine": 10,
+      "section": "1. 공통 Runtime",
+      "criterion": "admission | 동시 2+ 요청, cancel before/after reservation | lane invariant 유지",
+      "status": "PASS_CONTRACT",
+      "evidenceOrGap": "Core/Runtime tests; enumerated boundaries only, not exhaustive scheduler proof"
+    },
+    {
+      "id": "Q-003",
+      "sourceLine": 11,
+      "section": "1. 공통 Runtime",
+      "criterion": "stream | normal/delta/error/EOF | event ordering deterministic",
+      "status": "PASS_CONTRACT",
+      "evidenceOrGap": "Core/Runtime tests; enumerated boundaries only, not exhaustive scheduler proof"
+    },
+    {
+      "id": "Q-004",
+      "sourceLine": 12,
+      "section": "1. 공통 Runtime",
+      "criterion": "completion | EOF before producer completion | completion은 producer settle 뒤",
+      "status": "PASS_CONTRACT",
+      "evidenceOrGap": "Core/Runtime tests; enumerated boundaries only, not exhaustive scheduler proof"
+    },
+    {
+      "id": "Q-005",
+      "sourceLine": 13,
+      "section": "1. 공통 Runtime",
+      "criterion": "cancellation | 각 await 지점 cancel | stale result commit 없음",
+      "status": "PARTIAL",
+      "evidenceOrGap": "Targeted cancellation gates pass; no exhaustive proof of every possible scheduling interleaving"
+    },
+    {
+      "id": "Q-006",
+      "sourceLine": 14,
+      "section": "1. 공통 Runtime",
+      "criterion": "session | success/failure/cancel/late result | success만 transcript commit",
+      "status": "PASS_CONTRACT",
+      "evidenceOrGap": "Core/Runtime tests; enumerated boundaries only, not exhaustive scheduler proof"
+    },
+    {
+      "id": "Q-007",
+      "sourceLine": 15,
+      "section": "1. 공통 Runtime",
+      "criterion": "runtime reuse | same config / different config | identity collision 없음",
+      "status": "PASS_CONTRACT",
+      "evidenceOrGap": "Core/Runtime tests; enumerated boundaries only, not exhaustive scheduler proof"
+    },
+    {
+      "id": "Q-008",
+      "sourceLine": 16,
+      "section": "1. 공통 Runtime",
+      "criterion": "shutdown | active run 중 shutdown | intake stop→cancel→drain→release",
+      "status": "PASS_CONTRACT",
+      "evidenceOrGap": "Core/Runtime tests; enumerated boundaries only, not exhaustive scheduler proof"
+    },
+    {
+      "id": "Q-009",
+      "sourceLine": 22,
+      "section": "2. Credential / Account",
+      "criterion": "첫 로그인 | credential commit revision 정확",
+      "status": "PARTIAL",
+      "evidenceOrGap": "Credential commit covered by test; Keychain/browser/OS relaunch unverified"
+    },
+    {
+      "id": "Q-010",
+      "sourceLine": 23,
+      "section": "2. Credential / Account",
+      "criterion": "concurrent access | refresh 하나만 authority",
+      "status": "PASS_CONTRACT",
+      "evidenceOrGap": "Actual Account/Text tests with controlled I/O; native login separately unverified"
+    },
+    {
+      "id": "Q-011",
+      "sourceLine": 24,
+      "section": "2. Credential / Account",
+      "criterion": "401 refresh | 이전 request settle 후 재시도",
+      "status": "PASS_CONTRACT",
+      "evidenceOrGap": "Actual Account/Text tests with controlled I/O; native login separately unverified"
+    },
+    {
+      "id": "Q-012",
+      "sourceLine": 25,
+      "section": "2. Credential / Account",
+      "criterion": "access 중 signOut | stale refresh result commit 불가",
+      "status": "PASS_CONTRACT",
+      "evidenceOrGap": "Actual Account/Text tests with controlled I/O; native login separately unverified"
+    },
+    {
+      "id": "Q-013",
+      "sourceLine": 26,
+      "section": "2. Credential / Account",
+      "criterion": "signOut 중 access | credential mutation drain 존중",
+      "status": "PASS_CONTRACT",
+      "evidenceOrGap": "Actual Account/Text tests with controlled I/O; native login separately unverified"
+    },
+    {
+      "id": "Q-014",
+      "sourceLine": 27,
+      "section": "2. Credential / Account",
+      "criterion": "signOut caller 취소 | cleanup 자체가 유실되지 않음",
+      "status": "PASS_CONTRACT",
+      "evidenceOrGap": "Actual Account/Text tests with controlled I/O; native login separately unverified"
+    },
+    {
+      "id": "Q-015",
+      "sourceLine": 28,
+      "section": "2. Credential / Account",
+      "criterion": "재로그인 | old generation callback 무효",
+      "status": "PASS_CONTRACT",
+      "evidenceOrGap": "Actual Account/Text tests with controlled I/O; native login separately unverified"
+    },
+    {
+      "id": "Q-016",
+      "sourceLine": 29,
+      "section": "2. Credential / Account",
+      "criterion": "app relaunch | persisted credential policy 일치",
+      "status": "BLOCKED_ENV",
+      "evidenceOrGap": "Credential commit covered by test; Keychain/browser/OS relaunch unverified"
+    },
+    {
+      "id": "Q-017",
+      "sourceLine": 35,
+      "section": "3. Apple Foundation Models",
+      "criterion": "model availability 확인",
+      "status": "BLOCKED_ENV",
+      "evidenceOrGap": "Apple SDK/device/model required"
+    },
+    {
+      "id": "Q-018",
+      "sourceLine": 36,
+      "section": "3. Apple Foundation Models",
+      "criterion": "session 생성",
+      "status": "BLOCKED_ENV",
+      "evidenceOrGap": "Apple SDK/device/model required"
+    },
+    {
+      "id": "Q-019",
+      "sourceLine": 37,
+      "section": "3. Apple Foundation Models",
+      "criterion": "text generation",
+      "status": "BLOCKED_ENV",
+      "evidenceOrGap": "Apple SDK/device/model required"
+    },
+    {
+      "id": "Q-020",
+      "sourceLine": 38,
+      "section": "3. Apple Foundation Models",
+      "criterion": "structured/guided generation",
+      "status": "BLOCKED_ENV",
+      "evidenceOrGap": "Apple SDK/device/model required"
+    },
+    {
+      "id": "Q-021",
+      "sourceLine": 39,
+      "section": "3. Apple Foundation Models",
+      "criterion": "tool call 허용/거절",
+      "status": "BLOCKED_ENV",
+      "evidenceOrGap": "Apple SDK/device/model required"
+    },
+    {
+      "id": "Q-022",
+      "sourceLine": 40,
+      "section": "3. Apple Foundation Models",
+      "criterion": "cancel",
+      "status": "BLOCKED_ENV",
+      "evidenceOrGap": "Apple SDK/device/model required"
+    },
+    {
+      "id": "Q-023",
+      "sourceLine": 41,
+      "section": "3. Apple Foundation Models",
+      "criterion": "session reuse",
+      "status": "BLOCKED_ENV",
+      "evidenceOrGap": "Apple SDK/device/model required"
+    },
+    {
+      "id": "Q-024",
+      "sourceLine": 42,
+      "section": "3. Apple Foundation Models",
+      "criterion": "app background/foreground",
+      "status": "BLOCKED_ENV",
+      "evidenceOrGap": "Apple SDK/device/model required"
+    },
+    {
+      "id": "Q-025",
+      "sourceLine": 43,
+      "section": "3. Apple Foundation Models",
+      "criterion": "memory pressure",
+      "status": "BLOCKED_ENV",
+      "evidenceOrGap": "Apple SDK/device/model required"
+    },
+    {
+      "id": "Q-026",
+      "sourceLine": 44,
+      "section": "3. Apple Foundation Models",
+      "criterion": "OS update별 prompt golden regression",
+      "status": "BLOCKED_ENV",
+      "evidenceOrGap": "Apple SDK/device/model required"
+    },
+    {
+      "id": "Q-027",
+      "sourceLine": 53,
+      "section": "4. MLX / LiteRT / LEAP",
+      "criterion": "fresh process → → artifact acquire + digest verify → → load → → generation A → → generation B(warm) → → mid-stream cancel → → wait settle → → generation C(reuse) → → shutdown → → memory stabilization → → reload → → generation D",
+      "status": "BLOCKED_ENV",
+      "evidenceOrGap": "Native driver/device/model artifacts required per provider"
+    },
+    {
+      "id": "Q-028",
+      "sourceLine": 69,
+      "section": "4. MLX / LiteRT / LEAP",
+      "criterion": "corrupt artifact",
+      "status": "BLOCKED_ENV",
+      "evidenceOrGap": "Native driver/device/model artifacts required per provider"
+    },
+    {
+      "id": "Q-029",
+      "sourceLine": 70,
+      "section": "4. MLX / LiteRT / LEAP",
+      "criterion": "missing tokenizer/config",
+      "status": "BLOCKED_ENV",
+      "evidenceOrGap": "Native driver/device/model artifacts required per provider"
+    },
+    {
+      "id": "Q-030",
+      "sourceLine": 71,
+      "section": "4. MLX / LiteRT / LEAP",
+      "criterion": "unsupported model",
+      "status": "BLOCKED_ENV",
+      "evidenceOrGap": "Native driver/device/model artifacts required per provider"
+    },
+    {
+      "id": "Q-031",
+      "sourceLine": 72,
+      "section": "4. MLX / LiteRT / LEAP",
+      "criterion": "low storage",
+      "status": "BLOCKED_ENV",
+      "evidenceOrGap": "Native driver/device/model artifacts required per provider"
+    },
+    {
+      "id": "Q-032",
+      "sourceLine": 73,
+      "section": "4. MLX / LiteRT / LEAP",
+      "criterion": "low memory",
+      "status": "BLOCKED_ENV",
+      "evidenceOrGap": "Native driver/device/model artifacts required per provider"
+    },
+    {
+      "id": "Q-033",
+      "sourceLine": 74,
+      "section": "4. MLX / LiteRT / LEAP",
+      "criterion": "load waiter cancellation",
+      "status": "BLOCKED_ENV",
+      "evidenceOrGap": "Native driver/device/model artifacts required per provider"
+    },
+    {
+      "id": "Q-034",
+      "sourceLine": 75,
+      "section": "4. MLX / LiteRT / LEAP",
+      "criterion": "native callback late/duplicate",
+      "status": "BLOCKED_ENV",
+      "evidenceOrGap": "Native driver/device/model artifacts required per provider"
+    },
+    {
+      "id": "Q-035",
+      "sourceLine": 76,
+      "section": "4. MLX / LiteRT / LEAP",
+      "criterion": "app termination 중 download",
+      "status": "BLOCKED_ENV",
+      "evidenceOrGap": "Native driver/device/model artifacts required per provider"
+    },
+    {
+      "id": "Q-036",
+      "sourceLine": 80,
+      "section": "5. OpenAI API Text",
+      "criterion": "backend-issued auth boundary; client에 service API key 없음",
+      "status": "NOT_IMPLEMENTED_OPTIONAL",
+      "evidenceOrGap": "New OpenAI API backend not selected; not equivalent to subscription provider"
+    },
+    {
+      "id": "Q-037",
+      "sourceLine": 81,
+      "section": "5. OpenAI API Text",
+      "criterion": "Responses normal response",
+      "status": "NOT_IMPLEMENTED_OPTIONAL",
+      "evidenceOrGap": "New OpenAI API backend not selected; not equivalent to subscription provider"
+    },
+    {
+      "id": "Q-038",
+      "sourceLine": 82,
+      "section": "5. OpenAI API Text",
+      "criterion": "SSE streaming",
+      "status": "NOT_IMPLEMENTED_OPTIONAL",
+      "evidenceOrGap": "New OpenAI API backend not selected; not equivalent to subscription provider"
+    },
+    {
+      "id": "Q-039",
+      "sourceLine": 83,
+      "section": "5. OpenAI API Text",
+      "criterion": "server 4xx/5xx mapping",
+      "status": "NOT_IMPLEMENTED_OPTIONAL",
+      "evidenceOrGap": "New OpenAI API backend not selected; not equivalent to subscription provider"
+    },
+    {
+      "id": "Q-040",
+      "sourceLine": 84,
+      "section": "5. OpenAI API Text",
+      "criterion": "rate limit/retry-after",
+      "status": "NOT_IMPLEMENTED_OPTIONAL",
+      "evidenceOrGap": "New OpenAI API backend not selected; not equivalent to subscription provider"
+    },
+    {
+      "id": "Q-041",
+      "sourceLine": 85,
+      "section": "5. OpenAI API Text",
+      "criterion": "network loss",
+      "status": "NOT_IMPLEMENTED_OPTIONAL",
+      "evidenceOrGap": "New OpenAI API backend not selected; not equivalent to subscription provider"
+    },
+    {
+      "id": "Q-042",
+      "sourceLine": 86,
+      "section": "5. OpenAI API Text",
+      "criterion": "client cancel",
+      "status": "NOT_IMPLEMENTED_OPTIONAL",
+      "evidenceOrGap": "New OpenAI API backend not selected; not equivalent to subscription provider"
+    },
+    {
+      "id": "Q-043",
+      "sourceLine": 87,
+      "section": "5. OpenAI API Text",
+      "criterion": "stream disconnect 후 outcome classification",
+      "status": "NOT_IMPLEMENTED_OPTIONAL",
+      "evidenceOrGap": "New OpenAI API backend not selected; not equivalent to subscription provider"
+    },
+    {
+      "id": "Q-044",
+      "sourceLine": 88,
+      "section": "5. OpenAI API Text",
+      "criterion": "background mode/resume를 사용하는 기능은 sequence cursor replay 검증",
+      "status": "NOT_IMPLEMENTED_OPTIONAL",
+      "evidenceOrGap": "New OpenAI API backend not selected; not equivalent to subscription provider"
+    },
+    {
+      "id": "Q-045",
+      "sourceLine": 89,
+      "section": "5. OpenAI API Text",
+      "criterion": "logs에 Authorization/user secret 없음",
+      "status": "NOT_IMPLEMENTED_OPTIONAL",
+      "evidenceOrGap": "New OpenAI API backend not selected; not equivalent to subscription provider"
+    },
+    {
+      "id": "Q-046",
+      "sourceLine": 94,
+      "section": "6. OpenAI Image",
+      "criterion": "prompt → → request accepted → → generation result → → decode → → content/format validation → → temp write → → digest → → atomic publish → → consumer reopen",
+      "status": "PARTIAL",
+      "evidenceOrGap": "Local Image/wire contract only; public API backend and live publication not qualified"
+    },
+    {
+      "id": "Q-047",
+      "sourceLine": 107,
+      "section": "6. OpenAI Image",
+      "criterion": "supported format/size/background",
+      "status": "PARTIAL",
+      "evidenceOrGap": "Local Image/wire contract only; public API backend and live publication not qualified"
+    },
+    {
+      "id": "Q-048",
+      "sourceLine": 108,
+      "section": "6. OpenAI Image",
+      "criterion": "malformed/empty base64",
+      "status": "PARTIAL",
+      "evidenceOrGap": "Local Image/wire contract only; public API backend and live publication not qualified"
+    },
+    {
+      "id": "Q-049",
+      "sourceLine": 109,
+      "section": "6. OpenAI Image",
+      "criterion": "huge result guard",
+      "status": "PARTIAL",
+      "evidenceOrGap": "Local Image/wire contract only; public API backend and live publication not qualified"
+    },
+    {
+      "id": "Q-050",
+      "sourceLine": 110,
+      "section": "6. OpenAI Image",
+      "criterion": "cancel before dispatch / after dispatch",
+      "status": "PARTIAL",
+      "evidenceOrGap": "Local Image/wire contract only; public API backend and live publication not qualified"
+    },
+    {
+      "id": "Q-051",
+      "sourceLine": 111,
+      "section": "6. OpenAI Image",
+      "criterion": "request succeeded but local publication failed",
+      "status": "PARTIAL",
+      "evidenceOrGap": "Local Image/wire contract only; public API backend and live publication not qualified"
+    },
+    {
+      "id": "Q-052",
+      "sourceLine": 112,
+      "section": "6. OpenAI Image",
+      "criterion": "duplicate publication/idempotency",
+      "status": "PARTIAL",
+      "evidenceOrGap": "Local Image/wire contract only; public API backend and live publication not qualified"
+    },
+    {
+      "id": "Q-053",
+      "sourceLine": 118,
+      "section": "7. Codex App Server",
+      "criterion": "process spawn/stdio lifecycle",
+      "status": "NOT_IMPLEMENTED_OPTIONAL",
+      "evidenceOrGap": "No App Server adapter selected; no process or service support claim"
+    },
+    {
+      "id": "Q-054",
+      "sourceLine": 119,
+      "section": "7. Codex App Server",
+      "criterion": "initialize→initialized 순서",
+      "status": "NOT_IMPLEMENTED_OPTIONAL",
+      "evidenceOrGap": "No App Server adapter selected; no process or service support claim"
+    },
+    {
+      "id": "Q-055",
+      "sourceLine": 120,
+      "section": "7. Codex App Server",
+      "criterion": "account/login/start + completed/updated",
+      "status": "NOT_IMPLEMENTED_OPTIONAL",
+      "evidenceOrGap": "No App Server adapter selected; no process or service support claim"
+    },
+    {
+      "id": "Q-056",
+      "sourceLine": 121,
+      "section": "7. Codex App Server",
+      "criterion": "thread start/resume",
+      "status": "NOT_IMPLEMENTED_OPTIONAL",
+      "evidenceOrGap": "No App Server adapter selected; no process or service support claim"
+    },
+    {
+      "id": "Q-057",
+      "sourceLine": 122,
+      "section": "7. Codex App Server",
+      "criterion": "turn start",
+      "status": "NOT_IMPLEMENTED_OPTIONAL",
+      "evidenceOrGap": "No App Server adapter selected; no process or service support claim"
+    },
+    {
+      "id": "Q-058",
+      "sourceLine": 123,
+      "section": "7. Codex App Server",
+      "criterion": "item/turn event ordering",
+      "status": "NOT_IMPLEMENTED_OPTIONAL",
+      "evidenceOrGap": "No App Server adapter selected; no process or service support claim"
+    },
+    {
+      "id": "Q-059",
+      "sourceLine": 124,
+      "section": "7. Codex App Server",
+      "criterion": "approval request deny/allow",
+      "status": "NOT_IMPLEMENTED_OPTIONAL",
+      "evidenceOrGap": "No App Server adapter selected; no process or service support claim"
+    },
+    {
+      "id": "Q-060",
+      "sourceLine": 125,
+      "section": "7. Codex App Server",
+      "criterion": "turn interrupt→turn completed",
+      "status": "NOT_IMPLEMENTED_OPTIONAL",
+      "evidenceOrGap": "No App Server adapter selected; no process or service support claim"
+    },
+    {
+      "id": "Q-061",
+      "sourceLine": 126,
+      "section": "7. Codex App Server",
+      "criterion": "app-server crash/restart",
+      "status": "NOT_IMPLEMENTED_OPTIONAL",
+      "evidenceOrGap": "No App Server adapter selected; no process or service support claim"
+    },
+    {
+      "id": "Q-062",
+      "sourceLine": 127,
+      "section": "7. Codex App Server",
+      "criterion": "schema generated from **pinned Codex version**과 client decoder 일치",
+      "status": "NOT_IMPLEMENTED_OPTIONAL",
+      "evidenceOrGap": "No App Server adapter selected; no process or service support claim"
+    },
+    {
+      "id": "Q-063",
+      "sourceLine": 128,
+      "section": "7. Codex App Server",
+      "criterion": "experimental API disabled by default",
+      "status": "NOT_IMPLEMENTED_OPTIONAL",
+      "evidenceOrGap": "No App Server adapter selected; no process or service support claim"
+    },
+    {
+      "id": "Q-064",
+      "sourceLine": 136,
+      "section": "8. NativeAgent",
+      "criterion": "model suggestion만으로 side effect 불가",
+      "status": "PARTIAL",
+      "evidenceOrGap": "Kernel exact-source tests pass; real approved tool/remote crash recovery and host remain"
+    },
+    {
+      "id": "Q-065",
+      "sourceLine": 137,
+      "section": "8. NativeAgent",
+      "criterion": "deny→effect 0",
+      "status": "PARTIAL",
+      "evidenceOrGap": "Kernel exact-source tests pass; real approved tool/remote crash recovery and host remain"
+    },
+    {
+      "id": "Q-066",
+      "sourceLine": 138,
+      "section": "8. NativeAgent",
+      "criterion": "approve→effect 1",
+      "status": "PARTIAL",
+      "evidenceOrGap": "Kernel exact-source tests pass; real approved tool/remote crash recovery and host remain"
+    },
+    {
+      "id": "Q-067",
+      "sourceLine": 139,
+      "section": "8. NativeAgent",
+      "criterion": "duplicate approval→effect 최대 1",
+      "status": "PARTIAL",
+      "evidenceOrGap": "Kernel exact-source tests pass; real approved tool/remote crash recovery and host remain"
+    },
+    {
+      "id": "Q-068",
+      "sourceLine": 143,
+      "section": "8. NativeAgent",
+      "criterion": "reserve before effect",
+      "status": "PARTIAL",
+      "evidenceOrGap": "Kernel exact-source tests pass; real approved tool/remote crash recovery and host remain"
+    },
+    {
+      "id": "Q-069",
+      "sourceLine": 144,
+      "section": "8. NativeAgent",
+      "criterion": "crash before effect",
+      "status": "PARTIAL",
+      "evidenceOrGap": "Kernel exact-source tests pass; real approved tool/remote crash recovery and host remain"
+    },
+    {
+      "id": "Q-070",
+      "sourceLine": 145,
+      "section": "8. NativeAgent",
+      "criterion": "crash after remote effect / before receipt commit",
+      "status": "PARTIAL",
+      "evidenceOrGap": "Kernel exact-source tests pass; real approved tool/remote crash recovery and host remain"
+    },
+    {
+      "id": "Q-071",
+      "sourceLine": 146,
+      "section": "8. NativeAgent",
+      "criterion": "restart reconcile",
+      "status": "PARTIAL",
+      "evidenceOrGap": "Kernel exact-source tests pass; real approved tool/remote crash recovery and host remain"
+    },
+    {
+      "id": "Q-072",
+      "sourceLine": 147,
+      "section": "8. NativeAgent",
+      "criterion": "unknown outcome 자동 replay 금지",
+      "status": "PARTIAL",
+      "evidenceOrGap": "Kernel exact-source tests pass; real approved tool/remote crash recovery and host remain"
+    },
+    {
+      "id": "Q-073",
+      "sourceLine": 151,
+      "section": "8. NativeAgent",
+      "criterion": "schema validation",
+      "status": "PARTIAL",
+      "evidenceOrGap": "Kernel exact-source tests pass; real approved tool/remote crash recovery and host remain"
+    },
+    {
+      "id": "Q-074",
+      "sourceLine": 152,
+      "section": "8. NativeAgent",
+      "criterion": "permission check",
+      "status": "PARTIAL",
+      "evidenceOrGap": "Kernel exact-source tests pass; real approved tool/remote crash recovery and host remain"
+    },
+    {
+      "id": "Q-075",
+      "sourceLine": 153,
+      "section": "8. NativeAgent",
+      "criterion": "timeout/cancel은 effect absence로 오인하지 않음",
+      "status": "PARTIAL",
+      "evidenceOrGap": "Kernel exact-source tests pass; real approved tool/remote crash recovery and host remain"
+    },
+    {
+      "id": "Q-076",
+      "sourceLine": 154,
+      "section": "8. NativeAgent",
+      "criterion": "sensitive result redaction",
+      "status": "PARTIAL",
+      "evidenceOrGap": "Kernel exact-source tests pass; real approved tool/remote crash recovery and host remain"
+    },
+    {
+      "id": "Q-077",
+      "sourceLine": 158,
+      "section": "9. ASK / Knowledge",
+      "criterion": "source identity/digest",
+      "status": "PARTIAL",
+      "evidenceOrGap": "Local Knowledge packages pass; root/ASKAgentTools dependency gate remains"
+    },
+    {
+      "id": "Q-078",
+      "sourceLine": 159,
+      "section": "9. ASK / Knowledge",
+      "criterion": "evidence link integrity",
+      "status": "PARTIAL",
+      "evidenceOrGap": "Local Knowledge packages pass; root/ASKAgentTools dependency gate remains"
+    },
+    {
+      "id": "Q-079",
+      "sourceLine": 160,
+      "section": "9. ASK / Knowledge",
+      "criterion": "plan deterministic serialization",
+      "status": "PARTIAL",
+      "evidenceOrGap": "Local Knowledge packages pass; root/ASKAgentTools dependency gate remains"
+    },
+    {
+      "id": "Q-080",
+      "sourceLine": 161,
+      "section": "9. ASK / Knowledge",
+      "criterion": "dryRun no-write",
+      "status": "PARTIAL",
+      "evidenceOrGap": "Local Knowledge packages pass; root/ASKAgentTools dependency gate remains"
+    },
+    {
+      "id": "Q-081",
+      "sourceLine": 162,
+      "section": "9. ASK / Knowledge",
+      "criterion": "approved apply one-time effect",
+      "status": "PARTIAL",
+      "evidenceOrGap": "Local Knowledge packages pass; root/ASKAgentTools dependency gate remains"
+    },
+    {
+      "id": "Q-082",
+      "sourceLine": 163,
+      "section": "9. ASK / Knowledge",
+      "criterion": "duplicate actionID idempotency",
+      "status": "PARTIAL",
+      "evidenceOrGap": "Local Knowledge packages pass; root/ASKAgentTools dependency gate remains"
+    },
+    {
+      "id": "Q-083",
+      "sourceLine": 164,
+      "section": "9. ASK / Knowledge",
+      "criterion": "partial write recovery",
+      "status": "PARTIAL",
+      "evidenceOrGap": "Local Knowledge packages pass; root/ASKAgentTools dependency gate remains"
+    },
+    {
+      "id": "Q-084",
+      "sourceLine": 165,
+      "section": "9. ASK / Knowledge",
+      "criterion": "journal reopen",
+      "status": "PARTIAL",
+      "evidenceOrGap": "Local Knowledge packages pass; root/ASKAgentTools dependency gate remains"
+    },
+    {
+      "id": "Q-085",
+      "sourceLine": 166,
+      "section": "9. ASK / Knowledge",
+      "criterion": "Agent adapter가 canonical receipt를 그대로 보존",
+      "status": "PARTIAL",
+      "evidenceOrGap": "Local Knowledge packages pass; root/ASKAgentTools dependency gate remains"
+    },
+    {
+      "id": "Q-086",
+      "sourceLine": 172,
+      "section": "10. Host App End-to-End",
+      "criterion": "cold launch",
+      "status": "BLOCKED_ENV",
+      "evidenceOrGap": "Reference iOS/macOS app real runtime not executed"
+    },
+    {
+      "id": "Q-087",
+      "sourceLine": 173,
+      "section": "10. Host App End-to-End",
+      "criterion": "provider unavailable UI",
+      "status": "BLOCKED_ENV",
+      "evidenceOrGap": "Reference iOS/macOS app real runtime not executed"
+    },
+    {
+      "id": "Q-088",
+      "sourceLine": 174,
+      "section": "10. Host App End-to-End",
+      "criterion": "on-device text",
+      "status": "BLOCKED_ENV",
+      "evidenceOrGap": "Reference iOS/macOS app real runtime not executed"
+    },
+    {
+      "id": "Q-089",
+      "sourceLine": 175,
+      "section": "10. Host App End-to-End",
+      "criterion": "network text(지원 시)",
+      "status": "BLOCKED_ENV",
+      "evidenceOrGap": "Reference iOS/macOS app real runtime not executed"
+    },
+    {
+      "id": "Q-090",
+      "sourceLine": 176,
+      "section": "10. Host App End-to-End",
+      "criterion": "image generate/publish",
+      "status": "BLOCKED_ENV",
+      "evidenceOrGap": "Reference iOS/macOS app real runtime not executed"
+    },
+    {
+      "id": "Q-091",
+      "sourceLine": 177,
+      "section": "10. Host App End-to-End",
+      "criterion": "background during generation",
+      "status": "BLOCKED_ENV",
+      "evidenceOrGap": "Reference iOS/macOS app real runtime not executed"
+    },
+    {
+      "id": "Q-092",
+      "sourceLine": 178,
+      "section": "10. Host App End-to-End",
+      "criterion": "foreground resume",
+      "status": "BLOCKED_ENV",
+      "evidenceOrGap": "Reference iOS/macOS app real runtime not executed"
+    },
+    {
+      "id": "Q-093",
+      "sourceLine": 179,
+      "section": "10. Host App End-to-End",
+      "criterion": "cancel from UI",
+      "status": "BLOCKED_ENV",
+      "evidenceOrGap": "Reference iOS/macOS app real runtime not executed"
+    },
+    {
+      "id": "Q-094",
+      "sourceLine": 180,
+      "section": "10. Host App End-to-End",
+      "criterion": "memory warning",
+      "status": "BLOCKED_ENV",
+      "evidenceOrGap": "Reference iOS/macOS app real runtime not executed"
+    },
+    {
+      "id": "Q-095",
+      "sourceLine": 181,
+      "section": "10. Host App End-to-End",
+      "criterion": "logout/login",
+      "status": "BLOCKED_ENV",
+      "evidenceOrGap": "Reference iOS/macOS app real runtime not executed"
+    },
+    {
+      "id": "Q-096",
+      "sourceLine": 182,
+      "section": "10. Host App End-to-End",
+      "criterion": "terminate/relaunch",
+      "status": "BLOCKED_ENV",
+      "evidenceOrGap": "Reference iOS/macOS app real runtime not executed"
+    },
+    {
+      "id": "Q-097",
+      "sourceLine": 183,
+      "section": "10. Host App End-to-End",
+      "criterion": "offline mode",
+      "status": "BLOCKED_ENV",
+      "evidenceOrGap": "Reference iOS/macOS app real runtime not executed"
+    },
+    {
+      "id": "Q-098",
+      "sourceLine": 189,
+      "section": "10. Host App End-to-End",
+      "criterion": "MLX resident lifecycle",
+      "status": "BLOCKED_ENV",
+      "evidenceOrGap": "Reference iOS/macOS app real runtime not executed"
+    },
+    {
+      "id": "Q-099",
+      "sourceLine": 190,
+      "section": "10. Host App End-to-End",
+      "criterion": "Codex App Server(선택)",
+      "status": "BLOCKED_ENV",
+      "evidenceOrGap": "Reference iOS/macOS app real runtime not executed"
+    },
+    {
+      "id": "Q-100",
+      "sourceLine": 191,
+      "section": "10. Host App End-to-End",
+      "criterion": "multiple windows/consumers가 같은 backend를 공유할 때 owner consistency",
+      "status": "BLOCKED_ENV",
+      "evidenceOrGap": "Reference iOS/macOS app real runtime not executed"
+    },
+    {
+      "id": "Q-101",
+      "sourceLine": 197,
+      "section": "11. Release Gate",
+      "criterion": "G0 Contract | public API + state/error semantics 고정",
+      "status": "PARTIAL",
+      "evidenceOrGap": "Per-gate decisions in QUALIFICATION.md; overall production release BLOCKED"
+    },
+    {
+      "id": "Q-102",
+      "sourceLine": 198,
+      "section": "11. Release Gate",
+      "criterion": "G1 Unit | pure/deterministic tests PASS",
+      "status": "PARTIAL",
+      "evidenceOrGap": "Per-gate decisions in QUALIFICATION.md; overall production release BLOCKED"
+    },
+    {
+      "id": "Q-103",
+      "sourceLine": 199,
+      "section": "11. Release Gate",
+      "criterion": "G2 Integration | real local I/O PASS",
+      "status": "PARTIAL",
+      "evidenceOrGap": "Per-gate decisions in QUALIFICATION.md; overall production release BLOCKED"
+    },
+    {
+      "id": "Q-104",
+      "sourceLine": 200,
+      "section": "11. Release Gate",
+      "criterion": "G3 Native | 실제 SDK/device/model PASS",
+      "status": "PARTIAL",
+      "evidenceOrGap": "Per-gate decisions in QUALIFICATION.md; overall production release BLOCKED"
+    },
+    {
+      "id": "Q-105",
+      "sourceLine": 201,
+      "section": "11. Release Gate",
+      "criterion": "G4 Cloud | staging account/service PASS",
+      "status": "PARTIAL",
+      "evidenceOrGap": "Per-gate decisions in QUALIFICATION.md; overall production release BLOCKED"
+    },
+    {
+      "id": "Q-106",
+      "sourceLine": 202,
+      "section": "11. Release Gate",
+      "criterion": "G5 Consumer | 실제 앱 build/run/relaunch PASS",
+      "status": "PARTIAL",
+      "evidenceOrGap": "Per-gate decisions in QUALIFICATION.md; overall production release BLOCKED"
+    },
+    {
+      "id": "Q-107",
+      "sourceLine": 203,
+      "section": "11. Release Gate",
+      "criterion": "G6 Security | secret/privacy/artifact checks PASS",
+      "status": "PARTIAL",
+      "evidenceOrGap": "Per-gate decisions in QUALIFICATION.md; overall production release BLOCKED"
+    },
+    {
+      "id": "Q-108",
+      "sourceLine": 204,
+      "section": "11. Release Gate",
+      "criterion": "G7 Release | clean checkout reproducible + SHA/provenance",
+      "status": "PARTIAL",
+      "evidenceOrGap": "Per-gate decisions in QUALIFICATION.md; overall production release BLOCKED"
+    }
+  ]
+}

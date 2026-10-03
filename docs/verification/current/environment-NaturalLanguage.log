@@ -1,0 +1,4 @@
+<stdin>:1:8: error: no such module 'NaturalLanguage'
+1 | import NaturalLanguage
+  |        `- error: no such module 'NaturalLanguage'
+2 | 

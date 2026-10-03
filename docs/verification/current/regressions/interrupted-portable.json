@@ -1,0 +1,5 @@
+{
+  "status": "INTERRUPTED_HARNESS",
+  "reason": "The enclosing command observer timed out before the verification script completed. The remaining owned Swift process group was explicitly terminated. No overall PASS is inferred; a supervised rerun follows.",
+  "terminatedProcessGroup": 1912
+}

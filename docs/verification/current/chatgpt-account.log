@@ -1,0 +1,1023 @@
+Building for debugging...
+[Planning deferred tasks]
+[28 / 52]
+[29 / 53] ChatGPTAccount
+[38 / 103]
+[44 / 103]
+[49 / 103]
+[53 / 103]
+[56 / 103]
+[63 / 103]
+[65 / 103]
+[66 / 103]
+$NATIVEAGENT_ROOT/Providers/ChatGPT/Account/Sources/ChatGPTAccount/LocalhostCallbackServer.swift:34:23: warning: conformance of 'NWConnection' to 'Sendable' is only available in macOS 14.0 or newer
+  7 | /// `@unchecked Sendable` is limited to this queue-confined I/O adapter; no UI work occurs here.
+  8 | /// Completion requires the listener, every accepted connection AND every submitted I/O callback.
+  9 | final class ChatGPTLocalhostCallbackServer: @unchecked Sendable {
+    |             `- note: add '@available' attribute to enclosing class
+ 10 |   static let registeredPorts = ChatGPTProtocolProfile.registeredCallbackPorts
+ 11 | 
+    :
+ 32 |   private let listener: NWListener
+ 33 |   private let queue = DispatchQueue(label: "com.openai.nativeagent.localhost-callback")
+ 34 |   private var state = ChatGPTCallbackState<NWConnection>()
+    |                       `- warning: conformance of 'NWConnection' to 'Sendable' is only available in macOS 14.0 or newer
+ 35 |   private var startID: UUID?
+ 36 |   private var startContinuation: CheckedContinuation<Void, any Error>?
+
+$NATIVEAGENT_ROOT/Providers/ChatGPT/Account/Sources/ChatGPTAccount/LocalhostCallbackServer.swift:34:56: warning: conformance of 'NWConnection' to 'Sendable' is only available in macOS 14.0 or newer
+  7 | /// `@unchecked Sendable` is limited to this queue-confined I/O adapter; no UI work occurs here.
+  8 | /// Completion requires the listener, every accepted connection AND every submitted I/O callback.
+  9 | final class ChatGPTLocalhostCallbackServer: @unchecked Sendable {
+    |             `- note: add '@available' attribute to enclosing class
+ 10 |   static let registeredPorts = ChatGPTProtocolProfile.registeredCallbackPorts
+ 11 | 
+    :
+ 32 |   private let listener: NWListener
+ 33 |   private let queue = DispatchQueue(label: "com.openai.nativeagent.localhost-callback")
+ 34 |   private var state = ChatGPTCallbackState<NWConnection>()
+    |                                                        `- warning: conformance of 'NWConnection' to 'Sendable' is only available in macOS 14.0 or newer
+ 35 |   private var startID: UUID?
+ 36 |   private var startContinuation: CheckedContinuation<Void, any Error>?
+
+$NATIVEAGENT_ROOT/Providers/ChatGPT/Account/Sources/ChatGPTAccount/LocalhostCallbackServer.swift:34:15: warning: conformance of 'NWConnection' to 'Sendable' is only available in macOS 14.0 or newer
+  7 | /// `@unchecked Sendable` is limited to this queue-confined I/O adapter; no UI work occurs here.
+  8 | /// Completion requires the listener, every accepted connection AND every submitted I/O callback.
+  9 | final class ChatGPTLocalhostCallbackServer: @unchecked Sendable {
+    |             `- note: add '@available' attribute to enclosing class
+ 10 |   static let registeredPorts = ChatGPTProtocolProfile.registeredCallbackPorts
+ 11 | 
+    :
+ 32 |   private let listener: NWListener
+ 33 |   private let queue = DispatchQueue(label: "com.openai.nativeagent.localhost-callback")
+ 34 |   private var state = ChatGPTCallbackState<NWConnection>()
+    |               `- warning: conformance of 'NWConnection' to 'Sendable' is only available in macOS 14.0 or newer
+ 35 |   private var startID: UUID?
+ 36 |   private var startContinuation: CheckedContinuation<Void, any Error>?
+[73 / 103] ChatGPTAccount
+[82 / 103] ChatGPTAccountTests-product
+$NATIVEAGENT_ROOT/Providers/ChatGPT/Account/Sources/ChatGPTAccount/LocalhostCallbackServer.swift:34:23: warning: conformance of 'NWConnection' to 'Sendable' is only available in macOS 14.0 or newer
+  7 | /// `@unchecked Sendable` is limited to this queue-confined I/O adapter; no UI work occurs here.
+  8 | /// Completion requires the listener, every accepted connection AND every submitted I/O callback.
+  9 | final class ChatGPTLocalhostCallbackServer: @unchecked Sendable {
+    |             `- note: add '@available' attribute to enclosing class
+ 10 |   static let registeredPorts = ChatGPTProtocolProfile.registeredCallbackPorts
+ 11 | 
+    :
+ 32 |   private let listener: NWListener
+ 33 |   private let queue = DispatchQueue(label: "com.openai.nativeagent.localhost-callback")
+ 34 |   private var state = ChatGPTCallbackState<NWConnection>()
+    |                       `- warning: conformance of 'NWConnection' to 'Sendable' is only available in macOS 14.0 or newer
+ 35 |   private var startID: UUID?
+ 36 |   private var startContinuation: CheckedContinuation<Void, any Error>?
+
+$NATIVEAGENT_ROOT/Providers/ChatGPT/Account/Sources/ChatGPTAccount/LocalhostCallbackServer.swift:34:56: warning: conformance of 'NWConnection' to 'Sendable' is only available in macOS 14.0 or newer
+  7 | /// `@unchecked Sendable` is limited to this queue-confined I/O adapter; no UI work occurs here.
+  8 | /// Completion requires the listener, every accepted connection AND every submitted I/O callback.
+  9 | final class ChatGPTLocalhostCallbackServer: @unchecked Sendable {
+    |             `- note: add '@available' attribute to enclosing class
+ 10 |   static let registeredPorts = ChatGPTProtocolProfile.registeredCallbackPorts
+ 11 | 
+    :
+ 32 |   private let listener: NWListener
+ 33 |   private let queue = DispatchQueue(label: "com.openai.nativeagent.localhost-callback")
+ 34 |   private var state = ChatGPTCallbackState<NWConnection>()
+    |                                                        `- warning: conformance of 'NWConnection' to 'Sendable' is only available in macOS 14.0 or newer
+ 35 |   private var startID: UUID?
+ 36 |   private var startContinuation: CheckedContinuation<Void, any Error>?
+
+$NATIVEAGENT_ROOT/Providers/ChatGPT/Account/Sources/ChatGPTAccount/LocalhostCallbackServer.swift:34:15: warning: conformance of 'NWConnection' to 'Sendable' is only available in macOS 14.0 or newer
+  7 | /// `@unchecked Sendable` is limited to this queue-confined I/O adapter; no UI work occurs here.
+  8 | /// Completion requires the listener, every accepted connection AND every submitted I/O callback.
+  9 | final class ChatGPTLocalhostCallbackServer: @unchecked Sendable {
+    |             `- note: add '@available' attribute to enclosing class
+ 10 |   static let registeredPorts = ChatGPTProtocolProfile.registeredCallbackPorts
+ 11 | 
+    :
+ 32 |   private let listener: NWListener
+ 33 |   private let queue = DispatchQueue(label: "com.openai.nativeagent.localhost-callback")
+ 34 |   private var state = ChatGPTCallbackState<NWConnection>()
+    |               `- warning: conformance of 'NWConnection' to 'Sendable' is only available in macOS 14.0 or newer
+ 35 |   private var startID: UUID?
+ 36 |   private var startContinuation: CheckedContinuation<Void, any Error>?
+
+$NATIVEAGENT_ROOT/Providers/ChatGPT/Account/Sources/ChatGPTAccount/LocalhostCallbackServer.swift:72:28: warning: conformance of 'NWConnection' to 'Sendable' is only available in macOS 14.0 or newer
+  7 | /// `@unchecked Sendable` is limited to this queue-confined I/O adapter; no UI work occurs here.
+  8 | /// Completion requires the listener, every accepted connection AND every submitted I/O callback.
+  9 | final class ChatGPTLocalhostCallbackServer: @unchecked Sendable {
+    |             `- note: add '@available' attribute to enclosing class
+ 10 |   static let registeredPorts = ChatGPTProtocolProfile.registeredCallbackPorts
+ 11 | 
+    :
+ 59 |   }
+ 60 | 
+ 61 |   func start() async throws {
+    |        `- note: add '@available' attribute to enclosing instance method
+ 62 |     try Task.checkCancellation()
+ 63 |     let cancellation = CallbackCancellation()
+    :
+ 70 |             return
+ 71 |           }
+ 72 |           guard self.state.start() else {
+    |                            |- warning: conformance of 'NWConnection' to 'Sendable' is only available in macOS 14.0 or newer
+    |                            `- note: add 'if #available' version check
+ 73 |             continuation.resume(throwing: ChatGPTLocalhostCallbackError.alreadyStarted)
+ 74 |             return
+
+$NATIVEAGENT_ROOT/Providers/ChatGPT/Account/Sources/ChatGPTAccount/LocalhostCallbackServer.swift:102:57: warning: conformance of 'NWConnection' to 'Sendable' is only available in macOS 14.0 or newer
+  7 | /// `@unchecked Sendable` is limited to this queue-confined I/O adapter; no UI work occurs here.
+  8 | /// Completion requires the listener, every accepted connection AND every submitted I/O callback.
+  9 | final class ChatGPTLocalhostCallbackServer: @unchecked Sendable {
+    |             `- note: add '@available' attribute to enclosing class
+ 10 |   static let registeredPorts = ChatGPTProtocolProfile.registeredCallbackPorts
+ 11 | 
+    :
+ 90 | 
+ 91 |   /// A cancelled waiter still joins cleanup; an unrelated second waiter never cancels the owner.
+ 92 |   func waitForCallback(until expiration: Date) async throws -> URL {
+    |        `- note: add '@available' attribute to enclosing instance method
+ 93 |     let id = UUID()
+ 94 |     let cancellation = CallbackCancellation()
+    :
+100 |             return
+101 |           }
+102 |           guard self.outcome != nil || self.state.phase == .running else {
+    |                                                         |- warning: conformance of 'NWConnection' to 'Sendable' is only available in macOS 14.0 or newer
+    |                                                         `- note: add 'if #available' version check
+103 |             continuation.resume(returning: Delivery.rejected(ChatGPTLocalhostCallbackError.callbackAlreadyConsumed))
+104 |             return
+
+$NATIVEAGENT_ROOT/Providers/ChatGPT/Account/Sources/ChatGPTAccount/LocalhostCallbackServer.swift:102:51: warning: conformance of 'NWConnection' to 'Sendable' is only available in macOS 14.0 or newer
+  7 | /// `@unchecked Sendable` is limited to this queue-confined I/O adapter; no UI work occurs here.
+  8 | /// Completion requires the listener, every accepted connection AND every submitted I/O callback.
+  9 | final class ChatGPTLocalhostCallbackServer: @unchecked Sendable {
+    |             `- note: add '@available' attribute to enclosing class
+ 10 |   static let registeredPorts = ChatGPTProtocolProfile.registeredCallbackPorts
+ 11 | 
+    :
+ 90 | 
+ 91 |   /// A cancelled waiter still joins cleanup; an unrelated second waiter never cancels the owner.
+ 92 |   func waitForCallback(until expiration: Date) async throws -> URL {
+    |        `- note: add '@available' attribute to enclosing instance method
+ 93 |     let id = UUID()
+ 94 |     let cancellation = CallbackCancellation()
+    :
+100 |             return
+101 |           }
+102 |           guard self.outcome != nil || self.state.phase == .running else {
+    |                                                   |- warning: conformance of 'NWConnection' to 'Sendable' is only available in macOS 14.0 or newer
+    |                                                   `- note: add 'if #available' version check
+103 |             continuation.resume(returning: Delivery.rejected(ChatGPTLocalhostCallbackError.callbackAlreadyConsumed))
+104 |             return
+
+$NATIVEAGENT_ROOT/Providers/ChatGPT/Account/Sources/ChatGPTAccount/LocalhostCallbackServer.swift:102:61: warning: conformance of 'NWConnection' to 'Sendable' is only available in macOS 14.0 or newer
+  7 | /// `@unchecked Sendable` is limited to this queue-confined I/O adapter; no UI work occurs here.
+  8 | /// Completion requires the listener, every accepted connection AND every submitted I/O callback.
+  9 | final class ChatGPTLocalhostCallbackServer: @unchecked Sendable {
+    |             `- note: add '@available' attribute to enclosing class
+ 10 |   static let registeredPorts = ChatGPTProtocolProfile.registeredCallbackPorts
+ 11 | 
+    :
+ 90 | 
+ 91 |   /// A cancelled waiter still joins cleanup; an unrelated second waiter never cancels the owner.
+ 92 |   func waitForCallback(until expiration: Date) async throws -> URL {
+    |        `- note: add '@available' attribute to enclosing instance method
+ 93 |     let id = UUID()
+ 94 |     let cancellation = CallbackCancellation()
+    :
+100 |             return
+101 |           }
+102 |           guard self.outcome != nil || self.state.phase == .running else {
+    |                                                             |- warning: conformance of 'NWConnection' to 'Sendable' is only available in macOS 14.0 or newer
+    |                                                             `- note: add 'if #available' version check
+103 |             continuation.resume(returning: Delivery.rejected(ChatGPTLocalhostCallbackError.callbackAlreadyConsumed))
+104 |             return
+
+$NATIVEAGENT_ROOT/Providers/ChatGPT/Account/Sources/ChatGPTAccount/LocalhostCallbackServer.swift:160:73: warning: conformance of 'NWConnection' to 'Sendable' is only available in macOS 14.0 or newer
+  7 | /// `@unchecked Sendable` is limited to this queue-confined I/O adapter; no UI work occurs here.
+  8 | /// Completion requires the listener, every accepted connection AND every submitted I/O callback.
+  9 | final class ChatGPTLocalhostCallbackServer: @unchecked Sendable {
+    |             `- note: add '@available' attribute to enclosing class
+ 10 |   static let registeredPorts = ChatGPTProtocolProfile.registeredCallbackPorts
+ 11 | 
+    :
+156 | 
+157 |   // Internal diagnostic used by the native qualification to observe actual accepted connections.
+158 |   func activeConnectionCount() async -> Int {
+    |        `- note: add '@available' attribute to enclosing instance method
+159 |     await withCheckedContinuation { continuation in
+160 |       queue.async { [self] in continuation.resume(returning: self.state.connectionCount) }
+    |                                                                         |- warning: conformance of 'NWConnection' to 'Sendable' is only available in macOS 14.0 or newer
+    |                                                                         `- note: add 'if #available' version check
+161 |     }
+162 |   }
+
+$NATIVEAGENT_ROOT/Providers/ChatGPT/Account/Sources/ChatGPTAccount/LocalhostCallbackServer.swift:202:17: warning: conformance of 'NWConnection' to 'Sendable' is only available in macOS 14.0 or newer
+  7 | /// `@unchecked Sendable` is limited to this queue-confined I/O adapter; no UI work occurs here.
+  8 | /// Completion requires the listener, every accepted connection AND every submitted I/O callback.
+  9 | final class ChatGPTLocalhostCallbackServer: @unchecked Sendable {
+    |             `- note: add '@available' attribute to enclosing class
+ 10 |   static let registeredPorts = ChatGPTProtocolProfile.registeredCallbackPorts
+ 11 | 
+    :
+198 |   }
+199 | 
+200 |   private func accept(_ connection: NWConnection) {
+    |                `- note: add '@available' attribute to enclosing instance method
+201 |     dispatchPrecondition(condition: .onQueue(queue))
+202 |     guard state.track(connection) else { connection.cancel(); return }
+    |                 |- warning: conformance of 'NWConnection' to 'Sendable' is only available in macOS 14.0 or newer
+    |                 `- note: add 'if #available' version check
+203 |     connection.stateUpdateHandler = { [weak self, weak connection] update in
+204 |       guard let self, let connection else { return }
+
+$NATIVEAGENT_ROOT/Providers/ChatGPT/Account/Sources/ChatGPTAccount/LocalhostCallbackServer.swift:208:20: warning: conformance of 'NWConnection' to 'Sendable' is only available in macOS 14.0 or newer
+  7 | /// `@unchecked Sendable` is limited to this queue-confined I/O adapter; no UI work occurs here.
+  8 | /// Completion requires the listener, every accepted connection AND every submitted I/O callback.
+  9 | final class ChatGPTLocalhostCallbackServer: @unchecked Sendable {
+    |             `- note: add '@available' attribute to enclosing class
+ 10 |   static let registeredPorts = ChatGPTProtocolProfile.registeredCallbackPorts
+ 11 | 
+    :
+198 |   }
+199 | 
+200 |   private func accept(_ connection: NWConnection) {
+    |                `- note: add '@available' attribute to enclosing instance method
+201 |     dispatchPrecondition(condition: .onQueue(queue))
+202 |     guard state.track(connection) else { connection.cancel(); return }
+    :
+206 |       switch update {
+207 |       case .cancelled:
+208 |         self.state.connectionCancelled(connection)
+    |                    |- warning: conformance of 'NWConnection' to 'Sendable' is only available in macOS 14.0 or newer
+    |                    `- note: add 'if #available' version check
+209 |         self.resolveShutdownIfSettled()
+210 |       case .failed(let error), .waiting(let error):
+
+$NATIVEAGENT_ROOT/Providers/ChatGPT/Account/Sources/ChatGPTAccount/LocalhostCallbackServer.swift:217:23: warning: conformance of 'NWConnection' to 'Sendable' is only available in macOS 14.0 or newer
+  7 | /// `@unchecked Sendable` is limited to this queue-confined I/O adapter; no UI work occurs here.
+  8 | /// Completion requires the listener, every accepted connection AND every submitted I/O callback.
+  9 | final class ChatGPTLocalhostCallbackServer: @unchecked Sendable {
+    |             `- note: add '@available' attribute to enclosing class
+ 10 |   static let registeredPorts = ChatGPTProtocolProfile.registeredCallbackPorts
+ 11 | 
+    :
+198 |   }
+199 | 
+200 |   private func accept(_ connection: NWConnection) {
+    |                `- note: add '@available' attribute to enclosing instance method
+201 |     dispatchPrecondition(condition: .onQueue(queue))
+202 |     guard state.track(connection) else { connection.cancel(); return }
+    :
+215 |     }
+216 |     connection.start(queue: queue)
+217 |     guard state.phase == .running, outcome == nil, Self.isLoopback(connection.endpoint) else {
+    |                       |- warning: conformance of 'NWConnection' to 'Sendable' is only available in macOS 14.0 or newer
+    |                       `- note: add 'if #available' version check
+218 |       cancelConnection(connection)
+219 |       return
+
+$NATIVEAGENT_ROOT/Providers/ChatGPT/Account/Sources/ChatGPTAccount/LocalhostCallbackServer.swift:217:17: warning: conformance of 'NWConnection' to 'Sendable' is only available in macOS 14.0 or newer
+  7 | /// `@unchecked Sendable` is limited to this queue-confined I/O adapter; no UI work occurs here.
+  8 | /// Completion requires the listener, every accepted connection AND every submitted I/O callback.
+  9 | final class ChatGPTLocalhostCallbackServer: @unchecked Sendable {
+    |             `- note: add '@available' attribute to enclosing class
+ 10 |   static let registeredPorts = ChatGPTProtocolProfile.registeredCallbackPorts
+ 11 | 
+    :
+198 |   }
+199 | 
+200 |   private func accept(_ connection: NWConnection) {
+    |                `- note: add '@available' attribute to enclosing instance method
+201 |     dispatchPrecondition(condition: .onQueue(queue))
+202 |     guard state.track(connection) else { connection.cancel(); return }
+    :
+215 |     }
+216 |     connection.start(queue: queue)
+217 |     guard state.phase == .running, outcome == nil, Self.isLoopback(connection.endpoint) else {
+    |                 |- warning: conformance of 'NWConnection' to 'Sendable' is only available in macOS 14.0 or newer
+    |                 `- note: add 'if #available' version check
+218 |       cancelConnection(connection)
+219 |       return
+
+$NATIVEAGENT_ROOT/Providers/ChatGPT/Account/Sources/ChatGPTAccount/LocalhostCallbackServer.swift:217:27: warning: conformance of 'NWConnection' to 'Sendable' is only available in macOS 14.0 or newer
+  7 | /// `@unchecked Sendable` is limited to this queue-confined I/O adapter; no UI work occurs here.
+  8 | /// Completion requires the listener, every accepted connection AND every submitted I/O callback.
+  9 | final class ChatGPTLocalhostCallbackServer: @unchecked Sendable {
+    |             `- note: add '@available' attribute to enclosing class
+ 10 |   static let registeredPorts = ChatGPTProtocolProfile.registeredCallbackPorts
+ 11 | 
+    :
+198 |   }
+199 | 
+200 |   private func accept(_ connection: NWConnection) {
+    |                `- note: add '@available' attribute to enclosing instance method
+201 |     dispatchPrecondition(condition: .onQueue(queue))
+202 |     guard state.track(connection) else { connection.cancel(); return }
+    :
+215 |     }
+216 |     connection.start(queue: queue)
+217 |     guard state.phase == .running, outcome == nil, Self.isLoopback(connection.endpoint) else {
+    |                           |- warning: conformance of 'NWConnection' to 'Sendable' is only available in macOS 14.0 or newer
+    |                           `- note: add 'if #available' version check
+218 |       cancelConnection(connection)
+219 |       return
+
+$NATIVEAGENT_ROOT/Providers/ChatGPT/Account/Sources/ChatGPTAccount/LocalhostCallbackServer.swift:221:17: warning: conformance of 'NWConnection' to 'Sendable' is only available in macOS 14.0 or newer
+  7 | /// `@unchecked Sendable` is limited to this queue-confined I/O adapter; no UI work occurs here.
+  8 | /// Completion requires the listener, every accepted connection AND every submitted I/O callback.
+  9 | final class ChatGPTLocalhostCallbackServer: @unchecked Sendable {
+    |             `- note: add '@available' attribute to enclosing class
+ 10 |   static let registeredPorts = ChatGPTProtocolProfile.registeredCallbackPorts
+ 11 | 
+    :
+198 |   }
+199 | 
+200 |   private func accept(_ connection: NWConnection) {
+    |                `- note: add '@available' attribute to enclosing instance method
+201 |     dispatchPrecondition(condition: .onQueue(queue))
+202 |     guard state.track(connection) else { connection.cancel(); return }
+    :
+219 |       return
+220 |     }
+221 |     guard state.connectionCount <= ChatGPTCallbackPolicy.maximumConcurrentRequests else {
+    |                 |- warning: conformance of 'NWConnection' to 'Sendable' is only available in macOS 14.0 or newer
+    |                 `- note: add 'if #available' version check
+222 |       finish(.failure(ChatGPTLocalhostCallbackError.invalidRequest))
+223 |       return
+
+$NATIVEAGENT_ROOT/Providers/ChatGPT/Account/Sources/ChatGPTAccount/LocalhostCallbackServer.swift:231:17: warning: conformance of 'NWConnection' to 'Sendable' is only available in macOS 14.0 or newer
+  7 | /// `@unchecked Sendable` is limited to this queue-confined I/O adapter; no UI work occurs here.
+  8 | /// Completion requires the listener, every accepted connection AND every submitted I/O callback.
+  9 | final class ChatGPTLocalhostCallbackServer: @unchecked Sendable {
+    |             `- note: add '@available' attribute to enclosing class
+ 10 |   static let registeredPorts = ChatGPTProtocolProfile.registeredCallbackPorts
+ 11 | 
+    :
+226 |   }
+227 | 
+228 |   private func receive(on connection: NWConnection, buffer: Data) {
+    |                `- note: add '@available' attribute to enclosing instance method
+229 |     dispatchPrecondition(condition: .onQueue(queue))
+230 |     let operation = UUID()
+231 |     guard state.beginIO(on: connection, id: operation) else { return }
+    |                 |- warning: conformance of 'NWConnection' to 'Sendable' is only available in macOS 14.0 or newer
+    |                 `- note: add 'if #available' version check
+232 |     connection.receive(minimumIncompleteLength: 1,
+233 |       maximumLength: ChatGPTCallbackPolicy.maximumRequestBytes - buffer.count) { [weak self] data, _, complete, error in
+
+$NATIVEAGENT_ROOT/Providers/ChatGPT/Account/Sources/ChatGPTAccount/LocalhostCallbackServer.swift:236:24: warning: conformance of 'NWConnection' to 'Sendable' is only available in macOS 14.0 or newer
+  7 | /// `@unchecked Sendable` is limited to this queue-confined I/O adapter; no UI work occurs here.
+  8 | /// Completion requires the listener, every accepted connection AND every submitted I/O callback.
+  9 | final class ChatGPTLocalhostCallbackServer: @unchecked Sendable {
+    |             `- note: add '@available' attribute to enclosing class
+ 10 |   static let registeredPorts = ChatGPTProtocolProfile.registeredCallbackPorts
+ 11 | 
+    :
+226 |   }
+227 | 
+228 |   private func receive(on connection: NWConnection, buffer: Data) {
+    |                `- note: add '@available' attribute to enclosing instance method
+229 |     dispatchPrecondition(condition: .onQueue(queue))
+230 |     let operation = UUID()
+    :
+234 |       guard let self else { return }
+235 |       dispatchPrecondition(condition: .onQueue(self.queue))
+236 |       guard self.state.completeIO(on: connection, id: operation) else { return }
+    |                        |- warning: conformance of 'NWConnection' to 'Sendable' is only available in macOS 14.0 or newer
+    |                        `- note: add 'if #available' version check
+237 |       defer { self.resolveShutdownIfSettled() }
+238 |       guard self.state.phase == .running, self.outcome == nil else { return }
+
+$NATIVEAGENT_ROOT/Providers/ChatGPT/Account/Sources/ChatGPTAccount/LocalhostCallbackServer.swift:238:30: warning: conformance of 'NWConnection' to 'Sendable' is only available in macOS 14.0 or newer
+  7 | /// `@unchecked Sendable` is limited to this queue-confined I/O adapter; no UI work occurs here.
+  8 | /// Completion requires the listener, every accepted connection AND every submitted I/O callback.
+  9 | final class ChatGPTLocalhostCallbackServer: @unchecked Sendable {
+    |             `- note: add '@available' attribute to enclosing class
+ 10 |   static let registeredPorts = ChatGPTProtocolProfile.registeredCallbackPorts
+ 11 | 
+    :
+226 |   }
+227 | 
+228 |   private func receive(on connection: NWConnection, buffer: Data) {
+    |                `- note: add '@available' attribute to enclosing instance method
+229 |     dispatchPrecondition(condition: .onQueue(queue))
+230 |     let operation = UUID()
+    :
+236 |       guard self.state.completeIO(on: connection, id: operation) else { return }
+237 |       defer { self.resolveShutdownIfSettled() }
+238 |       guard self.state.phase == .running, self.outcome == nil else { return }
+    |                              |- warning: conformance of 'NWConnection' to 'Sendable' is only available in macOS 14.0 or newer
+    |                              `- note: add 'if #available' version check
+239 |       var request = buffer
+240 |       if let data { request.append(data) }
+
+$NATIVEAGENT_ROOT/Providers/ChatGPT/Account/Sources/ChatGPTAccount/LocalhostCallbackServer.swift:238:24: warning: conformance of 'NWConnection' to 'Sendable' is only available in macOS 14.0 or newer
+  7 | /// `@unchecked Sendable` is limited to this queue-confined I/O adapter; no UI work occurs here.
+  8 | /// Completion requires the listener, every accepted connection AND every submitted I/O callback.
+  9 | final class ChatGPTLocalhostCallbackServer: @unchecked Sendable {
+    |             `- note: add '@available' attribute to enclosing class
+ 10 |   static let registeredPorts = ChatGPTProtocolProfile.registeredCallbackPorts
+ 11 | 
+    :
+226 |   }
+227 | 
+228 |   private func receive(on connection: NWConnection, buffer: Data) {
+    |                `- note: add '@available' attribute to enclosing instance method
+229 |     dispatchPrecondition(condition: .onQueue(queue))
+230 |     let operation = UUID()
+    :
+236 |       guard self.state.completeIO(on: connection, id: operation) else { return }
+237 |       defer { self.resolveShutdownIfSettled() }
+238 |       guard self.state.phase == .running, self.outcome == nil else { return }
+    |                        |- warning: conformance of 'NWConnection' to 'Sendable' is only available in macOS 14.0 or newer
+    |                        `- note: add 'if #available' version check
+239 |       var request = buffer
+240 |       if let data { request.append(data) }
+
+$NATIVEAGENT_ROOT/Providers/ChatGPT/Account/Sources/ChatGPTAccount/LocalhostCallbackServer.swift:238:34: warning: conformance of 'NWConnection' to 'Sendable' is only available in macOS 14.0 or newer
+  7 | /// `@unchecked Sendable` is limited to this queue-confined I/O adapter; no UI work occurs here.
+  8 | /// Completion requires the listener, every accepted connection AND every submitted I/O callback.
+  9 | final class ChatGPTLocalhostCallbackServer: @unchecked Sendable {
+    |             `- note: add '@available' attribute to enclosing class
+ 10 |   static let registeredPorts = ChatGPTProtocolProfile.registeredCallbackPorts
+ 11 | 
+    :
+226 |   }
+227 | 
+228 |   private func receive(on connection: NWConnection, buffer: Data) {
+    |                `- note: add '@available' attribute to enclosing instance method
+229 |     dispatchPrecondition(condition: .onQueue(queue))
+230 |     let operation = UUID()
+    :
+236 |       guard self.state.completeIO(on: connection, id: operation) else { return }
+237 |       defer { self.resolveShutdownIfSettled() }
+238 |       guard self.state.phase == .running, self.outcome == nil else { return }
+    |                                  |- warning: conformance of 'NWConnection' to 'Sendable' is only available in macOS 14.0 or newer
+    |                                  `- note: add 'if #available' version check
+239 |       var request = buffer
+240 |       if let data { request.append(data) }
+
+$NATIVEAGENT_ROOT/Providers/ChatGPT/Account/Sources/ChatGPTAccount/LocalhostCallbackServer.swift:257:33: warning: conformance of 'NWConnection' to 'Sendable' is only available in macOS 14.0 or newer
+  7 | /// `@unchecked Sendable` is limited to this queue-confined I/O adapter; no UI work occurs here.
+  8 | /// Completion requires the listener, every accepted connection AND every submitted I/O callback.
+  9 | final class ChatGPTLocalhostCallbackServer: @unchecked Sendable {
+    |             `- note: add '@available' attribute to enclosing class
+ 10 |   static let registeredPorts = ChatGPTProtocolProfile.registeredCallbackPorts
+ 11 | 
+    :
+252 |   }
+253 | 
+254 |   private func respond(on connection: NWConnection, result: Result<URL, any Error>) {
+    |                `- note: add '@available' attribute to enclosing instance method
+255 |     dispatchPrecondition(condition: .onQueue(queue))
+256 |     let operation = UUID()
+257 |     guard outcome == nil, state.beginIO(on: connection, id: operation, response: true) else {
+    |                                 |- warning: conformance of 'NWConnection' to 'Sendable' is only available in macOS 14.0 or newer
+    |                                 `- note: add 'if #available' version check
+258 |       cancelConnection(connection)
+259 |       return
+
+$NATIVEAGENT_ROOT/Providers/ChatGPT/Account/Sources/ChatGPTAccount/LocalhostCallbackServer.swift:276:24: warning: conformance of 'NWConnection' to 'Sendable' is only available in macOS 14.0 or newer
+  7 | /// `@unchecked Sendable` is limited to this queue-confined I/O adapter; no UI work occurs here.
+  8 | /// Completion requires the listener, every accepted connection AND every submitted I/O callback.
+  9 | final class ChatGPTLocalhostCallbackServer: @unchecked Sendable {
+    |             `- note: add '@available' attribute to enclosing class
+ 10 |   static let registeredPorts = ChatGPTProtocolProfile.registeredCallbackPorts
+ 11 | 
+    :
+252 |   }
+253 | 
+254 |   private func respond(on connection: NWConnection, result: Result<URL, any Error>) {
+    |                `- note: add '@available' attribute to enclosing instance method
+255 |     dispatchPrecondition(condition: .onQueue(queue))
+256 |     let operation = UUID()
+    :
+274 |       guard let self else { return }
+275 |       dispatchPrecondition(condition: .onQueue(self.queue))
+276 |       guard self.state.completeIO(on: connection, id: operation) else { return }
+    |                        |- warning: conformance of 'NWConnection' to 'Sendable' is only available in macOS 14.0 or newer
+    |                        `- note: add 'if #available' version check
+277 |       self.cancelConnection(connection)
+278 |       self.resolveShutdownIfSettled()
+
+$NATIVEAGENT_ROOT/Providers/ChatGPT/Account/Sources/ChatGPTAccount/LocalhostCallbackServer.swift:293:32: warning: conformance of 'NWConnection' to 'Sendable' is only available in macOS 14.0 or newer
+  7 | /// `@unchecked Sendable` is limited to this queue-confined I/O adapter; no UI work occurs here.
+  8 | /// Completion requires the listener, every accepted connection AND every submitted I/O callback.
+  9 | final class ChatGPTLocalhostCallbackServer: @unchecked Sendable {
+    |             `- note: add '@available' attribute to enclosing class
+ 10 |   static let registeredPorts = ChatGPTProtocolProfile.registeredCallbackPorts
+ 11 | 
+    :
+283 |   }
+284 | 
+285 |   private func finish(_ result: Result<URL, any Error>, preservingResponse: NWConnection? = nil) {
+    |                `- note: add '@available' attribute to enclosing instance method
+286 |     dispatchPrecondition(condition: .onQueue(queue))
+287 |     guard outcome == nil else { return }
+    :
+291 |     deliver(result)
+292 |     if case .failure(let error) = result { resolveStart(.failure(error)) }
+293 |     let cancelListener = state.stopListener()
+    |                                |- warning: conformance of 'NWConnection' to 'Sendable' is only available in macOS 14.0 or newer
+    |                                `- note: add 'if #available' version check
+294 |     cancelConnections(preservingResponse: preservingResponse)
+295 |     if cancelListener { listener.cancel() }
+
+$NATIVEAGENT_ROOT/Providers/ChatGPT/Account/Sources/ChatGPTAccount/LocalhostCallbackServer.swift:296:15: warning: conformance of 'NWConnection' to 'Sendable' is only available in macOS 14.0 or newer
+  7 | /// `@unchecked Sendable` is limited to this queue-confined I/O adapter; no UI work occurs here.
+  8 | /// Completion requires the listener, every accepted connection AND every submitted I/O callback.
+  9 | final class ChatGPTLocalhostCallbackServer: @unchecked Sendable {
+    |             `- note: add '@available' attribute to enclosing class
+ 10 |   static let registeredPorts = ChatGPTProtocolProfile.registeredCallbackPorts
+ 11 | 
+    :
+283 |   }
+284 | 
+285 |   private func finish(_ result: Result<URL, any Error>, preservingResponse: NWConnection? = nil) {
+    |                `- note: add '@available' attribute to enclosing instance method
+286 |     dispatchPrecondition(condition: .onQueue(queue))
+287 |     guard outcome == nil else { return }
+    :
+294 |     cancelConnections(preservingResponse: preservingResponse)
+295 |     if cancelListener { listener.cancel() }
+296 |     if !state.isDrained {
+    |               |- warning: conformance of 'NWConnection' to 'Sendable' is only available in macOS 14.0 or newer
+    |               `- note: add 'if #available' version check
+297 |       let deadline = DispatchWorkItem { [weak self] in
+298 |         guard let self, !self.state.isDrained else { return }
+
+$NATIVEAGENT_ROOT/Providers/ChatGPT/Account/Sources/ChatGPTAccount/LocalhostCallbackServer.swift:298:37: warning: conformance of 'NWConnection' to 'Sendable' is only available in macOS 14.0 or newer
+  7 | /// `@unchecked Sendable` is limited to this queue-confined I/O adapter; no UI work occurs here.
+  8 | /// Completion requires the listener, every accepted connection AND every submitted I/O callback.
+  9 | final class ChatGPTLocalhostCallbackServer: @unchecked Sendable {
+    |             `- note: add '@available' attribute to enclosing class
+ 10 |   static let registeredPorts = ChatGPTProtocolProfile.registeredCallbackPorts
+ 11 | 
+    :
+283 |   }
+284 | 
+285 |   private func finish(_ result: Result<URL, any Error>, preservingResponse: NWConnection? = nil) {
+    |                `- note: add '@available' attribute to enclosing instance method
+286 |     dispatchPrecondition(condition: .onQueue(queue))
+287 |     guard outcome == nil else { return }
+    :
+296 |     if !state.isDrained {
+297 |       let deadline = DispatchWorkItem { [weak self] in
+298 |         guard let self, !self.state.isDrained else { return }
+    |                                     |- warning: conformance of 'NWConnection' to 'Sendable' is only available in macOS 14.0 or newer
+    |                                     `- note: add 'if #available' version check
+299 |         self.shutdownFailure = ChatGPTLocalhostCallbackError.shutdownTimedOut
+300 |         self.cancelConnections()
+
+$NATIVEAGENT_ROOT/Providers/ChatGPT/Account/Sources/ChatGPTAccount/LocalhostCallbackServer.swift:313:25: warning: conformance of 'NWConnection' to 'Sendable' is only available in macOS 14.0 or newer
+  7 | /// `@unchecked Sendable` is limited to this queue-confined I/O adapter; no UI work occurs here.
+  8 | /// Completion requires the listener, every accepted connection AND every submitted I/O callback.
+  9 | final class ChatGPTLocalhostCallbackServer: @unchecked Sendable {
+    |             `- note: add '@available' attribute to enclosing class
+ 10 |   static let registeredPorts = ChatGPTProtocolProfile.registeredCallbackPorts
+ 11 | 
+    :
+307 |   }
+308 | 
+309 |   private func handle(_ update: NWListener.State) {
+    |                `- note: add '@available' attribute to enclosing instance method
+310 |     dispatchPrecondition(condition: .onQueue(queue))
+311 |     switch update {
+312 |     case .ready:
+313 |       guard state.phase == .starting else { return }
+    |                         |- warning: conformance of 'NWConnection' to 'Sendable' is only available in macOS 14.0 or newer
+    |                         `- note: add 'if #available' version check
+314 |       guard listener.port?.rawValue == port else {
+315 |         finish(.failure(ChatGPTFailure(.invalidConfiguration)))
+
+$NATIVEAGENT_ROOT/Providers/ChatGPT/Account/Sources/ChatGPTAccount/LocalhostCallbackServer.swift:313:19: warning: conformance of 'NWConnection' to 'Sendable' is only available in macOS 14.0 or newer
+  7 | /// `@unchecked Sendable` is limited to this queue-confined I/O adapter; no UI work occurs here.
+  8 | /// Completion requires the listener, every accepted connection AND every submitted I/O callback.
+  9 | final class ChatGPTLocalhostCallbackServer: @unchecked Sendable {
+    |             `- note: add '@available' attribute to enclosing class
+ 10 |   static let registeredPorts = ChatGPTProtocolProfile.registeredCallbackPorts
+ 11 | 
+    :
+307 |   }
+308 | 
+309 |   private func handle(_ update: NWListener.State) {
+    |                `- note: add '@available' attribute to enclosing instance method
+310 |     dispatchPrecondition(condition: .onQueue(queue))
+311 |     switch update {
+312 |     case .ready:
+313 |       guard state.phase == .starting else { return }
+    |                   |- warning: conformance of 'NWConnection' to 'Sendable' is only available in macOS 14.0 or newer
+    |                   `- note: add 'if #available' version check
+314 |       guard listener.port?.rawValue == port else {
+315 |         finish(.failure(ChatGPTFailure(.invalidConfiguration)))
+
+$NATIVEAGENT_ROOT/Providers/ChatGPT/Account/Sources/ChatGPTAccount/LocalhostCallbackServer.swift:313:29: warning: conformance of 'NWConnection' to 'Sendable' is only available in macOS 14.0 or newer
+  7 | /// `@unchecked Sendable` is limited to this queue-confined I/O adapter; no UI work occurs here.
+  8 | /// Completion requires the listener, every accepted connection AND every submitted I/O callback.
+  9 | final class ChatGPTLocalhostCallbackServer: @unchecked Sendable {
+    |             `- note: add '@available' attribute to enclosing class
+ 10 |   static let registeredPorts = ChatGPTProtocolProfile.registeredCallbackPorts
+ 11 | 
+    :
+307 |   }
+308 | 
+309 |   private func handle(_ update: NWListener.State) {
+    |                `- note: add '@available' attribute to enclosing instance method
+310 |     dispatchPrecondition(condition: .onQueue(queue))
+311 |     switch update {
+312 |     case .ready:
+313 |       guard state.phase == .starting else { return }
+    |                             |- warning: conformance of 'NWConnection' to 'Sendable' is only available in macOS 14.0 or newer
+    |                             `- note: add 'if #available' version check
+314 |       guard listener.port?.rawValue == port else {
+315 |         finish(.failure(ChatGPTFailure(.invalidConfiguration)))
+
+$NATIVEAGENT_ROOT/Providers/ChatGPT/Account/Sources/ChatGPTAccount/LocalhostCallbackServer.swift:318:16: warning: conformance of 'NWConnection' to 'Sendable' is only available in macOS 14.0 or newer
+  7 | /// `@unchecked Sendable` is limited to this queue-confined I/O adapter; no UI work occurs here.
+  8 | /// Completion requires the listener, every accepted connection AND every submitted I/O callback.
+  9 | final class ChatGPTLocalhostCallbackServer: @unchecked Sendable {
+    |             `- note: add '@available' attribute to enclosing class
+ 10 |   static let registeredPorts = ChatGPTProtocolProfile.registeredCallbackPorts
+ 11 | 
+    :
+307 |   }
+308 | 
+309 |   private func handle(_ update: NWListener.State) {
+    |                `- note: add '@available' attribute to enclosing instance method
+310 |     dispatchPrecondition(condition: .onQueue(queue))
+311 |     switch update {
+    :
+316 |         return
+317 |       }
+318 |       if state.ready() { resolveStart(.success(())) }
+    |                |- warning: conformance of 'NWConnection' to 'Sendable' is only available in macOS 14.0 or newer
+    |                `- note: add 'if #available' version check
+319 |     case .waiting(let error), .failed(let error):
+320 |       finish(.failure(error))
+
+$NATIVEAGENT_ROOT/Providers/ChatGPT/Account/Sources/ChatGPTAccount/LocalhostCallbackServer.swift:324:13: warning: conformance of 'NWConnection' to 'Sendable' is only available in macOS 14.0 or newer
+  7 | /// `@unchecked Sendable` is limited to this queue-confined I/O adapter; no UI work occurs here.
+  8 | /// Completion requires the listener, every accepted connection AND every submitted I/O callback.
+  9 | final class ChatGPTLocalhostCallbackServer: @unchecked Sendable {
+    |             `- note: add '@available' attribute to enclosing class
+ 10 |   static let registeredPorts = ChatGPTProtocolProfile.registeredCallbackPorts
+ 11 | 
+    :
+307 |   }
+308 | 
+309 |   private func handle(_ update: NWListener.State) {
+    |                `- note: add '@available' attribute to enclosing instance method
+310 |     dispatchPrecondition(condition: .onQueue(queue))
+311 |     switch update {
+    :
+322 |       // Unexpected cancellation still terminates any pending callback and start waiter.
+323 |       finish(.failure(CancellationError()))
+324 |       state.listenerCancelled()
+    |             |- warning: conformance of 'NWConnection' to 'Sendable' is only available in macOS 14.0 or newer
+    |             `- note: add 'if #available' version check
+325 |       resolveStart(.failure(CancellationError()))
+326 |       resolveShutdownIfSettled()
+
+$NATIVEAGENT_ROOT/Providers/ChatGPT/Account/Sources/ChatGPTAccount/LocalhostCallbackServer.swift:339:11: warning: conformance of 'NWConnection' to 'Sendable' is only available in macOS 14.0 or newer
+  7 | /// `@unchecked Sendable` is limited to this queue-confined I/O adapter; no UI work occurs here.
+  8 | /// Completion requires the listener, every accepted connection AND every submitted I/O callback.
+  9 | final class ChatGPTLocalhostCallbackServer: @unchecked Sendable {
+    |             `- note: add '@available' attribute to enclosing class
+ 10 |   static let registeredPorts = ChatGPTProtocolProfile.registeredCallbackPorts
+ 11 | 
+    :
+336 |   }
+337 | 
+338 |   private func cancelConnection(_ connection: NWConnection) {
+    |                `- note: add '@available' attribute to enclosing instance method
+339 |     state.cancel(connection)?.cancel()
+    |           |- warning: conformance of 'NWConnection' to 'Sendable' is only available in macOS 14.0 or newer
+    |           `- note: add 'if #available' version check
+340 |   }
+341 | 
+
+$NATIVEAGENT_ROOT/Providers/ChatGPT/Account/Sources/ChatGPTAccount/LocalhostCallbackServer.swift:343:11: warning: conformance of 'NWConnection' to 'Sendable' is only available in macOS 14.0 or newer
+  7 | /// `@unchecked Sendable` is limited to this queue-confined I/O adapter; no UI work occurs here.
+  8 | /// Completion requires the listener, every accepted connection AND every submitted I/O callback.
+  9 | final class ChatGPTLocalhostCallbackServer: @unchecked Sendable {
+    |             `- note: add '@available' attribute to enclosing class
+ 10 |   static let registeredPorts = ChatGPTProtocolProfile.registeredCallbackPorts
+ 11 | 
+    :
+340 |   }
+341 | 
+342 |   private func cancelConnections(preservingResponse: NWConnection? = nil) {
+    |                `- note: add '@available' attribute to enclosing instance method
+343 |     state.cancelConnections(preserving: preservingResponse).forEach { $0.cancel() }
+    |           |- warning: conformance of 'NWConnection' to 'Sendable' is only available in macOS 14.0 or newer
+    |           `- note: add 'if #available' version check
+344 |   }
+345 | 
+
+$NATIVEAGENT_ROOT/Providers/ChatGPT/Account/Sources/ChatGPTAccount/LocalhostCallbackServer.swift:354:19: warning: conformance of 'NWConnection' to 'Sendable' is only available in macOS 14.0 or newer
+  7 | /// `@unchecked Sendable` is limited to this queue-confined I/O adapter; no UI work occurs here.
+  8 | /// Completion requires the listener, every accepted connection AND every submitted I/O callback.
+  9 | final class ChatGPTLocalhostCallbackServer: @unchecked Sendable {
+    |             `- note: add '@available' attribute to enclosing class
+ 10 |   static let registeredPorts = ChatGPTProtocolProfile.registeredCallbackPorts
+ 11 | 
+    :
+350 |   }
+351 | 
+352 |   private func joinShutdown(_ continuation: CheckedContinuation<Void, any Error>) {
+    |                `- note: add '@available' attribute to enclosing instance method
+353 |     if let shutdownFailure { continuation.resume(throwing: shutdownFailure) }
+354 |     else if state.isDrained { continuation.resume() }
+    |                   |- warning: conformance of 'NWConnection' to 'Sendable' is only available in macOS 14.0 or newer
+    |                   `- note: add 'if #available' version check
+355 |     else { shutdownContinuations.append(continuation) }
+356 |   }
+
+$NATIVEAGENT_ROOT/Providers/ChatGPT/Account/Sources/ChatGPTAccount/LocalhostCallbackServer.swift:365:17: warning: conformance of 'NWConnection' to 'Sendable' is only available in macOS 14.0 or newer
+  7 | /// `@unchecked Sendable` is limited to this queue-confined I/O adapter; no UI work occurs here.
+  8 | /// Completion requires the listener, every accepted connection AND every submitted I/O callback.
+  9 | final class ChatGPTLocalhostCallbackServer: @unchecked Sendable {
+    |             `- note: add '@available' attribute to enclosing class
+ 10 |   static let registeredPorts = ChatGPTProtocolProfile.registeredCallbackPorts
+ 11 | 
+    :
+362 |   }
+363 | 
+364 |   private func resolveShutdownIfSettled() {
+    |                `- note: add '@available' attribute to enclosing instance method
+365 |     guard state.isDrained || shutdownFailure != nil else { return }
+    |                 |- warning: conformance of 'NWConnection' to 'Sendable' is only available in macOS 14.0 or newer
+    |                 `- note: add 'if #available' version check
+366 |     shutdownDeadline?.cancel()
+367 |     shutdownDeadline = nil
+[85 / 103]
+$NATIVEAGENT_ROOT/Providers/ChatGPT/Account/Sources/ChatGPTAccount/LocalhostCallbackServer.swift:34:23: warning: conformance of 'NWConnection' to 'Sendable' is only available in macOS 14.0 or newer
+  7 | /// `@unchecked Sendable` is limited to this queue-confined I/O adapter; no UI work occurs here.
+  8 | /// Completion requires the listener, every accepted connection AND every submitted I/O callback.
+  9 | final class ChatGPTLocalhostCallbackServer: @unchecked Sendable {
+    |             `- note: add '@available' attribute to enclosing class
+ 10 |   static let registeredPorts = ChatGPTProtocolProfile.registeredCallbackPorts
+ 11 | 
+    :
+ 32 |   private let listener: NWListener
+ 33 |   private let queue = DispatchQueue(label: "com.openai.nativeagent.localhost-callback")
+ 34 |   private var state = ChatGPTCallbackState<NWConnection>()
+    |                       `- warning: conformance of 'NWConnection' to 'Sendable' is only available in macOS 14.0 or newer
+ 35 |   private var startID: UUID?
+ 36 |   private var startContinuation: CheckedContinuation<Void, any Error>?
+
+$NATIVEAGENT_ROOT/Providers/ChatGPT/Account/Sources/ChatGPTAccount/LocalhostCallbackServer.swift:34:56: warning: conformance of 'NWConnection' to 'Sendable' is only available in macOS 14.0 or newer
+  7 | /// `@unchecked Sendable` is limited to this queue-confined I/O adapter; no UI work occurs here.
+  8 | /// Completion requires the listener, every accepted connection AND every submitted I/O callback.
+  9 | final class ChatGPTLocalhostCallbackServer: @unchecked Sendable {
+    |             `- note: add '@available' attribute to enclosing class
+ 10 |   static let registeredPorts = ChatGPTProtocolProfile.registeredCallbackPorts
+ 11 | 
+    :
+ 32 |   private let listener: NWListener
+ 33 |   private let queue = DispatchQueue(label: "com.openai.nativeagent.localhost-callback")
+ 34 |   private var state = ChatGPTCallbackState<NWConnection>()
+    |                                                        `- warning: conformance of 'NWConnection' to 'Sendable' is only available in macOS 14.0 or newer
+ 35 |   private var startID: UUID?
+ 36 |   private var startContinuation: CheckedContinuation<Void, any Error>?
+[89 / 103] ChatGPTAccount
+[93 / 104] ChatGPTAccountTests-product
+[94 / 117]
+[100 / 117] ChatGPTAccountTests-product
+[102 / 117] ChatGPTAccountTests-product
+[109 / 117] ChatGPTAccountTests-product
+[111 / 117] ChatGPTAccountTests-product
+[113 / 117] ChatGPTAccountTests-product
+Build complete! (6.90초)
+Test Suite 'All tests' started at 2026-09-20 22:42:35.230.
+Test Suite 'All tests' passed at 2026-09-20 22:42:35.231.
+	 Executed 0 tests, with 0 failures (0 unexpected) in 0.000 (0.001) seconds
+◇ Test run started.
+↳ Testing Library Version: 2084
+↳ Target Platform: arm64e-apple-macos14.0
+◇ Test callbackZeroLengthAndCaseInsensitiveHeaderNamesRemainValid() started.
+◇ Test callbackLifecycleIsOneShotAndUnusedCancelHasNoNativeReceipt() started.
+◇ Test signInAfterLogoutReportsAuthorizationAndCanBeLoggedOutAgain() started.
+◇ Test callbackCancelledReadCannotSubmitAnotherReadOrResponse() started.
+◇ Test refreshRejectionPreservesOnlyRecoverableCredentials(status:code:deletes:) started.
+◇ Test callbackShutdownRequiresListenerAndEveryAcceptedConnection() started.
+◇ Test concurrentSignOutsShareCleanup() started.
+◇ Test signOutJoinsRefreshBeforeDeletingCredentials() started.
+◇ Test permanentRejectionDeleteFailureBlocksExistingAuthorization() started.
+◇ Test lastConsumerCancellationStillCancelsOrdinarySharedWork() started.
+◇ Test callbackDrainIsIndependentOfReceiptOrder(order:) started.
+◇ Test callbackDuplicateReadyCancelAndConnectionReceiptsAreIdempotent() started.
+◇ Test callbackResourceLivesUntilItsLastReceipt() started.
+◇ Test clockInjectionControlsExpirationWithoutWallClockSleeps() started.
+◇ Test replacementWaitsForOldRefreshAndCannotCommitItsLateToken() started.
+◇ Test deleteFailureBlocksAccessUntilExplicitSuccessfulSignOut() started.
+◇ Test signOutBlocksNewAuthorizationUntilCleanupSettles() started.
+◇ Test simultaneousExpiredCredentialReadsUseOneRefresh() started.
+◇ Suite CallbackNativeTests started.
+◇ Test invalidExpirationDurationIsRejected(seconds:) started.
+◇ Test nonfiniteCredentialExpirationIsRejected(seconds:) started.
+◇ Test callbackSelectedResponseIsRetainedWhileOtherConnectionsAreCancelled() started.
+◇ Test signInCommitsOnlyValidatedAccount() started.
+◇ Test callbackRejectsConcurrentAndPostResponseIO() started.
+◇ Test logoutWinsAgainstLateCallback() started.
+◇ Test cancelledAccessDoesNotStartRefresh() started.
+◇ Test cancelledReplacementReleasesItsAdmissionGateAfterJoiningRefresh() started.
+◇ Test callbackFailureStopsListenerAndPreservesFailedStop(failStop:) started.
+◇ Test unsafeAccountHeaderValuesAreRejected(value:) started.
+◇ Test callbackParserKeepsEveryTruncatedValidPrefixIncomplete() started.
+◇ Test invalidOAuthCallbackNeverDispatchesTokenExchange(callback:) started.
+◇ Test callbackInvalidEncodingAndUnregisteredRedirectAreRejected() started.
+◇ Test cancelledSignOutCallerStillJoinsCleanup() started.
+◇ Test accountRetainsEveryAlreadyAdmittedFailedOperation() started.
+◇ Test callbackSizeBoundaryIncludesHeaderTerminator() started.
+◇ Test callbackDuplicateAndStaleIOCannotSettleNewReceive() started.
+◇ Test failedRefreshDrainCannotBeRetriedOrReportedAsSuccessfulLogout() started.
+◇ Test cancelledCleanupWaiterCannotCancelOwnedSharedTask() started.
+◇ Test authenticationRetryPolicyIsTotalOverIntegerInputs(attempt:) started.
+◇ Test callbackBodySmugglingAndMalformedHeadersAreRejected(header:) started.
+◇ Test callbackRejectedConnectionDuringShutdownIsStillOwned() started.
+◇ Test cancelledSignInCleanupCallerStillWaitsForListenerStop() started.
+◇ Test transportDrainFailureDuringSignInBlocksNewAccountWork() started.
+◇ Test expirationBoundaryIsDeterministic(seconds:) started.
+◇ Test failedAuthenticatedGETDrainRemainsBlockedAfterCredentialsAreDeleted() started.
+◇ Test callbackCompleteInvalidRequestIsRejectedImmediately(request:) started.
+◇ Test transportReceiptFailureIsJoinedOnceAndOverridesParsingFailure() started.
+◇ Test callbackPipelinedOrTrailingBodyIsInvalid() started.
+◇ Test callbackParserAcceptsOnlyTheSelectedEndpoint() started.
+◇ Test refreshPersistenceFailureNeverReusesPossiblyRotatedRefreshToken() started.
+◇ Test staleAuthorizationSnapshotIsInvalidAfterSignOut() started.
+◇ Test case passing 3 arguments status → 401, code → "invalid_token", deletes → true to refreshRejectionPreservesOnlyRecoverableCredentials(status:code:deletes:) started.
+◇ Test case passing 3 arguments status → 429, code → "rate_limited", deletes → false to refreshRejectionPreservesOnlyRecoverableCredentials(status:code:deletes:) started.
+◇ Test case passing 3 arguments status → 400, code → "invalid_grant", deletes → true to refreshRejectionPreservesOnlyRecoverableCredentials(status:code:deletes:) started.
+◇ Test case passing 3 arguments status → 503, code → "unavailable", deletes → false to refreshRejectionPreservesOnlyRecoverableCredentials(status:code:deletes:) started.
+◇ Test case passing 3 arguments status → 429, code → "invalid_grant", deletes → false to refreshRejectionPreservesOnlyRecoverableCredentials(status:code:deletes:) started.
+◇ Test case passing 1 argument order → [0, 1, 2] to callbackDrainIsIndependentOfReceiptOrder(order:) started.
+◇ Test case passing 1 argument order → [1, 0, 2] to callbackDrainIsIndependentOfReceiptOrder(order:) started.
+◇ Test case passing 1 argument order → [0, 2, 1] to callbackDrainIsIndependentOfReceiptOrder(order:) started.
+◇ Test case passing 1 argument order → [1, 2, 0] to callbackDrainIsIndependentOfReceiptOrder(order:) started.
+◇ Test case passing 3 arguments status → 503, code → "invalid_grant", deletes → false to refreshRejectionPreservesOnlyRecoverableCredentials(status:code:deletes:) started.
+◇ Test case passing 1 argument order → [2, 0, 1] to callbackDrainIsIndependentOfReceiptOrder(order:) started.
+◇ Test case passing 1 argument order → [2, 1, 0] to callbackDrainIsIndependentOfReceiptOrder(order:) started.
+◇ Test case passing 1 argument seconds → -1.0 to invalidExpirationDurationIsRejected(seconds:) started.
+◇ Test case passing 1 argument seconds → 0.0 to invalidExpirationDurationIsRejected(seconds:) started.
+◇ Test case passing 1 argument failStop → false to callbackFailureStopsListenerAndPreservesFailedStop(failStop:) started.
+◇ Test case passing 1 argument seconds → nan to nonfiniteCredentialExpirationIsRejected(seconds:) started.
+◇ Test case passing 1 argument value → "" to unsafeAccountHeaderValuesAreRejected(value:) started.
+◇ Test case passing 1 argument seconds → 59.0 to invalidExpirationDurationIsRejected(seconds:) started.
+◇ Test case passing 1 argument value → "space id" to unsafeAccountHeaderValuesAreRejected(value:) started.
+◇ Test case passing 1 argument failStop → true to callbackFailureStopsListenerAndPreservesFailedStop(failStop:) started.
+◇ Test case passing 1 argument seconds → inf to invalidExpirationDurationIsRejected(seconds:) started.
+◇ Test case passing 1 argument seconds → inf to nonfiniteCredentialExpirationIsRejected(seconds:) started.
+◇ Test case passing 1 argument callback → "http://localhost:1455/auth/callback?state=wrong&code=code" to invalidOAuthCallbackNeverDispatchesTokenExchange(callback:) started.
+◇ Test case passing 1 argument value → "line
+injected:yes" to unsafeAccountHeaderValuesAreRejected(value:) started.
+◇ Test case passing 1 argument seconds → nan to invalidExpirationDurationIsRejected(seconds:) started.
+◇ Test case passing 1 argument value → "tab	" to unsafeAccountHeaderValuesAreRejected(value:) started.
+◇ Test case passing 1 argument callback → "http://localhost:1455/auth/callback?state=test-state&state=test-state&code=code" to invalidOAuthCallbackNeverDispatchesTokenExchange(callback:) started.
+◇ Test case passing 1 argument seconds → -inf to nonfiniteCredentialExpirationIsRejected(seconds:) started.
+◇ Test case passing 1 argument seconds → 31536001.0 to invalidExpirationDurationIsRejected(seconds:) started.
+◇ Test case passing 1 argument value → "del" to unsafeAccountHeaderValuesAreRejected(value:) started.
+◇ Test case passing 1 argument callback → "http://localhost:1457/auth/callback?state=test-state&code=code" to invalidOAuthCallbackNeverDispatchesTokenExchange(callback:) started.
+◇ Test case passing 1 argument value → "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx" to unsafeAccountHeaderValuesAreRejected(value:) started.
+◇ Test case passing 1 argument callback → "http://attacker.invalid:1455/auth/callback?state=test-state&code=code" to invalidOAuthCallbackNeverDispatchesTokenExchange(callback:) started.
+◇ Test case passing 1 argument callback → "http://localhost:1455/auth/callback?state=test-state&code=code#fragment" to invalidOAuthCallbackNeverDispatchesTokenExchange(callback:) started.
+◇ Test case passing 1 argument callback → "http://localhost:1455/other?state=test-state&code=code" to invalidOAuthCallbackNeverDispatchesTokenExchange(callback:) started.
+◇ Test case passing 1 argument value → "unicode한" to unsafeAccountHeaderValuesAreRejected(value:) started.
+◇ Test case passing 1 argument header → "Content-Length: 8" to callbackBodySmugglingAndMalformedHeadersAreRejected(header:) started.
+◇ Test case passing 1 argument attempt → -9223372036854775808 to authenticationRetryPolicyIsTotalOverIntegerInputs(attempt:) started.
+◇ Test case passing 1 argument attempt → -1 to authenticationRetryPolicyIsTotalOverIntegerInputs(attempt:) started.
+◇ Test case passing 1 argument header → "Content-Length: -1" to callbackBodySmugglingAndMalformedHeadersAreRejected(header:) started.
+◇ Test case passing 1 argument attempt → 1 to authenticationRetryPolicyIsTotalOverIntegerInputs(attempt:) started.
+◇ Test case passing 1 argument header → "Host: localhost:1455" to callbackBodySmugglingAndMalformedHeadersAreRejected(header:) started.
+◇ Test case passing 1 argument header → "X Header: invalid" to callbackBodySmugglingAndMalformedHeadersAreRejected(header:) started.
+◇ Test case passing 1 argument header → "Content-Length: 0
+Content-Length: 0" to callbackBodySmugglingAndMalformedHeadersAreRejected(header:) started.
+◇ Test case passing 1 argument header → "X-Test: bad◇ Test case passing 1 argument header → "X-Test : whitespace" to callbackBodySmugglingAndMalformedHeadersAreRejected(header:) started.
+◇ Test case passing 1 argument header → "Transfer-Encoding: chunked" to callbackBodySmugglingAndMalformedHeadersAreRejected(header:) started.
+◇ Test case passing 1 argument attempt → 0 to authenticationRetryPolicyIsTotalOverIntegerInputs(attempt:) started.
+◇ Test case passing 1 argument attempt → 2 to authenticationRetryPolicyIsTotalOverIntegerInputs(attempt:) started.
+◇ Test case passing 1 argument header → "X-Test: bad" to callbackBodySmugglingAndMalformedHeadersAreRejected(header:) started.
+◇ Test case passing 1 argument header → " folded: value" to callbackBodySmugglingAndMalformedHeadersAreRejected(header:) started.
+◇ Test case passing 1 argument request → "POST /auth/callback HTTP/1.1
+Host: localhost:1455
+
+" to callbackCompleteInvalidRequestIsRejectedImmediately(request:) started.
+◇ Test case passing 1 argument seconds → 60.0 to expirationBoundaryIsDeterministic(seconds:) started.
+◇ Test case passing 1 argument attempt → 9223372036854775807 to authenticationRetryPolicyIsTotalOverIntegerInputs(attempt:) started.
+◇ Test case passing 1 argument request → "GET /other HTTP/1.1
+Host: localhost:1455
+
+" to callbackCompleteInvalidRequestIsRejectedImmediately(request:) started.
+◇ Test case passing 1 argument request → "GET /auth/%63allback HTTP/1.1
+Host: localhost:1455
+
+" to callbackCompleteInvalidRequestIsRejectedImmediately(request:) started.
+◇ Test case passing 1 argument request → "GET //attacker.invalid/auth/callback HTTP/1.1
+Host: localhost:1455
+
+" to callbackCompleteInvalidRequestIsRejectedImmediately(request:) started.
+◇ Test case passing 1 argument request → "GET /auth/callback#fragment HTTP/1.1
+Host: localhost:1455
+
+" to callbackCompleteInvalidRequestIsRejectedImmediately(request:) started.
+◇ Test case passing 1 argument request → "GET /auth/callback HTTP/1.0
+Host: localhost:1455
+
+" to callbackCompleteInvalidRequestIsRejectedImmediately(request:) started.
+◇ Test case passing 1 argument request → "GET  /auth/callback HTTP/1.1
+Host: localhost:1455
+
+" to callbackCompleteInvalidRequestIsRejectedImmediately(request:) started.
+◇ Test case passing 1 argument request → "GET /auth/callback HTTP/1.1
+Host: localhost:1457
+
+" to callbackCompleteInvalidRequestIsRejectedImmediately(request:) started.
+◇ Test case passing 1 argument request → "GET /auth/callback HTTP/1.1
+
+" to callbackCompleteInvalidRequestIsRejectedImmediately(request:) started.
+◇ Test case passing 1 argument seconds → 31536000.0 to expirationBoundaryIsDeterministic(seconds:) started.
+✔ Test callbackLifecycleIsOneShotAndUnusedCancelHasNoNativeReceipt() passed after 0.001 seconds.
+◇ Test case passing 1 argument request → "GET /auth/callback HTTP/1.1
+Host: evil.invalid:1455
+
+" to callbackCompleteInvalidRequestIsRejectedImmediately(request:) started.
+✔ Test callbackCancelledReadCannotSubmitAnotherReadOrResponse() passed after 0.001 seconds.
+✔ Test callbackShutdownRequiresListenerAndEveryAcceptedConnection() passed after 0.001 seconds.
+✔ Test callbackDuplicateReadyCancelAndConnectionReceiptsAreIdempotent() passed after 0.001 seconds.
+✔ Test callbackDrainIsIndependentOfReceiptOrder(order:) with 6 test cases passed after 0.001 seconds.
+✔ Test callbackResourceLivesUntilItsLastReceipt() passed after 0.001 seconds.
+◇ Test "A callback is one-shot and cleanup permits an immediate rebind" started.
+✔ Test callbackRejectsConcurrentAndPostResponseIO() passed after 0.004 seconds.
+✔ Test callbackSelectedResponseIsRetainedWhileOtherConnectionsAreCancelled() passed after 0.004 seconds.
+✔ Test callbackParserKeepsEveryTruncatedValidPrefixIncomplete() passed after 0.004 seconds.
+✔ Test invalidExpirationDurationIsRejected(seconds:) with 6 test cases passed after 0.004 seconds.
+✔ Test unsafeAccountHeaderValuesAreRejected(value:) with 7 test cases passed after 0.004 seconds.
+✔ Test callbackZeroLengthAndCaseInsensitiveHeaderNamesRemainValid() passed after 0.004 seconds.
+✔ Test callbackInvalidEncodingAndUnregisteredRedirectAreRejected() passed after 0.004 seconds.
+✔ Test callbackDuplicateAndStaleIOCannotSettleNewReceive() passed after 0.004 seconds.
+✔ Test nonfiniteCredentialExpirationIsRejected(seconds:) with 3 test cases passed after 0.004 seconds.
+✔ Test callbackBodySmugglingAndMalformedHeadersAreRejected(header:) with 10 test cases passed after 0.004 seconds.
+✔ Test expirationBoundaryIsDeterministic(seconds:) with 2 test cases passed after 0.004 seconds.
+✔ Test authenticationRetryPolicyIsTotalOverIntegerInputs(attempt:) with 6 test cases passed after 0.004 seconds.
+✔ Test callbackRejectedConnectionDuringShutdownIsStillOwned() passed after 0.004 seconds.
+✔ Test callbackPipelinedOrTrailingBodyIsInvalid() passed after 0.004 seconds.
+✔ Test callbackParserAcceptsOnlyTheSelectedEndpoint() passed after 0.004 seconds.
+✔ Test callbackCompleteInvalidRequestIsRejectedImmediately(request:) with 10 test cases passed after 0.004 seconds.
+✔ Test callbackSizeBoundaryIncludesHeaderTerminator() passed after 0.004 seconds.
+✔ Test cancelledAccessDoesNotStartRefresh() passed after 0.005 seconds.
+✔ Test clockInjectionControlsExpirationWithoutWallClockSleeps() passed after 0.005 seconds.
+✔ Test refreshRejectionPreservesOnlyRecoverableCredentials(status:code:deletes:) with 6 test cases passed after 0.005 seconds.
+✔ Test deleteFailureBlocksAccessUntilExplicitSuccessfulSignOut() passed after 0.005 seconds.
+✔ Test staleAuthorizationSnapshotIsInvalidAfterSignOut() passed after 0.005 seconds.
+✔ Test permanentRejectionDeleteFailureBlocksExistingAuthorization() passed after 0.005 seconds.
+✔ Test cancelledCleanupWaiterCannotCancelOwnedSharedTask() passed after 0.005 seconds.
+✔ Test refreshPersistenceFailureNeverReusesPossiblyRotatedRefreshToken() passed after 0.005 seconds.
+✔ Test lastConsumerCancellationStillCancelsOrdinarySharedWork() passed after 0.006 seconds.
+✔ Test signInCommitsOnlyValidatedAccount() passed after 0.006 seconds.
+✔ Test signInAfterLogoutReportsAuthorizationAndCanBeLoggedOutAgain() passed after 0.006 seconds.
+✔ Test invalidOAuthCallbackNeverDispatchesTokenExchange(callback:) with 6 test cases passed after 0.006 seconds.
+✔ Test concurrentSignOutsShareCleanup() passed after 0.006 seconds.
+✔ Test signOutJoinsRefreshBeforeDeletingCredentials() passed after 0.006 seconds.
+✔ Test transportReceiptFailureIsJoinedOnceAndOverridesParsingFailure() passed after 0.006 seconds.
+✔ Test cancelledSignInCleanupCallerStillWaitsForListenerStop() passed after 0.006 seconds.
+✔ Test callbackFailureStopsListenerAndPreservesFailedStop(failStop:) with 2 test cases passed after 0.006 seconds.
+✔ Test replacementWaitsForOldRefreshAndCannotCommitItsLateToken() passed after 0.006 seconds.
+✔ Test signOutBlocksNewAuthorizationUntilCleanupSettles() passed after 0.006 seconds.
+✔ Test logoutWinsAgainstLateCallback() passed after 0.006 seconds.
+✔ Test cancelledSignOutCallerStillJoinsCleanup() passed after 0.006 seconds.
+✔ Test accountRetainsEveryAlreadyAdmittedFailedOperation() passed after 0.006 seconds.
+✔ Test cancelledReplacementReleasesItsAdmissionGateAfterJoiningRefresh() passed after 0.006 seconds.
+✔ Test simultaneousExpiredCredentialReadsUseOneRefresh() passed after 0.006 seconds.
+✔ Test failedAuthenticatedGETDrainRemainsBlockedAfterCredentialsAreDeleted() passed after 0.006 seconds.
+✔ Test transportDrainFailureDuringSignInBlocksNewAccountWork() passed after 0.006 seconds.
+✔ Test failedRefreshDrainCannotBeRetriedOrReportedAsSuccessfulLogout() passed after 0.006 seconds.
+✔ Test "A callback is one-shot and cleanup permits an immediate rebind" passed after 0.031 seconds.
+◇ Test "A callback delivered before the waiter is installed is not lost" started.
+✔ Test "A callback delivered before the waiter is installed is not lost" passed after 0.001 seconds.
+◇ Test "Repeated start, cancel, and rebind cycles keep ownership serialized" started.
+✔ Test "Repeated start, cancel, and rebind cycles keep ownership serialized" passed after 0.001 seconds.
+◇ Test "Cancellation during startup and callback wait is observable and cleaned up" started.
+✔ Test "Cancellation during startup and callback wait is observable and cleaned up" passed after 0.001 seconds.
+◇ Test "Timeout waits for cleanup before the port can be rebound" started.
+✔ Test "Timeout waits for cleanup before the port can be rebound" passed after 0.013 seconds.
+◇ Test "A typed address-in-use construction failure selects only the fallback port" started.
+✔ Test "A typed address-in-use construction failure selects only the fallback port" passed after 0.001 seconds.
+◇ Test "Both registered ports produce an explicit occupied error" started.
+✔ Test "Both registered ports produce an explicit occupied error" passed after 0.001 seconds.
+◇ Test "A non-EADDRINUSE construction error never scans the fallback" started.
+✔ Test "A non-EADDRINUSE construction error never scans the fallback" passed after 0.001 seconds.
+◇ Test "Admission overflow fails explicitly and drains every accepted connection" started.
+✔ Test "Admission overflow fails explicitly and drains every accepted connection" passed after 0.007 seconds.
+◇ Test "Cancel joins a stalled accepted request, not just the listening socket" started.
+✔ Test "Cancel joins a stalled accepted request, not just the listening socket" passed after 0.006 seconds.
+◇ Test "Timeout drains multiple accepted connections" started.
+✔ Test "Timeout drains multiple accepted connections" passed after 0.060 seconds.
+◇ Test "Success also drains an unrelated stalled connection" started.
+✔ Test "Success also drains an unrelated stalled connection" passed after 0.008 seconds.
+◇ Test "Complete invalid headers are rejected without waiting for OAuth expiration" started.
+✔ Test "Complete invalid headers are rejected without waiting for OAuth expiration" passed after 0.001 seconds.
+◇ Test "A cancelled caller cannot turn a cached callback into success" started.
+✔ Test "A cancelled caller cannot turn a cached callback into success" passed after 0.001 seconds.
+✔ Suite CallbackNativeTests passed after 0.136 seconds.
+✔ Test run with 64 tests in 1 suite passed after 0.137 seconds.

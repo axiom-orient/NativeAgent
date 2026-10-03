@@ -1,0 +1,105 @@
+Test Suite 'All tests' started at 2026-09-20 06:56:52.357
+Test Suite 'debug.xctest' started at 2026-09-20 06:56:52.358
+Test Suite 'debug.xctest' passed at 2026-09-20 06:56:52.358
+	 Executed 0 tests, with 0 failures (0 unexpected) in 0.0 (0.0) seconds
+Test Suite 'All tests' passed at 2026-09-20 06:56:52.358
+	 Executed 0 tests, with 0 failures (0 unexpected) in 0.0 (0.0) seconds
+◇ Test run started.
+↳ Testing Library Version: 6.2.1 (c9d57c83568b06d)
+↳ Target Platform: x86_64-unknown-linux-gnu
+◇ Test unsafeAccountHeaderValuesAreRejected(value:) started.
+◇ Test cancelledSignOutCallerStillJoinsCleanup() started.
+◇ Test logoutWinsAgainstLateCallback() started.
+◇ Test transportDrainFailureDuringSignInBlocksNewAccountWork() started.
+◇ Test invalidExpirationDurationIsRejected(seconds:) started.
+◇ Test expirationBoundaryIsDeterministic(seconds:) started.
+◇ Test refreshPersistenceFailureNeverReusesPossiblyRotatedRefreshToken() started.
+◇ Test accountRetainsEveryAlreadyAdmittedFailedOperation() started.
+◇ Test transportReceiptFailureIsJoinedOnceAndOverridesParsingFailure() started.
+◇ Test concurrentSignOutsShareCleanup() started.
+◇ Test cancelledAccessDoesNotStartRefresh() started.
+◇ Test invalidOAuthCallbackNeverDispatchesTokenExchange(callback:) started.
+◇ Test cancelledCleanupWaiterCannotCancelOwnedSharedTask() started.
+◇ Test cancelledSignInCleanupCallerStillWaitsForListenerStop() started.
+◇ Test lastConsumerCancellationStillCancelsOrdinarySharedWork() started.
+◇ Test signOutJoinsRefreshBeforeDeletingCredentials() started.
+◇ Test failedAuthenticatedGETDrainRemainsBlockedAfterCredentialsAreDeleted() started.
+◇ Test nonfiniteCredentialExpirationIsRejected(seconds:) started.
+◇ Test clockInjectionControlsExpirationWithoutWallClockSleeps() started.
+◇ Test cancelledReplacementReleasesItsAdmissionGateAfterJoiningRefresh() started.
+◇ Test callbackFailureStopsListenerAndPreservesFailedStop(failStop:) started.
+◇ Test permanentRejectionDeleteFailureBlocksExistingAuthorization() started.
+◇ Test deleteFailureBlocksAccessUntilExplicitSuccessfulSignOut() started.
+◇ Test signInCommitsOnlyValidatedAccount() started.
+◇ Test staleAuthorizationSnapshotIsInvalidAfterSignOut() started.
+◇ Test replacementWaitsForOldRefreshAndCannotCommitItsLateToken() started.
+◇ Test signInAfterLogoutReportsAuthorizationAndCanBeLoggedOutAgain() started.
+◇ Test refreshRejectionPreservesOnlyRecoverableCredentials(status:code:deletes:) started.
+◇ Test simultaneousExpiredCredentialReadsUseOneRefresh() started.
+◇ Test failedRefreshDrainCannotBeRetriedOrReportedAsSuccessfulLogout() started.
+◇ Test signOutBlocksNewAuthorizationUntilCleanupSettles() started.
+◇ Test case passing 1 argument value → "space id" to unsafeAccountHeaderValuesAreRejected(value:) started.
+◇ Test case passing 1 argument value → "" to unsafeAccountHeaderValuesAreRejected(value:) started.
+◇ Test case passing 1 argument seconds → 0.0 to invalidExpirationDurationIsRejected(seconds:) started.
+◇ Test case passing 1 argument seconds → -1.0 to invalidExpirationDurationIsRejected(seconds:) started.
+◇ Test case passing 1 argument value → "line
+injected:yes" to unsafeAccountHeaderValuesAreRejected(value:) started.
+◇ Test case passing 1 argument seconds → 59.0 to invalidExpirationDurationIsRejected(seconds:) started.
+◇ Test case passing 1 argument value → "tab	" to unsafeAccountHeaderValuesAreRejected(value:) started.
+◇ Test case passing 1 argument value → "del" to unsafeAccountHeaderValuesAreRejected(value:) started.
+◇ Test case passing 1 argument value → "unicode한" to unsafeAccountHeaderValuesAreRejected(value:) started.
+◇ Test case passing 1 argument seconds → inf to invalidExpirationDurationIsRejected(seconds:) started.
+◇ Test case passing 1 argument value → "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx" to unsafeAccountHeaderValuesAreRejected(value:) started.
+◇ Test case passing 1 argument seconds → 31536001.0 to invalidExpirationDurationIsRejected(seconds:) started.
+◇ Test case passing 1 argument seconds → nan to invalidExpirationDurationIsRejected(seconds:) started.
+◇ Test case passing 1 argument seconds → 60.0 to expirationBoundaryIsDeterministic(seconds:) started.
+◇ Test case passing 1 argument seconds → 31536000.0 to expirationBoundaryIsDeterministic(seconds:) started.
+◇ Test case passing 1 argument callback → "http://localhost:1455/auth/callback?state=test-state&state=test-state&code=code" to invalidOAuthCallbackNeverDispatchesTokenExchange(callback:) started.
+◇ Test case passing 1 argument callback → "http://localhost:1457/auth/callback?state=test-state&code=code" to invalidOAuthCallbackNeverDispatchesTokenExchange(callback:) started.
+◇ Test case passing 1 argument callback → "http://attacker.invalid:1455/auth/callback?state=test-state&code=code" to invalidOAuthCallbackNeverDispatchesTokenExchange(callback:) started.
+◇ Test case passing 1 argument callback → "http://localhost:1455/other?state=test-state&code=code" to invalidOAuthCallbackNeverDispatchesTokenExchange(callback:) started.
+◇ Test case passing 1 argument callback → "http://localhost:1455/auth/callback?state=test-state&code=code#fragment" to invalidOAuthCallbackNeverDispatchesTokenExchange(callback:) started.
+◇ Test case passing 1 argument callback → "http://localhost:1455/auth/callback?state=wrong&code=code" to invalidOAuthCallbackNeverDispatchesTokenExchange(callback:) started.
+◇ Test case passing 1 argument seconds → inf to nonfiniteCredentialExpirationIsRejected(seconds:) started.
+◇ Test case passing 1 argument seconds → -inf to nonfiniteCredentialExpirationIsRejected(seconds:) started.
+◇ Test case passing 1 argument seconds → nan to nonfiniteCredentialExpirationIsRejected(seconds:) started.
+◇ Test case passing 1 argument failStop → false to callbackFailureStopsListenerAndPreservesFailedStop(failStop:) started.
+◇ Test case passing 1 argument failStop → true to callbackFailureStopsListenerAndPreservesFailedStop(failStop:) started.
+◇ Test case passing 3 arguments status → 400, code → "invalid_grant", deletes → true to refreshRejectionPreservesOnlyRecoverableCredentials(status:code:deletes:) started.
+◇ Test case passing 3 arguments status → 401, code → "invalid_token", deletes → true to refreshRejectionPreservesOnlyRecoverableCredentials(status:code:deletes:) started.
+◇ Test case passing 3 arguments status → 429, code → "rate_limited", deletes → false to refreshRejectionPreservesOnlyRecoverableCredentials(status:code:deletes:) started.
+◇ Test case passing 3 arguments status → 503, code → "unavailable", deletes → false to refreshRejectionPreservesOnlyRecoverableCredentials(status:code:deletes:) started.
+◇ Test case passing 3 arguments status → 429, code → "invalid_grant", deletes → false to refreshRejectionPreservesOnlyRecoverableCredentials(status:code:deletes:) started.
+◇ Test case passing 3 arguments status → 503, code → "invalid_grant", deletes → false to refreshRejectionPreservesOnlyRecoverableCredentials(status:code:deletes:) started.
+✔ Test unsafeAccountHeaderValuesAreRejected(value:) with 7 test cases passed after 0.008 seconds.
+✔ Test invalidExpirationDurationIsRejected(seconds:) with 6 test cases passed after 0.008 seconds.
+✔ Test expirationBoundaryIsDeterministic(seconds:) with 2 test cases passed after 0.008 seconds.
+✔ Test nonfiniteCredentialExpirationIsRejected(seconds:) with 3 test cases passed after 0.008 seconds.
+✔ Test transportReceiptFailureIsJoinedOnceAndOverridesParsingFailure() passed after 0.011 seconds.
+✔ Test cancelledAccessDoesNotStartRefresh() passed after 0.011 seconds.
+✔ Test clockInjectionControlsExpirationWithoutWallClockSleeps() passed after 0.012 seconds.
+✔ Test staleAuthorizationSnapshotIsInvalidAfterSignOut() passed after 0.012 seconds.
+✔ Test deleteFailureBlocksAccessUntilExplicitSuccessfulSignOut() passed after 0.013 seconds.
+✔ Test invalidOAuthCallbackNeverDispatchesTokenExchange(callback:) with 6 test cases passed after 0.014 seconds.
+✔ Test permanentRejectionDeleteFailureBlocksExistingAuthorization() passed after 0.013 seconds.
+✔ Test refreshPersistenceFailureNeverReusesPossiblyRotatedRefreshToken() passed after 0.015 seconds.
+✔ Test signInCommitsOnlyValidatedAccount() passed after 0.013 seconds.
+✔ Test failedAuthenticatedGETDrainRemainsBlockedAfterCredentialsAreDeleted() passed after 0.014 seconds.
+✔ Test cancelledCleanupWaiterCannotCancelOwnedSharedTask() passed after 0.014 seconds.
+✔ Test callbackFailureStopsListenerAndPreservesFailedStop(failStop:) with 2 test cases passed after 0.014 seconds.
+✔ Test signInAfterLogoutReportsAuthorizationAndCanBeLoggedOutAgain() passed after 0.014 seconds.
+✔ Test lastConsumerCancellationStillCancelsOrdinarySharedWork() passed after 0.015 seconds.
+✔ Test signOutJoinsRefreshBeforeDeletingCredentials() passed after 0.015 seconds.
+✔ Test transportDrainFailureDuringSignInBlocksNewAccountWork() passed after 0.016 seconds.
+✔ Test concurrentSignOutsShareCleanup() passed after 0.015 seconds.
+✔ Test cancelledSignInCleanupCallerStillWaitsForListenerStop() passed after 0.015 seconds.
+✔ Test refreshRejectionPreservesOnlyRecoverableCredentials(status:code:deletes:) with 6 test cases passed after 0.014 seconds.
+✔ Test cancelledSignOutCallerStillJoinsCleanup() passed after 0.016 seconds.
+✔ Test accountRetainsEveryAlreadyAdmittedFailedOperation() passed after 0.016 seconds.
+✔ Test signOutBlocksNewAuthorizationUntilCleanupSettles() passed after 0.015 seconds.
+✔ Test logoutWinsAgainstLateCallback() passed after 0.016 seconds.
+✔ Test replacementWaitsForOldRefreshAndCannotCommitItsLateToken() passed after 0.015 seconds.
+✔ Test cancelledReplacementReleasesItsAdmissionGateAfterJoiningRefresh() passed after 0.016 seconds.
+✔ Test simultaneousExpiredCredentialReadsUseOneRefresh() passed after 0.016 seconds.
+✔ Test failedRefreshDrainCannotBeRetriedOrReportedAsSuccessfulLogout() passed after 0.018 seconds.
+✔ Test run with 31 tests in 0 suites passed after 0.021 seconds.

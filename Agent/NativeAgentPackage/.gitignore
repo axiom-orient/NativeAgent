@@ -1,0 +1,13 @@
+# macOS metadata
+.DS_Store
+._*
+
+# SwiftPM and Xcode build products
+**/.build/
+**/.swiftpm/
+**/DerivedData/
+**/xcuserdata/
+
+# Xcode local workspace state
+**/project.xcworkspace/xcuserdata/
+**/*.xcuserstate

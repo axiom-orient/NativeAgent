@@ -1,0 +1,26 @@
+{
+  "page_url": "https://example.com/handbook",
+  "expected": {
+    "title": "Parsing handbook",
+    "canonical_url": "https://example.com/handbook",
+    "language": null,
+    "description": null,
+    "published_at": null,
+    "site_name": null,
+    "markdown": "# Parsing handbook\n\n> Prefer structural signals over brittle regex-only paths. Keep fallback paths narrow.\n\n```\nlet stable = true\nprint(stable)\n```\n\nCode blocks should survive with line breaks.\n",
+    "fragments": [
+      {
+        "heading": "Parsing handbook",
+        "text": "> Prefer structural signals over brittle regex-only paths. Keep fallback paths narrow."
+      },
+      {
+        "heading": "Parsing handbook",
+        "text": "```\nlet stable = true\nprint(stable)\n```"
+      },
+      {
+        "heading": "Parsing handbook",
+        "text": "Code blocks should survive with line breaks."
+      }
+    ]
+  }
+}

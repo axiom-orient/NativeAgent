@@ -1,0 +1,72 @@
+[
+  {
+    "name": "chatgpt-composition",
+    "command": [
+      "swift",
+      "test",
+      "--package-path",
+      "Qualification/ChatGPTCompositionChecks",
+      "--scratch-path",
+      "$DATA_ROOT/build/full-chatgpt",
+      "-j",
+      "4",
+      "-Xswiftc",
+      "-warnings-as-errors"
+    ],
+    "exitCode": 1,
+    "status": "FAILED_ENVIRONMENT",
+    "reason": "no such module CryptoKit; full module and new producer tests not typechecked or executed",
+    "log": "chatgpt-composition-environment.log"
+  },
+  {
+    "name": "artifact",
+    "command": [
+      "swift",
+      "test",
+      "--package-path",
+      "Model/ModelArtifactStore",
+      "--scratch-path",
+      "$DATA_ROOT/build/artifact",
+      "-j",
+      "4",
+      "-Xswiftc",
+      "-warnings-as-errors"
+    ],
+    "exitCode": 1,
+    "log": "artifact-environment.log"
+  },
+  {
+    "name": "ask-agent",
+    "command": [
+      "swift",
+      "test",
+      "--package-path",
+      "Knowledge/ASK/Packages/ASKAgentTools",
+      "--scratch-path",
+      "$DATA_ROOT/build/ask-agent",
+      "-j",
+      "4",
+      "-Xswiftc",
+      "-warnings-as-errors"
+    ],
+    "exitCode": 1,
+    "log": "ask-agent-environment.log"
+  },
+  {
+    "name": "mcp",
+    "command": [
+      "swift",
+      "test",
+      "--package-path",
+      "Agent/NativeAgent/Packages/NativeAgentMCP",
+      "--scratch-path",
+      "$DATA_ROOT/build/mcp",
+      "-j",
+      "4",
+      "-Xswiftc",
+      "-warnings-as-errors"
+    ],
+    "exitCode": 1,
+    "log": "mcp-environment.log"
+  }
+]

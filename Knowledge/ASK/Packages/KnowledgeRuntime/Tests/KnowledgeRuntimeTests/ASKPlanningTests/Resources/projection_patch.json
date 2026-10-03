@@ -1,0 +1,73 @@
+{
+  "authority_records": [],
+  "claim_evidence": [],
+  "claims": [],
+  "evidence": [],
+  "generated_at": "2026-04-07T10:09:00Z",
+  "operations": [
+    {
+      "log_id": "log_873e4b254fd32e7c",
+      "occurred_at": "2026-04-07T10:09:00Z",
+      "op_kind": "projection_refresh",
+      "summary": "projection refresh triggered by authority_changed"
+    }
+  ],
+  "patch_id": "patch_1a7772a2d9b15ce1",
+  "patch_kind": "projection_refresh",
+  "projection_invalidations": [
+    {
+      "created_at": "2026-04-07T10:09:00Z",
+      "invalidation_id": "invalidate_d6774524d71fa73e",
+      "reason": "authority_changed",
+      "slug": "current/project/ask",
+      "triggered_by_patch_id": "patch_1a7772a2d9b15ce1"
+    }
+  ],
+  "projection_writes": [
+    {
+      "document": {
+        "body_md": "# ASK\n\nCurrent version is 0.3.0.",
+        "generated_at": "2026-04-07T10:08:00Z",
+        "generated_from_hash": "e06d6e414bcfbcd0",
+        "metadata": {
+          "approval_required": false,
+          "authority_ids": [
+            "authority_candidate"
+          ],
+          "claim_ids": [
+            "claim_demo"
+          ],
+          "historical": false,
+          "projection_kind": "current_snapshot",
+          "projection_space": "wiki",
+          "source_ids": [
+            "src_demo"
+          ],
+          "source_version_checksums": {},
+          "subject_id": "ask",
+          "subject_kind": "project"
+        },
+        "slug": "current/project/ask",
+        "title": "ASK Current Snapshot",
+        "version": "knowledge-projection-document.v3"
+      },
+      "slug": "current/project/ask",
+      "state": "draft"
+    }
+  ],
+  "review_items": [],
+  "source_fragments": [],
+  "source_receipts": [],
+  "verification": {
+    "disposition": "auto_publish",
+    "patch_id": "patch_1a7772a2d9b15ce1",
+    "reasons": [
+      "safe_projection_refresh"
+    ],
+    "requires_human_approval": false,
+    "requires_human_choice": false,
+    "risk_level": "low"
+  },
+  "version": "knowledge-patch-plan.v2",
+  "warnings": []
+}

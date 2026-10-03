@@ -1,0 +1,951 @@
+{
+  "schemaVersion": 1,
+  "revision": "9dc3e342cab1a0f5",
+  "prompts": [
+    {
+      "id": "IR-01",
+      "title": "음식 사진 → 전통 일본 목판화 정물",
+      "summary": "음식의 정체성과 플레이팅을 유지하면서 사진적 표현만 에도시대 음식 정물 목판화 언어로 변환한다.",
+      "mode": "REFERENCE_IMAGE_REQUIRED",
+      "category": "food-style-transfer",
+      "source": "universal/reference-image-required/IR-01-food_photo_to_ukiyoe_prompt.md",
+      "template": "Transform the uploaded food photograph into a refined traditional Japanese woodblock-print food still life inspired by Edo-period food prints and surimono.\n\nREFERENCE AUTHORITY:\n- Treat the uploaded image as the source of truth for identity, geometry, count, relative placement, pose/viewpoint, crop, and distinctive features unless the user explicitly asks to change them.\n- Apply the requested visual transformation to the existing scene rather than silently redesigning it.\n- If a detail is unclear, simplify it instead of inventing a replacement.\n- Do not add text, logos, props, people, limbs, accessories, objects, or background elements unless explicitly requested.\n\nFOOD FIDELITY:\n- Preserve the exact cuisine, dish identity, ingredient count, vessel shapes, plating, garnish placement, camera viewpoint, crop, and major color relationships.\n- Do not convert non-Japanese cuisine into Japanese cuisine.\n- Do not invent side dishes, utensils, ingredients, decorative tableware, scenery, waves, mountains, flowers, or cultural motifs.\n\nPRINT LANGUAGE:\n- Translate photographic detail into flat hand-printed color fields, thin-to-medium sumi-like contours, restrained carved-line detail, and slightly simplified dimensional modeling.\n- Use subtle woodgrain, dry-print texture, gentle ink absorption, and slightly imperfect registration.\n- Use a restrained palette derived from the source: muted indigo, teal, vermilion, iron red, ochre, warm brown, moss green, charcoal, warm ivory, and faded beige.\n- Keep important food colors recognizable while reducing saturation and tonal range.\n- Remove glossy reflections, HDR, lens blur, shallow depth of field, cinematic grading, plastic surfaces, and modern 3D shading.\n\nPAPER AND BACKGROUND:\n- Render on warm off-white handmade washi with subtle fibers, mild age variation, and very light foxing.\n- Preserve only background elements essential to the presentation; otherwise simplify toward quiet negative space.\n\nTEXT POLICY:\n- By default, add no writing, signatures, seals, logos, or pseudo-characters.\n- If exact calligraphy text is explicitly supplied, place only that text in available negative space with one small red seal if requested.\n\nQUALITY TARGET:\nThe result should look carefully printed on paper: quiet, tactile, flat, restrained, slightly aged, compositionally precise, and immediately recognizable as the same food scene.",
+      "variables": [
+        "CALLIGRAPHY_TEXT",
+        "ADD_SEAL",
+        "BACKGROUND_RETENTION"
+      ],
+      "failureCriteria": [
+        "음식 종류나 요리 문화권이 바뀜",
+        "음식/그릇 개수, 배치, 시점, 크롭이 달라짐",
+        "임의의 일본어·로고·인장·장식이 추가됨",
+        "디지털 페인팅/애니/3D 렌더처럼 보임",
+        "종이 오염이나 노화가 음식보다 강해짐"
+      ],
+      "requiredVariables": [],
+      "defaults": {
+        "CALLIGRAPHY_TEXT": "none",
+        "ADD_SEAL": "no",
+        "BACKGROUND_RETENTION": "minimal"
+      }
+    },
+    {
+      "id": "IR-02",
+      "title": "사진 → 세련된 3D 애니메이션 캐릭터 초상",
+      "summary": "인물의 정체성·헤어·표정·의상을 보존한 채 브랜드 비의존적인 고품질 3D 애니메이션 캐릭터로 변환한다.",
+      "mode": "REFERENCE_IMAGE_REQUIRED",
+      "category": "character-transform",
+      "source": "universal/reference-image-required/IR-02-polished-3d-character-portrait.md",
+      "template": "Transform the uploaded person into a polished, friendly 3D animated character portrait with a premium family-animation look.\n\nREFERENCE AUTHORITY:\n- Treat the uploaded image as the source of truth for identity, geometry, count, relative placement, pose/viewpoint, crop, and distinctive features unless the user explicitly asks to change them.\n- Apply the requested visual transformation to the existing scene rather than silently redesigning it.\n- If a detail is unclear, simplify it instead of inventing a replacement.\n- Do not add text, logos, props, people, limbs, accessories, objects, or background elements unless explicitly requested.\n\nIDENTITY FIDELITY:\n- Preserve recognizable facial structure, skin tone, hairstyle, expression, age cues, eyewear, outfit, and distinctive features.\n- Stylize proportions gently; do not replace the person with a generic character archetype.\n\nRENDERING:\n- Use clean rounded forms, soft physically plausible shading, expressive but proportional eyes, simplified materials, and tidy silhouette design.\n- Keep skin texture smooth but not plastic; preserve natural asymmetry that supports likeness.\n- Use clean studio-quality lighting without dramatic relighting unless requested.\n\nBACKGROUND:\n- Default to a plain neutral studio background. Preserve the original environment only when `BACKGROUND_MODE=preserve`.\n\nAvoid brand-specific character design, exaggerated baby proportions, face replacement, costume redesign, extra accessories, text, logos, and watermarks.",
+      "variables": [
+        "BACKGROUND_MODE",
+        "STYLIZATION",
+        "MATERIAL_DETAIL"
+      ],
+      "failureCriteria": [
+        "얼굴이 다른 사람처럼 바뀜",
+        "의상·표정·헤어가 임의 변경됨",
+        "과도한 아기 비율/거대 눈",
+        "브랜드 고유 캐릭터를 모사함"
+      ],
+      "requiredVariables": [],
+      "defaults": {
+        "BACKGROUND_MODE": "neutral",
+        "STYLIZATION": "medium",
+        "MATERIAL_DETAIL": "balanced"
+      }
+    },
+    {
+      "id": "IR-03",
+      "title": "사진 → 손그림·종이 콜라주 어린이 만화 캐릭터",
+      "summary": "사진 속 인물을 손으로 오리고 그린 듯한 어린이 책·콜라주 만화 미감으로 변환한다.",
+      "mode": "REFERENCE_IMAGE_REQUIRED",
+      "category": "character-transform",
+      "source": "universal/reference-image-required/IR-03-cut-paper-childrens-cartoon.md",
+      "template": "Transform the subject in the uploaded image into a playful hand-drawn children's storybook character made from loose ink lines, flat paper-like color shapes, and imperfect cut-paper collage textures.\n\nREFERENCE AUTHORITY:\n- Treat the uploaded image as the source of truth for identity, geometry, count, relative placement, pose/viewpoint, crop, and distinctive features unless the user explicitly asks to change them.\n- Apply the requested visual transformation to the existing scene rather than silently redesigning it.\n- If a detail is unclear, simplify it instead of inventing a replacement.\n- Do not add text, logos, props, people, limbs, accessories, objects, or background elements unless explicitly requested.\n\nIDENTITY:\n- Preserve the subject's recognizable face, hairstyle, outfit colors, pose, expression, and major proportions.\n- Simplify details into childlike graphic shapes without making the subject unrecognizable.\n\nSTYLE:\n- Use irregular pencil/ink contours, flat matte colors, visible paper texture, naive handmade cut edges, and sparse collage marks.\n- Keep the result intentionally imperfect and tactile rather than glossy, vector-clean, or 3D.\n- Default background: simple off-white paper with only minimal shapes needed to support the original scene.\n\nAvoid imitating any named television/book franchise, exact proprietary character design, photoreal rendering, anime, polished 3D, or excessive decoration.",
+      "variables": [
+        "BACKGROUND_MODE",
+        "PAPER_TEXTURE"
+      ],
+      "failureCriteria": [
+        "특정 프랜차이즈 캐릭터를 그대로 모사함",
+        "인물 식별성이 사라짐",
+        "3D/벡터처럼 지나치게 매끈함",
+        "원본 포즈·의상이 불필요하게 변경됨"
+      ],
+      "requiredVariables": [],
+      "defaults": {
+        "BACKGROUND_MODE": "paper",
+        "PAPER_TEXTURE": "light"
+      }
+    },
+    {
+      "id": "IR-04",
+      "title": "캐릭터 이미지 → 정체성 보존 재렌더",
+      "summary": "기존 캐릭터의 디자인을 바꾸지 않고 새로운 렌더·배경·장면에 안전하게 재사용한다.",
+      "mode": "REFERENCE_IMAGE_REQUIRED",
+      "category": "character-reference",
+      "source": "universal/reference-image-required/IR-04-exact-character-reference-render.md",
+      "template": "Use the uploaded character image as the authoritative design reference and render that same character in the requested scene.\n\nREFERENCE AUTHORITY:\n- Treat the uploaded image as the source of truth for identity, geometry, count, relative placement, pose/viewpoint, crop, and distinctive features unless the user explicitly asks to change them.\n- Apply the requested visual transformation to the existing scene rather than silently redesigning it.\n- If a detail is unclear, simplify it instead of inventing a replacement.\n- Do not add text, logos, props, people, limbs, accessories, objects, or background elements unless explicitly requested.\n\nCHARACTER LOCK:\n- Preserve exact recognizable proportions, silhouette, facial structure, hairstyle, colors, materials, textures, outfit construction, accessories, markings, and design-specific asymmetries.\n- Do not redesign, modernize, beautify, simplify, or reinterpret the character unless explicitly requested.\n- New pose and camera angle are allowed only when they remain physically consistent with the reference design.\n\nSCENE:\n- Apply `SCENE_DESCRIPTION`, `CAMERA`, and `LIGHTING` to the environment while keeping the character design locked.\n- Resolve unseen surfaces conservatively from visible evidence; avoid inventing major features.\n\nOUTPUT:\n- Keep material response and rendering style consistent across the whole character.\n- No text, logo, watermark, extra accessories, costume swaps, or anatomy changes.",
+      "variables": [
+        "SCENE_DESCRIPTION",
+        "CAMERA",
+        "LIGHTING"
+      ],
+      "failureCriteria": [
+        "캐릭터의 비율/색/재질/의상이 바뀜",
+        "보이지 않던 부분을 과도하게 창작함",
+        "새 액세서리나 마킹이 추가됨",
+        "장면 변화가 캐릭터 디자인 변화로 번짐"
+      ],
+      "requiredVariables": [
+        "SCENE_DESCRIPTION"
+      ],
+      "defaults": {
+        "CAMERA": "preserve reference viewpoint",
+        "LIGHTING": "preserve reference lighting"
+      }
+    },
+    {
+      "id": "IR-05",
+      "title": "사진/캐릭터 → 범용 메신저 스티커 시트",
+      "summary": "한 인물/캐릭터의 정체성을 유지하면서 다양한 표정의 메신저 스티커 세트를 만든다.",
+      "mode": "REFERENCE_IMAGE_REQUIRED",
+      "category": "sticker-sheet",
+      "source": "universal/reference-image-required/IR-05-expression-sticker-sheet.md",
+      "template": "Create a cohesive messaging-app sticker sheet from the uploaded subject.\n\nREFERENCE AUTHORITY:\n- Treat the uploaded image as the source of truth for identity, geometry, count, relative placement, pose/viewpoint, crop, and distinctive features unless the user explicitly asks to change them.\n- Apply the requested visual transformation to the existing scene rather than silently redesigning it.\n- If a detail is unclear, simplify it instead of inventing a replacement.\n- Do not add text, logos, props, people, limbs, accessories, objects, or background elements unless explicitly requested.\n\nCONSISTENCY:\n- Preserve the same identity, hairstyle, outfit, key accessories, color palette, and character proportions across every sticker.\n- Vary expression and small gesture only; do not generate different-looking versions of the subject.\n\nSTICKER DESIGN:\n- Use clean readable silhouettes, simplified detail, expressive face and hands, compact compositions, and consistent rendering.\n- Default to transparent or plain background with an optional clean sticker cutline.\n- Arrange exactly `STICKER_COUNT` distinct stickers in a regular grid with no overlap.\n\nEXPRESSIONS:\nUse the supplied `EXPRESSIONS`. If omitted, use a balanced set such as joy, laugh, surprise, confusion, embarrassment, sadness, anger, determination, sleepiness, celebration, thanks, apology, thinking, approval, refusal, and love.\n\nDo not add captions unless exact text is explicitly provided.",
+      "variables": [
+        "STICKER_COUNT",
+        "EXPRESSIONS",
+        "CUTLINE",
+        "BACKGROUND"
+      ],
+      "failureCriteria": [
+        "스티커마다 다른 사람/캐릭터가 됨",
+        "요청 개수 불일치",
+        "표정 차이가 불명확함",
+        "임의 텍스트/워터마크가 생김"
+      ],
+      "requiredVariables": [],
+      "defaults": {
+        "STICKER_COUNT": "16",
+        "EXPRESSIONS": "joy, laugh, surprise, confusion, embarrassment, sadness, anger, determination, sleepiness, celebration, thanks, apology, thinking, approval, refusal, love",
+        "CUTLINE": "thin",
+        "BACKGROUND": "white"
+      }
+    },
+    {
+      "id": "IR-06",
+      "title": "사진 → 대담한 그래픽 카툰 캐릭터",
+      "summary": "원본 인물의 식별성을 유지하면서 굵은 선과 과장된 그래픽 형태의 카툰으로 변환한다.",
+      "mode": "REFERENCE_IMAGE_REQUIRED",
+      "category": "character-transform",
+      "source": "universal/reference-image-required/IR-06-bold-cartoon-character.md",
+      "template": "Turn the uploaded subject into a bold graphic cartoon character while keeping the person clearly recognizable.\n\nREFERENCE AUTHORITY:\n- Treat the uploaded image as the source of truth for identity, geometry, count, relative placement, pose/viewpoint, crop, and distinctive features unless the user explicitly asks to change them.\n- Apply the requested visual transformation to the existing scene rather than silently redesigning it.\n- If a detail is unclear, simplify it instead of inventing a replacement.\n- Do not add text, logos, props, people, limbs, accessories, objects, or background elements unless explicitly requested.\n\n- Preserve facial landmarks, hairstyle, skin tone, expression, outfit identity, and pose.\n- Use confident outlines, simplified planar shapes, selective exaggeration, and a bright but controlled palette.\n- Exaggerate only features that remain compatible with the person's identity; never deform the face arbitrarily.\n- Keep shading minimal and graphic.\n- Use a simple background unless the original environment is important.\n\nAvoid anime defaults, caricature distortion, random accessories, text, logos, and changes to age or identity.",
+      "variables": [
+        "EXAGGERATION",
+        "PALETTE",
+        "BACKGROUND_MODE"
+      ],
+      "failureCriteria": [
+        "과장 때문에 인물 식별성이 사라짐",
+        "얼굴·나이·성별 표현이 임의 변경됨",
+        "의상/포즈가 이유 없이 바뀜",
+        "과도한 음영으로 그래픽성이 사라짐"
+      ],
+      "requiredVariables": [],
+      "defaults": {
+        "EXAGGERATION": "low",
+        "PALETTE": "source-derived",
+        "BACKGROUND_MODE": "preserve"
+      }
+    },
+    {
+      "id": "IR-07",
+      "title": "사진 → 귀여운 3D 캐릭터 장면",
+      "summary": "원본의 의상·환경·표정·포즈까지 유지하면서 귀여운 3D 캐릭터 장면으로 변환한다.",
+      "mode": "REFERENCE_IMAGE_REQUIRED",
+      "category": "character-transform",
+      "source": "universal/reference-image-required/IR-07-cute-3d-full-scene-character.md",
+      "template": "Convert the uploaded photo into a cute compact 3D animated-character scene.\n\nREFERENCE AUTHORITY:\n- Treat the uploaded image as the source of truth for identity, geometry, count, relative placement, pose/viewpoint, crop, and distinctive features unless the user explicitly asks to change them.\n- Apply the requested visual transformation to the existing scene rather than silently redesigning it.\n- If a detail is unclear, simplify it instead of inventing a replacement.\n- Do not add text, logos, props, people, limbs, accessories, objects, or background elements unless explicitly requested.\n\n- Preserve the same clothing, environment layout, facial expression, body pose, camera viewpoint, and subject placement.\n- Preserve identity and distinctive accessories.\n- Apply a gentle stylized 3D treatment: rounded forms, clean materials, soft lighting, simplified textures, and slightly reduced proportions.\n- Keep the original environment recognizable but simplify noisy details.\n- Do not move the subject to a studio or invent a new setting unless requested.\n\nAvoid extreme chibi proportions, giant eyes, costume changes, face replacement, extra props, text, or logos.",
+      "variables": [
+        "CUTENESS",
+        "ENVIRONMENT_DETAIL"
+      ],
+      "failureCriteria": [
+        "원본 배경이 다른 장소로 교체됨",
+        "포즈·표정·의상 불일치",
+        "지나친 치비화",
+        "식별 가능한 특징 손실"
+      ],
+      "requiredVariables": [],
+      "defaults": {
+        "CUTENESS": "subtle",
+        "ENVIRONMENT_DETAIL": "preserve"
+      }
+    },
+    {
+      "id": "IR-08",
+      "title": "사진 → 빈티지 즉석필름 사진",
+      "summary": "원본 인물과 장면을 보존한 채 자연스러운 빈티지 즉석필름 사진 특성만 적용한다.",
+      "mode": "REFERENCE_IMAGE_REQUIRED",
+      "category": "photo-filter",
+      "source": "universal/reference-image-required/IR-08-instant-film-vintage-transform.md",
+      "template": "Transform the uploaded photo into a natural vintage instant-film photograph.\n\nREFERENCE AUTHORITY:\n- Treat the uploaded image as the source of truth for identity, geometry, count, relative placement, pose/viewpoint, crop, and distinctive features unless the user explicitly asks to change them.\n- Apply the requested visual transformation to the existing scene rather than silently redesigning it.\n- If a detail is unclear, simplify it instead of inventing a replacement.\n- Do not add text, logos, props, people, limbs, accessories, objects, or background elements unless explicitly requested.\n\n- Keep real facial identity, anatomy, expression, clothing, pose, and scene content unchanged.\n- Apply gentle optical softness, fine-to-medium analog grain, slightly lowered contrast, warm-to-neutral faded color, soft highlight roll-off, mild shadow lift, and subtle chemical-print irregularity.\n- Keep skin natural; do not smooth or beautify it.\n- Add a classic instant-print border only when `FRAME=yes`; otherwise keep the original crop.\n\nAvoid fake dust storms, heavy scratches, orange filters, excessive blur, face retouching, composition changes, or pseudo-date stamps.",
+      "variables": [
+        "ERA_FEEL",
+        "FRAME",
+        "SOFTNESS"
+      ],
+      "failureCriteria": [
+        "얼굴이 변경/보정됨",
+        "필름 효과가 과해 디테일이 무너짐",
+        "원본 크롭/구도가 바뀜",
+        "프레임/날짜가 임의 추가됨"
+      ],
+      "requiredVariables": [],
+      "defaults": {
+        "ERA_FEEL": "timeless",
+        "FRAME": "no",
+        "SOFTNESS": "low"
+      }
+    },
+    {
+      "id": "IR-09",
+      "title": "사진 → 1990년대 35mm 필름 에이징",
+      "summary": "기존 사진을 과도한 필터 없이 1990년대 소비자용 35mm 필름 느낌으로 에이징한다.",
+      "mode": "REFERENCE_IMAGE_REQUIRED",
+      "category": "photo-filter",
+      "source": "universal/reference-image-required/IR-09-90s-35mm-aging-transform.md",
+      "template": "Age the uploaded image as a plausible 1990s consumer 35mm film photograph.\n\nREFERENCE AUTHORITY:\n- Treat the uploaded image as the source of truth for identity, geometry, count, relative placement, pose/viewpoint, crop, and distinctive features unless the user explicitly asks to change them.\n- Apply the requested visual transformation to the existing scene rather than silently redesigning it.\n- If a detail is unclear, simplify it instead of inventing a replacement.\n- Do not add text, logos, props, people, limbs, accessories, objects, or background elements unless explicitly requested.\n\nFILM RESPONSE:\n- Add fine irregular grain, slightly faded color, milky lifted blacks, moderate contrast compression, gentle highlight halation, and small color shifts typical of aging print film.\n- Preserve realistic skin, materials, and local contrast.\n- Keep the effect uneven and organic rather than a uniform digital overlay.\n- Optional direct-flash character may be added only when `FLASH=yes`, without changing the existing lighting geometry drastically.\n\nAvoid heavy VHS artifacts, fake light leaks across the subject, extreme cyan/orange grading, scratched-film damage, or composition changes.",
+      "variables": [
+        "GRAIN",
+        "COLOR_BIAS",
+        "FLASH"
+      ],
+      "failureCriteria": [
+        "필터가 장면보다 강함",
+        "VHS/비디오 느낌으로 변질",
+        "얼굴/피사체 보정 또는 재생성",
+        "빛샘·스크래치 남용"
+      ],
+      "requiredVariables": [],
+      "defaults": {
+        "GRAIN": "fine",
+        "COLOR_BIAS": "neutral",
+        "FLASH": "no"
+      }
+    },
+    {
+      "id": "IR-10",
+      "title": "인물 사진 → 블라인드 그림자 드라마틱 초상",
+      "summary": "인물 정체성을 유지한 채 수평 블라인드 그림자를 이용한 강한 명암의 초상으로 재조명한다.",
+      "mode": "REFERENCE_IMAGE_REQUIRED",
+      "category": "portrait-relighting",
+      "source": "universal/reference-image-required/IR-10-dramatic-blind-shadow-portrait-transform.md",
+      "template": "Relight the uploaded portrait with dramatic sunlight passing through horizontal window blinds.\n\nREFERENCE AUTHORITY:\n- Treat the uploaded image as the source of truth for identity, geometry, count, relative placement, pose/viewpoint, crop, and distinctive features unless the user explicitly asks to change them.\n- Apply the requested visual transformation to the existing scene rather than silently redesigning it.\n- If a detail is unclear, simplify it instead of inventing a replacement.\n- Do not add text, logos, props, people, limbs, accessories, objects, or background elements unless explicitly requested.\n\nPORTRAIT LOCK:\n- Preserve the person's real facial structure, eye color, skin tone, age cues, hair, expression, and body geometry.\n- Do not alter eye color or facial proportions for impact.\n\nLIGHTING:\n- Cast physically coherent horizontal bands of warm directional light and crisp-to-soft shadow across the face and visible body.\n- Keep catchlights, shadow direction, and exposure consistent with one believable light source.\n- Use strong but controlled contrast; retain detail in both lit and shadowed areas.\n- Apply only minimal skin cleanup; preserve pores and natural texture.\n\nAvoid glamour retouching, glowing skin, artificial eye enhancement, new makeup, face reshaping, or added props.",
+      "variables": [
+        "SHADOW_DIRECTION",
+        "CONTRAST",
+        "TONE"
+      ],
+      "failureCriteria": [
+        "눈색/얼굴형 변경",
+        "블라인드 그림자 방향이 물리적으로 불일치",
+        "과도한 피부 보정",
+        "원본 포즈/크롭 변경"
+      ],
+      "requiredVariables": [],
+      "defaults": {
+        "SHADOW_DIRECTION": "left-to-right",
+        "CONTRAST": "medium",
+        "TONE": "neutral"
+      }
+    },
+    {
+      "id": "IR-11",
+      "title": "사진 → 플랫 디자인 여행 엽서",
+      "summary": "사진의 장소와 구도를 유지하면서 텍스트 없는 플랫 그래픽 여행 엽서로 변환한다.",
+      "mode": "REFERENCE_IMAGE_REQUIRED",
+      "category": "postcard-transform",
+      "source": "universal/reference-image-required/IR-11-flat-postcard-from-photo.md",
+      "template": "Transform the uploaded travel photograph into a detailed flat-design postcard illustration.\n\nREFERENCE AUTHORITY:\n- Treat the uploaded image as the source of truth for identity, geometry, count, relative placement, pose/viewpoint, crop, and distinctive features unless the user explicitly asks to change them.\n- Apply the requested visual transformation to the existing scene rather than silently redesigning it.\n- If a detail is unclear, simplify it instead of inventing a replacement.\n- Do not add text, logos, props, people, limbs, accessories, objects, or background elements unless explicitly requested.\n\n- Preserve the same location, landmark identity, horizon, major architecture/natural forms, camera viewpoint, and composition.\n- Simplify photographic detail into clean layered shapes, controlled edges, limited shading, and a cohesive source-derived palette.\n- Retain enough local detail that the place remains unmistakably recognizable.\n- Remove transient clutter only when it is not essential to the scene.\n- No border, caption, typography, stamp, logo, watermark, or invented landmark.\n\nOutput in `ASPECT_RATIO` while preserving composition through minimal crop rather than redesign.",
+      "variables": [
+        "ASPECT_RATIO",
+        "DETAIL",
+        "PALETTE"
+      ],
+      "failureCriteria": [
+        "랜드마크 형태가 바뀜",
+        "임의 텍스트/프레임 추가",
+        "시점 재구성",
+        "장소를 일반적인 여행 풍경으로 대체"
+      ],
+      "requiredVariables": [],
+      "defaults": {
+        "ASPECT_RATIO": "9:16",
+        "DETAIL": "detailed",
+        "PALETTE": "source-derived"
+      }
+    },
+    {
+      "id": "IR-12",
+      "title": "사진 → 여행 스크랩북 콜라주",
+      "summary": "인물/주 피사체를 고정 앵커로 사용해 여행 기억을 종이 스크랩북 콜라주로 구성한다.",
+      "mode": "REFERENCE_IMAGE_REQUIRED",
+      "category": "travel-collage",
+      "source": "universal/reference-image-required/IR-12-travel-scrapbook-from-subject.md",
+      "template": "Create a detailed travel scrapbook collage using the uploaded main subject as the central cutout.\n\nREFERENCE AUTHORITY:\n- Treat the uploaded image as the source of truth for identity, geometry, count, relative placement, pose/viewpoint, crop, and distinctive features unless the user explicitly asks to change them.\n- Apply the requested visual transformation to the existing scene rather than silently redesigning it.\n- If a detail is unclear, simplify it instead of inventing a replacement.\n- Do not add text, logos, props, people, limbs, accessories, objects, or background elements unless explicitly requested.\n\nSUBJECT:\n- Preserve identity, outfit, pose, and recognizable silhouette of the uploaded subject.\n- Treat the subject as one clean paper cutout; do not duplicate the person unless requested.\n\nCOLLAGE:\n- Surround the subject with layered paper memories derived only from `TRIP_ELEMENTS`: small photos/illustrations, tickets, maps, labels, tape, torn paper, and simple travel ephemera.\n- Use clear depth through overlap and paper shadows, but keep the central subject dominant.\n- Use one cohesive palette and material system.\n- Exact text may appear only from `EXACT_TEXT`; otherwise use no readable pseudo-writing.\n\nAvoid random destinations, invented dates, fake brands, duplicate faces, excessive clutter, or photorealistic pasted objects that break the handmade collage look.",
+      "variables": [
+        "TRIP_ELEMENTS",
+        "EXACT_TEXT",
+        "DENSITY"
+      ],
+      "failureCriteria": [
+        "인물 중복/변형",
+        "사용자가 주지 않은 여행지·날짜 창작",
+        "가독 불가능한 가짜 텍스트 범람",
+        "레이어가 과도해 주 피사체가 묻힘"
+      ],
+      "requiredVariables": [
+        "TRIP_ELEMENTS"
+      ],
+      "defaults": {
+        "EXACT_TEXT": "none",
+        "DENSITY": "balanced"
+      }
+    },
+    {
+      "id": "IR-13",
+      "title": "사진 → 여행 마이크로스토리 콜라주",
+      "summary": "한 피사체를 기준으로 여러 여행 순간을 각각 독립된 작은 장면으로 구성한다.",
+      "mode": "REFERENCE_IMAGE_REQUIRED",
+      "category": "travel-collage",
+      "source": "universal/reference-image-required/IR-13-microstory-travel-collage.md",
+      "template": "Use the uploaded main subject to create a coherent travel collage made of multiple distinct micro-story scenes.\n\nREFERENCE AUTHORITY:\n- Treat the uploaded image as the source of truth for identity, geometry, count, relative placement, pose/viewpoint, crop, and distinctive features unless the user explicitly asks to change them.\n- Apply the requested visual transformation to the existing scene rather than silently redesigning it.\n- If a detail is unclear, simplify it instead of inventing a replacement.\n- Do not add text, logos, props, people, limbs, accessories, objects, or background elements unless explicitly requested.\n\n- Preserve the subject's identity and core appearance consistently wherever the subject appears.\n- Create exactly one vignette for each item in `MICRO_STORIES`, with clearly different setting/action while retaining the same traveler identity.\n- Organize vignettes as a balanced scrapbook/postcard composition with clean visual separation, consistent paper/print treatment, and one shared palette.\n- Keep each vignette readable at thumbnail size.\n- Add no destination, event, caption, date, or icon that was not supplied.\n- No pseudo-text.\n\nIf the source image does not show enough detail for a requested full-body/action scene, preserve identity conservatively and avoid inventing distinctive clothing details.",
+      "variables": [
+        "MICRO_STORIES",
+        "LAYOUT",
+        "STYLE"
+      ],
+      "failureCriteria": [
+        "장면 수 불일치",
+        "장면마다 인물 정체성 변경",
+        "사용자 미제공 사건/목적지 추가",
+        "작은 장면들이 서로 합쳐져 의미가 불명확함"
+      ],
+      "requiredVariables": [
+        "MICRO_STORIES"
+      ],
+      "defaults": {
+        "LAYOUT": "grid",
+        "STYLE": "paper collage"
+      }
+    },
+    {
+      "id": "TO-01",
+      "title": "장소 설명 → 부드러운 회화 여행 엽서",
+      "summary": "사진 없이 장소명과 핵심 요소만으로 범용 여행 엽서 일러스트를 생성한다.",
+      "mode": "TEXT_ONLY",
+      "category": "travel-generation",
+      "source": "universal/text-only/TO-01-painted-travel-postcard.md",
+      "template": "Create an elegant travel postcard illustration of `PLACE` using a soft painted graphic style.\n\nGENERATION DISCIPLINE:\n- Build only from the supplied variables and description.\n- Keep subject, setting, composition, medium, lighting, palette, and output treatment internally consistent.\n- Do not add text, logos, watermarks, extra subjects, or decorative objects unless explicitly requested.\n- Prefer a clear focal hierarchy over unnecessary detail.\n\n- Show one iconic but geographically coherent view using only landmarks or landscape cues appropriate to `PLACE` and `LANDMARKS`.\n- Use simplified clean shapes, soft brushed texture, restrained atmospheric depth, and a cohesive palette appropriate to `SEASON` and `TIME`.\n- Make the destination recognizable without overcrowding the frame.\n- Default to no text, no border, no stamps, no logos, and no invented signage.\n- Do not combine unrelated landmarks that cannot plausibly appear together from one viewpoint.\n\nAim for a timeless collectible travel card rather than a tourist-ad montage.",
+      "variables": [
+        "PLACE",
+        "LANDMARKS",
+        "SEASON",
+        "TIME",
+        "ASPECT_RATIO"
+      ],
+      "failureCriteria": [
+        "지리적으로 함께 보일 수 없는 랜드마크 합성",
+        "장소 식별성 부족",
+        "과도한 관광 광고 문구/아이콘",
+        "무관한 장식 추가"
+      ],
+      "requiredVariables": [
+        "PLACE"
+      ],
+      "defaults": {
+        "LANDMARKS": "only geographically appropriate visible cues",
+        "SEASON": "unspecified",
+        "TIME": "day",
+        "ASPECT_RATIO": "4:5"
+      }
+    },
+    {
+      "id": "TO-02",
+      "title": "목적지 → 미니어처 종이공예 여행 엽서",
+      "summary": "여행지를 손으로 자르고 접은 종이 미니어처처럼 표현한다.",
+      "mode": "TEXT_ONLY",
+      "category": "travel-generation",
+      "source": "universal/text-only/TO-02-paper-craft-travel-postcard.md",
+      "template": "Create a charming miniature paper-craft travel illustration of `DESTINATION`, designed as a delicate handmade postcard.\n\nGENERATION DISCIPLINE:\n- Build only from the supplied variables and description.\n- Keep subject, setting, composition, medium, lighting, palette, and output treatment internally consistent.\n- Do not add text, logos, watermarks, extra subjects, or decorative objects unless explicitly requested.\n- Prefer a clear focal hierarchy over unnecessary detail.\n\n- Build the scene from layered cut paper, folded cardstock, small tabs, visible paper edges, and subtle cast shadows.\n- Represent `LANDMARKS` with simplified but recognizable silhouettes and coherent scale.\n- Use a compact diorama-like composition with a clear foreground, middle layer, and backdrop.\n- Materials should look tactile and handcrafted, not like glossy 3D plastic.\n- Default to no text, border, logo, stamp, or watermark.\n\nKeep the model physically plausible as a paper object and avoid unrelated souvenir clutter.",
+      "variables": [
+        "DESTINATION",
+        "LANDMARKS",
+        "PALETTE",
+        "ASPECT_RATIO"
+      ],
+      "failureCriteria": [
+        "종이공예가 아니라 일반 3D 렌더가 됨",
+        "랜드마크 왜곡/혼합",
+        "불필요한 텍스트/기념품 추가",
+        "레이어 구조가 물리적으로 모순"
+      ],
+      "requiredVariables": [
+        "DESTINATION"
+      ],
+      "defaults": {
+        "LANDMARKS": "only destination-appropriate visible cues",
+        "PALETTE": "location inspired",
+        "ASPECT_RATIO": "4:5"
+      }
+    },
+    {
+      "id": "TO-03",
+      "title": "목적지 → 미니어처 3D 여행 디오라마",
+      "summary": "특정 도시명에 종속되지 않는 미니어처 여행 디오라마 프롬프트.",
+      "mode": "TEXT_ONLY",
+      "category": "travel-generation",
+      "source": "universal/text-only/TO-03-miniature-travel-diorama.md",
+      "template": "Create a refined miniature travel diorama inspired by `DESTINATION`, presented like a collectible handmade postcard object.\n\nGENERATION DISCIPLINE:\n- Build only from the supplied variables and description.\n- Keep subject, setting, composition, medium, lighting, palette, and output treatment internally consistent.\n- Do not add text, logos, watermarks, extra subjects, or decorative objects unless explicitly requested.\n- Prefer a clear focal hierarchy over unnecessary detail.\n\n- Build a compact freestanding or floating base containing a coherent miniature interpretation of `LANDMARKS`.\n- Use believable miniature scale, clean object hierarchy, controlled depth, and carefully separated silhouettes.\n- Materials should follow `MATERIAL_STYLE` consistently, such as painted wood, paper craft, ceramic, or matte model-making materials.\n- Lighting should be soft and product-like while respecting `TIME`.\n- Keep decorative travel symbols minimal and destination-specific.\n- No text or logo unless exact wording is provided.\n\nAvoid mixing multiple incompatible craft materials or turning the scene into a generic fantasy city.",
+      "variables": [
+        "DESTINATION",
+        "LANDMARKS",
+        "BASE_SHAPE",
+        "MATERIAL_STYLE",
+        "TIME"
+      ],
+      "failureCriteria": [
+        "장소 고유성이 사라짐",
+        "미니어처 스케일 불일치",
+        "재질이 뒤섞여 조형 언어가 불명확",
+        "기념품/아이콘 과다"
+      ],
+      "requiredVariables": [
+        "DESTINATION"
+      ],
+      "defaults": {
+        "LANDMARKS": "only destination-appropriate visible cues",
+        "BASE_SHAPE": "circular",
+        "MATERIAL_STYLE": "matte miniature",
+        "TIME": "day"
+      }
+    },
+    {
+      "id": "TO-04",
+      "title": "텍스트 → 미니멀 35mm 패션 사진",
+      "summary": "피사체 설명만으로 필름 질감이 분명한 미니멀 패션 사진을 만든다.",
+      "mode": "TEXT_ONLY",
+      "category": "photo-generation",
+      "source": "universal/text-only/TO-04-minimalist-35mm-fashion-photo.md",
+      "template": "Create a refined minimalist fashion photograph on 35mm film featuring `SUBJECT_DESCRIPTION`.\n\nGENERATION DISCIPLINE:\n- Build only from the supplied variables and description.\n- Keep subject, setting, composition, medium, lighting, palette, and output treatment internally consistent.\n- Do not add text, logos, watermarks, extra subjects, or decorative objects unless explicitly requested.\n- Prefer a clear focal hierarchy over unnecessary detail.\n\n- Use clean composition, deliberate negative space, understated wardrobe and environment, and one clear focal gesture.\n- Render prominent but fine organic film grain, natural highlight roll-off, gentle halation, slightly compressed contrast, and plausible analog color response.\n- Keep lighting simple and physically motivated.\n- Preserve realistic anatomy, fabric behavior, and lens perspective.\n- No logos, captions, fake date stamps, or excessive editorial props.\n\nThe image should feel like a real photographed frame, not a digital image with a grain overlay.",
+      "variables": [
+        "SUBJECT_DESCRIPTION",
+        "LOCATION",
+        "WARDROBE",
+        "LENS_FEEL",
+        "PALETTE"
+      ],
+      "failureCriteria": [
+        "필름 질감이 디지털 오버레이처럼 균일함",
+        "패션보다 소품/배경이 우세",
+        "과도한 뷰티 리터칭",
+        "비현실적 해부학/렌즈 왜곡"
+      ],
+      "requiredVariables": [
+        "SUBJECT_DESCRIPTION"
+      ],
+      "defaults": {
+        "LOCATION": "studio",
+        "WARDROBE": "understated, as described",
+        "LENS_FEEL": "50mm-like",
+        "PALETTE": "neutral"
+      }
+    },
+    {
+      "id": "TO-05",
+      "title": "텍스트 → 골든아워 블라인드 그림자 초상",
+      "summary": "사진 없이도 수평 블라인드 그림자의 골든아워 초상을 일관되게 생성한다.",
+      "mode": "TEXT_ONLY",
+      "category": "portrait-generation",
+      "source": "universal/text-only/TO-05-golden-hour-blinds-portrait.md",
+      "template": "Create a cinematic portrait of `SUBJECT_DESCRIPTION` lit by warm golden-hour sunlight passing through horizontal window blinds.\n\nGENERATION DISCIPLINE:\n- Build only from the supplied variables and description.\n- Keep subject, setting, composition, medium, lighting, palette, and output treatment internally consistent.\n- Do not add text, logos, watermarks, extra subjects, or decorative objects unless explicitly requested.\n- Prefer a clear focal hierarchy over unnecessary detail.\n\n- Cast distinct horizontal bands of warm light and shadow across the face and visible upper body.\n- Keep all shadow bands consistent with a single window/light direction and believable facial geometry.\n- Use restrained warm color, deep but detailed shadows, realistic skin texture, and subtle lens softness.\n- Compose with `FRAMING` and a simple environment described by `BACKGROUND`.\n- Maintain natural anatomy and avoid beauty-editorial exaggeration unless explicitly requested.\n\nNo text, logos, unnecessary props, fantasy light sources, or glowing eyes.",
+      "variables": [
+        "SUBJECT_DESCRIPTION",
+        "FRAMING",
+        "BACKGROUND",
+        "MOOD"
+      ],
+      "failureCriteria": [
+        "그림자 줄 방향/광원이 모순",
+        "피부가 플라스틱처럼 과보정",
+        "불필요한 렌즈 플레어/광원 추가",
+        "장면보다 효과가 과함"
+      ],
+      "requiredVariables": [
+        "SUBJECT_DESCRIPTION"
+      ],
+      "defaults": {
+        "FRAMING": "head-and-shoulders",
+        "BACKGROUND": "simple interior",
+        "MOOD": "quiet"
+      }
+    },
+    {
+      "id": "TO-06",
+      "title": "텍스트 → 1990년대 직접 플래시 필름 초상",
+      "summary": "1990년대 스냅 사진의 직접 플래시·그레인·고대비 특성을 텍스트만으로 생성한다.",
+      "mode": "TEXT_ONLY",
+      "category": "portrait-generation",
+      "source": "universal/text-only/TO-06-90s-direct-flash-portrait.md",
+      "template": "Create a nostalgic 1990s film-photography portrait of `SUBJECT_DESCRIPTION` using harsh direct on-camera flash.\n\nGENERATION DISCIPLINE:\n- Build only from the supplied variables and description.\n- Keep subject, setting, composition, medium, lighting, palette, and output treatment internally consistent.\n- Do not add text, logos, watermarks, extra subjects, or decorative objects unless explicitly requested.\n- Prefer a clear focal hierarchy over unnecessary detail.\n\n- Use bright frontal flash on the subject, fast light falloff, darker ambient background, crisp local contrast, and subtle hard-edged flash shadows where physically plausible.\n- Add fine irregular film grain, slightly imperfect color, mild print softness, and restrained highlight bloom.\n- Keep the scene candid and minimally styled.\n- Use `LOCATION` only as a simple contextual background and keep the subject dominant.\n\nAvoid modern HDR, cinematic rim lights, fake light leaks, VHS artifacts, heavy scratches, beauty retouching, text, and logos.",
+      "variables": [
+        "SUBJECT_DESCRIPTION",
+        "LOCATION",
+        "COLOR_BIAS",
+        "FRAMING"
+      ],
+      "failureCriteria": [
+        "플래시 외 다른 주광원이 난립",
+        "VHS/캠코더 스타일로 변질",
+        "과도한 필름 손상",
+        "현대적 HDR/뷰티 룩"
+      ],
+      "requiredVariables": [
+        "SUBJECT_DESCRIPTION"
+      ],
+      "defaults": {
+        "LOCATION": "room",
+        "COLOR_BIAS": "neutral",
+        "FRAMING": "waist-up"
+      }
+    },
+    {
+      "id": "EX-animated-illustration",
+      "title": "애니메이션 일러스트로 변환",
+      "summary": "피사체를 알아볼 수 있는 따뜻한 손그림 애니메이션으로 바꿉니다.",
+      "mode": "REFERENCE_IMAGE_REQUIRED",
+      "category": "animated-illustration",
+      "source": "authored-extension-2026-09-14",
+      "template": "Transform the supplied reference image. Preserve subject identity, count, geometry, pose, viewpoint, crop and relative placement. Change only the visual treatment. If details are unclear, simplify conservatively.\n\nUse hand-drawn contours, softly painted backgrounds, restrained cel shading and warm coherent colors. Avoid copying a named franchise. Preserve animal markings and facial landmarks.\n\nDo not add text, logos, watermarks or unrelated subjects. The example card is a style illustration, never an input image.",
+      "variables": [],
+      "requiredVariables": [],
+      "defaults": {},
+      "failureCriteria": [
+        "피사체의 정체성·구도·개수가 달라짐",
+        "요청하지 않은 글자·장식이 추가됨",
+        "스타일 때문에 핵심 형태가 읽히지 않음"
+      ]
+    },
+    {
+      "id": "EX-watercolor",
+      "title": "수채화로 변환",
+      "summary": "물감 번짐과 옅은 채색으로 장면을 부드럽게 표현합니다.",
+      "mode": "REFERENCE_IMAGE_REQUIRED",
+      "category": "watercolor",
+      "source": "authored-extension-2026-09-14",
+      "template": "Transform the supplied reference image. Preserve subject identity, count, geometry, pose, viewpoint, crop and relative placement. Change only the visual treatment. If details are unclear, simplify conservatively.\n\nUse transparent pigment washes, soft wet-on-wet transitions, selective dry brush edges and subtle paper grain. Preserve landmark geometry and source color relationships; avoid muddy overpainting.\n\nDo not add text, logos, watermarks or unrelated subjects. The example card is a style illustration, never an input image.",
+      "variables": [],
+      "requiredVariables": [],
+      "defaults": {},
+      "failureCriteria": [
+        "피사체의 정체성·구도·개수가 달라짐",
+        "요청하지 않은 글자·장식이 추가됨",
+        "스타일 때문에 핵심 형태가 읽히지 않음"
+      ]
+    },
+    {
+      "id": "EX-pencil-sketch",
+      "title": "연필 스케치로 변환",
+      "summary": "연필선과 해칭으로 형태와 명암을 살립니다.",
+      "mode": "REFERENCE_IMAGE_REQUIRED",
+      "category": "pencil-sketch",
+      "source": "authored-extension-2026-09-14",
+      "template": "Transform the supplied reference image. Preserve subject identity, count, geometry, pose, viewpoint, crop and relative placement. Change only the visual treatment. If details are unclear, simplify conservatively.\n\nUse graphite line weight, directional hatching and subtle paper tooth. Keep distinctive features sharp and leave quiet paper around the subject. No color washes or invented sketchbook props.\n\nDo not add text, logos, watermarks or unrelated subjects. The example card is a style illustration, never an input image.",
+      "variables": [],
+      "requiredVariables": [],
+      "defaults": {},
+      "failureCriteria": [
+        "피사체의 정체성·구도·개수가 달라짐",
+        "요청하지 않은 글자·장식이 추가됨",
+        "스타일 때문에 핵심 형태가 읽히지 않음"
+      ]
+    },
+    {
+      "id": "EX-ink-wash",
+      "title": "수묵화로 변환",
+      "summary": "먹의 농담과 여백으로 주요 형태를 살립니다.",
+      "mode": "REFERENCE_IMAGE_REQUIRED",
+      "category": "ink-wash",
+      "source": "authored-extension-2026-09-14",
+      "template": "Transform the supplied reference image. Preserve subject identity, count, geometry, pose, viewpoint, crop and relative placement. Change only the visual treatment. If details are unclear, simplify conservatively.\n\nUse monochrome ink washes, varied brush pressure, dry brush texture and deliberate negative space. Preserve architecture and silhouettes. Add no calligraphy, seals or cultural motifs.\n\nDo not add text, logos, watermarks or unrelated subjects. The example card is a style illustration, never an input image.",
+      "variables": [],
+      "requiredVariables": [],
+      "defaults": {},
+      "failureCriteria": [
+        "피사체의 정체성·구도·개수가 달라짐",
+        "요청하지 않은 글자·장식이 추가됨",
+        "스타일 때문에 핵심 형태가 읽히지 않음"
+      ]
+    },
+    {
+      "id": "EX-line-drawing",
+      "title": "라인 드로잉로 변환",
+      "summary": "불필요한 채색을 덜고 선으로 형태를 표현합니다.",
+      "mode": "REFERENCE_IMAGE_REQUIRED",
+      "category": "line-drawing",
+      "source": "authored-extension-2026-09-14",
+      "template": "Transform the supplied reference image. Preserve subject identity, count, geometry, pose, viewpoint, crop and relative placement. Change only the visual treatment. If details are unclear, simplify conservatively.\n\nUse clean dark contours on plain light paper, economical line weight and minimal hatching. Preserve object geometry and distinctive interior shapes. No decorative background.\n\nDo not add text, logos, watermarks or unrelated subjects. The example card is a style illustration, never an input image.",
+      "variables": [],
+      "requiredVariables": [],
+      "defaults": {},
+      "failureCriteria": [
+        "피사체의 정체성·구도·개수가 달라짐",
+        "요청하지 않은 글자·장식이 추가됨",
+        "스타일 때문에 핵심 형태가 읽히지 않음"
+      ]
+    },
+    {
+      "id": "EX-low-poly",
+      "title": "로우 폴리로 변환",
+      "summary": "다각형 면과 절제된 색으로 장면을 단순화합니다.",
+      "mode": "REFERENCE_IMAGE_REQUIRED",
+      "category": "low-poly",
+      "source": "authored-extension-2026-09-14",
+      "template": "Transform the supplied reference image. Preserve subject identity, count, geometry, pose, viewpoint, crop and relative placement. Change only the visual treatment. If details are unclear, simplify conservatively.\n\nTranslate existing forms into deliberately sized polygon planes with faceted shading and a controlled source-derived palette. Preserve horizon, relative placement and recognizable silhouettes.\n\nDo not add text, logos, watermarks or unrelated subjects. The example card is a style illustration, never an input image.",
+      "variables": [],
+      "requiredVariables": [],
+      "defaults": {},
+      "failureCriteria": [
+        "피사체의 정체성·구도·개수가 달라짐",
+        "요청하지 않은 글자·장식이 추가됨",
+        "스타일 때문에 핵심 형태가 읽히지 않음"
+      ]
+    },
+    {
+      "id": "EX-cyberpunk",
+      "title": "사이버펑크로 변환",
+      "summary": "원본 공간에 네온 조명과 미래 도시의 색감을 입힙니다.",
+      "mode": "REFERENCE_IMAGE_REQUIRED",
+      "category": "cyberpunk",
+      "source": "authored-extension-2026-09-14",
+      "template": "Transform the supplied reference image. Preserve subject identity, count, geometry, pose, viewpoint, crop and relative placement. Change only the visual treatment. If details are unclear, simplify conservatively.\n\nApply restrained magenta and cyan neon light to the existing scene with physically coherent reflections and readable shadows. Preserve architecture, people and viewpoint. Do not invent signs, readable text, vehicles or props.\n\nDo not add text, logos, watermarks or unrelated subjects. The example card is a style illustration, never an input image.",
+      "variables": [],
+      "requiredVariables": [],
+      "defaults": {},
+      "failureCriteria": [
+        "피사체의 정체성·구도·개수가 달라짐",
+        "요청하지 않은 글자·장식이 추가됨",
+        "스타일 때문에 핵심 형태가 읽히지 않음"
+      ]
+    },
+    {
+      "id": "EX-minimal-illustration",
+      "title": "미니멀 일러스트로 변환",
+      "summary": "핵심 형태와 적은 색으로 간결하게 표현합니다.",
+      "mode": "REFERENCE_IMAGE_REQUIRED",
+      "category": "minimal-illustration",
+      "source": "authored-extension-2026-09-14",
+      "template": "Transform the supplied reference image. Preserve subject identity, count, geometry, pose, viewpoint, crop and relative placement. Change only the visual treatment. If details are unclear, simplify conservatively.\n\nUse a small source-derived palette, flat matte shapes, clean silhouettes and generous negative space. Simplify minor texture without removing identifying geometry.\n\nDo not add text, logos, watermarks or unrelated subjects. The example card is a style illustration, never an input image.",
+      "variables": [],
+      "requiredVariables": [],
+      "defaults": {},
+      "failureCriteria": [
+        "피사체의 정체성·구도·개수가 달라짐",
+        "요청하지 않은 글자·장식이 추가됨",
+        "스타일 때문에 핵심 형태가 읽히지 않음"
+      ]
+    },
+    {
+      "id": "EX-sticker",
+      "title": "스티커로 변환",
+      "summary": "알아보기 쉬운 윤곽과 표정으로 스티커를 만듭니다.",
+      "mode": "REFERENCE_IMAGE_REQUIRED",
+      "category": "sticker",
+      "source": "authored-extension-2026-09-14",
+      "template": "Transform the supplied reference image. Preserve subject identity, count, geometry, pose, viewpoint, crop and relative placement. Change only the visual treatment. If details are unclear, simplify conservatively.\n\nCreate exactly one sticker of the source subject, preserving identity and expression. Use a clean continuous cutline, readable silhouette and plain background. Do not create a sheet, extra faces or captions.\n\nDo not add text, logos, watermarks or unrelated subjects. The example card is a style illustration, never an input image.",
+      "variables": [],
+      "requiredVariables": [],
+      "defaults": {},
+      "failureCriteria": [
+        "피사체의 정체성·구도·개수가 달라짐",
+        "요청하지 않은 글자·장식이 추가됨",
+        "스타일 때문에 핵심 형태가 읽히지 않음"
+      ]
+    },
+    {
+      "id": "EX-black-white-film",
+      "title": "흑백 영화로 변환",
+      "summary": "색을 덜고 빛과 그림자로 영화 같은 분위기를 만듭니다.",
+      "mode": "REFERENCE_IMAGE_REQUIRED",
+      "category": "black-white-film",
+      "source": "authored-extension-2026-09-14",
+      "template": "Transform the supplied reference image. Preserve subject identity, count, geometry, pose, viewpoint, crop and relative placement. Change only the visual treatment. If details are unclear, simplify conservatively.\n\nConvert to monochrome silver-gelatin film with fine organic grain, controlled contrast and detailed highlights and shadows. Preserve face, pose, crop and original lighting geometry. No retouching or new props.\n\nDo not add text, logos, watermarks or unrelated subjects. The example card is a style illustration, never an input image.",
+      "variables": [],
+      "requiredVariables": [],
+      "defaults": {},
+      "failureCriteria": [
+        "피사체의 정체성·구도·개수가 달라짐",
+        "요청하지 않은 글자·장식이 추가됨",
+        "스타일 때문에 핵심 형태가 읽히지 않음"
+      ]
+    },
+    {
+      "id": "EX-menu-illustration",
+      "title": "음식 메뉴 일러스트로 변환",
+      "summary": "음식의 재료와 모양을 지키며 메뉴용 그림으로 표현합니다.",
+      "mode": "REFERENCE_IMAGE_REQUIRED",
+      "category": "menu-illustration",
+      "source": "authored-extension-2026-09-14",
+      "template": "Transform the supplied reference image. Preserve subject identity, count, geometry, pose, viewpoint, crop and relative placement. Change only the visual treatment. If details are unclear, simplify conservatively.\n\nRender the same food as an appetizing hand-painted menu illustration with restrained outlines and warm paper. Preserve cuisine, ingredients, vessel count and plating. Add no labels, prices, garnishes or side dishes.\n\nDo not add text, logos, watermarks or unrelated subjects. The example card is a style illustration, never an input image.",
+      "variables": [],
+      "requiredVariables": [],
+      "defaults": {},
+      "failureCriteria": [
+        "피사체의 정체성·구도·개수가 달라짐",
+        "요청하지 않은 글자·장식이 추가됨",
+        "스타일 때문에 핵심 형태가 읽히지 않음"
+      ]
+    },
+    {
+      "id": "EX-emoji-icon",
+      "title": "이모지·아이콘로 변환",
+      "summary": "작은 크기에서도 읽히는 하나의 기호로 단순화합니다.",
+      "mode": "REFERENCE_IMAGE_REQUIRED",
+      "category": "emoji-icon",
+      "source": "authored-extension-2026-09-14",
+      "template": "Transform the supplied reference image. Preserve subject identity, count, geometry, pose, viewpoint, crop and relative placement. Change only the visual treatment. If details are unclear, simplify conservatively.\n\nSimplify the same object into a single readable emoji-style icon with a clean silhouette, controlled shading and a plain background. Preserve distinctive geometry. Do not invent faces, limbs, text or a grid.\n\nDo not add text, logos, watermarks or unrelated subjects. The example card is a style illustration, never an input image.",
+      "variables": [],
+      "requiredVariables": [],
+      "defaults": {},
+      "failureCriteria": [
+        "피사체의 정체성·구도·개수가 달라짐",
+        "요청하지 않은 글자·장식이 추가됨",
+        "스타일 때문에 핵심 형태가 읽히지 않음"
+      ]
+    }
+  ],
+  "categories": [
+    {
+      "id": "food-ukiyoe",
+      "title": "음식 우키요에",
+      "summary": "음식과 플레이팅을 지키며 목판화의 선과 종이 질감으로 표현합니다.",
+      "promptIDs": [
+        "IR-01"
+      ],
+      "previewNote": "카테고리 스타일 예시입니다. 실제 결과는 입력과 설정에 따라 달라집니다. 카드 속 글자·프레임은 기본 생성 지시가 아닙니다.",
+      "previewFile": "food-ukiyoe.webp",
+      "thumbnailFile": "food-ukiyoe-thumb.webp"
+    },
+    {
+      "id": "animated-illustration",
+      "title": "애니메이션 일러스트",
+      "summary": "피사체를 알아볼 수 있는 따뜻한 손그림 애니메이션으로 바꿉니다.",
+      "promptIDs": [
+        "EX-animated-illustration"
+      ],
+      "previewNote": "카테고리 스타일 예시입니다. 실제 결과는 입력과 설정에 따라 달라집니다. 카드 속 글자·프레임은 기본 생성 지시가 아닙니다.",
+      "previewFile": "animated-illustration.webp",
+      "thumbnailFile": "animated-illustration-thumb.webp"
+    },
+    {
+      "id": "3d-animation",
+      "title": "3D 애니메이션",
+      "summary": "둥근 형태와 부드러운 조명으로 입체 캐릭터를 만듭니다.",
+      "promptIDs": [
+        "IR-02",
+        "IR-07",
+        "IR-04"
+      ],
+      "previewNote": "카테고리 스타일 예시입니다. 실제 결과는 입력과 설정에 따라 달라집니다. 카드 속 글자·프레임은 기본 생성 지시가 아닙니다.",
+      "previewFile": "3d-animation.webp",
+      "thumbnailFile": "3d-animation-thumb.webp"
+    },
+    {
+      "id": "watercolor",
+      "title": "수채화",
+      "summary": "물감 번짐과 옅은 채색으로 장면을 부드럽게 표현합니다.",
+      "promptIDs": [
+        "EX-watercolor",
+        "TO-01"
+      ],
+      "previewNote": "카테고리 스타일 예시입니다. 실제 결과는 입력과 설정에 따라 달라집니다. 카드 속 글자·프레임은 기본 생성 지시가 아닙니다.",
+      "previewFile": "watercolor.webp",
+      "thumbnailFile": "watercolor-thumb.webp"
+    },
+    {
+      "id": "pencil-sketch",
+      "title": "연필 스케치",
+      "summary": "연필선과 해칭으로 형태와 명암을 살립니다.",
+      "promptIDs": [
+        "EX-pencil-sketch"
+      ],
+      "previewNote": "카테고리 스타일 예시입니다. 실제 결과는 입력과 설정에 따라 달라집니다. 카드 속 글자·프레임은 기본 생성 지시가 아닙니다.",
+      "previewFile": "pencil-sketch.webp",
+      "thumbnailFile": "pencil-sketch-thumb.webp"
+    },
+    {
+      "id": "ink-wash",
+      "title": "수묵화",
+      "summary": "먹의 농담과 여백으로 주요 형태를 살립니다.",
+      "promptIDs": [
+        "EX-ink-wash"
+      ],
+      "previewNote": "카테고리 스타일 예시입니다. 실제 결과는 입력과 설정에 따라 달라집니다. 카드 속 글자·프레임은 기본 생성 지시가 아닙니다.",
+      "previewFile": "ink-wash.webp",
+      "thumbnailFile": "ink-wash-thumb.webp"
+    },
+    {
+      "id": "instant-film",
+      "title": "즉석필름",
+      "summary": "원본 장면에 부드러운 빛과 바랜 필름 색감을 입힙니다.",
+      "promptIDs": [
+        "IR-08"
+      ],
+      "previewNote": "카테고리 스타일 예시입니다. 실제 결과는 입력과 설정에 따라 달라집니다. 카드 속 글자·프레임은 기본 생성 지시가 아닙니다.",
+      "previewFile": "instant-film.webp",
+      "thumbnailFile": "instant-film-thumb.webp"
+    },
+    {
+      "id": "35mm-film",
+      "title": "35mm 필름",
+      "summary": "자연스러운 입자와 아날로그 색감의 사진을 만듭니다.",
+      "promptIDs": [
+        "IR-09",
+        "TO-04",
+        "TO-06"
+      ],
+      "previewNote": "카테고리 스타일 예시입니다. 실제 결과는 입력과 설정에 따라 달라집니다. 카드 속 글자·프레임은 기본 생성 지시가 아닙니다.",
+      "previewFile": "35mm-film.webp",
+      "thumbnailFile": "35mm-film-thumb.webp"
+    },
+    {
+      "id": "childrens-book",
+      "title": "동화책 일러스트",
+      "summary": "종이 콜라주와 손그림으로 친근한 캐릭터를 만듭니다.",
+      "promptIDs": [
+        "IR-03"
+      ],
+      "previewNote": "카테고리 스타일 예시입니다. 실제 결과는 입력과 설정에 따라 달라집니다. 카드 속 글자·프레임은 기본 생성 지시가 아닙니다.",
+      "previewFile": "childrens-book.webp",
+      "thumbnailFile": "childrens-book-thumb.webp"
+    },
+    {
+      "id": "line-drawing",
+      "title": "라인 드로잉",
+      "summary": "불필요한 채색을 덜고 선으로 형태를 표현합니다.",
+      "promptIDs": [
+        "EX-line-drawing"
+      ],
+      "previewNote": "카테고리 스타일 예시입니다. 실제 결과는 입력과 설정에 따라 달라집니다. 카드 속 글자·프레임은 기본 생성 지시가 아닙니다.",
+      "previewFile": "line-drawing.webp",
+      "thumbnailFile": "line-drawing-thumb.webp"
+    },
+    {
+      "id": "pop-art",
+      "title": "팝아트",
+      "summary": "굵은 외곽선과 제한된 원색으로 강렬하게 표현합니다.",
+      "promptIDs": [
+        "IR-06"
+      ],
+      "previewNote": "카테고리 스타일 예시입니다. 실제 결과는 입력과 설정에 따라 달라집니다. 카드 속 글자·프레임은 기본 생성 지시가 아닙니다.",
+      "previewFile": "pop-art.webp",
+      "thumbnailFile": "pop-art-thumb.webp"
+    },
+    {
+      "id": "low-poly",
+      "title": "로우 폴리",
+      "summary": "다각형 면과 절제된 색으로 장면을 단순화합니다.",
+      "promptIDs": [
+        "EX-low-poly"
+      ],
+      "previewNote": "카테고리 스타일 예시입니다. 실제 결과는 입력과 설정에 따라 달라집니다. 카드 속 글자·프레임은 기본 생성 지시가 아닙니다.",
+      "previewFile": "low-poly.webp",
+      "thumbnailFile": "low-poly-thumb.webp"
+    },
+    {
+      "id": "cyberpunk",
+      "title": "사이버펑크",
+      "summary": "원본 공간에 네온 조명과 미래 도시의 색감을 입힙니다.",
+      "promptIDs": [
+        "EX-cyberpunk"
+      ],
+      "previewNote": "카테고리 스타일 예시입니다. 실제 결과는 입력과 설정에 따라 달라집니다. 카드 속 글자·프레임은 기본 생성 지시가 아닙니다.",
+      "previewFile": "cyberpunk.webp",
+      "thumbnailFile": "cyberpunk-thumb.webp"
+    },
+    {
+      "id": "minimal-illustration",
+      "title": "미니멀 일러스트",
+      "summary": "핵심 형태와 적은 색으로 간결하게 표현합니다.",
+      "promptIDs": [
+        "EX-minimal-illustration"
+      ],
+      "previewNote": "카테고리 스타일 예시입니다. 실제 결과는 입력과 설정에 따라 달라집니다. 카드 속 글자·프레임은 기본 생성 지시가 아닙니다.",
+      "previewFile": "minimal-illustration.webp",
+      "thumbnailFile": "minimal-illustration-thumb.webp"
+    },
+    {
+      "id": "sticker",
+      "title": "스티커",
+      "summary": "알아보기 쉬운 윤곽과 표정으로 스티커를 만듭니다.",
+      "promptIDs": [
+        "EX-sticker",
+        "IR-05"
+      ],
+      "previewNote": "카테고리 스타일 예시입니다. 실제 결과는 입력과 설정에 따라 달라집니다. 카드 속 글자·프레임은 기본 생성 지시가 아닙니다.",
+      "previewFile": "sticker.webp",
+      "thumbnailFile": "sticker-thumb.webp"
+    },
+    {
+      "id": "travel-poster",
+      "title": "여행 포스터",
+      "summary": "장소의 특징을 살려 엽서와 여행 그림을 만듭니다.",
+      "promptIDs": [
+        "IR-11",
+        "IR-12",
+        "IR-13",
+        "TO-02",
+        "TO-03"
+      ],
+      "previewNote": "카테고리 스타일 예시입니다. 실제 결과는 입력과 설정에 따라 달라집니다. 카드 속 글자·프레임은 기본 생성 지시가 아닙니다.",
+      "previewFile": "travel-poster.webp",
+      "thumbnailFile": "travel-poster-thumb.webp"
+    },
+    {
+      "id": "black-white-film",
+      "title": "흑백 영화",
+      "summary": "색을 덜고 빛과 그림자로 영화 같은 분위기를 만듭니다.",
+      "promptIDs": [
+        "EX-black-white-film"
+      ],
+      "previewNote": "카테고리 스타일 예시입니다. 실제 결과는 입력과 설정에 따라 달라집니다. 카드 속 글자·프레임은 기본 생성 지시가 아닙니다.",
+      "previewFile": "black-white-film.webp",
+      "thumbnailFile": "black-white-film-thumb.webp"
+    },
+    {
+      "id": "menu-illustration",
+      "title": "음식 메뉴 일러스트",
+      "summary": "음식의 재료와 모양을 지키며 메뉴용 그림으로 표현합니다.",
+      "promptIDs": [
+        "EX-menu-illustration"
+      ],
+      "previewNote": "카테고리 스타일 예시입니다. 실제 결과는 입력과 설정에 따라 달라집니다. 카드 속 글자·프레임은 기본 생성 지시가 아닙니다.",
+      "previewFile": "menu-illustration.webp",
+      "thumbnailFile": "menu-illustration-thumb.webp"
+    },
+    {
+      "id": "emoji-icon",
+      "title": "이모지·아이콘",
+      "summary": "작은 크기에서도 읽히는 하나의 기호로 단순화합니다.",
+      "promptIDs": [
+        "EX-emoji-icon"
+      ],
+      "previewNote": "카테고리 스타일 예시입니다. 실제 결과는 입력과 설정에 따라 달라집니다. 카드 속 글자·프레임은 기본 생성 지시가 아닙니다.",
+      "previewFile": "emoji-icon.webp",
+      "thumbnailFile": "emoji-icon-thumb.webp"
+    }
+  ]
+}

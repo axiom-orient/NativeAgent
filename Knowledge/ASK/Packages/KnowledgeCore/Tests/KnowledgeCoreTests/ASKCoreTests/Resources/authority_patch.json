@@ -1,0 +1,130 @@
+{
+  "authority_records": [
+    {
+      "approval_state": "superseded",
+      "approved_by": "human",
+      "effective_from": "2026-03-01T00:00:00Z",
+      "effective_to": "2026-04-07T10:05:00Z",
+      "fact_scope_key": "current_version",
+      "record_id": "authority_existing",
+      "record_type": "current_state",
+      "subject_id": "ask",
+      "subject_kind": "project",
+      "supersedes_id": "authority_candidate",
+      "value_fields": {
+        "version": "0.2.0"
+      },
+      "version": "knowledge-authority-record.v2"
+    },
+    {
+      "approval_state": "approved",
+      "approved_by": "human",
+      "effective_from": "2026-04-07T10:05:00Z",
+      "effective_to": null,
+      "fact_scope_key": "current_version",
+      "record_id": "authority_candidate",
+      "record_type": "current_state",
+      "subject_id": "ask",
+      "subject_kind": "project",
+      "supersedes_id": null,
+      "value_fields": {
+        "version": "0.3.0"
+      },
+      "version": "knowledge-authority-record.v2"
+    }
+  ],
+  "claim_evidence": [],
+  "claims": [],
+  "evidence": [],
+  "generated_at": "2026-04-07T10:06:00Z",
+  "operations": [
+    {
+      "log_id": "log_5cad8055118ca228",
+      "occurred_at": "2026-04-07T10:06:00Z",
+      "op_kind": "authority_register",
+      "summary": "authority registration planned for project:ask"
+    }
+  ],
+  "patch_id": "patch_11250426ca9ac433",
+  "patch_kind": "authority_register",
+  "projection_invalidations": [
+    {
+      "created_at": "2026-04-07T10:06:00Z",
+      "invalidation_id": "invalidate_24bbbe9e421c6b80",
+      "reason": "authority_changed",
+      "slug": "current/project/ask",
+      "triggered_by_patch_id": "patch_11250426ca9ac433"
+    },
+    {
+      "created_at": "2026-04-07T10:06:00Z",
+      "invalidation_id": "invalidate_ce337de42d3d84b0",
+      "reason": "authority_changed",
+      "slug": "overview/project/ask",
+      "triggered_by_patch_id": "patch_11250426ca9ac433"
+    }
+  ],
+  "projection_writes": [],
+  "review_items": [
+    {
+      "created_at": "2026-04-07T10:06:00Z",
+      "details": {
+        "candidate_record_id": "authority_candidate",
+        "candidate_value_hash": "4b86926956b9f42b",
+        "changed_field_count": "1",
+        "changed_fields": "version",
+        "delta_class": "version_update",
+        "existing_record_id": "authority_existing",
+        "existing_value_hash": "42ea6f6951dd1564",
+        "fact_scope_key": "current_version"
+      },
+      "options": [
+        {
+          "details": {
+            "delta_class": "version_update",
+            "kept_record_id": "authority_candidate",
+            "superseded_record_id": "authority_existing"
+          },
+          "effect": "approve_patch",
+          "label": "채택",
+          "option_id": "A",
+          "summary": "새 authority를 수정으로 채택하고 현재 상태를 갱신한다"
+        },
+        {
+          "details": {
+            "delta_class": "version_update",
+            "kept_record_id": "authority_existing",
+            "rejected_record_id": "authority_candidate"
+          },
+          "effect": "reject_patch",
+          "label": "기각",
+          "option_id": "B",
+          "summary": "새 authority를 오류로 보고 기존 현재 상태를 유지한다"
+        }
+      ],
+      "requires_choice": true,
+      "review_id": "review_55c6db3470acae5c",
+      "review_kind": "ambiguous_version_update",
+      "severity": "high",
+      "status": "pending",
+      "subject_id": "ask",
+      "subject_kind": "project",
+      "summary": "system cannot determine whether the reported version delta is a real release update or a bad scrape"
+    }
+  ],
+  "source_fragments": [],
+  "source_receipts": [],
+  "verification": {
+    "disposition": "needs_review",
+    "patch_id": "patch_11250426ca9ac433",
+    "reasons": [
+      "ambiguous_version_update"
+    ],
+    "requires_human_approval": true,
+    "requires_human_choice": true,
+    "risk_level": "high"
+  },
+  "version": "knowledge-patch-plan.v2",
+  "warnings": [
+    "ambiguous_authority_change"
+  ]
+}

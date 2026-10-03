@@ -1,0 +1,185 @@
+Building for debugging...
+[Planning deferred tasks]
+[40 / 80]
+[42 / 82] LanguageModelCore
+[51 / 143]
+[57 / 143]
+[62 / 143]
+[66 / 143]
+[69 / 143]
+[76 / 143]
+[78 / 143]
+[79 / 143]
+error: SwiftCompile normal arm64 failed with a nonzero exit code. Command line:     cd $NATIVEAGENT_ROOT/Providers/ChatGPT
+    
+$NATIVEAGENT_ROOT/Model/LanguageModelCore/Sources/LanguageModelCore/Contracts/ModelContracts.swift:89:24: error: 'Duration' is only available in macOS 13.0 or newer
+ 78 | }
+ 79 | 
+ 80 | public struct ModelRequest: Codable, Sendable, Equatable {
+    |               `- note: add '@available' attribute to enclosing struct
+ 81 |   public let sessionID: String
+ 82 |   public let modelID: String?
+    :
+ 87 |   public let outputFormat: ModelOutputFormat
+ 88 |   public let maxOutputBytes: Int
+ 89 |   public let deadline: Duration
+    |                        `- error: 'Duration' is only available in macOS 13.0 or newer
+ 90 |   public let limits: ModelGenerationLimits
+ 91 | 
+
+$NATIVEAGENT_ROOT/Model/LanguageModelCore/Sources/LanguageModelCore/Contracts/ModelContracts.swift:101:15: error: 'Duration' is only available in macOS 13.0 or newer
+ 78 | }
+ 79 | 
+ 80 | public struct ModelRequest: Codable, Sendable, Equatable {
+    |               `- note: add '@available' attribute to enclosing struct
+ 81 |   public let sessionID: String
+ 82 |   public let modelID: String?
+    :
+ 90 |   public let limits: ModelGenerationLimits
+ 91 | 
+ 92 |   public init(
+    |          `- note: add '@available' attribute to enclosing initializer
+ 93 |     sessionID: String,
+ 94 |     modelID: String? = nil,
+    :
+ 99 |     outputFormat: ModelOutputFormat = .text,
+100 |     maxOutputBytes: Int? = nil,
+101 |     deadline: Duration? = nil,
+    |               `- error: 'Duration' is only available in macOS 13.0 or newer
+102 |     limits: ModelGenerationLimits = .default
+103 |   ) {
+
+$NATIVEAGENT_ROOT/Model/LanguageModelCore/Sources/LanguageModelCore/Contracts/ModelGeneration.swift:7:20: error: 'Duration' is only available in macOS 13.0 or newer
+  1 | import Foundation
+  2 | 
+  3 | struct DurableDuration: Codable, Hashable, Sendable {
+    |        `- note: add '@available' attribute to enclosing struct
+  4 |   let seconds: Int64
+  5 |   let attoseconds: Int64
+  6 | 
+  7 |   init(_ duration: Duration) {
+    |   |                `- error: 'Duration' is only available in macOS 13.0 or newer
+    |   `- note: add '@available' attribute to enclosing initializer
+  8 |     let components = duration.components
+  9 |     seconds = components.seconds
+
+$NATIVEAGENT_ROOT/Model/LanguageModelCore/Sources/LanguageModelCore/Contracts/ModelGeneration.swift:13:14: error: 'Duration' is only available in macOS 13.0 or newer
+  1 | import Foundation
+  2 | 
+  3 | struct DurableDuration: Codable, Hashable, Sendable {
+    |        `- note: add '@available' attribute to enclosing struct
+  4 |   let seconds: Int64
+  5 |   let attoseconds: Int64
+    :
+ 11 |   }
+ 12 | 
+ 13 |   var value: Duration {
+    |       |      `- error: 'Duration' is only available in macOS 13.0 or newer
+    |       `- note: add '@available' attribute to enclosing property
+ 14 |     Duration(secondsComponent: seconds, attosecondsComponent: attoseconds)
+ 15 |   }
+
+$NATIVEAGENT_ROOT/Model/LanguageModelCore/Sources/LanguageModelCore/Contracts/ModelGeneration.swift:102:42: error: 'Duration' is only available in macOS 13.0 or newer
+ 88 | /// Resource bounds shared by every model adapter. Providers may impose
+ 89 | /// narrower limits, but cannot silently widen these caller-owned bounds.
+ 90 | public struct ModelGenerationLimits: Codable, Hashable, Sendable {
+    |               `- note: add '@available' attribute to enclosing struct
+ 91 |   public static let standardVersion = "v1"
+ 92 |   public static let standardMaxMessages = 32
+    :
+100 |   public static let standardMaxDeltaBytes = 4 * 1_024
+101 |   public static let standardMaxFrameBytes = 64 * 1_024
+102 |   public static let standardMaxDeadline: Duration = .seconds(30)
+    |                     |                    `- error: 'Duration' is only available in macOS 13.0 or newer
+    |                     `- note: add '@available' attribute to enclosing static property
+103 | 
+104 |   public static let supportedMaximumMessages = 64
+
+$NATIVEAGENT_ROOT/Model/LanguageModelCore/Sources/LanguageModelCore/Contracts/ModelGeneration.swift:102:54: error: 'seconds' is only available in macOS 13.0 or newer
+ 88 | /// Resource bounds shared by every model adapter. Providers may impose
+ 89 | /// narrower limits, but cannot silently widen these caller-owned bounds.
+ 90 | public struct ModelGenerationLimits: Codable, Hashable, Sendable {
+    |               `- note: add '@available' attribute to enclosing struct
+ 91 |   public static let standardVersion = "v1"
+ 92 |   public static let standardMaxMessages = 32
+    :
+100 |   public static let standardMaxDeltaBytes = 4 * 1_024
+101 |   public static let standardMaxFrameBytes = 64 * 1_024
+102 |   public static let standardMaxDeadline: Duration = .seconds(30)
+    |                     |                                `- error: 'seconds' is only available in macOS 13.0 or newer
+    |                     `- note: add '@available' attribute to enclosing static property
+103 | 
+104 |   public static let supportedMaximumMessages = 64
+
+$NATIVEAGENT_ROOT/Model/LanguageModelCore/Sources/LanguageModelCore/Contracts/ModelGeneration.swift:112:47: error: 'Duration' is only available in macOS 13.0 or newer
+ 88 | /// Resource bounds shared by every model adapter. Providers may impose
+ 89 | /// narrower limits, but cannot silently widen these caller-owned bounds.
+ 90 | public struct ModelGenerationLimits: Codable, Hashable, Sendable {
+    |               `- note: add '@available' attribute to enclosing struct
+ 91 |   public static let standardVersion = "v1"
+ 92 |   public static let standardMaxMessages = 32
+    :
+110 |   public static let supportedMaximumDeltaBytes = 16 * 1_024
+111 |   public static let supportedMaximumFrameBytes = 256 * 1_024
+112 |   public static let supportedMaximumDeadline: Duration = .seconds(120)
+    |                     |                         `- error: 'Duration' is only available in macOS 13.0 or newer
+    |                     `- note: add '@available' attribute to enclosing static property
+113 |   public static let maximumOutputSchemaUTF8Bytes = 64 * 1_024
+114 | 
+
+$NATIVEAGENT_ROOT/Model/LanguageModelCore/Sources/LanguageModelCore/Contracts/ModelGeneration.swift:112:59: error: 'seconds' is only available in macOS 13.0 or newer
+ 88 | /// Resource bounds shared by every model adapter. Providers may impose
+ 89 | /// narrower limits, but cannot silently widen these caller-owned bounds.
+ 90 | public struct ModelGenerationLimits: Codable, Hashable, Sendable {
+    |               `- note: add '@available' attribute to enclosing struct
+ 91 |   public static let standardVersion = "v1"
+ 92 |   public static let standardMaxMessages = 32
+    :
+110 |   public static let supportedMaximumDeltaBytes = 16 * 1_024
+111 |   public static let supportedMaximumFrameBytes = 256 * 1_024
+112 |   public static let supportedMaximumDeadline: Duration = .seconds(120)
+    |                     |                                     `- error: 'seconds' is only available in macOS 13.0 or newer
+    |                     `- note: add '@available' attribute to enclosing static property
+113 |   public static let maximumOutputSchemaUTF8Bytes = 64 * 1_024
+114 | 
+
+$NATIVEAGENT_ROOT/Model/LanguageModelCore/Sources/LanguageModelCore/Contracts/ModelGeneration.swift:135:27: error: 'Duration' is only available in macOS 13.0 or newer
+ 88 | /// Resource bounds shared by every model adapter. Providers may impose
+ 89 | /// narrower limits, but cannot silently widen these caller-owned bounds.
+ 90 | public struct ModelGenerationLimits: Codable, Hashable, Sendable {
+    |               `- note: add '@available' attribute to enclosing struct
+ 91 |   public static let standardVersion = "v1"
+ 92 |   public static let standardMaxMessages = 32
+    :
+133 |   public let maxDeltaBytes: Int
+134 |   public let maxFrameBytes: Int
+135 |   public let maxDeadline: Duration
+    |                           `- error: 'Duration' is only available in macOS 13.0 or newer
+136 | 
+137 |   public static let `default` = try! Self()
+
+$NATIVEAGENT_ROOT/Model/LanguageModelCore/Sources/LanguageModelCore/Contracts/ModelGeneration.swift:151:18: error: 'Duration' is only available in macOS 13.0 or newer
+ 88 | /// Resource bounds shared by every model adapter. Providers may impose
+ 89 | /// narrower limits, but cannot silently widen these caller-owned bounds.
+ 90 | public struct ModelGenerationLimits: Codable, Hashable, Sendable {
+    |               `- note: add '@available' attribute to enclosing struct
+ 91 |   public static let standardVersion = "v1"
+ 92 |   public static let standardMaxMessages = 32
+    :
+137 |   public static let `default` = try! Self()
+138 | 
+139 |   public init(
+    |          `- note: add '@available' attribute to enclosing initializer
+140 |     version: String = Self.standardVersion,
+141 |     maxMessages: Int = Self.standardMaxMessages,
+    :
+149 |     maxDeltaBytes: Int = Self.standardMaxDeltaBytes,
+150 |     maxFrameBytes: Int = Self.standardMaxFrameBytes,
+151 |     maxDeadline: Duration = Self.standardMaxDeadline
+    |                  `- error: 'Duration' is only available in macOS 13.0 or newer
+152 |   ) throws {
+153 |     guard version == Self.standardVersion,
+Failed frontend command:
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swift-frontend -frontend -emit-module -experimental-skip-non-inlinable-function-bodies-without-types $NATIVEAGENT_ROOT/Model/LanguageModelCore/Sources/LanguageModelCore/Contracts/LanguageModel.swift $NATIVEAGENT_ROOT/Model/LanguageModelCore/Sources/LanguageModelCore/Contracts/ModelClient.swift $NATIVEAGENT_ROOT/Model/LanguageModelCore/Sources/LanguageModelCore/Contracts/ModelClientInvocation.swift $NATIVEAGENT_ROOT/Model/LanguageModelCore/Sources/LanguageModelCore/Contracts/ModelContracts.swift $NATIVEAGENT_ROOT/Model/LanguageModelCore/Sources/LanguageModelCore/Contracts/ModelGeneration.swift $NATIVEAGENT_ROOT/Model/LanguageModelCore/Sources/LanguageModelCore/Contracts/ModelStreamContract.swift $NATIVEAGENT_ROOT/Model/LanguageModelCore/Sources/LanguageModelCore/Contracts/ModelTextRequest.swift $NATIVEAGENT_ROOT/Model/LanguageModelCore/Sources/LanguageModelCore/Contracts/ModelTextSnapshotAccumulator.swift $NATIVEAGENT_ROOT/Model/LanguageModelCore/Sources/LanguageModelCore/Contracts/ModelTool.swift $NATIVEAGENT_ROOT/Model/LanguageModelCore/Sources/LanguageModelCore/Defaults/DeterministicCoreDefaults.swift $NATIVEAGENT_ROOT/Model/LanguageModelCore/Sources/LanguageModelCore/Hashing/SHA1HexDigest.swift $NATIVEAGENT_ROOT/Model/LanguageModelCore/Sources/LanguageModelCore/Hashing/SHA256HexDigest.swift $NATIVEAGENT_ROOT/Model/LanguageModelCore/Sources/LanguageModelCore/JSON/JSONCoding.swift $NATIVEAGENT_ROOT/Model/LanguageModelCore/Sources/LanguageModelCore/JSON/JSONValue+Accessors.swift $NATIVEAGENT_ROOT/Model/LanguageModelCore/Sources/LanguageModelCore/JSON/JSONValue+Bridging.swift $NATIVEAGENT_ROOT/Model/LanguageModelCore/Sources/LanguageModelCore/JSON/JSONValue+CanonicalCount.swift $NATIVEAGENT_ROOT/Model/LanguageModelCore/Sources/LanguageModelCore/JSON/JSONValue+Literals.swift $NATIVEAGENT_ROOT/Model/LanguageModelCore/Sources/LanguageModelCore/JSON/JSONValue+StructureValidation.swift $NATIVEAGENT_ROOT/Model/LanguageModelCore/Sources/LanguageModelCore/JSON/JSONValue.swift $NATIVEAGENT_ROOT/Model/LanguageModelCore/Sources/LanguageModelCore/Schema/ToolSchema+Containers.swift $NATIVEAGENT_ROOT/Model/LanguageModelCore/Sources/LanguageModelCore/Schema/ToolSchema+Numbers.swift $NATIVEAGENT_ROOT/Model/LanguageModelCore/Sources/LanguageModelCore/Schema/ToolSchema+String.swift $NATIVEAGENT_ROOT/Model/LanguageModelCore/Sources/LanguageModelCore/Schema/ToolSchema.swift $NATIVEAGENT_ROOT/Model/LanguageModelCore/Sources/LanguageModelCore/Values/AgentMessage.swift $NATIVEAGENT_ROOT/Model/LanguageModelCore/Sources/LanguageModelCore/Values/ModelContent.swift $NATIVEAGENT_ROOT/Model/LanguageModelCore/Sources/LanguageModelCore/Values/ModelEvent.swift $NATIVEAGENT_ROOT/Model/LanguageModelCore/Sources/LanguageModelCore/Values/ModelStopReason.swift -target arm64-apple-macos12.0 -disable-cross-import-overlay-search -load-resolved-plugin /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib/swift/host/plugins/libFoundationMacros.dylib\#/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/bin/swift-plugin-server\#FoundationMacros -load-resolved-plugin /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib/swift/host/plugins/libObservationMacros.dylib\#/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/bin/swift-plugin-server\#ObservationMacros -load-resolved-plugin /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib/swift/host/plugins/libSwiftMacros.dylib\#/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/bin/swift-plugin-server\#SwiftMacros -disable-implicit-swift-modules -Xcc -fno-implicit-modules -Xcc -fno-implicit-module-maps -explicit-swift-module-map-file $SYSTEM_TMPDIR/xg/fwdvj13x6n926j72y_lt6lyr0000gn/T/nativeai-portable-iw84f3ck/chatgpt-text/out/Intermediates.noindex/LanguageModelCore.build/Debug/LanguageModelCore-t.build/Objects-normal/arm64/LanguageModelCore-dependencies-1.json -Xllvm -aarch64-use-tbi -enable-objc-interop -stack-check -sdk /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX27.0.sdk -I $SYSTEM_TMPDIR/xg/fwdvj13x6n926j72y_lt6lyr0000gn/T/nativeai-portable-iw84f3ck/chatgpt-text/out/Products/Debug -Isystem /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib -F $SYSTEM_TMPDIR/xg/fwdvj13x6n926j72y_lt6lyr0000gn/T/nativeai-portable-iw84f3ck/chatgpt-text/out/Products/Debug -F /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks -module-cache-path $SYSTEM_TMPDIR/xg/fwdvj13x6n926j72y_lt6lyr0000gn/T/nativeai-portable-iw84f3ck/chatgpt-text/out/Intermediates.noindex/SwiftExplicitPrecompiledModules -no-color-diagnostics -Xcc -fno-color-diagnostics -enable-testing -g -debug-info-format\=dwarf -dwarf-version\=4 -warnings-as-errors -warnings-as-errors -swift-version 6 -Onone -D SWIFT_PACKAGE -D DEBUG -D SWIFT_MODULE_RESOURCE_BUNDLE_UNAVAILABLE -D Xcode -serialize-debugging-options -enable-upcoming-feature ExistentialAny -enable-upcoming-feature MemberImportVisibility -enable-upcoming-feature ImmutableWeakCaptures -enable-experimental-feature DebugDescriptionMacro -empty-abi-descriptor -validate-clang-modules-once -clang-build-session-file $SYSTEM_TMPDIR/xg/fwdvj13x6n926j72y_lt6lyr0000gn/T/nativeai-portable-iw84f3ck/chatgpt-text/out/ModuleCache.noindex/Session.modulevalidation -Xcc -working-directory -Xcc $NATIVEAGENT_ROOT/Providers/ChatGPT -enable-anonymous-context-mangled-names -file-compilation-dir $NATIVEAGENT_ROOT/Providers/ChatGPT -Xcc -D_LIBCPP_HARDENING_MODE\=_LIBCPP_HARDENING_MODE_DEBUG -Xcc -ivfsstatcache -Xcc $SYSTEM_TMPDIR/xg/fwdvj13x6n926j72y_lt6lyr0000gn/T/nativeai-portable-iw84f3ck/chatgpt-text/out/SDKStatCaches.noindex/macosx27.0-26A425-80c5bbf1d171475443272936d42f90a37231f6df4def33e022ae2eb8f782df1a.sdkstatcache -Xcc -fmodules-prune-interval\=86400 -Xcc -fmodules-prune-after\=345600 -Xcc -I$SYSTEM_TMPDIR/xg/fwdvj13x6n926j72y_lt6lyr0000gn/T/nativeai-portable-iw84f3ck/chatgpt-text/out/Products/Debug/include -Xcc -I$SYSTEM_TMPDIR/xg/fwdvj13x6n926j72y_lt6lyr0000gn/T/nativeai-portable-iw84f3ck/chatgpt-text/out/Intermediates.noindex/LanguageModelCore.build/Debug/LanguageModelCore-t.build/DerivedSources-normal/arm64 -Xcc -I$SYSTEM_TMPDIR/xg/fwdvj13x6n926j72y_lt6lyr0000gn/T/nativeai-portable-iw84f3ck/chatgpt-text/out/Intermediates.noindex/LanguageModelCore.build/Debug/LanguageModelCore-t.build/DerivedSources/arm64 -Xcc -I$SYSTEM_TMPDIR/xg/fwdvj13x6n926j72y_lt6lyr0000gn/T/nativeai-portable-iw84f3ck/chatgpt-text/out/Intermediates.noindex/LanguageModelCore.build/Debug/LanguageModelCore-t.build/DerivedSources -Xcc -DSWIFT_PACKAGE -Xcc -DDEBUG\=1 -no-auto-bridging-header-chaining -module-name LanguageModelCore -package-name languagemodelcore -const-gather-protocols-file $SYSTEM_TMPDIR/xg/fwdvj13x6n926j72y_lt6lyr0000gn/T/nativeai-portable-iw84f3ck/chatgpt-text/out/Intermediates.noindex/LanguageModelCore.build/Debug/LanguageModelCore-t.build/Objects-normal/arm64/LanguageModelCore_const_extract_protocols.json -disable-clang-spi -clang-target arm64-apple-macos27.0 -target-sdk-version 27.0 -target-sdk-name macosx27.0 -in-process-plugin-server-path /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/host/libSwiftInProcPluginServer.dylib -emit-module-doc-path $SYSTEM_TMPDIR/xg/fwdvj13x6n926j72y_lt6lyr0000gn/T/nativeai-portable-iw84f3ck/chatgpt-text/out/Intermediates.noindex/LanguageModelCore.build/Debug/LanguageModelCore-t.build/Objects-normal/arm64/LanguageModelCore.swiftdoc -emit-module-source-info-path $SYSTEM_TMPDIR/xg/fwdvj13x6n926j72y_lt6lyr0000gn/T/nativeai-portable-iw84f3ck/chatgpt-text/out/Intermediates.noindex/LanguageModelCore.build/Debug/LanguageModelCore-t.build/Objects-normal/arm64/LanguageModelCore.swiftsourceinfo -emit-objc-header-path $SYSTEM_TMPDIR/xg/fwdvj13x6n926j72y_lt6lyr0000gn/T/nativeai-portable-iw84f3ck/chatgpt-text/out/Intermediates.noindex/LanguageModelCore.build/Debug/LanguageModelCore-t.build/Objects-normal/arm64/LanguageModelCore-Swift.h -serialize-diagnostics-path $SYSTEM_TMPDIR/xg/fwdvj13x6n926j72y_lt6lyr0000gn/T/nativeai-portable-iw84f3ck/chatgpt-text/out/Intermediates.noindex/LanguageModelCore.build/Debug/LanguageModelCore-t.build/Objects-normal/arm64/LanguageModelCore-primary-emit-module.dia -emit-dependencies-path $SYSTEM_TMPDIR/xg/fwdvj13x6n926j72y_lt6lyr0000gn/T/nativeai-portable-iw84f3ck/chatgpt-text/out/Intermediates.noindex/LanguageModelCore.build/Debug/LanguageModelCore-t.build/Objects-normal/arm64/LanguageModelCore-primary-emit-module.d -parse-as-library -o $SYSTEM_TMPDIR/xg/fwdvj13x6n926j72y_lt6lyr0000gn/T/nativeai-portable-iw84f3ck/chatgpt-text/out/Intermediates.noindex/LanguageModelCore.build/Debug/LanguageModelCore-t.build/Objects-normal/arm64/LanguageModelCore.swiftmodule -emit-abi-descriptor-path $SYSTEM_TMPDIR/xg/fwdvj13x6n926j72y_lt6lyr0000gn/T/nativeai-portable-iw84f3ck/chatgpt-text/out/Intermediates.noindex/LanguageModelCore.build/Debug/LanguageModelCore-t.build/Objects-normal/arm64/LanguageModelCore.abi.json
+error: Build failed
+error: fatalError

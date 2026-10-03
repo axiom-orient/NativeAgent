@@ -1,0 +1,41 @@
+[0/1] Planning build
+Building for debugging...
+[0/4] Write sources
+[1/4] Write swift-version--1BA0962812E73E12.txt
+[3/8] Compiling ChatGPTAccount ChatGPTSignInSession.swift
+[4/8] Compiling ChatGPTAccount ChatGPTAccountSession.swift
+[5/8] Emitting module ChatGPTAccount
+[6/8] Compiling ChatGPTAccount ChatGPTTransport.swift
+[7/9] Wrapping AST for ChatGPTAccount for debugging
+[9/20] Compiling ChatGPTText ChatGPTTextSession.swift
+[10/20] Compiling ChatGPTText ChatGPTTextWire.swift
+[11/20] Compiling ChatGPTText ChatGPTModelClient.swift
+[12/20] Emitting module ChatGPTText
+[14/22] Emitting module ChatGPTTextTests
+[15/22] Compiling ChatGPTTextTests ChatGPTModelCompletionTests.swift
+[16/22] $DATA_ROOT/build/baseline-portable/chatgpt-text/x86_64-unknown-linux-gnu/debug/ChatGPTTextPackageDiscoveredTests.derived/all-discovered-tests.swift
+[17/23] Write sources
+[19/26] Compiling ChatGPTTextPackageDiscoveredTests ChatGPTTextTests.swift
+[20/26] Emitting module ChatGPTTextPackageDiscoveredTests
+[21/26] Compiling ChatGPTTextPackageDiscoveredTests all-discovered-tests.swift
+[22/24] Write Objects.LinkFileList
+[23/24] Linking ChatGPTTextPackageTests.xctest
+Build complete! (5.62s)
+Test Suite 'All tests' started at 2026-09-20 06:53:53.455
+Test Suite 'debug.xctest' started at 2026-09-20 06:53:53.456
+Test Suite 'debug.xctest' passed at 2026-09-20 06:53:53.456
+	 Executed 0 tests, with 0 failures (0 unexpected) in 0.0 (0.0) seconds
+Test Suite 'All tests' passed at 2026-09-20 06:53:53.456
+	 Executed 0 tests, with 0 failures (0 unexpected) in 0.0 (0.0) seconds
+◇ Test run started.
+↳ Testing Library Version: 6.2.1 (c9d57c83568b06d)
+↳ Target Platform: x86_64-unknown-linux-gnu
+◇ Test unsupportedHostDoesNotSilentlyCreateAnAccount() started.
+◇ Test failedAccountDrainFailsModelProducerReceipt(expired:) started.
+◇ Test settledAuthenticationFailureDoesNotBecomeFailedProducerDrain() started.
+◇ Test case passing 1 argument expired → false to failedAccountDrainFailsModelProducerReceipt(expired:) started.
+◇ Test case passing 1 argument expired → true to failedAccountDrainFailsModelProducerReceipt(expired:) started.
+✔ Test unsupportedHostDoesNotSilentlyCreateAnAccount() passed after 0.003 seconds.
+✔ Test settledAuthenticationFailureDoesNotBecomeFailedProducerDrain() passed after 0.007 seconds.
+✔ Test failedAccountDrainFailsModelProducerReceipt(expired:) with 2 test cases passed after 0.011 seconds.
+✔ Test run with 3 tests in 0 suites passed after 0.011 seconds.

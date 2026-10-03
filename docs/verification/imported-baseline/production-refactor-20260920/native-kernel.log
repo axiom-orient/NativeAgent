@@ -1,0 +1,1655 @@
+Building for debugging...
+[0/83] Write sources
+[37/83] Write swift-version--1BA0962812E73E12.txt
+[39/122] Emitting module NativeAgentMemoryProjection
+[40/127] Emitting module LanguageModelCore
+[41/133] Compiling LanguageModelCore ToolSchema+String.swift
+[42/133] Compiling LanguageModelCore ToolSchema.swift
+[43/133] Compiling LanguageModelCore AgentMessage.swift
+[44/133] Compiling LanguageModelCore ModelContent.swift
+[45/133] Compiling LanguageModelCore ModelEvent.swift
+[46/133] Compiling LanguageModelCore ModelStopReason.swift
+[47/133] Compiling NativeAgentMemoryProjection SQLiteSchema.swift
+[48/133] Compiling NativeAgentMemoryProjection Store.swift
+[49/133] Compiling NativeAgentMemoryProjection StoreTransactionState.swift
+[50/133] Compiling NativeAgentMemoryProjection Time.swift
+[51/133] Compiling NativeAgentMemoryProjection Workspace.swift
+[52/133] Compiling LanguageModelCore ModelGeneration.swift
+[53/133] Compiling LanguageModelCore ModelStreamContract.swift
+[54/133] Compiling LanguageModelCore ModelTextRequest.swift
+[55/133] Compiling LanguageModelCore ModelTextSnapshotAccumulator.swift
+[56/133] Compiling LanguageModelCore ModelTool.swift
+[57/133] Compiling LanguageModelCore JSONValue+Bridging.swift
+[58/133] Compiling LanguageModelCore JSONValue+CanonicalCount.swift
+[59/133] Compiling LanguageModelCore JSONValue+Literals.swift
+[60/133] Compiling LanguageModelCore JSONValue+StructureValidation.swift
+[61/133] Compiling LanguageModelCore JSONValue.swift
+[62/133] Compiling LanguageModelCore ToolSchema+Containers.swift
+[63/133] Compiling LanguageModelCore ToolSchema+Numbers.swift
+[64/133] Compiling LanguageModelCore LanguageModel.swift
+[65/133] Compiling LanguageModelCore ModelClient.swift
+[66/133] Compiling LanguageModelCore ModelClientInvocation.swift
+[67/133] Compiling LanguageModelCore ModelContracts.swift
+[68/134] Wrapping AST for NativeAgentMemoryProjection for debugging
+[84/139] Compiling NativeAgentMemoryProjectionTests MemoryEngineBoundaryTests.swift
+[85/139] Compiling NativeAgentMemoryProjectionTests MemoryEngineDomainTests.swift
+[91/140] Wrapping AST for LanguageModelCore for debugging
+[93/176] Compiling NativeAgentDomain AgentCapability.swift
+[94/176] Compiling NativeAgentDomain AgentCommandContracts.swift
+[95/176] Compiling NativeAgentDomain ArtifactContracts.swift
+[96/179] Compiling NativeAgentDomain ClosureToolExecutor.swift
+[97/179] Compiling NativeAgentDomain EffectLedger.swift
+[98/179] Compiling NativeAgentDomain PromptAugmentation.swift
+[99/179] Emitting module LanguageModelRuntime
+[100/179] Compiling NativeAgentDomain InstructionDocumentMerge.swift
+[101/179] Compiling NativeAgentDomain InstructionDocuments.swift
+[102/179] Compiling NativeAgentDomain JSONValue+Accessors.swift
+[103/179] Compiling NativeAgentDomain StringExtensions.swift
+[104/179] Compiling NativeAgentDomain PersistedTimestamp.swift
+[105/179] Compiling NativeAgentDomain Approval.swift
+[106/179] Compiling NativeAgentDomain CapabilityContracts.swift
+[107/179] Compiling NativeAgentDomain EffectFailure.swift
+[108/179] Compiling LanguageModelRuntime ModelRuntimeTypes.swift
+[109/179] Compiling LanguageModelRuntime ModelSession.swift
+[110/179] Compiling LanguageModelRuntime SessionLedger.swift
+[111/179] Compiling NativeAgentDomain ToolContext.swift
+[112/179] Compiling NativeAgentDomain ToolContracts.swift
+[113/179] Compiling NativeAgentDomain ToolDefinition.swift
+[114/179] Compiling NativeAgentDomain NativeModelCore.swift
+[115/179] Compiling NativeAgentDomain OperationCleanupCompletionPolicy.swift
+[116/187] Compiling NativeAgentDomain RuntimeInstrumentation.swift
+[117/187] Compiling NativeAgentDomain RuntimeProtocols.swift
+[118/187] Compiling NativeAgentDomain SessionEvent.swift
+[119/187] Emitting module NativeAgentDomain
+[132/188] Wrapping AST for LanguageModelRuntime for debugging
+[134/188] Compiling NativeAgentDomain Errors.swift
+[135/188] Compiling NativeAgentDomain SessionContextCheckpoint.swift
+[136/188] Compiling NativeAgentDomain SessionFailure.swift
+[137/188] Compiling NativeAgentDomain SessionReadModels.swift
+[138/188] Compiling NativeAgentDomain SessionReducer.swift
+[139/188] Compiling NativeAgentDomain SessionSignal.swift
+[140/188] Compiling NativeAgentDomain SessionSnapshot.swift
+[141/188] Compiling NativeAgentDomain SessionWaitState.swift
+[142/191] Wrapping AST for NativeAgentDomain for debugging
+[144/230] Emitting module NativeAgentStore
+[145/234] Emitting module NativeAgentTools
+[146/242] Compiling NativeAgentStore StoreCodecs.swift
+[147/242] Compiling NativeAgentStore StoreManifestIO.swift
+[148/242] Compiling NativeAgentStore StoreLayout.swift
+[149/242] Compiling NativeAgentStore StoreDataPolicy.swift
+[150/242] Emitting module NativeAgentMemoryProjectionTests
+[151/242] Compiling NativeAgentMemoryProjectionTests MemoryEngineQueryBuildingTests.swift
+[152/242] Compiling NativeAgentMemoryProjectionTests MemoryEngineStoreTests.swift
+[153/242] Compiling NativeAgentStore ApplicationSupportFileExecutionClaimStore.swift
+[154/242] Compiling NativeAgentStore ApplicationSupportSessionStore.swift
+[155/243] Emitting module NativeAgentWeb
+[156/243] Compiling NativeAgentWeb Web.swift
+[158/244] Compiling NativeAgentStore StorePolicies.swift
+[159/244] Compiling NativeAgentStore SQLiteArtifactCleanup.swift
+[160/244] Compiling NativeAgentStore SQLiteSessionArtifacts.swift
+[161/244] Compiling NativeAgentStore SQLiteSessionPersistence.swift
+[162/297] Compiling NativeAgentSkills BoundedConcurrentMap.swift
+[163/297] Compiling NativeAgentSkills SkillAgentIntegration.swift
+[164/297] Compiling NativeAgentSkills SkillComposition.swift
+[165/297] Compiling NativeAgentSkills SkillIntentRouterService.swift
+[166/297] Compiling NativeAgentSkills SkillCustomTextPackageBuilder.swift
+[167/297] Compiling NativeAgentSkills SkillLibrary+CustomTextSkill.swift
+[168/297] Compiling NativeAgentSkills SkillLibrary+CustomTextSkillUpsert.swift
+[169/297] Compiling NativeAgentSkills SkillLibrary+DocumentMutation.swift
+[170/297] Compiling NativeAgentSkills SkillLibrary+ExecutionSnapshot.swift
+[171/297] Compiling NativeAgentSkills SkillLibrary+FileImport.swift
+[172/297] Compiling NativeAgentSkills SkillLibrary+Import.swift
+[173/297] Compiling NativeAgentSkills SkillLibrary+ImportSupport.swift
+[174/297] Compiling NativeAgentSkills SkillLibrary+Loading.swift
+[175/297] Emitting module NativeAgentSkills
+[176/314] Compiling NativeAgentMemoryProjectionTests MemorySchemaContractTests.swift
+[183/315] Compiling NativeAgentSkills SkillDocumentMutationReducer.swift
+[184/315] Compiling NativeAgentSkills SkillDocumentPostCommitFailure.swift
+[185/315] Compiling NativeAgentSkills SkillLibrary+Access.swift
+[189/317] Compiling NativeAgentSkills SkillLibrary+PathValidation.swift
+[191/356] Compiling NativeAgentExecution InstructionAssemblyPromptAugmentor.swift
+[192/356] Compiling NativeAgentExecution InstructionAssemblySupport.swift
+[193/356] Compiling NativeAgentExecution PromptInstructionDocumentMerger.swift
+[194/356] Compiling NativeAgentExecution PromptInstructionDocumentParser.swift
+[195/356] Compiling NativeAgentExecution PromptInstructionWorkspaceScanner.swift
+[196/356] Compiling NativeAgentExecution TurnPromptProjection.swift
+[197/356] Compiling NativeAgentExecution InterruptedToolExecutionRecovery.swift
+[198/356] Compiling NativeAgentExecution ModelInvocationRecovery.swift
+[199/356] Compiling NativeAgentWebTests WebTests.swift
+[200/356] Emitting module NativeAgentWebTests
+[202/361] Compiling NativeAgentExecution SessionCoordinator+Lifecycle.swift
+[203/361] Compiling NativeAgentExecution SessionCoordinator+Run.swift
+[204/361] Compiling NativeAgentExecution SessionCoordinator+WaitTransitions.swift
+[205/361] Compiling NativeAgentExecution SessionCoordinator+Waits.swift
+[206/361] Compiling NativeAgentExecution SessionCoordinator.swift
+[207/361] Compiling NativeAgentExecution SessionCoordinatorPolicies.swift
+[208/361] Compiling NativeAgentExecution InMemorySessionExecutionClaimStore.swift
+[209/361] Compiling NativeAgentExecution SessionExecutionAuthority.swift
+[211/376] Emitting module NativeAgentEvolution
+[212/380] Compiling NativeAgentEvolution EvolutionReportDirectoryTransaction.swift
+[213/380] Compiling NativeAgentEvolution EvolutionReportStoragePlan.swift
+[214/380] Compiling NativeAgentEvolution EvolutionStore.swift
+[215/380] Compiling NativeAgentEvolution CandidateValidation.swift
+[216/380] Compiling NativeAgentStoreTests StoreDataPolicyTests.swift
+[217/381] Compiling NativeAgentStoreTests SQLitePreparationTests.swift
+[218/381] Compiling NativeAgentEvolution EvolutionEvaluationModels.swift
+[219/381] Compiling NativeAgentEvolution EvolutionPathSupport.swift
+[220/381] Compiling NativeAgentEvolution EvolutionReport.swift
+[221/381] Compiling NativeAgentEvolution EvolutionSourceModels.swift
+[222/381] Compiling NativeAgentEvolution EvolutionApplyProposal.swift
+[223/381] Compiling NativeAgentEvolution EvolutionConfig.swift
+[224/381] Compiling NativeAgentEvolution EvolutionDatasetModels.swift
+[225/381] Compiling NativeAgentEvolution EvolutionErrors.swift
+[226/381] Compiling NativeAgentEvolution EvolutionContracts.swift
+[227/381] Compiling NativeAgentEvolution CandidateEvaluation.swift
+[228/381] Compiling NativeAgentEvolution CandidateGeneration.swift
+[229/381] Compiling NativeAgentEvolution ModelBackedCandidateGeneration.swift
+[230/381] Compiling NativeAgentEvolution EvolutionLoop.swift
+[246/392] Compiling NativeAgentExecution SessionRecoveryReader.swift
+[247/392] Compiling NativeAgentExecution ToolEffectRecovery.swift
+[248/392] Compiling NativeAgentExecution PendingToolCallIndex.swift
+[249/392] Compiling NativeAgentToolsTests AppleNativeToolPackTests.swift
+[250/392] Compiling NativeAgentToolsTests AppleServicesLiveTests.swift
+[251/392] Compiling NativeAgentToolsTests AppleToolPackAdapterTests.swift
+[252/392] Compiling NativeAgentToolsTests AppleUsageDescriptionPreflightTests.swift
+[253/392] Compiling NativeAgentToolsTests CalendarToolPackTests.swift
+[254/392] Compiling NativeAgentToolsTests FilesContentMutationTests.swift
+[255/392] Compiling NativeAgentToolsTests FilesMutationTests.swift
+[256/392] Compiling NativeAgentToolsTests FilesSandboxTests.swift
+[257/392] Compiling NativeAgentToolsTests FilesSearchAndReadTests.swift
+[267/392] Compiling NativeAgentStoreTests StoreRootLocatorTests.swift
+[268/392] Compiling NativeAgentExecution PendingToolCallRecovery.swift
+[269/392] Compiling NativeAgentExecution ResponseContinuationPolicy.swift
+[270/392] Compiling NativeAgentSkills SkillCapabilityRequirements.swift
+[271/392] Compiling NativeAgentSkills SkillToolCallArguments.swift
+[272/392] Compiling NativeAgentSkills SkillJSONPayload.swift
+[273/392] Compiling NativeAgentSkills SkillBoundedFileReader.swift
+[274/392] Compiling NativeAgentSkills SkillFilePolicies.swift
+[275/392] Compiling NativeAgentSkills SkillFileRemoval.swift
+[276/392] Compiling NativeAgentSkills SkillPathPolicies.swift
+[277/392] Compiling NativeAgentSkills SkillPromptLimits.swift
+[278/392] Compiling NativeAgentSkills SkillSystemPromptBuilder.swift
+[279/392] Compiling NativeAgentSkills GitHubRemoteSkillLocation.swift
+[280/392] Compiling NativeAgentSkills GitHubURLRequest.swift
+[281/392] Compiling NativeAgentSkills RemoteSkillFetcher.swift
+[282/392] Compiling NativeAgentSkills URLSessionRemoteSkillFetcher+GitHubContents.swift
+[283/392] Compiling NativeAgentSkills URLSessionRemoteSkillFetcher+GitHubPlugins.swift
+[284/392] Compiling NativeAgentSkills URLSessionRemoteSkillFetcher.swift
+[288/392] Emitting module NativeAgentToolsTests
+[289/395] Compiling NativeAgentSkills SkillExecution.swift
+[290/395] Compiling NativeAgentSkills SkillExecutionSnapshot.swift
+[291/395] Compiling NativeAgentSkills SkillIntentToolSchemaValidator.swift
+[292/395] Compiling NativeAgentSkills SkillRuntime+Intent.swift
+[293/395] Compiling NativeAgentSkills SkillRuntime+LoadSkill.swift
+[294/395] Compiling NativeAgentSkills SkillRuntime+RunJS.swift
+[295/395] Compiling NativeAgentSkills SkillRuntime.swift
+[296/395] Compiling NativeAgentSkills SkillRuntimeArtifacts.swift
+[297/395] Compiling NativeAgentSkills SkillRuntimePolicies.swift
+[298/395] Compiling NativeAgentSkills SkillSupportingFileRead.swift
+[299/395] Compiling NativeAgentSkills SkillSecrets.swift
+[300/395] Compiling NativeAgentSkills SkillSnapshotPolicies.swift
+[301/395] Compiling NativeAgentSkills SkillStatePersistenceBoundary.swift
+[302/395] Compiling NativeAgentSkills SkillStatePolicies.swift
+[303/395] Compiling NativeAgentSkills SkillStateStore.swift
+[304/395] Compiling NativeAgentSkills SkillTextExtensions.swift
+[305/395] Compiling NativeAgentSkills SkillWorkspace.swift
+[307/400] Compiling NativeAgentStoreTests ApplicationSupportSessionStoreTests.swift
+[308/400] Emitting module NativeAgentStoreTests
+[310/401] Compiling NativeAgentDomainTests OperationCleanupCompletionPolicyTests.swift
+[311/410] Emitting module NativeAgentDomainTests
+[312/410] Compiling NativeAgentSkillsWeb WebKitSkillRunnerError.swift
+[313/410] Compiling NativeAgentSkillsWeb WebKitExecutor.swift
+[314/410] Compiling NativeAgentSkillsWeb WebKitNavigationBox.swift
+[315/412] Emitting module NativeAgentSkillsWeb
+[316/412] Compiling NativeAgentSkillsWeb DefaultSkillScriptRunner.swift
+[317/412] Compiling NativeAgentSkillsWeb WebKitSkillRunner.swift
+[318/412] Compiling NativeAgentSkillsWeb WebKitNoNetworkRuleListCache.swift
+[319/412] Compiling NativeAgentSkillsWeb WebKitPolicyGuardJavaScript.swift
+[320/412] Compiling NativeAgentSkillsWeb WebKitSkillScriptContract.swift
+[321/412] Compiling NativeAgentSkillsWeb WebKitSkillRunnerPolicy.swift
+[322/413] Compiling NativeAgentDomainTests SessionPageOverflowTests.swift
+[324/413] Compiling NativeAgentDomainTests SHA256HexDigestTests.swift
+[325/415] Compiling NativeAgentToolsTests ToolCatalogSourceTests.swift
+[326/415] Compiling NativeAgentToolsTests ToolPackFileBoundaryTests.swift
+[327/415] Compiling NativeAgentToolsTests ToolPackTestSupport.swift
+[365/415] Emitting module NativeAgentExecution
+[366/427] Compiling NativeAgentDomainTests SessionReducerTests.swift
+[368/428] Emitting module NativeAgentSkillsWebTests
+[369/428] Compiling NativeAgentSkillsWebTests SkillsWebKitTests.swift
+[371/454] Compiling NativeAgentConsensus ArtifactModels.swift
+[372/454] Compiling NativeAgentConsensus CaseCard.swift
+[373/455] Compiling NativeAgentEvolutionSkills EvolutionSkillApplyResult.swift
+[374/455] Compiling NativeAgentEvolutionSkills EvolutionSkillApplyError.swift
+[375/455] Emitting module NativeAgentEvolutionSkills
+[376/455] Compiling NativeAgentEvolutionSkills EvolutionSkillApplyOptions.swift
+[378/456] Emitting module NativeAgentConsensus
+[379/470] Compiling NativeAgentBrowser BrowserSession.swift
+[380/470] Compiling NativeAgentBrowser BrowserSnapshotRunner.swift
+[381/472] Compiling NativeAgentBrowser BrowserJavaScriptRunner.swift
+[382/472] Compiling NativeAgentBrowser BrowserNavigationDelegate.swift
+[384/472] Compiling NativeAgentBrowser BrowserHostIntegration.swift
+[387/472] Emitting module NativeAgentBrowser
+[388/472] Compiling NativeAgentBrowser BrowserPolicy.swift
+[389/472] Compiling NativeAgentBrowser BrowserSemanticBridge.swift
+[390/472] Compiling NativeAgentBrowser BrowserToolPack.swift
+[391/472] Compiling NativeAgentBrowser BrowserTypes.swift
+[393/475] Compiling NativeAgentConsensus SessionConsensusRoleDriver.swift
+[394/475] Compiling NativeAgentConsensus ScriptedActors.swift
+[395/475] Compiling NativeAgentConsensus ScriptedBundle.swift
+[396/475] Compiling NativeAgentConsensus ScriptedRoundResolver.swift
+[397/475] Compiling NativeAgentConsensus Normalization.swift
+[398/475] Compiling NativeAgentConsensus TextUtil.swift
+[399/475] Emitting module NativeAgentEvolutionSkillsTests
+[400/475] Compiling NativeAgentConsensus ConsensusResponseRenderer.swift
+[401/475] Compiling NativeAgentConsensus ConsensusTurnBuilder.swift
+[402/475] Compiling NativeAgentConsensus ConsensusRoleDriver.swift
+[403/475] Compiling NativeAgentConsensus ConsensusRoleJSON.swift
+[404/475] Compiling NativeAgentConsensus ConsensusRolePromptFactory.swift
+[405/475] Compiling NativeAgentConsensus RoleBackedTriad.swift
+[413/478] Compiling NativeAgentConsensus Defaults.swift
+[414/478] Compiling NativeAgentConsensus ConsensusContracts.swift
+[415/478] Compiling NativeAgentConsensus ConsensusEngine.swift
+[416/478] Compiling NativeAgentConsensus ConsensusRunner.swift
+[424/479] Compiling NativeAgentHTML InteractiveHTMLToolPack.swift
+[425/479] Emitting module NativeAgentHTML
+[425/480] Wrapping AST for NativeAgentWebTests for debugging
+[428/480] Compiling NativeAgentEvolutionSkillsTests EvolutionSkillsAdapterTests.swift
+[428/480] Wrapping AST for NativeAgentWeb for debugging
+[430/480] Compiling NativeAgentExecution RuntimeSnapshotSupport.swift
+[431/480] Compiling NativeAgentExecution SessionJournal.swift
+[432/480] Compiling NativeAgentExecution TranscriptRepair.swift
+[433/480] Compiling NativeAgentExecution ToolCallLoopGuard.swift
+[434/480] Compiling NativeAgentExecution ToolCallValidator.swift
+[435/480] Compiling NativeAgentExecution ToolEffectLedger.swift
+[436/480] Compiling NativeAgentExecution ToolEffectLedgerPolicy.swift
+[437/480] Compiling NativeAgentExecution ToolFailureClassifier.swift
+[438/480] Compiling NativeAgentExecution ToolRegistry.swift
+[439/480] Compiling NativeAgentExecution ToolSchemaDescriptor.swift
+[440/480] Compiling NativeAgentExecution RuntimeResourceValidator.swift
+[441/480] Compiling NativeAgentExecution RuntimeSessionValidationIndexes.swift
+[442/482] Wrapping AST for NativeAgentToolsTests for debugging
+[444/484] Wrapping AST for NativeAgentStoreTests for debugging
+[445/484] Wrapping AST for NativeAgentTools for debugging
+[447/484] Compiling NativeAgentHTMLTests InteractiveHTMLTests.swift
+[447/484] Wrapping AST for NativeAgentStore for debugging
+[449/484] Emitting module NativeAgentHTMLTests
+[449/497] Wrapping AST for NativeAgentSkillsWebTests for debugging
+[451/512] Wrapping AST for NativeAgentSkillsWeb for debugging
+[452/512] Wrapping AST for NativeAgentSkills for debugging
+[453/512] Wrapping AST for NativeAgentMemoryProjectionTests for debugging
+[454/512] Wrapping AST for NativeAgentHTMLTests for debugging
+[455/512] Wrapping AST for NativeAgentHTML for debugging
+[456/512] Wrapping AST for NativeAgentExecution for debugging
+[457/512] Wrapping AST for NativeAgentEvolutionSkillsTests for debugging
+[458/512] Wrapping AST for NativeAgentEvolution for debugging
+[459/512] Wrapping AST for NativeAgentEvolutionSkills for debugging
+[461/512] Emitting module NativeAgent
+[461/515] Wrapping AST for NativeAgentDomainTests for debugging
+[462/515] Wrapping AST for NativeAgentConsensus for debugging
+[463/515] Wrapping AST for NativeAgentBrowser for debugging
+[465/515] Compiling NativeAgent AgentToolCatalog.swift
+[466/515] Compiling NativeAgent Exports.swift
+[467/515] Compiling NativeAgent AgentTool.swift
+[468/515] Compiling NativeAgentGoals SessionCoordinatorGoalRecoveryError.swift
+[469/515] Compiling NativeAgentGoals SessionCoordinatorGoalRunner.swift
+[470/515] Compiling NativeAgentGoals GoalContinuation.swift
+[471/515] Compiling NativeAgentGoals GoalPathSupport.swift
+[472/515] Compiling NativeAgentGoals GoalReport.swift
+[473/515] Compiling NativeAgentGoals GoalRequests.swift
+[476/520] Compiling NativeAgentGoals GoalContinuationController.swift
+[477/520] Compiling NativeAgentGoals GoalEvaluator.swift
+[478/520] Compiling NativeAgentGoals GoalJudgeResponseDecoder.swift
+[480/520] Compiling NativeAgentGoals GoalHostAction.swift
+[481/520] Compiling NativeAgentGoals GoalLoop.swift
+[482/520] Compiling NativeAgentGoals GoalErrors.swift
+[483/520] Compiling NativeAgentGoals GoalEvaluationModels.swift
+[488/537] Compiling NativeAgentTestSupport TestStoreReads.swift
+[489/537] Emitting module NativeAgentTestSupport
+[490/537] Compiling NativeAgentTestSupport ScriptedModelClient.swift
+[491/537] Compiling NativeAgentTestSupport TestModelRuntime.swift
+[493/538] Emitting module LanguageModelRuntimeTests
+[493/538] Wrapping AST for NativeAgent for debugging
+[495/541] Emitting module NativeAgentMemory
+[496/544] Compiling NativeAgentGoals GoalSession.swift
+[497/544] Compiling NativeAgentGoals GoalStatus.swift
+[498/544] Compiling NativeAgentGoals GoalReducer.swift
+[499/544] Compiling NativeAgentGoals GoalBoundedFileReader.swift
+[500/544] Compiling NativeAgentGoals GoalStore.swift
+[501/544] Emitting module NativeAgentGoals
+[502/544] Compiling NativeAgentMemory MemoryModelClient.swift
+[503/544] Compiling NativeAgentMemory MemoryCaptureAdmission.swift
+[504/544] Compiling NativeAgentMemory MemoryRequestPlanner.swift
+[505/544] Compiling NativeAgentMemory MemoryConfiguration.swift
+[506/544] Compiling NativeAgentMemory MemoryContext.swift
+[507/544] Compiling NativeAgentMemory MemoryController.swift
+[512/545] Compiling NativeAgentMemory MemoryError.swift
+[513/545] Compiling NativeAgentMemory MemoryEngineMapping.swift
+[514/545] Compiling NativeAgentMemory MemoryConsolidationProvider.swift
+[518/547] Compiling NativeAgentMemory MemoryToolPack.swift
+[519/547] Compiling NativeAgentMemory MemoryTranscriptSource.swift
+[521/567] Compiling NativeAgentTestSupportTests ScriptedModelClientTests.swift
+[522/567] Emitting module NativeAgentTestSupportTests
+[524/574] Emitting module NativeAgentTests
+[525/575] Compiling LanguageModelRuntimeTests AgentModelRuntimeTests.swift
+[527/583] Compiling NativeAgentMemoryTests StandaloneBoundaryTests.swift
+[528/584] Compiling NativeAgentTests SharedLocalBackendTests.swift
+[529/584] Compiling NativeAgentTests AgentRecoveryFacadeTests.swift
+[530/584] Compiling NativeAgentMemoryTests StoreTransactionTests.swift
+[531/584] Emitting module NativeAgentGoalsTests
+[532/585] Emitting module NativeAgentSkillsTests
+[533/591] Compiling NativeAgentGoalsTests SessionCoordinatorGoalRunnerRecoveryTests.swift
+[534/591] Compiling NativeAgentGoalsTests GoalContinuationIntegrationTests.swift
+[535/591] Compiling NativeAgentGoalsTests GoalEvaluatorResponseDecoderTests.swift
+[536/591] Compiling NativeAgentGoalsTests GoalLoopIntegrationTests.swift
+[537/591] Compiling NativeAgentGoalsTests GoalModelAndEvaluationTests.swift
+[540/591] Emitting module NativeAgentMemoryTests
+[542/592] Compiling NativeAgentGoalsTests GoalReducerAndExecutionTests.swift
+[543/592] Compiling NativeAgentGoalsTests GoalTestSupport.swift
+[544/616] Compiling NativeAgentExecutionTests CrashRecoveryIntegrationTests.swift
+[545/616] Compiling NativeAgentExecutionTests DurableAgentRegressionTests.swift
+[547/620] Compiling NativeAgentEvolutionTests EvolutionReportStoreTransactionTests.swift
+[548/620] Compiling NativeAgentTests AgentCommandContractFacadeTests.swift
+[549/620] Compiling NativeAgentTests AgentFacadeTests.swift
+[551/625] Compiling NativeAgentEvolutionTests EvolutionKitTests.swift
+[552/625] Emitting module NativeAgentEvolutionTests
+[554/628] Compiling NativeAgentBrowserTests BrowserWebKitTests.swift
+[555/628] Emitting module NativeAgentBrowserTests
+[556/629] Wrapping AST for NativeAgentTests for debugging
+[557/629] Wrapping AST for NativeAgentTestSupportTests for debugging
+[558/629] Wrapping AST for NativeAgentTestSupport for debugging
+[559/629] Wrapping AST for NativeAgentMemoryTests for debugging
+[560/629] Wrapping AST for NativeAgentMemory for debugging
+[561/629] Wrapping AST for NativeAgentGoalsTests for debugging
+[562/629] Wrapping AST for NativeAgentGoals for debugging
+[563/629] Wrapping AST for NativeAgentEvolutionTests for debugging
+[564/629] Wrapping AST for NativeAgentBrowserTests for debugging
+[565/629] Wrapping AST for LanguageModelRuntimeTests for debugging
+[567/629] Compiling NativeAgentConsensusTests ConsensusIntegrationTests.swift
+[568/629] Emitting module NativeAgentExecutionTests
+[569/636] Compiling NativeAgentExecutionTests AgentLoopSnapshotTransitionsTests.swift
+[570/636] Compiling NativeAgentExecutionTests ConsistencyRecoveryIntegrationTests.swift
+[573/636] Compiling NativeAgentExecutionTests EffectLedgerIntegrationTests.swift
+[574/636] Compiling NativeAgentExecutionTests FrozenRequestIdentityTests.swift
+[575/636] Compiling NativeAgentExecutionTests SessionAdmissionRegressionTests.swift
+[576/636] Compiling NativeAgentExecutionTests SessionCoordinatorTests.swift
+[577/636] Compiling NativeAgentExecutionTests SessionExecutionSafetyTests.swift
+[578/636] Compiling NativeAgentExecutionTests SessionJournalIntegrationTests.swift
+[579/636] Compiling NativeAgentExecutionTests ToolCallLoopGuardTests.swift
+[580/636] Compiling NativeAgentExecutionTests ToolCallValidatorTests.swift
+[581/636] Compiling NativeAgentExecutionTests InstructionAssemblyPromptAugmentorTests.swift
+[582/636] Compiling NativeAgentExecutionTests LateToolResultCancellationTests.swift
+[583/636] Compiling NativeAgentExecutionTests MakiSemanticsAdoptionTests.swift
+[584/636] Compiling NativeAgentExecutionTests ModelInvocationRecoveryIntegrationTests.swift
+[585/636] Compiling NativeAgentExecutionTests PersistedTimestampRoundTripTests.swift
+[586/636] Compiling NativeAgentExecutionTests PromptAugmentorTests.swift
+[587/636] Compiling NativeAgentExecutionTests RecoveryAuthorityRegressionTests.swift
+[588/636] Compiling NativeAgentExecutionTests RequestMetadataTests.swift
+[589/636] Compiling NativeAgentExecutionTests ResponseContinuationTests.swift
+[590/636] Compiling NativeAgentExecutionTests RuntimeBoundaryRegressionTests.swift
+[591/636] Compiling NativeAgentExecutionTests RuntimeObserverIntegrationTests.swift
+[592/636] Compiling NativeAgentExecutionTests RuntimeResourceLimitTests.swift
+[593/637] Wrapping AST for NativeAgentSkillsTests for debugging
+[595/637] Emitting module NativeAgentConsensusTests
+[596/637] Compiling NativeAgentConsensusTests ConsensusBoundaryTests.swift
+[597/637] Compiling NativeAgentConsensusTests ConsensusCoreTests.swift
+[598/638] Wrapping AST for NativeAgentConsensusTests for debugging
+[624/638] Compiling NativeAgentExecutionTests ToolCancellationRecoveryIntegrationTests.swift
+[625/638] Compiling NativeAgentExecutionTests ToolEffectLedgerTests.swift
+[626/638] Compiling NativeAgentExecutionTests ToolEffectRecoveryIntegrationTests.swift
+[627/638] Compiling NativeAgentExecutionTests TurnPromptProjectionTests.swift
+[628/638] Compiling NativeAgentExecutionTests WaitResumeIntegrationTests.swift
+[629/638] Compiling NativeAgentExecutionTests WaitStateIntegrationTests.swift
+[630/639] $TMPDIR/native-kernel-qualification-chg789k5/.build/x86_64-unknown-linux-gnu/debug/NativeAgentPackageDiscoveredTests.derived/all-discovered-tests.swift
+[631/639] Write sources
+[632/639] Wrapping AST for NativeAgentExecutionTests for debugging
+[634/655] Compiling NativeAgentPackageDiscoveredTests LanguageModelRuntimeTests.swift
+[635/655] Compiling NativeAgentPackageDiscoveredTests NativeAgentBrowserTests.swift
+[636/655] Compiling NativeAgentPackageDiscoveredTests NativeAgentConsensusTests.swift
+[637/655] Compiling NativeAgentPackageDiscoveredTests NativeAgentDomainTests.swift
+[638/655] Compiling NativeAgentPackageDiscoveredTests NativeAgentEvolutionSkillsTests.swift
+[639/655] Emitting module NativeAgentPackageDiscoveredTests
+[640/659] Compiling NativeAgentPackageDiscoveredTests NativeAgentTests.swift
+[641/659] Compiling NativeAgentPackageDiscoveredTests NativeAgentToolsTests.swift
+[642/659] Compiling NativeAgentPackageDiscoveredTests NativeAgentWebTests.swift
+[643/659] Compiling NativeAgentPackageDiscoveredTests all-discovered-tests.swift
+[644/659] Compiling NativeAgentPackageDiscoveredTests NativeAgentEvolutionTests.swift
+[645/659] Compiling NativeAgentPackageDiscoveredTests NativeAgentExecutionTests.swift
+[646/659] Compiling NativeAgentPackageDiscoveredTests NativeAgentGoalsTests.swift
+[647/659] Compiling NativeAgentPackageDiscoveredTests NativeAgentHTMLTests.swift
+[648/659] Compiling NativeAgentPackageDiscoveredTests NativeAgentMemoryProjectionTests.swift
+[649/659] Compiling NativeAgentPackageDiscoveredTests NativeAgentMemoryTests.swift
+[650/659] Compiling NativeAgentPackageDiscoveredTests NativeAgentSkillsTests.swift
+[651/659] Compiling NativeAgentPackageDiscoveredTests NativeAgentSkillsWebTests.swift
+[652/659] Compiling NativeAgentPackageDiscoveredTests NativeAgentStoreTests.swift
+[653/659] Compiling NativeAgentPackageDiscoveredTests NativeAgentTestSupportTests.swift
+[654/660] $TMPDIR/native-kernel-qualification-chg789k5/.build/x86_64-unknown-linux-gnu/debug/NativeAgentPackageTests.derived/runner.swift
+[655/660] Write sources
+[656/660] Wrapping AST for NativeAgentPackageDiscoveredTests for debugging
+[658/662] Compiling NativeAgentPackageTests runner.swift
+[659/662] Emitting module NativeAgentPackageTests
+[660/663] Wrapping AST for NativeAgentPackageTests for debugging
+[661/663] Write Objects.LinkFileList
+[662/663] Linking NativeAgentPackageTests.xctest
+Build complete! (94.29s)
+Test Suite 'All tests' started at 2026-09-20 06:57:00.104
+Test Suite 'debug.xctest' started at 2026-09-20 06:57:00.106
+Test Suite 'EffectFailureTests' started at 2026-09-20 06:57:00.106
+Test Case 'EffectFailureTests.testExplicitDefiniteFailureIsPreserved' started at 2026-09-20 06:57:00.106
+Test Case 'EffectFailureTests.testExplicitDefiniteFailureIsPreserved' passed (0.032 seconds)
+Test Case 'EffectFailureTests.testExplicitUnknownOutcomeIsPreserved' started at 2026-09-20 06:57:00.139
+Test Case 'EffectFailureTests.testExplicitUnknownOutcomeIsPreserved' passed (0.004 seconds)
+Test Case 'EffectFailureTests.testUnclassifiedFailureIsOutcomeUnknown' started at 2026-09-20 06:57:00.142
+Test Case 'EffectFailureTests.testUnclassifiedFailureIsOutcomeUnknown' passed (0.0 seconds)
+Test Suite 'EffectFailureTests' passed at 2026-09-20 06:57:00.143
+	 Executed 3 tests, with 0 failures (0 unexpected) in 0.036 (0.036) seconds
+Test Suite 'debug.xctest' passed at 2026-09-20 06:57:00.143
+	 Executed 3 tests, with 0 failures (0 unexpected) in 0.036 (0.036) seconds
+Test Suite 'All tests' passed at 2026-09-20 06:57:00.143
+	 Executed 3 tests, with 0 failures (0 unexpected) in 0.036 (0.036) seconds
+◇ Test run started.
+↳ Testing Library Version: 6.2.1 (c9d57c83568b06d)
+↳ Target Platform: x86_64-unknown-linux-gnu
+◇ Suite SessionPageOverflowTests started.
+◇ Suite "NativeAgent over ModelRuntime" started.
+◇ Suite "NativeAgentSkillsWeb" started.
+◇ Suite "Durable Agent borrowing a local backend" started.
+◇ Suite AgentFacadeTests started.
+◇ Suite AgentRecoveryFacadeTests started.
+◇ Suite TurnPromptProjectionTests started.
+◇ Test scriptedModelClientReturnsScriptedTurnsInOrder() started.
+◇ Test scriptedModelClientFailsWhenScriptedTurnsAreExhausted() started.
+◇ Test incrementalSHA256MatchesSinglePassAcrossBlockBoundaries() started.
+◇ Test mismatchedSignalCannotResolvePendingWait() started.
+◇ Test sha256MatchesPublishedKnownVectors() started.
+◇ Test sessionReadLimitsAreCanonicalAcrossPagesAndQueries() started.
+◇ Test toolDefinitionStoresTypedEffectAndUsesMutationDefault() started.
+◇ Test sessionReducerRecordsCommandMetadataOnCompletedSession() started.
+◇ Test structuredFailureIsDurableAndResumeClearsOnlyFailureState() started.
+◇ Test sessionReducerModelsWaitSignalAndPersistenceEffectsPurely() started.
+◇ Test sessionReducerResolvesWaitAndMetadataAsOneTransition() started.
+◇ Test operationCleanupPolicyPreservesBothFailures() started.
+◇ Suite SkillAgentIntegrationTests started.
+◇ Test operationCleanupPolicyReturnsSuccessfulValue() started.
+◇ Test sessionReducerRejectsIllegalTerminalMutation() started.
+◇ Test operationCleanupPolicyPreservesOperationFailure() started.
+◇ Test sqliteStoreRejectsSameSizeArtifactTamperingBeforeMetadataCommit() started.
+◇ Test sessionSnapshotDecodeRejectsContradictoryWaitState() started.
+◇ Test sqliteTransactionRejectsHeaderCountsThatDoNotMatchUnchangedRows() started.
+◇ Test searchSessionMessagesFiltersSessionDateKeywordAndPreservesMessageValues() started.
+◇ Test sqliteFailedEffectCanBeReconciledOnceToVerifiedCompletion() started.
+◇ Test sqliteRejectsUnsupportedDurableSessionAndEventSchemas() started.
+◇ Test sqliteEffectReceiptsCannotLoseCertaintyOrChangeIdentity() started.
+◇ Test defaultRootRejectsUnsafeAppNameComponents() started.
+◇ Test operationCleanupPolicyPreservesCleanupFailureAfterSuccess() started.
+◇ Test createSessionRejectsExistingSnapshotInsteadOfOverwritingIt() started.
+◇ Test sessionWaitStateDecodeRejectsTimeWaitWithoutDeadline() started.
+◇ Test invalidSessionIDsAreRejectedAcrossPublicEntryPoints() started.
+◇ Test defaultRootRejectsUnsafeStorageSubdirectoryComponents() started.
+◇ Test defaultStoreBootstrapsSeparatelyFromAMAData() started.
+◇ Test artifactRoundTrip() started.
+◇ Test defaultRootUsesAndContainsAppGroupBase() started.
+◇ Test storeSandboxRejectsDanglingSymlinkTraversal() started.
+◇ Test fileExecutionClaimsExcludeIndependentStoreInstancesAndReleaseCleanly() started.
+◇ Test sqliteStoreRejectsSameSizeArtifactTamperingOnLoad() started.
+◇ Test sqlitePreparationSerializesConcurrentBootstrapAndReopensCurrentData() started.
+◇ Test defaultRootAllowsPathComponentsAtTheUTF8ByteLimit() started.
+◇ Test sqliteWALPreflightReadsCrashLeftCommitAndPreservesFiles() started.
+◇ Test applicationSupportSessionStorePersistsEffectLedgerRecords() started.
+◇ Test createSessionCreatesSQLiteStateAndArtifactDirectory() started.
+◇ Test defaultRootAllowsSafeUnicodeAndSpacesWithinStandardizedBase() started.
+◇ Test sqliteAtomicForkRejectsCrossSessionTargetRecordsBeforeMutation() started.
+◇ Test sqlitePreparationRejectsUnsupportedStorageWithoutChangingBytes(kind:) started.
+◇ Test sqliteStoreRejectsOrphanEffectRecords() started.
+◇ Test sqliteWALPreflightAllowsConcurrentWriter() started.
+◇ Test persistArtifactSanitizesFilenameThroughStoragePlan() started.
+◇ Test artifactLoadRejectsSymlinkedArtifactsDirectory() started.
+◇ Test persistArtifactValidationFailureLeavesNoDirectorySideEffect() started.
+◇ Test sessionQueryValidatesBoundsAndIdentifiers() started.
+◇ Test sqliteTransactionsRejectCrossSessionEventsAndEffectsBeforePublishing() started.
+◇ Test sqliteAtomicForkRollsBackSourceWhenTargetPayloadFails() started.
+◇ Test sqliteStoreReadsSessionHeadersAndTranscriptPagesWithoutFullListMaterialization() started.
+◇ Test storeCodecRejectsJSONThatExceedsItsReadBudgetBeforeWriting() started.
+◇ Test persistArtifactRejectsInvalidAndDuplicateGeneratedIdentifiersBeforeWriting() started.
+◇ Test goalContinuationControllerResumesDueTimeWaitBeforeRunningLoop() started.
+◇ Test querySessionListFiltersIDsDatesKeywordsAndLimitWithBoundedPreview() started.
+◇ Test sqliteRuntimeAdmissionReadsBoundedHeaderBeforeHydration() started.
+◇ Test createSessionRejectsInvalidSessionID() started.
+◇ Test goalLoopPreservesPauseAppliedDuringRunningTurn() started.
+◇ Test persistArtifactUsesInjectedArtifactIDGenerator() started.
+◇ Test goalRunnerPreservesRunAndRecoveryFailures() started.
+◇ Test sessionCoordinatorGoalRunnerUsesNativeAgentSessionCoordinator() started.
+◇ Test goalLoopPropagatesCancellationWithoutPersistingFailure() started.
+◇ Test forkReplayOfTheSameSourceMessageDoesNotDuplicateGlobalMemory() started.
+◇ Test goalContinuationPlannerResumesDueTimeWaitAfterRelaunch() started.
+◇ Test requiredTableCannotBeReplacedByAView() started.
+◇ Test goalLoopPreservesPauseAppliedAfterFinalTurnSave() started.
+◇ Test modelBackedGoalEvaluatorDecodesFencedJSONWithTextAndStringBraces() started.
+◇ Test transcriptSyncIsIdempotentAndExcludesSystemEvents() started.
+◇ Test revisionReplayDoesNotRegressCheckpointBetweenPages() started.
+◇ Test goalJudgeResponseDecoderSkipsNonSchemaObjectsAndPreservesStringBraces() started.
+◇ Test goalLoopPersistsTurnsAndStopsOnCompletion() started.
+◇ Test goalLoopRejectsDefinitionMismatchWithoutOverwritingPersistedGoal() started.
+◇ Test missingV2IdentityIsRejectedWithoutChangingStoredMemory(populated:) started.
+◇ Test goalReducerRejectsUnboundedTurnBudgetsAndTurnPayloads() started.
+◇ Test webFetchRejectsUnsafeURLAndOversizedProviderOutput() started.
+◇ Test concurrentFirstOpenHasOneCompleteSchemaAndIdentity() started.
+◇ Test webSearchBoundsTheFinalWrappedOutput() started.
+◇ Test transcriptRewriteIsRejectedAtTheOriginalPosition() started.
+◇ Test goalReducerRejectsIllegalAndOutOfOrderTransitions() started.
+◇ Test goalContinuationPlannerClassifiesRelaunchStates() started.
+◇ Test webSearchRejectsProviderOverflowInsteadOfTruncating() started.
+◇ Test publicApplicationSupportStoreUsesExplicitSharedClaimOwnership() started.
+◇ Test webFetchBoundsTheEntireEncodedResponseNotOnlyContent() started.
+◇ Test goalLoopRetainsAndRetriesFailedExecutionClaimRelease() started.
+◇ Test deletingAScopeRemovesItsSearchProjection() started.
+◇ Test webToolsAreBoundedApprovalRequiredNetworkReads() started.
+◇ Test v1SchemaRequiresStrictFtsAndForeignKeys() started.
+◇ Test goalTurnPlannerRendersBlankPreviousOutputAsNone() started.
+◇ Test ordinaryDeleteStillAllowsExplicitTranscriptRebuild() started.
+◇ Test webSearchSurfacesContinuationCursor() started.
+◇ Test lateMemoryPreparationAfterCancellationNeverEntersProvider(streaming:) started.
+◇ Test searchHonorsExplicitBounds() started.
+◇ Test transcriptSyncIsIdempotentAndDefaultRecallSpansSessions() started.
+◇ Test goalRunResultRejectsContradictoryWaitState() started.
+◇ Test goalLoopPersistsSignalHostActionMetadata() started.
+◇ Test lateTranscriptCannotCrossForgetOrReset(stage:forgetting:) started.
+◇ Test modelClientExcludesOnlyTheCurrentUserMessageFromRecall() started.
+◇ Test heuristicGoalEvaluatorRejectsCompletionWithoutConcreteEvidence() started.
+◇ Test unsupportedWALModeIsRejectedBeforeSchemaCreation() started.
+◇ Test oldSchemaIsRejectedWithoutChangingIdentityDataOrJournal() started.
+◇ Test fileGoalStoreRejectsOversizedPersistedValueBeforeDecoding() started.
+◇ Test workspacePathValidationRemainsBounded() started.
+◇ Test goalContinuationControllerResumesEligibleGoals() started.
+◇ Test heuristicGoalEvaluatorRequiresExplicitCompleteAndCompletedSession() started.
+◇ Test nonV1UserVersionIsExplicitlyRejected() started.
+◇ Test goalSessionEventsProduceIndependentStateSnapshots() started.
+◇ Test memoryDecoratorCannotEnterDurableRuntimeBeforeAnyIO() started.
+◇ Test memoryToolPackIsReadOnlyAndSearchesTypedResults() started.
+◇ Test scopeValidationRequiresTheIdentityBoundary() started.
+◇ Test fileGoalAtomicSaveRejectsStaleTurnAfterHostPause() started.
+◇ Test completedGoalDoesNotExposeStaleHostActionAfterWaitResume() started.
+◇ Test forgettingSurvivesRestartReplayDirectCaptureAndProjectionReset() started.
+◇ Test goalJudgeResponseDecoderRejectsResponsesWithoutTheRequiredSchema() started.
+◇ Test workspaceIdentitySurvivesDirectoryMove() started.
+◇ Test consolidationValidatesEvidenceIsIdempotentAndEvolvesSlots() started.
+◇ Test fileGoalExecutionClaimIsSharedAcrossStoreInstancesForSameRoot() started.
+◇ Test transcriptFailureDoesNotInvokeProvider() started.
+◇ Test cancellationStopsTranscriptPreparation() started.
+◇ Test goalStoreResumeHelperMovesWaitingGoalBackToActive() started.
+◇ Test consolidationCannotCrossResetABAOrForget(forgetting:) started.
+◇ Test fileGoalClaimKeepsIdentityAcrossFirstDirectoryCreationThroughAlias() started.
+◇ Test fileGoalClaimRejectsFileAsRoot() started.
+◇ Test publicCaptureFiltersSystemAndHiddenButKeepsToolEvidence() started.
+◇ Test modelStreamForwardsEveryBaseEventInOrder() started.
+◇ Test goalLoopStopsWhenMobileSessionWaits() started.
+◇ Test goalLoopPersistsAutomaticResumeBeforeRunningNextTurn() started.
+◇ Test goalReducerOwnsTurnAndStatusTransitionAsOnePureReduction() started.
+◇ Test foreignDatabaseSchemaIsExplicitlyRejected() started.
+◇ Test eventSanitizationDropsInjectedEnvelopesAndFrameworkNoise() started.
+◇ Test staleConsolidationResultCannotOverwriteAnAdvancedCheckpoint() started.
+◇ Test staleSyncPageCannotOverwriteAnAdvancedCheckpoint() started.
+◇ Test contentAddressingIsDeterministicAndSeparatorSafe() started.
+◇ Test failedFirstOpenRollsBackPartialSchemaAndCanRetry() started.
+◇ Test recallUsesTypedMatchesAndExcludesTheCurrentMessage() started.
+◇ Test revisionReplayRejectsReorderedStableMessageIDs() started.
+◇ Test memoryCaptureAdmissionRejectsSensitiveDataMetadata() started.
+◇ Test typedSearchIsBoundedAndReturnsEventEvidence() started.
+◇ Test typedStopReasonCannotBeOverriddenByConflictingRawMetadata() started.
+◇ Test forkUsesWriterValidationAndStandardCreationJournalWithReloadIdempotency() started.
+◇ Test cancellationAfterModelInvocationStartsRequiresReconciliation() started.
+◇ Test contextEstimatorCompactsMultibyteTextBeforeItOverrunsTheInputBudget() started.
+◇ Test compactionPreservesSystemAuthorityAndUsesExtractiveProjection() started.
+◇ Test malformedResponseContinuationMetadataFailsExplicitly() started.
+◇ Test uncertainArtifactCommitPreservesTheDurablyReferencedFile() started.
+◇ Test defaultGateRevisesForPreciseBoundedActionsAndAbortsForRepeatedBlockersAtLimit() started.
+◇ Test typedSearchRejectsBlankQueriesWithoutOpeningStorage() started.
+◇ Test separateGoalLoopsCannotAdvanceSameFileBackedGoalConcurrently() started.
+◇ Test sensitiveReconciliationRemainsExcludedAfterTranscriptMemorySync() started.
+◇ Test instructionAssemblyAugmentorPrefersFirstKnownProjectInstructionFile() started.
+◇ Test preparationIsSerializedAndRetryableAfterAWorkspaceFailure() started.
+◇ Test consensusStopsAtRoundBoundaryAfterCancellation() started.
+◇ Test reconciledSensitiveFailurePreservesSensitivityAtDurableMessageBoundary() started.
+◇ Test resumingFailedSessionRequiresExplicitRetryIdentity() started.
+◇ Test recoveryAndCoordinatorCannotRetryTheSameClaimConcurrently() started.
+◇ Test failedClaimReleaseCanBeRetriedWithoutLosingOwnership() started.
+◇ Test truncatedFinishReasonContinuesWhenPolicyIsEnabled() started.
+◇ Test conciseRendererIncludesOnlyNonEmptySections() started.
+◇ Test highLevelFacadeForwardsRuntimeObservationWithoutUIOrCoordinatorWiring() started.
+◇ Test consensusRoutingClientForwardsDescriptorAndStream() started.
+◇ Test runStartObserverReceivesSimilarCasesAfterRegistrySearch() started.
+◇ Test hostVerifiedCompletionReconcilesEffectPersistsArtifactAndContinuesWithoutExecutor() started.
+◇ Test modelInvocationHydrationRejectsMissingReferencedMessage() started.
+◇ Test normalizedStopReasonMetadataDrivesContinuationWithoutProviderRawKeys() started.
+◇ Test cloudProjectionHydrationHasBoundedLocalLatencyAcrossFiveHundredSessions() started.
+◇ Test modelInvocationHydrationRejectsDigestMismatch() started.
+◇ Test generatedSessionIdentifierCollisionDoesNotOverwriteExistingSession() started.
+◇ Test durableCommandContractsAreAvailableFromAgentFacade() started.
+◇ Test consensusMetadataExecutionPlanClampsOptionsAndSkipsRoleSessions() started.
+◇ Test routingClientDelegatesToBaseWhenConsensusMetadataIsAbsent() started.
+◇ Test bacEngineAcceptsOnFirstRound() started.
+◇ Test snapshotValidationAllowsIdempotentCallReuseButRejectsConflictingCallIdentity() started.
+◇ Test bacEnginePublicConfigKeepsNormalizedDefaults() started.
+◇ Test durablePresentationProjectionRedactsSecretsAndExcludesExecutableState() started.
+◇ Test invalidConsensusMetadataFailsBeforeBaseProviderSideEffects() started.
+◇ Test defaultGateRejectsWhitespacePaddedCriticalBlockers() started.
+◇ Test cloudProjectionHydrationIsIdempotentAndRejectsConflictAndUnknownFields() started.
+◇ Test dueTimeWaitClearsAutomaticallyOnRun() started.
+◇ Test consensusObserversReceiveValueSnapshotsAcrossRoundAndCompletion() started.
+◇ Test coordinatorAdmissionReleasesReservationAfterOperationFailure() started.
+◇ Test cancellationDuringClaimAcquisitionReleasesClaimWithoutRunningOperation() started.
+◇ Test consensusCannotHideStandaloneOnlyBase() started.
+◇ Test approvalWaitStateIsPersistedAndClearedAfterResolution() started.
+◇ Test toolCallLoopGuardResetsAtTheLatestUserMessage() started.
+◇ Test instructionAssemblyAugmentorReplaceParentMergeModeDropsNearestInheritedDocument() started.
+◇ Test v2ReceiptRejectsDifferentDurableKey() started.
+◇ Test importantTurnUsesConsensusAndNormalTurnsStayOnBaseProvider() started.
+◇ Test modelTurnValidatesBinaryReasoningResponseIdentifierAndUsage() started.
+◇ Test unboundedContextPolicyFailsAtCompositionBoundary() started.
+◇ Test runtimeRejectsDatesOutsideJournalRepresentableRangeWithoutTrapping() started.
+◇ Test toolEffectLedgerPolicyReducesStartedAndCompletedReceiptsWithoutStoreIO() started.
+◇ Test exactModelMessageLimitForcesCompactionBelowApproximateTokenTrigger() started.
+◇ Test durableRetryUsesRecoveryAndRejectsReusedOperationIdentity() started.
+◇ Test pendingToolCallIndexRejectsConflictingReuseOfOneEffectIdentity() started.
+◇ Test runtimeToolBoundsUseModelCoreAsSingleAuthority() started.
+◇ Test photosAndHealthPacksBoundScopeBeforeInvokingServices() started.
+◇ Test forkRetryAfterTargetCreationFailureUsesOneDurableTargetEventSequence() started.
+◇ Test assistantTurnPreservesStructuredContentAndTerminalFacts() started.
+◇ Test pendingApprovalCanBeResolvedAfterRestart() started.
+◇ Test evolutionReportTransactionReducerRejectsInvalidTransitions() started.
+◇ Test repeatedIdenticalToolCallIsAllowedForANewUserTurn() started.
+◇ Test filesToolPackSearchFindsNestedRelativePaths() started.
+◇ Test filesToolPackRejectsDanglingSymlinkTraversal() started.
+◇ Test noOpEvolutionProposalIsRejected() started.
+◇ Test validatorRejectsUnexpectedFieldWhenAdditionalPropertiesDisabled() started.
+◇ Test filesSandboxRelativePathDoesNotMaskOutsideURLAsBasename() started.
+◇ Test evolutionLoopSelectsCandidateThatImprovesValidationScore() started.
+◇ Test evolutionReportTransactionRecoveryRestoresPreviousDirectory() started.
+◇ Test validatorRejectsUnsupportedCompositionInsteadOfSkippingValidation() started.
+◇ Test coordinatorReturnsExactlyReloadableSnapshotAtPersistencePrecision() started.
+◇ Test requiredHoldoutRejectsMissingCandidateScore() started.
+◇ Test approvedEvolutionProposalUpdatesExistingImportedSkill() started.
+◇ Test evolutionReportReplacementRemovesStaleApplyProposal() started.
+◇ Test toolCallLoopGuardBlocksOnlyRepeatedNoProgressWithinOneUserTurn() started.
+◇ Test evolutionReportStoreReturnsStoredSnapshotWithoutChangingInput() started.
+◇ Test staleEvolutionProposalCannotOverwriteCurrentImportedSkill() started.
+◇ Test approvedEvolutionProposalImportsCustomSkill() started.
+◇ Test filesDeleteSupportsDigestPreconditionAndVerifiesAbsence() started.
+◇ Test hostVerifiedFailureTerminatesUncertainEffectAndContinuesWithoutExecutor() started.
+◇ Test evolutionLoopBlocksHoldoutRegressionWhenRequired() started.
+◇ Test hostIssuedPendingApprovalResumesWithoutModelInvocation() started.
+◇ Test adapterDrivenAppleToolPacks() started.
+◇ Test readOnlyToolsDoNotPersistEffectLedgerRecords() started.
+◇ Test calendarToolPackSupportsCompleteCRUDAndAllDayEvents() started.
+◇ Test effectiveRequestMetadataReturnsSessionMetadataWhenUserMetadataIsEmpty() started.
+◇ Test evolutionLoopPropagatesCandidateEvaluationCancellation() started.
+◇ Test concurrentWriteAndDeleteWithSameDigestAllowExactlyOneCommit() started.
+◇ Test approvalProposalIDMismatchIsRejected() started.
+◇ Test definiteMutationFailureKeepsTerminalToolFailureSemantics() started.
+◇ Test evolutionProposalRequiresPositiveHostApproval() started.
+◇ Test validatorRejectsApprovalBypassLanguage() started.
+◇ Test malformedRuntimeAdmissionFailsClosed() started.
+◇ Test modelBackedEvolutionRejectsMetadataThatIsNotAnObject() started.
+◇ Test assistantTurnCommitFailureLeavesNoPendingToolToExecuteOnRestart() started.
+◇ Test persistedResponseContinuationPolicyRejectsOutOfRangeTurns() started.
+◇ Test failedToolCompletionCommitLeavesStartedEffectAndBlocksReexecution() started.
+◇ Test filesToolPackSearchHidesInstructionDocumentsUnlessRequested() started.
+◇ Test compactionRetainsToolIdentityArgumentsAndSafeMetadata() started.
+◇ Test preStartOutcomeUnknownFailureIsDefiniteAndDoesNotEnterReconciliation() started.
+◇ Test truncatedFinishReasonDoesNotContinueByDefault() started.
+◇ Test calendarToolPackRejectsMalformedAllDayFlagBeforeEffects() started.
+◇ Test compactionNeverReplacesEarlierContextWithInformationFreePlaceholder() started.
+◇ Test evolutionConfigDecodeRejectsPersistedInvalidCandidateLimit() started.
+◇ Test effectLedgerReadFailureFailsSessionInsteadOfBecomingToolOutput() started.
+◇ Test visionAndMapPacksRejectProviderOverflowInsteadOfTruncating() started.
+◇ Test deterministicGeneratorAddsMobileGuardrails() started.
+◇ Test returnedToolArtifactIsAttachedAndSurvivesPrepare() started.
+◇ Test mutatingToolRequiresReconciliationWhenStartedEffectAlreadyExists() started.
+◇ Test kernelFileClaimPreventsTwoStoresFromOwningOneSession() started.
+◇ Test filesToolPackRejectsAbsolutePathsAfterResolverExtraction() started.
+◇ Test modelBackedEvolutionGeneratorRejectsNonJSONResponse() started.
+◇ Test modelBackedEvolutionGeneratorParsesStrictJSONCandidates() started.
+◇ Test filesReadTextRejectsFIFOWithoutWaitingForAWriter() started.
+◇ Test recoverySafetyRejectsMissingSharedClaimBoundary() started.
+◇ Test compositeToolCatalogRejectsDuplicateToolNames() started.
+◇ Test truncatedFinishReasonStopsAfterConfiguredContinuationBudget() started.
+◇ Test evolutionReportPlannerRejectsInvalidSelectionBeforeFilesystemEffects() started.
+◇ Test oversizedModelTurnPersistsStructuredFailure() started.
+◇ Test evolutionReportCreatesHostApprovalApplyProposalForSelectedCandidate() started.
+◇ Test instructionAssemblyAugmentorMergesBasePromptEnvironmentAndInstructionFiles() started.
+◇ Test modelRuntimeContentionDoesNotPoisonAnotherSession() started.
+◇ Test cumulativeSessionArtifactBytesAreBounded() started.
+◇ Test uncompactableOverBudgetTranscriptIsReportedAsNoCompactionNotAsFailure() started.
+◇ Test compactionUsesOnlyInputCapacityAfterOutputReservation() started.
+◇ Test integerSchemaUsesIntegerBounds() started.
+◇ Test filesToolPackIsExcludedFromMemoryRetentionByDefault() started.
+◇ Test nonFiniteSignalPayloadIsRejectedWithoutClearingWait() started.
+◇ Test calendarListSupportsLongRangesAndRejectsProviderOverflow() started.
+◇ Test calendarListRejectsWrongPageSizeTypeBeforeService() started.
+◇ Test outcomeUnknownMutationKeepsStartedReceiptForHostReconciliation() started.
+◇ Test capabilityDiscoveryReturnsOnlyRegisteredToolsAndLoadsExactContract() started.
+◇ Test writeParserRejectsMalformedDigestTypeBeforeFilesystemMutation() started.
+◇ Test toolPackCatalogSourceExportsDefinitions() started.
+◇ Test modelTurnUsesOneCanonicalToolCallCollection() started.
+◇ Test signalWaitCanBeResumedWithUserPrompt() started.
+◇ Test resumingCompletedSessionDoesNotReinvokeProvider() started.
+◇ Test mutatingToolDedupesCompletedEffectsAndReplaysPersistedArtifacts() started.
+◇ Test mapsAndNFCConstrainLocationAndInteractionSurfaces() started.
+◇ Test v1MalformedStartedPayloadIsRejectedWithoutRewritingIt(_:) started.
+◇ Test incompleteForkIntentWithoutSourceRevisionFailsClosedWithoutMutation() started.
+◇ Test recoveryRejectsInvalidRuntimeConfiguration() started.
+◇ Test filesSearchRejectsCursorFramesOutsideRequestedSubtree() started.
+◇ Test requestMetadataOverridesSessionMetadataInModelRequest() started.
+◇ Test toolPackReaderRejectsNonRegularNodes(fifo:) started.
+◇ Test validatorAcceptsIntegerForNumberSchema() started.
+◇ Test reconciledSensitiveCompletionPreservesSensitivityAtDurableMessageBoundary() started.
+◇ Test effectiveRequestMetadataUsesMostRecentUserMetadataOnly() started.
+◇ Test rejectedReconciliationDoesNotResumeFailedSession() started.
+◇ Test blankAugmentedSystemPromptIsNotPersisted() started.
+◇ Test modelInvocationStartedReceiptStoresReferencesAndUsesCanonicalRequestIdentity() started.
+◇ Test runtimeObserverReceivesExecuteReplayAndDurationEvents() started.
+◇ Test oversizedLoadedSnapshotIsRejectedAtAdvancementBoundary() started.
+◇ Test instructionAssemblyAugmentorKeepsDistinctInstructionPathsWhenContentMatches() started.
+◇ Test uncertainModelInvocationWaitsInsteadOfBlindlyCallingProviderAgain() started.
+◇ Test assistantToolCallsArePersistedInTranscript() started.
+◇ Test structuredToolObservationPreservesMachineEvidenceWithoutChangingHumanContent() started.
+◇ Test filesToolPackSearchReturnsEmptyForMissingRootPath() started.
+◇ Test toolEffectLedgerCompletedAndFailedRecordsUseCallIDAndPreserveInput() started.
+◇ Test filesToolPackRejectsRootSymlink() started.
+◇ Test documentSkillMutationReducerRemovesStateAndDirectoryTogether() started.
+◇ Test restartRecoversPendingToolCallBeforeNextModelTurn() started.
+◇ Test reconciliationRejectsMismatchedResultAndPreservesUncertainReceipt() started.
+◇ Test longSessionCompactionPreservesTranscriptAndPersistsContextCheckpoint() started.
+◇ Test deeplyNestedModelArgumentsFailBeforeCanonicalEncodingAndPersistFailure() started.
+◇ Test successfulToolExecutionPersistsArtifactMetadataInToolMessage() started.
+◇ Test modelInvocationHydrationRejectsDuplicateMessageIDsWithoutTrap() started.
+◇ Test coordinatorOnlyAdmissionReservesBeforeCrossActorAwait() started.
+◇ Test waitResumeWithoutPromptPersistsContinuationPolicyBeforeAdvance() started.
+◇ Test appendingToolResultDedupesArtifactsByIdentifier() started.
+◇ Test pendingWaitCanBeTimedOutIntoStructuredDurableFailure() started.
+◇ Test completedEffectReplayRejectsPayloadWhoseToolIdentityDoesNotMatchLedgerRecord() started.
+◇ Test skillDirectoryCopyRejectsARegularFileAsItsRoot() started.
+◇ Test toolResultEventsReturnIndependentValues() started.
+◇ Test productionSafetyRejectsMissingSharedClaimBoundary() started.
+◇ Test contactsToolPackSurfacesCursorAndRejectsOutOfRangePageSize() started.
+◇ Test skillExecutionSnapshotDerivesMetadataFromCapturedBytesNotPreCaptureMetadata() started.
+◇ Test skillSnapshotBuilderSortsCustomAndMergesSelectedFirst() started.
+◇ Test appGroupMetadataSourceResolvesExplicitContainerURL() started.
+◇ Test sessionCoordinatorDefaultPromptAugmentorBuildsInstructionAssemblyFromMetadata() started.
+◇ Test validReconciliationResumesFailedSessionAndPersistsResolutionTogether() started.
+◇ Test compactionRefusesAnInformationFreeSummaryBudget() started.
+◇ Test filesToolPackRejectsFinalPathSymlink() started.
+◇ Test sessionJournalRecordsCoordinatorSaveReasonsDuringContinuation() started.
+◇ Test validatorRejectsInvalidDateTimeString() started.
+◇ Test skillLibrariesSharingWorkspaceSerializeSecretMutationsAcrossStoreInstances() started.
+◇ Test incrementalValidationRejectsConflictingHistoricalToolCallIdentifier() started.
+◇ Test appleToolPacksExposeSeparateNarrowCapabilities() started.
+◇ Test remoteSkillResolutionUsesTrustedURLPolicy() started.
+◇ Test sessionJournalRecordsWaitOnUnknownModelError() started.
+◇ Test skillRuntimeResultBuilderPersistsGenericArtifactsAndArtifactBackedWebView() started.
+◇ Test sessionJournalRecordsToolErrors() started.
+◇ Test validatorMeasuresJSONSchemaStringLengthInUnicodeCodePoints() started.
+◇ Test skillRuntimeResultBuilderRejectsAmbiguousArtifactContent() started.
+◇ Test hostIssuedPendingApprovalDenialReturnsWithoutModelInvocation() started.
+◇ Test effectRecordEventsReturnIndependentTerminalSnapshots() started.
+◇ Test usageDescriptionPreflightAcceptsNonEmptyHostPurpose() started.
+◇ Test cancellationAfterApprovedMutationStartsPreservesExplicitRecoveryState() started.
+◇ Test pluginMutationReducerRejectsBatchSkillNameCollisionsBeforeEffects() started.
+◇ Test recoveryCannotBypassActiveCoordinatorOnlyExecution() started.
+◇ Test filesToolPackReadDefinitionsFollowApprovalPolicyConfiguration() started.
+◇ Test toolErrorTransitionBoundsMessageAndRecordsTruncationEvidence() started.
+◇ Test installRemoteSkillPluginsRollsBackEarlierPackagesWhenLaterPackageFails() started.
+◇ Test effectLedgerIsRequiredByTheSessionRuntimeStoreType() started.
+◇ Test boundedSkillReaderEnforcesExactByteLimit(byteCount:) started.
+◇ Test oversizedSignalPayloadDoesNotResolveDurableWait() started.
+◇ Test startedEffectBlocksReexecutionWhenCompletedEffectSaveFails() started.
+◇ Test managedSkillEventsProduceIndependentSnapshots() started.
+◇ Test waitingSnapshotCannotBeRunFromFreshCoordinator() started.
+◇ Test readSkillFileRejectsTraversalAndBinaryResources() started.
+◇ Test cancellationRepairsDanglingToolCallTranscript() started.
+◇ Test toolCallLoopGuardPermitsIdenticalPollingWhenResultsChange() started.
+◇ Test sessionJournalRecordsLifecycleForSuccessfulToolRun() started.
+◇ Test v1MalformedCompletedPayloadIsRejectedWithoutRewritingIt() started.
+◇ Test skillMarkdownFrontmatterParserSeparatesMetadataFromInstructions() started.
+◇ Test skillRuntimeResultBuilderProducesImageArtifactAndMetadata() started.
+◇ Test skillDirectoryDigestIsDeterministicAndContentSensitive() started.
+◇ Test skillToolPackCanonicalizesStructuredJSONArguments() started.
+◇ Test failedArtifactCommitRemovesOnlyTheUnreferencedFile() started.
+◇ Test toolsAreRejectedAtConstructionWhenModelDoesNotAdvertiseToolCalls() started.
+◇ Test runIntentRequiresSelectedSkillAuthorizationWhenDeclaredByHandler() started.
+◇ Test continueSessionDoesNotMutateActiveWaitingSession() started.
+◇ Test completedSourceCanBeForkedWithoutReplacingItsMessages() started.
+◇ Test removeCustomSkillRestoresDirectoryWhenStateSaveFails() started.
+◇ Test remoteSkillLimitsRejectUnboundedConfiguration() started.
+◇ Test hostVerifiedModelResponseCompletesWithoutAnotherProviderCall() started.
+◇ Test addCustomTextSkillWritesScriptsAndAssets() started.
+◇ Test appendingReplayedToolResultDedupesArtifactsByIdentifier() started.
+◇ Test oldInvocationEnvelopeIsRejectedWithoutRewritingOrProviderExecution(completed:) started.
+◇ Test invalidJSONStructureLimitFailsAtCompositionBoundary() started.
+◇ Test fileSkillSecretStoreWritesOwnerOnlyFile() started.
+◇ Test skillRuntimeRunJSResolvesImportedSkillWebViewURLBeforeBuildingResult() started.
+◇ Test hostIssuedToolCallUsesCanonicalExecutionPolicyWithoutModelInvocation() started.
+◇ Test effectLedgerReadFailureFailsSessionWithoutExecutingTool() started.
+◇ Test sessionSnapshotEventsReturnIndependentStateAndPreserveInvariants() started.
+◇ Test workspaceTransactionRecoveryRollsBackFilesWhenStateIsPreviousRevision() started.
+◇ Test visionAndSpeechPacksOnlyPassBoundedSessionFilesToServices() started.
+◇ Test mismatchedToolResultIdentityKeepsStartedReceiptForReconciliation() started.
+◇ Test sessionJournalRejectsUnencodablePayloadInsteadOfWritingNull() started.
+◇ Test sha256DigestMatchesStandardKnownVectors() started.
+◇ Test upsertCustomSkillRestoresPreviousDirectoryWhenStateSaveFails() started.
+◇ Test importSkillRejectsInsecureRemoteBaseURL() started.
+◇ Test snapshotWriterRejectsStateChangeWithoutExplicitMutationReason() started.
+◇ Test filesToolPackSearchContinuesAfterVisitedNodeBudget() started.
+◇ Test frozenRequestDigestMatchesProviderEntryAndReopenDoesNotExecuteAgain() started.
+◇ Test hardCompactionDoesNotHideAnOversizedNewestMessage() started.
+◇ Test startSessionUsesPromptAugmentorOutputAsSystemPrompt() started.
+◇ Test skillLibraryAccessCompletionPolicyReturnsSuccessfulValue() started.
+◇ Test validatorRejectsFractionalNumberForIntegerSchema() started.
+◇ Test forkRetryRejectsSourceMutationAfterTargetCreationFailure() started.
+◇ Test outcomeUnknownModelFailureKeepsStartedReceiptUntilExplicitResolution() started.
+◇ Test installSkillPluginRequiresNativeAgentManifestName() started.
+◇ Test filesToolPackRoundTrip() started.
+◇ Test completedSessionResumeDoesNotMutateOrInvokeProvider() started.
+◇ Test localWebViewURLRemainsValidAfterExecutionSnapshotIsReleased() started.
+◇ Test configuredIdentifierLimitAlsoBoundsRegisteredToolNames() started.
+◇ Test skillToolPackExecutesRuntimeThroughToolExecutor() started.
+◇ Test guardedOverwriteRequiresCurrentDigestAndPreservesContentOnConflict() started.
+◇ Test duplicateToolNamesAreRejected() started.
+◇ Test skillLibrariesSharingWorkspaceSerializeStateMutationsWithoutLosingUpdates() started.
+◇ Test invalidRuntimeIterationLimitFailsAtCompositionBoundary() started.
+◇ Test runtimeObserverWaitsForReconciliationBeforeRecordingEffectEvents() started.
+◇ Test deniedApprovalPreventsExecutionAndPersistsToolMessage() started.
+◇ Test runtimeObservesOrderedModelDeltasButPersistsOnlyTerminalTurn() started.
+◇ Test instructionAssemblyAugmentorIncludesSubdirectoryInstructionsForNestedWorkingDirectory() started.
+◇ Test filesToolPackReadTextSurfacesRelevantInstructionDocumentsAndInstructionFlag() started.
+◇ Test concurrentPluginMutationsSerializeWithoutRecoveringAnotherOperation() started.
+◇ Test oversizedToolIdentifierPersistsStructuredFailureBeforeAssistantAppend() started.
+◇ Test boundedSkillReaderDoesNotOverflowAtMaximumIntegerLimit() started.
+◇ Test completedInvocationRequiresCurrentResultEnvelope(missingSchema:) started.
+◇ Test modelInvocationWaitRevisionRejectsLegacyFloatingPointEncoding() started.
+◇ Test filesToolPackReadRejectsNonUTF8Content() started.
+◇ Test defaultFileConfigurationRequiresDigestGuard() started.
+◇ Test toolEffectLedgerPolicyRejectsConflictingReceiptIdentityAndTerminalRewrite() started.
+◇ Test bundledSkillsUseOneResourcePathWithoutFlattenedLookup() started.
+◇ Test pendingApprovalRequestFindsReferencedToolCallWithoutFlatteningTranscript() started.
+◇ Test uninstallRemoteSkillPluginsMatchesGitSuffixRepositoryURL() started.
+◇ Test boundedSkillReaderRejectsSymbolicLinks() started.
+◇ Test typedPreflightConflictCompletesFailedReceiptWithoutReconciliation() started.
+◇ Test cancellationPreservesKnownLateToolResultAndArtifact() started.
+◇ Test usageDescriptionPreflightRejectsMissingAndBlankValues() started.
+◇ Test registeredToolContractCannotExceedModelCoreToolSurface() started.
+◇ Test instructionAssemblyAugmentorReplaceProjectChainMergeModeDropsAllInheritedProjectDocuments() started.
+◇ Test instructionAssemblyAugmentorPropagatesInstructionReadFailure() started.
+◇ Test calendarMutationUsesRevisionPreconditionAndReadBackWhenAvailable() started.
+◇ Test restartReplaysCompletedEffectWithoutReexecutingTool() started.
+◇ Test persistedSkillCapabilitiesRequireEveryDeclaredField(field:) started.
+◇ Test deniedApprovalUsesCanonicalPersistenceClock() started.
+◇ Test skillRuntimeRunJSPreservesExplicitUnknownOutcomeForEffectReconciliation() started.
+◇ Test restartRequiresReconciliationForStartedEffect() started.
+◇ Test timeWaitCannotResumeBeforeDeadline() started.
+◇ Test manifestToolCatalogSourceLoadsBundledStyleManifest() started.
+◇ Test workspaceTransactionReducerRejectsInvalidPhaseTransitions() started.
+◇ Test pluginMutationBatchPreservesEstablishedFrontInsertionOrder() started.
+◇ Test replaceTextRequiresOneOccurrenceAndMatchingDigest() started.
+◇ Test runtimeFailureMessageIsBoundedWithExplicitTruncationEvidence() started.
+◇ Test forkRejectsInvalidTargetBeforeRecordingSourceIntent() started.
+◇ Test appIntentsToolPackPrefersContextAwareServiceWhenAvailable() started.
+◇ Test typedMaxTokensStopReasonDrivesContinuation() started.
+◇ Test skillLibraryAccessReducerCancellationReleasesAnUndeliveredOwner() started.
+◇ Test forkRequiresAtomicRuntimeStore() started.
+◇ Test recoveryInspectionExposesUncertainMutatingEffectWithoutExecutingIt() started.
+◇ Test skillLibraryReadWaitsForInFlightMutationAndObservesCommittedState() started.
+◇ Test invalidToolCallLeavesToolErrorMessageWithoutExecuting() started.
+◇ Test readSkillFileReturnsExactPagedSnapshotContent() started.
+◇ Test continuingCompletedSessionResumesTranscript() started.
+◇ Test oversizedUserPromptIsRejectedBeforeSessionCreation() started.
+◇ Test effectiveRequestMetadataDoesNotReuseOlderRequestMetadata() started.
+◇ Test mutationWriteBudgetFailsBeforeChangingExistingContent() started.
+◇ Test modelRequestEventsReturnIndependentValues() started.
+◇ Test skillPreparationWaiterCancellationWinsBeforeContinuationInstallation() started.
+◇ Test skillRuntimeRunJSReturnsMissingSecretWithoutInvokingRunner() started.
+◇ Test addCustomSkillRollsBackDirectoryWhenStateSaveFails() started.
+◇ Test remoteSkillImportRollsBackPackageAndRemoteStateWhenSaveFails() started.
+◇ Test repeatedIdenticalToolCallWithNoNewResultIsRejectedWithinOneUserTurn() started.
+◇ Test workspaceTransactionRecoveryFinalizesFilesWhenStateIsUpdatedRevision() started.
+◇ Test filesWriteTextIsIdempotentForIdenticalContentAndRejectsSilentOverwrite() started.
+◇ Test installSkillPluginKeepsNativeIntentOnlySkillsExecutableAvailable() started.
+◇ Test readTextReturnsStableContentDigest() started.
+◇ Test importRemoteSkillInstallsCompletePackageAndMarksScriptsUnavailableOnIOS() started.
+◇ Test filesToolPackRejectsTraversal() started.
+◇ Test removeCustomSkillReportsSecretFailureAsPostCommit() started.
+◇ Test pluginMutationReducerProducesImmutableInstallPlan() started.
+◇ Test missingSkillSourceFailsBeforeCreatingDestination() started.
+◇ Test toolPackReaderRejectsSymbolicLinksAtOpen() started.
+◇ Test boundedConcurrentMapPreservesOrderAndLimitsTaskFanOut() started.
+◇ Test filesToolPackInitInstructionCreatesCanonicalTemplatesAndRespectsOverwriteFlag() started.
+◇ Test skillPathPolicyRejectsTraversalAndSandboxEscape() started.
+◇ Test fetchGitHubSkillPluginRepositoryUsesRepositoryIndexManifest() started.
+◇ Test installRemoteSkillPluginsFromGitHubRepositoryAndUninstallByRepositoryURL() started.
+◇ Test filesToolPackRejectsOutOfRangePageSizeInsteadOfClamping() started.
+◇ Test filesToolPackRejectsSymlinkEscape() started.
+◇ Test filesSearchDoesNotAdvertiseAnEmptyTerminalPage() started.
+◇ Test concurrentWritesWithSameDigestAllowExactlyOneCommit() started.
+◇ Test skillLibrarySerializesReentrantStateMutationsWithoutLosingUpdates() started.
+◇ Test installSkillPluginRejectsSkillNameCollisions() started.
+◇ Test boundedSkillReaderRejectsNonRegularNodes(fifo:) started.
+◇ Test fetchGitHubSkillPluginRepositoryDiscoversSingleTreePluginManifest() started.
+◇ Test skillRuntimeRunJSPreservesUnclassifiedCancellationForEffectReconciliation() started.
+◇ Test skillRuntimeRunJSSurfacesRunnerFailureAsToolError() started.
+◇ Test toolPackReaderAcceptsExactLimitAndMaximumIntegerLimit() started.
+◇ Test fileSkillSecretStoreRejectsOutputThatCannotBeReadBack() started.
+◇ Test filesToolPackListSeparatesInstructionDocumentsFromGenericEntries() started.
+◇ Test skillStateStoreRejectsMissingOrUnsupportedV1Contract() started.
+◇ Test skillLibraryAccessReducerGrantsClaimsInFIFOOrder() started.
+◇ Test skillMarkdownFrontmatterParserRejectsMissingName() started.
+◇ Test contactsToolPackRejectsProviderOverflowInsteadOfTruncating() started.
+◇ Test skillStateStoreRejectsOutputThatCannotBeReadBack() started.
+◇ Test filesDeleteTreatsMissingTargetAsSuccessButStillRejectsRootDelete() started.
+◇ Test skillStatePersistenceBoundaryDelegatesAndPropagatesFailures() started.
+◇ Test filesToolPackReadRejectsOversizedFiles() started.
+◇ Test installSkillPluginCopiesSkillsAndTracksInstallation() started.
+◇ Test fetchGitHubContentsRejectsDuplicateFilePathsWithoutRuntimeTrap() started.
+◇ Test installRemoteSkillPluginBatchRollsBackAllDirectoriesWhenStateSaveFails() started.
+◇ Test fileSkillSecretStoreRejectsMissingOrUnsupportedV1Contract() started.
+◇ Test skillExecutionSnapshotRejectsTamperedContentAddressedCache() started.
+◇ Test importRemoteSkillInstallsDocumentationOnlyPackageAsExecutableAvailable() started.
+◇ Test runIntentValidatesSpecificHandlerSchemaBeforeExecution() started.
+◇ Test skillStateEventsReturnIndependentSnapshots() started.
+◇ Test skillRuntimeResultBuilderRejectsInvalidImageBase64() started.
+◇ Test installSkillPluginAllowsNativeMobileReplacementForExternalRuntimeText() started.
+◇ Test customSkillRoundTripsCapabilityRequirementsIntoSkillMarkdown() started.
+◇ Test customSkillMutationSerializesWithSelectionMutation() started.
+◇ Test fetchGitHubSkillPluginRepositoryFallsBackToRawFilesWhenAPIIsForbidden() started.
+◇ Test documentSkillMutationReducerProducesAtomicInstallPlan() started.
+◇ Test documentSkillMutationReducerReplacesOnlyImportedSkills() started.
+◇ Test installSkillPluginRejectsSkillNameThatDoesNotMatchManifestDirectory() started.
+◇ Test skillToolPackExposesCanonicalSkillTools() started.
+◇ Test skillStateStoreRoundTripsThroughPersistencePolicy() started.
+◇ Test githubRemoteSkillLocationSeparatesURLPolicyFromNetworkEffects() started.
+◇ Test addCustomTextSkillRejectsTraversalEntries() started.
+◇ Test skillStateStoreCreatesOneStableInitialRevision() started.
+◇ Test skillStateStoreRejectsUnsupportedInMemoryContractBeforeWrite() started.
+◇ Test skillLibrarySelectionReducerUpdatesOverridesAndRemoteSkills() started.
+◇ Test skillLibraryAccessCompletionPolicyPreservesReleaseFailureAfterSuccess() started.
+◇ Test skillPathPolicyNormalizesAndValidatesSandboxedPaths() started.
+◇ Test skillLibraryAccessCompletionPolicyPreservesOperationFailure() started.
+◇ Test localSkillImportRejectsFIFOInsteadOfWaitingForAWriter() started.
+◇ Test cancelledSkillLibraryMutationLeavesTheQueueWithoutExecuting() started.
+◇ Test fileSkillSecretStorePreservesPreviousDocumentWhenReplacementFails() started.
+◇ Test missingSkillSourceCannotCommitAnEmptyReplacement() started.
+◇ Test skillLibraryAccessCompletionPolicyPreservesOperationAndReleaseFailures() started.
+◇ Test uninstallSkillPluginRemovesInstalledSkillsAndSelectionState() started.
+◇ Test loadSkillPropagatesSupportingFileReadFailure() started.
+◇ Test installSkillPluginRejectsTraversalSkillPaths() started.
+◇ Test skillExecutionSnapshotOwnsOneLibraryReadClaimAcrossCapture() started.
+◇ Test boundedSkillReaderRejectsOversizedAndNonUTF8Documents() started.
+◇ Test skillsPromptAugmentorUsesSkillPromptSource() started.
+◇ Test parserAcceptsTopLevelMetadataFieldsWithoutMetadataBlock() started.
+◇ Test skillFileImportPolicyCopiesFilesAndRejectsSymlinks() started.
+◇ Test pluginInstallationRollsBackFilesystemWhenStatePersistenceFails() started.
+◇ Test githubPluginDiscoveryGroupsNestedRootsWithoutChangingFileOrder() started.
+◇ Test parserAcceptsBlockListMetadata() started.
+◇ Test case passing 1 argument kind → "missing-version" to sqlitePreparationRejectsUnsupportedStorageWithoutChangingBytes(kind:) started.
+◇ Test case passing 1 argument kind → "future-version" to sqlitePreparationRejectsUnsupportedStorageWithoutChangingBytes(kind:) started.
+◇ Test case passing 1 argument kind → "foreign" to sqlitePreparationRejectsUnsupportedStorageWithoutChangingBytes(kind:) started.
+◇ Test case passing 1 argument kind → "missing-manifest" to sqlitePreparationRejectsUnsupportedStorageWithoutChangingBytes(kind:) started.
+◇ Test case passing 1 argument kind → "missing-database" to sqlitePreparationRejectsUnsupportedStorageWithoutChangingBytes(kind:) started.
+◇ Test case passing 1 argument kind → "missing-table" to sqlitePreparationRejectsUnsupportedStorageWithoutChangingBytes(kind:) started.
+◇ Test case passing 1 argument kind → "future-version-wal" to sqlitePreparationRejectsUnsupportedStorageWithoutChangingBytes(kind:) started.
+◇ Test case passing 1 argument kind → "missing-version-wal" to sqlitePreparationRejectsUnsupportedStorageWithoutChangingBytes(kind:) started.
+◇ Test case passing 1 argument kind → "missing-effects-primary-key" to sqlitePreparationRejectsUnsupportedStorageWithoutChangingBytes(kind:) started.
+◇ Test case passing 1 argument kind → "incompatible-sequence-type" to sqlitePreparationRejectsUnsupportedStorageWithoutChangingBytes(kind:) started.
+◇ Test case passing 1 argument kind → "missing-required-notnull" to sqlitePreparationRejectsUnsupportedStorageWithoutChangingBytes(kind:) started.
+◇ Test case passing 1 argument kind → "descending-sequence-key" to sqlitePreparationRejectsUnsupportedStorageWithoutChangingBytes(kind:) started.
+◇ Test case passing 1 argument kind → "missing-sequence-autoincrement" to sqlitePreparationRejectsUnsupportedStorageWithoutChangingBytes(kind:) started.
+◇ Test normalPageOffsetIsUnchanged() started.
+◇ Test externallyConstructedMessagePageDoesNotOverflow() started.
+◇ Test externallyConstructedSearchPageDoesNotOverflow() started.
+◇ Test case passing 1 argument populated → false to missingV2IdentityIsRejectedWithoutChangingStoredMemory(populated:) started.
+◇ Test case passing 1 argument populated → true to missingV2IdentityIsRejectedWithoutChangingStoredMemory(populated:) started.
+◇ Test providerDeadlineAfterEntryRequiresReconciliation() started.
+◇ Test bufferedProducerCanOutliveCancellationWithoutAuthorizingRetry() started.
+◇ Test sessionModelIdentityComesOnlyFromSelectedRuntime() started.
+◇ Test completedRuntimeTurnCommitsAtomically() started.
+◇ Test partialTransportFailureNeverCommitsAssistantTurn() started.
+◇ Test cancellationAfterProviderEntryRequiresReconciliation() started.
+◇ Test case passing 1 argument streaming → false to lateMemoryPreparationAfterCancellationNeverEntersProvider(streaming:) started.
+◇ Test case passing 1 argument streaming → true to lateMemoryPreparationAfterCancellationNeverEntersProvider(streaming:) started.
+◇ Test case passing 2 arguments stage → "journal", forgetting → false to lateTranscriptCannotCrossForgetOrReset(stage:forgetting:) started.
+◇ Test case passing 2 arguments stage → "journal", forgetting → true to lateTranscriptCannotCrossForgetOrReset(stage:forgetting:) started.
+◇ Test case passing 2 arguments stage → "page", forgetting → false to lateTranscriptCannotCrossForgetOrReset(stage:forgetting:) started.
+◇ Test case passing 2 arguments stage → "page", forgetting → true to lateTranscriptCannotCrossForgetOrReset(stage:forgetting:) started.
+◇ Test case passing 1 argument forgetting → false to consolidationCannotCrossResetABAOrForget(forgetting:) started.
+◇ Test case passing 1 argument forgetting → true to consolidationCannotCrossResetABAOrForget(forgetting:) started.
+◇ Test durableRunsAndExternalFrontendUseOneRuntime() started.
+◇ Test facadeInspectsAndReconcilesUncertainToolEffectWithoutExecutingTool() started.
+◇ Test policyRejectsEveryEffectfulCapabilityFromLocalRunJS() started.
+◇ Test durableQueueRejectsDuplicateAndStaleCommandsAfterReload() started.
+◇ Test activeSourceAndFollowingToolMessagesCannotBeSummarized() started.
+◇ Test syntheticContinuationUsesActualSourceAndItsOptions() started.
+◇ Test augmentationReservesCompactionSpaceAndKeepsNoHookBehavior() started.
+◇ Test twoInputProjectorsCannotSilentlyCompeteForTheSameSource() started.
+◇ Test dynamicInstructionsParticipateInExactRequestLimits() started.
+◇ Test case passing 1 argument corruption → "missing-request" to v1MalformedStartedPayloadIsRejectedWithoutRewritingIt(_:) started.
+◇ Test case passing 1 argument corruption → "wrong-key" to v1MalformedStartedPayloadIsRejectedWithoutRewritingIt(_:) started.
+◇ Test case passing 1 argument corruption → "foreign-session" to v1MalformedStartedPayloadIsRejectedWithoutRewritingIt(_:) started.
+◇ Test case passing 1 argument fifo → false to toolPackReaderRejectsNonRegularNodes(fifo:) started.
+◇ Test case passing 1 argument fifo → true to toolPackReaderRejectsNonRegularNodes(fifo:) started.
+✔ Test scriptedModelClientReturnsScriptedTurnsInOrder() passed after 1.510 seconds.
+✔ Test scriptedModelClientFailsWhenScriptedTurnsAreExhausted() passed after 1.600 seconds.
+◇ Test case passing 1 argument byteCount → 0 to boundedSkillReaderEnforcesExactByteLimit(byteCount:) started.
+◇ Test case passing 1 argument byteCount → 1 to boundedSkillReaderEnforcesExactByteLimit(byteCount:) started.
+◇ Test case passing 1 argument byteCount → 4 to boundedSkillReaderEnforcesExactByteLimit(byteCount:) started.
+◇ Test case passing 1 argument byteCount → 5 to boundedSkillReaderEnforcesExactByteLimit(byteCount:) started.
+◇ Test case passing 1 argument completed → false to oldInvocationEnvelopeIsRejectedWithoutRewritingOrProviderExecution(completed:) started.
+◇ Test case passing 1 argument completed → true to oldInvocationEnvelopeIsRejectedWithoutRewritingOrProviderExecution(completed:) started.
+✔ Test mismatchedSignalCannotResolvePendingWait() passed after 1.706 seconds.
+✔ Test sha256MatchesPublishedKnownVectors() passed after 1.735 seconds.
+✔ Test sessionReadLimitsAreCanonicalAcrossPagesAndQueries() passed after 1.763 seconds.
+◇ Test case passing 1 argument missingSchema → false to completedInvocationRequiresCurrentResultEnvelope(missingSchema:) started.
+◇ Test case passing 1 argument missingSchema → true to completedInvocationRequiresCurrentResultEnvelope(missingSchema:) started.
+◇ Test case passing 1 argument field → "requiresNetwork" to persistedSkillCapabilitiesRequireEveryDeclaredField(field:) started.
+◇ Test case passing 1 argument field → "allowedDomains" to persistedSkillCapabilitiesRequireEveryDeclaredField(field:) started.
+◇ Test case passing 1 argument field → "requiresPersistentStorage" to persistedSkillCapabilitiesRequireEveryDeclaredField(field:) started.
+◇ Test case passing 1 argument field → "requiresCameraOrMicrophone" to persistedSkillCapabilitiesRequireEveryDeclaredField(field:) started.
+◇ Test case passing 1 argument field → "requiresExternalNavigation" to persistedSkillCapabilitiesRequireEveryDeclaredField(field:) started.
+◇ Test case passing 1 argument field → "bridgeIntents" to persistedSkillCapabilitiesRequireEveryDeclaredField(field:) started.
+◇ Test case passing 1 argument field → "hostIntents" to persistedSkillCapabilitiesRequireEveryDeclaredField(field:) started.
+✔ Test sessionReducerRecordsCommandMetadataOnCompletedSession() passed after 1.902 seconds.
+✔ Test toolDefinitionStoresTypedEffectAndUsesMutationDefault() passed after 1.903 seconds.
+✔ Test structuredFailureIsDurableAndResumeClearsOnlyFailureState() passed after 1.917 seconds.
+✔ Test incrementalSHA256MatchesSinglePassAcrossBlockBoundaries() passed after 1.918 seconds.
+◇ Test case passing 1 argument fifo → false to boundedSkillReaderRejectsNonRegularNodes(fifo:) started.
+◇ Test case passing 1 argument fifo → true to boundedSkillReaderRejectsNonRegularNodes(fifo:) started.
+✔ Test sessionReducerModelsWaitSignalAndPersistenceEffectsPurely() passed after 1.925 seconds.
+✔ Test sessionReducerResolvesWaitAndMetadataAsOneTransition() passed after 1.939 seconds.
+◇ Test agentReceivesSkillCatalogAndSkillToolsThroughHighLevelFacade() started.
+✔ Test operationCleanupPolicyPreservesBothFailures() passed after 1.948 seconds.
+✔ Test operationCleanupPolicyPreservesOperationFailure() passed after 1.946 seconds.
+✔ Test operationCleanupPolicyReturnsSuccessfulValue() passed after 1.951 seconds.
+✔ Test sessionReducerRejectsIllegalTerminalMutation() passed after 1.951 seconds.
+✔ Test sessionSnapshotDecodeRejectsContradictoryWaitState() passed after 1.951 seconds.
+✔ Test sqliteTransactionRejectsHeaderCountsThatDoNotMatchUnchangedRows() passed after 1.951 seconds.
+✔ Test defaultRootRejectsUnsafeAppNameComponents() passed after 1.951 seconds.
+✔ Test sqliteStoreRejectsSameSizeArtifactTamperingBeforeMetadataCommit() passed after 1.951 seconds.
+✔ Test operationCleanupPolicyPreservesCleanupFailureAfterSuccess() passed after 1.951 seconds.
+✔ Test sqliteFailedEffectCanBeReconciledOnceToVerifiedCompletion() passed after 1.951 seconds.
+✔ Test sessionWaitStateDecodeRejectsTimeWaitWithoutDeadline() passed after 1.951 seconds.
+✔ Test sqliteRejectsUnsupportedDurableSessionAndEventSchemas() passed after 1.951 seconds.
+✔ Test searchSessionMessagesFiltersSessionDateKeywordAndPreservesMessageValues() passed after 1.951 seconds.
+✔ Test createSessionRejectsExistingSnapshotInsteadOfOverwritingIt() passed after 1.951 seconds.
+✔ Test defaultRootRejectsUnsafeStorageSubdirectoryComponents() passed after 1.951 seconds.
+✔ Test defaultRootUsesAndContainsAppGroupBase() passed after 1.951 seconds.
+✔ Test sqliteEffectReceiptsCannotLoseCertaintyOrChangeIdentity() passed after 1.952 seconds.
+✔ Test fileExecutionClaimsExcludeIndependentStoreInstancesAndReleaseCleanly() passed after 1.951 seconds.
+✔ Test storeSandboxRejectsDanglingSymlinkTraversal() passed after 1.951 seconds.
+✔ Test defaultStoreBootstrapsSeparatelyFromAMAData() passed after 1.952 seconds.
+✔ Test defaultRootAllowsPathComponentsAtTheUTF8ByteLimit() passed after 1.957 seconds.
+✔ Test invalidSessionIDsAreRejectedAcrossPublicEntryPoints() passed after 1.958 seconds.
+✔ Test createSessionCreatesSQLiteStateAndArtifactDirectory() passed after 1.957 seconds.
+✔ Test defaultRootAllowsSafeUnicodeAndSpacesWithinStandardizedBase() passed after 1.957 seconds.
+✔ Test applicationSupportSessionStorePersistsEffectLedgerRecords() passed after 1.957 seconds.
+✔ Test artifactRoundTrip() passed after 1.958 seconds.
+✔ Test sqliteAtomicForkRejectsCrossSessionTargetRecordsBeforeMutation() passed after 1.959 seconds.
+✔ Test sqlitePreparationRejectsUnsupportedStorageWithoutChangingBytes(kind:) with 13 test cases passed after 1.959 seconds.
+✔ Test sqliteWALPreflightReadsCrashLeftCommitAndPreservesFiles() passed after 1.959 seconds.
+✔ Test sqliteStoreRejectsSameSizeArtifactTamperingOnLoad() passed after 1.959 seconds.
+✔ Test sqliteStoreRejectsOrphanEffectRecords() passed after 1.959 seconds.
+✔ Test sqliteWALPreflightAllowsConcurrentWriter() passed after 1.959 seconds.
+✔ Test persistArtifactSanitizesFilenameThroughStoragePlan() passed after 1.959 seconds.
+✔ Test sessionQueryValidatesBoundsAndIdentifiers() passed after 1.959 seconds.
+✔ Test persistArtifactValidationFailureLeavesNoDirectorySideEffect() passed after 1.959 seconds.
+✔ Test storeCodecRejectsJSONThatExceedsItsReadBudgetBeforeWriting() passed after 1.959 seconds.
+✔ Test artifactLoadRejectsSymlinkedArtifactsDirectory() passed after 1.959 seconds.
+✔ Test sqliteTransactionsRejectCrossSessionEventsAndEffectsBeforePublishing() passed after 1.959 seconds.
+✔ Test sqliteAtomicForkRollsBackSourceWhenTargetPayloadFails() passed after 1.959 seconds.
+✔ Test sqliteStoreReadsSessionHeadersAndTranscriptPagesWithoutFullListMaterialization() passed after 1.959 seconds.
+✔ Test querySessionListFiltersIDsDatesKeywordsAndLimitWithBoundedPreview() passed after 1.979 seconds.
+✔ Test sqliteRuntimeAdmissionReadsBoundedHeaderBeforeHydration() passed after 1.979 seconds.
+✔ Test persistArtifactRejectsInvalidAndDuplicateGeneratedIdentifiersBeforeWriting() passed after 1.979 seconds.
+✔ Test createSessionRejectsInvalidSessionID() passed after 1.979 seconds.
+✔ Test persistArtifactUsesInjectedArtifactIDGenerator() passed after 1.979 seconds.
+✔ Test goalContinuationPlannerResumesDueTimeWaitAfterRelaunch() passed after 1.979 seconds.
+✔ Test goalRunnerPreservesRunAndRecoveryFailures() passed after 1.979 seconds.
+✔ Test goalLoopPreservesPauseAppliedAfterFinalTurnSave() passed after 1.979 seconds.
+✔ Test goalContinuationControllerResumesDueTimeWaitBeforeRunningLoop() passed after 1.980 seconds.
+✔ Test requiredTableCannotBeReplacedByAView() passed after 1.980 seconds.
+✔ Test goalLoopPersistsTurnsAndStopsOnCompletion() passed after 1.980 seconds.
+✔ Test goalLoopRejectsDefinitionMismatchWithoutOverwritingPersistedGoal() passed after 1.980 seconds.
+✔ Test goalJudgeResponseDecoderSkipsNonSchemaObjectsAndPreservesStringBraces() passed after 1.980 seconds.
+✔ Test goalReducerRejectsUnboundedTurnBudgetsAndTurnPayloads() passed after 1.980 seconds.
+✔ Test forkReplayOfTheSameSourceMessageDoesNotDuplicateGlobalMemory() passed after 1.980 seconds.
+✔ Test missingV2IdentityIsRejectedWithoutChangingStoredMemory(populated:) with 2 test cases passed after 1.980 seconds.
+✔ Test webFetchRejectsUnsafeURLAndOversizedProviderOutput() passed after 1.988 seconds.
+✔ Test webSearchBoundsTheFinalWrappedOutput() passed after 1.997 seconds.
+✔ Test transcriptSyncIsIdempotentAndExcludesSystemEvents() passed after 1.997 seconds.
+✔ Test goalContinuationPlannerClassifiesRelaunchStates() passed after 2.005 seconds.
+✔ Test webSearchRejectsProviderOverflowInsteadOfTruncating() passed after 2.005 seconds.
+✔ Test publicApplicationSupportStoreUsesExplicitSharedClaimOwnership() passed after 2.007 seconds.
+✔ Test webFetchBoundsTheEntireEncodedResponseNotOnlyContent() passed after 2.005 seconds.
+✔ Test goalReducerRejectsIllegalAndOutOfOrderTransitions() passed after 2.005 seconds.
+✔ Test transcriptRewriteIsRejectedAtTheOriginalPosition() passed after 2.005 seconds.
+✔ Test goalLoopRetainsAndRetriesFailedExecutionClaimRelease() passed after 2.003 seconds.
+✔ Test webToolsAreBoundedApprovalRequiredNetworkReads() passed after 2.003 seconds.
+✔ Test deletingAScopeRemovesItsSearchProjection() passed after 2.003 seconds.
+✔ Test v1SchemaRequiresStrictFtsAndForeignKeys() passed after 2.003 seconds.
+✔ Test goalTurnPlannerRendersBlankPreviousOutputAsNone() passed after 2.003 seconds.
+✔ Test webSearchSurfacesContinuationCursor() passed after 2.003 seconds.
+✔ Test ordinaryDeleteStillAllowsExplicitTranscriptRebuild() passed after 2.011 seconds.
+✔ Test goalRunResultRejectsContradictoryWaitState() passed after 2.011 seconds.
+✔ Test goalLoopPersistsSignalHostActionMetadata() passed after 2.011 seconds.
+✔ Test transcriptSyncIsIdempotentAndDefaultRecallSpansSessions() passed after 2.011 seconds.
+✔ Test unsupportedWALModeIsRejectedBeforeSchemaCreation() passed after 2.015 seconds.
+✔ Test searchHonorsExplicitBounds() passed after 2.021 seconds.
+✔ Test modelClientExcludesOnlyTheCurrentUserMessageFromRecall() passed after 2.021 seconds.
+✔ Test oldSchemaIsRejectedWithoutChangingIdentityDataOrJournal() passed after 2.021 seconds.
+✔ Test workspacePathValidationRemainsBounded() passed after 2.021 seconds.
+✔ Test goalContinuationControllerResumesEligibleGoals() passed after 2.021 seconds.
+✔ Test heuristicGoalEvaluatorRequiresExplicitCompleteAndCompletedSession() passed after 2.021 seconds.
+✔ Test goalSessionEventsProduceIndependentStateSnapshots() passed after 2.021 seconds.
+✔ Test memoryDecoratorCannotEnterDurableRuntimeBeforeAnyIO() passed after 2.021 seconds.
+✔ Test heuristicGoalEvaluatorRejectsCompletionWithoutConcreteEvidence() passed after 2.021 seconds.
+✔ Test nonV1UserVersionIsExplicitlyRejected() passed after 2.021 seconds.
+✔ Test memoryToolPackIsReadOnlyAndSearchesTypedResults() passed after 2.021 seconds.
+✔ Test scopeValidationRequiresTheIdentityBoundary() passed after 2.021 seconds.
+✔ Test fileGoalAtomicSaveRejectsStaleTurnAfterHostPause() passed after 2.021 seconds.
+✔ Test completedGoalDoesNotExposeStaleHostActionAfterWaitResume() passed after 2.021 seconds.
+✔ Test goalJudgeResponseDecoderRejectsResponsesWithoutTheRequiredSchema() passed after 2.021 seconds.
+✔ Test fileGoalExecutionClaimIsSharedAcrossStoreInstancesForSameRoot() passed after 2.021 seconds.
+✔ Test concurrentFirstOpenHasOneCompleteSchemaAndIdentity() passed after 2.025 seconds.
+✔ Test workspaceIdentitySurvivesDirectoryMove() passed after 2.021 seconds.
+✔ Test transcriptFailureDoesNotInvokeProvider() passed after 2.021 seconds.
+✔ Test goalStoreResumeHelperMovesWaitingGoalBackToActive() passed after 2.021 seconds.
+✔ Test fileGoalClaimKeepsIdentityAcrossFirstDirectoryCreationThroughAlias() passed after 2.021 seconds.
+✔ Test fileGoalClaimRejectsFileAsRoot() passed after 2.022 seconds.
+✔ Test forgettingSurvivesRestartReplayDirectCaptureAndProjectionReset() passed after 2.023 seconds.
+✔ Test modelStreamForwardsEveryBaseEventInOrder() passed after 2.022 seconds.
+✔ Test goalReducerOwnsTurnAndStatusTransitionAsOnePureReduction() passed after 2.022 seconds.
+✔ Test foreignDatabaseSchemaIsExplicitlyRejected() passed after 2.022 seconds.
+✔ Test consolidationValidatesEvidenceIsIdempotentAndEvolvesSlots() passed after 2.023 seconds.
+✔ Test publicCaptureFiltersSystemAndHiddenButKeepsToolEvidence() passed after 2.022 seconds.
+✔ Test contentAddressingIsDeterministicAndSeparatorSafe() passed after 2.022 seconds.
+✔ Test eventSanitizationDropsInjectedEnvelopesAndFrameworkNoise() passed after 2.022 seconds.
+✔ Test fileGoalStoreRejectsOversizedPersistedValueBeforeDecoding() passed after 2.023 seconds.
+✔ Test failedFirstOpenRollsBackPartialSchemaAndCanRetry() passed after 2.022 seconds.
+✔ Test memoryCaptureAdmissionRejectsSensitiveDataMetadata() passed after 2.022 seconds.
+✔ Test staleSyncPageCannotOverwriteAnAdvancedCheckpoint() passed after 2.023 seconds.
+✔ Test revisionReplayRejectsReorderedStableMessageIDs() passed after 2.023 seconds.
+✔ Test recallUsesTypedMatchesAndExcludesTheCurrentMessage() passed after 2.023 seconds.
+✔ Test forkUsesWriterValidationAndStandardCreationJournalWithReloadIdempotency() passed after 2.024 seconds.
+✔ Test malformedResponseContinuationMetadataFailsExplicitly() passed after 2.024 seconds.
+✔ Test contextEstimatorCompactsMultibyteTextBeforeItOverrunsTheInputBudget() passed after 2.024 seconds.
+✔ Test compactionPreservesSystemAuthorityAndUsesExtractiveProjection() passed after 2.024 seconds.
+✔ Test defaultGateRevisesForPreciseBoundedActionsAndAbortsForRepeatedBlockersAtLimit() passed after 2.020 seconds.
+✔ Test typedSearchRejectsBlankQueriesWithoutOpeningStorage() passed after 2.020 seconds.
+✔ Test instructionAssemblyAugmentorPrefersFirstKnownProjectInstructionFile() passed after 2.020 seconds.
+✔ Test preparationIsSerializedAndRetryableAfterAWorkspaceFailure() passed after 2.020 seconds.
+✔ Test resumingFailedSessionRequiresExplicitRetryIdentity() passed after 2.020 seconds.
+✔ Test reconciledSensitiveFailurePreservesSensitivityAtDurableMessageBoundary() passed after 2.020 seconds.
+✔ Test conciseRendererIncludesOnlyNonEmptySections() passed after 2.020 seconds.
+✔ Test consensusRoutingClientForwardsDescriptorAndStream() passed after 2.020 seconds.
+✔ Test typedSearchIsBoundedAndReturnsEventEvidence() passed after 2.026 seconds.
+✔ Test cloudProjectionHydrationHasBoundedLocalLatencyAcrossFiveHundredSessions() passed after 2.020 seconds.
+✔ Test modelInvocationHydrationRejectsMissingReferencedMessage() passed after 2.021 seconds.
+✔ Test durableCommandContractsAreAvailableFromAgentFacade() passed after 2.020 seconds.
+✔ Test consensusMetadataExecutionPlanClampsOptionsAndSkipsRoleSessions() passed after 2.020 seconds.
+✔ Test routingClientDelegatesToBaseWhenConsensusMetadataIsAbsent() passed after 2.021 seconds.
+✔ Test bacEnginePublicConfigKeepsNormalizedDefaults() passed after 2.020 seconds.
+✔ Test snapshotValidationAllowsIdempotentCallReuseButRejectsConflictingCallIdentity() passed after 2.021 seconds.
+✔ Test defaultGateRejectsWhitespacePaddedCriticalBlockers() passed after 2.021 seconds.
+✔ Test invalidConsensusMetadataFailsBeforeBaseProviderSideEffects() passed after 2.021 seconds.
+✔ Test modelInvocationHydrationRejectsDigestMismatch() passed after 2.021 seconds.
+✔ Test coordinatorAdmissionReleasesReservationAfterOperationFailure() passed after 2.021 seconds.
+✔ Test consensusCannotHideStandaloneOnlyBase() passed after 2.021 seconds.
+✔ Test toolCallLoopGuardResetsAtTheLatestUserMessage() passed after 2.025 seconds.
+✔ Test instructionAssemblyAugmentorReplaceParentMergeModeDropsNearestInheritedDocument() passed after 2.025 seconds.
+✔ Test cloudProjectionHydrationIsIdempotentAndRejectsConflictAndUnknownFields() passed after 2.025 seconds.
+✔ Test modelTurnValidatesBinaryReasoningResponseIdentifierAndUsage() passed after 2.025 seconds.
+✔ Test unboundedContextPolicyFailsAtCompositionBoundary() passed after 2.025 seconds.
+✔ Test runtimeRejectsDatesOutsideJournalRepresentableRangeWithoutTrapping() passed after 2.025 seconds.
+✔ Test toolEffectLedgerPolicyReducesStartedAndCompletedReceiptsWithoutStoreIO() passed after 2.025 seconds.
+✔ Test pendingToolCallIndexRejectsConflictingReuseOfOneEffectIdentity() passed after 2.037 seconds.
+✔ Test runtimeToolBoundsUseModelCoreAsSingleAuthority() passed after 2.037 seconds.
+✔ Test exactModelMessageLimitForcesCompactionBelowApproximateTokenTrigger() passed after 2.079 seconds.
+✔ Test assistantTurnPreservesStructuredContentAndTerminalFacts() passed after 2.081 seconds.
+✔ Test forkRetryAfterTargetCreationFailureUsesOneDurableTargetEventSequence() passed after 2.081 seconds.
+✔ Test evolutionReportTransactionReducerRejectsInvalidTransitions() passed after 2.081 seconds.
+✔ Test v2ReceiptRejectsDifferentDurableKey() passed after 2.082 seconds.
+✔ Test filesToolPackRejectsDanglingSymlinkTraversal() passed after 2.081 seconds.
+✔ Test filesToolPackSearchFindsNestedRelativePaths() passed after 2.082 seconds.
+✔ Test validatorRejectsUnexpectedFieldWhenAdditionalPropertiesDisabled() passed after 2.081 seconds.
+✔ Test filesSandboxRelativePathDoesNotMaskOutsideURLAsBasename() passed after 2.081 seconds.
+✔ Test noOpEvolutionProposalIsRejected() passed after 2.081 seconds.
+✔ Test evolutionReportTransactionRecoveryRestoresPreviousDirectory() passed after 2.081 seconds.
+✔ Test validatorRejectsUnsupportedCompositionInsteadOfSkippingValidation() passed after 2.081 seconds.
+✔ Test evolutionLoopSelectsCandidateThatImprovesValidationScore() passed after 2.084 seconds.
+✔ Test requiredHoldoutRejectsMissingCandidateScore() passed after 2.084 seconds.
+✔ Test toolCallLoopGuardBlocksOnlyRepeatedNoProgressWithinOneUserTurn() passed after 2.084 seconds.
+✔ Test evolutionReportReplacementRemovesStaleApplyProposal() passed after 2.084 seconds.
+✔ Test evolutionReportStoreReturnsStoredSnapshotWithoutChangingInput() passed after 2.083 seconds.
+✔ Test filesDeleteSupportsDigestPreconditionAndVerifiesAbsence() passed after 2.084 seconds.
+✔ Test evolutionLoopBlocksHoldoutRegressionWhenRequired() passed after 2.084 seconds.
+✔ Test adapterDrivenAppleToolPacks() passed after 2.084 seconds.
+✔ Test calendarToolPackSupportsCompleteCRUDAndAllDayEvents() passed after 2.083 seconds.
+✔ Test effectiveRequestMetadataReturnsSessionMetadataWhenUserMetadataIsEmpty() passed after 2.084 seconds.
+✔ Test evolutionLoopPropagatesCandidateEvaluationCancellation() passed after 2.084 seconds.
+✔ Test hostIssuedPendingApprovalResumesWithoutModelInvocation() passed after 2.084 seconds.
+✔ Test approvalProposalIDMismatchIsRejected() passed after 2.089 seconds.
+✔ Test validatorRejectsApprovalBypassLanguage() passed after 2.089 seconds.
+✔ Test evolutionProposalRequiresPositiveHostApproval() passed after 2.089 seconds.
+✔ Test malformedRuntimeAdmissionFailsClosed() passed after 2.089 seconds.
+✔ Test modelBackedEvolutionRejectsMetadataThatIsNotAnObject() passed after 2.089 seconds.
+✔ Test persistedResponseContinuationPolicyRejectsOutOfRangeTurns() passed after 2.089 seconds.
+✔ Test filesToolPackSearchHidesInstructionDocumentsUnlessRequested() passed after 2.089 seconds.
+✔ Test calendarToolPackRejectsMalformedAllDayFlagBeforeEffects() passed after 2.089 seconds.
+✔ Test compactionNeverReplacesEarlierContextWithInformationFreePlaceholder() passed after 2.089 seconds.
+✔ Test evolutionConfigDecodeRejectsPersistedInvalidCandidateLimit() passed after 2.089 seconds.
+✔ Test deterministicGeneratorAddsMobileGuardrails() passed after 2.090 seconds.
+✔ Test filesToolPackRejectsAbsolutePathsAfterResolverExtraction() passed after 2.090 seconds.
+✔ Test compactionRetainsToolIdentityArgumentsAndSafeMetadata() passed after 2.090 seconds.
+✔ Test kernelFileClaimPreventsTwoStoresFromOwningOneSession() passed after 2.090 seconds.
+✔ Test recoverySafetyRejectsMissingSharedClaimBoundary() passed after 2.090 seconds.
+✔ Test compositeToolCatalogRejectsDuplicateToolNames() passed after 2.090 seconds.
+✔ Test evolutionReportPlannerRejectsInvalidSelectionBeforeFilesystemEffects() passed after 2.090 seconds.
+✔ Test mutatingToolRequiresReconciliationWhenStartedEffectAlreadyExists() passed after 2.090 seconds.
+✔ Test evolutionReportCreatesHostApprovalApplyProposalForSelectedCandidate() passed after 2.090 seconds.
+✔ Test instructionAssemblyAugmentorMergesBasePromptEnvironmentAndInstructionFiles() passed after 2.090 seconds.
+✔ Test cumulativeSessionArtifactBytesAreBounded() passed after 2.106 seconds.
+✔ Test uncompactableOverBudgetTranscriptIsReportedAsNoCompactionNotAsFailure() passed after 2.110 seconds.
+✔ Test filesReadTextRejectsFIFOWithoutWaitingForAWriter() passed after 2.111 seconds.
+✔ Test integerSchemaUsesIntegerBounds() passed after 2.110 seconds.
+✔ Test filesToolPackIsExcludedFromMemoryRetentionByDefault() passed after 2.110 seconds.
+✔ Test compactionUsesOnlyInputCapacityAfterOutputReservation() passed after 2.110 seconds.
+✔ Test calendarListSupportsLongRangesAndRejectsProviderOverflow() passed after 2.110 seconds.
+✔ Test calendarListRejectsWrongPageSizeTypeBeforeService() passed after 2.110 seconds.
+✔ Test capabilityDiscoveryReturnsOnlyRegisteredToolsAndLoadsExactContract() passed after 2.110 seconds.
+✔ Test writeParserRejectsMalformedDigestTypeBeforeFilesystemMutation() passed after 2.110 seconds.
+✔ Test toolPackCatalogSourceExportsDefinitions() passed after 2.110 seconds.
+✔ Test modelTurnUsesOneCanonicalToolCallCollection() passed after 2.110 seconds.
+✔ Test nonFiniteSignalPayloadIsRejectedWithoutClearingWait() passed after 2.111 seconds.
+✔ Test v1MalformedStartedPayloadIsRejectedWithoutRewritingIt(_:) with 3 test cases passed after 2.111 seconds.
+✔ Test recoveryRejectsInvalidRuntimeConfiguration() passed after 2.111 seconds.
+✔ Test incompleteForkIntentWithoutSourceRevisionFailsClosedWithoutMutation() passed after 2.111 seconds.
+✔ Test filesSearchRejectsCursorFramesOutsideRequestedSubtree() passed after 2.111 seconds.
+✔ Test toolPackReaderRejectsNonRegularNodes(fifo:) with 2 test cases passed after 2.111 seconds.
+✔ Test validatorAcceptsIntegerForNumberSchema() passed after 2.111 seconds.
+✔ Test effectiveRequestMetadataUsesMostRecentUserMetadataOnly() passed after 2.111 seconds.
+✔ Test rejectedReconciliationDoesNotResumeFailedSession() passed after 2.111 seconds.
+✔ Test reconciledSensitiveCompletionPreservesSensitivityAtDurableMessageBoundary() passed after 2.111 seconds.
+✔ Test oversizedLoadedSnapshotIsRejectedAtAdvancementBoundary() passed after 2.111 seconds.
+✔ Test instructionAssemblyAugmentorKeepsDistinctInstructionPathsWhenContentMatches() passed after 2.111 seconds.
+✔ Test modelInvocationStartedReceiptStoresReferencesAndUsesCanonicalRequestIdentity() passed after 2.112 seconds.
+✔ Test structuredToolObservationPreservesMachineEvidenceWithoutChangingHumanContent() passed after 2.111 seconds.
+✔ Test filesToolPackSearchReturnsEmptyForMissingRootPath() passed after 2.111 seconds.
+✔ Test documentSkillMutationReducerRemovesStateAndDirectoryTogether() passed after 2.111 seconds.
+✔ Test filesToolPackRejectsRootSymlink() passed after 2.112 seconds.
+✔ Test toolEffectLedgerCompletedAndFailedRecordsUseCallIDAndPreserveInput() passed after 2.112 seconds.
+✔ Test reconciliationRejectsMismatchedResultAndPreservesUncertainReceipt() passed after 2.112 seconds.
+✔ Test appendingToolResultDedupesArtifactsByIdentifier() passed after 2.107 seconds.
+✔ Test modelInvocationHydrationRejectsDuplicateMessageIDsWithoutTrap() passed after 2.108 seconds.
+✔ Test completedEffectReplayRejectsPayloadWhoseToolIdentityDoesNotMatchLedgerRecord() passed after 2.108 seconds.
+✔ Test skillDirectoryCopyRejectsARegularFileAsItsRoot() passed after 2.108 seconds.
+✔ Test toolResultEventsReturnIndependentValues() passed after 2.108 seconds.
+✔ Test productionSafetyRejectsMissingSharedClaimBoundary() passed after 2.108 seconds.
+✔ Test contactsToolPackSurfacesCursorAndRejectsOutOfRangePageSize() passed after 2.108 seconds.
+✔ Test skillSnapshotBuilderSortsCustomAndMergesSelectedFirst() passed after 2.108 seconds.
+✔ Test skillExecutionSnapshotDerivesMetadataFromCapturedBytesNotPreCaptureMetadata() passed after 2.108 seconds.
+✔ Test appGroupMetadataSourceResolvesExplicitContainerURL() passed after 2.108 seconds.
+✔ Test pendingWaitCanBeTimedOutIntoStructuredDurableFailure() passed after 2.109 seconds.
+✔ Test compactionRefusesAnInformationFreeSummaryBudget() passed after 2.106 seconds.
+✔ Test filesToolPackRejectsFinalPathSymlink() passed after 2.106 seconds.
+✔ Test incrementalValidationRejectsConflictingHistoricalToolCallIdentifier() passed after 2.106 seconds.
+✔ Test validReconciliationResumesFailedSessionAndPersistsResolutionTogether() passed after 2.107 seconds.
+✔ Test remoteSkillResolutionUsesTrustedURLPolicy() passed after 2.106 seconds.
+✔ Test skillRuntimeResultBuilderPersistsGenericArtifactsAndArtifactBackedWebView() passed after 2.106 seconds.
+✔ Test validatorMeasuresJSONSchemaStringLengthInUnicodeCodePoints() passed after 2.106 seconds.
+✔ Test skillRuntimeResultBuilderRejectsAmbiguousArtifactContent() passed after 2.106 seconds.
+✔ Test effectRecordEventsReturnIndependentTerminalSnapshots() passed after 2.106 seconds.
+✔ Test usageDescriptionPreflightAcceptsNonEmptyHostPurpose() passed after 2.106 seconds.
+✔ Test pluginMutationReducerRejectsBatchSkillNameCollisionsBeforeEffects() passed after 2.111 seconds.
+✔ Test filesToolPackReadDefinitionsFollowApprovalPolicyConfiguration() passed after 2.111 seconds.
+✔ Test toolErrorTransitionBoundsMessageAndRecordsTruncationEvidence() passed after 2.111 seconds.
+✔ Test effectLedgerIsRequiredByTheSessionRuntimeStoreType() passed after 2.111 seconds.
+✔ Test hostIssuedPendingApprovalDenialReturnsWithoutModelInvocation() passed after 2.112 seconds.
+✔ Test boundedSkillReaderEnforcesExactByteLimit(byteCount:) with 4 test cases passed after 2.111 seconds.
+✔ Test managedSkillEventsProduceIndependentSnapshots() passed after 2.111 seconds.
+✔ Test toolCallLoopGuardPermitsIdenticalPollingWhenResultsChange() passed after 2.155 seconds.
+✔ Test validatorRejectsInvalidDateTimeString() passed after 2.157 seconds.
+✔ Test oversizedSignalPayloadDoesNotResolveDurableWait() passed after 2.156 seconds.
+✔ Test skillMarkdownFrontmatterParserSeparatesMetadataFromInstructions() passed after 2.156 seconds.
+✔ Test skillRuntimeResultBuilderProducesImageArtifactAndMetadata() passed after 2.157 seconds.
+✔ Test skillToolPackCanonicalizesStructuredJSONArguments() passed after 2.154 seconds.
+✔ Test skillDirectoryDigestIsDeterministicAndContentSensitive() passed after 2.156 seconds.
+✔ Test v1MalformedCompletedPayloadIsRejectedWithoutRewritingIt() passed after 2.156 seconds.
+✔ Test toolsAreRejectedAtConstructionWhenModelDoesNotAdvertiseToolCalls() passed after 2.154 seconds.
+✔ Test completedSourceCanBeForkedWithoutReplacingItsMessages() passed after 2.171 seconds.
+✔ Test remoteSkillLimitsRejectUnboundedConfiguration() passed after 2.172 seconds.
+✔ Test appendingReplayedToolResultDedupesArtifactsByIdentifier() passed after 2.171 seconds.
+✔ Test invalidJSONStructureLimitFailsAtCompositionBoundary() passed after 2.171 seconds.
+✔ Test fileSkillSecretStoreWritesOwnerOnlyFile() passed after 2.168 seconds.
+✔ Test oldInvocationEnvelopeIsRejectedWithoutRewritingOrProviderExecution(completed:) with 2 test cases passed after 2.172 seconds.
+✔ Test effectLedgerReadFailureFailsSessionWithoutExecutingTool() passed after 2.168 seconds.
+✔ Test sessionSnapshotEventsReturnIndependentStateAndPreserveInvariants() passed after 2.168 seconds.
+✔ Test workspaceTransactionRecoveryRollsBackFilesWhenStateIsPreviousRevision() passed after 2.170 seconds.
+✔ Test sha256DigestMatchesStandardKnownVectors() passed after 2.166 seconds.
+✔ Test sessionJournalRejectsUnencodablePayloadInsteadOfWritingNull() passed after 2.170 seconds.
+✔ Test snapshotWriterRejectsStateChangeWithoutExplicitMutationReason() passed after 2.166 seconds.
+✔ Test hardCompactionDoesNotHideAnOversizedNewestMessage() passed after 2.166 seconds.
+✔ Test hostIssuedToolCallUsesCanonicalExecutionPolicyWithoutModelInvocation() passed after 2.170 seconds.
+✔ Test skillLibraryAccessCompletionPolicyReturnsSuccessfulValue() passed after 2.166 seconds.
+✔ Test validatorRejectsFractionalNumberForIntegerSchema() passed after 2.166 seconds.
+✔ Test forkRetryRejectsSourceMutationAfterTargetCreationFailure() passed after 2.166 seconds.
+✔ Test filesToolPackRoundTrip() passed after 2.166 seconds.
+✔ Test configuredIdentifierLimitAlsoBoundsRegisteredToolNames() passed after 2.166 seconds.
+✔ Test skillToolPackExecutesRuntimeThroughToolExecutor() passed after 2.166 seconds.
+✔ Test guardedOverwriteRequiresCurrentDigestAndPreservesContentOnConflict() passed after 2.166 seconds.
+✔ Test duplicateToolNamesAreRejected() passed after 2.166 seconds.
+✔ Test filesToolPackSearchContinuesAfterVisitedNodeBudget() passed after 2.167 seconds.
+✔ Test invalidRuntimeIterationLimitFailsAtCompositionBoundary() passed after 2.166 seconds.
+✔ Test instructionAssemblyAugmentorIncludesSubdirectoryInstructionsForNestedWorkingDirectory() passed after 2.166 seconds.
+✔ Test filesToolPackReadTextSurfacesRelevantInstructionDocumentsAndInstructionFlag() passed after 2.166 seconds.
+✔ Test boundedSkillReaderDoesNotOverflowAtMaximumIntegerLimit() passed after 2.168 seconds.
+✔ Test modelInvocationWaitRevisionRejectsLegacyFloatingPointEncoding() passed after 2.168 seconds.
+✔ Test runtimeObserverWaitsForReconciliationBeforeRecordingEffectEvents() passed after 2.168 seconds.
+✔ Test filesToolPackReadRejectsNonUTF8Content() passed after 2.168 seconds.
+✔ Test defaultFileConfigurationRequiresDigestGuard() passed after 2.166 seconds.
+✔ Test pendingApprovalRequestFindsReferencedToolCallWithoutFlatteningTranscript() passed after 2.166 seconds.
+✔ Test boundedSkillReaderRejectsSymbolicLinks() passed after 2.166 seconds.
+✔ Test toolEffectLedgerPolicyRejectsConflictingReceiptIdentityAndTerminalRewrite() passed after 2.166 seconds.
+✔ Test bundledSkillsUseOneResourcePathWithoutFlattenedLookup() passed after 2.166 seconds.
+✔ Test usageDescriptionPreflightRejectsMissingAndBlankValues() passed after 2.166 seconds.
+✔ Test registeredToolContractCannotExceedModelCoreToolSurface() passed after 2.166 seconds.
+✔ Test instructionAssemblyAugmentorReplaceProjectChainMergeModeDropsAllInheritedProjectDocuments() passed after 2.166 seconds.
+✔ Test instructionAssemblyAugmentorPropagatesInstructionReadFailure() passed after 2.166 seconds.
+✔ Test completedInvocationRequiresCurrentResultEnvelope(missingSchema:) with 2 test cases passed after 2.169 seconds.
+✔ Test calendarMutationUsesRevisionPreconditionAndReadBackWhenAvailable() passed after 2.166 seconds.
+✔ Test persistedSkillCapabilitiesRequireEveryDeclaredField(field:) with 7 test cases passed after 2.166 seconds.
+✔ Test restartRequiresReconciliationForStartedEffect() passed after 2.166 seconds.
+✔ Test manifestToolCatalogSourceLoadsBundledStyleManifest() passed after 2.166 seconds.
+✔ Test workspaceTransactionReducerRejectsInvalidPhaseTransitions() passed after 2.166 seconds.
+✔ Test pluginMutationBatchPreservesEstablishedFrontInsertionOrder() passed after 2.166 seconds.
+✔ Test timeWaitCannotResumeBeforeDeadline() passed after 2.167 seconds.
+✔ Test runtimeFailureMessageIsBoundedWithExplicitTruncationEvidence() passed after 2.166 seconds.
+✔ Test forkRejectsInvalidTargetBeforeRecordingSourceIntent() passed after 2.166 seconds.
+✔ Test appIntentsToolPackPrefersContextAwareServiceWhenAvailable() passed after 2.166 seconds.
+✔ Test skillLibraryAccessReducerCancellationReleasesAnUndeliveredOwner() passed after 2.166 seconds.
+✔ Test forkRequiresAtomicRuntimeStore() passed after 2.166 seconds.
+✔ Test recoveryInspectionExposesUncertainMutatingEffectWithoutExecutingIt() passed after 2.166 seconds.
+✔ Test replaceTextRequiresOneOccurrenceAndMatchingDigest() passed after 2.167 seconds.
+✔ Test oversizedUserPromptIsRejectedBeforeSessionCreation() passed after 2.166 seconds.
+✔ Test effectiveRequestMetadataDoesNotReuseOlderRequestMetadata() passed after 2.166 seconds.
+✔ Test modelRequestEventsReturnIndependentValues() passed after 2.162 seconds.
+✔ Test skillPreparationWaiterCancellationWinsBeforeContinuationInstallation() passed after 2.162 seconds.
+✔ Test mutationWriteBudgetFailsBeforeChangingExistingContent() passed after 2.166 seconds.
+✔ Test workspaceTransactionRecoveryFinalizesFilesWhenStateIsUpdatedRevision() passed after 2.162 seconds.
+✔ Test readTextReturnsStableContentDigest() passed after 2.161 seconds.
+✔ Test filesWriteTextIsIdempotentForIdenticalContentAndRejectsSilentOverwrite() passed after 2.162 seconds.
+✔ Test filesToolPackRejectsTraversal() passed after 2.161 seconds.
+✔ Test pluginMutationReducerProducesImmutableInstallPlan() passed after 2.161 seconds.
+✔ Test missingSkillSourceFailsBeforeCreatingDestination() passed after 2.161 seconds.
+✔ Test toolPackReaderRejectsSymbolicLinksAtOpen() passed after 2.161 seconds.
+✔ Test skillPathPolicyRejectsTraversalAndSandboxEscape() passed after 2.161 seconds.
+✔ Test filesToolPackRejectsOutOfRangePageSizeInsteadOfClamping() passed after 2.161 seconds.
+✔ Test filesToolPackRejectsSymlinkEscape() passed after 2.161 seconds.
+✔ Test filesSearchDoesNotAdvertiseAnEmptyTerminalPage() passed after 2.161 seconds.
+✔ Test boundedSkillReaderRejectsNonRegularNodes(fifo:) with 2 test cases passed after 2.161 seconds.
+✔ Test filesToolPackInitInstructionCreatesCanonicalTemplatesAndRespectsOverwriteFlag() passed after 2.166 seconds.
+✔ Test toolPackReaderAcceptsExactLimitAndMaximumIntegerLimit() passed after 2.166 seconds.
+✔ Test filesToolPackListSeparatesInstructionDocumentsFromGenericEntries() passed after 2.166 seconds.
+✔ Test skillStateStoreRejectsMissingOrUnsupportedV1Contract() passed after 2.166 seconds.
+✔ Test skillLibraryAccessReducerGrantsClaimsInFIFOOrder() passed after 2.166 seconds.
+✔ Test skillMarkdownFrontmatterParserRejectsMissingName() passed after 2.166 seconds.
+✔ Test contactsToolPackRejectsProviderOverflowInsteadOfTruncating() passed after 2.166 seconds.
+✔ Test filesDeleteTreatsMissingTargetAsSuccessButStillRejectsRootDelete() passed after 2.165 seconds.
+✔ Test skillStatePersistenceBoundaryDelegatesAndPropagatesFailures() passed after 2.166 seconds.
+✔ Test filesToolPackReadRejectsOversizedFiles() passed after 2.166 seconds.
+✔ Test fileSkillSecretStoreRejectsMissingOrUnsupportedV1Contract() passed after 2.165 seconds.
+✔ Test runIntentValidatesSpecificHandlerSchemaBeforeExecution() passed after 2.165 seconds.
+✔ Test skillStateEventsReturnIndependentSnapshots() passed after 2.165 seconds.
+✔ Test skillRuntimeResultBuilderRejectsInvalidImageBase64() passed after 2.165 seconds.
+✔ Test documentSkillMutationReducerProducesAtomicInstallPlan() passed after 2.166 seconds.
+✔ Test documentSkillMutationReducerReplacesOnlyImportedSkills() passed after 2.166 seconds.
+✔ Test skillToolPackExposesCanonicalSkillTools() passed after 2.166 seconds.
+✔ Test skillStateStoreRoundTripsThroughPersistencePolicy() passed after 2.166 seconds.
+✔ Test githubRemoteSkillLocationSeparatesURLPolicyFromNetworkEffects() passed after 2.166 seconds.
+✔ Test skillStateStoreCreatesOneStableInitialRevision() passed after 2.166 seconds.
+✔ Test skillStateStoreRejectsUnsupportedInMemoryContractBeforeWrite() passed after 2.166 seconds.
+✔ Test skillLibrarySelectionReducerUpdatesOverridesAndRemoteSkills() passed after 2.166 seconds.
+✔ Test skillLibraryAccessCompletionPolicyPreservesReleaseFailureAfterSuccess() passed after 2.166 seconds.
+✔ Test skillPathPolicyNormalizesAndValidatesSandboxedPaths() passed after 2.166 seconds.
+✔ Test skillLibraryAccessCompletionPolicyPreservesOperationFailure() passed after 2.166 seconds.
+✔ Test fileSkillSecretStorePreservesPreviousDocumentWhenReplacementFails() passed after 2.166 seconds.
+✔ Test missingSkillSourceCannotCommitAnEmptyReplacement() passed after 2.166 seconds.
+✔ Test skillLibraryAccessCompletionPolicyPreservesOperationAndReleaseFailures() passed after 2.165 seconds.
+✔ Test boundedSkillReaderRejectsOversizedAndNonUTF8Documents() passed after 2.165 seconds.
+✔ Test skillsPromptAugmentorUsesSkillPromptSource() passed after 2.139 seconds.
+✔ Test parserAcceptsTopLevelMetadataFieldsWithoutMetadataBlock() passed after 2.139 seconds.
+✔ Test skillFileImportPolicyCopiesFilesAndRejectsSymlinks() passed after 2.167 seconds.
+✔ Test githubPluginDiscoveryGroupsNestedRootsWithoutChangingFileOrder() passed after 2.129 seconds.
+✔ Test parserAcceptsBlockListMetadata() passed after 2.129 seconds.
+✔ Test normalPageOffsetIsUnchanged() passed after 1.978 seconds.
+✔ Test externallyConstructedMessagePageDoesNotOverflow() passed after 1.978 seconds.
+✔ Test externallyConstructedSearchPageDoesNotOverflow() passed after 1.970 seconds.
+✔ Test policyRejectsEveryEffectfulCapabilityFromLocalRunJS() passed after 1.132 seconds.
+✔ Test syntheticContinuationUsesActualSourceAndItsOptions() passed after 1.048 seconds.
+✔ Test augmentationReservesCompactionSpaceAndKeepsNoHookBehavior() passed after 1.048 seconds.
+✔ Test activeSourceAndFollowingToolMessagesCannotBeSummarized() passed after 1.051 seconds.
+✔ Test twoInputProjectorsCannotSilentlyCompeteForTheSameSource() passed after 1.045 seconds.
+✔ Test revisionReplayDoesNotRegressCheckpointBetweenPages() passed after 2.247 seconds.
+✔ Test appleToolPacksExposeSeparateNarrowCapabilities() passed after 2.226 seconds.
+✔ Test dynamicInstructionsParticipateInExactRequestLimits() passed after 1.046 seconds.
+✔ Test sqlitePreparationSerializesConcurrentBootstrapAndReopensCurrentData() passed after 2.252 seconds.
+✔ Test cancellationStopsTranscriptPreparation() passed after 2.275 seconds.
+✔ Test skillStateStoreRejectsOutputThatCannotBeReadBack() passed after 2.229 seconds.
+✔ Test runStartObserverReceivesSimilarCasesAfterRegistrySearch() passed after 2.273 seconds.
+✔ Test bacEngineAcceptsOnFirstRound() passed after 2.275 seconds.
+✔ Test consensusObserversReceiveValueSnapshotsAcrossRoundAndCompletion() passed after 2.278 seconds.
+✔ Test concurrentWriteAndDeleteWithSameDigestAllowExactlyOneCommit() passed after 2.277 seconds.
+✔ Test concurrentWritesWithSameDigestAllowExactlyOneCommit() passed after 2.243 seconds.
+✔ Suite SessionPageOverflowTests passed after 2.309 seconds.
+✔ Suite TurnPromptProjectionTests passed after 2.449 seconds.
+✔ Test modelBackedGoalEvaluatorDecodesFencedJSONWithTextAndStringBraces() passed after 2.907 seconds.
+✔ Test lateMemoryPreparationAfterCancellationNeverEntersProvider(streaming:) with 2 test cases passed after 2.926 seconds.
+✔ Test lateTranscriptCannotCrossForgetOrReset(stage:forgetting:) with 4 test cases passed after 2.927 seconds.
+✔ Test consolidationCannotCrossResetABAOrForget(forgetting:) with 2 test cases passed after 2.929 seconds.
+✔ Test staleConsolidationResultCannotOverwriteAnAdvancedCheckpoint() passed after 2.929 seconds.
+✔ Test typedStopReasonCannotBeOverriddenByConflictingRawMetadata() passed after 2.928 seconds.
+✔ Test failedClaimReleaseCanBeRetriedWithoutLosingOwnership() passed after 2.923 seconds.
+✔ Test uncertainArtifactCommitPreservesTheDurablyReferencedFile() passed after 2.929 seconds.
+✔ Test sensitiveReconciliationRemainsExcludedAfterTranscriptMemorySync() passed after 2.924 seconds.
+✔ Test generatedSessionIdentifierCollisionDoesNotOverwriteExistingSession() passed after 2.923 seconds.
+✔ Test durablePresentationProjectionRedactsSecretsAndExcludesExecutableState() passed after 2.923 seconds.
+✔ Test hostVerifiedCompletionReconcilesEffectPersistsArtifactAndContinuesWithoutExecutor() passed after 2.924 seconds.
+✔ Test dueTimeWaitClearsAutomaticallyOnRun() passed after 2.925 seconds.
+✔ Test coordinatorReturnsExactlyReloadableSnapshotAtPersistencePrecision() passed after 2.929 seconds.
+✔ Test pendingApprovalCanBeResolvedAfterRestart() passed after 2.930 seconds.
+✔ Test assistantTurnCommitFailureLeavesNoPendingToolToExecuteOnRestart() passed after 2.929 seconds.
+✔ Test hostVerifiedFailureTerminatesUncertainEffectAndContinuesWithoutExecutor() passed after 2.930 seconds.
+✔ Test preStartOutcomeUnknownFailureIsDefiniteAndDoesNotEnterReconciliation() passed after 2.929 seconds.
+✔ Test effectLedgerReadFailureFailsSessionInsteadOfBecomingToolOutput() passed after 2.929 seconds.
+✔ Test modelBackedEvolutionGeneratorRejectsNonJSONResponse() passed after 2.928 seconds.
+✔ Test truncatedFinishReasonDoesNotContinueByDefault() passed after 2.929 seconds.
+✔ Test modelBackedEvolutionGeneratorParsesStrictJSONCandidates() passed after 2.928 seconds.
+✔ Test oversizedModelTurnPersistsStructuredFailure() passed after 2.928 seconds.
+✔ Test failedToolCompletionCommitLeavesStartedEffectAndBlocksReexecution() passed after 2.930 seconds.
+✔ Test signalWaitCanBeResumedWithUserPrompt() passed after 2.928 seconds.
+✔ Test resumingCompletedSessionDoesNotReinvokeProvider() passed after 2.928 seconds.
+✔ Test outcomeUnknownMutationKeepsStartedReceiptForHostReconciliation() passed after 2.928 seconds.
+✔ Test requestMetadataOverridesSessionMetadataInModelRequest() passed after 2.928 seconds.
+✔ Test blankAugmentedSystemPromptIsNotPersisted() passed after 2.927 seconds.
+✔ Test deeplyNestedModelArgumentsFailBeforeCanonicalEncodingAndPersistFailure() passed after 2.922 seconds.
+✔ Test fileSkillSecretStoreRejectsOutputThatCannotBeReadBack() passed after 2.894 seconds.
+✔ Test restartRecoversPendingToolCallBeforeNextModelTurn() passed after 2.927 seconds.
+✔ Test waitResumeWithoutPromptPersistsContinuationPolicyBeforeAdvance() passed after 2.922 seconds.
+✔ Test sessionJournalRecordsWaitOnUnknownModelError() passed after 2.919 seconds.
+✔ Test sessionCoordinatorDefaultPromptAugmentorBuildsInstructionAssemblyFromMetadata() passed after 2.929 seconds.
+✔ Test failedArtifactCommitRemovesOnlyTheUnreferencedFile() passed after 2.924 seconds.
+✔ Test startedEffectBlocksReexecutionWhenCompletedEffectSaveFails() passed after 2.927 seconds.
+✔ Test hostVerifiedModelResponseCompletesWithoutAnotherProviderCall() passed after 2.924 seconds.
+✔ Test mismatchedToolResultIdentityKeepsStartedReceiptForReconciliation() passed after 2.920 seconds.
+✔ Test completedSessionResumeDoesNotMutateOrInvokeProvider() passed after 2.916 seconds.
+✔ Test startSessionUsesPromptAugmentorOutputAsSystemPrompt() passed after 2.917 seconds.
+✔ Test frozenRequestDigestMatchesProviderEntryAndReopenDoesNotExecuteAgain() passed after 2.917 seconds.
+✔ Test runtimeObservesOrderedModelDeltasButPersistsOnlyTerminalTurn() passed after 2.916 seconds.
+✔ Test oversizedToolIdentifierPersistsStructuredFailureBeforeAssistantAppend() passed after 2.916 seconds.
+✔ Test deniedApprovalUsesCanonicalPersistenceClock() passed after 2.913 seconds.
+✔ Test outcomeUnknownModelFailureKeepsStartedReceiptUntilExplicitResolution() passed after 2.917 seconds.
+✔ Test fetchGitHubContentsRejectsDuplicateFilePathsWithoutRuntimeTrap() passed after 2.905 seconds.
+✔ Test restartReplaysCompletedEffectWithoutReexecutingTool() passed after 2.939 seconds.
+✔ Test providerDeadlineAfterEntryRequiresReconciliation() passed after 2.683 seconds.
+✔ Test sessionModelIdentityComesOnlyFromSelectedRuntime() passed after 2.683 seconds.
+✔ Test partialTransportFailureNeverCommitsAssistantTurn() passed after 2.676 seconds.
+◇ Test policyBoundsResourceConfiguration() started.
+✔ Test completedRuntimeTurnCommitsAtomically() passed after 2.677 seconds.
+✔ Test facadeInspectsAndReconcilesUncertainToolEffectWithoutExecutingTool() passed after 1.905 seconds.
+✔ Test visionAndMapPacksRejectProviderOverflowInsteadOfTruncating() passed after 3.004 seconds.
+✔ Test durableQueueRejectsDuplicateAndStaleCommandsAfterReload() passed after 1.900 seconds.
+✔ Test consensusStopsAtRoundBoundaryAfterCancellation() passed after 3.021 seconds.
+✔ Test cancellationAfterProviderEntryRequiresReconciliation() passed after 2.717 seconds.
+✔ Test policyBoundsResourceConfiguration() passed after 0.064 seconds.
+✔ Test cancellationAfterModelInvocationStartsRequiresReconciliation() passed after 3.127 seconds.
+✔ Test recoveryAndCoordinatorCannotRetryTheSameClaimConcurrently() passed after 3.140 seconds.
+✔ Test fetchGitHubSkillPluginRepositoryFallsBackToRawFilesWhenAPIIsForbidden() passed after 3.098 seconds.
+✔ Test highLevelFacadeForwardsRuntimeObservationWithoutUIOrCoordinatorWiring() passed after 3.139 seconds.
+✔ Test agentReceivesSkillCatalogAndSkillToolsThroughHighLevelFacade() passed after 1.217 seconds.
+✔ Test cancellationDuringClaimAcquisitionReleasesClaimWithoutRunningOperation() passed after 3.139 seconds.
+✔ Test truncatedFinishReasonContinuesWhenPolicyIsEnabled() passed after 3.148 seconds.
+✔ Test normalizedStopReasonMetadataDrivesContinuationWithoutProviderRawKeys() passed after 3.148 seconds.
+✔ Test durableRetryUsesRecoveryAndRejectsReusedOperationIdentity() passed after 3.147 seconds.
+✔ Test definiteMutationFailureKeepsTerminalToolFailureSemantics() passed after 3.145 seconds.
+✔ Test truncatedFinishReasonStopsAfterConfiguredContinuationBudget() passed after 3.144 seconds.
+✔ Test returnedToolArtifactIsAttachedAndSurvivesPrepare() passed after 3.145 seconds.
+✔ Test uncertainModelInvocationWaitsInsteadOfBlindlyCallingProviderAgain() passed after 3.143 seconds.
+✔ Test successfulToolExecutionPersistsArtifactMetadataInToolMessage() passed after 3.138 seconds.
+✔ Test recoveryCannotBypassActiveCoordinatorOnlyExecution() passed after 3.154 seconds.
+✔ Test assistantToolCallsArePersistedInTranscript() passed after 3.164 seconds.
+✔ Test sessionJournalRecordsCoordinatorSaveReasonsDuringContinuation() passed after 3.155 seconds.
+✔ Test longSessionCompactionPreservesTranscriptAndPersistsContextCheckpoint() passed after 3.164 seconds.
+✔ Test typedMaxTokensStopReasonDrivesContinuation() passed after 3.138 seconds.
+✔ Test typedPreflightConflictCompletesFailedReceiptWithoutReconciliation() passed after 3.139 seconds.
+✔ Test sessionJournalRecordsToolErrors() passed after 3.155 seconds.
+✔ Test cancellationRepairsDanglingToolCallTranscript() passed after 3.154 seconds.
+✔ Test sessionJournalRecordsLifecycleForSuccessfulToolRun() passed after 3.155 seconds.
+✔ Test continuingCompletedSessionResumesTranscript() passed after 3.139 seconds.
+◇ Test facadeRecoversKnownSessionAfterUncertainModelInvocationWithoutBlindRetry() started.
+◇ Test editAndForkCreateIsolatedDurableRevisions() started.
+✔ Test visionAndSpeechPacksOnlyPassBoundedSessionFilesToServices() passed after 3.156 seconds.
+✔ Test deniedApprovalPreventsExecutionAndPersistsToolMessage() passed after 3.152 seconds.
+✔ Test sessionCoordinatorGoalRunnerUsesNativeAgentSessionCoordinator() passed after 3.197 seconds.
+✔ Suite SkillAgentIntegrationTests passed after 3.204 seconds.
+✔ Test fetchGitHubSkillPluginRepositoryDiscoversSingleTreePluginManifest() passed after 3.147 seconds.
+✔ Test photosAndHealthPacksBoundScopeBeforeInvokingServices() passed after 3.202 seconds.
+✔ Test mapsAndNFCConstrainLocationAndInteractionSurfaces() passed after 3.203 seconds.
+✔ Test fetchGitHubSkillPluginRepositoryUsesRepositoryIndexManifest() passed after 3.170 seconds.
+◇ Test unsupportedRunnerFailsExplicitlyInsteadOfReturningFallbackSuccess() started.
+✔ Test modelRuntimeContentionDoesNotPoisonAnotherSession() passed after 3.205 seconds.
+✔ Test invalidToolCallLeavesToolErrorMessageWithoutExecuting() passed after 3.177 seconds.
+✔ Test readOnlyToolsDoNotPersistEffectLedgerRecords() passed after 3.222 seconds.
+✔ Test mutatingToolDedupesCompletedEffectsAndReplaysPersistedArtifacts() passed after 3.220 seconds.
+✔ Test runtimeObserverReceivesExecuteReplayAndDurationEvents() passed after 3.220 seconds.
+✔ Test bufferedProducerCanOutliveCancellationWithoutAuthorizingRetry() passed after 2.937 seconds.
+✔ Test unsupportedRunnerFailsExplicitlyInsteadOfReturningFallbackSuccess() passed after 0.016 seconds.
+✔ Test cancellationPreservesKnownLateToolResultAndArtifact() passed after 3.215 seconds.
+✔ Suite "NativeAgent over ModelRuntime" passed after 3.292 seconds.
+✔ Test cancellationAfterApprovedMutationStartsPreservesExplicitRecoveryState() passed after 3.254 seconds.
+✔ Test goalLoopStopsWhenMobileSessionWaits() passed after 3.293 seconds.
+◇ Test defaultRunnerUsesWebKitOrExplicitUnsupportedSurface() started.
+✔ Test editAndForkCreateIsolatedDurableRevisions() passed after 0.107 seconds.
+✔ Test facadeRecoversKnownSessionAfterUncertainModelInvocationWithoutBlindRetry() passed after 0.115 seconds.
+✔ Test waitingSnapshotCannotBeRunFromFreshCoordinator() passed after 3.286 seconds.
+✔ Test continueSessionDoesNotMutateActiveWaitingSession() passed after 3.284 seconds.
+✔ Test approvalWaitStateIsPersistedAndClearedAfterResolution() passed after 3.302 seconds.
+✔ Test goalLoopPropagatesCancellationWithoutPersistingFailure() passed after 3.315 seconds.
+✔ Test durableRunsAndExternalFrontendUseOneRuntime() passed after 2.300 seconds.
+✔ Suite AgentRecoveryFacadeTests passed after 3.325 seconds.
+◇ Test appGroupStorageUsesBuiltInCrossProcessClaimOwnership() started.
+✔ Test repeatedIdenticalToolCallWithNoNewResultIsRejectedWithinOneUserTurn() passed after 3.267 seconds.
+✔ Test defaultRunnerUsesWebKitOrExplicitUnsupportedSurface() passed after 0.017 seconds.
+✔ Test goalLoopPersistsAutomaticResumeBeforeRunningNextTurn() passed after 3.312 seconds.
+✔ Suite "Durable Agent borrowing a local backend" passed after 3.327 seconds.
+✔ Test appGroupStorageUsesBuiltInCrossProcessClaimOwnership() passed after 0.006 seconds.
+✔ Suite "NativeAgentSkillsWeb" passed after 3.333 seconds.
+✔ Test separateGoalLoopsCannotAdvanceSameFileBackedGoalConcurrently() passed after 3.312 seconds.
+◇ Test directoryStorageForwardsExplicitExecutionClaimOwnership() started.
+✔ Test directoryStorageForwardsExplicitExecutionClaimOwnership() passed after 0.001 seconds.
+✔ Test goalLoopPreservesPauseAppliedDuringRunningTurn() passed after 3.323 seconds.
+◇ Test storageReadModelQueriesDurableSessionsWithoutAProvider() started.
+✔ Test boundedConcurrentMapPreservesOrderAndLimitsTaskFanOut() passed after 3.281 seconds.
+✔ Test importSkillRejectsInsecureRemoteBaseURL() passed after 3.298 seconds.
+✔ Test storageReadModelQueriesDurableSessionsWithoutAProvider() passed after 0.023 seconds.
+◇ Test structuredOutputReachesModelAcrossSessionContinuation() started.
+✔ Test localSkillImportRejectsFIFOInsteadOfWaitingForAWriter() passed after 3.295 seconds.
+✔ Test addCustomTextSkillRejectsTraversalEntries() passed after 3.295 seconds.
+✔ Test repeatedIdenticalToolCallIsAllowedForANewUserTurn() passed after 3.368 seconds.
+✔ Test structuredOutputReachesModelAcrossSessionContinuation() passed after 0.090 seconds.
+◇ Test typedUserContentSurvivesDurableAgentRun() started.
+✔ Test approvedEvolutionProposalImportsCustomSkill() passed after 3.427 seconds.
+✔ Test addCustomTextSkillWritesScriptsAndAssets() passed after 3.414 seconds.
+✔ Test removeCustomSkillRestoresDirectoryWhenStateSaveFails() passed after 3.414 seconds.
+✔ Test installSkillPluginRequiresNativeAgentManifestName() passed after 3.406 seconds.
+✔ Test upsertCustomSkillRestoresPreviousDirectoryWhenStateSaveFails() passed after 3.407 seconds.
+✔ Test addCustomSkillRollsBackDirectoryWhenStateSaveFails() passed after 3.397 seconds.
+✔ Test remoteSkillImportRollsBackPackageAndRemoteStateWhenSaveFails() passed after 3.398 seconds.
+✔ Test installRemoteSkillPluginBatchRollsBackAllDirectoriesWhenStateSaveFails() passed after 3.396 seconds.
+✔ Test installSkillPluginRejectsTraversalSkillPaths() passed after 3.395 seconds.
+✔ Test pluginInstallationRollsBackFilesystemWhenStatePersistenceFails() passed after 3.362 seconds.
+✔ Test skillLibrariesSharingWorkspaceSerializeSecretMutationsAcrossStoreInstances() passed after 3.425 seconds.
+✔ Test installRemoteSkillPluginsRollsBackEarlierPackagesWhenLaterPackageFails() passed after 3.452 seconds.
+✔ Test skillRuntimeRunJSResolvesImportedSkillWebViewURLBeforeBuildingResult() passed after 3.446 seconds.
+✔ Test skillRuntimeRunJSPreservesExplicitUnknownOutcomeForEffectReconciliation() passed after 3.437 seconds.
+✔ Test installSkillPluginKeepsNativeIntentOnlySkillsExecutableAvailable() passed after 3.431 seconds.
+✔ Test installSkillPluginRejectsSkillNameCollisions() passed after 3.431 seconds.
+✔ Test skillRuntimeRunJSPreservesUnclassifiedCancellationForEffectReconciliation() passed after 3.431 seconds.
+✔ Test installSkillPluginAllowsNativeMobileReplacementForExternalRuntimeText() passed after 3.430 seconds.
+✔ Test installSkillPluginRejectsSkillNameThatDoesNotMatchManifestDirectory() passed after 3.429 seconds.
+✔ Test customSkillRoundTripsCapabilityRequirementsIntoSkillMarkdown() passed after 3.430 seconds.
+✔ Test skillRuntimeRunJSSurfacesRunnerFailureAsToolError() passed after 3.432 seconds.
+✔ Test loadSkillPropagatesSupportingFileReadFailure() passed after 3.430 seconds.
+✔ Test coordinatorOnlyAdmissionReservesBeforeCrossActorAwait() passed after 3.462 seconds.
+✔ Test approvedEvolutionProposalUpdatesExistingImportedSkill() passed after 3.471 seconds.
+✔ Test skillLibraryReadWaitsForInFlightMutationAndObservesCommittedState() passed after 3.441 seconds.
+✔ Test skillLibrarySerializesReentrantStateMutationsWithoutLosingUpdates() passed after 3.434 seconds.
+✔ Test cancelledSkillLibraryMutationLeavesTheQueueWithoutExecuting() passed after 3.432 seconds.
+✔ Test customSkillMutationSerializesWithSelectionMutation() passed after 3.434 seconds.
+✔ Test readSkillFileRejectsTraversalAndBinaryResources() passed after 3.464 seconds.
+✔ Test runIntentRequiresSelectedSkillAuthorizationWhenDeclaredByHandler() passed after 3.462 seconds.
+✔ Test readSkillFileReturnsExactPagedSnapshotContent() passed after 3.449 seconds.
+✔ Test skillRuntimeRunJSReturnsMissingSecretWithoutInvokingRunner() passed after 3.444 seconds.
+✔ Test uninstallRemoteSkillPluginsMatchesGitSuffixRepositoryURL() passed after 3.451 seconds.
+✔ Test importRemoteSkillInstallsCompletePackageAndMarksScriptsUnavailableOnIOS() passed after 3.445 seconds.
+✔ Test removeCustomSkillReportsSecretFailureAsPostCommit() passed after 3.444 seconds.
+✔ Test installSkillPluginCopiesSkillsAndTracksInstallation() passed after 3.443 seconds.
+✔ Test importRemoteSkillInstallsDocumentationOnlyPackageAsExecutableAvailable() passed after 3.444 seconds.
+✔ Test skillExecutionSnapshotRejectsTamperedContentAddressedCache() passed after 3.444 seconds.
+✔ Test skillLibrariesSharingWorkspaceSerializeStateMutationsWithoutLosingUpdates() passed after 3.456 seconds.
+✔ Test staleEvolutionProposalCannotOverwriteCurrentImportedSkill() passed after 3.483 seconds.
+✔ Test skillExecutionSnapshotOwnsOneLibraryReadClaimAcrossCapture() passed after 3.443 seconds.
+✔ Test uninstallSkillPluginRemovesInstalledSkillsAndSelectionState() passed after 3.444 seconds.
+✔ Test concurrentPluginMutationsSerializeWithoutRecoveringAnotherOperation() passed after 3.457 seconds.
+✔ Test installRemoteSkillPluginsFromGitHubRepositoryAndUninstallByRepositoryURL() passed after 3.447 seconds.
+✔ Test localWebViewURLRemainsValidAfterExecutionSnapshotIsReleased() passed after 3.462 seconds.
+✔ Test typedUserContentSurvivesDurableAgentRun() passed after 0.065 seconds.
+◇ Test typedUserContentUsesRuntimeIdentityTimeAndMetadataOwnership() started.
+✔ Test importantTurnUsesConsensusAndNormalTurnsStayOnBaseProvider() passed after 3.521 seconds.
+✔ Test typedUserContentUsesRuntimeIdentityTimeAndMetadataOwnership() passed after 0.068 seconds.
+◇ Test runUsesOneHighLevelFacadeAndReturnsDerivedOutput() started.
+✔ Test runUsesOneHighLevelFacadeAndReturnsDerivedOutput() passed after 0.015 seconds.
+◇ Test automaticContextPolicyUsesDeclaredCapacityAndPreservesDurableHistory() started.
+✔ Test automaticContextPolicyUsesDeclaredCapacityAndPreservesDurableHistory() passed after 0.061 seconds.
+◇ Test explicitContextCapacityWorksWithoutProviderDescriptor() started.
+✔ Test explicitContextCapacityWorksWithoutProviderDescriptor() passed after 0.053 seconds.
+◇ Test agentRunOutputBelongsToLatestUserTurnOnly() started.
+✔ Test agentRunOutputBelongsToLatestUserTurnOnly() passed after 0.001 seconds.
+◇ Test sensitiveToolDefinitionPropagatesToDurableToolMessage() started.
+✔ Test sensitiveToolDefinitionPropagatesToDurableToolMessage() passed after 0.046 seconds.
+◇ Test closureToolRunsWithoutApplicationKnowingAboutToolPacksOrCoordinator() started.
+✔ Test closureToolRunsWithoutApplicationKnowingAboutToolPacksOrCoordinator() passed after 0.038 seconds.
+◇ Test publicToolPackCanBeComposedWithoutFlatteningExecutorsInApplicationCode() started.
+✔ Test publicToolPackCanBeComposedWithoutFlatteningExecutorsInApplicationCode() passed after 0.036 seconds.
+◇ Test signalWaitCanBeEnteredAndResumedThroughFacade() started.
+✔ Test signalWaitCanBeEnteredAndResumedThroughFacade() passed after 0.019 seconds.
+◇ Test timeWaitRemainsClosedUntilDeadlineAndThenResumesThroughFacade() started.
+✔ Test timeWaitRemainsClosedUntilDeadlineAndThenResumesThroughFacade() passed after 0.014 seconds.
+◇ Test approvalDefaultsToFailClosed() started.
+✔ Test approvalDefaultsToFailClosed() passed after 0.041 seconds.
+✔ Suite AgentFacadeTests passed after 3.915 seconds.
+✔ Test run with 571 tests in 8 suites passed after 3.920 seconds.

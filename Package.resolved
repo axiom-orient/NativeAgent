@@ -1,0 +1,60 @@
+{
+  "originHash" : "d5037f6e442c3fa471c24ce88b7c3ebb15a848fb7184d7b6f18d1cbdee9f023a",
+  "pins" : [
+    {
+      "identity" : "eventsource",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/mattt/EventSource.git",
+      "state" : {
+        "revision" : "86b5096ac59ab46e66bd1f6377c604bc1dab0bc2",
+        "version" : "1.5.1"
+      }
+    },
+    {
+      "identity" : "swift-asn1",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/apple/swift-asn1.git",
+      "state" : {
+        "revision" : "3b6410f7dee09eb33cdd26260c5fd47fda19b0e2",
+        "version" : "1.7.3"
+      }
+    },
+    {
+      "identity" : "swift-cmark",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/swiftlang/swift-cmark.git",
+      "state" : {
+        "revision" : "08ddb528923cc1a6527e02b7a1aee9e516ca749a",
+        "version" : "0.9.0"
+      }
+    },
+    {
+      "identity" : "swift-crypto",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/apple/swift-crypto.git",
+      "state" : {
+        "revision" : "da9d28d69ebe3894b18376c8f2395c2f37b8448f",
+        "version" : "4.5.2"
+      }
+    },
+    {
+      "identity" : "swift-huggingface",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/huggingface/swift-huggingface",
+      "state" : {
+        "revision" : "b6de25db2207e515037ceb031280a2d3eb5ccb84",
+        "version" : "0.10.2"
+      }
+    },
+    {
+      "identity" : "swift-markdown",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/swiftlang/swift-markdown.git",
+      "state" : {
+        "revision" : "3c6f9523da3a1ec2fd829673e472d95b8097a3b8",
+        "version" : "0.8.0"
+      }
+    }
+  ],
+  "version" : 3
+}

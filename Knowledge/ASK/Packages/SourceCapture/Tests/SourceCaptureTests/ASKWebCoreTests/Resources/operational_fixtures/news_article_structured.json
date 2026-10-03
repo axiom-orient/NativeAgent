@@ -1,0 +1,30 @@
+{
+  "page_url": "https://example.com/start",
+  "expected": {
+    "title": "Launch Day Notes",
+    "canonical_url": "https://example.com/news/launch",
+    "language": "en",
+    "description": "Daily launch summary for the ASK rollout.",
+    "published_at": "2026-04-03T10:15:00Z",
+    "site_name": "Example News",
+    "markdown": "# Launch Day Notes\n\nASK shipped the parser-backed extraction path for production captures.\n\nThe rollout stayed deterministic across repeated imports and rebuilds.\n\n- Canonical URLs stayed stable across redirects\n\n- Search fragments remained readable\n",
+    "fragments": [
+      {
+        "heading": "Launch Day Notes",
+        "text": "ASK shipped the parser-backed extraction path for production captures."
+      },
+      {
+        "heading": "Launch Day Notes",
+        "text": "The rollout stayed deterministic across repeated imports and rebuilds."
+      },
+      {
+        "heading": "Launch Day Notes",
+        "text": "- Canonical URLs stayed stable across redirects"
+      },
+      {
+        "heading": "Launch Day Notes",
+        "text": "- Search fragments remained readable"
+      }
+    ]
+  }
+}

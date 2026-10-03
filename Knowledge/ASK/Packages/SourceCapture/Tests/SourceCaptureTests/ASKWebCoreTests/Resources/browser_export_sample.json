@@ -1,0 +1,7 @@
+{
+  "url": "https://www.python.org/downloads/release/python-3143/",
+  "title": "Python Release Python 3.14.3",
+  "captured_at": "2026-04-07T05:00:00Z",
+  "extension": "ask-browser-export-sample",
+  "html": "<!doctype html><html><head><title>Python Release Python 3.14.3</title></head><body><main><article><p>Python 3.14.3</p><p>Release date: Feb. 3, 2026.</p><p>This is the third maintenance release of Python 3.14.</p><p>Python 3.14.3 is the third maintenance release of 3.14, containing around 299 bugfixes, build improvements and documentation changes since 3.14.2.</p><p>Major new features of the 3.14 series compared to 3.13 include official support for free-threaded Python and deferred evaluation of annotations.</p></article></main></body></html>"
+}

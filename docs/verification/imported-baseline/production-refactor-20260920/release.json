@@ -1,0 +1,140 @@
+[
+  {
+    "name": "release-core",
+    "command": [
+      "swift",
+      "test",
+      "--package-path",
+      "Model/LanguageModelCore",
+      "--scratch-path",
+      "$DATA_ROOT/build/release-core",
+      "-j",
+      "4",
+      "-c",
+      "release",
+      "-Xswiftc",
+      "-warnings-as-errors"
+    ],
+    "exitCode": 0,
+    "status": "PASS",
+    "swiftTestingCount": 57,
+    "xctestCount": 0,
+    "seconds": 51.41,
+    "log": "docs/verification/current/release-core.log"
+  },
+  {
+    "name": "release-runtime",
+    "command": [
+      "swift",
+      "test",
+      "--package-path",
+      "Model/LanguageModelRuntime",
+      "--scratch-path",
+      "$DATA_ROOT/build/release-runtime",
+      "-j",
+      "4",
+      "-c",
+      "release",
+      "-Xswiftc",
+      "-warnings-as-errors"
+    ],
+    "exitCode": 0,
+    "status": "PASS",
+    "swiftTestingCount": 99,
+    "xctestCount": 0,
+    "seconds": 71.44,
+    "log": "docs/verification/current/release-runtime.log"
+  },
+  {
+    "name": "release-account",
+    "command": [
+      "swift",
+      "test",
+      "--package-path",
+      "Providers/ChatGPT/Account",
+      "--scratch-path",
+      "$DATA_ROOT/build/release-account",
+      "-j",
+      "4",
+      "-c",
+      "release",
+      "-Xswiftc",
+      "-warnings-as-errors"
+    ],
+    "exitCode": 0,
+    "status": "PASS",
+    "swiftTestingCount": 31,
+    "xctestCount": 0,
+    "seconds": 65.7,
+    "log": "docs/verification/current/release-account.log"
+  },
+  {
+    "name": "release-text",
+    "command": [
+      "swift",
+      "test",
+      "--package-path",
+      "Providers/ChatGPT/Text",
+      "--scratch-path",
+      "$DATA_ROOT/build/release-text",
+      "-j",
+      "4",
+      "-c",
+      "release",
+      "-Xswiftc",
+      "-warnings-as-errors"
+    ],
+    "exitCode": 0,
+    "status": "PASS",
+    "swiftTestingCount": 3,
+    "xctestCount": 0,
+    "seconds": 38.52,
+    "log": "docs/verification/current/release-text.log"
+  },
+  {
+    "name": "release-image",
+    "command": [
+      "swift",
+      "test",
+      "--package-path",
+      "Providers/ChatGPT/Image",
+      "--scratch-path",
+      "$DATA_ROOT/build/release-image",
+      "-j",
+      "4",
+      "-c",
+      "release",
+      "-Xswiftc",
+      "-warnings-as-errors"
+    ],
+    "exitCode": 0,
+    "status": "PASS",
+    "swiftTestingCount": 3,
+    "xctestCount": 0,
+    "seconds": 27.03,
+    "log": "docs/verification/current/release-image.log"
+  },
+  {
+    "name": "release-text-provider",
+    "command": [
+      "swift",
+      "build",
+      "--package-path",
+      "Providers/ChatGPT/TextProvider",
+      "--scratch-path",
+      "$DATA_ROOT/build/release-text-provider",
+      "-j",
+      "4",
+      "-c",
+      "release",
+      "-Xswiftc",
+      "-warnings-as-errors"
+    ],
+    "exitCode": 0,
+    "status": "PASS",
+    "swiftTestingCount": null,
+    "xctestCount": null,
+    "seconds": 18.62,
+    "log": "docs/verification/current/release-text-provider.log"
+  }
+]

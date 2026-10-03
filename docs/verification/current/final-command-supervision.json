@@ -1,0 +1,336 @@
+{
+  "results": [
+    {
+      "name": "portable-final-supervision",
+      "command": [
+        "python3",
+        "tools/verify-portable.py",
+        "--scratch",
+        "$DATA_ROOT/nativeai-build/portable"
+      ],
+      "exitCode": 0,
+      "durationSeconds": 18.022,
+      "swiftTestingCount": null
+    },
+    {
+      "name": "release-account",
+      "command": [
+        "swift",
+        "test",
+        "--package-path",
+        "$DATA_ROOT/work/NativeAI-Production-20260920/Providers/ChatGPT/Account",
+        "--scratch-path",
+        "$DATA_ROOT/nativeai-build/portable/chatgpt-account",
+        "-j",
+        "4",
+        "-c",
+        "release",
+        "-Xswiftc",
+        "-warnings-as-errors"
+      ],
+      "exitCode": 0,
+      "durationSeconds": 32.616,
+      "swiftTestingCount": 50
+    },
+    {
+      "name": "release-text",
+      "command": [
+        "swift",
+        "test",
+        "--package-path",
+        "$DATA_ROOT/work/NativeAI-Production-20260920/Providers/ChatGPT/Text",
+        "--scratch-path",
+        "$DATA_ROOT/nativeai-build/portable/chatgpt-text",
+        "-j",
+        "4",
+        "-c",
+        "release",
+        "-Xswiftc",
+        "-warnings-as-errors"
+      ],
+      "exitCode": 0,
+      "durationSeconds": 37.004,
+      "swiftTestingCount": 3
+    },
+    {
+      "name": "release-image",
+      "command": [
+        "swift",
+        "test",
+        "--package-path",
+        "$DATA_ROOT/work/NativeAI-Production-20260920/Providers/ChatGPT/Image",
+        "--scratch-path",
+        "$DATA_ROOT/nativeai-build/portable/chatgpt-image",
+        "-j",
+        "4",
+        "-c",
+        "release",
+        "-Xswiftc",
+        "-warnings-as-errors"
+      ],
+      "exitCode": 0,
+      "durationSeconds": 28.393,
+      "swiftTestingCount": 3
+    },
+    {
+      "name": "release-text-provider",
+      "command": [
+        "swift",
+        "build",
+        "--package-path",
+        "$DATA_ROOT/work/NativeAI-Production-20260920/Providers/ChatGPT/TextProvider",
+        "--scratch-path",
+        "$DATA_ROOT/nativeai-build/portable/chatgpt-text-provider",
+        "-j",
+        "4",
+        "-c",
+        "release",
+        "-Xswiftc",
+        "-warnings-as-errors"
+      ],
+      "exitCode": 0,
+      "durationSeconds": 39.228,
+      "swiftTestingCount": null
+    },
+    {
+      "name": "repeat-1-account",
+      "command": [
+        "swift",
+        "test",
+        "--package-path",
+        "$DATA_ROOT/work/NativeAI-Production-20260920/Providers/ChatGPT/Account",
+        "--scratch-path",
+        "$DATA_ROOT/nativeai-build/portable/chatgpt-account",
+        "--skip-build",
+        "-j",
+        "4",
+        "-Xswiftc",
+        "-warnings-as-errors"
+      ],
+      "exitCode": 0,
+      "durationSeconds": 1.528,
+      "swiftTestingCount": 50,
+      "iteration": 1
+    },
+    {
+      "name": "repeat-1-text",
+      "command": [
+        "swift",
+        "test",
+        "--package-path",
+        "$DATA_ROOT/work/NativeAI-Production-20260920/Providers/ChatGPT/Text",
+        "--scratch-path",
+        "$DATA_ROOT/nativeai-build/portable/chatgpt-text",
+        "--skip-build",
+        "-j",
+        "4",
+        "-Xswiftc",
+        "-warnings-as-errors"
+      ],
+      "exitCode": 0,
+      "durationSeconds": 0.853,
+      "swiftTestingCount": 3,
+      "iteration": 1
+    },
+    {
+      "name": "repeat-1-image",
+      "command": [
+        "swift",
+        "test",
+        "--package-path",
+        "$DATA_ROOT/work/NativeAI-Production-20260920/Providers/ChatGPT/Image",
+        "--scratch-path",
+        "$DATA_ROOT/nativeai-build/portable/chatgpt-image",
+        "--skip-build",
+        "-j",
+        "4",
+        "-Xswiftc",
+        "-warnings-as-errors"
+      ],
+      "exitCode": 0,
+      "durationSeconds": 0.837,
+      "swiftTestingCount": 3,
+      "iteration": 1
+    },
+    {
+      "name": "repeat-2-account",
+      "command": [
+        "swift",
+        "test",
+        "--package-path",
+        "$DATA_ROOT/work/NativeAI-Production-20260920/Providers/ChatGPT/Account",
+        "--scratch-path",
+        "$DATA_ROOT/nativeai-build/portable/chatgpt-account",
+        "--skip-build",
+        "-j",
+        "4",
+        "-Xswiftc",
+        "-warnings-as-errors"
+      ],
+      "exitCode": 0,
+      "durationSeconds": 2.646,
+      "swiftTestingCount": 50,
+      "iteration": 2
+    },
+    {
+      "name": "repeat-2-text",
+      "command": [
+        "swift",
+        "test",
+        "--package-path",
+        "$DATA_ROOT/work/NativeAI-Production-20260920/Providers/ChatGPT/Text",
+        "--scratch-path",
+        "$DATA_ROOT/nativeai-build/portable/chatgpt-text",
+        "--skip-build",
+        "-j",
+        "4",
+        "-Xswiftc",
+        "-warnings-as-errors"
+      ],
+      "exitCode": 0,
+      "durationSeconds": 0.953,
+      "swiftTestingCount": 3,
+      "iteration": 2
+    },
+    {
+      "name": "repeat-2-image",
+      "command": [
+        "swift",
+        "test",
+        "--package-path",
+        "$DATA_ROOT/work/NativeAI-Production-20260920/Providers/ChatGPT/Image",
+        "--scratch-path",
+        "$DATA_ROOT/nativeai-build/portable/chatgpt-image",
+        "--skip-build",
+        "-j",
+        "4",
+        "-Xswiftc",
+        "-warnings-as-errors"
+      ],
+      "exitCode": 0,
+      "durationSeconds": 0.627,
+      "swiftTestingCount": 3,
+      "iteration": 2
+    },
+    {
+      "name": "repeat-3-account",
+      "command": [
+        "swift",
+        "test",
+        "--package-path",
+        "$DATA_ROOT/work/NativeAI-Production-20260920/Providers/ChatGPT/Account",
+        "--scratch-path",
+        "$DATA_ROOT/nativeai-build/portable/chatgpt-account",
+        "--skip-build",
+        "-j",
+        "4",
+        "-Xswiftc",
+        "-warnings-as-errors"
+      ],
+      "exitCode": 0,
+      "durationSeconds": 0.624,
+      "swiftTestingCount": 50,
+      "iteration": 3
+    },
+    {
+      "name": "repeat-3-text",
+      "command": [
+        "swift",
+        "test",
+        "--package-path",
+        "$DATA_ROOT/work/NativeAI-Production-20260920/Providers/ChatGPT/Text",
+        "--scratch-path",
+        "$DATA_ROOT/nativeai-build/portable/chatgpt-text",
+        "--skip-build",
+        "-j",
+        "4",
+        "-Xswiftc",
+        "-warnings-as-errors"
+      ],
+      "exitCode": 0,
+      "durationSeconds": 0.722,
+      "swiftTestingCount": 3,
+      "iteration": 3
+    },
+    {
+      "name": "repeat-3-image",
+      "command": [
+        "swift",
+        "test",
+        "--package-path",
+        "$DATA_ROOT/work/NativeAI-Production-20260920/Providers/ChatGPT/Image",
+        "--scratch-path",
+        "$DATA_ROOT/nativeai-build/portable/chatgpt-image",
+        "--skip-build",
+        "-j",
+        "4",
+        "-Xswiftc",
+        "-warnings-as-errors"
+      ],
+      "exitCode": 0,
+      "durationSeconds": 0.52,
+      "swiftTestingCount": 3,
+      "iteration": 3
+    },
+    {
+      "name": "wire-repeat-2-supervision",
+      "command": [
+        "python3",
+        "tools/verify-chatgpt-wire.py",
+        "--scratch",
+        "$DATA_ROOT/nativeai-build/wire"
+      ],
+      "exitCode": 0,
+      "durationSeconds": 4.914,
+      "swiftTestingCount": null
+    },
+    {
+      "name": "wire-repeat-3-supervision",
+      "command": [
+        "python3",
+        "tools/verify-chatgpt-wire.py",
+        "--scratch",
+        "$DATA_ROOT/nativeai-build/wire"
+      ],
+      "exitCode": 0,
+      "durationSeconds": 3.005,
+      "swiftTestingCount": null
+    },
+    {
+      "name": "environment-Network",
+      "command": [
+        "swiftc",
+        "-typecheck",
+        "-"
+      ],
+      "exitCode": 1,
+      "durationSeconds": 0.165,
+      "swiftTestingCount": null,
+      "stdin": "import Network\n"
+    },
+    {
+      "name": "environment-CryptoKit",
+      "command": [
+        "swiftc",
+        "-typecheck",
+        "-"
+      ],
+      "exitCode": 1,
+      "durationSeconds": 0.115,
+      "swiftTestingCount": null,
+      "stdin": "import CryptoKit\n"
+    },
+    {
+      "name": "environment-NaturalLanguage",
+      "command": [
+        "swiftc",
+        "-typecheck",
+        "-"
+      ],
+      "exitCode": 1,
+      "durationSeconds": 0.115,
+      "swiftTestingCount": null,
+      "stdin": "import NaturalLanguage\n"
+    }
+  ]
+}

@@ -1,0 +1,30 @@
+{
+  "Providers/ChatGPT/Account/README.md": {
+    "swiftBlocks": [
+      "import ChatGPTAccount\n\nlet account = try ChatGPTAccountSession(credentialNamespace: \"com.example.app\")\nlet authorization = try await account.beginSignIn()\n// host가 authorization.authorizationURL을 외부/system browser로 엽니다.\n// 기존 localhost callback listener가 redirect를 수신합니다.\nlet signedInAccount = try await account.completeSignIn(authorization)\nlet status = try await account.status()\n// 명시 취소: try await account.cancelSignIn()\n// 명시 로그아웃: try await account.signOut()\n"
+    ],
+    "readmeSHA256AtConsumerCompilation": "6a75558639d46424a3345fa02e1360578e7570b5316ef8c46365ba12570fb23b",
+    "currentREADME_SHA256": "6a75558639d46424a3345fa02e1360578e7570b5316ef8c46365ba12570fb23b",
+    "codeBlocksUnchanged": true,
+    "compiledCodeSHA256": "7dd0f21e3375288eaaeea53e1cff2efb4d7c47e03a8b69f3da95aff643231859"
+  },
+  "Providers/ChatGPT/Text/README.md": {
+    "swiftBlocks": [
+      "import ChatGPTAccount\nimport LanguageModelCore\nimport ChatGPTText\n\n// account는 host가 로그인한 공통 ChatGPTAccountSession입니다.\nlet text = ChatGPTTextSession(account: account)\nlet models = try await text.models()\nlet limits = try await text.rateLimits()\nlet client = try ChatGPTModelClient(text: text)\n// request는 호출자가 만든 유효한 ModelRequest입니다.\nlet turn = try await client.generate(request: request)\n",
+      "func consume(\n  client: ChatGPTModelClient, request: ModelRequest,\n  receive: @Sendable (ModelEvent) -> Void\n) async throws {\n  let invocation = client.invocation(request: request, onStarted: {})\n  try await withTaskCancellationHandler {\n    let reading: Result<Void, any Error>\n    do {\n      for try await event in invocation.events { receive(event) }\n      reading = .success(())\n    } catch {\n      invocation.cancel()\n      reading = .failure(error)\n    }\n    // 실패한 receipt를 다시 기다려 성공으로 바꾸지 않는다.\n    try await invocation.waitForCompletion()\n    try Task.checkCancellation()\n    try reading.get()\n  } onCancel: {\n    invocation.cancel()\n  }\n}\n"
+    ],
+    "readmeSHA256AtConsumerCompilation": "7e8007f5de5ab6df1184648641683caedee7817eb90198573d19feb6998f8219",
+    "currentREADME_SHA256": "7e8007f5de5ab6df1184648641683caedee7817eb90198573d19feb6998f8219",
+    "codeBlocksUnchanged": true,
+    "compiledCodeSHA256": "bb76213b02b534c1b32e2693069e666079e3aa7546a473c46c27472867d84978"
+  },
+  "Providers/ChatGPT/Image/README.md": {
+    "swiftBlocks": [
+      "import ChatGPTAccount\nimport ChatGPTImage\n\nlet client = try ChatGPTImageClient(account: account)\nlet generated = try await client.generate(.init(\n  prompt: \"투명 배경의 파란 새 한 마리\",\n  background: .transparent\n))\n// 사용자가 제공한 실제 PNG bytes를 전달합니다.\nlet input = ChatGPTImageContent(mimeType: \"image/png\", data: pngData, filename: \"input.png\")\nlet edited = try await client.edit(.init(images: [input], prompt: \"새의 색만 초록색으로 바꾼다.\"))\n"
+    ],
+    "readmeSHA256AtConsumerCompilation": "966e38439fe203cf696a101d6d4164d817b51a5a90aa489baf83a0bf0adacbba",
+    "currentREADME_SHA256": "051007afe6beb3b0dda26ee23141396655062b4f475a73e978da54d76aff55c0",
+    "codeBlocksUnchanged": true,
+    "compiledCodeSHA256": "2bc63d3710953fad26ca76c539019bc9d42a66377c70eafc8e5d46814fb703dd"
+  }
+}

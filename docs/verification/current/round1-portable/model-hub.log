@@ -1,0 +1,102 @@
+Building for debugging...
+[0/17] Write sources
+[4/17] Write swift-version--1BA0962812E73E12.txt
+[6/39] Compiling LanguageModelCore ModelTextSnapshotAccumulator.swift
+[7/39] Compiling LanguageModelCore ModelTool.swift
+[8/39] Compiling LanguageModelCore DeterministicCoreDefaults.swift
+[9/39] Compiling LanguageModelCore SHA1HexDigest.swift
+[10/39] Compiling LanguageModelCore SHA256HexDigest.swift
+[11/39] Compiling LanguageModelCore JSONCoding.swift
+[12/39] Compiling LanguageModelCore JSONValue+Accessors.swift
+[13/45] Compiling LanguageModelCore JSONValue+Bridging.swift
+[14/45] Compiling LanguageModelCore JSONValue+CanonicalCount.swift
+[15/45] Compiling LanguageModelCore JSONValue+Literals.swift
+[16/45] Compiling LanguageModelCore JSONValue+StructureValidation.swift
+[17/45] Compiling LanguageModelCore JSONValue.swift
+[18/45] Compiling LanguageModelCore ToolSchema+Containers.swift
+[19/45] Compiling LanguageModelCore ToolSchema+Numbers.swift
+[20/45] Emitting module LanguageModelCore
+[21/45] Compiling LanguageModelCore LanguageModel.swift
+[22/45] Compiling LanguageModelCore ModelClient.swift
+[23/45] Compiling LanguageModelCore ModelClientInvocation.swift
+[24/45] Compiling LanguageModelCore ModelContracts.swift
+[25/45] Compiling LanguageModelCore ModelGeneration.swift
+[26/45] Compiling LanguageModelCore ModelStreamContract.swift
+[27/45] Compiling LanguageModelCore ModelTextRequest.swift
+[28/45] Compiling LanguageModelCore ToolSchema+String.swift
+[29/45] Compiling LanguageModelCore ToolSchema.swift
+[30/45] Compiling LanguageModelCore AgentMessage.swift
+[31/45] Compiling LanguageModelCore ModelContent.swift
+[32/45] Compiling LanguageModelCore ModelEvent.swift
+[33/45] Compiling LanguageModelCore ModelStopReason.swift
+[34/46] Wrapping AST for LanguageModelCore for debugging
+[36/56] Emitting module LanguageModelRuntime
+[37/59] Compiling LanguageModelRuntime ClientLanguageModel.swift
+[38/59] Compiling LanguageModelRuntime LanguageModelExecution.swift
+[39/59] Compiling LanguageModelRuntime LocalBackend.swift
+[40/59] Compiling LanguageModelRuntime LocalBackendConnector.swift
+[41/59] Compiling LanguageModelRuntime ModelExecutorStore.swift
+[42/59] Compiling LanguageModelRuntime ModelProviderRegistry.swift
+[43/59] Compiling LanguageModelRuntime ModelRunControl.swift
+[44/59] Compiling LanguageModelRuntime ModelRuntime.swift
+[45/59] Compiling LanguageModelRuntime ModelRuntimeAccess.swift
+[46/59] Compiling LanguageModelRuntime ModelRuntimeTypes.swift
+[47/59] Compiling LanguageModelRuntime ModelSession.swift
+[48/59] Compiling LanguageModelRuntime SessionLedger.swift
+[49/60] Wrapping AST for LanguageModelRuntime for debugging
+[51/63] Emitting module ModelHub
+[52/63] Compiling ModelHub HubModelAddress.swift
+[53/63] Compiling ModelHub HubModelInstaller.swift
+[54/64] Wrapping AST for ModelHub for debugging
+[56/67] Compiling ModelHubTests HubModelInstallerTests.swift
+[57/67] Emitting module ModelHubTests
+[58/67] Compiling ModelHubTests HubImportBoundaryTests.swift
+[59/68] $DATA_ROOT/nativeai-build/portable/model-hub/x86_64-unknown-linux-gnu/debug/ModelHubPackageDiscoveredTests.derived/all-discovered-tests.swift
+[60/68] Write sources
+[61/68] Wrapping AST for ModelHubTests for debugging
+[63/71] Compiling ModelHubPackageDiscoveredTests all-discovered-tests.swift
+[64/71] Compiling ModelHubPackageDiscoveredTests ModelHubTests.swift
+[65/71] Emitting module ModelHubPackageDiscoveredTests
+[66/72] $DATA_ROOT/nativeai-build/portable/model-hub/x86_64-unknown-linux-gnu/debug/ModelHubPackageTests.derived/runner.swift
+[67/72] Write sources
+[68/72] Wrapping AST for ModelHubPackageDiscoveredTests for debugging
+[70/74] Emitting module ModelHubPackageTests
+[71/74] Compiling ModelHubPackageTests runner.swift
+[72/75] Wrapping AST for ModelHubPackageTests for debugging
+[73/75] Write Objects.LinkFileList
+[74/75] Linking ModelHubPackageTests.xctest
+Build complete! (18.81s)
+Test Suite 'All tests' started at 2026-09-20 09:07:26.755
+Test Suite 'debug.xctest' started at 2026-09-20 09:07:26.757
+Test Suite 'debug.xctest' passed at 2026-09-20 09:07:26.757
+	 Executed 0 tests, with 0 failures (0 unexpected) in 0.0 (0.0) seconds
+Test Suite 'All tests' passed at 2026-09-20 09:07:26.757
+	 Executed 0 tests, with 0 failures (0 unexpected) in 0.0 (0.0) seconds
+◇ Test run started.
+↳ Testing Library Version: 6.2.1 (c9d57c83568b06d)
+↳ Target Platform: x86_64-unknown-linux-gnu
+◇ Suite "Hugging Face model onboarding" started.
+◇ Suite "Hub import effect boundaries" started.
+◇ Test "automatically installs when exactly one backend accepts the repository" started.
+◇ Test "rejects repositories unsupported by every registered provider" started.
+◇ Test installationCannotReturnADifferentProvider() started.
+◇ Test cancelledDiscoveryNeverStartsInstallation() started.
+◇ Test cancelledCallerDoesNotDispatchAnExplicitInstall() started.
+◇ Test "rejects unsafe or non-Hugging-Face addresses" started.
+◇ Test installationValidatesTheReturnedDescriptor() started.
+◇ Test "accepts model pages and pins supported revision syntax" started.
+◇ Test observedInstalledResultIsNotDiscardedAfterCancellation() started.
+◇ Test "returns explicit backend choices instead of guessing for mixed repositories" started.
+✔ Test "rejects unsafe or non-Hugging-Face addresses" passed after 0.015 seconds.
+✔ Test "automatically installs when exactly one backend accepts the repository" passed after 0.017 seconds.
+✔ Test "accepts model pages and pins supported revision syntax" passed after 0.016 seconds.
+✔ Test "rejects repositories unsupported by every registered provider" passed after 0.017 seconds.
+✔ Test installationValidatesTheReturnedDescriptor() passed after 0.017 seconds.
+✔ Test cancelledCallerDoesNotDispatchAnExplicitInstall() passed after 0.017 seconds.
+✔ Test observedInstalledResultIsNotDiscardedAfterCancellation() passed after 0.017 seconds.
+✔ Test cancelledDiscoveryNeverStartsInstallation() passed after 0.017 seconds.
+✔ Test "returns explicit backend choices instead of guessing for mixed repositories" passed after 0.017 seconds.
+✔ Suite "Hugging Face model onboarding" passed after 0.018 seconds.
+✔ Test installationCannotReturnADifferentProvider() passed after 0.018 seconds.
+✔ Suite "Hub import effect boundaries" passed after 0.019 seconds.
+✔ Test run with 10 tests in 2 suites passed after 0.020 seconds.

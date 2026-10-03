@@ -1,0 +1,56 @@
+{
+  "domain": "example/web",
+  "focus_prompt": null,
+  "fragments": [
+    {
+      "fingerprint": "f1",
+      "fragment_id": "frag_001",
+      "locator": {
+        "css": "article p:nth-of-type(1)"
+      },
+      "metadata": {},
+      "ordinal": 0,
+      "source_id": "src_demo",
+      "text": "ASK is a file-backed knowledge compiler.",
+      "version": "knowledge-source-fragment.v2"
+    },
+    {
+      "fingerprint": "f2",
+      "fragment_id": "frag_002",
+      "locator": {
+        "css": "article p:nth-of-type(2)"
+      },
+      "metadata": {},
+      "ordinal": 1,
+      "source_id": "src_demo",
+      "text": "It keeps evidence immutable and projections derived.",
+      "version": "knowledge-source-fragment.v2"
+    }
+  ],
+  "requested_at": "2026-04-07T10:01:00Z",
+  "source": {
+    "canonical_uri": "ask://source/src_demo",
+    "captured_at": "2026-04-07T10:00:10Z",
+    "connector": "webcollect",
+    "content_hash": "sha256:demo",
+    "language": "en",
+    "metadata": {
+      "searchable_text": "Demo Source\nASK is a file-backed knowledge compiler.\nIt keeps evidence immutable and projections derived.",
+      "searchable_text_length": "105",
+      "searchable_text_version": "ask-searchable-text.v1",
+      "url": "https://example.com/demo"
+    },
+    "mime_type": "text/html",
+    "observed_at": "2026-04-07T10:00:00Z",
+    "raw_relpath": "raw/evidence/2026-04-07/src_demo.html",
+    "source_id": "src_demo",
+    "source_kind": "url",
+    "tags": [
+      "demo",
+      "web"
+    ],
+    "title": "Demo Source",
+    "version": "knowledge-source-receipt.v2"
+  },
+  "version": "knowledge-ingest-evidence-request.v2"
+}

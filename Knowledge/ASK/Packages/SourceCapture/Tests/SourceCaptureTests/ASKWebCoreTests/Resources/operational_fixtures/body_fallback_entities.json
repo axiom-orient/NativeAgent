@@ -1,0 +1,22 @@
+{
+  "page_url": "https://example.com/body-fallback",
+  "expected": {
+    "title": "Body Fallback & Entities",
+    "canonical_url": "https://example.com/body-fallback",
+    "language": null,
+    "description": "Fallback to body when article and main are absent.",
+    "published_at": null,
+    "site_name": null,
+    "markdown": "## Body Fallback & Entities\n\nAlpha & beta should decode cleanly for markdown output.\n\nNon-breaking spaces should collapse into normal spaces.\n",
+    "fragments": [
+      {
+        "heading": "Body Fallback & Entities",
+        "text": "Alpha & beta should decode cleanly for markdown output."
+      },
+      {
+        "heading": "Body Fallback & Entities",
+        "text": "Non-breaking spaces should collapse into normal spaces."
+      }
+    ]
+  }
+}

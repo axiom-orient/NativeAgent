@@ -1,0 +1,762 @@
+[
+  {
+    "iteration": 1,
+    "name": "model-runtime",
+    "command": [
+      "swift",
+      "test",
+      "--skip-build",
+      "--package-path",
+      "Model/LanguageModelRuntime",
+      "--scratch-path",
+      "$DATA_ROOT/build/baseline-portable/model-runtime",
+      "-j",
+      "4"
+    ],
+    "exitCode": 0,
+    "status": "PASS",
+    "count": 99,
+    "log": "repeat-01-model-runtime.log"
+  },
+  {
+    "iteration": 1,
+    "name": "chatgpt-account",
+    "command": [
+      "swift",
+      "test",
+      "--skip-build",
+      "--package-path",
+      "Providers/ChatGPT/Account",
+      "--scratch-path",
+      "$DATA_ROOT/build/baseline-portable/chatgpt-account",
+      "-j",
+      "4"
+    ],
+    "exitCode": 0,
+    "status": "PASS",
+    "count": 31,
+    "log": "repeat-01-chatgpt-account.log"
+  },
+  {
+    "iteration": 1,
+    "name": "chatgpt-text",
+    "command": [
+      "swift",
+      "test",
+      "--skip-build",
+      "--package-path",
+      "Providers/ChatGPT/Text",
+      "--scratch-path",
+      "$DATA_ROOT/build/baseline-portable/chatgpt-text",
+      "-j",
+      "4"
+    ],
+    "exitCode": 0,
+    "status": "PASS",
+    "count": 3,
+    "log": "repeat-01-chatgpt-text.log"
+  },
+  {
+    "iteration": 1,
+    "name": "chatgpt-image",
+    "command": [
+      "swift",
+      "test",
+      "--skip-build",
+      "--package-path",
+      "Providers/ChatGPT/Image",
+      "--scratch-path",
+      "$DATA_ROOT/build/baseline-portable/chatgpt-image",
+      "-j",
+      "4"
+    ],
+    "exitCode": 0,
+    "status": "PASS",
+    "count": 3,
+    "log": "repeat-01-chatgpt-image.log"
+  },
+  {
+    "iteration": 2,
+    "name": "model-runtime",
+    "command": [
+      "swift",
+      "test",
+      "--skip-build",
+      "--package-path",
+      "Model/LanguageModelRuntime",
+      "--scratch-path",
+      "$DATA_ROOT/build/baseline-portable/model-runtime",
+      "-j",
+      "4"
+    ],
+    "exitCode": 0,
+    "status": "PASS",
+    "count": 99,
+    "log": "repeat-02-model-runtime.log"
+  },
+  {
+    "iteration": 2,
+    "name": "chatgpt-account",
+    "command": [
+      "swift",
+      "test",
+      "--skip-build",
+      "--package-path",
+      "Providers/ChatGPT/Account",
+      "--scratch-path",
+      "$DATA_ROOT/build/baseline-portable/chatgpt-account",
+      "-j",
+      "4"
+    ],
+    "exitCode": 0,
+    "status": "PASS",
+    "count": 31,
+    "log": "repeat-02-chatgpt-account.log"
+  },
+  {
+    "iteration": 2,
+    "name": "chatgpt-text",
+    "command": [
+      "swift",
+      "test",
+      "--skip-build",
+      "--package-path",
+      "Providers/ChatGPT/Text",
+      "--scratch-path",
+      "$DATA_ROOT/build/baseline-portable/chatgpt-text",
+      "-j",
+      "4"
+    ],
+    "exitCode": 0,
+    "status": "PASS",
+    "count": 3,
+    "log": "repeat-02-chatgpt-text.log"
+  },
+  {
+    "iteration": 2,
+    "name": "chatgpt-image",
+    "command": [
+      "swift",
+      "test",
+      "--skip-build",
+      "--package-path",
+      "Providers/ChatGPT/Image",
+      "--scratch-path",
+      "$DATA_ROOT/build/baseline-portable/chatgpt-image",
+      "-j",
+      "4"
+    ],
+    "exitCode": 0,
+    "status": "PASS",
+    "count": 3,
+    "log": "repeat-02-chatgpt-image.log"
+  },
+  {
+    "iteration": 3,
+    "name": "model-runtime",
+    "command": [
+      "swift",
+      "test",
+      "--skip-build",
+      "--package-path",
+      "Model/LanguageModelRuntime",
+      "--scratch-path",
+      "$DATA_ROOT/build/baseline-portable/model-runtime",
+      "-j",
+      "4"
+    ],
+    "exitCode": 0,
+    "status": "PASS",
+    "count": 99,
+    "log": "repeat-03-model-runtime.log"
+  },
+  {
+    "iteration": 3,
+    "name": "chatgpt-account",
+    "command": [
+      "swift",
+      "test",
+      "--skip-build",
+      "--package-path",
+      "Providers/ChatGPT/Account",
+      "--scratch-path",
+      "$DATA_ROOT/build/baseline-portable/chatgpt-account",
+      "-j",
+      "4"
+    ],
+    "exitCode": 0,
+    "status": "PASS",
+    "count": 31,
+    "log": "repeat-03-chatgpt-account.log"
+  },
+  {
+    "iteration": 3,
+    "name": "chatgpt-text",
+    "command": [
+      "swift",
+      "test",
+      "--skip-build",
+      "--package-path",
+      "Providers/ChatGPT/Text",
+      "--scratch-path",
+      "$DATA_ROOT/build/baseline-portable/chatgpt-text",
+      "-j",
+      "4"
+    ],
+    "exitCode": 0,
+    "status": "PASS",
+    "count": 3,
+    "log": "repeat-03-chatgpt-text.log"
+  },
+  {
+    "iteration": 3,
+    "name": "chatgpt-image",
+    "command": [
+      "swift",
+      "test",
+      "--skip-build",
+      "--package-path",
+      "Providers/ChatGPT/Image",
+      "--scratch-path",
+      "$DATA_ROOT/build/baseline-portable/chatgpt-image",
+      "-j",
+      "4"
+    ],
+    "exitCode": 0,
+    "status": "PASS",
+    "count": 3,
+    "log": "repeat-03-chatgpt-image.log"
+  },
+  {
+    "iteration": 4,
+    "name": "model-runtime",
+    "command": [
+      "swift",
+      "test",
+      "--skip-build",
+      "--package-path",
+      "Model/LanguageModelRuntime",
+      "--scratch-path",
+      "$DATA_ROOT/build/baseline-portable/model-runtime",
+      "-j",
+      "4"
+    ],
+    "exitCode": 0,
+    "status": "PASS",
+    "count": 99,
+    "log": "repeat-04-model-runtime.log"
+  },
+  {
+    "iteration": 4,
+    "name": "chatgpt-account",
+    "command": [
+      "swift",
+      "test",
+      "--skip-build",
+      "--package-path",
+      "Providers/ChatGPT/Account",
+      "--scratch-path",
+      "$DATA_ROOT/build/baseline-portable/chatgpt-account",
+      "-j",
+      "4"
+    ],
+    "exitCode": 0,
+    "status": "PASS",
+    "count": 31,
+    "log": "repeat-04-chatgpt-account.log"
+  },
+  {
+    "iteration": 4,
+    "name": "chatgpt-text",
+    "command": [
+      "swift",
+      "test",
+      "--skip-build",
+      "--package-path",
+      "Providers/ChatGPT/Text",
+      "--scratch-path",
+      "$DATA_ROOT/build/baseline-portable/chatgpt-text",
+      "-j",
+      "4"
+    ],
+    "exitCode": 0,
+    "status": "PASS",
+    "count": 3,
+    "log": "repeat-04-chatgpt-text.log"
+  },
+  {
+    "iteration": 4,
+    "name": "chatgpt-image",
+    "command": [
+      "swift",
+      "test",
+      "--skip-build",
+      "--package-path",
+      "Providers/ChatGPT/Image",
+      "--scratch-path",
+      "$DATA_ROOT/build/baseline-portable/chatgpt-image",
+      "-j",
+      "4"
+    ],
+    "exitCode": 0,
+    "status": "PASS",
+    "count": 3,
+    "log": "repeat-04-chatgpt-image.log"
+  },
+  {
+    "iteration": 5,
+    "name": "model-runtime",
+    "command": [
+      "swift",
+      "test",
+      "--skip-build",
+      "--package-path",
+      "Model/LanguageModelRuntime",
+      "--scratch-path",
+      "$DATA_ROOT/build/baseline-portable/model-runtime",
+      "-j",
+      "4"
+    ],
+    "exitCode": 0,
+    "status": "PASS",
+    "count": 99,
+    "log": "repeat-05-model-runtime.log"
+  },
+  {
+    "iteration": 5,
+    "name": "chatgpt-account",
+    "command": [
+      "swift",
+      "test",
+      "--skip-build",
+      "--package-path",
+      "Providers/ChatGPT/Account",
+      "--scratch-path",
+      "$DATA_ROOT/build/baseline-portable/chatgpt-account",
+      "-j",
+      "4"
+    ],
+    "exitCode": 0,
+    "status": "PASS",
+    "count": 31,
+    "log": "repeat-05-chatgpt-account.log"
+  },
+  {
+    "iteration": 5,
+    "name": "chatgpt-text",
+    "command": [
+      "swift",
+      "test",
+      "--skip-build",
+      "--package-path",
+      "Providers/ChatGPT/Text",
+      "--scratch-path",
+      "$DATA_ROOT/build/baseline-portable/chatgpt-text",
+      "-j",
+      "4"
+    ],
+    "exitCode": 0,
+    "status": "PASS",
+    "count": 3,
+    "log": "repeat-05-chatgpt-text.log"
+  },
+  {
+    "iteration": 5,
+    "name": "chatgpt-image",
+    "command": [
+      "swift",
+      "test",
+      "--skip-build",
+      "--package-path",
+      "Providers/ChatGPT/Image",
+      "--scratch-path",
+      "$DATA_ROOT/build/baseline-portable/chatgpt-image",
+      "-j",
+      "4"
+    ],
+    "exitCode": 0,
+    "status": "PASS",
+    "count": 3,
+    "log": "repeat-05-chatgpt-image.log"
+  },
+  {
+    "iteration": 6,
+    "name": "model-runtime",
+    "command": [
+      "swift",
+      "test",
+      "--skip-build",
+      "--package-path",
+      "Model/LanguageModelRuntime",
+      "--scratch-path",
+      "$DATA_ROOT/build/baseline-portable/model-runtime",
+      "-j",
+      "4"
+    ],
+    "exitCode": 0,
+    "status": "PASS",
+    "count": 99,
+    "log": "repeat-06-model-runtime.log"
+  },
+  {
+    "iteration": 6,
+    "name": "chatgpt-account",
+    "command": [
+      "swift",
+      "test",
+      "--skip-build",
+      "--package-path",
+      "Providers/ChatGPT/Account",
+      "--scratch-path",
+      "$DATA_ROOT/build/baseline-portable/chatgpt-account",
+      "-j",
+      "4"
+    ],
+    "exitCode": 0,
+    "status": "PASS",
+    "count": 31,
+    "log": "repeat-06-chatgpt-account.log"
+  },
+  {
+    "iteration": 6,
+    "name": "chatgpt-text",
+    "command": [
+      "swift",
+      "test",
+      "--skip-build",
+      "--package-path",
+      "Providers/ChatGPT/Text",
+      "--scratch-path",
+      "$DATA_ROOT/build/baseline-portable/chatgpt-text",
+      "-j",
+      "4"
+    ],
+    "exitCode": 0,
+    "status": "PASS",
+    "count": 3,
+    "log": "repeat-06-chatgpt-text.log"
+  },
+  {
+    "iteration": 6,
+    "name": "chatgpt-image",
+    "command": [
+      "swift",
+      "test",
+      "--skip-build",
+      "--package-path",
+      "Providers/ChatGPT/Image",
+      "--scratch-path",
+      "$DATA_ROOT/build/baseline-portable/chatgpt-image",
+      "-j",
+      "4"
+    ],
+    "exitCode": 0,
+    "status": "PASS",
+    "count": 3,
+    "log": "repeat-06-chatgpt-image.log"
+  },
+  {
+    "iteration": 7,
+    "name": "model-runtime",
+    "command": [
+      "swift",
+      "test",
+      "--skip-build",
+      "--package-path",
+      "Model/LanguageModelRuntime",
+      "--scratch-path",
+      "$DATA_ROOT/build/baseline-portable/model-runtime",
+      "-j",
+      "4"
+    ],
+    "exitCode": 0,
+    "status": "PASS",
+    "count": 99,
+    "log": "repeat-07-model-runtime.log"
+  },
+  {
+    "iteration": 7,
+    "name": "chatgpt-account",
+    "command": [
+      "swift",
+      "test",
+      "--skip-build",
+      "--package-path",
+      "Providers/ChatGPT/Account",
+      "--scratch-path",
+      "$DATA_ROOT/build/baseline-portable/chatgpt-account",
+      "-j",
+      "4"
+    ],
+    "exitCode": 0,
+    "status": "PASS",
+    "count": 31,
+    "log": "repeat-07-chatgpt-account.log"
+  },
+  {
+    "iteration": 7,
+    "name": "chatgpt-text",
+    "command": [
+      "swift",
+      "test",
+      "--skip-build",
+      "--package-path",
+      "Providers/ChatGPT/Text",
+      "--scratch-path",
+      "$DATA_ROOT/build/baseline-portable/chatgpt-text",
+      "-j",
+      "4"
+    ],
+    "exitCode": 0,
+    "status": "PASS",
+    "count": 3,
+    "log": "repeat-07-chatgpt-text.log"
+  },
+  {
+    "iteration": 7,
+    "name": "chatgpt-image",
+    "command": [
+      "swift",
+      "test",
+      "--skip-build",
+      "--package-path",
+      "Providers/ChatGPT/Image",
+      "--scratch-path",
+      "$DATA_ROOT/build/baseline-portable/chatgpt-image",
+      "-j",
+      "4"
+    ],
+    "exitCode": 0,
+    "status": "PASS",
+    "count": 3,
+    "log": "repeat-07-chatgpt-image.log"
+  },
+  {
+    "iteration": 8,
+    "name": "model-runtime",
+    "command": [
+      "swift",
+      "test",
+      "--skip-build",
+      "--package-path",
+      "Model/LanguageModelRuntime",
+      "--scratch-path",
+      "$DATA_ROOT/build/baseline-portable/model-runtime",
+      "-j",
+      "4"
+    ],
+    "exitCode": 0,
+    "status": "PASS",
+    "count": 99,
+    "log": "repeat-08-model-runtime.log"
+  },
+  {
+    "iteration": 8,
+    "name": "chatgpt-account",
+    "command": [
+      "swift",
+      "test",
+      "--skip-build",
+      "--package-path",
+      "Providers/ChatGPT/Account",
+      "--scratch-path",
+      "$DATA_ROOT/build/baseline-portable/chatgpt-account",
+      "-j",
+      "4"
+    ],
+    "exitCode": 0,
+    "status": "PASS",
+    "count": 31,
+    "log": "repeat-08-chatgpt-account.log"
+  },
+  {
+    "iteration": 8,
+    "name": "chatgpt-text",
+    "command": [
+      "swift",
+      "test",
+      "--skip-build",
+      "--package-path",
+      "Providers/ChatGPT/Text",
+      "--scratch-path",
+      "$DATA_ROOT/build/baseline-portable/chatgpt-text",
+      "-j",
+      "4"
+    ],
+    "exitCode": 0,
+    "status": "PASS",
+    "count": 3,
+    "log": "repeat-08-chatgpt-text.log"
+  },
+  {
+    "iteration": 8,
+    "name": "chatgpt-image",
+    "command": [
+      "swift",
+      "test",
+      "--skip-build",
+      "--package-path",
+      "Providers/ChatGPT/Image",
+      "--scratch-path",
+      "$DATA_ROOT/build/baseline-portable/chatgpt-image",
+      "-j",
+      "4"
+    ],
+    "exitCode": 0,
+    "status": "PASS",
+    "count": 3,
+    "log": "repeat-08-chatgpt-image.log"
+  },
+  {
+    "iteration": 9,
+    "name": "model-runtime",
+    "command": [
+      "swift",
+      "test",
+      "--skip-build",
+      "--package-path",
+      "Model/LanguageModelRuntime",
+      "--scratch-path",
+      "$DATA_ROOT/build/baseline-portable/model-runtime",
+      "-j",
+      "4"
+    ],
+    "exitCode": 0,
+    "status": "PASS",
+    "count": 99,
+    "log": "repeat-09-model-runtime.log"
+  },
+  {
+    "iteration": 9,
+    "name": "chatgpt-account",
+    "command": [
+      "swift",
+      "test",
+      "--skip-build",
+      "--package-path",
+      "Providers/ChatGPT/Account",
+      "--scratch-path",
+      "$DATA_ROOT/build/baseline-portable/chatgpt-account",
+      "-j",
+      "4"
+    ],
+    "exitCode": 0,
+    "status": "PASS",
+    "count": 31,
+    "log": "repeat-09-chatgpt-account.log"
+  },
+  {
+    "iteration": 9,
+    "name": "chatgpt-text",
+    "command": [
+      "swift",
+      "test",
+      "--skip-build",
+      "--package-path",
+      "Providers/ChatGPT/Text",
+      "--scratch-path",
+      "$DATA_ROOT/build/baseline-portable/chatgpt-text",
+      "-j",
+      "4"
+    ],
+    "exitCode": 0,
+    "status": "PASS",
+    "count": 3,
+    "log": "repeat-09-chatgpt-text.log"
+  },
+  {
+    "iteration": 9,
+    "name": "chatgpt-image",
+    "command": [
+      "swift",
+      "test",
+      "--skip-build",
+      "--package-path",
+      "Providers/ChatGPT/Image",
+      "--scratch-path",
+      "$DATA_ROOT/build/baseline-portable/chatgpt-image",
+      "-j",
+      "4"
+    ],
+    "exitCode": 0,
+    "status": "PASS",
+    "count": 3,
+    "log": "repeat-09-chatgpt-image.log"
+  },
+  {
+    "iteration": 10,
+    "name": "model-runtime",
+    "command": [
+      "swift",
+      "test",
+      "--skip-build",
+      "--package-path",
+      "Model/LanguageModelRuntime",
+      "--scratch-path",
+      "$DATA_ROOT/build/baseline-portable/model-runtime",
+      "-j",
+      "4"
+    ],
+    "exitCode": 0,
+    "status": "PASS",
+    "count": 99,
+    "log": "repeat-10-model-runtime.log"
+  },
+  {
+    "iteration": 10,
+    "name": "chatgpt-account",
+    "command": [
+      "swift",
+      "test",
+      "--skip-build",
+      "--package-path",
+      "Providers/ChatGPT/Account",
+      "--scratch-path",
+      "$DATA_ROOT/build/baseline-portable/chatgpt-account",
+      "-j",
+      "4"
+    ],
+    "exitCode": 0,
+    "status": "PASS",
+    "count": 31,
+    "log": "repeat-10-chatgpt-account.log"
+  },
+  {
+    "iteration": 10,
+    "name": "chatgpt-text",
+    "command": [
+      "swift",
+      "test",
+      "--skip-build",
+      "--package-path",
+      "Providers/ChatGPT/Text",
+      "--scratch-path",
+      "$DATA_ROOT/build/baseline-portable/chatgpt-text",
+      "-j",
+      "4"
+    ],
+    "exitCode": 0,
+    "status": "PASS",
+    "count": 3,
+    "log": "repeat-10-chatgpt-text.log"
+  },
+  {
+    "iteration": 10,
+    "name": "chatgpt-image",
+    "command": [
+      "swift",
+      "test",
+      "--skip-build",
+      "--package-path",
+      "Providers/ChatGPT/Image",
+      "--scratch-path",
+      "$DATA_ROOT/build/baseline-portable/chatgpt-image",
+      "-j",
+      "4"
+    ],
+    "exitCode": 0,
+    "status": "PASS",
+    "count": 3,
+    "log": "repeat-10-chatgpt-image.log"
+  }
+]

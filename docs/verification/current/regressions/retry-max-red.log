@@ -1,0 +1,45 @@
+
+*** Signal 4: Backtracing from 0x56208021a553... done ***
+
+*** Program crashed: Illegal instruction at 0x000056208021a553 ***
+
+Platform: x86_64 Linux (Debian GNU/Linux 13 (trixie))
+
+Thread 0 "probe" crashed:
+
+  0      0x000056208021a553 static ChatGPTSubscriptionRetryPolicy.permitsAuthenticationRefresh(after:) + 67 in probe
+  1 [ra] 0x0000562080224cec main + 267 in probe
+...
+
+
+Registers:
+
+rax 0x00007ffe9d65c301  c3 65 9d fe 7f 00 00 87 42 e9 64 65 7f 00 00 c8  Ãe·þ····Béde···È
+rdx 0x00007ffe9d65c798  59 de 65 9d fe 7f 00 00 88 de 65 9d fe 7f 00 00  YÞe·þ····Þe·þ···
+rcx 0x00000000000000ff  255
+rbx 0x0000000000000008  8
+rsi 0x8000000000000000  9223372036854775808
+rdi 0x0000000000000000  0
+rbp 0x00007ffe9d65c340  80 c6 65 9d fe 7f 00 00 ec 4c 22 80 20 56 00 00  ·Æe·þ···ìL"· V··
+rsp 0x00007ffe9d65c320  40 c3 65 9d fe 7f 00 00 ff ff ff ff ff ff ff 7f  @Ãe·þ···ÿÿÿÿÿÿÿ·
+ r8 0x0000000000000002  2
+ r9 0x0000000000000001  1
+r10 0x0000000000000014  20
+r11 0x00007f6564e94260  55 48 89 e5 53 50 48 89 fb 48 8b 05 70 b7 18 00  UH·åSPH·ûH··p···
+r12 0x0000000000000000  0
+r13 0x00007ffe9d65c668  e0 9d de 8e 20 56 00 00 00 00 00 00 00 00 00 00  à·Þ· V··········
+r14 0x00007f65651c0000  f0 15 1c 65 65 7f 00 00 15 00 00 00 00 00 00 00  ð··ee···········
+r15 0x000056208022a568  00 48 21 80 20 56 00 00 24 b8 0b 64 65 7f 00 00  ·H!· V··$¸·de···
+rip 0x000056208021a553  0f 0b 66 2e 0f 1f 84 00 00 00 00 00 90 55 48 89  ··f.·········UH·
+
+rflags 0x0000000000010202  
+
+cs 0x0033  fs 0x0000  gs 0x0000
+
+
+Images (19 omitted):
+
+0x000056208020e000–0x000056208022570d 578b58426b43f8bcb75e1dad002aaa72e2e47a61 probe $DATA_ROOT/nativeai-build/baseline-probes/probe
+
+Backtrace took 0.01s
+

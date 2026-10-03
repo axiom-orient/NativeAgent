@@ -1,0 +1,219 @@
+{
+  "status": "PASS",
+  "exitCode": 0,
+  "command": [
+    "swift",
+    "test",
+    "--package-path",
+    "$DATA_ROOT/build/wire-final",
+    "-j",
+    "4",
+    "-Xswiftc",
+    "-warnings-as-errors"
+  ],
+  "swiftTestingCount": 44,
+  "scope": [
+    {
+      "source": "Providers/ChatGPT/Account/Sources/ChatGPTAccount/ChatGPTProtocol.swift",
+      "sha256": "40fea3be35f1b4ac754613cd020e0f00903ffc877e845e7f0e240604c606c7c2"
+    },
+    {
+      "source": "Providers/ChatGPT/Account/Sources/ChatGPTAccount/ChatGPTAccountPayload.swift",
+      "sha256": "d60c83f4332119b246f013a21f7700f578c3ebc7003a5b16f5255e39e7db9147"
+    },
+    {
+      "source": "Providers/ChatGPT/Account/Sources/ChatGPTAccount/ChatGPTTransport.swift",
+      "sha256": "bd431ba416c00a0ca572e995633fcebe8266f6b2dd0bc2a8022a117e29641e03"
+    },
+    {
+      "source": "Providers/ChatGPT/Text/Sources/ChatGPTText/ChatGPTTextTypes.swift",
+      "sha256": "cb34b12f726d96b6137710150a4b676a5b6a1d9fb74f28ce47cefadc4604fc56"
+    },
+    {
+      "source": "Providers/ChatGPT/Text/Sources/ChatGPTText/ChatGPTTextPayload.swift",
+      "sha256": "1f90ffcda89c3eff75fb93c88b3e11cf7b20ca0b5b079be12847bc3f4078646f"
+    },
+    {
+      "source": "Providers/ChatGPT/Text/Sources/ChatGPTText/SSEParser.swift",
+      "sha256": "0dbda75ad274be15b161b69a01e7cbfcc2e0a2968019204f491b721418f2ae37"
+    },
+    {
+      "source": "Providers/ChatGPT/Text/Sources/ChatGPTText/ChatGPTTextWire.swift",
+      "sha256": "90e80c820abebb3daac7cd6800c6daf18f0d9e95c7f472270767c56524510955"
+    },
+    {
+      "source": "Providers/ChatGPT/Text/Sources/ChatGPTText/ChatGPTToolWireCodec.swift",
+      "sha256": "180cee03bac386e5dbbfb0a6d2f753dc503dd2ca02930f29307ce9653e713483"
+    },
+    {
+      "source": "Providers/ChatGPT/Image/Sources/ChatGPTImage/ChatGPTImageTypes.swift",
+      "sha256": "14446190448dbfdb4e85b5c41aaa3c2c4bd1e6ff0162f35c110cae13778d946f"
+    },
+    {
+      "source": "Providers/ChatGPT/Image/Sources/ChatGPTImage/ChatGPTImageLimits.swift",
+      "sha256": "a45b2307f3b3988573bab902373dd74060c8796f69261acdc191bc3b1aa505ed"
+    },
+    {
+      "source": "Providers/ChatGPT/Image/Sources/ChatGPTImage/ChatGPTImageWireCodec.swift",
+      "sha256": "030657bd2674dd4bf2fbf4fbf4a0bb774bb603ba9d342f2b8691c35a94d45c91"
+    },
+    {
+      "source": "Qualification/ChatGPTCompositionChecks/Tests/ChatGPTCompositionTests/ChatGPTAccountPayloadTests.swift",
+      "sha256": "74df95c1f7d84ddab84d58093b7041053767fc7877f8e1a76c692bb4176ad0e1"
+    },
+    {
+      "source": "Qualification/ChatGPTCompositionChecks/Tests/ChatGPTCompositionTests/ChatGPTImageErrorTests.swift",
+      "sha256": "f3aa51a9067db2ecc1fef2742b357b1bbfc85ba8b8ec01fb605ac0ff0693204c"
+    },
+    {
+      "source": "Qualification/ChatGPTCompositionChecks/Tests/ChatGPTCompositionTests/ChatGPTWireBoundaryTests.swift",
+      "sha256": "e238923b8a3a435bf96f1a3ed57961ef9a75e55cf12ea155b7b6f7b20af61b80"
+    },
+    {
+      "source": "Qualification/ChatGPTCompositionChecks/Tests/ChatGPTCompositionTests/ChatGPTTransportLifecycleTests.swift",
+      "sha256": "9b6a8070350f043989865bb5ceecea7ed35314d3794cef39d6abd10c1d27bded"
+    },
+    {
+      "source": "Qualification/ChatGPTCompositionChecks/Tests/ChatGPTCompositionTests/ChatGPTURLSessionTests.swift",
+      "sha256": "999c9e7904e0196016d7d605890c7057f5c1a425689400b2fce45c066d000c35"
+    },
+    {
+      "source": "Model/LanguageModelCore/Package.swift",
+      "sha256": "1d1942b0ebd7e1a8e81c77708eb47a24810e6b92129ca521b0f48340b8f00864"
+    },
+    {
+      "source": "Model/LanguageModelCore/Sources/LanguageModelCore/Contracts/LanguageModel.swift",
+      "sha256": "d3e9f792eda580acb5450d1d25405ef8f2dee06d56a2b0d465794eaf4e61dd76"
+    },
+    {
+      "source": "Model/LanguageModelCore/Sources/LanguageModelCore/Contracts/ModelClient.swift",
+      "sha256": "70414101e7adf6c4f96ff1cb2ec8c118c90df49a767fec9127267a2613475c06"
+    },
+    {
+      "source": "Model/LanguageModelCore/Sources/LanguageModelCore/Contracts/ModelClientInvocation.swift",
+      "sha256": "9f8e3875047a54049338dca3d12f6eb9624ba67ca72c56356bb5535d69fd4601"
+    },
+    {
+      "source": "Model/LanguageModelCore/Sources/LanguageModelCore/Contracts/ModelContracts.swift",
+      "sha256": "132758717390343d6adff60d38b83670b7a0f377e6a01c1b126bcb18764a7ce4"
+    },
+    {
+      "source": "Model/LanguageModelCore/Sources/LanguageModelCore/Contracts/ModelGeneration.swift",
+      "sha256": "ffd5b8dcd04a2d3747e5251799d5ac7cba8962326b8b61712886c6f025a16b0f"
+    },
+    {
+      "source": "Model/LanguageModelCore/Sources/LanguageModelCore/Contracts/ModelStreamContract.swift",
+      "sha256": "542e972df66e8404055812638959139d7f6dd5325d350247ae61e9c2e2716958"
+    },
+    {
+      "source": "Model/LanguageModelCore/Sources/LanguageModelCore/Contracts/ModelTextRequest.swift",
+      "sha256": "c0dad28ef6d966c344580253fba66462e241800520c7574a37ef18e2de953159"
+    },
+    {
+      "source": "Model/LanguageModelCore/Sources/LanguageModelCore/Contracts/ModelTextSnapshotAccumulator.swift",
+      "sha256": "8cbef4285de96ae339639b0b0c5e4255b7b85397517ae131432e2bb7e4d7649e"
+    },
+    {
+      "source": "Model/LanguageModelCore/Sources/LanguageModelCore/Contracts/ModelTool.swift",
+      "sha256": "d10a47d52b435587b668391b085fd55d2f9def1d4f9da6447081497b96db5150"
+    },
+    {
+      "source": "Model/LanguageModelCore/Sources/LanguageModelCore/Defaults/DeterministicCoreDefaults.swift",
+      "sha256": "901a6473611091d050b054f70debd0efa21c738b736385584f7c1fe19915011c"
+    },
+    {
+      "source": "Model/LanguageModelCore/Sources/LanguageModelCore/Hashing/SHA1HexDigest.swift",
+      "sha256": "465b27c45e00c8b823b38f3145f5de338af2399f49d443cf03f102d501c3b8ca"
+    },
+    {
+      "source": "Model/LanguageModelCore/Sources/LanguageModelCore/Hashing/SHA256HexDigest.swift",
+      "sha256": "173741fd7d4dd4718f7bcfcc062715e5dcdb269e0cad8a1b8bf5d0687624cba8"
+    },
+    {
+      "source": "Model/LanguageModelCore/Sources/LanguageModelCore/JSON/JSONCoding.swift",
+      "sha256": "7cf9b2e2429d5860f0fc58563052ea9891052515ca2ed4e58cc825aca6151b92"
+    },
+    {
+      "source": "Model/LanguageModelCore/Sources/LanguageModelCore/JSON/JSONValue+Accessors.swift",
+      "sha256": "b1dd907f288a9aa4ac6d6684e789f5d61b7f56ee125da9efbf676fe0df24bb21"
+    },
+    {
+      "source": "Model/LanguageModelCore/Sources/LanguageModelCore/JSON/JSONValue+Bridging.swift",
+      "sha256": "77a906921d1e96711125b483aa3b222e6177fd5da111d77b3ec79341ac4e3e35"
+    },
+    {
+      "source": "Model/LanguageModelCore/Sources/LanguageModelCore/JSON/JSONValue+CanonicalCount.swift",
+      "sha256": "89d4b1b3f69b90bcf4387982a45b260889f94038a7e135b32a367de97cadd4d2"
+    },
+    {
+      "source": "Model/LanguageModelCore/Sources/LanguageModelCore/JSON/JSONValue+Literals.swift",
+      "sha256": "68437bbafda5fbbaf6b27be087cf46e368e4707ec310aa8dfcb5d7ab41163d15"
+    },
+    {
+      "source": "Model/LanguageModelCore/Sources/LanguageModelCore/JSON/JSONValue+StructureValidation.swift",
+      "sha256": "8044d2c4d9e7f97420f68bdb6f442da62e7342a88de3596007b721b4705ee59e"
+    },
+    {
+      "source": "Model/LanguageModelCore/Sources/LanguageModelCore/JSON/JSONValue.swift",
+      "sha256": "aea59b612d6d464223f1992ecac044ce66b08f59337d5297f4ad0982d0dc7d50"
+    },
+    {
+      "source": "Model/LanguageModelCore/Sources/LanguageModelCore/Schema/ToolSchema+Containers.swift",
+      "sha256": "94ed73459e180b101e5a4c412c618d29037d24216c1875521618d3a7b7d4b827"
+    },
+    {
+      "source": "Model/LanguageModelCore/Sources/LanguageModelCore/Schema/ToolSchema+Numbers.swift",
+      "sha256": "a4f3d23e0689297d8061375c2a5ac2719abffaa4aada6790bd795a073da5735f"
+    },
+    {
+      "source": "Model/LanguageModelCore/Sources/LanguageModelCore/Schema/ToolSchema+String.swift",
+      "sha256": "91b91fde8181eb52fc202be899997f5219608f567e65800caaa6c2562f604e65"
+    },
+    {
+      "source": "Model/LanguageModelCore/Sources/LanguageModelCore/Schema/ToolSchema.swift",
+      "sha256": "d15831b6a01889885bf05d9bffe8462ba731923321aa18af15f00a678dcfe794"
+    },
+    {
+      "source": "Model/LanguageModelCore/Sources/LanguageModelCore/Values/AgentMessage.swift",
+      "sha256": "4ce2aa0839345955c807ccb30c57ea87551e21ef1b8219172fbe9d6729f5b421"
+    },
+    {
+      "source": "Model/LanguageModelCore/Sources/LanguageModelCore/Values/ModelContent.swift",
+      "sha256": "7a0879c1ceeac1c7ff65966a95cc4d481dc45b52cc73efad6df3028606a7768f"
+    },
+    {
+      "source": "Model/LanguageModelCore/Sources/LanguageModelCore/Values/ModelEvent.swift",
+      "sha256": "74a4303c4d558840412eba1e8bf56daf5e3faa4ae82f75834ea250aa7703a0a4"
+    },
+    {
+      "source": "Model/LanguageModelCore/Sources/LanguageModelCore/Values/ModelStopReason.swift",
+      "sha256": "6be969c3ff67614b14554960405785a3ffa9829a3a9c11c46cc8ee763374a2ea"
+    }
+  ],
+  "localHTTP": {
+    "requests": [
+      "/chunked-large",
+      "/stall",
+      "/stall",
+      "/truncated",
+      "/redirect",
+      "/large",
+      "/sse",
+      "/ok",
+      "/ok",
+      "/sse",
+      "/sse"
+    ],
+    "forbiddenDispatches": [],
+    "fixtureErrors": [],
+    "mechanism": "Production URLSessionChatGPTTransport + local HTTP sockets; no URLProtocol replacement."
+  },
+  "excluded": [
+    "ChatGPTAccountSession/CryptoKit/Keychain/loopback login",
+    "ChatGPTTextSession/ModelClient",
+    "ChatGPTImageClient",
+    "Agent adapters",
+    "live ChatGPT account/network E2E"
+  ],
+  "note": "Gate fixtures prove ordering only. Local URLSession tests prove real local HTTP behavior, not ChatGPT service compatibility."
+}

@@ -1,0 +1,114 @@
+[0/1] Planning build
+Building for debugging...
+[0/3] Write swift-version--1BA0962812E73E12.txt
+Build complete! (0.45s)
+Test Suite 'All tests' started at 2026-09-20 06:57:28.201
+Test Suite 'debug.xctest' started at 2026-09-20 06:57:28.203
+Test Suite 'debug.xctest' passed at 2026-09-20 06:57:28.203
+	 Executed 0 tests, with 0 failures (0 unexpected) in 0.0 (0.0) seconds
+Test Suite 'All tests' passed at 2026-09-20 06:57:28.203
+	 Executed 0 tests, with 0 failures (0 unexpected) in 0.0 (0.0) seconds
+◇ Test run started.
+↳ Testing Library Version: 6.2.1 (c9d57c83568b06d)
+↳ Target Platform: x86_64-unknown-linux-gnu
+◇ Suite ChatGPTRateLimitProjectionTests started.
+◇ Suite ChatGPTURLSessionTests started.
+◇ Suite ChatGPTImageErrorTests started.
+◇ Suite ChatGPTWireBoundaryTests started.
+◇ Test externallyConstructedRateLimitWindowCannotOverflow() started.
+◇ Test forbiddenIsNotMisreportedAsSignedOut() started.
+◇ Test requestIDLookupIsCaseInsensitiveAndBounded() started.
+◇ Test invalidRequestRetainsOnlySafeDiagnostics() started.
+◇ Test rejectionClassificationKeepsKnownCausesDistinct() started.
+◇ Test successHasIdempotentConcurrentCompletion() started.
+◇ Test oversizedContentLengthFailsButDrains() started.
+◇ Test invalidLimitIsRejectedBeforeDispatch() started.
+◇ Test abruptPeerDisconnectCannotBecomeSuccess() started.
+◇ Test chunkedCumulativeLimitFailsButDrains() started.
+◇ Test cancellingOneRequestDoesNotCancelAnother() started.
+◇ Test alreadyCancelledCallerCannotStartTransport() started.
+◇ Test cancellationJoinsInvalidationEvenForCancelledCaller() started.
+◇ Test redirectIsRejectedWithoutFollowingLocation() started.
+◇ Test textSSEUsesRealTransportAndCanBeReused() started.
+◇ Suite ChatGPTTransportLifecycleTests started.
+◇ Suite ChatGPTAccountPayloadTests started.
+◇ Test serviceLeaseOriginRejectsCredentialLeakTargets() started.
+◇ Test sseDiscardsUnterminatedEvent() started.
+◇ Test imageCodecRejectsEmptyPromptAndOversizedBody() started.
+◇ Test sseHandlesSplitUTF8AndMultilineData() started.
+◇ Test responseEnforcesCumulativeByteBudget() started.
+◇ Test sseBoundsEventCountAndFrameBytes() started.
+◇ Test imageOwnsBytesWithoutModelCoreProjection() started.
+◇ Test responseRejectsBodyBeforeHeadAndDuplicateHead() started.
+◇ Test imageCodecRejectsMissingOrInvalidPNG() started.
+◇ Test retryBudgetPreservesSingleRefreshOnly() started.
+✔ Test invalidRequestRetainsOnlySafeDiagnostics() passed after 0.003 seconds.
+✔ Test requestIDLookupIsCaseInsensitiveAndBounded() passed after 0.003 seconds.
+✔ Test rejectionClassificationKeepsKnownCausesDistinct() passed after 0.004 seconds.
+✔ Test externallyConstructedRateLimitWindowCannotOverflow() passed after 0.005 seconds.
+✔ Test forbiddenIsNotMisreportedAsSignedOut() passed after 0.008 seconds.
+◇ Test sseEOFWaitsForTransportSettlement() started.
+◇ Test legacyStreamDoesNotInventNativeCompletion() started.
+◇ Test imageNeverReturnsSuccessWhenTransportDrainFails() started.
+◇ Test earlyInvalidationDoesNotMasqueradeAsNativeCompletion() started.
+◇ Test unprovedTransportDrainFailsBothSSEPorts() started.
+◇ Test rejectedHTTPAttemptDrainsBeforeExposingRetryable401() started.
+◇ Test imageResponseWaitsForTheSameTransportBoundary() started.
+◇ Test sseCancellationStillDrainsFromCancelledWaiter() started.
+◇ Test imageParseFailureCancelsAndJoinsTransport() started.
+◇ Test cancellationDuringImageDrainCannotReturnSuccess() started.
+◇ Test nativeTaskReceiptAloneDoesNotAuthorizeRelease() started.
+◇ Test malformedSSEDrainsBeforeReportingParserFailure() started.
+◇ Test responseMustBeBoundedNonemptyObject() started.
+◇ Test visiblePriorityAndSlugDetermineRecommendation() started.
+◇ Test booleanAndFractionalQuotaAreNotIntegers() started.
+◇ Test optionalNullSectionsAndQuotaValuesArePreserved() started.
+◇ Test noVisibleModelFailsClosed() started.
+◇ Test malformedAdditionalLimitCannotDisappearSilently() started.
+◇ Test modelDecoderPreservesValidatedIdentityAndNumericFields() started.
+✔ Test sseDiscardsUnterminatedEvent() passed after 0.010 seconds.
+✔ Test imageOwnsBytesWithoutModelCoreProjection() passed after 0.010 seconds.
+✔ Test sseBoundsEventCountAndFrameBytes() passed after 0.010 seconds.
+✔ Test sseHandlesSplitUTF8AndMultilineData() passed after 0.011 seconds.
+✔ Test responseEnforcesCumulativeByteBudget() passed after 0.011 seconds.
+✔ Test serviceLeaseOriginRejectsCredentialLeakTargets() passed after 0.013 seconds.
+✔ Test responseRejectsBodyBeforeHeadAndDuplicateHead() passed after 0.010 seconds.
+✔ Test imageCodecRejectsMissingOrInvalidPNG() passed after 0.010 seconds.
+✔ Test imageCodecRejectsEmptyPromptAndOversizedBody() passed after 0.012 seconds.
+✔ Test retryBudgetPreservesSingleRefreshOnly() passed after 0.010 seconds.
+✔ Suite ChatGPTImageErrorTests passed after 0.015 seconds.
+✔ Suite ChatGPTRateLimitProjectionTests passed after 0.015 seconds.
+✔ Test visiblePriorityAndSlugDetermineRecommendation() passed after 0.004 seconds.
+✔ Test noVisibleModelFailsClosed() passed after 0.004 seconds.
+✔ Test modelDecoderPreservesValidatedIdentityAndNumericFields() passed after 0.004 seconds.
+✔ Test booleanAndFractionalQuotaAreNotIntegers() passed after 0.005 seconds.
+✔ Suite ChatGPTWireBoundaryTests passed after 0.015 seconds.
+✔ Test optionalNullSectionsAndQuotaValuesArePreserved() passed after 0.005 seconds.
+✔ Test malformedAdditionalLimitCannotDisappearSilently() passed after 0.006 seconds.
+✔ Test invalidLimitIsRejectedBeforeDispatch() passed after 0.016 seconds.
+✔ Test responseMustBeBoundedNonemptyObject() passed after 0.006 seconds.
+✔ Test earlyInvalidationDoesNotMasqueradeAsNativeCompletion() passed after 0.007 seconds.
+✔ Test nativeTaskReceiptAloneDoesNotAuthorizeRelease() passed after 0.008 seconds.
+✔ Test alreadyCancelledCallerCannotStartTransport() passed after 0.019 seconds.
+✔ Suite ChatGPTAccountPayloadTests passed after 0.019 seconds.
+✔ Test legacyStreamDoesNotInventNativeCompletion() passed after 0.010 seconds.
+✔ Test imageResponseWaitsForTheSameTransportBoundary() passed after 0.009 seconds.
+✔ Test imageParseFailureCancelsAndJoinsTransport() passed after 0.009 seconds.
+✔ Test cancellationDuringImageDrainCannotReturnSuccess() passed after 0.009 seconds.
+✔ Test sseEOFWaitsForTransportSettlement() passed after 0.011 seconds.
+✔ Test rejectedHTTPAttemptDrainsBeforeExposingRetryable401() passed after 0.010 seconds.
+✔ Test malformedSSEDrainsBeforeReportingParserFailure() passed after 0.009 seconds.
+✔ Test sseCancellationStillDrainsFromCancelledWaiter() passed after 0.011 seconds.
+✔ Test abruptPeerDisconnectCannotBecomeSuccess() passed after 0.022 seconds.
+✔ Test oversizedContentLengthFailsButDrains() passed after 0.022 seconds.
+✔ Test successHasIdempotentConcurrentCompletion() passed after 0.022 seconds.
+✔ Test cancellationJoinsInvalidationEvenForCancelledCaller() passed after 0.022 seconds.
+✔ Test imageNeverReturnsSuccessWhenTransportDrainFails() passed after 0.015 seconds.
+✔ Test unprovedTransportDrainFailsBothSSEPorts() passed after 0.014 seconds.
+✔ Suite ChatGPTTransportLifecycleTests passed after 0.024 seconds.
+✔ Test redirectIsRejectedWithoutFollowingLocation() passed after 0.024 seconds.
+✔ Test cancellingOneRequestDoesNotCancelAnother() passed after 0.025 seconds.
+✔ Test chunkedCumulativeLimitFailsButDrains() passed after 0.026 seconds.
+✔ Test textSSEUsesRealTransportAndCanBeReused() passed after 0.029 seconds.
+✔ Suite ChatGPTURLSessionTests passed after 0.030 seconds.
+✔ Test run with 44 tests in 6 suites passed after 0.031 seconds.

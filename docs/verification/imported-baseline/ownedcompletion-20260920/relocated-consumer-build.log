@@ -1,0 +1,55 @@
+Building for debugging...
+[0/11] Write sources
+[4/11] Write swift-version--1BA0962812E73E12.txt
+[6/33] Emitting module LanguageModelCore
+[7/39] Compiling LanguageModelCore ToolSchema+String.swift
+[8/39] Compiling LanguageModelCore ToolSchema.swift
+[9/39] Compiling LanguageModelCore AgentMessage.swift
+[10/39] Compiling LanguageModelCore ModelContent.swift
+[11/39] Compiling LanguageModelCore ModelEvent.swift
+[12/39] Compiling LanguageModelCore ModelStopReason.swift
+[13/39] Compiling LanguageModelCore JSONValue+Bridging.swift
+[14/39] Compiling LanguageModelCore JSONValue+CanonicalCount.swift
+[15/39] Compiling LanguageModelCore JSONValue+Literals.swift
+[16/39] Compiling LanguageModelCore JSONValue+StructureValidation.swift
+[17/39] Compiling LanguageModelCore JSONValue.swift
+[18/39] Compiling LanguageModelCore ToolSchema+Containers.swift
+[19/39] Compiling LanguageModelCore ToolSchema+Numbers.swift
+[20/39] Compiling LanguageModelCore ModelTextSnapshotAccumulator.swift
+[21/39] Compiling LanguageModelCore ModelTool.swift
+[22/39] Compiling LanguageModelCore DeterministicCoreDefaults.swift
+[23/39] Compiling LanguageModelCore SHA1HexDigest.swift
+[24/39] Compiling LanguageModelCore SHA256HexDigest.swift
+[25/39] Compiling LanguageModelCore JSONCoding.swift
+[26/39] Compiling LanguageModelCore JSONValue+Accessors.swift
+[27/39] Compiling LanguageModelCore LanguageModel.swift
+[28/39] Compiling LanguageModelCore ModelClient.swift
+[29/39] Compiling LanguageModelCore ModelClientInvocation.swift
+[30/39] Compiling LanguageModelCore ModelContracts.swift
+[31/39] Compiling LanguageModelCore ModelGeneration.swift
+[32/39] Compiling LanguageModelCore ModelStreamContract.swift
+[33/39] Compiling LanguageModelCore ModelTextRequest.swift
+[34/40] Wrapping AST for LanguageModelCore for debugging
+[36/50] Compiling LanguageModelRuntime ModelRunControl.swift
+[37/50] Compiling LanguageModelRuntime ModelRuntime.swift
+[38/50] Compiling LanguageModelRuntime ModelRuntimeAccess.swift
+[39/53] Emitting module LanguageModelRuntime
+[40/53] Compiling LanguageModelRuntime LocalBackendConnector.swift
+[41/53] Compiling LanguageModelRuntime ModelExecutorStore.swift
+[42/53] Compiling LanguageModelRuntime ModelProviderRegistry.swift
+[43/53] Compiling LanguageModelRuntime ClientLanguageModel.swift
+[44/53] Compiling LanguageModelRuntime LanguageModelExecution.swift
+[45/53] Compiling LanguageModelRuntime LocalBackend.swift
+[46/53] Compiling LanguageModelRuntime ModelRuntimeTypes.swift
+[47/53] Compiling LanguageModelRuntime ModelSession.swift
+[48/53] Compiling LanguageModelRuntime SessionLedger.swift
+[49/54] Wrapping AST for LanguageModelRuntime for debugging
+[51/56] Emitting module NativeLanguageModels
+[52/56] Compiling NativeLanguageModels LanguageModelSession.swift
+[53/57] Wrapping AST for NativeLanguageModels for debugging
+[55/59] Emitting module Consumer
+[56/59] Compiling Consumer main.swift
+[57/60] Wrapping AST for Consumer for debugging
+[58/60] Write Objects.LinkFileList
+[59/60] Linking Consumer
+Build complete! (7.69s)

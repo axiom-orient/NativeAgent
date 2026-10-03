@@ -1,0 +1,2 @@
+Fetching https://github.com/swiftlang/swift-markdown.git
+error: Git command 'git -C $DATA_ROOT/build/isolated-cache-ask-agent-environment/repositories/swift-markdown-5ccdcf70 config --get remote.origin.url' failed: fatal: cannot change to '$DATA_ROOT/build/isolated-cache-ask-agent-environment/repositories/swift-markdown-5ccdcf70': No such file or directory

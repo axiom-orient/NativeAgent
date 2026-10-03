@@ -1,0 +1,42 @@
+[0/1] Planning build
+Building for debugging...
+[0/12] Write sources
+[1/12] Write swift-version--1BA0962812E73E12.txt
+[2/12] Wrapping AST for ChatGPTAccount for debugging
+[4/14] Emitting module ChatGPTAccountTests
+[5/14] Compiling ChatGPTAccountTests AccountLifecycleTests.swift
+[6/15] $DATA_ROOT/build/account/x86_64-unknown-linux-gnu/debug/ChatGPTAccountPackageDiscoveredTests.derived/all-discovered-tests.swift
+[7/15] Write sources
+[8/15] Wrapping AST for ChatGPTAccountTests for debugging
+[10/18] Emitting module ChatGPTAccountPackageDiscoveredTests
+[11/18] Compiling ChatGPTAccountPackageDiscoveredTests ChatGPTAccountTests.swift
+[12/18] Compiling ChatGPTAccountPackageDiscoveredTests all-discovered-tests.swift
+[13/19] $DATA_ROOT/build/account/x86_64-unknown-linux-gnu/debug/ChatGPTAccountPackageTests.derived/runner.swift
+[14/19] Write sources
+[15/19] Wrapping AST for ChatGPTAccountPackageDiscoveredTests for debugging
+[17/21] Compiling ChatGPTAccountPackageTests runner.swift
+[18/21] Emitting module ChatGPTAccountPackageTests
+[19/22] Wrapping AST for ChatGPTAccountPackageTests for debugging
+[20/22] Write Objects.LinkFileList
+[21/22] Linking ChatGPTAccountPackageTests.xctest
+Build complete! (5.72s)
+Test Suite 'All tests' started at 2026-09-20 06:29:45.292
+Test Suite 'debug.xctest' started at 2026-09-20 06:29:45.294
+Test Suite 'debug.xctest' passed at 2026-09-20 06:29:45.294
+	 Executed 0 tests, with 0 failures (0 unexpected) in 0.0 (0.0) seconds
+Test Suite 'All tests' passed at 2026-09-20 06:29:45.294
+	 Executed 0 tests, with 0 failures (0 unexpected) in 0.0 (0.0) seconds
+◇ Test run started.
+↳ Testing Library Version: 6.2.1 (c9d57c83568b06d)
+↳ Target Platform: x86_64-unknown-linux-gnu
+◇ Test signOutJoinsRefreshBeforeDeletingCredentials() started.
+◇ Test cancelledAccessDoesNotStartRefresh() started.
+◇ Test concurrentSignOutsShareCleanup() started.
+✔ Test cancelledAccessDoesNotStartRefresh() passed after 0.005 seconds.
+✘ Test concurrentSignOutsShareCleanup() recorded an issue at AccountLifecycleTests.swift:40:3: Expectation failed: (store.deletions → 2) == 1
+↳ Repeated sign-out must not repeat a completed deletion
+✘ Test signOutJoinsRefreshBeforeDeletingCredentials() recorded an issue at AccountLifecycleTests.swift:18:3: Expectation failed: (store.deletions → 1) == 0
+↳ Credential deletion must follow the owned producer receipt
+✘ Test concurrentSignOutsShareCleanup() failed after 0.006 seconds with 1 issue.
+✘ Test signOutJoinsRefreshBeforeDeletingCredentials() failed after 0.007 seconds with 1 issue.
+✘ Test run with 3 tests in 0 suites failed after 0.007 seconds with 2 issues.

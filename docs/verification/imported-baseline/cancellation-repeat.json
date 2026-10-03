@@ -1,0 +1,196 @@
+{
+  "status": "PASS",
+  "scope": "Repeat of the same 7 registry + 5 Hub tests five times each; not additional unique tests or live provider proof.",
+  "results": [
+    {
+      "name": "registry",
+      "iteration": 1,
+      "exitCode": 0,
+      "status": "PASS",
+      "command": [
+        "swift",
+        "test",
+        "--skip-build",
+        "--package-path",
+        "$DATA_ROOT/work/NativeAI-Renewed-20260920/Model/LanguageModelRuntime",
+        "--scratch-path",
+        "$DATA_ROOT/nativeai-build/model-runtime",
+        "--filter",
+        "ProviderAcquisitionCancellationTests"
+      ],
+      "swiftTestingCount": 7,
+      "log": "regressions/registry-repeat-1.log"
+    },
+    {
+      "name": "registry",
+      "iteration": 2,
+      "exitCode": 0,
+      "status": "PASS",
+      "command": [
+        "swift",
+        "test",
+        "--skip-build",
+        "--package-path",
+        "$DATA_ROOT/work/NativeAI-Renewed-20260920/Model/LanguageModelRuntime",
+        "--scratch-path",
+        "$DATA_ROOT/nativeai-build/model-runtime",
+        "--filter",
+        "ProviderAcquisitionCancellationTests"
+      ],
+      "swiftTestingCount": 7,
+      "log": "regressions/registry-repeat-2.log"
+    },
+    {
+      "name": "registry",
+      "iteration": 3,
+      "exitCode": 0,
+      "status": "PASS",
+      "command": [
+        "swift",
+        "test",
+        "--skip-build",
+        "--package-path",
+        "$DATA_ROOT/work/NativeAI-Renewed-20260920/Model/LanguageModelRuntime",
+        "--scratch-path",
+        "$DATA_ROOT/nativeai-build/model-runtime",
+        "--filter",
+        "ProviderAcquisitionCancellationTests"
+      ],
+      "swiftTestingCount": 7,
+      "log": "regressions/registry-repeat-3.log"
+    },
+    {
+      "name": "registry",
+      "iteration": 4,
+      "exitCode": 0,
+      "status": "PASS",
+      "command": [
+        "swift",
+        "test",
+        "--skip-build",
+        "--package-path",
+        "$DATA_ROOT/work/NativeAI-Renewed-20260920/Model/LanguageModelRuntime",
+        "--scratch-path",
+        "$DATA_ROOT/nativeai-build/model-runtime",
+        "--filter",
+        "ProviderAcquisitionCancellationTests"
+      ],
+      "swiftTestingCount": 7,
+      "log": "regressions/registry-repeat-4.log"
+    },
+    {
+      "name": "registry",
+      "iteration": 5,
+      "exitCode": 0,
+      "status": "PASS",
+      "command": [
+        "swift",
+        "test",
+        "--skip-build",
+        "--package-path",
+        "$DATA_ROOT/work/NativeAI-Renewed-20260920/Model/LanguageModelRuntime",
+        "--scratch-path",
+        "$DATA_ROOT/nativeai-build/model-runtime",
+        "--filter",
+        "ProviderAcquisitionCancellationTests"
+      ],
+      "swiftTestingCount": 7,
+      "log": "regressions/registry-repeat-5.log"
+    },
+    {
+      "name": "hub",
+      "iteration": 1,
+      "exitCode": 0,
+      "status": "PASS",
+      "command": [
+        "swift",
+        "test",
+        "--skip-build",
+        "--package-path",
+        "$DATA_ROOT/work/NativeAI-Renewed-20260920/Model/ModelHub",
+        "--scratch-path",
+        "$DATA_ROOT/nativeai-build/model-hub",
+        "--filter",
+        "HubImportBoundaryTests"
+      ],
+      "swiftTestingCount": 5,
+      "log": "regressions/hub-repeat-1.log"
+    },
+    {
+      "name": "hub",
+      "iteration": 2,
+      "exitCode": 0,
+      "status": "PASS",
+      "command": [
+        "swift",
+        "test",
+        "--skip-build",
+        "--package-path",
+        "$DATA_ROOT/work/NativeAI-Renewed-20260920/Model/ModelHub",
+        "--scratch-path",
+        "$DATA_ROOT/nativeai-build/model-hub",
+        "--filter",
+        "HubImportBoundaryTests"
+      ],
+      "swiftTestingCount": 5,
+      "log": "regressions/hub-repeat-2.log"
+    },
+    {
+      "name": "hub",
+      "iteration": 3,
+      "exitCode": 0,
+      "status": "PASS",
+      "command": [
+        "swift",
+        "test",
+        "--skip-build",
+        "--package-path",
+        "$DATA_ROOT/work/NativeAI-Renewed-20260920/Model/ModelHub",
+        "--scratch-path",
+        "$DATA_ROOT/nativeai-build/model-hub",
+        "--filter",
+        "HubImportBoundaryTests"
+      ],
+      "swiftTestingCount": 5,
+      "log": "regressions/hub-repeat-3.log"
+    },
+    {
+      "name": "hub",
+      "iteration": 4,
+      "exitCode": 0,
+      "status": "PASS",
+      "command": [
+        "swift",
+        "test",
+        "--skip-build",
+        "--package-path",
+        "$DATA_ROOT/work/NativeAI-Renewed-20260920/Model/ModelHub",
+        "--scratch-path",
+        "$DATA_ROOT/nativeai-build/model-hub",
+        "--filter",
+        "HubImportBoundaryTests"
+      ],
+      "swiftTestingCount": 5,
+      "log": "regressions/hub-repeat-4.log"
+    },
+    {
+      "name": "hub",
+      "iteration": 5,
+      "exitCode": 0,
+      "status": "PASS",
+      "command": [
+        "swift",
+        "test",
+        "--skip-build",
+        "--package-path",
+        "$DATA_ROOT/work/NativeAI-Renewed-20260920/Model/ModelHub",
+        "--scratch-path",
+        "$DATA_ROOT/nativeai-build/model-hub",
+        "--filter",
+        "HubImportBoundaryTests"
+      ],
+      "swiftTestingCount": 5,
+      "log": "regressions/hub-repeat-5.log"
+    }
+  ]
+}

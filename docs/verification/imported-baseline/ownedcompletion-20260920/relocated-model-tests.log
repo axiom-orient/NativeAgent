@@ -1,0 +1,84 @@
+Building for debugging...
+[0/17] Write sources
+[4/17] Write swift-version--1BA0962812E73E12.txt
+[6/39] Emitting module LanguageModelCore
+[7/45] Compiling LanguageModelCore ToolSchema+String.swift
+[8/45] Compiling LanguageModelCore ToolSchema.swift
+[9/45] Compiling LanguageModelCore AgentMessage.swift
+[10/45] Compiling LanguageModelCore ModelContent.swift
+[11/45] Compiling LanguageModelCore ModelEvent.swift
+[12/45] Compiling LanguageModelCore ModelStopReason.swift
+[13/45] Compiling LanguageModelCore LanguageModel.swift
+[14/45] Compiling LanguageModelCore ModelClient.swift
+[15/45] Compiling LanguageModelCore ModelClientInvocation.swift
+[16/45] Compiling LanguageModelCore ModelContracts.swift
+[17/45] Compiling LanguageModelCore ModelGeneration.swift
+[18/45] Compiling LanguageModelCore ModelStreamContract.swift
+[19/45] Compiling LanguageModelCore ModelTextRequest.swift
+[20/45] Compiling LanguageModelCore JSONValue+Bridging.swift
+[21/45] Compiling LanguageModelCore JSONValue+CanonicalCount.swift
+[22/45] Compiling LanguageModelCore JSONValue+Literals.swift
+[23/45] Compiling LanguageModelCore JSONValue+StructureValidation.swift
+[24/45] Compiling LanguageModelCore JSONValue.swift
+[25/45] Compiling LanguageModelCore ToolSchema+Containers.swift
+[26/45] Compiling LanguageModelCore ToolSchema+Numbers.swift
+[27/45] Compiling LanguageModelCore ModelTextSnapshotAccumulator.swift
+[28/45] Compiling LanguageModelCore ModelTool.swift
+[29/45] Compiling LanguageModelCore DeterministicCoreDefaults.swift
+[30/45] Compiling LanguageModelCore SHA1HexDigest.swift
+[31/45] Compiling LanguageModelCore SHA256HexDigest.swift
+[32/45] Compiling LanguageModelCore JSONCoding.swift
+[33/45] Compiling LanguageModelCore JSONValue+Accessors.swift
+[34/46] Wrapping AST for LanguageModelCore for debugging
+[36/56] Emitting module LanguageModelRuntime
+[37/59] Compiling LanguageModelRuntime ClientLanguageModel.swift
+[38/59] Compiling LanguageModelRuntime LanguageModelExecution.swift
+[39/59] Compiling LanguageModelRuntime LocalBackend.swift
+[40/59] Compiling LanguageModelRuntime ModelRunControl.swift
+[41/59] Compiling LanguageModelRuntime ModelRuntime.swift
+[42/59] Compiling LanguageModelRuntime ModelRuntimeAccess.swift
+[43/59] Compiling LanguageModelRuntime LocalBackendConnector.swift
+[44/59] Compiling LanguageModelRuntime ModelExecutorStore.swift
+[45/59] Compiling LanguageModelRuntime ModelProviderRegistry.swift
+[46/59] Compiling LanguageModelRuntime ModelRuntimeTypes.swift
+[47/59] Compiling LanguageModelRuntime ModelSession.swift
+[48/59] Compiling LanguageModelRuntime SessionLedger.swift
+[49/60] Wrapping AST for LanguageModelRuntime for debugging
+[51/62] Emitting module NativeLanguageModels
+[52/62] Compiling NativeLanguageModels LanguageModelSession.swift
+[53/65] Wrapping AST for NativeLanguageModels for debugging
+[55/65] Emitting module NativeLanguageModelsTests
+[56/65] Compiling NativeLanguageModelsTests LanguageModelSessionTests.swift
+[57/66] $DATA_ROOT/build/relocated-model/x86_64-unknown-linux-gnu/debug/NativeLanguageModelsPackageDiscoveredTests.derived/all-discovered-tests.swift
+[58/66] Write sources
+[59/66] Wrapping AST for NativeLanguageModelsTests for debugging
+[61/69] Compiling NativeLanguageModelsPackageDiscoveredTests all-discovered-tests.swift
+[62/69] Emitting module NativeLanguageModelsPackageDiscoveredTests
+[63/69] Compiling NativeLanguageModelsPackageDiscoveredTests NativeLanguageModelsTests.swift
+[64/70] $DATA_ROOT/build/relocated-model/x86_64-unknown-linux-gnu/debug/NativeLanguageModelsPackageTests.derived/runner.swift
+[65/70] Write sources
+[66/70] Wrapping AST for NativeLanguageModelsPackageDiscoveredTests for debugging
+[68/72] Emitting module NativeLanguageModelsPackageTests
+[69/72] Compiling NativeLanguageModelsPackageTests runner.swift
+[70/73] Wrapping AST for NativeLanguageModelsPackageTests for debugging
+[71/73] Write Objects.LinkFileList
+[72/73] Linking NativeLanguageModelsPackageTests.xctest
+Build complete! (13.40s)
+Test Suite 'All tests' started at 2026-09-20 03:04:41.111
+Test Suite 'debug.xctest' started at 2026-09-20 03:04:41.113
+Test Suite 'debug.xctest' passed at 2026-09-20 03:04:41.113
+	 Executed 0 tests, with 0 failures (0 unexpected) in 0.0 (0.0) seconds
+Test Suite 'All tests' passed at 2026-09-20 03:04:41.113
+	 Executed 0 tests, with 0 failures (0 unexpected) in 0.0 (0.0) seconds
+◇ Test run started.
+↳ Testing Library Version: 6.2.1 (c9d57c83568b06d)
+↳ Target Platform: x86_64-unknown-linux-gnu
+◇ Suite "NativeLanguageModels projection" started.
+◇ Test streamAndRespondCommitTheSameKindOfTranscript() started.
+◇ Test unsupportedGuidedOutputDoesNotDispatch() started.
+◇ Test optionsAndToolCallsUseTheCanonicalRequestAndReturnWithoutExecution() started.
+✔ Test unsupportedGuidedOutputDoesNotDispatch() passed after 0.002 seconds.
+✔ Test optionsAndToolCallsUseTheCanonicalRequestAndReturnWithoutExecution() passed after 0.003 seconds.
+✔ Test streamAndRespondCommitTheSameKindOfTranscript() passed after 0.003 seconds.
+✔ Suite "NativeLanguageModels projection" passed after 0.003 seconds.
+✔ Test run with 3 tests in 1 suite passed after 0.004 seconds.

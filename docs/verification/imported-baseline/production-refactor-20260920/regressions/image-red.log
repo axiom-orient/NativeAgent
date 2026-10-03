@@ -1,0 +1,57 @@
+Building for debugging...
+[0/15] Write sources
+[3/15] Write swift-version--1BA0962812E73E12.txt
+[5/23] Emitting module ChatGPTAccount
+[6/25] Compiling ChatGPTAccount ChatGPTSharedOperation.swift
+[7/25] Compiling ChatGPTAccount ChatGPTSignInSession.swift
+[8/25] Compiling ChatGPTAccount ChatGPTKeychainStore.swift
+[9/25] Compiling ChatGPTAccount ChatGPTProtocol.swift
+[10/25] Compiling ChatGPTAccount ChatGPTTransport.swift
+[11/25] Compiling ChatGPTAccount LocalhostCallbackServer.swift
+[12/25] Compiling ChatGPTAccount ChatGPTAccountPayload.swift
+[13/25] Compiling ChatGPTAccount ChatGPTAccountSession.swift
+[14/25] Compiling ChatGPTAccount ChatGPTCredentials.swift
+[15/26] Wrapping AST for ChatGPTAccount for debugging
+[17/30] Emitting module ChatGPTImage
+[18/30] Compiling ChatGPTImage ChatGPTImageClient.swift
+[19/30] Compiling ChatGPTImage ChatGPTImageTypes.swift
+[20/30] Compiling ChatGPTImage ChatGPTImageLimits.swift
+[21/31] Compiling ChatGPTImage ChatGPTImageWireCodec.swift
+[22/32] Wrapping AST for ChatGPTImage for debugging
+[24/34] Emitting module ChatGPTImageTests
+[25/34] Compiling ChatGPTImageTests ImageCompletionTests.swift
+[26/35] $DATA_ROOT/build/image-review/x86_64-unknown-linux-gnu/debug/ChatGPTImagePackageDiscoveredTests.derived/all-discovered-tests.swift
+[27/35] Write sources
+[28/35] Wrapping AST for ChatGPTImageTests for debugging
+[30/38] Compiling ChatGPTImagePackageDiscoveredTests all-discovered-tests.swift
+[31/38] Compiling ChatGPTImagePackageDiscoveredTests ChatGPTImageTests.swift
+[32/38] Emitting module ChatGPTImagePackageDiscoveredTests
+[33/39] $DATA_ROOT/build/image-review/x86_64-unknown-linux-gnu/debug/ChatGPTImagePackageTests.derived/runner.swift
+[34/39] Write sources
+[35/39] Wrapping AST for ChatGPTImagePackageDiscoveredTests for debugging
+[37/41] Emitting module ChatGPTImagePackageTests
+[38/41] Compiling ChatGPTImagePackageTests runner.swift
+[39/42] Wrapping AST for ChatGPTImagePackageTests for debugging
+[40/42] Write Objects.LinkFileList
+[41/42] Linking ChatGPTImagePackageTests.xctest
+Build complete! (13.03s)
+Test Suite 'All tests' started at 2026-09-20 06:45:56.957
+Test Suite 'debug.xctest' started at 2026-09-20 06:45:56.959
+Test Suite 'debug.xctest' passed at 2026-09-20 06:45:56.959
+	 Executed 0 tests, with 0 failures (0 unexpected) in 0.0 (0.0) seconds
+Test Suite 'All tests' passed at 2026-09-20 06:45:56.959
+	 Executed 0 tests, with 0 failures (0 unexpected) in 0.0 (0.0) seconds
+◇ Test run started.
+↳ Testing Library Version: 6.2.1 (c9d57c83568b06d)
+↳ Target Platform: x86_64-unknown-linux-gnu
+◇ Test failedImageDrainQuarantinesSharedClientAndRetainsInvocation() started.
+◇ Test invalidImagePromptDoesNotEnterTransport() started.
+◇ Test settledImageParseFailureDoesNotQuarantineClient() started.
+✘ Test failedImageDrainQuarantinesSharedClientAndRetainsInvocation() recorded an issue at ImageCompletionTests.swift:20:5: Expectation failed: (failure.responseCode → nil) == "local_completion_unproved"
+✔ Test invalidImagePromptDoesNotEnterTransport() passed after 0.003 seconds.
+✔ Test settledImageParseFailureDoesNotQuarantineClient() passed after 0.005 seconds.
+✘ Test failedImageDrainQuarantinesSharedClientAndRetainsInvocation() recorded an issue at ImageCompletionTests.swift:23:3: Expectation failed: (probe → ChatGPTImageTests.(unknown context at $555d9e28a828).ImageProbe).ownerIsAlive → false
+✘ Test failedImageDrainQuarantinesSharedClientAndRetainsInvocation() recorded an issue at ImageCompletionTests.swift:25:3: Expectation failed: (probe.calls → 2) == 1
+✘ Test failedImageDrainQuarantinesSharedClientAndRetainsInvocation() recorded an issue at ImageCompletionTests.swift:26:3: Expectation failed: (probe → ChatGPTImageTests.(unknown context at $555d9e28a828).ImageProbe).ownerIsAlive → false
+✘ Test failedImageDrainQuarantinesSharedClientAndRetainsInvocation() failed after 0.006 seconds with 4 issues.
+✘ Test run with 3 tests in 0 suites failed after 0.007 seconds with 4 issues.

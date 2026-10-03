@@ -1,0 +1,27 @@
+Building for debugging...
+[0/4] Write sources
+[1/4] Write swift-version--1BA0962812E73E12.txt
+[3/5] Emitting module ChatGPTAccountTests
+[4/5] Compiling ChatGPTAccountTests SignInLifecycleTests.swift
+[5/7] Wrapping AST for ChatGPTAccountTests for debugging
+[6/12] $DATA_ROOT/build/account-review/x86_64-unknown-linux-gnu/debug/ChatGPTAccountPackageDiscoveredTests.derived/all-discovered-tests.swift
+[7/13] Write sources
+[9/16] Compiling ChatGPTAccountPackageDiscoveredTests ChatGPTAccountTests.swift
+[10/16] Emitting module ChatGPTAccountPackageDiscoveredTests
+[11/16] Compiling ChatGPTAccountPackageDiscoveredTests all-discovered-tests.swift
+[13/16] Emitting module ChatGPTAccountPackageTests
+[14/16] Write Objects.LinkFileList
+[15/16] Linking ChatGPTAccountPackageTests.xctest
+Build complete! (2.19s)
+Test Suite 'Selected tests' started at 2026-09-20 06:47:45.333
+Test Suite 'Selected tests' passed at 2026-09-20 06:47:45.334
+	 Executed 0 tests, with 0 failures (0 unexpected) in 0.0 (0.0) seconds
+◇ Test run started.
+↳ Testing Library Version: 6.2.1 (c9d57c83568b06d)
+↳ Target Platform: x86_64-unknown-linux-gnu
+◇ Test signInAfterLogoutReportsAuthorizationAndCanBeLoggedOutAgain() started.
+✘ Test signInAfterLogoutReportsAuthorizationAndCanBeLoggedOutAgain() recorded an issue at SignInLifecycleTests.swift:154:3: Expectation failed: try await session.status() == .authorizing(authorization)
+✘ Test signInAfterLogoutReportsAuthorizationAndCanBeLoggedOutAgain() recorded an issue at SignInLifecycleTests.swift:156:3: Expectation failed: await port.stopped.isOpen
+✘ Test signInAfterLogoutReportsAuthorizationAndCanBeLoggedOutAgain() recorded an issue at SignInLifecycleTests.swift:157:3: Expectation failed: (store.deletions → 1) == 2
+✘ Test signInAfterLogoutReportsAuthorizationAndCanBeLoggedOutAgain() failed after 0.001 seconds with 3 issues.
+✘ Test run with 1 test in 0 suites failed after 0.002 seconds with 3 issues.

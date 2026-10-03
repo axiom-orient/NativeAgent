@@ -1,0 +1,45 @@
+[0/1] Planning build
+Building for debugging...
+[0/17] Write sources
+[4/17] Write swift-version--1BA0962812E73E12.txt
+[5/17] Wrapping AST for ChatGPTAccount for debugging
+[6/17] Wrapping AST for LanguageModelCore for debugging
+[7/17] Wrapping AST for ChatGPTText for debugging
+[8/17] $DATA_ROOT/build/text-review/x86_64-unknown-linux-gnu/debug/ChatGPTTextPackageDiscoveredTests.derived/all-discovered-tests.swift
+[9/17] Write sources
+[10/17] Wrapping AST for ChatGPTTextTests for debugging
+[12/20] Emitting module ChatGPTTextPackageDiscoveredTests
+[13/20] Compiling ChatGPTTextPackageDiscoveredTests all-discovered-tests.swift
+[14/20] Compiling ChatGPTTextPackageDiscoveredTests ChatGPTTextTests.swift
+[15/21] $DATA_ROOT/build/text-review/x86_64-unknown-linux-gnu/debug/ChatGPTTextPackageTests.derived/runner.swift
+[16/21] Write sources
+[17/21] Wrapping AST for ChatGPTTextPackageDiscoveredTests for debugging
+[19/23] Compiling ChatGPTTextPackageTests runner.swift
+[20/23] Emitting module ChatGPTTextPackageTests
+[21/24] Wrapping AST for ChatGPTTextPackageTests for debugging
+[22/24] Write Objects.LinkFileList
+[23/24] Linking ChatGPTTextPackageTests.xctest
+Build complete! (1.82s)
+Test Suite 'All tests' started at 2026-09-20 06:41:38.876
+Test Suite 'debug.xctest' started at 2026-09-20 06:41:38.878
+Test Suite 'debug.xctest' passed at 2026-09-20 06:41:38.878
+	 Executed 0 tests, with 0 failures (0 unexpected) in 0.0 (0.0) seconds
+Test Suite 'All tests' passed at 2026-09-20 06:41:38.878
+	 Executed 0 tests, with 0 failures (0 unexpected) in 0.0 (0.0) seconds
+◇ Test run started.
+↳ Testing Library Version: 6.2.1 (c9d57c83568b06d)
+↳ Target Platform: x86_64-unknown-linux-gnu
+◇ Test failedAccountDrainFailsModelProducerReceipt(expired:) started.
+◇ Test settledAuthenticationFailureDoesNotBecomeFailedProducerDrain() started.
+◇ Test unsupportedHostDoesNotSilentlyCreateAnAccount() started.
+◇ Test case passing 1 argument expired → true to failedAccountDrainFailsModelProducerReceipt(expired:) started.
+◇ Test case passing 1 argument expired → false to failedAccountDrainFailsModelProducerReceipt(expired:) started.
+✔ Test unsupportedHostDoesNotSilentlyCreateAnAccount() passed after 0.002 seconds.
+✘ Test failedAccountDrainFailsModelProducerReceipt(expired:) recorded an issue with 1 argument expired → false at ChatGPTModelCompletionTests.swift:17:9: Expectation failed: expected error of type ModelExecutorDrainFailure, but "ModelGenerationFailure(code: LanguageModelCore.ModelGenerationErrorCode.transportFailure, message: "Model transport failed.")" was thrown instead
+✘ Test failedAccountDrainFailsModelProducerReceipt(expired:) recorded an issue with 1 argument expired → false at ChatGPTModelCompletionTests.swift:20:9: Expectation failed: an error was expected but none was thrown
+✔ Test settledAuthenticationFailureDoesNotBecomeFailedProducerDrain() passed after 0.004 seconds.
+✘ Test failedAccountDrainFailsModelProducerReceipt(expired:) recorded an issue with 1 argument expired → true at ChatGPTModelCompletionTests.swift:17:9: Expectation failed: expected error of type ModelExecutorDrainFailure, but "ModelGenerationFailure(code: LanguageModelCore.ModelGenerationErrorCode.transportFailure, message: "Model transport failed.")" was thrown instead
+✘ Test failedAccountDrainFailsModelProducerReceipt(expired:) recorded an issue with 1 argument expired → true at ChatGPTModelCompletionTests.swift:20:9: Expectation failed: an error was expected but none was thrown
+✘ Test failedAccountDrainFailsModelProducerReceipt(expired:) with 2 test cases failed after 0.008 seconds with 4 issues.
+↳ // These fixtures qualify the real ModelClient/Account composition, not a live service.
+✘ Test run with 3 tests in 0 suites failed after 0.009 seconds with 4 issues.

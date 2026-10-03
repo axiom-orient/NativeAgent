@@ -1,0 +1,13 @@
+{
+  "status": "PASS",
+  "command": [
+    "git",
+    "diff",
+    "--check",
+    "--",
+    ".",
+    ":(exclude)**/*.log"
+  ],
+  "exitCode": 0,
+  "scope": "Tracked source/config/docs; raw command logs excluded because compiler diagnostics contain trailing spaces. No log rewriting to manufacture a clean diff."
+}

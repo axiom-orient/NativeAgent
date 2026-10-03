@@ -1,0 +1,21 @@
+{
+  "status": "PASS",
+  "exitCode": 0,
+  "command": [
+    "swift",
+    "format",
+    "lint",
+    "--strict",
+    "Model/LanguageModelCore/Tests/LanguageModelCoreTests/JSONNumericBoundaryTests.swift",
+    "Model/LanguageModelCore/Tests/LanguageModelCoreTests/FailureMessageBoundaryTests.swift",
+    "Model/LanguageModelRuntime/Tests/LanguageModelRuntimeTests/ProviderAcquisitionCancellationTests.swift",
+    "Model/ModelHub/Tests/ModelHubTests/HubImportBoundaryTests.swift"
+  ],
+  "scope": "Only four newly added test files. Existing production formatting preserved; this is not whole-repository lint.",
+  "sourceHashes": {
+    "Model/LanguageModelCore/Tests/LanguageModelCoreTests/JSONNumericBoundaryTests.swift": "46a0e098985489f97d014088fdcf3b99a90ebfafc521bbfb262cab9263222f7e",
+    "Model/LanguageModelCore/Tests/LanguageModelCoreTests/FailureMessageBoundaryTests.swift": "72f38a213a4d06457f412a0ea89807a1192427e396fc419acdeb02f9b3a3db3b",
+    "Model/LanguageModelRuntime/Tests/LanguageModelRuntimeTests/ProviderAcquisitionCancellationTests.swift": "830a265fa9d7a89cbd50e29991186d8dfd0bbf17ca8dddc2767a4cd92b949048",
+    "Model/ModelHub/Tests/ModelHubTests/HubImportBoundaryTests.swift": "6308a1bdc3486bf7a82f2b638cb47599e6c22e080c18cae260c486c5819c2fcf"
+  }
+}

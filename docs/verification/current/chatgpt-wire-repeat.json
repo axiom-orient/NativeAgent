@@ -1,0 +1,21 @@
+{
+  "results": [
+    {
+      "iteration": 1,
+      "report": "wire-repeat-1.json",
+      "status": "PASS"
+    },
+    {
+      "iteration": 2,
+      "report": "wire-repeat-2.json",
+      "status": "PASS"
+    },
+    {
+      "iteration": 3,
+      "report": "wire-repeat-3.json",
+      "status": "PASS"
+    }
+  ],
+  "status": "PASS",
+  "note": "44 unique tests, 3 passes. Real local HTTP fixture only."
+}

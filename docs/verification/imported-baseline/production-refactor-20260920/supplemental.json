@@ -1,0 +1,120 @@
+[
+  {
+    "name": "knowledgecore",
+    "command": [
+      "swift",
+      "test",
+      "--package-path",
+      "Knowledge/ASK/Packages/KnowledgeCore",
+      "--scratch-path",
+      "$DATA_ROOT/build/knowledgecore",
+      "-j",
+      "4",
+      "-c",
+      "debug",
+      "-Xswiftc",
+      "-warnings-as-errors"
+    ],
+    "exitCode": 0,
+    "status": "PASS",
+    "swiftTestingCount": 36,
+    "xctestCount": 0,
+    "seconds": 19.07,
+    "log": "docs/verification/current/knowledgecore.log"
+  },
+  {
+    "name": "knowledgeruntime",
+    "command": [
+      "swift",
+      "test",
+      "--package-path",
+      "Knowledge/ASK/Packages/KnowledgeRuntime",
+      "--scratch-path",
+      "$DATA_ROOT/build/knowledgeruntime",
+      "-j",
+      "4",
+      "-c",
+      "debug",
+      "-Xswiftc",
+      "-warnings-as-errors"
+    ],
+    "exitCode": 0,
+    "status": "PASS",
+    "swiftTestingCount": 109,
+    "xctestCount": 5,
+    "seconds": 55.43,
+    "log": "docs/verification/current/knowledgeruntime.log"
+  },
+  {
+    "name": "markdownwiki",
+    "command": [
+      "swift",
+      "test",
+      "--package-path",
+      "Knowledge/ASK/Packages/MarkdownWiki",
+      "--scratch-path",
+      "$DATA_ROOT/build/markdownwiki",
+      "-j",
+      "4",
+      "-c",
+      "debug",
+      "-Xswiftc",
+      "-warnings-as-errors"
+    ],
+    "exitCode": 0,
+    "status": "PASS",
+    "swiftTestingCount": 17,
+    "xctestCount": 0,
+    "seconds": 16.55,
+    "log": "docs/verification/current/markdownwiki.log"
+  },
+  {
+    "name": "htmldocument",
+    "command": [
+      "swift",
+      "test",
+      "--package-path",
+      "Knowledge/ASK/Packages/HTMLDocument",
+      "--scratch-path",
+      "$DATA_ROOT/build/htmldocument",
+      "-j",
+      "4",
+      "-c",
+      "debug",
+      "-Xswiftc",
+      "-warnings-as-errors"
+    ],
+    "exitCode": 0,
+    "status": "PASS",
+    "swiftTestingCount": 1,
+    "xctestCount": 61,
+    "seconds": 14.1,
+    "log": "docs/verification/current/htmldocument.log"
+  },
+  {
+    "name": "package-closure-tests",
+    "command": [
+      "python3",
+      "tools/test-package-closure.py"
+    ],
+    "exitCode": 0,
+    "status": "PASS",
+    "swiftTestingCount": null,
+    "xctestCount": null,
+    "seconds": 1.24,
+    "log": "docs/verification/current/package-closure-tests.log"
+  },
+  {
+    "name": "release-boundary-tests",
+    "command": [
+      "python3",
+      "tools/test-release-boundary.py"
+    ],
+    "exitCode": 0,
+    "status": "PASS",
+    "swiftTestingCount": null,
+    "xctestCount": null,
+    "seconds": 0.97,
+    "log": "docs/verification/current/release-boundary-tests.log"
+  }
+]

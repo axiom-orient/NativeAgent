@@ -1,0 +1,15 @@
+{
+  "originHash" : "3c66bceefcad1e602b7758493280d4f43606c961cba044ef8a9ecbb850628714",
+  "pins" : [
+    {
+      "identity" : "swiftmcp",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/axiom-orient/swiftMcp.git",
+      "state" : {
+        "revision" : "25b504306a2506f9171076ef0522e56ad7929c3f",
+        "version" : "0.4.1"
+      }
+    }
+  ],
+  "version" : 3
+}

@@ -1,0 +1,9 @@
+Building for production...
+[0/6] Write sources
+[5/6] Write swift-version--1BA0962812E73E12.txt
+[7/8] Compiling ChatGPTAccount ChatGPTAccountPayload.swift
+[8/8] Compiling LanguageModelCore LanguageModel.swift
+[9/10] Compiling LanguageModelRuntime ClientLanguageModel.swift
+[10/10] Compiling ChatGPTText ChatGPTModelClient.swift
+[11/11] Compiling ChatGPTTextProvider ChatGPTProviderConnector.swift
+Build complete! (18.26s)

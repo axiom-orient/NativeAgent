@@ -1,0 +1,102 @@
+[0/1] Planning build
+Building for debugging...
+[0/2] Write swift-version--1BA0962812E73E12.txt
+Build complete! (0.20s)
+Test Suite 'All tests' started at 2026-09-20 03:08:11.138
+Test Suite 'debug.xctest' started at 2026-09-20 03:08:11.139
+Test Suite 'debug.xctest' passed at 2026-09-20 03:08:11.139
+	 Executed 0 tests, with 0 failures (0 unexpected) in 0.0 (0.0) seconds
+Test Suite 'All tests' passed at 2026-09-20 03:08:11.139
+	 Executed 0 tests, with 0 failures (0 unexpected) in 0.0 (0.0) seconds
+◇ Test run started.
+↳ Testing Library Version: 6.2.1 (c9d57c83568b06d)
+↳ Target Platform: x86_64-unknown-linux-gnu
+◇ Suite CurrentSchemaTests started.
+◇ Suite TimestampOrderingTests started.
+◇ Suite ASKCoreParityTests started.
+◇ Suite FrontmatterEscapingTests started.
+◇ Suite DecisionMemoryContractsTests started.
+◇ Suite ASKPathSafetyValidationTests started.
+◇ Suite ASKSHA256Tests started.
+◇ Test pageIndexMemoryRequiresExactVersionRangeAndDigest() started.
+◇ Suite ASKTimestampTests started.
+◇ Test versionedRepresentationsRejectUnsupportedVersions() started.
+◇ Test offsetTimestampsAreOrderedByInstantNotByText() started.
+◇ Test collectedSourceFixtureShapeIsStable() started.
+◇ Test fractionalSecondsAreOrderedByInstantNotByText() started.
+◇ Test authorityIntervalValidationUsesInstantOrder() started.
+◇ Test projectionRequiresCurrentVersionAndExplicitProvenanceField() started.
+◇ Test orderKeyMatchesCompareIncludingTheFastPath() started.
+◇ Test projectionHashMatchesFixture() started.
+◇ Test canonicalJSONRoundTripsAcronymPropertyNames() started.
+◇ Test unparseableValuesKeepATotalOrder() started.
+◇ Test openEndedSentinelSortsAfterEveryValidTimestamp() started.
+◇ Test ordinaryValuesKeepTheirExistingShape() started.
+◇ Test stableHashAndIDMatchPythonFixture() started.
+◇ Test numericNSNumberIsNotRenderedAsABoolean() started.
+◇ Test hostileKeyIsQuotedInsteadOfAlteringStructure() started.
+◇ Test equalInstantsFallBackToStableTextOrder() started.
+◇ Test newlineInValueCannotInjectSiblingKeys() started.
+◇ Test controlCharactersAreEncoded() started.
+◇ Test backslashQuotePayloadCannotInjectFrontmatterDelimiter() started.
+◇ Test verificationRejectsStaleEvidenceAndExpiredRecordsLeaveActiveState() started.
+◇ Test supersessionIsAuditableAndExcludesThePriorRecord() started.
+◇ Test trailingBackslashCannotTerminateTheScalar() started.
+◇ Test verifiedRecordPromotesFromStimToMtemThenLtsm() started.
+◇ Test authorityAndReviewContractsRejectUnsafePathBackedIdentifiers() started.
+◇ Test reducerRejectsPromotionWithoutVerificationAndDirectLtsmPromotion() started.
+◇ Test pathSafeIDAcceptsLowercaseHyphenUnderscore() started.
+◇ Test sourceClaimEvidenceAndPatchContractsRejectUnsafePathBackedIdentifiers() started.
+◇ Test representationContractsRejectUnsafePathBackedSourceIDs() started.
+◇ Test operationLogOrderUsesInstantThenLogID() started.
+◇ Test parsesRFC3339WithFractionalSeconds() started.
+◇ Test parsesRFC3339WithTimezoneOffset() started.
+◇ Test rejectsInvalidRFC3339() started.
+◇ Test parsesRFC3339WithoutFractionalSeconds() started.
+◇ Test knownDigestVectorsMatchSHA256Specification() started.
+◇ Test digestBytesAndHexDigestStayConsistent() started.
+✔ Test collectedSourceFixtureShapeIsStable() passed after 0.007 seconds.
+✔ Test authorityIntervalValidationUsesInstantOrder() passed after 0.007 seconds.
+✔ Test fractionalSecondsAreOrderedByInstantNotByText() passed after 0.007 seconds.
+✔ Test versionedRepresentationsRejectUnsupportedVersions() passed after 0.007 seconds.
+✔ Test offsetTimestampsAreOrderedByInstantNotByText() passed after 0.007 seconds.
+✔ Test unparseableValuesKeepATotalOrder() passed after 0.007 seconds.
+✔ Test canonicalJSONRoundTripsAcronymPropertyNames() passed after 0.007 seconds.
+✔ Test openEndedSentinelSortsAfterEveryValidTimestamp() passed after 0.007 seconds.
+✔ Test orderKeyMatchesCompareIncludingTheFastPath() passed after 0.007 seconds.
+✔ Test ordinaryValuesKeepTheirExistingShape() passed after 0.007 seconds.
+✔ Test stableHashAndIDMatchPythonFixture() passed after 0.007 seconds.
+✔ Test hostileKeyIsQuotedInsteadOfAlteringStructure() passed after 0.007 seconds.
+✔ Test equalInstantsFallBackToStableTextOrder() passed after 0.007 seconds.
+✔ Test newlineInValueCannotInjectSiblingKeys() passed after 0.007 seconds.
+✔ Test numericNSNumberIsNotRenderedAsABoolean() passed after 0.007 seconds.
+✔ Test controlCharactersAreEncoded() passed after 0.007 seconds.
+✔ Test backslashQuotePayloadCannotInjectFrontmatterDelimiter() passed after 0.007 seconds.
+✔ Test pageIndexMemoryRequiresExactVersionRangeAndDigest() passed after 0.008 seconds.
+✔ Test projectionHashMatchesFixture() passed after 0.008 seconds.
+✔ Test verificationRejectsStaleEvidenceAndExpiredRecordsLeaveActiveState() passed after 0.007 seconds.
+✔ Test trailingBackslashCannotTerminateTheScalar() passed after 0.007 seconds.
+✔ Test supersessionIsAuditableAndExcludesThePriorRecord() passed after 0.007 seconds.
+✔ Test verifiedRecordPromotesFromStimToMtemThenLtsm() passed after 0.007 seconds.
+✔ Test pathSafeIDAcceptsLowercaseHyphenUnderscore() passed after 0.007 seconds.
+✔ Test reducerRejectsPromotionWithoutVerificationAndDirectLtsmPromotion() passed after 0.007 seconds.
+✔ Test representationContractsRejectUnsafePathBackedSourceIDs() passed after 0.007 seconds.
+✔ Test parsesRFC3339WithTimezoneOffset() passed after 0.004 seconds.
+✔ Test operationLogOrderUsesInstantThenLogID() passed after 0.008 seconds.
+✔ Test parsesRFC3339WithoutFractionalSeconds() passed after 0.004 seconds.
+✔ Test parsesRFC3339WithFractionalSeconds() passed after 0.004 seconds.
+✔ Test sourceClaimEvidenceAndPatchContractsRejectUnsafePathBackedIdentifiers() passed after 0.008 seconds.
+✔ Test knownDigestVectorsMatchSHA256Specification() passed after 0.004 seconds.
+✔ Test rejectsInvalidRFC3339() passed after 0.004 seconds.
+✔ Test projectionRequiresCurrentVersionAndExplicitProvenanceField() passed after 0.008 seconds.
+✔ Test digestBytesAndHexDigestStayConsistent() passed after 0.003 seconds.
+✔ Suite ASKCoreParityTests passed after 0.009 seconds.
+✔ Suite FrontmatterEscapingTests passed after 0.009 seconds.
+✔ Suite DecisionMemoryContractsTests passed after 0.009 seconds.
+✔ Suite TimestampOrderingTests passed after 0.009 seconds.
+✔ Suite ASKSHA256Tests passed after 0.009 seconds.
+✔ Suite ASKTimestampTests passed after 0.009 seconds.
+✔ Suite CurrentSchemaTests passed after 0.009 seconds.
+✔ Test authorityAndReviewContractsRejectUnsafePathBackedIdentifiers() passed after 0.008 seconds.
+✔ Suite ASKPathSafetyValidationTests passed after 0.009 seconds.
+✔ Test run with 36 tests in 8 suites passed after 0.009 seconds.

@@ -1,0 +1,10 @@
+model-core PASS 57
+model-runtime PASS 99
+native-language-models PASS 3
+model-hub PASS 10
+apple-system-contract PASS 10
+native-root-build PASS None
+chatgpt-account PASS 49
+chatgpt-text PASS 3
+chatgpt-image PASS 3
+chatgpt-text-provider PASS None

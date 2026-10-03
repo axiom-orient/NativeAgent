@@ -1,0 +1,38 @@
+[0/1] Planning build
+Building for debugging...
+[0/3] Write swift-version--1BA0962812E73E12.txt
+Build complete! (0.19s)
+Test Suite 'All tests' started at 2026-09-20 06:53:44.088
+Test Suite 'debug.xctest' started at 2026-09-20 06:53:44.091
+Test Suite 'debug.xctest' passed at 2026-09-20 06:53:44.091
+	 Executed 0 tests, with 0 failures (0 unexpected) in 0.0 (0.0) seconds
+Test Suite 'All tests' passed at 2026-09-20 06:53:44.091
+	 Executed 0 tests, with 0 failures (0 unexpected) in 0.0 (0.0) seconds
+◇ Test run started.
+↳ Testing Library Version: 6.2.1 (c9d57c83568b06d)
+↳ Target Platform: x86_64-unknown-linux-gnu
+◇ Suite "Apple text projection ownership" started.
+◇ Test emptyNativeSnapshotSequenceIsNotSuccessfulEmptyText() started.
+◇ Test eofCannotReleaseAdmissionBeforeSnapshotProducerSettlement() started.
+◇ Test failedNativePortJoinQuarantinesWithoutCleanupOrRetry() started.
+◇ Test cancelJoinsNativePortBeforePermittingAnotherRequest() started.
+◇ Suite "Apple Foundation Models adapter" started.
+◇ Test mediaToolsAndToolMessagesFailBeforeInvocation() started.
+◇ Test cumulativeSnapshotsBecomeBoundedDeltasAndOneTerminalTurn() started.
+◇ Test structuredOutputIsRejectedUntilNativeGuidedGenerationIsImplemented() started.
+◇ Test snapshotsMustBeMonotonicAndRespectOutputBounds() started.
+◇ Test unavailableModelFailsBeforeInvocation() started.
+◇ Test cancellationFinishesWithStableFailure() started.
+✔ Test emptyNativeSnapshotSequenceIsNotSuccessfulEmptyText() passed after 0.003 seconds.
+✔ Test structuredOutputIsRejectedUntilNativeGuidedGenerationIsImplemented() passed after 0.001 seconds.
+✔ Test cumulativeSnapshotsBecomeBoundedDeltasAndOneTerminalTurn() passed after 0.001 seconds.
+✔ Test cancellationFinishesWithStableFailure() passed after 0.001 seconds.
+✔ Test unavailableModelFailsBeforeInvocation() passed after 0.002 seconds.
+✔ Test failedNativePortJoinQuarantinesWithoutCleanupOrRetry() passed after 0.005 seconds.
+✔ Test eofCannotReleaseAdmissionBeforeSnapshotProducerSettlement() passed after 0.005 seconds.
+✔ Test mediaToolsAndToolMessagesFailBeforeInvocation() passed after 0.004 seconds.
+✔ Test cancelJoinsNativePortBeforePermittingAnotherRequest() passed after 0.007 seconds.
+✔ Test snapshotsMustBeMonotonicAndRespectOutputBounds() passed after 0.005 seconds.
+✔ Suite "Apple text projection ownership" passed after 0.008 seconds.
+✔ Suite "Apple Foundation Models adapter" passed after 0.008 seconds.
+✔ Test run with 10 tests in 2 suites passed after 0.008 seconds.

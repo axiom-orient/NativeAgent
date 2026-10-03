@@ -1,0 +1,12 @@
+{
+  "status": "PASS",
+  "archive": "NativeAI-Renewed-20260920(1).zip",
+  "sha256": "74a7f59b65dcb666e1cb4ce86915cf01a72303f4afce37ef1121d1837aacbd29",
+  "crc": "PASS",
+  "sourceManifestEntries": 1691,
+  "verifiedEntries": 1691,
+  "manifestSelfExcluded": true,
+  "archiveFileCount": 1692,
+  "errors": [],
+  "scope": "Actual uploaded input only. Earlier archives mentioned inside it were not available or reverified."
+}

@@ -1,0 +1,55 @@
+{
+  "schema": "nativeai.provenance/2",
+  "inputs": [
+    {
+      "name": "NativeAI-OwnedCompletion-20260920(1).zip",
+      "sha256": "2ef8efb01053c13ce1f309871571e0fd6af9da2052f1d2e5dfedfd28814b1670",
+      "archiveFiles": 1695,
+      "uncompressedBytes": 17727586
+    },
+    {
+      "name": "NativeAI-Production-Readiness-Research-20260920(1).zip",
+      "sha256": "ddf830f9a21c5b13506b9f50935864b4609e8ac54200d0b8ee4b3f10a7390415",
+      "archiveFiles": 5,
+      "uncompressedBytes": 38104
+    }
+  ],
+  "sourceManifest": {
+    "entries": 1694,
+    "status": "PASS",
+    "mismatches": []
+  },
+  "researchDocuments": [
+    {
+      "source": "design-input/production-readiness-20260920/EXECUTION_PLAN.md",
+      "sha256": "c06863f6a3ce88662b10e5f87237150194fa8e8cfeb21008ecfc5c51b1e5ae4f",
+      "lines": 241,
+      "review": "Read in full; original preserved; decision/checklist mapping in docs/production/REQUIREMENTS.md"
+    },
+    {
+      "source": "design-input/production-readiness-20260920/PRODUCTION_BLUEPRINT.md",
+      "sha256": "33bf8c4b449de15b052d0de96cbb92258f282297ad2f61b01dc281651b3929d6",
+      "lines": 516,
+      "review": "Read in full; original preserved; decision/checklist mapping in docs/production/REQUIREMENTS.md"
+    },
+    {
+      "source": "design-input/production-readiness-20260920/QUALIFICATION_MATRIX.md",
+      "sha256": "4405a0e48da8c903f0e9a4dfebcdc66d948701528876d8a5a1e4a3521826bb32",
+      "lines": 207,
+      "review": "Read in full; original preserved; decision/checklist mapping in docs/production/REQUIREMENTS.md"
+    },
+    {
+      "source": "design-input/production-readiness-20260920/README.md",
+      "sha256": "5c10902e3de5ad4d1f6d964959f03c25a4a697a109a15c0dc3816baf4d6240f8",
+      "lines": 44,
+      "review": "Read in full; original preserved; decision/checklist mapping in docs/production/REQUIREMENTS.md"
+    },
+    {
+      "source": "design-input/production-readiness-20260920/RESEARCH_SOURCES.md",
+      "sha256": "6e54c4d28222e5c0852bf2625b0824e187d4e7cbd41bb30f6f5187dc8bdec98f",
+      "lines": 112,
+      "review": "Read in full; original preserved; decision/checklist mapping in docs/production/REQUIREMENTS.md"
+    }
+  ],
+  "scope": "Input bytes and preserved research are verified. Source analysis is critical reachable paths plus all manifests/syntax; not a claim that every source line or SDK was read."
+}

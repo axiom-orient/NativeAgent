@@ -1,0 +1,97 @@
+{
+  "schema": "nativeai.refactor-verification/1",
+  "date": "2026-09-20",
+  "swift": "Swift 6.2.1 x86_64-unknown-linux-gnu",
+  "status": "PASS_WITH_PLATFORM_LIMITS",
+  "changes": [
+    "ModelHub repository/revision validation SSOT",
+    "candidate ID provider authority",
+    "length-prefixed artifact path identity"
+  ],
+  "verification": [
+    {
+      "name": "ModelHub tests",
+      "count": 13,
+      "runs": 3,
+      "status": "PASS",
+      "warningsAsErrors": true
+    },
+    {
+      "name": "ModelHub release build",
+      "status": "PASS",
+      "warningsAsErrors": true
+    },
+    {
+      "name": "LanguageModelCore tests",
+      "count": 57,
+      "status": "PASS",
+      "warningsAsErrors": true
+    },
+    {
+      "name": "LanguageModelRuntime tests",
+      "count": 99,
+      "status": "PASS",
+      "warningsAsErrors": true
+    },
+    {
+      "name": "ChatGPTAccount tests",
+      "count": 50,
+      "status": "PASS",
+      "warningsAsErrors": true
+    },
+    {
+      "name": "ChatGPTText tests",
+      "count": 3,
+      "status": "PASS",
+      "warningsAsErrors": true
+    },
+    {
+      "name": "ChatGPTImage tests",
+      "count": 3,
+      "status": "PASS",
+      "warningsAsErrors": true
+    },
+    {
+      "name": "NativeAgent target build",
+      "status": "PASS",
+      "warningsAsErrors": true
+    },
+    {
+      "name": "boundary/syntax check",
+      "status": "PASS",
+      "manifests": 53,
+      "swiftSyntaxFiles": 1242
+    },
+    {
+      "name": "document link check",
+      "status": "PASS",
+      "documents": 165,
+      "relativeLinks": 536
+    },
+    {
+      "name": "ModelArtifactStore",
+      "status": "NOT_RUN",
+      "reason": "CryptoKit module unavailable on current Linux Swift environment"
+    },
+    {
+      "name": "swift-format strict lint (changed Swift files)",
+      "status": "PASS",
+      "files": 4
+    },
+    {
+      "name": "exact-source final rerun",
+      "status": "PASS_WITH_PARTIAL_HARNESS_TIMEOUT",
+      "details": "ModelHub 13 tests x3, LanguageModelCore 57, LanguageModelRuntime 99, ChatGPTAccount 50 passed after formatting; combined Text/Image/NativeAgent rerun harness timed out and is not counted as a new pass."
+    }
+  ],
+  "unknown": [
+    "Apple SDK compile/link",
+    "Network.framework native callback runtime",
+    "Keychain/iCloud behavior",
+    "native MLX/LiteRT/LEAP execution",
+    "real ChatGPT account/service",
+    "iOS/macOS host lifecycle",
+    "ModelArtifactStore Apple-platform runtime"
+  ],
+  "release": "BLOCKED_ON_NATIVE_QUALIFICATION"
+}

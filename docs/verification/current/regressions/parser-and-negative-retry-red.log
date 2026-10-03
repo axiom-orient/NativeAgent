@@ -1,0 +1,4 @@
+Expected rejection; accepted=true; header="Content-Length: 8"
+Expected rejection; accepted=true; header="Transfer-Encoding: chunked"
+Expected rejection; accepted=true; header="X-Test: bad\0"
+Expected negative retry attempt rejection; permitted=true

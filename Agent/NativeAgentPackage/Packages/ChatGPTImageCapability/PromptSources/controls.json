@@ -1,0 +1,171 @@
+{
+  "IR-01": {
+    "requiredVariables": [],
+    "defaults": {
+      "CALLIGRAPHY_TEXT": "none",
+      "ADD_SEAL": "no",
+      "BACKGROUND_RETENTION": "minimal"
+    }
+  },
+  "IR-02": {
+    "requiredVariables": [],
+    "defaults": {
+      "BACKGROUND_MODE": "neutral",
+      "STYLIZATION": "medium",
+      "MATERIAL_DETAIL": "balanced"
+    }
+  },
+  "IR-03": {
+    "requiredVariables": [],
+    "defaults": {
+      "BACKGROUND_MODE": "paper",
+      "PAPER_TEXTURE": "light"
+    }
+  },
+  "IR-04": {
+    "requiredVariables": [
+      "SCENE_DESCRIPTION"
+    ],
+    "defaults": {
+      "CAMERA": "preserve reference viewpoint",
+      "LIGHTING": "preserve reference lighting"
+    }
+  },
+  "IR-05": {
+    "requiredVariables": [],
+    "defaults": {
+      "STICKER_COUNT": "16",
+      "EXPRESSIONS": "joy, laugh, surprise, confusion, embarrassment, sadness, anger, determination, sleepiness, celebration, thanks, apology, thinking, approval, refusal, love",
+      "CUTLINE": "thin",
+      "BACKGROUND": "white"
+    }
+  },
+  "IR-06": {
+    "requiredVariables": [],
+    "defaults": {
+      "EXAGGERATION": "low",
+      "PALETTE": "source-derived",
+      "BACKGROUND_MODE": "preserve"
+    }
+  },
+  "IR-07": {
+    "requiredVariables": [],
+    "defaults": {
+      "CUTENESS": "subtle",
+      "ENVIRONMENT_DETAIL": "preserve"
+    }
+  },
+  "IR-08": {
+    "requiredVariables": [],
+    "defaults": {
+      "ERA_FEEL": "timeless",
+      "FRAME": "no",
+      "SOFTNESS": "low"
+    }
+  },
+  "IR-09": {
+    "requiredVariables": [],
+    "defaults": {
+      "GRAIN": "fine",
+      "COLOR_BIAS": "neutral",
+      "FLASH": "no"
+    }
+  },
+  "IR-10": {
+    "requiredVariables": [],
+    "defaults": {
+      "SHADOW_DIRECTION": "left-to-right",
+      "CONTRAST": "medium",
+      "TONE": "neutral"
+    }
+  },
+  "IR-11": {
+    "requiredVariables": [],
+    "defaults": {
+      "ASPECT_RATIO": "9:16",
+      "DETAIL": "detailed",
+      "PALETTE": "source-derived"
+    }
+  },
+  "IR-12": {
+    "requiredVariables": [
+      "TRIP_ELEMENTS"
+    ],
+    "defaults": {
+      "EXACT_TEXT": "none",
+      "DENSITY": "balanced"
+    }
+  },
+  "IR-13": {
+    "requiredVariables": [
+      "MICRO_STORIES"
+    ],
+    "defaults": {
+      "LAYOUT": "grid",
+      "STYLE": "paper collage"
+    }
+  },
+  "TO-01": {
+    "requiredVariables": [
+      "PLACE"
+    ],
+    "defaults": {
+      "LANDMARKS": "only geographically appropriate visible cues",
+      "SEASON": "unspecified",
+      "TIME": "day",
+      "ASPECT_RATIO": "4:5"
+    }
+  },
+  "TO-02": {
+    "requiredVariables": [
+      "DESTINATION"
+    ],
+    "defaults": {
+      "LANDMARKS": "only destination-appropriate visible cues",
+      "PALETTE": "location inspired",
+      "ASPECT_RATIO": "4:5"
+    }
+  },
+  "TO-03": {
+    "requiredVariables": [
+      "DESTINATION"
+    ],
+    "defaults": {
+      "LANDMARKS": "only destination-appropriate visible cues",
+      "BASE_SHAPE": "circular",
+      "MATERIAL_STYLE": "matte miniature",
+      "TIME": "day"
+    }
+  },
+  "TO-04": {
+    "requiredVariables": [
+      "SUBJECT_DESCRIPTION"
+    ],
+    "defaults": {
+      "LOCATION": "studio",
+      "WARDROBE": "understated, as described",
+      "LENS_FEEL": "50mm-like",
+      "PALETTE": "neutral"
+    }
+  },
+  "TO-05": {
+    "requiredVariables": [
+      "SUBJECT_DESCRIPTION"
+    ],
+    "defaults": {
+      "FRAMING": "head-and-shoulders",
+      "BACKGROUND": "simple interior",
+      "MOOD": "quiet"
+    }
+  },
+  "TO-06": {
+    "requiredVariables": [
+      "SUBJECT_DESCRIPTION"
+    ],
+    "defaults": {
+      "LOCATION": "room",
+      "COLOR_BIAS": "neutral",
+      "FRAMING": "waist-up"
+    }
+  }
+}

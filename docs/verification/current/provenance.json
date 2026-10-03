@@ -1,0 +1,43 @@
+{
+  "status": "PASS",
+  "inputArchive": "NativeAI-Production-Refactored-20260920(1).zip",
+  "inputSHA256": "97be9e72e78251423217e3a5ce794715e003b907bcab4e1236fe0ffd4616d16c",
+  "inputFileCount": 1824,
+  "inputManifestSHA256": "bfa436bb02c5e908fa4dcaafd9ea324689b40f5add380e98dbc9b21942a50bc0",
+  "inputPayloadHashCount": 1823,
+  "inputManifestVerified": true,
+  "historicalEvidenceMovedByteIdentically": 108,
+  "sourceHashChecks": [
+    {
+      "report": "portable.json",
+      "status": "PASS",
+      "hashComparisons": 1218
+    },
+    {
+      "report": "native-kernel.json",
+      "status": "PASS",
+      "hashComparisons": 486
+    },
+    {
+      "report": "release.json",
+      "status": "PASS",
+      "hashComparisons": 95
+    },
+    {
+      "report": "repeat-runs.json",
+      "status": "PASS",
+      "hashComparisons": 95
+    },
+    {
+      "report": "consumer-qualification.json",
+      "status": "PASS",
+      "hashComparisons": 103,
+      "scope": "Entire six-package relocated consumer payload, including README inputs."
+    }
+  ],
+  "limits": [
+    "Original verification is imported evidence, not rerun proof.",
+    "Integrity is separate from native/production qualification.",
+    "Final SOURCE_MANIFEST excludes itself; external archive SHA-256 seals it."
+  ]
+}

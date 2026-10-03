@@ -1,0 +1,36 @@
+name: ASKFMHarness
+options:
+  bundleIdPrefix: com.ask
+  deploymentTarget:
+    iOS: "26.0"
+packages:
+  ASKFoundationModels:
+    path: ../../Packages/ASKFoundationModels
+targets:
+  ASKFMHarness:
+    type: application
+    platform: iOS
+    sources:
+      - App
+    dependencies:
+      - package: ASKFoundationModels
+        products:
+          - ASKFoundationModels
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.ask.fm-harness
+        PRODUCT_NAME: ASKFMHarness
+        PRODUCT_MODULE_NAME: ASKFMHarness
+        GENERATE_INFOPLIST_FILE: YES
+        INFOPLIST_KEY_CFBundleDisplayName: ASK FM
+        SWIFT_VERSION: 6.0
+        SWIFT_STRICT_CONCURRENCY: complete
+        TARGETED_DEVICE_FAMILY: 1
+        CODE_SIGN_STYLE: Automatic
+schemes:
+  ASKFMHarness:
+    build:
+      targets:
+        ASKFMHarness: all
+    run:
+      config: Debug

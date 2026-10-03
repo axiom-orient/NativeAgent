@@ -1,0 +1,74 @@
+Building for debugging...
+[0/4] Write sources
+[3/4] Write swift-version--1BA0962812E73E12.txt
+[5/33] Emitting module LanguageModelCore
+[6/39] Compiling LanguageModelCore ToolSchema+String.swift
+[7/39] Compiling LanguageModelCore ToolSchema.swift
+[8/39] Compiling LanguageModelCore AgentMessage.swift
+[9/39] Compiling LanguageModelCore ModelContent.swift
+[10/39] Compiling LanguageModelCore ModelEvent.swift
+[11/39] Compiling LanguageModelCore ModelStopReason.swift
+error: emit-module command failed with exit code 1 (use -v to see invocation)
+[12/39] Emitting module ChatGPTAccount
+$DATA_ROOT/work/NativeAI-Renewed-20260920/Providers/ChatGPT/Account/Sources/ChatGPTAccount/ChatGPTAccountSession.swift:1:8: error: no such module 'CryptoKit'
+  1 | import CryptoKit
+    |        `- error: no such module 'CryptoKit'
+  2 | import Foundation
+  3 | 
+[13/39] Compiling LanguageModelCore JSONValue.swift
+$DATA_ROOT/work/NativeAI-Renewed-20260920/Providers/ChatGPT/Account/Sources/ChatGPTAccount/ChatGPTAccountSession.swift:1:8: error: no such module 'CryptoKit'
+  1 | import CryptoKit
+    |        `- error: no such module 'CryptoKit'
+  2 | import Foundation
+  3 | 
+[14/39] Compiling LanguageModelCore ToolSchema+Containers.swift
+$DATA_ROOT/work/NativeAI-Renewed-20260920/Providers/ChatGPT/Account/Sources/ChatGPTAccount/ChatGPTAccountSession.swift:1:8: error: no such module 'CryptoKit'
+  1 | import CryptoKit
+    |        `- error: no such module 'CryptoKit'
+  2 | import Foundation
+  3 | 
+[15/39] Compiling LanguageModelCore JSONValue+Bridging.swift
+$DATA_ROOT/work/NativeAI-Renewed-20260920/Providers/ChatGPT/Account/Sources/ChatGPTAccount/ChatGPTAccountSession.swift:1:8: error: no such module 'CryptoKit'
+  1 | import CryptoKit
+    |        `- error: no such module 'CryptoKit'
+  2 | import Foundation
+  3 | 
+[16/39] Compiling LanguageModelCore JSONValue+CanonicalCount.swift
+$DATA_ROOT/work/NativeAI-Renewed-20260920/Providers/ChatGPT/Account/Sources/ChatGPTAccount/ChatGPTAccountSession.swift:1:8: error: no such module 'CryptoKit'
+  1 | import CryptoKit
+    |        `- error: no such module 'CryptoKit'
+  2 | import Foundation
+  3 | 
+[17/39] Compiling LanguageModelCore JSONValue+Literals.swift
+$DATA_ROOT/work/NativeAI-Renewed-20260920/Providers/ChatGPT/Account/Sources/ChatGPTAccount/ChatGPTAccountSession.swift:1:8: error: no such module 'CryptoKit'
+  1 | import CryptoKit
+    |        `- error: no such module 'CryptoKit'
+  2 | import Foundation
+  3 | 
+[18/39] Compiling LanguageModelCore JSONValue+StructureValidation.swift
+$DATA_ROOT/work/NativeAI-Renewed-20260920/Providers/ChatGPT/Account/Sources/ChatGPTAccount/ChatGPTAccountSession.swift:1:8: error: no such module 'CryptoKit'
+  1 | import CryptoKit
+    |        `- error: no such module 'CryptoKit'
+  2 | import Foundation
+  3 | 
+[25/40] Compiling LanguageModelCore ToolSchema+Numbers.swift
+[26/40] Compiling LanguageModelCore LanguageModel.swift
+[27/40] Compiling LanguageModelCore ModelClient.swift
+[28/40] Compiling LanguageModelCore ModelClientInvocation.swift
+[29/40] Compiling LanguageModelCore ModelContracts.swift
+[30/40] Compiling LanguageModelCore ModelGeneration.swift
+[31/40] Compiling LanguageModelCore ModelStreamContract.swift
+[32/40] Compiling LanguageModelCore ModelTextRequest.swift
+[33/40] Compiling LanguageModelCore ModelTextSnapshotAccumulator.swift
+[34/40] Compiling LanguageModelCore ModelTool.swift
+[35/40] Compiling LanguageModelCore DeterministicCoreDefaults.swift
+[36/40] Compiling LanguageModelCore SHA1HexDigest.swift
+[37/40] Compiling LanguageModelCore SHA256HexDigest.swift
+[38/40] Compiling LanguageModelCore JSONCoding.swift
+[39/40] Compiling LanguageModelCore JSONValue+Accessors.swift
+[41/41] Compiling ChatGPTAccount LocalhostCallbackServer.swift
+$DATA_ROOT/work/NativeAI-Renewed-20260920/Providers/ChatGPT/Account/Sources/ChatGPTAccount/ChatGPTAccountSession.swift:1:8: error: no such module 'CryptoKit'
+  1 | import CryptoKit
+    |        `- error: no such module 'CryptoKit'
+  2 | import Foundation
+  3 | 

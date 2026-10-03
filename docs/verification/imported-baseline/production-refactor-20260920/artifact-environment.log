@@ -1,0 +1,41 @@
+Building for debugging...
+[0/17] Write sources
+[3/17] Write swift-version--1BA0962812E73E12.txt
+[5/22] Compiling ModelArtifactStore ArtifactStore.swift
+$DATA_ROOT/work/NativeAI-Production-20260920/Model/ModelArtifactStore/Sources/ModelArtifactStore/ArtifactLock.swift:1:8: error: no such module 'CryptoKit'
+  1 | import CryptoKit
+    |        `- error: no such module 'CryptoKit'
+  2 | import Foundation
+  3 | 
+error: emit-module command failed with exit code 1 (use -v to see invocation)
+[6/23] Emitting module ModelArtifactStore
+$DATA_ROOT/work/NativeAI-Production-20260920/Model/ModelArtifactStore/Sources/ModelArtifactStore/ArtifactLock.swift:1:8: error: no such module 'CryptoKit'
+  1 | import CryptoKit
+    |        `- error: no such module 'CryptoKit'
+  2 | import Foundation
+  3 | 
+[7/23] Compiling ModelArtifactStore ArtifactLock.swift
+$DATA_ROOT/work/NativeAI-Production-20260920/Model/ModelArtifactStore/Sources/ModelArtifactStore/ArtifactLock.swift:1:8: error: no such module 'CryptoKit'
+  1 | import CryptoKit
+    |        `- error: no such module 'CryptoKit'
+  2 | import Foundation
+  3 | 
+[8/23] Compiling ModelArtifactStore ArtifactManifest.swift
+$DATA_ROOT/work/NativeAI-Production-20260920/Model/ModelArtifactStore/Sources/ModelArtifactStore/ArtifactLock.swift:1:8: error: no such module 'CryptoKit'
+  1 | import CryptoKit
+    |        `- error: no such module 'CryptoKit'
+  2 | import Foundation
+  3 | 
+[9/23] Compiling ModelArtifactStore ArtifactResources.swift
+$DATA_ROOT/work/NativeAI-Production-20260920/Model/ModelArtifactStore/Sources/ModelArtifactStore/ArtifactLock.swift:1:8: error: no such module 'CryptoKit'
+  1 | import CryptoKit
+    |        `- error: no such module 'CryptoKit'
+  2 | import Foundation
+  3 | 
+[10/23] Compiling ModelArtifactStore ProcessResidency.swift
+$DATA_ROOT/work/NativeAI-Production-20260920/Model/ModelArtifactStore/Sources/ModelArtifactStore/ArtifactLock.swift:1:8: error: no such module 'CryptoKit'
+  1 | import CryptoKit
+    |        `- error: no such module 'CryptoKit'
+  2 | import Foundation
+  3 | 
+error: fatalError

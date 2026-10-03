@@ -1,0 +1,22 @@
+{
+  "page_url": "https://example.com/start",
+  "expected": {
+    "title": "Parser Recovery",
+    "canonical_url": "https://example.com/recovery",
+    "language": null,
+    "description": null,
+    "published_at": null,
+    "site_name": null,
+    "markdown": "# Parser Recovery\n\nBroken markup should still recover\n\nSecond paragraph survives without explicit closing tags\n\n- List item one\n\n- List item two\n",
+    "fragments": [
+      {
+        "heading": "Parser Recovery",
+        "text": "Broken markup should still recover"
+      },
+      {
+        "heading": "Parser Recovery",
+        "text": "Second paragraph survives without explicit closing tags"
+      }
+    ]
+  }
+}

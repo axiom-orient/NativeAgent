@@ -1,0 +1,180 @@
+Building for debugging...
+[0/19] Write sources
+[5/19] Write swift-version--1BA0962812E73E12.txt
+[7/45] Emitting module ChatGPTAccount
+[8/45] Compiling LanguageModelCore JSONValue+Bridging.swift
+[9/45] Compiling LanguageModelCore JSONValue+CanonicalCount.swift
+[10/45] Compiling LanguageModelCore JSONValue+Literals.swift
+[11/45] Compiling LanguageModelCore JSONValue+StructureValidation.swift
+[12/45] Compiling LanguageModelCore JSONValue.swift
+[13/45] Compiling LanguageModelCore ToolSchema+Containers.swift
+[14/45] Compiling LanguageModelCore ToolSchema+Numbers.swift
+[15/51] Compiling LanguageModelCore ModelTextSnapshotAccumulator.swift
+[16/51] Compiling LanguageModelCore ModelTool.swift
+[17/51] Compiling LanguageModelCore DeterministicCoreDefaults.swift
+[18/51] Compiling LanguageModelCore SHA1HexDigest.swift
+[19/51] Compiling LanguageModelCore SHA256HexDigest.swift
+[20/51] Compiling LanguageModelCore JSONCoding.swift
+[21/51] Compiling LanguageModelCore JSONValue+Accessors.swift
+[22/51] Compiling LanguageModelCore LanguageModel.swift
+[23/51] Compiling LanguageModelCore ModelClient.swift
+[24/51] Compiling LanguageModelCore ModelClientInvocation.swift
+[25/51] Compiling LanguageModelCore ModelContracts.swift
+[26/51] Compiling LanguageModelCore ModelGeneration.swift
+[27/51] Compiling LanguageModelCore ModelStreamContract.swift
+[28/51] Compiling LanguageModelCore ModelTextRequest.swift
+[29/51] Emitting module LanguageModelCore
+[30/51] Compiling ChatGPTAccount ChatGPTTransport.swift
+[31/51] Compiling ChatGPTAccount ChatGPTAccountPayload.swift
+[32/51] Compiling ChatGPTAccount ChatGPTProtocol.swift
+[33/52] Wrapping AST for ChatGPTAccount for debugging
+[35/56] Compiling ChatGPTImage ChatGPTImageTypes.swift
+[36/56] Compiling ChatGPTImage ChatGPTImageLimits.swift
+[37/56] Compiling ChatGPTImage ChatGPTImageWireCodec.swift
+[38/56] Emitting module ChatGPTImage
+[39/57] Wrapping AST for ChatGPTImage for debugging
+[41/57] Compiling LanguageModelCore ToolSchema+String.swift
+[42/57] Compiling LanguageModelCore ToolSchema.swift
+[43/57] Compiling LanguageModelCore AgentMessage.swift
+[44/57] Compiling LanguageModelCore ModelContent.swift
+[45/57] Compiling LanguageModelCore ModelEvent.swift
+[46/57] Compiling LanguageModelCore ModelStopReason.swift
+[47/58] Wrapping AST for LanguageModelCore for debugging
+[49/63] Compiling ChatGPTText ChatGPTTextPayload.swift
+[50/63] Compiling ChatGPTText ChatGPTTextTypes.swift
+[51/64] Compiling ChatGPTText ChatGPTToolWireCodec.swift
+[52/64] Emitting module ChatGPTText
+[53/64] Compiling ChatGPTText ChatGPTTextWire.swift
+[54/64] Compiling ChatGPTText SSEParser.swift
+[55/65] Wrapping AST for ChatGPTText for debugging
+[57/70] Compiling ChatGPTWireTests ChatGPTAccountPayloadTests.swift
+[58/70] Compiling ChatGPTWireTests ChatGPTImageErrorTests.swift
+[59/71] Emitting module ChatGPTWireTests
+[60/71] Compiling ChatGPTWireTests ChatGPTTransportLifecycleTests.swift
+[61/71] Compiling ChatGPTWireTests ChatGPTURLSessionTests.swift
+[62/71] Compiling ChatGPTWireTests ChatGPTWireBoundaryTests.swift
+[63/72] $DATA_ROOT/build/wire-final/.build/x86_64-unknown-linux-gnu/debug/ChatGPTWireQualificationPackageDiscoveredTests.derived/all-discovered-tests.swift
+[64/72] Write sources
+[65/72] Wrapping AST for ChatGPTWireTests for debugging
+[67/75] Emitting module ChatGPTWireQualificationPackageDiscoveredTests
+[68/75] Compiling ChatGPTWireQualificationPackageDiscoveredTests ChatGPTWireTests.swift
+[69/75] Compiling ChatGPTWireQualificationPackageDiscoveredTests all-discovered-tests.swift
+[70/76] $DATA_ROOT/build/wire-final/.build/x86_64-unknown-linux-gnu/debug/ChatGPTWireQualificationPackageTests.derived/runner.swift
+[71/76] Write sources
+[72/76] Wrapping AST for ChatGPTWireQualificationPackageDiscoveredTests for debugging
+[74/78] Compiling ChatGPTWireQualificationPackageTests runner.swift
+[75/78] Emitting module ChatGPTWireQualificationPackageTests
+[76/79] Wrapping AST for ChatGPTWireQualificationPackageTests for debugging
+[77/79] Write Objects.LinkFileList
+[78/79] Linking ChatGPTWireQualificationPackageTests.xctest
+Build complete! (19.47s)
+Test Suite 'All tests' started at 2026-09-20 06:57:25.749
+Test Suite 'debug.xctest' started at 2026-09-20 06:57:25.750
+Test Suite 'debug.xctest' passed at 2026-09-20 06:57:25.750
+	 Executed 0 tests, with 0 failures (0 unexpected) in 0.0 (0.0) seconds
+Test Suite 'All tests' passed at 2026-09-20 06:57:25.750
+	 Executed 0 tests, with 0 failures (0 unexpected) in 0.0 (0.0) seconds
+◇ Test run started.
+↳ Testing Library Version: 6.2.1 (c9d57c83568b06d)
+↳ Target Platform: x86_64-unknown-linux-gnu
+◇ Suite ChatGPTURLSessionTests started.
+◇ Suite ChatGPTImageErrorTests started.
+◇ Suite ChatGPTAccountPayloadTests started.
+◇ Suite ChatGPTWireBoundaryTests started.
+◇ Suite ChatGPTTransportLifecycleTests started.
+◇ Test requestIDLookupIsCaseInsensitiveAndBounded() started.
+◇ Test forbiddenIsNotMisreportedAsSignedOut() started.
+◇ Suite ChatGPTRateLimitProjectionTests started.
+◇ Test invalidRequestRetainsOnlySafeDiagnostics() started.
+◇ Test chunkedCumulativeLimitFailsButDrains() started.
+◇ Test alreadyCancelledCallerCannotStartTransport() started.
+◇ Test sseHandlesSplitUTF8AndMultilineData() started.
+◇ Test oversizedContentLengthFailsButDrains() started.
+◇ Test successHasIdempotentConcurrentCompletion() started.
+◇ Test textSSEUsesRealTransportAndCanBeReused() started.
+◇ Test booleanAndFractionalQuotaAreNotIntegers() started.
+◇ Test rejectionClassificationKeepsKnownCausesDistinct() started.
+◇ Test malformedAdditionalLimitCannotDisappearSilently() started.
+◇ Test redirectIsRejectedWithoutFollowingLocation() started.
+◇ Test cancellingOneRequestDoesNotCancelAnother() started.
+◇ Test invalidLimitIsRejectedBeforeDispatch() started.
+◇ Test cancellationJoinsInvalidationEvenForCancelledCaller() started.
+◇ Test visiblePriorityAndSlugDetermineRecommendation() started.
+◇ Test modelDecoderPreservesValidatedIdentityAndNumericFields() started.
+◇ Test optionalNullSectionsAndQuotaValuesArePreserved() started.
+◇ Test abruptPeerDisconnectCannotBecomeSuccess() started.
+◇ Test responseMustBeBoundedNonemptyObject() started.
+◇ Test imageCodecRejectsMissingOrInvalidPNG() started.
+◇ Test imageCodecRejectsEmptyPromptAndOversizedBody() started.
+◇ Test sseBoundsEventCountAndFrameBytes() started.
+◇ Test serviceLeaseOriginRejectsCredentialLeakTargets() started.
+◇ Test responseEnforcesCumulativeByteBudget() started.
+◇ Test retryBudgetPreservesSingleRefreshOnly() started.
+◇ Test imageOwnsBytesWithoutModelCoreProjection() started.
+◇ Test responseRejectsBodyBeforeHeadAndDuplicateHead() started.
+◇ Test sseDiscardsUnterminatedEvent() started.
+◇ Test noVisibleModelFailsClosed() started.
+◇ Test imageNeverReturnsSuccessWhenTransportDrainFails() started.
+◇ Test unprovedTransportDrainFailsBothSSEPorts() started.
+◇ Test nativeTaskReceiptAloneDoesNotAuthorizeRelease() started.
+◇ Test cancellationDuringImageDrainCannotReturnSuccess() started.
+◇ Test legacyStreamDoesNotInventNativeCompletion() started.
+◇ Test malformedSSEDrainsBeforeReportingParserFailure() started.
+◇ Test sseCancellationStillDrainsFromCancelledWaiter() started.
+◇ Test imageResponseWaitsForTheSameTransportBoundary() started.
+◇ Test imageParseFailureCancelsAndJoinsTransport() started.
+◇ Test earlyInvalidationDoesNotMasqueradeAsNativeCompletion() started.
+◇ Test rejectedHTTPAttemptDrainsBeforeExposingRetryable401() started.
+◇ Test sseEOFWaitsForTransportSettlement() started.
+◇ Test externallyConstructedRateLimitWindowCannotOverflow() started.
+✔ Test forbiddenIsNotMisreportedAsSignedOut() passed after 0.006 seconds.
+✔ Test requestIDLookupIsCaseInsensitiveAndBounded() passed after 0.006 seconds.
+✔ Test invalidRequestRetainsOnlySafeDiagnostics() passed after 0.007 seconds.
+✔ Test sseHandlesSplitUTF8AndMultilineData() passed after 0.010 seconds.
+✔ Test rejectionClassificationKeepsKnownCausesDistinct() passed after 0.010 seconds.
+✔ Test visiblePriorityAndSlugDetermineRecommendation() passed after 0.010 seconds.
+✔ Test optionalNullSectionsAndQuotaValuesArePreserved() passed after 0.010 seconds.
+✔ Test modelDecoderPreservesValidatedIdentityAndNumericFields() passed after 0.011 seconds.
+✔ Test sseBoundsEventCountAndFrameBytes() passed after 0.011 seconds.
+✔ Test booleanAndFractionalQuotaAreNotIntegers() passed after 0.012 seconds.
+✔ Test responseMustBeBoundedNonemptyObject() passed after 0.012 seconds.
+✔ Test imageCodecRejectsMissingOrInvalidPNG() passed after 0.012 seconds.
+✔ Test imageOwnsBytesWithoutModelCoreProjection() passed after 0.012 seconds.
+✔ Test retryBudgetPreservesSingleRefreshOnly() passed after 0.012 seconds.
+✔ Test serviceLeaseOriginRejectsCredentialLeakTargets() passed after 0.012 seconds.
+✔ Test noVisibleModelFailsClosed() passed after 0.012 seconds.
+✔ Test sseDiscardsUnterminatedEvent() passed after 0.012 seconds.
+✔ Test malformedAdditionalLimitCannotDisappearSilently() passed after 0.013 seconds.
+✔ Test responseRejectsBodyBeforeHeadAndDuplicateHead() passed after 0.012 seconds.
+✔ Test imageCodecRejectsEmptyPromptAndOversizedBody() passed after 0.013 seconds.
+✔ Test responseEnforcesCumulativeByteBudget() passed after 0.013 seconds.
+✔ Test externallyConstructedRateLimitWindowCannotOverflow() passed after 0.007 seconds.
+✔ Suite ChatGPTImageErrorTests passed after 0.014 seconds.
+✔ Suite ChatGPTWireBoundaryTests passed after 0.015 seconds.
+✔ Suite ChatGPTAccountPayloadTests passed after 0.014 seconds.
+✔ Suite ChatGPTRateLimitProjectionTests passed after 0.014 seconds.
+✔ Test nativeTaskReceiptAloneDoesNotAuthorizeRelease() passed after 0.013 seconds.
+✔ Test invalidLimitIsRejectedBeforeDispatch() passed after 0.014 seconds.
+✔ Test earlyInvalidationDoesNotMasqueradeAsNativeCompletion() passed after 0.014 seconds.
+✔ Test legacyStreamDoesNotInventNativeCompletion() passed after 0.015 seconds.
+✔ Test alreadyCancelledCallerCannotStartTransport() passed after 0.017 seconds.
+✔ Test cancellationDuringImageDrainCannotReturnSuccess() passed after 0.017 seconds.
+✔ Test imageResponseWaitsForTheSameTransportBoundary() passed after 0.017 seconds.
+✔ Test imageParseFailureCancelsAndJoinsTransport() passed after 0.017 seconds.
+✔ Test malformedSSEDrainsBeforeReportingParserFailure() passed after 0.018 seconds.
+✔ Test sseCancellationStillDrainsFromCancelledWaiter() passed after 0.018 seconds.
+✔ Test sseEOFWaitsForTransportSettlement() passed after 0.016 seconds.
+✔ Test rejectedHTTPAttemptDrainsBeforeExposingRetryable401() passed after 0.017 seconds.
+✔ Test successHasIdempotentConcurrentCompletion() passed after 0.019 seconds.
+✔ Test unprovedTransportDrainFailsBothSSEPorts() passed after 0.018 seconds.
+✔ Test imageNeverReturnsSuccessWhenTransportDrainFails() passed after 0.019 seconds.
+✔ Test oversizedContentLengthFailsButDrains() passed after 0.019 seconds.
+✔ Test redirectIsRejectedWithoutFollowingLocation() passed after 0.019 seconds.
+✔ Suite ChatGPTTransportLifecycleTests passed after 0.020 seconds.
+✔ Test abruptPeerDisconnectCannotBecomeSuccess() passed after 0.021 seconds.
+✔ Test cancellingOneRequestDoesNotCancelAnother() passed after 0.022 seconds.
+✔ Test chunkedCumulativeLimitFailsButDrains() passed after 0.023 seconds.
+✔ Test cancellationJoinsInvalidationEvenForCancelledCaller() passed after 0.023 seconds.
+✔ Test textSSEUsesRealTransportAndCanBeReused() passed after 0.026 seconds.
+✔ Suite ChatGPTURLSessionTests passed after 0.027 seconds.
+✔ Test run with 44 tests in 6 suites passed after 0.028 seconds.

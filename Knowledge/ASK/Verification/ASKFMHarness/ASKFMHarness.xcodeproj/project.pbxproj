@@ -1,0 +1,336 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		033049D683EB51DAA8E9960E /* ASKFMHarnessApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B59389BF622C7E7700C11A /* ASKFMHarnessApp.swift */; };
+		F265D280919B8F0B93AEBE96 /* ASKFoundationModels in Frameworks */ = {isa = PBXBuildFile; productRef = 66CE350AA8A3DFBF95392064 /* ASKFoundationModels */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		27B59389BF622C7E7700C11A /* ASKFMHarnessApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ASKFMHarnessApp.swift; sourceTree = "<group>"; };
+		59E58F014E4915497CCD1D2E /* ASKFMHarness.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = ASKFMHarness.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D1D5BD60793973F843D41B68 /* ASKFoundationModels */ = {isa = PBXFileReference; lastKnownFileType = folder; name = ASKFoundationModels; path = ../../Packages/ASKFoundationModels; sourceTree = SOURCE_ROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		227F2DDC4A9CFCFDE7039FE3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F265D280919B8F0B93AEBE96 /* ASKFoundationModels in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		1DDCFD104EB61B21EEEC5265 /* Packages */ = {
+			isa = PBXGroup;
+			children = (
+				D1D5BD60793973F843D41B68 /* ASKFoundationModels */,
+			);
+			name = Packages;
+			sourceTree = "<group>";
+		};
+		B92BBAC7971C7A9731E9229A /* App */ = {
+			isa = PBXGroup;
+			children = (
+				27B59389BF622C7E7700C11A /* ASKFMHarnessApp.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		D06818090ADE171ECE5A4CA3 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				59E58F014E4915497CCD1D2E /* ASKFMHarness.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		DD783682822C2B49CD3B01A5 = {
+			isa = PBXGroup;
+			children = (
+				B92BBAC7971C7A9731E9229A /* App */,
+				1DDCFD104EB61B21EEEC5265 /* Packages */,
+				D06818090ADE171ECE5A4CA3 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		A4745FB8E748AC93F20FA4D0 /* ASKFMHarness */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7D0B3A0CBD73294D3A90CAD0 /* Build configuration list for PBXNativeTarget "ASKFMHarness" */;
+			buildPhases = (
+				7331142DBBEB709D0114FBDE /* Sources */,
+				227F2DDC4A9CFCFDE7039FE3 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ASKFMHarness;
+			packageProductDependencies = (
+				66CE350AA8A3DFBF95392064 /* ASKFoundationModels */,
+			);
+			productName = ASKFMHarness;
+			productReference = 59E58F014E4915497CCD1D2E /* ASKFMHarness.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		1B5F03AAAEFD9B657AEE886D /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 1430;
+				TargetAttributes = {
+					A4745FB8E748AC93F20FA4D0 = {
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 50BD761C7780FE56CAC5FA43 /* Build configuration list for PBXProject "ASKFMHarness" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				Base,
+				en,
+			);
+			mainGroup = DD783682822C2B49CD3B01A5;
+			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				5578D057BBC22153920ACA52 /* XCLocalSwiftPackageReference "../../Packages/ASKFoundationModels" */,
+			);
+			preferredProjectObjectVersion = 77;
+			productRefGroup = D06818090ADE171ECE5A4CA3 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				A4745FB8E748AC93F20FA4D0 /* ASKFMHarness */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		7331142DBBEB709D0114FBDE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				033049D683EB51DAA8E9960E /* ASKFMHarnessApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		71AE7D86D26CC92CDF5C2EB8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		8602921F9B6B1575BD879A73 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"DEBUG=1",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		DFC9612E9BE6FA15964F5FB3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "ASK FM";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.ask.fm-harness";
+				PRODUCT_MODULE_NAME = ASKFMHarness;
+				PRODUCT_NAME = ASKFMHarness;
+				SDKROOT = iphoneos;
+				SWIFT_STRICT_CONCURRENCY = complete;
+				SWIFT_VERSION = 6.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		F86B1B476AD1847354B5284B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "ASK FM";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.ask.fm-harness";
+				PRODUCT_MODULE_NAME = ASKFMHarness;
+				PRODUCT_NAME = ASKFMHarness;
+				SDKROOT = iphoneos;
+				SWIFT_STRICT_CONCURRENCY = complete;
+				SWIFT_VERSION = 6.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		50BD761C7780FE56CAC5FA43 /* Build configuration list for PBXProject "ASKFMHarness" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8602921F9B6B1575BD879A73 /* Debug */,
+				71AE7D86D26CC92CDF5C2EB8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		7D0B3A0CBD73294D3A90CAD0 /* Build configuration list for PBXNativeTarget "ASKFMHarness" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DFC9612E9BE6FA15964F5FB3 /* Debug */,
+				F86B1B476AD1847354B5284B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCLocalSwiftPackageReference section */
+		5578D057BBC22153920ACA52 /* XCLocalSwiftPackageReference "../../Packages/ASKFoundationModels" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = ../../Packages/ASKFoundationModels;
+		};
+/* End XCLocalSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		66CE350AA8A3DFBF95392064 /* ASKFoundationModels */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = ASKFoundationModels;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = 1B5F03AAAEFD9B657AEE886D /* Project object */;
+}

@@ -1,0 +1,41 @@
+{
+  "captured_at": "2026-04-07T10:00:10Z",
+  "connector": "webcollect",
+  "content_hash": "sha256:demo",
+  "fragments": [
+    {
+      "fingerprint": "f1",
+      "fragment_id": "frag_001",
+      "locator": {
+        "css": "article p:nth-of-type(1)"
+      },
+      "metadata": {},
+      "ordinal": 0,
+      "text": "ASK is a file-backed knowledge compiler."
+    },
+    {
+      "fingerprint": "f2",
+      "fragment_id": "frag_002",
+      "locator": {
+        "css": "article p:nth-of-type(2)"
+      },
+      "metadata": {},
+      "ordinal": 1,
+      "text": "It keeps evidence immutable and projections derived."
+    }
+  ],
+  "language": "en",
+  "metadata": {
+    "url": "https://example.com/demo"
+  },
+  "mime_type": "text/html",
+  "observed_at": "2026-04-07T10:00:00Z",
+  "raw_relpath": "raw/evidence/2026-04-07/src_demo.html",
+  "source_id": "src_demo",
+  "source_kind": "url",
+  "tags": [
+    "demo",
+    "web"
+  ],
+  "title": "Demo Source"
+}

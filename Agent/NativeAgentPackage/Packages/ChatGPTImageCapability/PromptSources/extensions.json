@@ -1,0 +1,206 @@
+[
+  {
+    "id": "EX-animated-illustration",
+    "title": "애니메이션 일러스트로 변환",
+    "summary": "피사체를 알아볼 수 있는 따뜻한 손그림 애니메이션으로 바꿉니다.",
+    "mode": "REFERENCE_IMAGE_REQUIRED",
+    "category": "animated-illustration",
+    "source": "authored-extension-2026-09-14",
+    "template": "Transform the supplied reference image. Preserve subject identity, count, geometry, pose, viewpoint, crop and relative placement. Change only the visual treatment. If details are unclear, simplify conservatively.\n\nUse hand-drawn contours, softly painted backgrounds, restrained cel shading and warm coherent colors. Avoid copying a named franchise. Preserve animal markings and facial landmarks.\n\nDo not add text, logos, watermarks or unrelated subjects. The example card is a style illustration, never an input image.",
+    "variables": [],
+    "requiredVariables": [],
+    "defaults": {},
+    "failureCriteria": [
+      "피사체의 정체성·구도·개수가 달라짐",
+      "요청하지 않은 글자·장식이 추가됨",
+      "스타일 때문에 핵심 형태가 읽히지 않음"
+    ]
+  },
+  {
+    "id": "EX-watercolor",
+    "title": "수채화로 변환",
+    "summary": "물감 번짐과 옅은 채색으로 장면을 부드럽게 표현합니다.",
+    "mode": "REFERENCE_IMAGE_REQUIRED",
+    "category": "watercolor",
+    "source": "authored-extension-2026-09-14",
+    "template": "Transform the supplied reference image. Preserve subject identity, count, geometry, pose, viewpoint, crop and relative placement. Change only the visual treatment. If details are unclear, simplify conservatively.\n\nUse transparent pigment washes, soft wet-on-wet transitions, selective dry brush edges and subtle paper grain. Preserve landmark geometry and source color relationships; avoid muddy overpainting.\n\nDo not add text, logos, watermarks or unrelated subjects. The example card is a style illustration, never an input image.",
+    "variables": [],
+    "requiredVariables": [],
+    "defaults": {},
+    "failureCriteria": [
+      "피사체의 정체성·구도·개수가 달라짐",
+      "요청하지 않은 글자·장식이 추가됨",
+      "스타일 때문에 핵심 형태가 읽히지 않음"
+    ]
+  },
+  {
+    "id": "EX-pencil-sketch",
+    "title": "연필 스케치로 변환",
+    "summary": "연필선과 해칭으로 형태와 명암을 살립니다.",
+    "mode": "REFERENCE_IMAGE_REQUIRED",
+    "category": "pencil-sketch",
+    "source": "authored-extension-2026-09-14",
+    "template": "Transform the supplied reference image. Preserve subject identity, count, geometry, pose, viewpoint, crop and relative placement. Change only the visual treatment. If details are unclear, simplify conservatively.\n\nUse graphite line weight, directional hatching and subtle paper tooth. Keep distinctive features sharp and leave quiet paper around the subject. No color washes or invented sketchbook props.\n\nDo not add text, logos, watermarks or unrelated subjects. The example card is a style illustration, never an input image.",
+    "variables": [],
+    "requiredVariables": [],
+    "defaults": {},
+    "failureCriteria": [
+      "피사체의 정체성·구도·개수가 달라짐",
+      "요청하지 않은 글자·장식이 추가됨",
+      "스타일 때문에 핵심 형태가 읽히지 않음"
+    ]
+  },
+  {
+    "id": "EX-ink-wash",
+    "title": "수묵화로 변환",
+    "summary": "먹의 농담과 여백으로 주요 형태를 살립니다.",
+    "mode": "REFERENCE_IMAGE_REQUIRED",
+    "category": "ink-wash",
+    "source": "authored-extension-2026-09-14",
+    "template": "Transform the supplied reference image. Preserve subject identity, count, geometry, pose, viewpoint, crop and relative placement. Change only the visual treatment. If details are unclear, simplify conservatively.\n\nUse monochrome ink washes, varied brush pressure, dry brush texture and deliberate negative space. Preserve architecture and silhouettes. Add no calligraphy, seals or cultural motifs.\n\nDo not add text, logos, watermarks or unrelated subjects. The example card is a style illustration, never an input image.",
+    "variables": [],
+    "requiredVariables": [],
+    "defaults": {},
+    "failureCriteria": [
+      "피사체의 정체성·구도·개수가 달라짐",
+      "요청하지 않은 글자·장식이 추가됨",
+      "스타일 때문에 핵심 형태가 읽히지 않음"
+    ]
+  },
+  {
+    "id": "EX-line-drawing",
+    "title": "라인 드로잉로 변환",
+    "summary": "불필요한 채색을 덜고 선으로 형태를 표현합니다.",
+    "mode": "REFERENCE_IMAGE_REQUIRED",
+    "category": "line-drawing",
+    "source": "authored-extension-2026-09-14",
+    "template": "Transform the supplied reference image. Preserve subject identity, count, geometry, pose, viewpoint, crop and relative placement. Change only the visual treatment. If details are unclear, simplify conservatively.\n\nUse clean dark contours on plain light paper, economical line weight and minimal hatching. Preserve object geometry and distinctive interior shapes. No decorative background.\n\nDo not add text, logos, watermarks or unrelated subjects. The example card is a style illustration, never an input image.",
+    "variables": [],
+    "requiredVariables": [],
+    "defaults": {},
+    "failureCriteria": [
+      "피사체의 정체성·구도·개수가 달라짐",
+      "요청하지 않은 글자·장식이 추가됨",
+      "스타일 때문에 핵심 형태가 읽히지 않음"
+    ]
+  },
+  {
+    "id": "EX-low-poly",
+    "title": "로우 폴리로 변환",
+    "summary": "다각형 면과 절제된 색으로 장면을 단순화합니다.",
+    "mode": "REFERENCE_IMAGE_REQUIRED",
+    "category": "low-poly",
+    "source": "authored-extension-2026-09-14",
+    "template": "Transform the supplied reference image. Preserve subject identity, count, geometry, pose, viewpoint, crop and relative placement. Change only the visual treatment. If details are unclear, simplify conservatively.\n\nTranslate existing forms into deliberately sized polygon planes with faceted shading and a controlled source-derived palette. Preserve horizon, relative placement and recognizable silhouettes.\n\nDo not add text, logos, watermarks or unrelated subjects. The example card is a style illustration, never an input image.",
+    "variables": [],
+    "requiredVariables": [],
+    "defaults": {},
+    "failureCriteria": [
+      "피사체의 정체성·구도·개수가 달라짐",
+      "요청하지 않은 글자·장식이 추가됨",
+      "스타일 때문에 핵심 형태가 읽히지 않음"
+    ]
+  },
+  {
+    "id": "EX-cyberpunk",
+    "title": "사이버펑크로 변환",
+    "summary": "원본 공간에 네온 조명과 미래 도시의 색감을 입힙니다.",
+    "mode": "REFERENCE_IMAGE_REQUIRED",
+    "category": "cyberpunk",
+    "source": "authored-extension-2026-09-14",
+    "template": "Transform the supplied reference image. Preserve subject identity, count, geometry, pose, viewpoint, crop and relative placement. Change only the visual treatment. If details are unclear, simplify conservatively.\n\nApply restrained magenta and cyan neon light to the existing scene with physically coherent reflections and readable shadows. Preserve architecture, people and viewpoint. Do not invent signs, readable text, vehicles or props.\n\nDo not add text, logos, watermarks or unrelated subjects. The example card is a style illustration, never an input image.",
+    "variables": [],
+    "requiredVariables": [],
+    "defaults": {},
+    "failureCriteria": [
+      "피사체의 정체성·구도·개수가 달라짐",
+      "요청하지 않은 글자·장식이 추가됨",
+      "스타일 때문에 핵심 형태가 읽히지 않음"
+    ]
+  },
+  {
+    "id": "EX-minimal-illustration",
+    "title": "미니멀 일러스트로 변환",
+    "summary": "핵심 형태와 적은 색으로 간결하게 표현합니다.",
+    "mode": "REFERENCE_IMAGE_REQUIRED",
+    "category": "minimal-illustration",
+    "source": "authored-extension-2026-09-14",
+    "template": "Transform the supplied reference image. Preserve subject identity, count, geometry, pose, viewpoint, crop and relative placement. Change only the visual treatment. If details are unclear, simplify conservatively.\n\nUse a small source-derived palette, flat matte shapes, clean silhouettes and generous negative space. Simplify minor texture without removing identifying geometry.\n\nDo not add text, logos, watermarks or unrelated subjects. The example card is a style illustration, never an input image.",
+    "variables": [],
+    "requiredVariables": [],
+    "defaults": {},
+    "failureCriteria": [
+      "피사체의 정체성·구도·개수가 달라짐",
+      "요청하지 않은 글자·장식이 추가됨",
+      "스타일 때문에 핵심 형태가 읽히지 않음"
+    ]
+  },
+  {
+    "id": "EX-sticker",
+    "title": "스티커로 변환",
+    "summary": "알아보기 쉬운 윤곽과 표정으로 스티커를 만듭니다.",
+    "mode": "REFERENCE_IMAGE_REQUIRED",
+    "category": "sticker",
+    "source": "authored-extension-2026-09-14",
+    "template": "Transform the supplied reference image. Preserve subject identity, count, geometry, pose, viewpoint, crop and relative placement. Change only the visual treatment. If details are unclear, simplify conservatively.\n\nCreate exactly one sticker of the source subject, preserving identity and expression. Use a clean continuous cutline, readable silhouette and plain background. Do not create a sheet, extra faces or captions.\n\nDo not add text, logos, watermarks or unrelated subjects. The example card is a style illustration, never an input image.",
+    "variables": [],
+    "requiredVariables": [],
+    "defaults": {},
+    "failureCriteria": [
+      "피사체의 정체성·구도·개수가 달라짐",
+      "요청하지 않은 글자·장식이 추가됨",
+      "스타일 때문에 핵심 형태가 읽히지 않음"
+    ]
+  },
+  {
+    "id": "EX-black-white-film",
+    "title": "흑백 영화로 변환",
+    "summary": "색을 덜고 빛과 그림자로 영화 같은 분위기를 만듭니다.",
+    "mode": "REFERENCE_IMAGE_REQUIRED",
+    "category": "black-white-film",
+    "source": "authored-extension-2026-09-14",
+    "template": "Transform the supplied reference image. Preserve subject identity, count, geometry, pose, viewpoint, crop and relative placement. Change only the visual treatment. If details are unclear, simplify conservatively.\n\nConvert to monochrome silver-gelatin film with fine organic grain, controlled contrast and detailed highlights and shadows. Preserve face, pose, crop and original lighting geometry. No retouching or new props.\n\nDo not add text, logos, watermarks or unrelated subjects. The example card is a style illustration, never an input image.",
+    "variables": [],
+    "requiredVariables": [],
+    "defaults": {},
+    "failureCriteria": [
+      "피사체의 정체성·구도·개수가 달라짐",
+      "요청하지 않은 글자·장식이 추가됨",
+      "스타일 때문에 핵심 형태가 읽히지 않음"
+    ]
+  },
+  {
+    "id": "EX-menu-illustration",
+    "title": "음식 메뉴 일러스트로 변환",
+    "summary": "음식의 재료와 모양을 지키며 메뉴용 그림으로 표현합니다.",
+    "mode": "REFERENCE_IMAGE_REQUIRED",
+    "category": "menu-illustration",
+    "source": "authored-extension-2026-09-14",
+    "template": "Transform the supplied reference image. Preserve subject identity, count, geometry, pose, viewpoint, crop and relative placement. Change only the visual treatment. If details are unclear, simplify conservatively.\n\nRender the same food as an appetizing hand-painted menu illustration with restrained outlines and warm paper. Preserve cuisine, ingredients, vessel count and plating. Add no labels, prices, garnishes or side dishes.\n\nDo not add text, logos, watermarks or unrelated subjects. The example card is a style illustration, never an input image.",
+    "variables": [],
+    "requiredVariables": [],
+    "defaults": {},
+    "failureCriteria": [
+      "피사체의 정체성·구도·개수가 달라짐",
+      "요청하지 않은 글자·장식이 추가됨",
+      "스타일 때문에 핵심 형태가 읽히지 않음"
+    ]
+  },
+  {
+    "id": "EX-emoji-icon",
+    "title": "이모지·아이콘로 변환",
+    "summary": "작은 크기에서도 읽히는 하나의 기호로 단순화합니다.",
+    "mode": "REFERENCE_IMAGE_REQUIRED",
+    "category": "emoji-icon",
+    "source": "authored-extension-2026-09-14",
+    "template": "Transform the supplied reference image. Preserve subject identity, count, geometry, pose, viewpoint, crop and relative placement. Change only the visual treatment. If details are unclear, simplify conservatively.\n\nSimplify the same object into a single readable emoji-style icon with a clean silhouette, controlled shading and a plain background. Preserve distinctive geometry. Do not invent faces, limbs, text or a grid.\n\nDo not add text, logos, watermarks or unrelated subjects. The example card is a style illustration, never an input image.",
+    "variables": [],
+    "requiredVariables": [],
+    "defaults": {},
+    "failureCriteria": [
+      "피사체의 정체성·구도·개수가 달라짐",
+      "요청하지 않은 글자·장식이 추가됨",
+      "스타일 때문에 핵심 형태가 읽히지 않음"
+    ]
+  }
+]

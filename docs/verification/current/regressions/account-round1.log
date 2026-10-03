@@ -1,0 +1,1817 @@
+[0/1] Planning build
+Building for debugging...
+[0/11] Write sources
+[2/11] Write swift-version--1BA0962812E73E12.txt
+[4/15] Compiling ChatGPTAccount LocalhostCallbackServer.swift
+[5/15] Compiling ChatGPTAccount ChatGPTCallbackState.swift
+[6/15] Emitting module ChatGPTAccount
+[7/15] Compiling ChatGPTAccount ChatGPTCallbackRequest.swift
+[8/16] Wrapping AST for ChatGPTAccount for debugging
+[10/23] Emitting module ChatGPTAccountTests
+[11/23] Compiling ChatGPTAccountTests AccountLifecycleTests.swift
+[12/23] Compiling ChatGPTAccountTests AccountMutationTests.swift
+[13/23] Compiling ChatGPTAccountTests AccountTestPorts.swift
+[14/23] Compiling ChatGPTAccountTests CallbackRequestTests.swift
+[15/23] Compiling ChatGPTAccountTests CallbackStateTests.swift
+macro expansion #expect:2:6: error: cannot use mutating member on immutable value: '$0' is immutable
+`- $DATA_ROOT/work/NativeAI-Production-20260920/Providers/ChatGPT/Account/Tests/ChatGPTAccountTests/CallbackStateTests.swift:9:25: note: expanded code originates here
+  7 | @Test func callbackShutdownRequiresListenerAndEveryAcceptedConnection() {
+  8 |   var state = ChatGPTCallbackState<CallbackConnection>()
+  9 |   #expect(state.start())
+    |   `- note: in expansion of macro 'expect' here
+    +--- macro expansion #expect ---------------------------------------
+    |1 | Testing.__checkFunctionCall(state.self,calling: {
+    |2 |   $0.start()
+    |  |      `- error: cannot use mutating member on immutable value: '$0' is immutable
+    |3 | },expression: .__fromFunctionCall(.__fromSyntaxNode("state"),"start"),comments: [],isRequired: false,sourceLocation: Testing.SourceLocation.__here()).__expected()
+    +-------------------------------------------------------------------
+ 10 |   #expect(state.ready())
+ 11 |   let first = CallbackConnection(), second = CallbackConnection()
+
+macro expansion #expect:2:6: error: cannot use mutating member on immutable value: '$0' is immutable
+`- $DATA_ROOT/work/NativeAI-Production-20260920/Providers/ChatGPT/Account/Tests/ChatGPTAccountTests/CallbackStateTests.swift:10:25: note: expanded code originates here
+  8 |   var state = ChatGPTCallbackState<CallbackConnection>()
+  9 |   #expect(state.start())
+ 10 |   #expect(state.ready())
+    |   `- note: in expansion of macro 'expect' here
+    +--- macro expansion #expect ---------------------------------------
+    |1 | Testing.__checkFunctionCall(state.self,calling: {
+    |2 |   $0.ready()
+    |  |      `- error: cannot use mutating member on immutable value: '$0' is immutable
+    |3 | },expression: .__fromFunctionCall(.__fromSyntaxNode("state"),"ready"),comments: [],isRequired: false,sourceLocation: Testing.SourceLocation.__here()).__expected()
+    +-------------------------------------------------------------------
+ 11 |   let first = CallbackConnection(), second = CallbackConnection()
+ 12 |   #expect(state.track(first))
+
+macro expansion #expect:2:6: error: cannot use mutating member on immutable value: '$0' is immutable
+`- $DATA_ROOT/work/NativeAI-Production-20260920/Providers/ChatGPT/Account/Tests/ChatGPTAccountTests/CallbackStateTests.swift:12:30: note: expanded code originates here
+ 10 |   #expect(state.ready())
+ 11 |   let first = CallbackConnection(), second = CallbackConnection()
+ 12 |   #expect(state.track(first))
+    |   `- note: in expansion of macro 'expect' here
+    +--- macro expansion #expect ---------------------------------------
+    |1 | Testing.__checkFunctionCall(state.self,calling: {
+    |2 |   $0.track($1)
+    |  |      `- error: cannot use mutating member on immutable value: '$0' is immutable
+    |3 | },first,expression: .__fromFunctionCall(.__fromSyntaxNode("state"),"track",(nil,.__fromSyntaxNode("first"))),comments: [],isRequired: false,sourceLocation: Testing.SourceLocation.__here()).__expected()
+    +-------------------------------------------------------------------
+ 13 |   #expect(state.track(second))
+ 14 |   #expect(state.stopListener())
+
+macro expansion #expect:2:6: error: cannot use mutating member on immutable value: '$0' is immutable
+`- $DATA_ROOT/work/NativeAI-Production-20260920/Providers/ChatGPT/Account/Tests/ChatGPTAccountTests/CallbackStateTests.swift:13:31: note: expanded code originates here
+ 11 |   let first = CallbackConnection(), second = CallbackConnection()
+ 12 |   #expect(state.track(first))
+ 13 |   #expect(state.track(second))
+    |   `- note: in expansion of macro 'expect' here
+    +--- macro expansion #expect ---------------------------------------
+    |1 | Testing.__checkFunctionCall(state.self,calling: {
+    |2 |   $0.track($1)
+    |  |      `- error: cannot use mutating member on immutable value: '$0' is immutable
+    |3 | },second,expression: .__fromFunctionCall(.__fromSyntaxNode("state"),"track",(nil,.__fromSyntaxNode("second"))),comments: [],isRequired: false,sourceLocation: Testing.SourceLocation.__here()).__expected()
+    +-------------------------------------------------------------------
+ 14 |   #expect(state.stopListener())
+ 15 |   #expect(state.cancelConnections().count == 2)
+
+macro expansion #expect:2:6: error: cannot use mutating member on immutable value: '$0' is immutable
+`- $DATA_ROOT/work/NativeAI-Production-20260920/Providers/ChatGPT/Account/Tests/ChatGPTAccountTests/CallbackStateTests.swift:14:32: note: expanded code originates here
+ 12 |   #expect(state.track(first))
+ 13 |   #expect(state.track(second))
+ 14 |   #expect(state.stopListener())
+    |   `- note: in expansion of macro 'expect' here
+    +--- macro expansion #expect ---------------------------------------
+    |1 | Testing.__checkFunctionCall(state.self,calling: {
+    |2 |   $0.stopListener()
+    |  |      `- error: cannot use mutating member on immutable value: '$0' is immutable
+    |3 | },expression: .__fromFunctionCall(.__fromSyntaxNode("state"),"stopListener"),comments: [],isRequired: false,sourceLocation: Testing.SourceLocation.__here()).__expected()
+    +-------------------------------------------------------------------
+ 15 |   #expect(state.cancelConnections().count == 2)
+ 16 |   state.listenerCancelled()
+
+macro expansion #expect:2:6: error: cannot use mutating member on immutable value: '$0' is immutable
+`- $DATA_ROOT/work/NativeAI-Production-20260920/Providers/ChatGPT/Account/Tests/ChatGPTAccountTests/CallbackStateTests.swift:29:25: note: expanded code originates here
+ 27 |   var state = ChatGPTCallbackState<CallbackConnection>()
+ 28 |   let connection = CallbackConnection(), operation = UUID()
+ 29 |   #expect(state.start())
+    |   `- note: in expansion of macro 'expect' here
+    +--- macro expansion #expect ---------------------------------------
+    |1 | Testing.__checkFunctionCall(state.self,calling: {
+    |2 |   $0.start()
+    |  |      `- error: cannot use mutating member on immutable value: '$0' is immutable
+    |3 | },expression: .__fromFunctionCall(.__fromSyntaxNode("state"),"start"),comments: [],isRequired: false,sourceLocation: Testing.SourceLocation.__here()).__expected()
+    +-------------------------------------------------------------------
+ 30 |   #expect(state.ready())
+ 31 |   #expect(state.track(connection))
+
+macro expansion #expect:2:6: error: cannot use mutating member on immutable value: '$0' is immutable
+`- $DATA_ROOT/work/NativeAI-Production-20260920/Providers/ChatGPT/Account/Tests/ChatGPTAccountTests/CallbackStateTests.swift:30:25: note: expanded code originates here
+ 28 |   let connection = CallbackConnection(), operation = UUID()
+ 29 |   #expect(state.start())
+ 30 |   #expect(state.ready())
+    |   `- note: in expansion of macro 'expect' here
+    +--- macro expansion #expect ---------------------------------------
+    |1 | Testing.__checkFunctionCall(state.self,calling: {
+    |2 |   $0.ready()
+    |  |      `- error: cannot use mutating member on immutable value: '$0' is immutable
+    |3 | },expression: .__fromFunctionCall(.__fromSyntaxNode("state"),"ready"),comments: [],isRequired: false,sourceLocation: Testing.SourceLocation.__here()).__expected()
+    +-------------------------------------------------------------------
+ 31 |   #expect(state.track(connection))
+ 32 |   #expect(state.beginIO(on: connection, id: operation))
+
+macro expansion #expect:2:6: error: cannot use mutating member on immutable value: '$0' is immutable
+`- $DATA_ROOT/work/NativeAI-Production-20260920/Providers/ChatGPT/Account/Tests/ChatGPTAccountTests/CallbackStateTests.swift:31:35: note: expanded code originates here
+ 29 |   #expect(state.start())
+ 30 |   #expect(state.ready())
+ 31 |   #expect(state.track(connection))
+    |   `- note: in expansion of macro 'expect' here
+    +--- macro expansion #expect ---------------------------------------
+    |1 | Testing.__checkFunctionCall(state.self,calling: {
+    |2 |   $0.track($1)
+    |  |      `- error: cannot use mutating member on immutable value: '$0' is immutable
+    |3 | },connection,expression: .__fromFunctionCall(.__fromSyntaxNode("state"),"track",(nil,.__fromSyntaxNode("connection"))),comments: [],isRequired: false,sourceLocation: Testing.SourceLocation.__here()).__expected()
+    +-------------------------------------------------------------------
+ 32 |   #expect(state.beginIO(on: connection, id: operation))
+ 33 |   #expect(state.stopListener())
+
+macro expansion #expect:2:6: error: cannot use mutating member on immutable value: '$0' is immutable
+`- $DATA_ROOT/work/NativeAI-Production-20260920/Providers/ChatGPT/Account/Tests/ChatGPTAccountTests/CallbackStateTests.swift:32:56: note: expanded code originates here
+ 30 |   #expect(state.ready())
+ 31 |   #expect(state.track(connection))
+ 32 |   #expect(state.beginIO(on: connection, id: operation))
+    |   `- note: in expansion of macro 'expect' here
+    +--- macro expansion #expect ---------------------------------------
+    |1 | Testing.__checkFunctionCall(state.self,calling: {
+    |2 |   $0.beginIO(on: $1,id: $2)
+    |  |      `- error: cannot use mutating member on immutable value: '$0' is immutable
+    |3 | },connection,operation,expression: .__fromFunctionCall(.__fromSyntaxNode("state"),"beginIO",("on",.__fromSyntaxNode("connection")),("id",.__fromSyntaxNode("operation"))),comments: [],isRequired: false,sourceLocation: Testing.SourceLocation.__here()).__expected()
+    +-------------------------------------------------------------------
+ 33 |   #expect(state.stopListener())
+ 34 |   #expect(state.cancelConnections().count == 1)
+
+macro expansion #expect:2:6: error: cannot use mutating member on immutable value: '$0' is immutable
+`- $DATA_ROOT/work/NativeAI-Production-20260920/Providers/ChatGPT/Account/Tests/ChatGPTAccountTests/CallbackStateTests.swift:33:32: note: expanded code originates here
+ 31 |   #expect(state.track(connection))
+ 32 |   #expect(state.beginIO(on: connection, id: operation))
+ 33 |   #expect(state.stopListener())
+    |   `- note: in expansion of macro 'expect' here
+    +--- macro expansion #expect ---------------------------------------
+    |1 | Testing.__checkFunctionCall(state.self,calling: {
+    |2 |   $0.stopListener()
+    |  |      `- error: cannot use mutating member on immutable value: '$0' is immutable
+    |3 | },expression: .__fromFunctionCall(.__fromSyntaxNode("state"),"stopListener"),comments: [],isRequired: false,sourceLocation: Testing.SourceLocation.__here()).__expected()
+    +-------------------------------------------------------------------
+ 34 |   #expect(state.cancelConnections().count == 1)
+ 35 |   for (offset, receipt) in order.enumerated() {
+
+macro expansion #expect:2:6: error: cannot use mutating member on immutable value: '$0' is immutable
+`- $DATA_ROOT/work/NativeAI-Production-20260920/Providers/ChatGPT/Account/Tests/ChatGPTAccountTests/CallbackStateTests.swift:39:70: note: expanded code originates here
+ 37 |     case 0: state.listenerCancelled()
+ 38 |     case 1: state.connectionCancelled(connection)
+ 39 |     default: #expect(state.completeIO(on: connection, id: operation))
+    |              `- note: in expansion of macro 'expect' here
+    +--- macro expansion #expect ---------------------------------------
+    |1 | Testing.__checkFunctionCall(state.self,calling: {
+    |2 |   $0.completeIO(on: $1,id: $2)
+    |  |      `- error: cannot use mutating member on immutable value: '$0' is immutable
+    |3 | },connection,operation,expression: .__fromFunctionCall(.__fromSyntaxNode("state"),"completeIO",("on",.__fromSyntaxNode("connection")),("id",.__fromSyntaxNode("operation"))),comments: [],isRequired: false,sourceLocation: Testing.SourceLocation.__here()).__expected()
+    +-------------------------------------------------------------------
+ 40 |     }
+ 41 |     #expect(state.isDrained == (offset == order.count - 1))
+
+macro expansion #expect:2:6: error: cannot use mutating member on immutable value: '$0' is immutable
+`- $DATA_ROOT/work/NativeAI-Production-20260920/Providers/ChatGPT/Account/Tests/ChatGPTAccountTests/CallbackStateTests.swift:48:25: note: expanded code originates here
+ 46 |   var state = ChatGPTCallbackState<CallbackConnection>()
+ 47 |   let connection = CallbackConnection(), old = UUID(), current = UUID()
+ 48 |   #expect(state.start())
+    |   `- note: in expansion of macro 'expect' here
+    +--- macro expansion #expect ---------------------------------------
+    |1 | Testing.__checkFunctionCall(state.self,calling: {
+    |2 |   $0.start()
+    |  |      `- error: cannot use mutating member on immutable value: '$0' is immutable
+    |3 | },expression: .__fromFunctionCall(.__fromSyntaxNode("state"),"start"),comments: [],isRequired: false,sourceLocation: Testing.SourceLocation.__here()).__expected()
+    +-------------------------------------------------------------------
+ 49 |   #expect(state.ready())
+ 50 |   #expect(state.track(connection))
+
+macro expansion #expect:2:6: error: cannot use mutating member on immutable value: '$0' is immutable
+`- $DATA_ROOT/work/NativeAI-Production-20260920/Providers/ChatGPT/Account/Tests/ChatGPTAccountTests/CallbackStateTests.swift:49:25: note: expanded code originates here
+ 47 |   let connection = CallbackConnection(), old = UUID(), current = UUID()
+ 48 |   #expect(state.start())
+ 49 |   #expect(state.ready())
+    |   `- note: in expansion of macro 'expect' here
+    +--- macro expansion #expect ---------------------------------------
+    |1 | Testing.__checkFunctionCall(state.self,calling: {
+    |2 |   $0.ready()
+    |  |      `- error: cannot use mutating member on immutable value: '$0' is immutable
+    |3 | },expression: .__fromFunctionCall(.__fromSyntaxNode("state"),"ready"),comments: [],isRequired: false,sourceLocation: Testing.SourceLocation.__here()).__expected()
+    +-------------------------------------------------------------------
+ 50 |   #expect(state.track(connection))
+ 51 |   #expect(state.beginIO(on: connection, id: old))
+
+macro expansion #expect:2:6: error: cannot use mutating member on immutable value: '$0' is immutable
+`- $DATA_ROOT/work/NativeAI-Production-20260920/Providers/ChatGPT/Account/Tests/ChatGPTAccountTests/CallbackStateTests.swift:50:35: note: expanded code originates here
+ 48 |   #expect(state.start())
+ 49 |   #expect(state.ready())
+ 50 |   #expect(state.track(connection))
+    |   `- note: in expansion of macro 'expect' here
+    +--- macro expansion #expect ---------------------------------------
+    |1 | Testing.__checkFunctionCall(state.self,calling: {
+    |2 |   $0.track($1)
+    |  |      `- error: cannot use mutating member on immutable value: '$0' is immutable
+    |3 | },connection,expression: .__fromFunctionCall(.__fromSyntaxNode("state"),"track",(nil,.__fromSyntaxNode("connection"))),comments: [],isRequired: false,sourceLocation: Testing.SourceLocation.__here()).__expected()
+    +-------------------------------------------------------------------
+ 51 |   #expect(state.beginIO(on: connection, id: old))
+ 52 |   #expect(state.completeIO(on: connection, id: old))
+
+macro expansion #expect:2:6: error: cannot use mutating member on immutable value: '$0' is immutable
+`- $DATA_ROOT/work/NativeAI-Production-20260920/Providers/ChatGPT/Account/Tests/ChatGPTAccountTests/CallbackStateTests.swift:51:50: note: expanded code originates here
+ 49 |   #expect(state.ready())
+ 50 |   #expect(state.track(connection))
+ 51 |   #expect(state.beginIO(on: connection, id: old))
+    |   `- note: in expansion of macro 'expect' here
+    +--- macro expansion #expect ---------------------------------------
+    |1 | Testing.__checkFunctionCall(state.self,calling: {
+    |2 |   $0.beginIO(on: $1,id: $2)
+    |  |      `- error: cannot use mutating member on immutable value: '$0' is immutable
+    |3 | },connection,old,expression: .__fromFunctionCall(.__fromSyntaxNode("state"),"beginIO",("on",.__fromSyntaxNode("connection")),("id",.__fromSyntaxNode("old"))),comments: [],isRequired: false,sourceLocation: Testing.SourceLocation.__here()).__expected()
+    +-------------------------------------------------------------------
+ 52 |   #expect(state.completeIO(on: connection, id: old))
+ 53 |   #expect(state.beginIO(on: connection, id: current))
+
+macro expansion #expect:2:6: error: cannot use mutating member on immutable value: '$0' is immutable
+`- $DATA_ROOT/work/NativeAI-Production-20260920/Providers/ChatGPT/Account/Tests/ChatGPTAccountTests/CallbackStateTests.swift:52:53: note: expanded code originates here
+ 50 |   #expect(state.track(connection))
+ 51 |   #expect(state.beginIO(on: connection, id: old))
+ 52 |   #expect(state.completeIO(on: connection, id: old))
+    |   `- note: in expansion of macro 'expect' here
+    +--- macro expansion #expect ---------------------------------------
+    |1 | Testing.__checkFunctionCall(state.self,calling: {
+    |2 |   $0.completeIO(on: $1,id: $2)
+    |  |      `- error: cannot use mutating member on immutable value: '$0' is immutable
+    |3 | },connection,old,expression: .__fromFunctionCall(.__fromSyntaxNode("state"),"completeIO",("on",.__fromSyntaxNode("connection")),("id",.__fromSyntaxNode("old"))),comments: [],isRequired: false,sourceLocation: Testing.SourceLocation.__here()).__expected()
+    +-------------------------------------------------------------------
+ 53 |   #expect(state.beginIO(on: connection, id: current))
+ 54 |   #expect(!state.completeIO(on: connection, id: old))
+
+macro expansion #expect:2:6: error: cannot use mutating member on immutable value: '$0' is immutable
+`- $DATA_ROOT/work/NativeAI-Production-20260920/Providers/ChatGPT/Account/Tests/ChatGPTAccountTests/CallbackStateTests.swift:53:54: note: expanded code originates here
+ 51 |   #expect(state.beginIO(on: connection, id: old))
+ 52 |   #expect(state.completeIO(on: connection, id: old))
+ 53 |   #expect(state.beginIO(on: connection, id: current))
+    |   `- note: in expansion of macro 'expect' here
+    +--- macro expansion #expect ---------------------------------------
+    |1 | Testing.__checkFunctionCall(state.self,calling: {
+    |2 |   $0.beginIO(on: $1,id: $2)
+    |  |      `- error: cannot use mutating member on immutable value: '$0' is immutable
+    |3 | },connection,current,expression: .__fromFunctionCall(.__fromSyntaxNode("state"),"beginIO",("on",.__fromSyntaxNode("connection")),("id",.__fromSyntaxNode("current"))),comments: [],isRequired: false,sourceLocation: Testing.SourceLocation.__here()).__expected()
+    +-------------------------------------------------------------------
+ 54 |   #expect(!state.completeIO(on: connection, id: old))
+ 55 |   #expect(state.stopListener())
+
+macro expansion #expect:2:6: error: cannot use mutating member on immutable value: '$0' is immutable
+`- $DATA_ROOT/work/NativeAI-Production-20260920/Providers/ChatGPT/Account/Tests/ChatGPTAccountTests/CallbackStateTests.swift:54:54: note: expanded code originates here
+ 52 |   #expect(state.completeIO(on: connection, id: old))
+ 53 |   #expect(state.beginIO(on: connection, id: current))
+ 54 |   #expect(!state.completeIO(on: connection, id: old))
+    |   `- note: in expansion of macro 'expect' here
+    +--- macro expansion #expect ---------------------------------------
+    |1 | Testing.__checkFunctionCall(state.self,calling: {
+    |2 |   $0.completeIO(on: $1,id: $2)
+    |  |      `- error: cannot use mutating member on immutable value: '$0' is immutable
+    |3 | },connection,old,expression: .__fromNegation(.__fromFunctionCall(.__fromSyntaxNode("state"),"completeIO",("on",.__fromSyntaxNode("connection")),("id",.__fromSyntaxNode("old"))), false),comments: [],isRequired: false,sourceLocation: Testing.SourceLocation.__here()).__expected()
+    +-------------------------------------------------------------------
+ 55 |   #expect(state.stopListener())
+ 56 |   state.listenerCancelled()
+
+macro expansion #expect:2:6: error: cannot use mutating member on immutable value: '$0' is immutable
+`- $DATA_ROOT/work/NativeAI-Production-20260920/Providers/ChatGPT/Account/Tests/ChatGPTAccountTests/CallbackStateTests.swift:55:32: note: expanded code originates here
+ 53 |   #expect(state.beginIO(on: connection, id: current))
+ 54 |   #expect(!state.completeIO(on: connection, id: old))
+ 55 |   #expect(state.stopListener())
+    |   `- note: in expansion of macro 'expect' here
+    +--- macro expansion #expect ---------------------------------------
+    |1 | Testing.__checkFunctionCall(state.self,calling: {
+    |2 |   $0.stopListener()
+    |  |      `- error: cannot use mutating member on immutable value: '$0' is immutable
+    |3 | },expression: .__fromFunctionCall(.__fromSyntaxNode("state"),"stopListener"),comments: [],isRequired: false,sourceLocation: Testing.SourceLocation.__here()).__expected()
+    +-------------------------------------------------------------------
+ 56 |   state.listenerCancelled()
+ 57 |   state.connectionCancelled(connection)
+
+macro expansion #expect:2:6: error: cannot use mutating member on immutable value: '$0' is immutable
+`- $DATA_ROOT/work/NativeAI-Production-20260920/Providers/ChatGPT/Account/Tests/ChatGPTAccountTests/CallbackStateTests.swift:59:57: note: expanded code originates here
+ 57 |   state.connectionCancelled(connection)
+ 58 |   #expect(!state.isDrained)
+ 59 |   #expect(state.completeIO(on: connection, id: current))
+    |   `- note: in expansion of macro 'expect' here
+    +--- macro expansion #expect ---------------------------------------
+    |1 | Testing.__checkFunctionCall(state.self,calling: {
+    |2 |   $0.completeIO(on: $1,id: $2)
+    |  |      `- error: cannot use mutating member on immutable value: '$0' is immutable
+    |3 | },connection,current,expression: .__fromFunctionCall(.__fromSyntaxNode("state"),"completeIO",("on",.__fromSyntaxNode("connection")),("id",.__fromSyntaxNode("current"))),comments: [],isRequired: false,sourceLocation: Testing.SourceLocation.__here()).__expected()
+    +-------------------------------------------------------------------
+ 60 |   #expect(state.isDrained)
+ 61 |   #expect(!state.completeIO(on: connection, id: current))
+
+macro expansion #expect:2:6: error: cannot use mutating member on immutable value: '$0' is immutable
+`- $DATA_ROOT/work/NativeAI-Production-20260920/Providers/ChatGPT/Account/Tests/ChatGPTAccountTests/CallbackStateTests.swift:61:58: note: expanded code originates here
+ 59 |   #expect(state.completeIO(on: connection, id: current))
+ 60 |   #expect(state.isDrained)
+ 61 |   #expect(!state.completeIO(on: connection, id: current))
+    |   `- note: in expansion of macro 'expect' here
+    +--- macro expansion #expect ---------------------------------------
+    |1 | Testing.__checkFunctionCall(state.self,calling: {
+    |2 |   $0.completeIO(on: $1,id: $2)
+    |  |      `- error: cannot use mutating member on immutable value: '$0' is immutable
+    |3 | },connection,current,expression: .__fromNegation(.__fromFunctionCall(.__fromSyntaxNode("state"),"completeIO",("on",.__fromSyntaxNode("connection")),("id",.__fromSyntaxNode("current"))), false),comments: [],isRequired: false,sourceLocation: Testing.SourceLocation.__here()).__expected()
+    +-------------------------------------------------------------------
+ 62 | }
+ 63 | 
+
+macro expansion #expect:2:6: error: cannot use mutating member on immutable value: '$0' is immutable
+`- $DATA_ROOT/work/NativeAI-Production-20260920/Providers/ChatGPT/Account/Tests/ChatGPTAccountTests/CallbackStateTests.swift:67:25: note: expanded code originates here
+ 65 |   var state = ChatGPTCallbackState<CallbackConnection>()
+ 66 |   let connection = CallbackConnection(), read = UUID()
+ 67 |   #expect(state.start())
+    |   `- note: in expansion of macro 'expect' here
+    +--- macro expansion #expect ---------------------------------------
+    |1 | Testing.__checkFunctionCall(state.self,calling: {
+    |2 |   $0.start()
+    |  |      `- error: cannot use mutating member on immutable value: '$0' is immutable
+    |3 | },expression: .__fromFunctionCall(.__fromSyntaxNode("state"),"start"),comments: [],isRequired: false,sourceLocation: Testing.SourceLocation.__here()).__expected()
+    +-------------------------------------------------------------------
+ 68 |   #expect(state.ready())
+ 69 |   #expect(state.track(connection))
+
+macro expansion #expect:2:6: error: cannot use mutating member on immutable value: '$0' is immutable
+`- $DATA_ROOT/work/NativeAI-Production-20260920/Providers/ChatGPT/Account/Tests/ChatGPTAccountTests/CallbackStateTests.swift:68:25: note: expanded code originates here
+ 66 |   let connection = CallbackConnection(), read = UUID()
+ 67 |   #expect(state.start())
+ 68 |   #expect(state.ready())
+    |   `- note: in expansion of macro 'expect' here
+    +--- macro expansion #expect ---------------------------------------
+    |1 | Testing.__checkFunctionCall(state.self,calling: {
+    |2 |   $0.ready()
+    |  |      `- error: cannot use mutating member on immutable value: '$0' is immutable
+    |3 | },expression: .__fromFunctionCall(.__fromSyntaxNode("state"),"ready"),comments: [],isRequired: false,sourceLocation: Testing.SourceLocation.__here()).__expected()
+    +-------------------------------------------------------------------
+ 69 |   #expect(state.track(connection))
+ 70 |   #expect(state.beginIO(on: connection, id: read))
+
+macro expansion #expect:2:6: error: cannot use mutating member on immutable value: '$0' is immutable
+`- $DATA_ROOT/work/NativeAI-Production-20260920/Providers/ChatGPT/Account/Tests/ChatGPTAccountTests/CallbackStateTests.swift:69:35: note: expanded code originates here
+ 67 |   #expect(state.start())
+ 68 |   #expect(state.ready())
+ 69 |   #expect(state.track(connection))
+    |   `- note: in expansion of macro 'expect' here
+    +--- macro expansion #expect ---------------------------------------
+    |1 | Testing.__checkFunctionCall(state.self,calling: {
+    |2 |   $0.track($1)
+    |  |      `- error: cannot use mutating member on immutable value: '$0' is immutable
+    |3 | },connection,expression: .__fromFunctionCall(.__fromSyntaxNode("state"),"track",(nil,.__fromSyntaxNode("connection"))),comments: [],isRequired: false,sourceLocation: Testing.SourceLocation.__here()).__expected()
+    +-------------------------------------------------------------------
+ 70 |   #expect(state.beginIO(on: connection, id: read))
+ 71 |   #expect(state.cancel(connection) === connection)
+
+macro expansion #expect:2:6: error: cannot use mutating member on immutable value: '$0' is immutable
+`- $DATA_ROOT/work/NativeAI-Production-20260920/Providers/ChatGPT/Account/Tests/ChatGPTAccountTests/CallbackStateTests.swift:70:51: note: expanded code originates here
+ 68 |   #expect(state.ready())
+ 69 |   #expect(state.track(connection))
+ 70 |   #expect(state.beginIO(on: connection, id: read))
+    |   `- note: in expansion of macro 'expect' here
+    +--- macro expansion #expect ---------------------------------------
+    |1 | Testing.__checkFunctionCall(state.self,calling: {
+    |2 |   $0.beginIO(on: $1,id: $2)
+    |  |      `- error: cannot use mutating member on immutable value: '$0' is immutable
+    |3 | },connection,read,expression: .__fromFunctionCall(.__fromSyntaxNode("state"),"beginIO",("on",.__fromSyntaxNode("connection")),("id",.__fromSyntaxNode("read"))),comments: [],isRequired: false,sourceLocation: Testing.SourceLocation.__here()).__expected()
+    +-------------------------------------------------------------------
+ 71 |   #expect(state.cancel(connection) === connection)
+ 72 |   #expect(state.completeIO(on: connection, id: read))
+
+macro expansion #expect:2:6: error: cannot use mutating member on immutable value: '$0' is immutable
+`- $DATA_ROOT/work/NativeAI-Production-20260920/Providers/ChatGPT/Account/Tests/ChatGPTAccountTests/CallbackStateTests.swift:72:54: note: expanded code originates here
+ 70 |   #expect(state.beginIO(on: connection, id: read))
+ 71 |   #expect(state.cancel(connection) === connection)
+ 72 |   #expect(state.completeIO(on: connection, id: read))
+    |   `- note: in expansion of macro 'expect' here
+    +--- macro expansion #expect ---------------------------------------
+    |1 | Testing.__checkFunctionCall(state.self,calling: {
+    |2 |   $0.completeIO(on: $1,id: $2)
+    |  |      `- error: cannot use mutating member on immutable value: '$0' is immutable
+    |3 | },connection,read,expression: .__fromFunctionCall(.__fromSyntaxNode("state"),"completeIO",("on",.__fromSyntaxNode("connection")),("id",.__fromSyntaxNode("read"))),comments: [],isRequired: false,sourceLocation: Testing.SourceLocation.__here()).__expected()
+    +-------------------------------------------------------------------
+ 73 |   #expect(!state.beginIO(on: connection, id: UUID()))
+ 74 |   #expect(!state.beginIO(on: connection, id: UUID(), response: true))
+
+macro expansion #expect:2:6: error: cannot use mutating member on immutable value: '$0' is immutable
+`- $DATA_ROOT/work/NativeAI-Production-20260920/Providers/ChatGPT/Account/Tests/ChatGPTAccountTests/CallbackStateTests.swift:73:54: note: expanded code originates here
+ 71 |   #expect(state.cancel(connection) === connection)
+ 72 |   #expect(state.completeIO(on: connection, id: read))
+ 73 |   #expect(!state.beginIO(on: connection, id: UUID()))
+    |   `- note: in expansion of macro 'expect' here
+    +--- macro expansion #expect ---------------------------------------
+    |1 | Testing.__checkFunctionCall(state.self,calling: {
+    |2 |   $0.beginIO(on: $1,id: $2)
+    |  |      `- error: cannot use mutating member on immutable value: '$0' is immutable
+    |3 | },connection,UUID(),expression: .__fromNegation(.__fromFunctionCall(.__fromSyntaxNode("state"),"beginIO",("on",.__fromSyntaxNode("connection")),("id",.__fromSyntaxNode("UUID()"))), false),comments: [],isRequired: false,sourceLocation: Testing.SourceLocation.__here()).__expected()
+    +-------------------------------------------------------------------
+ 74 |   #expect(!state.beginIO(on: connection, id: UUID(), response: true))
+ 75 |   #expect(state.cancel(connection) == nil)
+
+macro expansion #expect:2:6: error: cannot use mutating member on immutable value: '$0' is immutable
+`- $DATA_ROOT/work/NativeAI-Production-20260920/Providers/ChatGPT/Account/Tests/ChatGPTAccountTests/CallbackStateTests.swift:74:70: note: expanded code originates here
+ 72 |   #expect(state.completeIO(on: connection, id: read))
+ 73 |   #expect(!state.beginIO(on: connection, id: UUID()))
+ 74 |   #expect(!state.beginIO(on: connection, id: UUID(), response: true))
+    |   `- note: in expansion of macro 'expect' here
+    +--- macro expansion #expect ---------------------------------------
+    |1 | Testing.__checkFunctionCall(state.self,calling: {
+    |2 |   $0.beginIO(on: $1,id: $2,response: $3)
+    |  |      `- error: cannot use mutating member on immutable value: '$0' is immutable
+    |3 | },connection,UUID(),true,expression: .__fromNegation(.__fromFunctionCall(.__fromSyntaxNode("state"),"beginIO",("on",.__fromSyntaxNode("connection")),("id",.__fromSyntaxNode("UUID()")),("response",.__fromSyntaxNode("true"))), false),comments: [],isRequired: false,sourceLocation: Testing.SourceLocation.__here()).__expected()
+    +-------------------------------------------------------------------
+ 75 |   #expect(state.cancel(connection) == nil)
+ 76 | }
+
+macro expansion #expect:2:6: error: cannot use mutating member on immutable value: '$0' is immutable
+`- $DATA_ROOT/work/NativeAI-Production-20260920/Providers/ChatGPT/Account/Tests/ChatGPTAccountTests/CallbackStateTests.swift:81:25: note: expanded code originates here
+ 79 |   var state = ChatGPTCallbackState<CallbackConnection>()
+ 80 |   let selected = CallbackConnection(), stalled = CallbackConnection(), write = UUID()
+ 81 |   #expect(state.start())
+    |   `- note: in expansion of macro 'expect' here
+    +--- macro expansion #expect ---------------------------------------
+    |1 | Testing.__checkFunctionCall(state.self,calling: {
+    |2 |   $0.start()
+    |  |      `- error: cannot use mutating member on immutable value: '$0' is immutable
+    |3 | },expression: .__fromFunctionCall(.__fromSyntaxNode("state"),"start"),comments: [],isRequired: false,sourceLocation: Testing.SourceLocation.__here()).__expected()
+    +-------------------------------------------------------------------
+ 82 |   #expect(state.ready())
+ 83 |   #expect(state.track(selected))
+
+macro expansion #expect:2:6: error: cannot use mutating member on immutable value: '$0' is immutable
+`- $DATA_ROOT/work/NativeAI-Production-20260920/Providers/ChatGPT/Account/Tests/ChatGPTAccountTests/CallbackStateTests.swift:82:25: note: expanded code originates here
+ 80 |   let selected = CallbackConnection(), stalled = CallbackConnection(), write = UUID()
+ 81 |   #expect(state.start())
+ 82 |   #expect(state.ready())
+    |   `- note: in expansion of macro 'expect' here
+    +--- macro expansion #expect ---------------------------------------
+    |1 | Testing.__checkFunctionCall(state.self,calling: {
+    |2 |   $0.ready()
+    |  |      `- error: cannot use mutating member on immutable value: '$0' is immutable
+    |3 | },expression: .__fromFunctionCall(.__fromSyntaxNode("state"),"ready"),comments: [],isRequired: false,sourceLocation: Testing.SourceLocation.__here()).__expected()
+    +-------------------------------------------------------------------
+ 83 |   #expect(state.track(selected))
+ 84 |   #expect(state.track(stalled))
+
+macro expansion #expect:2:6: error: cannot use mutating member on immutable value: '$0' is immutable
+`- $DATA_ROOT/work/NativeAI-Production-20260920/Providers/ChatGPT/Account/Tests/ChatGPTAccountTests/CallbackStateTests.swift:83:33: note: expanded code originates here
+ 81 |   #expect(state.start())
+ 82 |   #expect(state.ready())
+ 83 |   #expect(state.track(selected))
+    |   `- note: in expansion of macro 'expect' here
+    +--- macro expansion #expect ---------------------------------------
+    |1 | Testing.__checkFunctionCall(state.self,calling: {
+    |2 |   $0.track($1)
+    |  |      `- error: cannot use mutating member on immutable value: '$0' is immutable
+    |3 | },selected,expression: .__fromFunctionCall(.__fromSyntaxNode("state"),"track",(nil,.__fromSyntaxNode("selected"))),comments: [],isRequired: false,sourceLocation: Testing.SourceLocation.__here()).__expected()
+    +-------------------------------------------------------------------
+ 84 |   #expect(state.track(stalled))
+ 85 |   #expect(state.beginIO(on: selected, id: write, response: true))
+
+macro expansion #expect:2:6: error: cannot use mutating member on immutable value: '$0' is immutable
+`- $DATA_ROOT/work/NativeAI-Production-20260920/Providers/ChatGPT/Account/Tests/ChatGPTAccountTests/CallbackStateTests.swift:84:32: note: expanded code originates here
+ 82 |   #expect(state.ready())
+ 83 |   #expect(state.track(selected))
+ 84 |   #expect(state.track(stalled))
+    |   `- note: in expansion of macro 'expect' here
+    +--- macro expansion #expect ---------------------------------------
+    |1 | Testing.__checkFunctionCall(state.self,calling: {
+    |2 |   $0.track($1)
+    |  |      `- error: cannot use mutating member on immutable value: '$0' is immutable
+    |3 | },stalled,expression: .__fromFunctionCall(.__fromSyntaxNode("state"),"track",(nil,.__fromSyntaxNode("stalled"))),comments: [],isRequired: false,sourceLocation: Testing.SourceLocation.__here()).__expected()
+    +-------------------------------------------------------------------
+ 85 |   #expect(state.beginIO(on: selected, id: write, response: true))
+ 86 |   #expect(state.stopListener())
+
+macro expansion #expect:2:6: error: cannot use mutating member on immutable value: '$0' is immutable
+`- $DATA_ROOT/work/NativeAI-Production-20260920/Providers/ChatGPT/Account/Tests/ChatGPTAccountTests/CallbackStateTests.swift:85:66: note: expanded code originates here
+ 83 |   #expect(state.track(selected))
+ 84 |   #expect(state.track(stalled))
+ 85 |   #expect(state.beginIO(on: selected, id: write, response: true))
+    |   `- note: in expansion of macro 'expect' here
+    +--- macro expansion #expect ---------------------------------------
+    |1 | Testing.__checkFunctionCall(state.self,calling: {
+    |2 |   $0.beginIO(on: $1,id: $2,response: $3)
+    |  |      `- error: cannot use mutating member on immutable value: '$0' is immutable
+    |3 | },selected,write,true,expression: .__fromFunctionCall(.__fromSyntaxNode("state"),"beginIO",("on",.__fromSyntaxNode("selected")),("id",.__fromSyntaxNode("write")),("response",.__fromSyntaxNode("true"))),comments: [],isRequired: false,sourceLocation: Testing.SourceLocation.__here()).__expected()
+    +-------------------------------------------------------------------
+ 86 |   #expect(state.stopListener())
+ 87 |   let cancelled = state.cancelConnections(preserving: selected)
+
+macro expansion #expect:2:6: error: cannot use mutating member on immutable value: '$0' is immutable
+`- $DATA_ROOT/work/NativeAI-Production-20260920/Providers/ChatGPT/Account/Tests/ChatGPTAccountTests/CallbackStateTests.swift:86:32: note: expanded code originates here
+ 84 |   #expect(state.track(stalled))
+ 85 |   #expect(state.beginIO(on: selected, id: write, response: true))
+ 86 |   #expect(state.stopListener())
+    |   `- note: in expansion of macro 'expect' here
+    +--- macro expansion #expect ---------------------------------------
+    |1 | Testing.__checkFunctionCall(state.self,calling: {
+    |2 |   $0.stopListener()
+    |  |      `- error: cannot use mutating member on immutable value: '$0' is immutable
+    |3 | },expression: .__fromFunctionCall(.__fromSyntaxNode("state"),"stopListener"),comments: [],isRequired: false,sourceLocation: Testing.SourceLocation.__here()).__expected()
+    +-------------------------------------------------------------------
+ 87 |   let cancelled = state.cancelConnections(preserving: selected)
+ 88 |   #expect(cancelled.count == 1 && cancelled.first === stalled)
+
+macro expansion #expect:2:6: error: cannot use mutating member on immutable value: '$0' is immutable
+`- $DATA_ROOT/work/NativeAI-Production-20260920/Providers/ChatGPT/Account/Tests/ChatGPTAccountTests/CallbackStateTests.swift:92:53: note: expanded code originates here
+ 90 |   state.listenerCancelled()
+ 91 |   #expect(!state.isDrained)
+ 92 |   #expect(state.completeIO(on: selected, id: write))
+    |   `- note: in expansion of macro 'expect' here
+    +--- macro expansion #expect ---------------------------------------
+    |1 | Testing.__checkFunctionCall(state.self,calling: {
+    |2 |   $0.completeIO(on: $1,id: $2)
+    |  |      `- error: cannot use mutating member on immutable value: '$0' is immutable
+    |3 | },selected,write,expression: .__fromFunctionCall(.__fromSyntaxNode("state"),"completeIO",("on",.__fromSyntaxNode("selected")),("id",.__fromSyntaxNode("write"))),comments: [],isRequired: false,sourceLocation: Testing.SourceLocation.__here()).__expected()
+    +-------------------------------------------------------------------
+ 93 |   #expect(state.cancel(selected) === selected)
+ 94 |   #expect(!state.isDrained)
+
+macro expansion #expect:2:6: error: cannot use mutating member on immutable value: '$0' is immutable
+`- $DATA_ROOT/work/NativeAI-Production-20260920/Providers/ChatGPT/Account/Tests/ChatGPTAccountTests/CallbackStateTests.swift:101:25: note: expanded code originates here
+ 99 | @Test func callbackRejectedConnectionDuringShutdownIsStillOwned() {
+100 |   var state = ChatGPTCallbackState<CallbackConnection>()
+101 |   #expect(state.start())
+    |   `- note: in expansion of macro 'expect' here
+    +--- macro expansion #expect ---------------------------------------
+    |1 | Testing.__checkFunctionCall(state.self,calling: {
+    |2 |   $0.start()
+    |  |      `- error: cannot use mutating member on immutable value: '$0' is immutable
+    |3 | },expression: .__fromFunctionCall(.__fromSyntaxNode("state"),"start"),comments: [],isRequired: false,sourceLocation: Testing.SourceLocation.__here()).__expected()
+    +-------------------------------------------------------------------
+102 |   #expect(state.ready())
+103 |   #expect(state.stopListener())
+
+macro expansion #expect:2:6: error: cannot use mutating member on immutable value: '$0' is immutable
+`- $DATA_ROOT/work/NativeAI-Production-20260920/Providers/ChatGPT/Account/Tests/ChatGPTAccountTests/CallbackStateTests.swift:102:25: note: expanded code originates here
+100 |   var state = ChatGPTCallbackState<CallbackConnection>()
+101 |   #expect(state.start())
+102 |   #expect(state.ready())
+    |   `- note: in expansion of macro 'expect' here
+    +--- macro expansion #expect ---------------------------------------
+    |1 | Testing.__checkFunctionCall(state.self,calling: {
+    |2 |   $0.ready()
+    |  |      `- error: cannot use mutating member on immutable value: '$0' is immutable
+    |3 | },expression: .__fromFunctionCall(.__fromSyntaxNode("state"),"ready"),comments: [],isRequired: false,sourceLocation: Testing.SourceLocation.__here()).__expected()
+    +-------------------------------------------------------------------
+103 |   #expect(state.stopListener())
+104 |   let late = CallbackConnection()
+
+macro expansion #expect:2:6: error: cannot use mutating member on immutable value: '$0' is immutable
+`- $DATA_ROOT/work/NativeAI-Production-20260920/Providers/ChatGPT/Account/Tests/ChatGPTAccountTests/CallbackStateTests.swift:103:32: note: expanded code originates here
+101 |   #expect(state.start())
+102 |   #expect(state.ready())
+103 |   #expect(state.stopListener())
+    |   `- note: in expansion of macro 'expect' here
+    +--- macro expansion #expect ---------------------------------------
+    |1 | Testing.__checkFunctionCall(state.self,calling: {
+    |2 |   $0.stopListener()
+    |  |      `- error: cannot use mutating member on immutable value: '$0' is immutable
+    |3 | },expression: .__fromFunctionCall(.__fromSyntaxNode("state"),"stopListener"),comments: [],isRequired: false,sourceLocation: Testing.SourceLocation.__here()).__expected()
+    +-------------------------------------------------------------------
+104 |   let late = CallbackConnection()
+105 |   #expect(state.track(late))
+
+macro expansion #expect:2:6: error: cannot use mutating member on immutable value: '$0' is immutable
+`- $DATA_ROOT/work/NativeAI-Production-20260920/Providers/ChatGPT/Account/Tests/ChatGPTAccountTests/CallbackStateTests.swift:105:29: note: expanded code originates here
+103 |   #expect(state.stopListener())
+104 |   let late = CallbackConnection()
+105 |   #expect(state.track(late))
+    |   `- note: in expansion of macro 'expect' here
+    +--- macro expansion #expect ---------------------------------------
+    |1 | Testing.__checkFunctionCall(state.self,calling: {
+    |2 |   $0.track($1)
+    |  |      `- error: cannot use mutating member on immutable value: '$0' is immutable
+    |3 | },late,expression: .__fromFunctionCall(.__fromSyntaxNode("state"),"track",(nil,.__fromSyntaxNode("late"))),comments: [],isRequired: false,sourceLocation: Testing.SourceLocation.__here()).__expected()
+    +-------------------------------------------------------------------
+106 |   #expect(!state.beginIO(on: late, id: UUID()))
+107 |   #expect(state.cancel(late) === late)
+
+macro expansion #expect:2:6: error: cannot use mutating member on immutable value: '$0' is immutable
+`- $DATA_ROOT/work/NativeAI-Production-20260920/Providers/ChatGPT/Account/Tests/ChatGPTAccountTests/CallbackStateTests.swift:106:48: note: expanded code originates here
+104 |   let late = CallbackConnection()
+105 |   #expect(state.track(late))
+106 |   #expect(!state.beginIO(on: late, id: UUID()))
+    |   `- note: in expansion of macro 'expect' here
+    +--- macro expansion #expect ---------------------------------------
+    |1 | Testing.__checkFunctionCall(state.self,calling: {
+    |2 |   $0.beginIO(on: $1,id: $2)
+    |  |      `- error: cannot use mutating member on immutable value: '$0' is immutable
+    |3 | },late,UUID(),expression: .__fromNegation(.__fromFunctionCall(.__fromSyntaxNode("state"),"beginIO",("on",.__fromSyntaxNode("late")),("id",.__fromSyntaxNode("UUID()"))), false),comments: [],isRequired: false,sourceLocation: Testing.SourceLocation.__here()).__expected()
+    +-------------------------------------------------------------------
+107 |   #expect(state.cancel(late) === late)
+108 |   state.listenerCancelled()
+
+macro expansion #expect:2:6: error: cannot use mutating member on immutable value: '$0' is immutable
+`- $DATA_ROOT/work/NativeAI-Production-20260920/Providers/ChatGPT/Account/Tests/ChatGPTAccountTests/CallbackStateTests.swift:116:25: note: expanded code originates here
+114 | @Test func callbackResourceLivesUntilItsLastReceipt() {
+115 |   var state = ChatGPTCallbackState<CallbackConnection>()
+116 |   #expect(state.start())
+    |   `- note: in expansion of macro 'expect' here
+    +--- macro expansion #expect ---------------------------------------
+    |1 | Testing.__checkFunctionCall(state.self,calling: {
+    |2 |   $0.start()
+    |  |      `- error: cannot use mutating member on immutable value: '$0' is immutable
+    |3 | },expression: .__fromFunctionCall(.__fromSyntaxNode("state"),"start"),comments: [],isRequired: false,sourceLocation: Testing.SourceLocation.__here()).__expected()
+    +-------------------------------------------------------------------
+117 |   #expect(state.ready())
+118 |   var connection: CallbackConnection? = CallbackConnection()
+
+macro expansion #expect:2:6: error: cannot use mutating member on immutable value: '$0' is immutable
+`- $DATA_ROOT/work/NativeAI-Production-20260920/Providers/ChatGPT/Account/Tests/ChatGPTAccountTests/CallbackStateTests.swift:117:25: note: expanded code originates here
+115 |   var state = ChatGPTCallbackState<CallbackConnection>()
+116 |   #expect(state.start())
+117 |   #expect(state.ready())
+    |   `- note: in expansion of macro 'expect' here
+    +--- macro expansion #expect ---------------------------------------
+    |1 | Testing.__checkFunctionCall(state.self,calling: {
+    |2 |   $0.ready()
+    |  |      `- error: cannot use mutating member on immutable value: '$0' is immutable
+    |3 | },expression: .__fromFunctionCall(.__fromSyntaxNode("state"),"ready"),comments: [],isRequired: false,sourceLocation: Testing.SourceLocation.__here()).__expected()
+    +-------------------------------------------------------------------
+118 |   var connection: CallbackConnection? = CallbackConnection()
+119 |   weak var probe = connection
+
+macro expansion #expect:2:6: error: cannot use mutating member on immutable value: '$0' is immutable
+`- $DATA_ROOT/work/NativeAI-Production-20260920/Providers/ChatGPT/Account/Tests/ChatGPTAccountTests/CallbackStateTests.swift:120:36: note: expanded code originates here
+118 |   var connection: CallbackConnection? = CallbackConnection()
+119 |   weak var probe = connection
+120 |   #expect(state.track(connection!))
+    |   `- note: in expansion of macro 'expect' here
+    +--- macro expansion #expect ---------------------------------------
+    |1 | Testing.__checkFunctionCall(state.self,calling: {
+    |2 |   $0.track($1)
+    |  |      `- error: cannot use mutating member on immutable value: '$0' is immutable
+    |3 | },connection!,expression: .__fromFunctionCall(.__fromSyntaxNode("state"),"track",(nil,.__fromSyntaxNode("connection!"))),comments: [],isRequired: false,sourceLocation: Testing.SourceLocation.__here()).__expected()
+    +-------------------------------------------------------------------
+121 |   let operation = UUID()
+122 |   #expect(state.beginIO(on: connection!, id: operation))
+
+macro expansion #expect:2:6: error: cannot use mutating member on immutable value: '$0' is immutable
+`- $DATA_ROOT/work/NativeAI-Production-20260920/Providers/ChatGPT/Account/Tests/ChatGPTAccountTests/CallbackStateTests.swift:122:57: note: expanded code originates here
+120 |   #expect(state.track(connection!))
+121 |   let operation = UUID()
+122 |   #expect(state.beginIO(on: connection!, id: operation))
+    |   `- note: in expansion of macro 'expect' here
+    +--- macro expansion #expect ---------------------------------------
+    |1 | Testing.__checkFunctionCall(state.self,calling: {
+    |2 |   $0.beginIO(on: $1,id: $2)
+    |  |      `- error: cannot use mutating member on immutable value: '$0' is immutable
+    |3 | },connection!,operation,expression: .__fromFunctionCall(.__fromSyntaxNode("state"),"beginIO",("on",.__fromSyntaxNode("connection!")),("id",.__fromSyntaxNode("operation"))),comments: [],isRequired: false,sourceLocation: Testing.SourceLocation.__here()).__expected()
+    +-------------------------------------------------------------------
+123 |   #expect(state.stopListener())
+124 |   state.listenerCancelled()
+
+macro expansion #expect:2:6: error: cannot use mutating member on immutable value: '$0' is immutable
+`- $DATA_ROOT/work/NativeAI-Production-20260920/Providers/ChatGPT/Account/Tests/ChatGPTAccountTests/CallbackStateTests.swift:123:32: note: expanded code originates here
+121 |   let operation = UUID()
+122 |   #expect(state.beginIO(on: connection!, id: operation))
+123 |   #expect(state.stopListener())
+    |   `- note: in expansion of macro 'expect' here
+    +--- macro expansion #expect ---------------------------------------
+    |1 | Testing.__checkFunctionCall(state.self,calling: {
+    |2 |   $0.stopListener()
+    |  |      `- error: cannot use mutating member on immutable value: '$0' is immutable
+    |3 | },expression: .__fromFunctionCall(.__fromSyntaxNode("state"),"stopListener"),comments: [],isRequired: false,sourceLocation: Testing.SourceLocation.__here()).__expected()
+    +-------------------------------------------------------------------
+124 |   state.listenerCancelled()
+125 |   state.connectionCancelled(connection!)
+
+macro expansion #expect:2:6: error: cannot use mutating member on immutable value: '$0' is immutable
+`- $DATA_ROOT/work/NativeAI-Production-20260920/Providers/ChatGPT/Account/Tests/ChatGPTAccountTests/CallbackStateTests.swift:129:55: note: expanded code originates here
+127 |   #expect(probe != nil)
+128 |   #expect(!state.isDrained)
+129 |   #expect(state.completeIO(on: probe!, id: operation))
+    |   `- note: in expansion of macro 'expect' here
+    +--- macro expansion #expect ---------------------------------------
+    |1 | Testing.__checkFunctionCall(state.self,calling: {
+    |2 |   $0.completeIO(on: $1,id: $2)
+    |  |      `- error: cannot use mutating member on immutable value: '$0' is immutable
+    |3 | },probe!,operation,expression: .__fromFunctionCall(.__fromSyntaxNode("state"),"completeIO",("on",.__fromSyntaxNode("probe!")),("id",.__fromSyntaxNode("operation"))),comments: [],isRequired: false,sourceLocation: Testing.SourceLocation.__here()).__expected()
+    +-------------------------------------------------------------------
+130 |   #expect(probe == nil)
+131 |   #expect(state.isDrained)
+
+macro expansion #expect:2:6: error: cannot use mutating member on immutable value: '$0' is immutable
+`- $DATA_ROOT/work/NativeAI-Production-20260920/Providers/ChatGPT/Account/Tests/ChatGPTAccountTests/CallbackStateTests.swift:136:26: note: expanded code originates here
+134 | @Test func callbackLifecycleIsOneShotAndUnusedCancelHasNoNativeReceipt() {
+135 |   var state = ChatGPTCallbackState<CallbackConnection>()
+136 |   #expect(!state.ready())
+    |   `- note: in expansion of macro 'expect' here
+    +--- macro expansion #expect ---------------------------------------
+    |1 | Testing.__checkFunctionCall(state.self,calling: {
+    |2 |   $0.ready()
+    |  |      `- error: cannot use mutating member on immutable value: '$0' is immutable
+    |3 | },expression: .__fromNegation(.__fromFunctionCall(.__fromSyntaxNode("state"),"ready"), false),comments: [],isRequired: false,sourceLocation: Testing.SourceLocation.__here()).__expected()
+    +-------------------------------------------------------------------
+137 |   #expect(!state.track(CallbackConnection()))
+138 |   #expect(!state.stopListener())
+
+macro expansion #expect:2:6: error: cannot use mutating member on immutable value: '$0' is immutable
+`- $DATA_ROOT/work/NativeAI-Production-20260920/Providers/ChatGPT/Account/Tests/ChatGPTAccountTests/CallbackStateTests.swift:137:46: note: expanded code originates here
+135 |   var state = ChatGPTCallbackState<CallbackConnection>()
+136 |   #expect(!state.ready())
+137 |   #expect(!state.track(CallbackConnection()))
+    |   `- note: in expansion of macro 'expect' here
+    +--- macro expansion #expect ---------------------------------------
+    |1 | Testing.__checkFunctionCall(state.self,calling: {
+    |2 |   $0.track($1)
+    |  |      `- error: cannot use mutating member on immutable value: '$0' is immutable
+    |3 | },CallbackConnection(),expression: .__fromNegation(.__fromFunctionCall(.__fromSyntaxNode("state"),"track",(nil,.__fromSyntaxNode("CallbackConnection()"))), false),comments: [],isRequired: false,sourceLocation: Testing.SourceLocation.__here()).__expected()
+    +-------------------------------------------------------------------
+138 |   #expect(!state.stopListener())
+139 |   #expect(state.isDrained)
+
+macro expansion #expect:2:6: error: cannot use mutating member on immutable value: '$0' is immutable
+`- $DATA_ROOT/work/NativeAI-Production-20260920/Providers/ChatGPT/Account/Tests/ChatGPTAccountTests/CallbackStateTests.swift:138:33: note: expanded code originates here
+136 |   #expect(!state.ready())
+137 |   #expect(!state.track(CallbackConnection()))
+138 |   #expect(!state.stopListener())
+    |   `- note: in expansion of macro 'expect' here
+    +--- macro expansion #expect ---------------------------------------
+    |1 | Testing.__checkFunctionCall(state.self,calling: {
+    |2 |   $0.stopListener()
+    |  |      `- error: cannot use mutating member on immutable value: '$0' is immutable
+    |3 | },expression: .__fromNegation(.__fromFunctionCall(.__fromSyntaxNode("state"),"stopListener"), false),comments: [],isRequired: false,sourceLocation: Testing.SourceLocation.__here()).__expected()
+    +-------------------------------------------------------------------
+139 |   #expect(state.isDrained)
+140 |   #expect(!state.start())
+
+macro expansion #expect:2:6: error: cannot use mutating member on immutable value: '$0' is immutable
+`- $DATA_ROOT/work/NativeAI-Production-20260920/Providers/ChatGPT/Account/Tests/ChatGPTAccountTests/CallbackStateTests.swift:140:26: note: expanded code originates here
+138 |   #expect(!state.stopListener())
+139 |   #expect(state.isDrained)
+140 |   #expect(!state.start())
+    |   `- note: in expansion of macro 'expect' here
+    +--- macro expansion #expect ---------------------------------------
+    |1 | Testing.__checkFunctionCall(state.self,calling: {
+    |2 |   $0.start()
+    |  |      `- error: cannot use mutating member on immutable value: '$0' is immutable
+    |3 | },expression: .__fromNegation(.__fromFunctionCall(.__fromSyntaxNode("state"),"start"), false),comments: [],isRequired: false,sourceLocation: Testing.SourceLocation.__here()).__expected()
+    +-------------------------------------------------------------------
+141 |   #expect(!state.track(CallbackConnection()))
+142 |   state.listenerCancelled()
+
+macro expansion #expect:2:6: error: cannot use mutating member on immutable value: '$0' is immutable
+`- $DATA_ROOT/work/NativeAI-Production-20260920/Providers/ChatGPT/Account/Tests/ChatGPTAccountTests/CallbackStateTests.swift:141:46: note: expanded code originates here
+139 |   #expect(state.isDrained)
+140 |   #expect(!state.start())
+141 |   #expect(!state.track(CallbackConnection()))
+    |   `- note: in expansion of macro 'expect' here
+    +--- macro expansion #expect ---------------------------------------
+    |1 | Testing.__checkFunctionCall(state.self,calling: {
+    |2 |   $0.track($1)
+    |  |      `- error: cannot use mutating member on immutable value: '$0' is immutable
+    |3 | },CallbackConnection(),expression: .__fromNegation(.__fromFunctionCall(.__fromSyntaxNode("state"),"track",(nil,.__fromSyntaxNode("CallbackConnection()"))), false),comments: [],isRequired: false,sourceLocation: Testing.SourceLocation.__here()).__expected()
+    +-------------------------------------------------------------------
+142 |   state.listenerCancelled()
+143 |   #expect(state.isDrained)
+
+macro expansion #expect:2:6: error: cannot use mutating member on immutable value: '$0' is immutable
+`- $DATA_ROOT/work/NativeAI-Production-20260920/Providers/ChatGPT/Account/Tests/ChatGPTAccountTests/CallbackStateTests.swift:149:25: note: expanded code originates here
+147 |   var state = ChatGPTCallbackState<CallbackConnection>()
+148 |   let connection = CallbackConnection()
+149 |   #expect(state.start())
+    |   `- note: in expansion of macro 'expect' here
+    +--- macro expansion #expect ---------------------------------------
+    |1 | Testing.__checkFunctionCall(state.self,calling: {
+    |2 |   $0.start()
+    |  |      `- error: cannot use mutating member on immutable value: '$0' is immutable
+    |3 | },expression: .__fromFunctionCall(.__fromSyntaxNode("state"),"start"),comments: [],isRequired: false,sourceLocation: Testing.SourceLocation.__here()).__expected()
+    +-------------------------------------------------------------------
+150 |   #expect(!state.start())
+151 |   #expect(state.ready())
+
+macro expansion #expect:2:6: error: cannot use mutating member on immutable value: '$0' is immutable
+`- $DATA_ROOT/work/NativeAI-Production-20260920/Providers/ChatGPT/Account/Tests/ChatGPTAccountTests/CallbackStateTests.swift:150:26: note: expanded code originates here
+148 |   let connection = CallbackConnection()
+149 |   #expect(state.start())
+150 |   #expect(!state.start())
+    |   `- note: in expansion of macro 'expect' here
+    +--- macro expansion #expect ---------------------------------------
+    |1 | Testing.__checkFunctionCall(state.self,calling: {
+    |2 |   $0.start()
+    |  |      `- error: cannot use mutating member on immutable value: '$0' is immutable
+    |3 | },expression: .__fromNegation(.__fromFunctionCall(.__fromSyntaxNode("state"),"start"), false),comments: [],isRequired: false,sourceLocation: Testing.SourceLocation.__here()).__expected()
+    +-------------------------------------------------------------------
+151 |   #expect(state.ready())
+152 |   #expect(!state.ready())
+
+macro expansion #expect:2:6: error: cannot use mutating member on immutable value: '$0' is immutable
+`- $DATA_ROOT/work/NativeAI-Production-20260920/Providers/ChatGPT/Account/Tests/ChatGPTAccountTests/CallbackStateTests.swift:151:25: note: expanded code originates here
+149 |   #expect(state.start())
+150 |   #expect(!state.start())
+151 |   #expect(state.ready())
+    |   `- note: in expansion of macro 'expect' here
+    +--- macro expansion #expect ---------------------------------------
+    |1 | Testing.__checkFunctionCall(state.self,calling: {
+    |2 |   $0.ready()
+    |  |      `- error: cannot use mutating member on immutable value: '$0' is immutable
+    |3 | },expression: .__fromFunctionCall(.__fromSyntaxNode("state"),"ready"),comments: [],isRequired: false,sourceLocation: Testing.SourceLocation.__here()).__expected()
+    +-------------------------------------------------------------------
+152 |   #expect(!state.ready())
+153 |   #expect(state.track(connection))
+
+macro expansion #expect:2:6: error: cannot use mutating member on immutable value: '$0' is immutable
+`- $DATA_ROOT/work/NativeAI-Production-20260920/Providers/ChatGPT/Account/Tests/ChatGPTAccountTests/CallbackStateTests.swift:152:26: note: expanded code originates here
+150 |   #expect(!state.start())
+151 |   #expect(state.ready())
+152 |   #expect(!state.ready())
+    |   `- note: in expansion of macro 'expect' here
+    +--- macro expansion #expect ---------------------------------------
+    |1 | Testing.__checkFunctionCall(state.self,calling: {
+    |2 |   $0.ready()
+    |  |      `- error: cannot use mutating member on immutable value: '$0' is immutable
+    |3 | },expression: .__fromNegation(.__fromFunctionCall(.__fromSyntaxNode("state"),"ready"), false),comments: [],isRequired: false,sourceLocation: Testing.SourceLocation.__here()).__expected()
+    +-------------------------------------------------------------------
+153 |   #expect(state.track(connection))
+154 |   #expect(!state.track(connection))
+
+macro expansion #expect:2:6: error: cannot use mutating member on immutable value: '$0' is immutable
+`- $DATA_ROOT/work/NativeAI-Production-20260920/Providers/ChatGPT/Account/Tests/ChatGPTAccountTests/CallbackStateTests.swift:153:35: note: expanded code originates here
+151 |   #expect(state.ready())
+152 |   #expect(!state.ready())
+153 |   #expect(state.track(connection))
+    |   `- note: in expansion of macro 'expect' here
+    +--- macro expansion #expect ---------------------------------------
+    |1 | Testing.__checkFunctionCall(state.self,calling: {
+    |2 |   $0.track($1)
+    |  |      `- error: cannot use mutating member on immutable value: '$0' is immutable
+    |3 | },connection,expression: .__fromFunctionCall(.__fromSyntaxNode("state"),"track",(nil,.__fromSyntaxNode("connection"))),comments: [],isRequired: false,sourceLocation: Testing.SourceLocation.__here()).__expected()
+    +-------------------------------------------------------------------
+154 |   #expect(!state.track(connection))
+155 |   #expect(state.stopListener())
+
+macro expansion #expect:2:6: error: cannot use mutating member on immutable value: '$0' is immutable
+`- $DATA_ROOT/work/NativeAI-Production-20260920/Providers/ChatGPT/Account/Tests/ChatGPTAccountTests/CallbackStateTests.swift:154:36: note: expanded code originates here
+152 |   #expect(!state.ready())
+153 |   #expect(state.track(connection))
+154 |   #expect(!state.track(connection))
+    |   `- note: in expansion of macro 'expect' here
+    +--- macro expansion #expect ---------------------------------------
+    |1 | Testing.__checkFunctionCall(state.self,calling: {
+    |2 |   $0.track($1)
+    |  |      `- error: cannot use mutating member on immutable value: '$0' is immutable
+    |3 | },connection,expression: .__fromNegation(.__fromFunctionCall(.__fromSyntaxNode("state"),"track",(nil,.__fromSyntaxNode("connection"))), false),comments: [],isRequired: false,sourceLocation: Testing.SourceLocation.__here()).__expected()
+    +-------------------------------------------------------------------
+155 |   #expect(state.stopListener())
+156 |   #expect(!state.stopListener())
+
+macro expansion #expect:2:6: error: cannot use mutating member on immutable value: '$0' is immutable
+`- $DATA_ROOT/work/NativeAI-Production-20260920/Providers/ChatGPT/Account/Tests/ChatGPTAccountTests/CallbackStateTests.swift:155:32: note: expanded code originates here
+153 |   #expect(state.track(connection))
+154 |   #expect(!state.track(connection))
+155 |   #expect(state.stopListener())
+    |   `- note: in expansion of macro 'expect' here
+    +--- macro expansion #expect ---------------------------------------
+    |1 | Testing.__checkFunctionCall(state.self,calling: {
+    |2 |   $0.stopListener()
+    |  |      `- error: cannot use mutating member on immutable value: '$0' is immutable
+    |3 | },expression: .__fromFunctionCall(.__fromSyntaxNode("state"),"stopListener"),comments: [],isRequired: false,sourceLocation: Testing.SourceLocation.__here()).__expected()
+    +-------------------------------------------------------------------
+156 |   #expect(!state.stopListener())
+157 |   #expect(!state.ready())
+
+macro expansion #expect:2:6: error: cannot use mutating member on immutable value: '$0' is immutable
+`- $DATA_ROOT/work/NativeAI-Production-20260920/Providers/ChatGPT/Account/Tests/ChatGPTAccountTests/CallbackStateTests.swift:156:33: note: expanded code originates here
+154 |   #expect(!state.track(connection))
+155 |   #expect(state.stopListener())
+156 |   #expect(!state.stopListener())
+    |   `- note: in expansion of macro 'expect' here
+    +--- macro expansion #expect ---------------------------------------
+    |1 | Testing.__checkFunctionCall(state.self,calling: {
+    |2 |   $0.stopListener()
+    |  |      `- error: cannot use mutating member on immutable value: '$0' is immutable
+    |3 | },expression: .__fromNegation(.__fromFunctionCall(.__fromSyntaxNode("state"),"stopListener"), false),comments: [],isRequired: false,sourceLocation: Testing.SourceLocation.__here()).__expected()
+    +-------------------------------------------------------------------
+157 |   #expect(!state.ready())
+158 |   #expect(state.cancelConnections().count == 1)
+
+macro expansion #expect:2:6: error: cannot use mutating member on immutable value: '$0' is immutable
+`- $DATA_ROOT/work/NativeAI-Production-20260920/Providers/ChatGPT/Account/Tests/ChatGPTAccountTests/CallbackStateTests.swift:157:26: note: expanded code originates here
+155 |   #expect(state.stopListener())
+156 |   #expect(!state.stopListener())
+157 |   #expect(!state.ready())
+    |   `- note: in expansion of macro 'expect' here
+    +--- macro expansion #expect ---------------------------------------
+    |1 | Testing.__checkFunctionCall(state.self,calling: {
+    |2 |   $0.ready()
+    |  |      `- error: cannot use mutating member on immutable value: '$0' is immutable
+    |3 | },expression: .__fromNegation(.__fromFunctionCall(.__fromSyntaxNode("state"),"ready"), false),comments: [],isRequired: false,sourceLocation: Testing.SourceLocation.__here()).__expected()
+    +-------------------------------------------------------------------
+158 |   #expect(state.cancelConnections().count == 1)
+159 |   #expect(state.cancelConnections().isEmpty)
+[16/23] Compiling ChatGPTAccountTests CredentialValidationTests.swift
+macro expansion #expect:2:6: error: cannot use mutating member on immutable value: '$0' is immutable
+`- $DATA_ROOT/work/NativeAI-Production-20260920/Providers/ChatGPT/Account/Tests/ChatGPTAccountTests/CallbackStateTests.swift:9:25: note: expanded code originates here
+  7 | @Test func callbackShutdownRequiresListenerAndEveryAcceptedConnection() {
+  8 |   var state = ChatGPTCallbackState<CallbackConnection>()
+  9 |   #expect(state.start())
+    |   `- note: in expansion of macro 'expect' here
+    +--- macro expansion #expect ---------------------------------------
+    |1 | Testing.__checkFunctionCall(state.self,calling: {
+    |2 |   $0.start()
+    |  |      `- error: cannot use mutating member on immutable value: '$0' is immutable
+    |3 | },expression: .__fromFunctionCall(.__fromSyntaxNode("state"),"start"),comments: [],isRequired: false,sourceLocation: Testing.SourceLocation.__here()).__expected()
+    +-------------------------------------------------------------------
+ 10 |   #expect(state.ready())
+ 11 |   let first = CallbackConnection(), second = CallbackConnection()
+
+macro expansion #expect:2:6: error: cannot use mutating member on immutable value: '$0' is immutable
+`- $DATA_ROOT/work/NativeAI-Production-20260920/Providers/ChatGPT/Account/Tests/ChatGPTAccountTests/CallbackStateTests.swift:10:25: note: expanded code originates here
+  8 |   var state = ChatGPTCallbackState<CallbackConnection>()
+  9 |   #expect(state.start())
+ 10 |   #expect(state.ready())
+    |   `- note: in expansion of macro 'expect' here
+    +--- macro expansion #expect ---------------------------------------
+    |1 | Testing.__checkFunctionCall(state.self,calling: {
+    |2 |   $0.ready()
+    |  |      `- error: cannot use mutating member on immutable value: '$0' is immutable
+    |3 | },expression: .__fromFunctionCall(.__fromSyntaxNode("state"),"ready"),comments: [],isRequired: false,sourceLocation: Testing.SourceLocation.__here()).__expected()
+    +-------------------------------------------------------------------
+ 11 |   let first = CallbackConnection(), second = CallbackConnection()
+ 12 |   #expect(state.track(first))
+
+macro expansion #expect:2:6: error: cannot use mutating member on immutable value: '$0' is immutable
+`- $DATA_ROOT/work/NativeAI-Production-20260920/Providers/ChatGPT/Account/Tests/ChatGPTAccountTests/CallbackStateTests.swift:12:30: note: expanded code originates here
+ 10 |   #expect(state.ready())
+ 11 |   let first = CallbackConnection(), second = CallbackConnection()
+ 12 |   #expect(state.track(first))
+    |   `- note: in expansion of macro 'expect' here
+    +--- macro expansion #expect ---------------------------------------
+    |1 | Testing.__checkFunctionCall(state.self,calling: {
+    |2 |   $0.track($1)
+    |  |      `- error: cannot use mutating member on immutable value: '$0' is immutable
+    |3 | },first,expression: .__fromFunctionCall(.__fromSyntaxNode("state"),"track",(nil,.__fromSyntaxNode("first"))),comments: [],isRequired: false,sourceLocation: Testing.SourceLocation.__here()).__expected()
+    +-------------------------------------------------------------------
+ 13 |   #expect(state.track(second))
+ 14 |   #expect(state.stopListener())
+
+macro expansion #expect:2:6: error: cannot use mutating member on immutable value: '$0' is immutable
+`- $DATA_ROOT/work/NativeAI-Production-20260920/Providers/ChatGPT/Account/Tests/ChatGPTAccountTests/CallbackStateTests.swift:13:31: note: expanded code originates here
+ 11 |   let first = CallbackConnection(), second = CallbackConnection()
+ 12 |   #expect(state.track(first))
+ 13 |   #expect(state.track(second))
+    |   `- note: in expansion of macro 'expect' here
+    +--- macro expansion #expect ---------------------------------------
+    |1 | Testing.__checkFunctionCall(state.self,calling: {
+    |2 |   $0.track($1)
+    |  |      `- error: cannot use mutating member on immutable value: '$0' is immutable
+    |3 | },second,expression: .__fromFunctionCall(.__fromSyntaxNode("state"),"track",(nil,.__fromSyntaxNode("second"))),comments: [],isRequired: false,sourceLocation: Testing.SourceLocation.__here()).__expected()
+    +-------------------------------------------------------------------
+ 14 |   #expect(state.stopListener())
+ 15 |   #expect(state.cancelConnections().count == 2)
+
+macro expansion #expect:2:6: error: cannot use mutating member on immutable value: '$0' is immutable
+`- $DATA_ROOT/work/NativeAI-Production-20260920/Providers/ChatGPT/Account/Tests/ChatGPTAccountTests/CallbackStateTests.swift:14:32: note: expanded code originates here
+ 12 |   #expect(state.track(first))
+ 13 |   #expect(state.track(second))
+ 14 |   #expect(state.stopListener())
+    |   `- note: in expansion of macro 'expect' here
+    +--- macro expansion #expect ---------------------------------------
+    |1 | Testing.__checkFunctionCall(state.self,calling: {
+    |2 |   $0.stopListener()
+    |  |      `- error: cannot use mutating member on immutable value: '$0' is immutable
+    |3 | },expression: .__fromFunctionCall(.__fromSyntaxNode("state"),"stopListener"),comments: [],isRequired: false,sourceLocation: Testing.SourceLocation.__here()).__expected()
+    +-------------------------------------------------------------------
+ 15 |   #expect(state.cancelConnections().count == 2)
+ 16 |   state.listenerCancelled()
+
+macro expansion #expect:2:6: error: cannot use mutating member on immutable value: '$0' is immutable
+`- $DATA_ROOT/work/NativeAI-Production-20260920/Providers/ChatGPT/Account/Tests/ChatGPTAccountTests/CallbackStateTests.swift:29:25: note: expanded code originates here
+ 27 |   var state = ChatGPTCallbackState<CallbackConnection>()
+ 28 |   let connection = CallbackConnection(), operation = UUID()
+ 29 |   #expect(state.start())
+    |   `- note: in expansion of macro 'expect' here
+    +--- macro expansion #expect ---------------------------------------
+    |1 | Testing.__checkFunctionCall(state.self,calling: {
+    |2 |   $0.start()
+    |  |      `- error: cannot use mutating member on immutable value: '$0' is immutable
+    |3 | },expression: .__fromFunctionCall(.__fromSyntaxNode("state"),"start"),comments: [],isRequired: false,sourceLocation: Testing.SourceLocation.__here()).__expected()
+    +-------------------------------------------------------------------
+ 30 |   #expect(state.ready())
+ 31 |   #expect(state.track(connection))
+
+macro expansion #expect:2:6: error: cannot use mutating member on immutable value: '$0' is immutable
+`- $DATA_ROOT/work/NativeAI-Production-20260920/Providers/ChatGPT/Account/Tests/ChatGPTAccountTests/CallbackStateTests.swift:30:25: note: expanded code originates here
+ 28 |   let connection = CallbackConnection(), operation = UUID()
+ 29 |   #expect(state.start())
+ 30 |   #expect(state.ready())
+    |   `- note: in expansion of macro 'expect' here
+    +--- macro expansion #expect ---------------------------------------
+    |1 | Testing.__checkFunctionCall(state.self,calling: {
+    |2 |   $0.ready()
+    |  |      `- error: cannot use mutating member on immutable value: '$0' is immutable
+    |3 | },expression: .__fromFunctionCall(.__fromSyntaxNode("state"),"ready"),comments: [],isRequired: false,sourceLocation: Testing.SourceLocation.__here()).__expected()
+    +-------------------------------------------------------------------
+ 31 |   #expect(state.track(connection))
+ 32 |   #expect(state.beginIO(on: connection, id: operation))
+
+macro expansion #expect:2:6: error: cannot use mutating member on immutable value: '$0' is immutable
+`- $DATA_ROOT/work/NativeAI-Production-20260920/Providers/ChatGPT/Account/Tests/ChatGPTAccountTests/CallbackStateTests.swift:31:35: note: expanded code originates here
+ 29 |   #expect(state.start())
+ 30 |   #expect(state.ready())
+ 31 |   #expect(state.track(connection))
+    |   `- note: in expansion of macro 'expect' here
+    +--- macro expansion #expect ---------------------------------------
+    |1 | Testing.__checkFunctionCall(state.self,calling: {
+    |2 |   $0.track($1)
+    |  |      `- error: cannot use mutating member on immutable value: '$0' is immutable
+    |3 | },connection,expression: .__fromFunctionCall(.__fromSyntaxNode("state"),"track",(nil,.__fromSyntaxNode("connection"))),comments: [],isRequired: false,sourceLocation: Testing.SourceLocation.__here()).__expected()
+    +-------------------------------------------------------------------
+ 32 |   #expect(state.beginIO(on: connection, id: operation))
+ 33 |   #expect(state.stopListener())
+
+macro expansion #expect:2:6: error: cannot use mutating member on immutable value: '$0' is immutable
+`- $DATA_ROOT/work/NativeAI-Production-20260920/Providers/ChatGPT/Account/Tests/ChatGPTAccountTests/CallbackStateTests.swift:32:56: note: expanded code originates here
+ 30 |   #expect(state.ready())
+ 31 |   #expect(state.track(connection))
+ 32 |   #expect(state.beginIO(on: connection, id: operation))
+    |   `- note: in expansion of macro 'expect' here
+    +--- macro expansion #expect ---------------------------------------
+    |1 | Testing.__checkFunctionCall(state.self,calling: {
+    |2 |   $0.beginIO(on: $1,id: $2)
+    |  |      `- error: cannot use mutating member on immutable value: '$0' is immutable
+    |3 | },connection,operation,expression: .__fromFunctionCall(.__fromSyntaxNode("state"),"beginIO",("on",.__fromSyntaxNode("connection")),("id",.__fromSyntaxNode("operation"))),comments: [],isRequired: false,sourceLocation: Testing.SourceLocation.__here()).__expected()
+    +-------------------------------------------------------------------
+ 33 |   #expect(state.stopListener())
+ 34 |   #expect(state.cancelConnections().count == 1)
+
+macro expansion #expect:2:6: error: cannot use mutating member on immutable value: '$0' is immutable
+`- $DATA_ROOT/work/NativeAI-Production-20260920/Providers/ChatGPT/Account/Tests/ChatGPTAccountTests/CallbackStateTests.swift:33:32: note: expanded code originates here
+ 31 |   #expect(state.track(connection))
+ 32 |   #expect(state.beginIO(on: connection, id: operation))
+ 33 |   #expect(state.stopListener())
+    |   `- note: in expansion of macro 'expect' here
+    +--- macro expansion #expect ---------------------------------------
+    |1 | Testing.__checkFunctionCall(state.self,calling: {
+    |2 |   $0.stopListener()
+    |  |      `- error: cannot use mutating member on immutable value: '$0' is immutable
+    |3 | },expression: .__fromFunctionCall(.__fromSyntaxNode("state"),"stopListener"),comments: [],isRequired: false,sourceLocation: Testing.SourceLocation.__here()).__expected()
+    +-------------------------------------------------------------------
+ 34 |   #expect(state.cancelConnections().count == 1)
+ 35 |   for (offset, receipt) in order.enumerated() {
+
+macro expansion #expect:2:6: error: cannot use mutating member on immutable value: '$0' is immutable
+`- $DATA_ROOT/work/NativeAI-Production-20260920/Providers/ChatGPT/Account/Tests/ChatGPTAccountTests/CallbackStateTests.swift:39:70: note: expanded code originates here
+ 37 |     case 0: state.listenerCancelled()
+ 38 |     case 1: state.connectionCancelled(connection)
+ 39 |     default: #expect(state.completeIO(on: connection, id: operation))
+    |              `- note: in expansion of macro 'expect' here
+    +--- macro expansion #expect ---------------------------------------
+    |1 | Testing.__checkFunctionCall(state.self,calling: {
+    |2 |   $0.completeIO(on: $1,id: $2)
+    |  |      `- error: cannot use mutating member on immutable value: '$0' is immutable
+    |3 | },connection,operation,expression: .__fromFunctionCall(.__fromSyntaxNode("state"),"completeIO",("on",.__fromSyntaxNode("connection")),("id",.__fromSyntaxNode("operation"))),comments: [],isRequired: false,sourceLocation: Testing.SourceLocation.__here()).__expected()
+    +-------------------------------------------------------------------
+ 40 |     }
+ 41 |     #expect(state.isDrained == (offset == order.count - 1))
+
+macro expansion #expect:2:6: error: cannot use mutating member on immutable value: '$0' is immutable
+`- $DATA_ROOT/work/NativeAI-Production-20260920/Providers/ChatGPT/Account/Tests/ChatGPTAccountTests/CallbackStateTests.swift:48:25: note: expanded code originates here
+ 46 |   var state = ChatGPTCallbackState<CallbackConnection>()
+ 47 |   let connection = CallbackConnection(), old = UUID(), current = UUID()
+ 48 |   #expect(state.start())
+    |   `- note: in expansion of macro 'expect' here
+    +--- macro expansion #expect ---------------------------------------
+    |1 | Testing.__checkFunctionCall(state.self,calling: {
+    |2 |   $0.start()
+    |  |      `- error: cannot use mutating member on immutable value: '$0' is immutable
+    |3 | },expression: .__fromFunctionCall(.__fromSyntaxNode("state"),"start"),comments: [],isRequired: false,sourceLocation: Testing.SourceLocation.__here()).__expected()
+    +-------------------------------------------------------------------
+ 49 |   #expect(state.ready())
+ 50 |   #expect(state.track(connection))
+
+macro expansion #expect:2:6: error: cannot use mutating member on immutable value: '$0' is immutable
+`- $DATA_ROOT/work/NativeAI-Production-20260920/Providers/ChatGPT/Account/Tests/ChatGPTAccountTests/CallbackStateTests.swift:49:25: note: expanded code originates here
+ 47 |   let connection = CallbackConnection(), old = UUID(), current = UUID()
+ 48 |   #expect(state.start())
+ 49 |   #expect(state.ready())
+    |   `- note: in expansion of macro 'expect' here
+    +--- macro expansion #expect ---------------------------------------
+    |1 | Testing.__checkFunctionCall(state.self,calling: {
+    |2 |   $0.ready()
+    |  |      `- error: cannot use mutating member on immutable value: '$0' is immutable
+    |3 | },expression: .__fromFunctionCall(.__fromSyntaxNode("state"),"ready"),comments: [],isRequired: false,sourceLocation: Testing.SourceLocation.__here()).__expected()
+    +-------------------------------------------------------------------
+ 50 |   #expect(state.track(connection))
+ 51 |   #expect(state.beginIO(on: connection, id: old))
+
+macro expansion #expect:2:6: error: cannot use mutating member on immutable value: '$0' is immutable
+`- $DATA_ROOT/work/NativeAI-Production-20260920/Providers/ChatGPT/Account/Tests/ChatGPTAccountTests/CallbackStateTests.swift:50:35: note: expanded code originates here
+ 48 |   #expect(state.start())
+ 49 |   #expect(state.ready())
+ 50 |   #expect(state.track(connection))
+    |   `- note: in expansion of macro 'expect' here
+    +--- macro expansion #expect ---------------------------------------
+    |1 | Testing.__checkFunctionCall(state.self,calling: {
+    |2 |   $0.track($1)
+    |  |      `- error: cannot use mutating member on immutable value: '$0' is immutable
+    |3 | },connection,expression: .__fromFunctionCall(.__fromSyntaxNode("state"),"track",(nil,.__fromSyntaxNode("connection"))),comments: [],isRequired: false,sourceLocation: Testing.SourceLocation.__here()).__expected()
+    +-------------------------------------------------------------------
+ 51 |   #expect(state.beginIO(on: connection, id: old))
+ 52 |   #expect(state.completeIO(on: connection, id: old))
+
+macro expansion #expect:2:6: error: cannot use mutating member on immutable value: '$0' is immutable
+`- $DATA_ROOT/work/NativeAI-Production-20260920/Providers/ChatGPT/Account/Tests/ChatGPTAccountTests/CallbackStateTests.swift:51:50: note: expanded code originates here
+ 49 |   #expect(state.ready())
+ 50 |   #expect(state.track(connection))
+ 51 |   #expect(state.beginIO(on: connection, id: old))
+    |   `- note: in expansion of macro 'expect' here
+    +--- macro expansion #expect ---------------------------------------
+    |1 | Testing.__checkFunctionCall(state.self,calling: {
+    |2 |   $0.beginIO(on: $1,id: $2)
+    |  |      `- error: cannot use mutating member on immutable value: '$0' is immutable
+    |3 | },connection,old,expression: .__fromFunctionCall(.__fromSyntaxNode("state"),"beginIO",("on",.__fromSyntaxNode("connection")),("id",.__fromSyntaxNode("old"))),comments: [],isRequired: false,sourceLocation: Testing.SourceLocation.__here()).__expected()
+    +-------------------------------------------------------------------
+ 52 |   #expect(state.completeIO(on: connection, id: old))
+ 53 |   #expect(state.beginIO(on: connection, id: current))
+
+macro expansion #expect:2:6: error: cannot use mutating member on immutable value: '$0' is immutable
+`- $DATA_ROOT/work/NativeAI-Production-20260920/Providers/ChatGPT/Account/Tests/ChatGPTAccountTests/CallbackStateTests.swift:52:53: note: expanded code originates here
+ 50 |   #expect(state.track(connection))
+ 51 |   #expect(state.beginIO(on: connection, id: old))
+ 52 |   #expect(state.completeIO(on: connection, id: old))
+    |   `- note: in expansion of macro 'expect' here
+    +--- macro expansion #expect ---------------------------------------
+    |1 | Testing.__checkFunctionCall(state.self,calling: {
+    |2 |   $0.completeIO(on: $1,id: $2)
+    |  |      `- error: cannot use mutating member on immutable value: '$0' is immutable
+    |3 | },connection,old,expression: .__fromFunctionCall(.__fromSyntaxNode("state"),"completeIO",("on",.__fromSyntaxNode("connection")),("id",.__fromSyntaxNode("old"))),comments: [],isRequired: false,sourceLocation: Testing.SourceLocation.__here()).__expected()
+    +-------------------------------------------------------------------
+ 53 |   #expect(state.beginIO(on: connection, id: current))
+ 54 |   #expect(!state.completeIO(on: connection, id: old))
+
+macro expansion #expect:2:6: error: cannot use mutating member on immutable value: '$0' is immutable
+`- $DATA_ROOT/work/NativeAI-Production-20260920/Providers/ChatGPT/Account/Tests/ChatGPTAccountTests/CallbackStateTests.swift:53:54: note: expanded code originates here
+ 51 |   #expect(state.beginIO(on: connection, id: old))
+ 52 |   #expect(state.completeIO(on: connection, id: old))
+ 53 |   #expect(state.beginIO(on: connection, id: current))
+    |   `- note: in expansion of macro 'expect' here
+    +--- macro expansion #expect ---------------------------------------
+    |1 | Testing.__checkFunctionCall(state.self,calling: {
+    |2 |   $0.beginIO(on: $1,id: $2)
+    |  |      `- error: cannot use mutating member on immutable value: '$0' is immutable
+    |3 | },connection,current,expression: .__fromFunctionCall(.__fromSyntaxNode("state"),"beginIO",("on",.__fromSyntaxNode("connection")),("id",.__fromSyntaxNode("current"))),comments: [],isRequired: false,sourceLocation: Testing.SourceLocation.__here()).__expected()
+    +-------------------------------------------------------------------
+ 54 |   #expect(!state.completeIO(on: connection, id: old))
+ 55 |   #expect(state.stopListener())
+
+macro expansion #expect:2:6: error: cannot use mutating member on immutable value: '$0' is immutable
+`- $DATA_ROOT/work/NativeAI-Production-20260920/Providers/ChatGPT/Account/Tests/ChatGPTAccountTests/CallbackStateTests.swift:54:54: note: expanded code originates here
+ 52 |   #expect(state.completeIO(on: connection, id: old))
+ 53 |   #expect(state.beginIO(on: connection, id: current))
+ 54 |   #expect(!state.completeIO(on: connection, id: old))
+    |   `- note: in expansion of macro 'expect' here
+    +--- macro expansion #expect ---------------------------------------
+    |1 | Testing.__checkFunctionCall(state.self,calling: {
+    |2 |   $0.completeIO(on: $1,id: $2)
+    |  |      `- error: cannot use mutating member on immutable value: '$0' is immutable
+    |3 | },connection,old,expression: .__fromNegation(.__fromFunctionCall(.__fromSyntaxNode("state"),"completeIO",("on",.__fromSyntaxNode("connection")),("id",.__fromSyntaxNode("old"))), false),comments: [],isRequired: false,sourceLocation: Testing.SourceLocation.__here()).__expected()
+    +-------------------------------------------------------------------
+ 55 |   #expect(state.stopListener())
+ 56 |   state.listenerCancelled()
+
+macro expansion #expect:2:6: error: cannot use mutating member on immutable value: '$0' is immutable
+`- $DATA_ROOT/work/NativeAI-Production-20260920/Providers/ChatGPT/Account/Tests/ChatGPTAccountTests/CallbackStateTests.swift:55:32: note: expanded code originates here
+ 53 |   #expect(state.beginIO(on: connection, id: current))
+ 54 |   #expect(!state.completeIO(on: connection, id: old))
+ 55 |   #expect(state.stopListener())
+    |   `- note: in expansion of macro 'expect' here
+    +--- macro expansion #expect ---------------------------------------
+    |1 | Testing.__checkFunctionCall(state.self,calling: {
+    |2 |   $0.stopListener()
+    |  |      `- error: cannot use mutating member on immutable value: '$0' is immutable
+    |3 | },expression: .__fromFunctionCall(.__fromSyntaxNode("state"),"stopListener"),comments: [],isRequired: false,sourceLocation: Testing.SourceLocation.__here()).__expected()
+    +-------------------------------------------------------------------
+ 56 |   state.listenerCancelled()
+ 57 |   state.connectionCancelled(connection)
+
+macro expansion #expect:2:6: error: cannot use mutating member on immutable value: '$0' is immutable
+`- $DATA_ROOT/work/NativeAI-Production-20260920/Providers/ChatGPT/Account/Tests/ChatGPTAccountTests/CallbackStateTests.swift:59:57: note: expanded code originates here
+ 57 |   state.connectionCancelled(connection)
+ 58 |   #expect(!state.isDrained)
+ 59 |   #expect(state.completeIO(on: connection, id: current))
+    |   `- note: in expansion of macro 'expect' here
+    +--- macro expansion #expect ---------------------------------------
+    |1 | Testing.__checkFunctionCall(state.self,calling: {
+    |2 |   $0.completeIO(on: $1,id: $2)
+    |  |      `- error: cannot use mutating member on immutable value: '$0' is immutable
+    |3 | },connection,current,expression: .__fromFunctionCall(.__fromSyntaxNode("state"),"completeIO",("on",.__fromSyntaxNode("connection")),("id",.__fromSyntaxNode("current"))),comments: [],isRequired: false,sourceLocation: Testing.SourceLocation.__here()).__expected()
+    +-------------------------------------------------------------------
+ 60 |   #expect(state.isDrained)
+ 61 |   #expect(!state.completeIO(on: connection, id: current))
+
+macro expansion #expect:2:6: error: cannot use mutating member on immutable value: '$0' is immutable
+`- $DATA_ROOT/work/NativeAI-Production-20260920/Providers/ChatGPT/Account/Tests/ChatGPTAccountTests/CallbackStateTests.swift:61:58: note: expanded code originates here
+ 59 |   #expect(state.completeIO(on: connection, id: current))
+ 60 |   #expect(state.isDrained)
+ 61 |   #expect(!state.completeIO(on: connection, id: current))
+    |   `- note: in expansion of macro 'expect' here
+    +--- macro expansion #expect ---------------------------------------
+    |1 | Testing.__checkFunctionCall(state.self,calling: {
+    |2 |   $0.completeIO(on: $1,id: $2)
+    |  |      `- error: cannot use mutating member on immutable value: '$0' is immutable
+    |3 | },connection,current,expression: .__fromNegation(.__fromFunctionCall(.__fromSyntaxNode("state"),"completeIO",("on",.__fromSyntaxNode("connection")),("id",.__fromSyntaxNode("current"))), false),comments: [],isRequired: false,sourceLocation: Testing.SourceLocation.__here()).__expected()
+    +-------------------------------------------------------------------
+ 62 | }
+ 63 | 
+
+macro expansion #expect:2:6: error: cannot use mutating member on immutable value: '$0' is immutable
+`- $DATA_ROOT/work/NativeAI-Production-20260920/Providers/ChatGPT/Account/Tests/ChatGPTAccountTests/CallbackStateTests.swift:67:25: note: expanded code originates here
+ 65 |   var state = ChatGPTCallbackState<CallbackConnection>()
+ 66 |   let connection = CallbackConnection(), read = UUID()
+ 67 |   #expect(state.start())
+    |   `- note: in expansion of macro 'expect' here
+    +--- macro expansion #expect ---------------------------------------
+    |1 | Testing.__checkFunctionCall(state.self,calling: {
+    |2 |   $0.start()
+    |  |      `- error: cannot use mutating member on immutable value: '$0' is immutable
+    |3 | },expression: .__fromFunctionCall(.__fromSyntaxNode("state"),"start"),comments: [],isRequired: false,sourceLocation: Testing.SourceLocation.__here()).__expected()
+    +-------------------------------------------------------------------
+ 68 |   #expect(state.ready())
+ 69 |   #expect(state.track(connection))
+
+macro expansion #expect:2:6: error: cannot use mutating member on immutable value: '$0' is immutable
+`- $DATA_ROOT/work/NativeAI-Production-20260920/Providers/ChatGPT/Account/Tests/ChatGPTAccountTests/CallbackStateTests.swift:68:25: note: expanded code originates here
+ 66 |   let connection = CallbackConnection(), read = UUID()
+ 67 |   #expect(state.start())
+ 68 |   #expect(state.ready())
+    |   `- note: in expansion of macro 'expect' here
+    +--- macro expansion #expect ---------------------------------------
+    |1 | Testing.__checkFunctionCall(state.self,calling: {
+    |2 |   $0.ready()
+    |  |      `- error: cannot use mutating member on immutable value: '$0' is immutable
+    |3 | },expression: .__fromFunctionCall(.__fromSyntaxNode("state"),"ready"),comments: [],isRequired: false,sourceLocation: Testing.SourceLocation.__here()).__expected()
+    +-------------------------------------------------------------------
+ 69 |   #expect(state.track(connection))
+ 70 |   #expect(state.beginIO(on: connection, id: read))
+
+macro expansion #expect:2:6: error: cannot use mutating member on immutable value: '$0' is immutable
+`- $DATA_ROOT/work/NativeAI-Production-20260920/Providers/ChatGPT/Account/Tests/ChatGPTAccountTests/CallbackStateTests.swift:69:35: note: expanded code originates here
+ 67 |   #expect(state.start())
+ 68 |   #expect(state.ready())
+ 69 |   #expect(state.track(connection))
+    |   `- note: in expansion of macro 'expect' here
+    +--- macro expansion #expect ---------------------------------------
+    |1 | Testing.__checkFunctionCall(state.self,calling: {
+    |2 |   $0.track($1)
+    |  |      `- error: cannot use mutating member on immutable value: '$0' is immutable
+    |3 | },connection,expression: .__fromFunctionCall(.__fromSyntaxNode("state"),"track",(nil,.__fromSyntaxNode("connection"))),comments: [],isRequired: false,sourceLocation: Testing.SourceLocation.__here()).__expected()
+    +-------------------------------------------------------------------
+ 70 |   #expect(state.beginIO(on: connection, id: read))
+ 71 |   #expect(state.cancel(connection) === connection)
+
+macro expansion #expect:2:6: error: cannot use mutating member on immutable value: '$0' is immutable
+`- $DATA_ROOT/work/NativeAI-Production-20260920/Providers/ChatGPT/Account/Tests/ChatGPTAccountTests/CallbackStateTests.swift:70:51: note: expanded code originates here
+ 68 |   #expect(state.ready())
+ 69 |   #expect(state.track(connection))
+ 70 |   #expect(state.beginIO(on: connection, id: read))
+    |   `- note: in expansion of macro 'expect' here
+    +--- macro expansion #expect ---------------------------------------
+    |1 | Testing.__checkFunctionCall(state.self,calling: {
+    |2 |   $0.beginIO(on: $1,id: $2)
+    |  |      `- error: cannot use mutating member on immutable value: '$0' is immutable
+    |3 | },connection,read,expression: .__fromFunctionCall(.__fromSyntaxNode("state"),"beginIO",("on",.__fromSyntaxNode("connection")),("id",.__fromSyntaxNode("read"))),comments: [],isRequired: false,sourceLocation: Testing.SourceLocation.__here()).__expected()
+    +-------------------------------------------------------------------
+ 71 |   #expect(state.cancel(connection) === connection)
+ 72 |   #expect(state.completeIO(on: connection, id: read))
+
+macro expansion #expect:2:6: error: cannot use mutating member on immutable value: '$0' is immutable
+`- $DATA_ROOT/work/NativeAI-Production-20260920/Providers/ChatGPT/Account/Tests/ChatGPTAccountTests/CallbackStateTests.swift:72:54: note: expanded code originates here
+ 70 |   #expect(state.beginIO(on: connection, id: read))
+ 71 |   #expect(state.cancel(connection) === connection)
+ 72 |   #expect(state.completeIO(on: connection, id: read))
+    |   `- note: in expansion of macro 'expect' here
+    +--- macro expansion #expect ---------------------------------------
+    |1 | Testing.__checkFunctionCall(state.self,calling: {
+    |2 |   $0.completeIO(on: $1,id: $2)
+    |  |      `- error: cannot use mutating member on immutable value: '$0' is immutable
+    |3 | },connection,read,expression: .__fromFunctionCall(.__fromSyntaxNode("state"),"completeIO",("on",.__fromSyntaxNode("connection")),("id",.__fromSyntaxNode("read"))),comments: [],isRequired: false,sourceLocation: Testing.SourceLocation.__here()).__expected()
+    +-------------------------------------------------------------------
+ 73 |   #expect(!state.beginIO(on: connection, id: UUID()))
+ 74 |   #expect(!state.beginIO(on: connection, id: UUID(), response: true))
+
+macro expansion #expect:2:6: error: cannot use mutating member on immutable value: '$0' is immutable
+`- $DATA_ROOT/work/NativeAI-Production-20260920/Providers/ChatGPT/Account/Tests/ChatGPTAccountTests/CallbackStateTests.swift:73:54: note: expanded code originates here
+ 71 |   #expect(state.cancel(connection) === connection)
+ 72 |   #expect(state.completeIO(on: connection, id: read))
+ 73 |   #expect(!state.beginIO(on: connection, id: UUID()))
+    |   `- note: in expansion of macro 'expect' here
+    +--- macro expansion #expect ---------------------------------------
+    |1 | Testing.__checkFunctionCall(state.self,calling: {
+    |2 |   $0.beginIO(on: $1,id: $2)
+    |  |      `- error: cannot use mutating member on immutable value: '$0' is immutable
+    |3 | },connection,UUID(),expression: .__fromNegation(.__fromFunctionCall(.__fromSyntaxNode("state"),"beginIO",("on",.__fromSyntaxNode("connection")),("id",.__fromSyntaxNode("UUID()"))), false),comments: [],isRequired: false,sourceLocation: Testing.SourceLocation.__here()).__expected()
+    +-------------------------------------------------------------------
+ 74 |   #expect(!state.beginIO(on: connection, id: UUID(), response: true))
+ 75 |   #expect(state.cancel(connection) == nil)
+
+macro expansion #expect:2:6: error: cannot use mutating member on immutable value: '$0' is immutable
+`- $DATA_ROOT/work/NativeAI-Production-20260920/Providers/ChatGPT/Account/Tests/ChatGPTAccountTests/CallbackStateTests.swift:74:70: note: expanded code originates here
+ 72 |   #expect(state.completeIO(on: connection, id: read))
+ 73 |   #expect(!state.beginIO(on: connection, id: UUID()))
+ 74 |   #expect(!state.beginIO(on: connection, id: UUID(), response: true))
+    |   `- note: in expansion of macro 'expect' here
+    +--- macro expansion #expect ---------------------------------------
+    |1 | Testing.__checkFunctionCall(state.self,calling: {
+    |2 |   $0.beginIO(on: $1,id: $2,response: $3)
+    |  |      `- error: cannot use mutating member on immutable value: '$0' is immutable
+    |3 | },connection,UUID(),true,expression: .__fromNegation(.__fromFunctionCall(.__fromSyntaxNode("state"),"beginIO",("on",.__fromSyntaxNode("connection")),("id",.__fromSyntaxNode("UUID()")),("response",.__fromSyntaxNode("true"))), false),comments: [],isRequired: false,sourceLocation: Testing.SourceLocation.__here()).__expected()
+    +-------------------------------------------------------------------
+ 75 |   #expect(state.cancel(connection) == nil)
+ 76 | }
+
+macro expansion #expect:2:6: error: cannot use mutating member on immutable value: '$0' is immutable
+`- $DATA_ROOT/work/NativeAI-Production-20260920/Providers/ChatGPT/Account/Tests/ChatGPTAccountTests/CallbackStateTests.swift:81:25: note: expanded code originates here
+ 79 |   var state = ChatGPTCallbackState<CallbackConnection>()
+ 80 |   let selected = CallbackConnection(), stalled = CallbackConnection(), write = UUID()
+ 81 |   #expect(state.start())
+    |   `- note: in expansion of macro 'expect' here
+    +--- macro expansion #expect ---------------------------------------
+    |1 | Testing.__checkFunctionCall(state.self,calling: {
+    |2 |   $0.start()
+    |  |      `- error: cannot use mutating member on immutable value: '$0' is immutable
+    |3 | },expression: .__fromFunctionCall(.__fromSyntaxNode("state"),"start"),comments: [],isRequired: false,sourceLocation: Testing.SourceLocation.__here()).__expected()
+    +-------------------------------------------------------------------
+ 82 |   #expect(state.ready())
+ 83 |   #expect(state.track(selected))
+
+macro expansion #expect:2:6: error: cannot use mutating member on immutable value: '$0' is immutable
+`- $DATA_ROOT/work/NativeAI-Production-20260920/Providers/ChatGPT/Account/Tests/ChatGPTAccountTests/CallbackStateTests.swift:82:25: note: expanded code originates here
+ 80 |   let selected = CallbackConnection(), stalled = CallbackConnection(), write = UUID()
+ 81 |   #expect(state.start())
+ 82 |   #expect(state.ready())
+    |   `- note: in expansion of macro 'expect' here
+    +--- macro expansion #expect ---------------------------------------
+    |1 | Testing.__checkFunctionCall(state.self,calling: {
+    |2 |   $0.ready()
+    |  |      `- error: cannot use mutating member on immutable value: '$0' is immutable
+    |3 | },expression: .__fromFunctionCall(.__fromSyntaxNode("state"),"ready"),comments: [],isRequired: false,sourceLocation: Testing.SourceLocation.__here()).__expected()
+    +-------------------------------------------------------------------
+ 83 |   #expect(state.track(selected))
+ 84 |   #expect(state.track(stalled))
+
+macro expansion #expect:2:6: error: cannot use mutating member on immutable value: '$0' is immutable
+`- $DATA_ROOT/work/NativeAI-Production-20260920/Providers/ChatGPT/Account/Tests/ChatGPTAccountTests/CallbackStateTests.swift:83:33: note: expanded code originates here
+ 81 |   #expect(state.start())
+ 82 |   #expect(state.ready())
+ 83 |   #expect(state.track(selected))
+    |   `- note: in expansion of macro 'expect' here
+    +--- macro expansion #expect ---------------------------------------
+    |1 | Testing.__checkFunctionCall(state.self,calling: {
+    |2 |   $0.track($1)
+    |  |      `- error: cannot use mutating member on immutable value: '$0' is immutable
+    |3 | },selected,expression: .__fromFunctionCall(.__fromSyntaxNode("state"),"track",(nil,.__fromSyntaxNode("selected"))),comments: [],isRequired: false,sourceLocation: Testing.SourceLocation.__here()).__expected()
+    +-------------------------------------------------------------------
+ 84 |   #expect(state.track(stalled))
+ 85 |   #expect(state.beginIO(on: selected, id: write, response: true))
+
+macro expansion #expect:2:6: error: cannot use mutating member on immutable value: '$0' is immutable
+`- $DATA_ROOT/work/NativeAI-Production-20260920/Providers/ChatGPT/Account/Tests/ChatGPTAccountTests/CallbackStateTests.swift:84:32: note: expanded code originates here
+ 82 |   #expect(state.ready())
+ 83 |   #expect(state.track(selected))
+ 84 |   #expect(state.track(stalled))
+    |   `- note: in expansion of macro 'expect' here
+    +--- macro expansion #expect ---------------------------------------
+    |1 | Testing.__checkFunctionCall(state.self,calling: {
+    |2 |   $0.track($1)
+    |  |      `- error: cannot use mutating member on immutable value: '$0' is immutable
+    |3 | },stalled,expression: .__fromFunctionCall(.__fromSyntaxNode("state"),"track",(nil,.__fromSyntaxNode("stalled"))),comments: [],isRequired: false,sourceLocation: Testing.SourceLocation.__here()).__expected()
+    +-------------------------------------------------------------------
+ 85 |   #expect(state.beginIO(on: selected, id: write, response: true))
+ 86 |   #expect(state.stopListener())
+
+macro expansion #expect:2:6: error: cannot use mutating member on immutable value: '$0' is immutable
+`- $DATA_ROOT/work/NativeAI-Production-20260920/Providers/ChatGPT/Account/Tests/ChatGPTAccountTests/CallbackStateTests.swift:85:66: note: expanded code originates here
+ 83 |   #expect(state.track(selected))
+ 84 |   #expect(state.track(stalled))
+ 85 |   #expect(state.beginIO(on: selected, id: write, response: true))
+    |   `- note: in expansion of macro 'expect' here
+    +--- macro expansion #expect ---------------------------------------
+    |1 | Testing.__checkFunctionCall(state.self,calling: {
+    |2 |   $0.beginIO(on: $1,id: $2,response: $3)
+    |  |      `- error: cannot use mutating member on immutable value: '$0' is immutable
+    |3 | },selected,write,true,expression: .__fromFunctionCall(.__fromSyntaxNode("state"),"beginIO",("on",.__fromSyntaxNode("selected")),("id",.__fromSyntaxNode("write")),("response",.__fromSyntaxNode("true"))),comments: [],isRequired: false,sourceLocation: Testing.SourceLocation.__here()).__expected()
+    +-------------------------------------------------------------------
+ 86 |   #expect(state.stopListener())
+ 87 |   let cancelled = state.cancelConnections(preserving: selected)
+
+macro expansion #expect:2:6: error: cannot use mutating member on immutable value: '$0' is immutable
+`- $DATA_ROOT/work/NativeAI-Production-20260920/Providers/ChatGPT/Account/Tests/ChatGPTAccountTests/CallbackStateTests.swift:86:32: note: expanded code originates here
+ 84 |   #expect(state.track(stalled))
+ 85 |   #expect(state.beginIO(on: selected, id: write, response: true))
+ 86 |   #expect(state.stopListener())
+    |   `- note: in expansion of macro 'expect' here
+    +--- macro expansion #expect ---------------------------------------
+    |1 | Testing.__checkFunctionCall(state.self,calling: {
+    |2 |   $0.stopListener()
+    |  |      `- error: cannot use mutating member on immutable value: '$0' is immutable
+    |3 | },expression: .__fromFunctionCall(.__fromSyntaxNode("state"),"stopListener"),comments: [],isRequired: false,sourceLocation: Testing.SourceLocation.__here()).__expected()
+    +-------------------------------------------------------------------
+ 87 |   let cancelled = state.cancelConnections(preserving: selected)
+ 88 |   #expect(cancelled.count == 1 && cancelled.first === stalled)
+
+macro expansion #expect:2:6: error: cannot use mutating member on immutable value: '$0' is immutable
+`- $DATA_ROOT/work/NativeAI-Production-20260920/Providers/ChatGPT/Account/Tests/ChatGPTAccountTests/CallbackStateTests.swift:92:53: note: expanded code originates here
+ 90 |   state.listenerCancelled()
+ 91 |   #expect(!state.isDrained)
+ 92 |   #expect(state.completeIO(on: selected, id: write))
+    |   `- note: in expansion of macro 'expect' here
+    +--- macro expansion #expect ---------------------------------------
+    |1 | Testing.__checkFunctionCall(state.self,calling: {
+    |2 |   $0.completeIO(on: $1,id: $2)
+    |  |      `- error: cannot use mutating member on immutable value: '$0' is immutable
+    |3 | },selected,write,expression: .__fromFunctionCall(.__fromSyntaxNode("state"),"completeIO",("on",.__fromSyntaxNode("selected")),("id",.__fromSyntaxNode("write"))),comments: [],isRequired: false,sourceLocation: Testing.SourceLocation.__here()).__expected()
+    +-------------------------------------------------------------------
+ 93 |   #expect(state.cancel(selected) === selected)
+ 94 |   #expect(!state.isDrained)
+
+macro expansion #expect:2:6: error: cannot use mutating member on immutable value: '$0' is immutable
+`- $DATA_ROOT/work/NativeAI-Production-20260920/Providers/ChatGPT/Account/Tests/ChatGPTAccountTests/CallbackStateTests.swift:101:25: note: expanded code originates here
+ 99 | @Test func callbackRejectedConnectionDuringShutdownIsStillOwned() {
+100 |   var state = ChatGPTCallbackState<CallbackConnection>()
+101 |   #expect(state.start())
+    |   `- note: in expansion of macro 'expect' here
+    +--- macro expansion #expect ---------------------------------------
+    |1 | Testing.__checkFunctionCall(state.self,calling: {
+    |2 |   $0.start()
+    |  |      `- error: cannot use mutating member on immutable value: '$0' is immutable
+    |3 | },expression: .__fromFunctionCall(.__fromSyntaxNode("state"),"start"),comments: [],isRequired: false,sourceLocation: Testing.SourceLocation.__here()).__expected()
+    +-------------------------------------------------------------------
+102 |   #expect(state.ready())
+103 |   #expect(state.stopListener())
+
+macro expansion #expect:2:6: error: cannot use mutating member on immutable value: '$0' is immutable
+`- $DATA_ROOT/work/NativeAI-Production-20260920/Providers/ChatGPT/Account/Tests/ChatGPTAccountTests/CallbackStateTests.swift:102:25: note: expanded code originates here
+100 |   var state = ChatGPTCallbackState<CallbackConnection>()
+101 |   #expect(state.start())
+102 |   #expect(state.ready())
+    |   `- note: in expansion of macro 'expect' here
+    +--- macro expansion #expect ---------------------------------------
+    |1 | Testing.__checkFunctionCall(state.self,calling: {
+    |2 |   $0.ready()
+    |  |      `- error: cannot use mutating member on immutable value: '$0' is immutable
+    |3 | },expression: .__fromFunctionCall(.__fromSyntaxNode("state"),"ready"),comments: [],isRequired: false,sourceLocation: Testing.SourceLocation.__here()).__expected()
+    +-------------------------------------------------------------------
+103 |   #expect(state.stopListener())
+104 |   let late = CallbackConnection()
+
+macro expansion #expect:2:6: error: cannot use mutating member on immutable value: '$0' is immutable
+`- $DATA_ROOT/work/NativeAI-Production-20260920/Providers/ChatGPT/Account/Tests/ChatGPTAccountTests/CallbackStateTests.swift:103:32: note: expanded code originates here
+101 |   #expect(state.start())
+102 |   #expect(state.ready())
+103 |   #expect(state.stopListener())
+    |   `- note: in expansion of macro 'expect' here
+    +--- macro expansion #expect ---------------------------------------
+    |1 | Testing.__checkFunctionCall(state.self,calling: {
+    |2 |   $0.stopListener()
+    |  |      `- error: cannot use mutating member on immutable value: '$0' is immutable
+    |3 | },expression: .__fromFunctionCall(.__fromSyntaxNode("state"),"stopListener"),comments: [],isRequired: false,sourceLocation: Testing.SourceLocation.__here()).__expected()
+    +-------------------------------------------------------------------
+104 |   let late = CallbackConnection()
+105 |   #expect(state.track(late))
+
+macro expansion #expect:2:6: error: cannot use mutating member on immutable value: '$0' is immutable
+`- $DATA_ROOT/work/NativeAI-Production-20260920/Providers/ChatGPT/Account/Tests/ChatGPTAccountTests/CallbackStateTests.swift:105:29: note: expanded code originates here
+103 |   #expect(state.stopListener())
+104 |   let late = CallbackConnection()
+105 |   #expect(state.track(late))
+    |   `- note: in expansion of macro 'expect' here
+    +--- macro expansion #expect ---------------------------------------
+    |1 | Testing.__checkFunctionCall(state.self,calling: {
+    |2 |   $0.track($1)
+    |  |      `- error: cannot use mutating member on immutable value: '$0' is immutable
+    |3 | },late,expression: .__fromFunctionCall(.__fromSyntaxNode("state"),"track",(nil,.__fromSyntaxNode("late"))),comments: [],isRequired: false,sourceLocation: Testing.SourceLocation.__here()).__expected()
+    +-------------------------------------------------------------------
+106 |   #expect(!state.beginIO(on: late, id: UUID()))
+107 |   #expect(state.cancel(late) === late)
+
+macro expansion #expect:2:6: error: cannot use mutating member on immutable value: '$0' is immutable
+`- $DATA_ROOT/work/NativeAI-Production-20260920/Providers/ChatGPT/Account/Tests/ChatGPTAccountTests/CallbackStateTests.swift:106:48: note: expanded code originates here
+104 |   let late = CallbackConnection()
+105 |   #expect(state.track(late))
+106 |   #expect(!state.beginIO(on: late, id: UUID()))
+    |   `- note: in expansion of macro 'expect' here
+    +--- macro expansion #expect ---------------------------------------
+    |1 | Testing.__checkFunctionCall(state.self,calling: {
+    |2 |   $0.beginIO(on: $1,id: $2)
+    |  |      `- error: cannot use mutating member on immutable value: '$0' is immutable
+    |3 | },late,UUID(),expression: .__fromNegation(.__fromFunctionCall(.__fromSyntaxNode("state"),"beginIO",("on",.__fromSyntaxNode("late")),("id",.__fromSyntaxNode("UUID()"))), false),comments: [],isRequired: false,sourceLocation: Testing.SourceLocation.__here()).__expected()
+    +-------------------------------------------------------------------
+107 |   #expect(state.cancel(late) === late)
+108 |   state.listenerCancelled()
+
+macro expansion #expect:2:6: error: cannot use mutating member on immutable value: '$0' is immutable
+`- $DATA_ROOT/work/NativeAI-Production-20260920/Providers/ChatGPT/Account/Tests/ChatGPTAccountTests/CallbackStateTests.swift:116:25: note: expanded code originates here
+114 | @Test func callbackResourceLivesUntilItsLastReceipt() {
+115 |   var state = ChatGPTCallbackState<CallbackConnection>()
+116 |   #expect(state.start())
+    |   `- note: in expansion of macro 'expect' here
+    +--- macro expansion #expect ---------------------------------------
+    |1 | Testing.__checkFunctionCall(state.self,calling: {
+    |2 |   $0.start()
+    |  |      `- error: cannot use mutating member on immutable value: '$0' is immutable
+    |3 | },expression: .__fromFunctionCall(.__fromSyntaxNode("state"),"start"),comments: [],isRequired: false,sourceLocation: Testing.SourceLocation.__here()).__expected()
+    +-------------------------------------------------------------------
+117 |   #expect(state.ready())
+118 |   var connection: CallbackConnection? = CallbackConnection()
+
+macro expansion #expect:2:6: error: cannot use mutating member on immutable value: '$0' is immutable
+`- $DATA_ROOT/work/NativeAI-Production-20260920/Providers/ChatGPT/Account/Tests/ChatGPTAccountTests/CallbackStateTests.swift:117:25: note: expanded code originates here
+115 |   var state = ChatGPTCallbackState<CallbackConnection>()
+116 |   #expect(state.start())
+117 |   #expect(state.ready())
+    |   `- note: in expansion of macro 'expect' here
+    +--- macro expansion #expect ---------------------------------------
+    |1 | Testing.__checkFunctionCall(state.self,calling: {
+    |2 |   $0.ready()
+    |  |      `- error: cannot use mutating member on immutable value: '$0' is immutable
+    |3 | },expression: .__fromFunctionCall(.__fromSyntaxNode("state"),"ready"),comments: [],isRequired: false,sourceLocation: Testing.SourceLocation.__here()).__expected()
+    +-------------------------------------------------------------------
+118 |   var connection: CallbackConnection? = CallbackConnection()
+119 |   weak var probe = connection
+
+macro expansion #expect:2:6: error: cannot use mutating member on immutable value: '$0' is immutable
+`- $DATA_ROOT/work/NativeAI-Production-20260920/Providers/ChatGPT/Account/Tests/ChatGPTAccountTests/CallbackStateTests.swift:120:36: note: expanded code originates here
+118 |   var connection: CallbackConnection? = CallbackConnection()
+119 |   weak var probe = connection
+120 |   #expect(state.track(connection!))
+    |   `- note: in expansion of macro 'expect' here
+    +--- macro expansion #expect ---------------------------------------
+    |1 | Testing.__checkFunctionCall(state.self,calling: {
+    |2 |   $0.track($1)
+    |  |      `- error: cannot use mutating member on immutable value: '$0' is immutable
+    |3 | },connection!,expression: .__fromFunctionCall(.__fromSyntaxNode("state"),"track",(nil,.__fromSyntaxNode("connection!"))),comments: [],isRequired: false,sourceLocation: Testing.SourceLocation.__here()).__expected()
+    +-------------------------------------------------------------------
+121 |   let operation = UUID()
+122 |   #expect(state.beginIO(on: connection!, id: operation))
+
+macro expansion #expect:2:6: error: cannot use mutating member on immutable value: '$0' is immutable
+`- $DATA_ROOT/work/NativeAI-Production-20260920/Providers/ChatGPT/Account/Tests/ChatGPTAccountTests/CallbackStateTests.swift:122:57: note: expanded code originates here
+120 |   #expect(state.track(connection!))
+121 |   let operation = UUID()
+122 |   #expect(state.beginIO(on: connection!, id: operation))
+    |   `- note: in expansion of macro 'expect' here
+    +--- macro expansion #expect ---------------------------------------
+    |1 | Testing.__checkFunctionCall(state.self,calling: {
+    |2 |   $0.beginIO(on: $1,id: $2)
+    |  |      `- error: cannot use mutating member on immutable value: '$0' is immutable
+    |3 | },connection!,operation,expression: .__fromFunctionCall(.__fromSyntaxNode("state"),"beginIO",("on",.__fromSyntaxNode("connection!")),("id",.__fromSyntaxNode("operation"))),comments: [],isRequired: false,sourceLocation: Testing.SourceLocation.__here()).__expected()
+    +-------------------------------------------------------------------
+123 |   #expect(state.stopListener())
+124 |   state.listenerCancelled()
+
+macro expansion #expect:2:6: error: cannot use mutating member on immutable value: '$0' is immutable
+`- $DATA_ROOT/work/NativeAI-Production-20260920/Providers/ChatGPT/Account/Tests/ChatGPTAccountTests/CallbackStateTests.swift:123:32: note: expanded code originates here
+121 |   let operation = UUID()
+122 |   #expect(state.beginIO(on: connection!, id: operation))
+123 |   #expect(state.stopListener())
+    |   `- note: in expansion of macro 'expect' here
+    +--- macro expansion #expect ---------------------------------------
+    |1 | Testing.__checkFunctionCall(state.self,calling: {
+    |2 |   $0.stopListener()
+    |  |      `- error: cannot use mutating member on immutable value: '$0' is immutable
+    |3 | },expression: .__fromFunctionCall(.__fromSyntaxNode("state"),"stopListener"),comments: [],isRequired: false,sourceLocation: Testing.SourceLocation.__here()).__expected()
+    +-------------------------------------------------------------------
+124 |   state.listenerCancelled()
+125 |   state.connectionCancelled(connection!)
+
+macro expansion #expect:2:6: error: cannot use mutating member on immutable value: '$0' is immutable
+`- $DATA_ROOT/work/NativeAI-Production-20260920/Providers/ChatGPT/Account/Tests/ChatGPTAccountTests/CallbackStateTests.swift:129:55: note: expanded code originates here
+127 |   #expect(probe != nil)
+128 |   #expect(!state.isDrained)
+129 |   #expect(state.completeIO(on: probe!, id: operation))
+    |   `- note: in expansion of macro 'expect' here
+    +--- macro expansion #expect ---------------------------------------
+    |1 | Testing.__checkFunctionCall(state.self,calling: {
+    |2 |   $0.completeIO(on: $1,id: $2)
+    |  |      `- error: cannot use mutating member on immutable value: '$0' is immutable
+    |3 | },probe!,operation,expression: .__fromFunctionCall(.__fromSyntaxNode("state"),"completeIO",("on",.__fromSyntaxNode("probe!")),("id",.__fromSyntaxNode("operation"))),comments: [],isRequired: false,sourceLocation: Testing.SourceLocation.__here()).__expected()
+    +-------------------------------------------------------------------
+130 |   #expect(probe == nil)
+131 |   #expect(state.isDrained)
+
+macro expansion #expect:2:6: error: cannot use mutating member on immutable value: '$0' is immutable
+`- $DATA_ROOT/work/NativeAI-Production-20260920/Providers/ChatGPT/Account/Tests/ChatGPTAccountTests/CallbackStateTests.swift:136:26: note: expanded code originates here
+134 | @Test func callbackLifecycleIsOneShotAndUnusedCancelHasNoNativeReceipt() {
+135 |   var state = ChatGPTCallbackState<CallbackConnection>()
+136 |   #expect(!state.ready())
+    |   `- note: in expansion of macro 'expect' here
+    +--- macro expansion #expect ---------------------------------------
+    |1 | Testing.__checkFunctionCall(state.self,calling: {
+    |2 |   $0.ready()
+    |  |      `- error: cannot use mutating member on immutable value: '$0' is immutable
+    |3 | },expression: .__fromNegation(.__fromFunctionCall(.__fromSyntaxNode("state"),"ready"), false),comments: [],isRequired: false,sourceLocation: Testing.SourceLocation.__here()).__expected()
+    +-------------------------------------------------------------------
+137 |   #expect(!state.track(CallbackConnection()))
+138 |   #expect(!state.stopListener())
+
+macro expansion #expect:2:6: error: cannot use mutating member on immutable value: '$0' is immutable
+`- $DATA_ROOT/work/NativeAI-Production-20260920/Providers/ChatGPT/Account/Tests/ChatGPTAccountTests/CallbackStateTests.swift:137:46: note: expanded code originates here
+135 |   var state = ChatGPTCallbackState<CallbackConnection>()
+136 |   #expect(!state.ready())
+137 |   #expect(!state.track(CallbackConnection()))
+    |   `- note: in expansion of macro 'expect' here
+    +--- macro expansion #expect ---------------------------------------
+    |1 | Testing.__checkFunctionCall(state.self,calling: {
+    |2 |   $0.track($1)
+    |  |      `- error: cannot use mutating member on immutable value: '$0' is immutable
+    |3 | },CallbackConnection(),expression: .__fromNegation(.__fromFunctionCall(.__fromSyntaxNode("state"),"track",(nil,.__fromSyntaxNode("CallbackConnection()"))), false),comments: [],isRequired: false,sourceLocation: Testing.SourceLocation.__here()).__expected()
+    +-------------------------------------------------------------------
+138 |   #expect(!state.stopListener())
+139 |   #expect(state.isDrained)
+
+macro expansion #expect:2:6: error: cannot use mutating member on immutable value: '$0' is immutable
+`- $DATA_ROOT/work/NativeAI-Production-20260920/Providers/ChatGPT/Account/Tests/ChatGPTAccountTests/CallbackStateTests.swift:138:33: note: expanded code originates here
+136 |   #expect(!state.ready())
+137 |   #expect(!state.track(CallbackConnection()))
+138 |   #expect(!state.stopListener())
+    |   `- note: in expansion of macro 'expect' here
+    +--- macro expansion #expect ---------------------------------------
+    |1 | Testing.__checkFunctionCall(state.self,calling: {
+    |2 |   $0.stopListener()
+    |  |      `- error: cannot use mutating member on immutable value: '$0' is immutable
+    |3 | },expression: .__fromNegation(.__fromFunctionCall(.__fromSyntaxNode("state"),"stopListener"), false),comments: [],isRequired: false,sourceLocation: Testing.SourceLocation.__here()).__expected()
+    +-------------------------------------------------------------------
+139 |   #expect(state.isDrained)
+140 |   #expect(!state.start())
+
+macro expansion #expect:2:6: error: cannot use mutating member on immutable value: '$0' is immutable
+`- $DATA_ROOT/work/NativeAI-Production-20260920/Providers/ChatGPT/Account/Tests/ChatGPTAccountTests/CallbackStateTests.swift:140:26: note: expanded code originates here
+138 |   #expect(!state.stopListener())
+139 |   #expect(state.isDrained)
+140 |   #expect(!state.start())
+    |   `- note: in expansion of macro 'expect' here
+    +--- macro expansion #expect ---------------------------------------
+    |1 | Testing.__checkFunctionCall(state.self,calling: {
+    |2 |   $0.start()
+    |  |      `- error: cannot use mutating member on immutable value: '$0' is immutable
+    |3 | },expression: .__fromNegation(.__fromFunctionCall(.__fromSyntaxNode("state"),"start"), false),comments: [],isRequired: false,sourceLocation: Testing.SourceLocation.__here()).__expected()
+    +-------------------------------------------------------------------
+141 |   #expect(!state.track(CallbackConnection()))
+142 |   state.listenerCancelled()
+
+macro expansion #expect:2:6: error: cannot use mutating member on immutable value: '$0' is immutable
+`- $DATA_ROOT/work/NativeAI-Production-20260920/Providers/ChatGPT/Account/Tests/ChatGPTAccountTests/CallbackStateTests.swift:141:46: note: expanded code originates here
+139 |   #expect(state.isDrained)
+140 |   #expect(!state.start())
+141 |   #expect(!state.track(CallbackConnection()))
+    |   `- note: in expansion of macro 'expect' here
+    +--- macro expansion #expect ---------------------------------------
+    |1 | Testing.__checkFunctionCall(state.self,calling: {
+    |2 |   $0.track($1)
+    |  |      `- error: cannot use mutating member on immutable value: '$0' is immutable
+    |3 | },CallbackConnection(),expression: .__fromNegation(.__fromFunctionCall(.__fromSyntaxNode("state"),"track",(nil,.__fromSyntaxNode("CallbackConnection()"))), false),comments: [],isRequired: false,sourceLocation: Testing.SourceLocation.__here()).__expected()
+    +-------------------------------------------------------------------
+142 |   state.listenerCancelled()
+143 |   #expect(state.isDrained)
+
+macro expansion #expect:2:6: error: cannot use mutating member on immutable value: '$0' is immutable
+`- $DATA_ROOT/work/NativeAI-Production-20260920/Providers/ChatGPT/Account/Tests/ChatGPTAccountTests/CallbackStateTests.swift:149:25: note: expanded code originates here
+147 |   var state = ChatGPTCallbackState<CallbackConnection>()
+148 |   let connection = CallbackConnection()
+149 |   #expect(state.start())
+    |   `- note: in expansion of macro 'expect' here
+    +--- macro expansion #expect ---------------------------------------
+    |1 | Testing.__checkFunctionCall(state.self,calling: {
+    |2 |   $0.start()
+    |  |      `- error: cannot use mutating member on immutable value: '$0' is immutable
+    |3 | },expression: .__fromFunctionCall(.__fromSyntaxNode("state"),"start"),comments: [],isRequired: false,sourceLocation: Testing.SourceLocation.__here()).__expected()
+    +-------------------------------------------------------------------
+150 |   #expect(!state.start())
+151 |   #expect(state.ready())
+
+macro expansion #expect:2:6: error: cannot use mutating member on immutable value: '$0' is immutable
+`- $DATA_ROOT/work/NativeAI-Production-20260920/Providers/ChatGPT/Account/Tests/ChatGPTAccountTests/CallbackStateTests.swift:150:26: note: expanded code originates here
+148 |   let connection = CallbackConnection()
+149 |   #expect(state.start())
+150 |   #expect(!state.start())
+    |   `- note: in expansion of macro 'expect' here
+    +--- macro expansion #expect ---------------------------------------
+    |1 | Testing.__checkFunctionCall(state.self,calling: {
+    |2 |   $0.start()
+    |  |      `- error: cannot use mutating member on immutable value: '$0' is immutable
+    |3 | },expression: .__fromNegation(.__fromFunctionCall(.__fromSyntaxNode("state"),"start"), false),comments: [],isRequired: false,sourceLocation: Testing.SourceLocation.__here()).__expected()
+    +-------------------------------------------------------------------
+151 |   #expect(state.ready())
+152 |   #expect(!state.ready())
+
+macro expansion #expect:2:6: error: cannot use mutating member on immutable value: '$0' is immutable
+`- $DATA_ROOT/work/NativeAI-Production-20260920/Providers/ChatGPT/Account/Tests/ChatGPTAccountTests/CallbackStateTests.swift:151:25: note: expanded code originates here
+149 |   #expect(state.start())
+150 |   #expect(!state.start())
+151 |   #expect(state.ready())
+    |   `- note: in expansion of macro 'expect' here
+    +--- macro expansion #expect ---------------------------------------
+    |1 | Testing.__checkFunctionCall(state.self,calling: {
+    |2 |   $0.ready()
+    |  |      `- error: cannot use mutating member on immutable value: '$0' is immutable
+    |3 | },expression: .__fromFunctionCall(.__fromSyntaxNode("state"),"ready"),comments: [],isRequired: false,sourceLocation: Testing.SourceLocation.__here()).__expected()
+    +-------------------------------------------------------------------
+152 |   #expect(!state.ready())
+153 |   #expect(state.track(connection))
+
+macro expansion #expect:2:6: error: cannot use mutating member on immutable value: '$0' is immutable
+`- $DATA_ROOT/work/NativeAI-Production-20260920/Providers/ChatGPT/Account/Tests/ChatGPTAccountTests/CallbackStateTests.swift:152:26: note: expanded code originates here
+150 |   #expect(!state.start())
+151 |   #expect(state.ready())
+152 |   #expect(!state.ready())
+    |   `- note: in expansion of macro 'expect' here
+    +--- macro expansion #expect ---------------------------------------
+    |1 | Testing.__checkFunctionCall(state.self,calling: {
+    |2 |   $0.ready()
+    |  |      `- error: cannot use mutating member on immutable value: '$0' is immutable
+    |3 | },expression: .__fromNegation(.__fromFunctionCall(.__fromSyntaxNode("state"),"ready"), false),comments: [],isRequired: false,sourceLocation: Testing.SourceLocation.__here()).__expected()
+    +-------------------------------------------------------------------
+153 |   #expect(state.track(connection))
+154 |   #expect(!state.track(connection))
+
+macro expansion #expect:2:6: error: cannot use mutating member on immutable value: '$0' is immutable
+`- $DATA_ROOT/work/NativeAI-Production-20260920/Providers/ChatGPT/Account/Tests/ChatGPTAccountTests/CallbackStateTests.swift:153:35: note: expanded code originates here
+151 |   #expect(state.ready())
+152 |   #expect(!state.ready())
+153 |   #expect(state.track(connection))
+    |   `- note: in expansion of macro 'expect' here
+    +--- macro expansion #expect ---------------------------------------
+    |1 | Testing.__checkFunctionCall(state.self,calling: {
+    |2 |   $0.track($1)
+    |  |      `- error: cannot use mutating member on immutable value: '$0' is immutable
+    |3 | },connection,expression: .__fromFunctionCall(.__fromSyntaxNode("state"),"track",(nil,.__fromSyntaxNode("connection"))),comments: [],isRequired: false,sourceLocation: Testing.SourceLocation.__here()).__expected()
+    +-------------------------------------------------------------------
+154 |   #expect(!state.track(connection))
+155 |   #expect(state.stopListener())
+
+macro expansion #expect:2:6: error: cannot use mutating member on immutable value: '$0' is immutable
+`- $DATA_ROOT/work/NativeAI-Production-20260920/Providers/ChatGPT/Account/Tests/ChatGPTAccountTests/CallbackStateTests.swift:154:36: note: expanded code originates here
+152 |   #expect(!state.ready())
+153 |   #expect(state.track(connection))
+154 |   #expect(!state.track(connection))
+    |   `- note: in expansion of macro 'expect' here
+    +--- macro expansion #expect ---------------------------------------
+    |1 | Testing.__checkFunctionCall(state.self,calling: {
+    |2 |   $0.track($1)
+    |  |      `- error: cannot use mutating member on immutable value: '$0' is immutable
+    |3 | },connection,expression: .__fromNegation(.__fromFunctionCall(.__fromSyntaxNode("state"),"track",(nil,.__fromSyntaxNode("connection"))), false),comments: [],isRequired: false,sourceLocation: Testing.SourceLocation.__here()).__expected()
+    +-------------------------------------------------------------------
+155 |   #expect(state.stopListener())
+156 |   #expect(!state.stopListener())
+
+macro expansion #expect:2:6: error: cannot use mutating member on immutable value: '$0' is immutable
+`- $DATA_ROOT/work/NativeAI-Production-20260920/Providers/ChatGPT/Account/Tests/ChatGPTAccountTests/CallbackStateTests.swift:155:32: note: expanded code originates here
+153 |   #expect(state.track(connection))
+154 |   #expect(!state.track(connection))
+155 |   #expect(state.stopListener())
+    |   `- note: in expansion of macro 'expect' here
+    +--- macro expansion #expect ---------------------------------------
+    |1 | Testing.__checkFunctionCall(state.self,calling: {
+    |2 |   $0.stopListener()
+    |  |      `- error: cannot use mutating member on immutable value: '$0' is immutable
+    |3 | },expression: .__fromFunctionCall(.__fromSyntaxNode("state"),"stopListener"),comments: [],isRequired: false,sourceLocation: Testing.SourceLocation.__here()).__expected()
+    +-------------------------------------------------------------------
+156 |   #expect(!state.stopListener())
+157 |   #expect(!state.ready())
+
+macro expansion #expect:2:6: error: cannot use mutating member on immutable value: '$0' is immutable
+`- $DATA_ROOT/work/NativeAI-Production-20260920/Providers/ChatGPT/Account/Tests/ChatGPTAccountTests/CallbackStateTests.swift:156:33: note: expanded code originates here
+154 |   #expect(!state.track(connection))
+155 |   #expect(state.stopListener())
+156 |   #expect(!state.stopListener())
+    |   `- note: in expansion of macro 'expect' here
+    +--- macro expansion #expect ---------------------------------------
+    |1 | Testing.__checkFunctionCall(state.self,calling: {
+    |2 |   $0.stopListener()
+    |  |      `- error: cannot use mutating member on immutable value: '$0' is immutable
+    |3 | },expression: .__fromNegation(.__fromFunctionCall(.__fromSyntaxNode("state"),"stopListener"), false),comments: [],isRequired: false,sourceLocation: Testing.SourceLocation.__here()).__expected()
+    +-------------------------------------------------------------------
+157 |   #expect(!state.ready())
+158 |   #expect(state.cancelConnections().count == 1)
+
+macro expansion #expect:2:6: error: cannot use mutating member on immutable value: '$0' is immutable
+`- $DATA_ROOT/work/NativeAI-Production-20260920/Providers/ChatGPT/Account/Tests/ChatGPTAccountTests/CallbackStateTests.swift:157:26: note: expanded code originates here
+155 |   #expect(state.stopListener())
+156 |   #expect(!state.stopListener())
+157 |   #expect(!state.ready())
+    |   `- note: in expansion of macro 'expect' here
+    +--- macro expansion #expect ---------------------------------------
+    |1 | Testing.__checkFunctionCall(state.self,calling: {
+    |2 |   $0.ready()
+    |  |      `- error: cannot use mutating member on immutable value: '$0' is immutable
+    |3 | },expression: .__fromNegation(.__fromFunctionCall(.__fromSyntaxNode("state"),"ready"), false),comments: [],isRequired: false,sourceLocation: Testing.SourceLocation.__here()).__expected()
+    +-------------------------------------------------------------------
+158 |   #expect(state.cancelConnections().count == 1)
+159 |   #expect(state.cancelConnections().isEmpty)
+[17/25] Compiling ChatGPTAccountTests SignInLifecycleTests.swift
+[18/25] Compiling ChatGPTAccountTests UnprovedOperationOwnershipTests.swift
+error: fatalError

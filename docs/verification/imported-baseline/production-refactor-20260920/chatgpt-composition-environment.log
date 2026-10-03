@@ -1,0 +1,434 @@
+Building for debugging...
+[0/53] Write sources
+[9/53] Copying ResponsePolicies
+[10/53] Write sources
+[17/53] Copying ImageCatalog
+[18/53] Write sources
+[23/53] Write swift-version--1BA0962812E73E12.txt
+[25/100] Emitting module NativeAgentMemoryProjection
+[26/105] Compiling LanguageModelCore JSONValue+Bridging.swift
+[27/105] Compiling LanguageModelCore JSONValue+CanonicalCount.swift
+[28/105] Compiling LanguageModelCore JSONValue+Literals.swift
+[29/105] Compiling LanguageModelCore JSONValue+StructureValidation.swift
+[30/105] Compiling LanguageModelCore JSONValue.swift
+[31/105] Compiling LanguageModelCore SHA256HexDigest.swift
+[32/105] Compiling LanguageModelCore JSONCoding.swift
+[33/105] Compiling LanguageModelCore JSONValue+Accessors.swift
+[34/105] Compiling LanguageModelCore LanguageModel.swift
+[35/105] Compiling LanguageModelCore ModelClient.swift
+[36/105] Compiling NativeAgentMemoryProjection SQLiteSchema.swift
+[37/105] Compiling NativeAgentMemoryProjection Store.swift
+[38/105] Compiling NativeAgentMemoryProjection StoreTransactionState.swift
+[39/105] Compiling NativeAgentMemoryProjection Time.swift
+[40/105] Compiling NativeAgentMemoryProjection Workspace.swift
+[43/105] Compiling LanguageModelCore ToolSchema+Containers.swift
+[44/105] Compiling LanguageModelCore ToolSchema+Numbers.swift
+[47/107] Compiling ChatGPTAccount ChatGPTTransport.swift
+[48/107] Compiling ChatGPTAccount LocalhostCallbackServer.swift
+[49/107] Compiling LanguageModelCore DeterministicCoreDefaults.swift
+[50/107] Compiling LanguageModelCore SHA1HexDigest.swift
+[52/108] Emitting module LanguageModelCore
+[73/114] Wrapping AST for NativeAgentMemoryProjection for debugging
+[78/114] Emitting module ChatGPTAccount
+[81/115] Wrapping AST for ChatGPTAccount for debugging
+[83/119] Compiling ChatGPTImage ChatGPTImageTypes.swift
+[84/119] Compiling ChatGPTImage ChatGPTImageLimits.swift
+[85/119] Compiling ChatGPTImage ChatGPTImageClient.swift
+[86/120] Emitting module ChatGPTImage
+[87/120] Compiling LanguageModelCore ToolSchema+String.swift
+[88/120] Compiling LanguageModelCore ToolSchema.swift
+[89/120] Compiling LanguageModelCore AgentMessage.swift
+[90/120] Compiling LanguageModelCore ModelContent.swift
+[91/120] Compiling LanguageModelCore ModelEvent.swift
+[92/120] Compiling LanguageModelCore ModelStopReason.swift
+[94/164] Emitting module LanguageModelRuntime
+[95/167] Compiling LanguageModelRuntime ModelExecutorStore.swift
+[96/167] Compiling LanguageModelRuntime ModelProviderRegistry.swift
+[97/168] Compiling ChatGPTImage ChatGPTImageWireCodec.swift
+[98/169] Wrapping AST for LanguageModelCore for debugging
+[99/169] Compiling ChatGPTText SSEParser.swift
+[100/169] Wrapping AST for ChatGPTImage for debugging
+[102/169] Compiling LanguageModelRuntime LocalBackend.swift
+[103/169] Compiling LanguageModelRuntime LocalBackendConnector.swift
+[104/169] Emitting module NativeAgentDomain
+[105/177] Compiling NativeAgentDomain InstructionDocumentMerge.swift
+[106/177] Compiling NativeAgentDomain InstructionDocuments.swift
+[107/177] Compiling NativeAgentDomain JSONValue+Accessors.swift
+[108/177] Compiling NativeAgentDomain StringExtensions.swift
+[109/177] Compiling NativeAgentDomain PersistedTimestamp.swift
+[110/177] Compiling NativeAgentDomain Approval.swift
+[111/177] Compiling NativeAgentDomain CapabilityContracts.swift
+[112/177] Compiling NativeAgentDomain EffectFailure.swift
+[113/177] Compiling LanguageModelRuntime ClientLanguageModel.swift
+[114/177] Compiling LanguageModelRuntime LanguageModelExecution.swift
+[119/177] Compiling LanguageModelRuntime ModelRunControl.swift
+[120/177] Compiling LanguageModelRuntime ModelRuntime.swift
+[121/177] Compiling LanguageModelRuntime ModelRuntimeAccess.swift
+[122/177] Compiling LanguageModelRuntime ModelRuntimeTypes.swift
+[123/177] Compiling LanguageModelRuntime ModelSession.swift
+[124/177] Compiling LanguageModelRuntime SessionLedger.swift
+[125/177] Compiling NativeAgentDomain ToolContext.swift
+[126/177] Compiling NativeAgentDomain ToolContracts.swift
+[127/177] Compiling NativeAgentDomain ToolDefinition.swift
+[128/177] Compiling NativeAgentDomain NativeModelCore.swift
+[129/177] Compiling NativeAgentDomain OperationCleanupCompletionPolicy.swift
+[145/178] Emitting module ChatGPTText
+[146/179] Wrapping AST for LanguageModelRuntime for debugging
+[147/179] Wrapping AST for ChatGPTText for debugging
+[149/182] Emitting module ChatGPTTextProvider
+[150/182] Compiling ChatGPTTextProvider ChatGPTProviderConnector.swift
+[151/182] Compiling ChatGPTTextProvider ChatGPTRuntime.swift
+[152/183] Wrapping AST for ChatGPTTextProvider for debugging
+[154/183] Compiling NativeAgentDomain Errors.swift
+[155/183] Compiling NativeAgentDomain SessionContextCheckpoint.swift
+[156/183] Compiling NativeAgentDomain SessionFailure.swift
+[157/183] Compiling NativeAgentDomain SessionReadModels.swift
+[158/183] Compiling NativeAgentDomain SessionReducer.swift
+[159/183] Compiling NativeAgentDomain SessionSignal.swift
+[160/183] Compiling NativeAgentDomain SessionSnapshot.swift
+[161/183] Compiling NativeAgentDomain SessionWaitState.swift
+[163/314] Emitting module NativeAgentTools
+[164/322] Compiling NativeAgentSkills BoundedConcurrentMap.swift
+[165/322] Compiling NativeAgentSkills SkillAgentIntegration.swift
+[166/322] Compiling NativeAgentSkills SkillComposition.swift
+[167/322] Compiling NativeAgentSkills SkillIntentRouterService.swift
+[168/322] Compiling NativeAgentSkills SkillCustomTextPackageBuilder.swift
+[169/322] Compiling NativeAgentSkills SkillDocumentMutationReducer.swift
+[170/322] Compiling NativeAgentSkills SkillDocumentPostCommitFailure.swift
+[171/322] Compiling NativeAgentSkills SkillLibrary+Access.swift
+[172/322] Emitting module NativeAgentStore
+[173/322] Compiling NativeAgentSkills SkillLibrary+CustomTextSkillUpsert.swift
+[174/322] Compiling NativeAgentSkills SkillLibrary+DocumentMutation.swift
+[175/322] Compiling NativeAgentSkills SkillLibrary+ExecutionSnapshot.swift
+[176/322] Compiling NativeAgentSkills SkillLibrary+FileImport.swift
+[185/326] Compiling NativeAgentSkills SkillLibrary+CustomTextSkill.swift
+[191/326] Compiling NativeAgentStore SQLiteSessionQueries.swift
+[192/326] Compiling NativeAgentStore SQLiteSessionSchema.swift
+[193/326] Compiling NativeAgentStore SQLiteSessionStore.swift
+[194/326] Compiling NativeAgentStore StoreSQLiteConnection.swift
+[195/326] Compiling NativeAgentSkills SkillLibrary+Plugins.swift
+[196/326] Compiling NativeAgentSkills SkillLibrary+Preparation.swift
+[197/326] Compiling NativeAgentSkills SkillLibrary+RemotePlugins.swift
+[198/326] Compiling NativeAgentSkills SkillLibrary+RemoteState.swift
+[199/326] Compiling NativeAgentSkills SkillLibrary+Resolution.swift
+[200/326] Compiling NativeAgentSkills SkillLibrary+Secrets.swift
+[201/326] Compiling NativeAgentSkills SkillLibrary+Selection.swift
+[202/326] Compiling NativeAgentTools PhotoLibraryToolPack.swift
+[203/326] Compiling NativeAgentTools AppleToolPackSupport.swift
+[204/326] Compiling NativeAgentTools ToolCatalogSources.swift
+[205/326] Compiling NativeAgentTools ToolPackBoundedFileReader.swift
+[206/326] Compiling NativeAgentTools ToolPackSupport.swift
+[207/326] Compiling NativeAgentTools ToolWorkspaceFileResolver.swift
+[208/326] Compiling NativeAgentTools SpeechTranscriptionToolPack.swift
+[209/326] Compiling NativeAgentTools VisionAnalysisToolPack.swift
+[227/354] Emitting module NativeAgentEvolution
+[229/378] Compiling NativeAgentConsensus ConsensusRoutingModelClient.swift
+[230/378] Compiling NativeAgentConsensus ISO8601Codec.swift
+[231/378] Compiling NativeAgentConsensus JSONCoding.swift
+[232/378] Compiling NativeAgentConsensus Defaults.swift
+[233/378] Compiling NativeAgentConsensus ConsensusContracts.swift
+[234/378] Compiling NativeAgentConsensus ConsensusEngine.swift
+[235/378] Compiling NativeAgentConsensus ConsensusRunner.swift
+[236/378] Compiling NativeAgentConsensus ArtifactModels.swift
+[237/378] Compiling NativeAgentConsensus CaseCard.swift
+[238/378] Compiling NativeAgentConsensus ConsensusMetadata.swift
+[239/378] Compiling NativeAgentConsensus DecisionModels.swift
+[240/378] Compiling NativeAgentConsensus ProblemPacket.swift
+[241/378] Compiling NativeAgentConsensus RunModels.swift
+[242/378] Compiling NativeAgentConsensus ConsensusResponseRenderer.swift
+[243/378] Compiling NativeAgentConsensus ConsensusTurnBuilder.swift
+[244/378] Compiling NativeAgentConsensus ConsensusRoleDriver.swift
+[245/378] Compiling NativeAgentConsensus ConsensusRoleJSON.swift
+[246/378] Compiling NativeAgentConsensus ConsensusRolePromptFactory.swift
+[247/378] Emitting module NativeAgentSkills
+[248/378] Compiling NativeAgentConsensus RoleBackedTriad.swift
+[262/378] Compiling NativeAgentSkills SkillWorkspaceMutation.swift
+[263/378] Compiling NativeAgentSkills SkillWorkspaceTransaction.swift
+[264/378] Compiling NativeAgentSkills SkillWorkspaceTransactionExecutor.swift
+[269/395] Emitting module NativeAgentConsensus
+[289/402] Wrapping AST for NativeAgentTools for debugging
+[290/402] Wrapping AST for NativeAgentStore for debugging
+[291/402] Wrapping AST for NativeAgentEvolution for debugging
+[292/402] Wrapping AST for NativeAgentDomain for debugging
+[294/402] Compiling NativeAgentConsensus SessionConsensusRoleDriver.swift
+[295/402] Compiling NativeAgentConsensus ScriptedActors.swift
+[296/402] Compiling NativeAgentConsensus ScriptedBundle.swift
+[297/402] Compiling NativeAgentConsensus ScriptedRoundResolver.swift
+[298/402] Compiling NativeAgentConsensus Normalization.swift
+[299/402] Compiling NativeAgentConsensus TextUtil.swift
+[310/402] Compiling NativeAgentSkills SkillMarkdownParser.swift
+[311/402] Compiling NativeAgentSkills ManagedSkillModels.swift
+[312/402] Emitting module NativeAgentExecution
+[315/402] Compiling NativeAgentExecution RuntimeSnapshotSupport.swift
+[316/402] Compiling NativeAgentExecution SessionJournal.swift
+[317/402] Compiling NativeAgentExecution TranscriptRepair.swift
+[318/402] Compiling NativeAgentExecution ToolCallLoopGuard.swift
+[319/402] Compiling NativeAgentExecution ToolCallValidator.swift
+[320/402] Compiling NativeAgentExecution ToolEffectLedger.swift
+[321/402] Compiling NativeAgentExecution ToolEffectLedgerPolicy.swift
+[322/402] Compiling NativeAgentExecution ToolFailureClassifier.swift
+[323/402] Compiling NativeAgentExecution ToolRegistry.swift
+[324/402] Compiling NativeAgentExecution ToolSchemaDescriptor.swift
+[325/402] Compiling NativeAgentExecution RuntimeResourceValidator.swift
+[326/402] Compiling NativeAgentExecution RuntimeSessionValidationIndexes.swift
+[327/402] Compiling NativeAgentSkills URLSessionRemoteSkillFetcher+GitHubContents.swift
+[328/402] Compiling NativeAgentSkills URLSessionRemoteSkillFetcher+GitHubPlugins.swift
+[329/402] Compiling NativeAgentSkills URLSessionRemoteSkillFetcher.swift
+[356/430] Emitting module NativeAgent
+[357/433] Compiling NativeAgent AgentToolPack.swift
+[358/433] Compiling NativeAgent Agent.swift
+[359/433] Compiling NativeAgent AgentApproval.swift
+[360/433] Compiling NativeAgent AgentConfiguration.swift
+[361/433] Compiling NativeAgent AgentDataStore.swift
+[362/433] Compiling NativeAgent AgentDurableProjection.swift
+[363/433] Compiling NativeAgent AgentRecovery.swift
+[364/433] Compiling NativeAgent AgentRun.swift
+[365/433] Compiling NativeAgent AgentStorage.swift
+[366/433] Compiling NativeAgent AgentToolCatalog.swift
+[367/433] Compiling NativeAgent Exports.swift
+[368/433] Compiling NativeAgent AgentTool.swift
+[369/433] Compiling NativeAgentGoals GoalHostAction.swift
+[373/434] Wrapping AST for NativeAgentExecution for debugging
+[374/434] Wrapping AST for NativeAgentConsensus for debugging
+[393/440] Compiling NativeAgentGoals GoalLoop.swift
+[394/440] Compiling NativeAgentGoals GoalErrors.swift
+[395/440] Compiling NativeAgentGoals GoalEvaluationModels.swift
+[395/440] Wrapping AST for NativeAgent for debugging
+[397/450] Emitting module NativeAgentGoals
+[398/450] Compiling NativeAgentMemory MemoryConfiguration.swift
+[399/450] Compiling NativeAgentMemory MemoryContext.swift
+[400/450] Compiling NativeAgentMemory MemoryController.swift
+[401/450] Compiling NativeAgentMemory MemoryModelClient.swift
+[402/450] Compiling NativeAgentMemory MemoryCaptureAdmission.swift
+[403/450] Compiling NativeAgentMemory MemoryRequestPlanner.swift
+[407/452] Compiling NativeAgentSkills SkillExecution.swift
+[408/452] Compiling NativeAgentSkills SkillExecutionSnapshot.swift
+[409/452] Compiling NativeAgentSkills SkillIntentToolSchemaValidator.swift
+[410/452] Compiling NativeAgentSkills SkillRuntime+Intent.swift
+[411/452] Compiling NativeAgentSkills SkillRuntime+LoadSkill.swift
+[412/452] Compiling NativeAgentSkills SkillRuntime+RunJS.swift
+[413/452] Compiling NativeAgentSkills SkillRuntime.swift
+[414/452] Compiling NativeAgentSkills SkillRuntimeArtifacts.swift
+[415/452] Compiling NativeAgentSkills SkillRuntimePolicies.swift
+[416/452] Compiling NativeAgentSkills SkillSupportingFileRead.swift
+[417/452] Compiling NativeAgentSkills SkillSecrets.swift
+[418/452] Compiling NativeAgentSkills SkillSnapshotPolicies.swift
+[419/452] Compiling NativeAgentSkills SkillStatePersistenceBoundary.swift
+[420/452] Compiling NativeAgentSkills SkillStatePolicies.swift
+[421/452] Compiling NativeAgentSkills SkillStateStore.swift
+[422/452] Compiling NativeAgentSkills SkillTextExtensions.swift
+[423/452] Compiling NativeAgentSkills SkillWorkspace.swift
+[424/452] Compiling NativeAgentGoals GoalSession.swift
+[425/452] Compiling NativeAgentGoals GoalStatus.swift
+[426/452] Compiling NativeAgentGoals GoalReducer.swift
+[427/452] Compiling NativeAgentGoals GoalBoundedFileReader.swift
+[428/452] Compiling NativeAgentGoals GoalStore.swift
+[430/454] Wrapping AST for NativeAgentGoals for debugging
+[431/483] Wrapping AST for NativeAgentSkills for debugging
+[433/483] Emitting module NativeAgentMemory
+[434/483] Compiling NativeAgentManager ManagedAgentAssembler.swift
+[435/483] Compiling NativeAgentManager ManagedRunMetadata.swift
+[436/483] Compiling NativeAgentManager AgentCharacterProfile.swift
+[437/483] Compiling NativeAgentManager AgentWorkspace.swift
+[438/483] Compiling NativeAgentManager AgentWorkspaceMutationFence.swift
+[439/483] Compiling NativeAgentManager ManagedAgent.swift
+[440/483] Compiling NativeAgentManager AgentNativeWritingSkill.swift
+[441/483] Compiling NativeAgentManager AgentProseGuard.swift
+[442/484] Wrapping AST for NativeAgentMemory for debugging
+[444/484] Compiling NativeAgentManager AgentDefinition.swift
+$DATA_ROOT/work/NativeAI-Production-20260920/Agent/NativeAgent/Sources/NativeAgentManager/Response/AgentResponseLanguage.swift:2:8: error: no such module 'NaturalLanguage'
+ 1 | import Foundation
+ 2 | import NaturalLanguage
+   |        `- error: no such module 'NaturalLanguage'
+ 3 | 
+ 4 | public enum AgentResponseLanguage: String, Codable, CaseIterable, Sendable {
+[445/484] Compiling NativeAgentManager AgentManager.swift
+$DATA_ROOT/work/NativeAI-Production-20260920/Agent/NativeAgent/Sources/NativeAgentManager/Response/AgentResponseLanguage.swift:2:8: error: no such module 'NaturalLanguage'
+ 1 | import Foundation
+ 2 | import NaturalLanguage
+   |        `- error: no such module 'NaturalLanguage'
+ 3 | 
+ 4 | public enum AgentResponseLanguage: String, Codable, CaseIterable, Sendable {
+[446/484] Compiling NativeAgentManager AgentSkillSnapshot.swift
+$DATA_ROOT/work/NativeAI-Production-20260920/Agent/NativeAgent/Sources/NativeAgentManager/Response/AgentResponseLanguage.swift:2:8: error: no such module 'NaturalLanguage'
+ 1 | import Foundation
+ 2 | import NaturalLanguage
+   |        `- error: no such module 'NaturalLanguage'
+ 3 | 
+ 4 | public enum AgentResponseLanguage: String, Codable, CaseIterable, Sendable {
+$DATA_ROOT/work/NativeAI-Production-20260920/Agent/NativeAgent/Sources/NativeAgentManager/Response/AgentResponseLanguage.swift:2:8: error: no such module 'NaturalLanguage'
+ 1 | import Foundation
+ 2 | import NaturalLanguage
+   |        `- error: no such module 'NaturalLanguage'
+ 3 | 
+ 4 | public enum AgentResponseLanguage: String, Codable, CaseIterable, Sendable {
+$DATA_ROOT/work/NativeAI-Production-20260920/Agent/NativeAgent/Sources/NativeAgentManager/Response/AgentResponseLanguage.swift:2:8: error: no such module 'NaturalLanguage'
+ 1 | import Foundation
+ 2 | import NaturalLanguage
+   |        `- error: no such module 'NaturalLanguage'
+ 3 | 
+ 4 | public enum AgentResponseLanguage: String, Codable, CaseIterable, Sendable {
+$DATA_ROOT/work/NativeAI-Production-20260920/Agent/NativeAgent/Packages/ChatGPTImageCapability/Sources/ChatGPTImageCapability/ChatGPTSessionArtifactInputResolver.swift:1:8: error: no such module 'Darwin'
+ 1 | import Darwin
+   |        `- error: no such module 'Darwin'
+ 2 | import Foundation
+ 3 | import ChatGPTAccount
+$DATA_ROOT/work/NativeAI-Production-20260920/Agent/NativeAgent/Packages/ChatGPTImageCapability/Sources/ChatGPTImageCapability/ChatGPTSessionArtifactInputResolver.swift:1:8: error: no such module 'Darwin'
+ 1 | import Darwin
+   |        `- error: no such module 'Darwin'
+ 2 | import Foundation
+ 3 | import ChatGPTAccount
+$DATA_ROOT/work/NativeAI-Production-20260920/Agent/NativeAgent/Packages/ChatGPTImageCapability/Sources/ChatGPTImageCapability/ChatGPTSessionArtifactInputResolver.swift:1:8: error: no such module 'Darwin'
+ 1 | import Darwin
+   |        `- error: no such module 'Darwin'
+ 2 | import Foundation
+ 3 | import ChatGPTAccount
+$DATA_ROOT/work/NativeAI-Production-20260920/Agent/NativeAgent/Packages/ChatGPTImageCapability/Sources/ChatGPTImageCapability/ChatGPTSessionArtifactInputResolver.swift:1:8: error: no such module 'Darwin'
+ 1 | import Darwin
+   |        `- error: no such module 'Darwin'
+ 2 | import Foundation
+ 3 | import ChatGPTAccount
+error: emit-module command failed with exit code 1 (use -v to see invocation)
+[453/492] Emitting module ChatGPTImageCapability
+$DATA_ROOT/work/NativeAI-Production-20260920/Agent/NativeAgent/Packages/ChatGPTImageCapability/Sources/ChatGPTImageCapability/ChatGPTSessionArtifactInputResolver.swift:1:8: error: no such module 'Darwin'
+ 1 | import Darwin
+   |        `- error: no such module 'Darwin'
+ 2 | import Foundation
+ 3 | import ChatGPTAccount
+$DATA_ROOT/work/NativeAI-Production-20260920/Agent/NativeAgent/Packages/ChatGPTImageCapability/Sources/ChatGPTImageCapability/ChatGPTSessionArtifactInputResolver.swift:1:8: error: no such module 'Darwin'
+ 1 | import Darwin
+   |        `- error: no such module 'Darwin'
+ 2 | import Foundation
+ 3 | import ChatGPTAccount
+$DATA_ROOT/work/NativeAI-Production-20260920/Agent/NativeAgent/Packages/ChatGPTImageCapability/Sources/ChatGPTImageCapability/ChatGPTSessionArtifactInputResolver.swift:1:8: error: no such module 'Darwin'
+ 1 | import Darwin
+   |        `- error: no such module 'Darwin'
+ 2 | import Foundation
+ 3 | import ChatGPTAccount
+[456/492] Compiling NativeAgentManager AgentResponseConfiguration.swift
+$DATA_ROOT/work/NativeAI-Production-20260920/Agent/NativeAgent/Packages/ChatGPTImageCapability/Sources/ChatGPTImageCapability/ChatGPTSessionArtifactInputResolver.swift:1:8: error: no such module 'Darwin'
+ 1 | import Darwin
+   |        `- error: no such module 'Darwin'
+ 2 | import Foundation
+ 3 | import ChatGPTAccount
+[457/492] Compiling NativeAgentManager AgentResponseLanguage.swift
+$DATA_ROOT/work/NativeAI-Production-20260920/Agent/NativeAgent/Packages/ChatGPTImageCapability/Sources/ChatGPTImageCapability/ChatGPTSessionArtifactInputResolver.swift:1:8: error: no such module 'Darwin'
+ 1 | import Darwin
+   |        `- error: no such module 'Darwin'
+ 2 | import Foundation
+ 3 | import ChatGPTAccount
+[458/492] Compiling NativeAgentManager AgentResponseLocale.swift
+$DATA_ROOT/work/NativeAI-Production-20260920/Agent/NativeAgent/Packages/ChatGPTImageCapability/Sources/ChatGPTImageCapability/ChatGPTSessionArtifactInputResolver.swift:1:8: error: no such module 'Darwin'
+ 1 | import Darwin
+   |        `- error: no such module 'Darwin'
+ 2 | import Foundation
+ 3 | import ChatGPTAccount
+$DATA_ROOT/work/NativeAI-Production-20260920/Agent/NativeAgent/Packages/ChatGPTImageCapability/Sources/ChatGPTImageCapability/ChatGPTSessionArtifactInputResolver.swift:1:8: error: no such module 'Darwin'
+ 1 | import Darwin
+   |        `- error: no such module 'Darwin'
+ 2 | import Foundation
+ 3 | import ChatGPTAccount
+$DATA_ROOT/work/NativeAI-Production-20260920/Agent/NativeAgent/Packages/ChatGPTImageCapability/Sources/ChatGPTImageCapability/ChatGPTSessionArtifactInputResolver.swift:1:8: error: no such module 'Darwin'
+ 1 | import Darwin
+   |        `- error: no such module 'Darwin'
+ 2 | import Foundation
+ 3 | import ChatGPTAccount
+$DATA_ROOT/work/NativeAI-Production-20260920/Agent/NativeAgent/Packages/ChatGPTImageCapability/Sources/ChatGPTImageCapability/ChatGPTSessionArtifactInputResolver.swift:1:8: error: no such module 'Darwin'
+ 1 | import Darwin
+   |        `- error: no such module 'Darwin'
+ 2 | import Foundation
+ 3 | import ChatGPTAccount
+$DATA_ROOT/work/NativeAI-Production-20260920/Agent/NativeAgent/Packages/ChatGPTImageCapability/Sources/ChatGPTImageCapability/ChatGPTSessionArtifactInputResolver.swift:1:8: error: no such module 'Darwin'
+ 1 | import Darwin
+   |        `- error: no such module 'Darwin'
+ 2 | import Foundation
+ 3 | import ChatGPTAccount
+$DATA_ROOT/work/NativeAI-Production-20260920/Agent/NativeAgent/Packages/ChatGPTImageCapability/Sources/ChatGPTImageCapability/ChatGPTSessionArtifactInputResolver.swift:1:8: error: no such module 'Darwin'
+ 1 | import Darwin
+   |        `- error: no such module 'Darwin'
+ 2 | import Foundation
+ 3 | import ChatGPTAccount
+$DATA_ROOT/work/NativeAI-Production-20260920/Agent/NativeAgent/Sources/NativeAgentManager/Response/AgentResponseLanguage.swift:2:8: error: no such module 'NaturalLanguage'
+ 1 | import Foundation
+ 2 | import NaturalLanguage
+   |        `- error: no such module 'NaturalLanguage'
+ 3 | 
+ 4 | public enum AgentResponseLanguage: String, Codable, CaseIterable, Sendable {
+[465/492] Compiling ChatGPTImageCapability ChatGPTLayerRaster.swift
+$DATA_ROOT/work/NativeAI-Production-20260920/Agent/NativeAgent/Sources/NativeAgentManager/Response/AgentResponseLanguage.swift:2:8: error: no such module 'NaturalLanguage'
+ 1 | import Foundation
+ 2 | import NaturalLanguage
+   |        `- error: no such module 'NaturalLanguage'
+ 3 | 
+ 4 | public enum AgentResponseLanguage: String, Codable, CaseIterable, Sendable {
+[466/492] Compiling ChatGPTImageCapability ChatGPTPNGStructure.swift
+$DATA_ROOT/work/NativeAI-Production-20260920/Agent/NativeAgent/Sources/NativeAgentManager/Response/AgentResponseLanguage.swift:2:8: error: no such module 'NaturalLanguage'
+ 1 | import Foundation
+ 2 | import NaturalLanguage
+   |        `- error: no such module 'NaturalLanguage'
+ 3 | 
+ 4 | public enum AgentResponseLanguage: String, Codable, CaseIterable, Sendable {
+[467/492] Compiling ChatGPTImageCapability ChatGPTSessionArtifactInputResolver.swift
+$DATA_ROOT/work/NativeAI-Production-20260920/Agent/NativeAgent/Sources/NativeAgentManager/Response/AgentResponseLanguage.swift:2:8: error: no such module 'NaturalLanguage'
+ 1 | import Foundation
+ 2 | import NaturalLanguage
+   |        `- error: no such module 'NaturalLanguage'
+ 3 | 
+ 4 | public enum AgentResponseLanguage: String, Codable, CaseIterable, Sendable {
+$DATA_ROOT/work/NativeAI-Production-20260920/Agent/NativeAgent/Sources/NativeAgentManager/Response/AgentResponseLanguage.swift:2:8: error: no such module 'NaturalLanguage'
+ 1 | import Foundation
+ 2 | import NaturalLanguage
+   |        `- error: no such module 'NaturalLanguage'
+ 3 | 
+ 4 | public enum AgentResponseLanguage: String, Codable, CaseIterable, Sendable {
+$DATA_ROOT/work/NativeAI-Production-20260920/Agent/NativeAgent/Sources/NativeAgentManager/Response/AgentResponseLanguage.swift:2:8: error: no such module 'NaturalLanguage'
+ 1 | import Foundation
+ 2 | import NaturalLanguage
+   |        `- error: no such module 'NaturalLanguage'
+ 3 | 
+ 4 | public enum AgentResponseLanguage: String, Codable, CaseIterable, Sendable {
+$DATA_ROOT/work/NativeAI-Production-20260920/Agent/NativeAgent/Sources/NativeAgentManager/Response/AgentResponseLanguage.swift:2:8: error: no such module 'NaturalLanguage'
+ 1 | import Foundation
+ 2 | import NaturalLanguage
+   |        `- error: no such module 'NaturalLanguage'
+ 3 | 
+ 4 | public enum AgentResponseLanguage: String, Codable, CaseIterable, Sendable {
+$DATA_ROOT/work/NativeAI-Production-20260920/Agent/NativeAgent/Sources/NativeAgentManager/Response/AgentResponseLanguage.swift:2:8: error: no such module 'NaturalLanguage'
+ 1 | import Foundation
+ 2 | import NaturalLanguage
+   |        `- error: no such module 'NaturalLanguage'
+ 3 | 
+ 4 | public enum AgentResponseLanguage: String, Codable, CaseIterable, Sendable {
+error: emit-module command failed with exit code 1 (use -v to see invocation)
+[472/492] Emitting module NativeAgentManager
+$DATA_ROOT/work/NativeAI-Production-20260920/Agent/NativeAgent/Sources/NativeAgentManager/Response/AgentResponseLanguage.swift:2:8: error: no such module 'NaturalLanguage'
+ 1 | import Foundation
+ 2 | import NaturalLanguage
+   |        `- error: no such module 'NaturalLanguage'
+ 3 | 
+ 4 | public enum AgentResponseLanguage: String, Codable, CaseIterable, Sendable {
+$DATA_ROOT/work/NativeAI-Production-20260920/Agent/NativeAgent/Sources/NativeAgentManager/Response/AgentResponseLanguage.swift:2:8: error: no such module 'NaturalLanguage'
+ 1 | import Foundation
+ 2 | import NaturalLanguage
+   |        `- error: no such module 'NaturalLanguage'
+ 3 | 
+ 4 | public enum AgentResponseLanguage: String, Codable, CaseIterable, Sendable {
+$DATA_ROOT/work/NativeAI-Production-20260920/Agent/NativeAgent/Sources/NativeAgentManager/Response/AgentResponseLanguage.swift:2:8: error: no such module 'NaturalLanguage'
+ 1 | import Foundation
+ 2 | import NaturalLanguage
+   |        `- error: no such module 'NaturalLanguage'
+ 3 | 
+ 4 | public enum AgentResponseLanguage: String, Codable, CaseIterable, Sendable {
+$DATA_ROOT/work/NativeAI-Production-20260920/Agent/NativeAgent/Sources/NativeAgentManager/Response/AgentResponseLanguage.swift:2:8: error: no such module 'NaturalLanguage'
+ 1 | import Foundation
+ 2 | import NaturalLanguage
+   |        `- error: no such module 'NaturalLanguage'
+ 3 | 
+ 4 | public enum AgentResponseLanguage: String, Codable, CaseIterable, Sendable {
+$DATA_ROOT/work/NativeAI-Production-20260920/Agent/NativeAgent/Sources/NativeAgentManager/Response/AgentResponseLanguage.swift:2:8: error: no such module 'NaturalLanguage'
+ 1 | import Foundation
+ 2 | import NaturalLanguage
+   |        `- error: no such module 'NaturalLanguage'
+ 3 | 
+ 4 | public enum AgentResponseLanguage: String, Codable, CaseIterable, Sendable {
+error: fatalError

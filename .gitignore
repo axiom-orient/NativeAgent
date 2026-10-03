@@ -1,0 +1,15 @@
+# macOS metadata
+.DS_Store
+
+# SwiftPM and Xcode build state
+**/.build/
+**/.swiftpm/
+**/DerivedData/
+**/xcuserdata/
+**/*.xcuserstate
+**/*.xcresult/
+**/*.dSYM/
+
+# Python bytecode/cache
+**/*.py[cod]
+**/__pycache__/

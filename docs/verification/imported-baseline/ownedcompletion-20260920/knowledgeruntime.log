@@ -1,0 +1,302 @@
+[0/1] Planning build
+Building for debugging...
+[0/3] Write swift-version--1BA0962812E73E12.txt
+Build complete! (0.21s)
+Test Suite 'All tests' started at 2026-09-20 03:08:11.762
+Test Suite 'debug.xctest' started at 2026-09-20 03:08:11.763
+Test Suite 'ASKStorageHealthRuntimeTests' started at 2026-09-20 03:08:11.763
+Test Case 'ASKStorageHealthRuntimeTests.testHealthReportMarksMissingAndStaleDerivedIndexes' started at 2026-09-20 03:08:11.763
+Test Case 'ASKStorageHealthRuntimeTests.testHealthReportMarksMissingAndStaleDerivedIndexes' passed (0.002 seconds)
+Test Case 'ASKStorageHealthRuntimeTests.testHealthReportUsesSharedCanonicalContextWhenAvailable' started at 2026-09-20 03:08:11.765
+Test Case 'ASKStorageHealthRuntimeTests.testHealthReportUsesSharedCanonicalContextWhenAvailable' passed (0.0 seconds)
+Test Case 'ASKStorageHealthRuntimeTests.testRebuildUpdatesSelectedDerivedIndexToCanonicalGeneration' started at 2026-09-20 03:08:11.765
+Test Case 'ASKStorageHealthRuntimeTests.testRebuildUpdatesSelectedDerivedIndexToCanonicalGeneration' passed (0.0 seconds)
+Test Suite 'ASKStorageHealthRuntimeTests' passed at 2026-09-20 03:08:11.766
+	 Executed 3 tests, with 0 failures (0 unexpected) in 0.002 (0.002) seconds
+Test Suite 'ASKStorageIntegrationTests' started at 2026-09-20 03:08:11.766
+Test Case 'ASKStorageIntegrationTests.testApplyMaterializesHealthySearchMirror' started at 2026-09-20 03:08:11.766
+Test Case 'ASKStorageIntegrationTests.testApplyMaterializesHealthySearchMirror' passed (0.021 seconds)
+Test Case 'ASKStorageIntegrationTests.testVaultStorageHealthReportsMissingSearchMirrorThenRebuilds' started at 2026-09-20 03:08:11.787
+Test Case 'ASKStorageIntegrationTests.testVaultStorageHealthReportsMissingSearchMirrorThenRebuilds' passed (0.009 seconds)
+Test Suite 'ASKStorageIntegrationTests' passed at 2026-09-20 03:08:11.796
+	 Executed 2 tests, with 0 failures (0 unexpected) in 0.03 (0.03) seconds
+Test Suite 'debug.xctest' passed at 2026-09-20 03:08:11.796
+	 Executed 5 tests, with 0 failures (0 unexpected) in 0.033 (0.033) seconds
+Test Suite 'All tests' passed at 2026-09-20 03:08:11.796
+	 Executed 5 tests, with 0 failures (0 unexpected) in 0.033 (0.033) seconds
+◇ Test run started.
+↳ Testing Library Version: 6.2.1 (c9d57c83568b06d)
+↳ Target Platform: x86_64-unknown-linux-gnu
+◇ Suite ASKRuntimeTests started.
+◇ Suite DeterministicContextCompilerTests started.
+◇ Test pendingChoicePatchCanBeAppliedBySelectingAnOption() started.
+◇ Suite PendingPatchReadTests started.
+◇ Suite DecisionMemoryStoreTests started.
+◇ Suite JournalAuthorityTests started.
+◇ Suite SearchValidationTests started.
+◇ Suite StorageIntegrityRegressionTests started.
+◇ Suite ASKSQLiteTests started.
+◇ Suite MaterializationIncrementalTests started.
+◇ Suite JournalOrderingTests started.
+◇ Suite ReadOnlyOpenTests started.
+◇ Suite SearchTextTokenizationTests started.
+◇ Suite VaultHardeningTests started.
+◇ Suite ASKStoreTests started.
+◇ Suite CaptureImportBoundaryTests started.
+◇ Test persistedRepresentationRejectsUnsupportedVersionWithoutRewritingIt() started.
+◇ Test representationAPIsRejectPathUnsafeSourceID() started.
+◇ Suite BatchApplyTests started.
+◇ Suite ASKPlanningParityTests started.
+◇ Suite ProjectionRetractionRegressionTests started.
+◇ Test pendingPatchPlanCanBeLoadedAndDecidedAfterStaging() started.
+◇ Test publicQueryArtifactPlannerBuildsPatchFromProjectionSlugs() started.
+◇ Test projectionWritePreconditionIsEnforcedByAuthoritativeStoreTransition() started.
+◇ Test representationLintReportsMissingAndStaleKinds() started.
+◇ Test persistedGenerationMarkerRejectsUnsupportedSchema() started.
+◇ Test representationRoundTripPersistsAndLoads() started.
+◇ Test interventionOnlyReturnsAPolicyDecisionAndNeverPerformsAnAct() started.
+◇ Test compilerFailsRatherThanSilentlyDroppingBlockingLtsmConstraint() started.
+◇ Test compilerSelectsScopeMatchedRecordsWithinBudgetAndIsByteDeterministic() started.
+◇ Test missingPatchReadDoesNotBootstrapMissingOrEmptyVault() started.
+◇ Test unsupportedStorageRejectsReplayAndAppendWithoutMovingOrDeletingData() started.
+◇ Test unsupportedEntryVersionRejectsReplayAndIdenticalTransitionLookup() started.
+◇ Test canonicalJournalReadLatency() started.
+◇ Test conflictingBatchDoesNotPersistEarlierRecords() started.
+◇ Test sameCountFailedMaterializationCannotServeOrReportStaleSearchAsCurrent() started.
+◇ Test journalIsIdempotentReplaysAndRebuildsDerivedMarkdown() started.
+◇ Test obsoleteCheckpointCannotReplaceCanonicalStateOrAffectCommit() started.
+◇ Test conflictingRecordBytesAreRejected() started.
+◇ Test canonicalReadsDoNotCreateDerivedCheckpoints() started.
+◇ Test zeroSearchLimitReturnsNoHits() started.
+◇ Test negativeSearchLimitFailsWithoutCreatingVault() started.
+◇ Test publicApplyMustNotWriteOutsideThroughNestedSymlink() started.
+◇ Test materializationMustRejectExistingNestedEscapeSymlink() started.
+◇ Test healthMustDetectActualCorruptSQLite() started.
+◇ Test mirrorFTSCanHandleNaturalLanguagePunctuation() started.
+◇ Test mirrorFTSCanReturnProjectionCandidate() started.
+◇ Test archiveCleanupHelperSurfacesRemovalFailures() started.
+◇ Test decomposedBodyTextIsReachableFromAComposedQuery() started.
+◇ Test mirrorFTSUsesExternalContentWithoutPrivateBodyShadow() started.
+◇ Test importCollectedAcceptsGenericCollectorFamily() started.
+◇ Test mirrorRebuildExtractsWikiLinksIntoPageLinks() started.
+◇ Test mirrorFTSKeepsSnippetForSimpleBody() started.
+◇ Test appendConflictWithStandaloneEventIsRejectedBeforePublication() started.
+◇ Test successfulBackdatedAndDuplicateCommitsMatchReplay() started.
+◇ Test invalidCanonicalCandidateNeverPublishes(kind:) started.
+◇ Test batchRejectsInvalidLaterCandidateAndPreservesEarlierCommit() started.
+◇ Test batchUsesTheValidatedBackdatedStateForNextDependency() started.
+◇ Test materializationRemovesStaleDerivedFilesAndEmptyDirectories() started.
+◇ Test applyDoesNotWriteThePerRecordTree() started.
+◇ Test recordSnapshotExportsOutsideTheVault() started.
+◇ Test representationsSurviveApply() started.
+◇ Test backdatedReceiptLeavesStateEqualToARebuild() started.
+◇ Test derivedOutputPlanRejectsPathsOutsideOwnedTrees() started.
+◇ Test incrementalMaterializationMatchesFullRewrite() started.
+◇ Test searchingAMissingMirrorYieldsNoCandidatesAndNoDirectories() started.
+◇ Test readOnlyOpenDoesNotCreateTheEnclosingDirectories() started.
+◇ Test writableOpenStillCreatesTheEnclosingDirectories() started.
+◇ Test decomposedAndComposedHangulProduceTheSameTokens() started.
+◇ Test punctuationAndWhitespaceRemainSeparators() started.
+◇ Test accentedLatinIsNotFragmented() started.
+◇ Test scriptsAreTokenizedAsWholeWords(_:_:_:) started.
+◇ Test singleCharacterCJKQueriesProduceAToken() started.
+◇ Test singleCharacterLatinIsStillDropped() started.
+◇ Test tokensNeverContainFTSMetacharacters() started.
+◇ Test corruptMirrorIsNotReportedAsAnEmptyMirror() started.
+◇ Test vaultWriteHelpersAcceptEquivalentRootAliases() started.
+◇ Test vaultWriteHelpersRejectStandardizedPathsOutsideRoot() started.
+◇ Test authorityYAMLEscapesQuotedAndMultilineScalars() started.
+◇ Test corruptGenerationMarkerIsReported() started.
+◇ Test missingVaultReadIsSideEffectFree() started.
+◇ Test journalDirectoryReadFailureIsNotTreatedAsAnEmptyJournal() started.
+◇ Test canonicalPlanRejectsDuplicateSourceIDs() started.
+◇ Test decidedPatchCannotBeAppliedTwiceAndStoreRemainsStable() started.
+◇ Test applyApprovedPatchMovesRowsIntoStore() started.
+◇ Test canonicalPlanRejectsUnsupportedRecordAndProjectionVersions() started.
+◇ Test malformedNoteFailsBeforeAnyCaptureBytesArePublished() started.
+◇ Test bothHashClaimsMustMatchTheActualBytes(changeManifest:) started.
+◇ Test linkedInputCannotReadOutsideStaging(file:) started.
+◇ Test invalidDestinationFailsBeforeRawPublication() started.
+◇ Test internalRawSymlinkCannotRedirectIntoJournal() started.
+◇ Test matchingCaptureImportsAndReimportsWithoutChangingRawBytes() started.
+◇ Test fullReadScopeComesFromTheImportOwnerWithoutCreatingVault() started.
+◇ Test declaredNoteLocationMustMatchTheImportedNote() started.
+◇ Test anExistingRawRevisionIsNotOverwrittenByAnotherCapture() started.
+◇ Test captureCannotWriteIntoCanonicalJournalNamespace() started.
+◇ Test applyingTheSameDecisionTwiceDoesNotDuplicateTheReplayReport() started.
+◇ Test approvedDecisionRejectsAnUnverifiableEvidenceHash(_:) started.
+◇ Test collectedSourceToIngestRequestMatchesFixtureShape() started.
+◇ Test materializationFailurePreservesCommittedPrefixAndStoppingFailure() started.
+◇ Test projectionRefreshPatchMatchesPythonFixture() started.
+◇ Test authorityRegistrationPatchMatchesPythonFixture() started.
+◇ Test batchMatchesApplyingOneAtATime() started.
+◇ Test batchStateEqualsARebuild() started.
+◇ Test evidenceIngestPatchMatchesPythonFixture() started.
+◇ Test aBackdatedDecisionInABatchStillMatchesARebuild() started.
+◇ Test anEmptyBatchIsANoOpThatStillReportsState() started.
+◇ Test aFailedDecisionStopsTheBatchAndKeepsWhatWasCommitted() started.
+SAME_COUNT_MATERIALIZATION_FAILURE: ASKPostCommitMaterializationError(patchID: "patch_4e3915bbf4ee433e", decision: KnowledgeCore.PatchDecision.approved, cause: "Error Domain=NSCocoaErrorDomain Code=512 \"(null)\"UserInfo={NSUnderlyingError=Error Domain=NSPOSIXErrorDomain Code=21 \"Is a directory\", NSFilePath=$TMPDIR/AF69093F-BF9C-4491-81B8-652096ACFDE1/index.md, NSURL=file://$TMPDIR/AF69093F-BF9C-4491-81B8-652096ACFDE1/index.md/}")
+◇ Test retractMustRemovePreviouslyMaterializedStatement() started.
+◇ Test vaultExportRoundTripIsSupported() started.
+◇ Test lintKeepsSupportedUnlinkedProjectionClean() started.
+◇ Test vaultImportRejectsUnsafeArchivePaths() started.
+◇ Test runtimeCanRemoveProjectionViaPublicAPI() started.
+◇ Test sourceTitleAndFragmentTextBecomeSearchable() started.
+◇ Test archiveListingDrainsLargeToolOutput() started.
+◇ Test promoteSourceToWikiCreatesVisibleSummaryProjection() started.
+◇ Test queryEventAcceptsEquivalentLegacyJSONFormatting() started.
+◇ Test runtimeCanApplyAndQueryVault() started.
+◇ Test vaultImportRejectsSymbolicLinkArchiveEntries() started.
+◇ Test compileSourceProjectionSetAutoExtractsStructuredSeedsConservatively() started.
+◇ Test sourceReceiptsRejectDuplicateIDs() started.
+◇ Test importFailurePreservesExistingVaultContents() started.
+◇ Test compileSourceProjectionSetCreatesCanonicalPagesAndLinks() started.
+◇ Test stagedAuthorityConflictAppearsInReviewQueue() started.
+◇ Test searchRankingUsesDatasetTimestampsInsteadOfWallClock() started.
+◇ Test searchPrefersCanonicalProjectionOverQueryArtifact() started.
+◇ Test runtimeCanSearchViaMirror() started.
+◇ Test case passing 1 argument kind → "backdated" to invalidCanonicalCandidateNeverPublishes(kind:) started.
+◇ Test case passing 1 argument kind → "equal-time-generated-order" to invalidCanonicalCandidateNeverPublishes(kind:) started.
+◇ Test case passing 1 argument kind → "reverse-patch-id" to invalidCanonicalCandidateNeverPublishes(kind:) started.
+◇ Test case passing 1 argument kind → "pending" to invalidCanonicalCandidateNeverPublishes(kind:) started.
+✔ Test representationAPIsRejectPathUnsafeSourceID() passed after 0.327 seconds.
+◇ Test case passing 3 arguments name → "Han", text → "文書 索引", expected → ["文書", "索引"] to scriptsAreTokenizedAsWholeWords(_:_:_:) started.
+◇ Test case passing 3 arguments name → "kana", text → "かな カナ", expected → ["かな", "カナ"] to scriptsAreTokenizedAsWholeWords(_:_:_:) started.
+◇ Test case passing 3 arguments name → "Cyrillic", text → "поиск индекс", expected → ["поиск", "индекс"] to scriptsAreTokenizedAsWholeWords(_:_:_:) started.
+◇ Test case passing 3 arguments name → "ASCII", text → "anchor resolver", expected → ["anchor", "resolver"] to scriptsAreTokenizedAsWholeWords(_:_:_:) started.
+✔ Test persistedRepresentationRejectsUnsupportedVersionWithoutRewritingIt() passed after 0.328 seconds.
+✔ Test projectionWritePreconditionIsEnforcedByAuthoritativeStoreTransition() passed after 0.327 seconds.
+◇ Test case passing 1 argument changeManifest → true to bothHashClaimsMustMatchTheActualBytes(changeManifest:) started.
+◇ Test case passing 1 argument changeManifest → false to bothHashClaimsMustMatchTheActualBytes(changeManifest:) started.
+◇ Test case passing 1 argument file → "raw" to linkedInputCannotReadOutsideStaging(file:) started.
+◇ Test case passing 1 argument file → "curated_note.md" to linkedInputCannotReadOutsideStaging(file:) started.
+◇ Test case passing 1 argument file → "collected_source.json" to linkedInputCannotReadOutsideStaging(file:) started.
+◇ Test case passing 1 argument file → "capture_manifest.json" to linkedInputCannotReadOutsideStaging(file:) started.
+✔ Test representationLintReportsMissingAndStaleKinds() passed after 0.367 seconds.
+✔ Test representationRoundTripPersistsAndLoads() passed after 0.371 seconds.
+✔ Test interventionOnlyReturnsAPolicyDecisionAndNeverPerformsAnAct() passed after 0.381 seconds.
+✔ Test persistedGenerationMarkerRejectsUnsupportedSchema() passed after 0.381 seconds.
+✔ Test compilerSelectsScopeMatchedRecordsWithinBudgetAndIsByteDeterministic() passed after 0.381 seconds.
+◇ Test case passing 1 argument contentHash → "not-a-digest" to approvedDecisionRejectsAnUnverifiableEvidenceHash(_:) started.
+◇ Test case passing 1 argument contentHash → "sha256:unsupported" to approvedDecisionRejectsAnUnverifiableEvidenceHash(_:) started.
+✔ Test compilerFailsRatherThanSilentlyDroppingBlockingLtsmConstraint() passed after 0.502 seconds.
+✔ Test missingPatchReadDoesNotBootstrapMissingOrEmptyVault() passed after 0.501 seconds.
+✔ Test unsupportedStorageRejectsReplayAndAppendWithoutMovingOrDeletingData() passed after 0.501 seconds.
+✔ Test unsupportedEntryVersionRejectsReplayAndIdenticalTransitionLookup() passed after 0.501 seconds.
+✔ Test publicQueryArtifactPlannerBuildsPatchFromProjectionSlugs() passed after 0.502 seconds.
+✔ Test pendingChoicePatchCanBeAppliedBySelectingAnOption() passed after 0.505 seconds.
+✔ Test pendingPatchPlanCanBeLoadedAndDecidedAfterStaging() passed after 0.502 seconds.
+✔ Test conflictingBatchDoesNotPersistEarlierRecords() passed after 0.502 seconds.
+✔ Test conflictingRecordBytesAreRejected() passed after 0.501 seconds.
+✔ Test journalIsIdempotentReplaysAndRebuildsDerivedMarkdown() passed after 0.502 seconds.
+✔ Test zeroSearchLimitReturnsNoHits() passed after 0.501 seconds.
+✔ Test negativeSearchLimitFailsWithoutCreatingVault() passed after 0.501 seconds.
+✔ Test publicApplyMustNotWriteOutsideThroughNestedSymlink() passed after 0.501 seconds.
+✔ Test materializationMustRejectExistingNestedEscapeSymlink() passed after 0.501 seconds.
+✔ Test mirrorFTSCanHandleNaturalLanguagePunctuation() passed after 0.519 seconds.
+✔ Test mirrorFTSCanReturnProjectionCandidate() passed after 0.519 seconds.
+✔ Test archiveCleanupHelperSurfacesRemovalFailures() passed after 0.597 seconds.
+✔ Test decomposedBodyTextIsReachableFromAComposedQuery() passed after 0.687 seconds.
+✔ Test mirrorFTSUsesExternalContentWithoutPrivateBodyShadow() passed after 0.721 seconds.
+✔ Test sameCountFailedMaterializationCannotServeOrReportStaleSearchAsCurrent() passed after 0.778 seconds.
+✔ Test canonicalReadsDoNotCreateDerivedCheckpoints() passed after 0.777 seconds.
+✔ Test mirrorRebuildExtractsWikiLinksIntoPageLinks() passed after 0.776 seconds.
+✔ Test importCollectedAcceptsGenericCollectorFamily() passed after 0.777 seconds.
+✔ Test mirrorFTSKeepsSnippetForSimpleBody() passed after 0.777 seconds.
+✔ Test obsoleteCheckpointCannotReplaceCanonicalStateOrAffectCommit() passed after 0.778 seconds.
+✔ Test appendConflictWithStandaloneEventIsRejectedBeforePublication() passed after 0.777 seconds.
+✔ Test invalidCanonicalCandidateNeverPublishes(kind:) with 4 test cases passed after 0.777 seconds.
+✔ Test successfulBackdatedAndDuplicateCommitsMatchReplay() passed after 0.777 seconds.
+✔ Test batchRejectsInvalidLaterCandidateAndPreservesEarlierCommit() passed after 0.776 seconds.
+✔ Test applyDoesNotWriteThePerRecordTree() passed after 0.775 seconds.
+✔ Test materializationRemovesStaleDerivedFilesAndEmptyDirectories() passed after 0.776 seconds.
+✔ Test batchUsesTheValidatedBackdatedStateForNextDependency() passed after 0.777 seconds.
+✔ Test derivedOutputPlanRejectsPathsOutsideOwnedTrees() passed after 0.775 seconds.
+✔ Test recordSnapshotExportsOutsideTheVault() passed after 0.775 seconds.
+✔ Test searchingAMissingMirrorYieldsNoCandidatesAndNoDirectories() passed after 0.775 seconds.
+✔ Test readOnlyOpenDoesNotCreateTheEnclosingDirectories() passed after 0.774 seconds.
+✔ Test representationsSurviveApply() passed after 0.775 seconds.
+✔ Test writableOpenStillCreatesTheEnclosingDirectories() passed after 0.774 seconds.
+✔ Test decomposedAndComposedHangulProduceTheSameTokens() passed after 0.771 seconds.
+✔ Test punctuationAndWhitespaceRemainSeparators() passed after 0.771 seconds.
+✔ Test accentedLatinIsNotFragmented() passed after 0.771 seconds.
+✔ Test scriptsAreTokenizedAsWholeWords(_:_:_:) with 4 test cases passed after 0.771 seconds.
+✔ Test singleCharacterCJKQueriesProduceAToken() passed after 0.770 seconds.
+✔ Test singleCharacterLatinIsStillDropped() passed after 0.770 seconds.
+✔ Test tokensNeverContainFTSMetacharacters() passed after 0.770 seconds.
+✔ Test vaultWriteHelpersAcceptEquivalentRootAliases() passed after 0.770 seconds.
+✔ Test authorityYAMLEscapesQuotedAndMultilineScalars() passed after 0.766 seconds.
+✔ Test vaultWriteHelpersRejectStandardizedPathsOutsideRoot() passed after 0.766 seconds.
+✔ Test corruptMirrorIsNotReportedAsAnEmptyMirror() passed after 0.770 seconds.
+✔ Test missingVaultReadIsSideEffectFree() passed after 0.765 seconds.
+✔ Test corruptGenerationMarkerIsReported() passed after 0.765 seconds.
+✔ Test canonicalPlanRejectsDuplicateSourceIDs() passed after 0.765 seconds.
+✔ Test decidedPatchCannotBeAppliedTwiceAndStoreRemainsStable() passed after 0.765 seconds.
+✔ Test journalDirectoryReadFailureIsNotTreatedAsAnEmptyJournal() passed after 0.765 seconds.
+✔ Test applyApprovedPatchMovesRowsIntoStore() passed after 0.765 seconds.
+✔ Test canonicalPlanRejectsUnsupportedRecordAndProjectionVersions() passed after 0.765 seconds.
+✔ Test malformedNoteFailsBeforeAnyCaptureBytesArePublished() passed after 0.765 seconds.
+✔ Test bothHashClaimsMustMatchTheActualBytes(changeManifest:) with 2 test cases passed after 0.765 seconds.
+✔ Test linkedInputCannotReadOutsideStaging(file:) with 4 test cases passed after 0.765 seconds.
+✔ Test invalidDestinationFailsBeforeRawPublication() passed after 0.765 seconds.
+✔ Test internalRawSymlinkCannotRedirectIntoJournal() passed after 0.765 seconds.
+✔ Test fullReadScopeComesFromTheImportOwnerWithoutCreatingVault() passed after 0.749 seconds.
+✔ Test matchingCaptureImportsAndReimportsWithoutChangingRawBytes() passed after 0.758 seconds.
+✔ Test declaredNoteLocationMustMatchTheImportedNote() passed after 0.749 seconds.
+✔ Test incrementalMaterializationMatchesFullRewrite() passed after 0.777 seconds.
+✔ Test captureCannotWriteIntoCanonicalJournalNamespace() passed after 0.749 seconds.
+✔ Test anExistingRawRevisionIsNotOverwrittenByAnotherCapture() passed after 0.749 seconds.
+✔ Test approvedDecisionRejectsAnUnverifiableEvidenceHash(_:) with 2 test cases passed after 0.744 seconds.
+✔ Test backdatedReceiptLeavesStateEqualToARebuild() passed after 0.777 seconds.
+✔ Test collectedSourceToIngestRequestMatchesFixtureShape() passed after 0.744 seconds.
+✔ Test projectionRefreshPatchMatchesPythonFixture() passed after 0.744 seconds.
+✔ Test authorityRegistrationPatchMatchesPythonFixture() passed after 0.744 seconds.
+✔ Test materializationFailurePreservesCommittedPrefixAndStoppingFailure() passed after 0.744 seconds.
+✔ Test evidenceIngestPatchMatchesPythonFixture() passed after 0.744 seconds.
+✔ Test applyingTheSameDecisionTwiceDoesNotDuplicateTheReplayReport() passed after 0.745 seconds.
+✔ Test anEmptyBatchIsANoOpThatStillReportsState() passed after 0.744 seconds.
+✔ Test aBackdatedDecisionInABatchStillMatchesARebuild() passed after 0.744 seconds.
+✔ Test retractMustRemovePreviouslyMaterializedStatement() passed after 0.682 seconds.
+✔ Test batchStateEqualsARebuild() passed after 0.745 seconds.
+✔ Test lintKeepsSupportedUnlinkedProjectionClean() passed after 0.672 seconds.
+✔ Test vaultImportRejectsUnsafeArchivePaths() passed after 0.672 seconds.
+✔ Test aFailedDecisionStopsTheBatchAndKeepsWhatWasCommitted() passed after 0.744 seconds.
+✔ Test sourceTitleAndFragmentTextBecomeSearchable() passed after 0.672 seconds.
+✔ Test vaultExportRoundTripIsSupported() passed after 0.672 seconds.
+✔ Test batchMatchesApplyingOneAtATime() passed after 0.745 seconds.
+✔ Test runtimeCanRemoveProjectionViaPublicAPI() passed after 0.672 seconds.
+✔ Test queryEventAcceptsEquivalentLegacyJSONFormatting() passed after 0.672 seconds.
+✔ Test promoteSourceToWikiCreatesVisibleSummaryProjection() passed after 0.672 seconds.
+✔ Test vaultImportRejectsSymbolicLinkArchiveEntries() passed after 0.672 seconds.
+✔ Test sourceReceiptsRejectDuplicateIDs() passed after 0.666 seconds.
+✔ Test importFailurePreservesExistingVaultContents() passed after 0.666 seconds.
+✔ Test runtimeCanApplyAndQueryVault() passed after 0.672 seconds.
+✔ Test stagedAuthorityConflictAppearsInReviewQueue() passed after 0.666 seconds.
+✔ Test searchRankingUsesDatasetTimestampsInsteadOfWallClock() passed after 0.666 seconds.
+✔ Test searchPrefersCanonicalProjectionOverQueryArtifact() passed after 0.661 seconds.
+✔ Test runtimeCanSearchViaMirror() passed after 0.661 seconds.
+✔ Suite DeterministicContextCompilerTests passed after 0.786 seconds.
+✔ Suite PendingPatchReadTests passed after 0.785 seconds.
+✔ Suite DecisionMemoryStoreTests passed after 0.786 seconds.
+✔ Suite SearchValidationTests passed after 0.785 seconds.
+✔ Suite ASKSQLiteTests passed after 0.786 seconds.
+✔ Suite JournalOrderingTests passed after 0.786 seconds.
+✔ Suite MaterializationIncrementalTests passed after 0.786 seconds.
+✔ Suite ReadOnlyOpenTests passed after 0.786 seconds.
+✔ Suite SearchTextTokenizationTests passed after 0.786 seconds.
+✔ Suite VaultHardeningTests passed after 0.786 seconds.
+✔ Suite ASKStoreTests passed after 0.786 seconds.
+✔ Suite CaptureImportBoundaryTests passed after 0.786 seconds.
+✔ Suite BatchApplyTests passed after 0.784 seconds.
+✔ Suite ASKPlanningParityTests passed after 0.784 seconds.
+✔ Suite ProjectionRetractionRegressionTests passed after 0.787 seconds.
+✔ Test healthMustDetectActualCorruptSQLite() passed after 0.783 seconds.
+✔ Suite StorageIntegrityRegressionTests passed after 0.787 seconds.
+✔ Test compileSourceProjectionSetCreatesCanonicalPagesAndLinks() passed after 0.744 seconds.
+✔ Test compileSourceProjectionSetAutoExtractsStructuredSeedsConservatively() passed after 0.764 seconds.
+✔ Test archiveListingDrainsLargeToolOutput() passed after 0.885 seconds.
+✔ Suite ASKRuntimeTests passed after 0.998 seconds.
+JOURNAL_READ_LATENCY entries=20 reads=100 duration=2.177618347 seconds
+✔ Test canonicalJournalReadLatency() passed after 3.102 seconds.
+✔ Suite JournalAuthorityTests passed after 3.105 seconds.
+✔ Test run with 109 tests in 18 suites passed after 3.106 seconds.

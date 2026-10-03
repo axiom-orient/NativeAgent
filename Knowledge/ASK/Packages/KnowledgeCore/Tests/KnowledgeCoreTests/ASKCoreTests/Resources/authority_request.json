@@ -1,0 +1,20 @@
+{
+  "record": {
+    "approval_state": "approved",
+    "approved_by": "human",
+    "effective_from": "2026-04-07T10:05:00Z",
+    "effective_to": null,
+    "fact_scope_key": "current_version",
+    "record_id": "authority_candidate",
+    "record_type": "current_state",
+    "subject_id": "ask",
+    "subject_kind": "project",
+    "supersedes_id": null,
+    "value_fields": {
+      "version": "0.3.0"
+    },
+    "version": "knowledge-authority-record.v2"
+  },
+  "requested_at": "2026-04-07T10:06:00Z",
+  "version": "knowledge-register-authority-request.v2"
+}

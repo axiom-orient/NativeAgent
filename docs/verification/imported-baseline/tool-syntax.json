@@ -1,0 +1,13 @@
+{
+  "status": "PASS",
+  "method": "Python compile() without executing tool side effects",
+  "files": [
+    "tools/check-boundaries.py",
+    "tools/check-documents.py",
+    "tools/test-release-boundary.py",
+    "tools/verify-chatgpt-wire.py",
+    "tools/verify-migration-hold.py",
+    "tools/verify-native-kernel.py",
+    "tools/verify-portable.py"
+  ]
+}

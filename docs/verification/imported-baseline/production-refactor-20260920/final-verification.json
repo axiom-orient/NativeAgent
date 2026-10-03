@@ -1,0 +1,400 @@
+{
+  "schema": "nativeai.verification/3",
+  "date": "2026-09-20",
+  "platform": "Linux x86_64",
+  "swift": "6.2.1",
+  "verifiedScopeStatus": "PASS",
+  "productionRelease": "BLOCKED",
+  "implementationStatus": "CONTRACT_HARDENED",
+  "reason": "Actual source lifecycle/auth/completion fixes are verified in the listed scope. Apple SDK/device/native auth/inference, live ChatGPT, full host/security/durability and external dependency integrations remain unqualified.",
+  "review": {
+    "mode": "Three-pass critical self-review by the same agent",
+    "independentReviewer": "NOT_RUN",
+    "originalResearchDocuments": 5,
+    "originalQualificationItems": 108,
+    "requirementStatuses": {
+      "PASS_CONTRACT": 13,
+      "PARTIAL": 39,
+      "BLOCKED_ENV": 35,
+      "NOT_IMPLEMENTED_OPTIONAL": 21
+    }
+  },
+  "input": {
+    "schema": "nativeai.provenance/2",
+    "inputs": [
+      {
+        "name": "NativeAI-OwnedCompletion-20260920(1).zip",
+        "sha256": "2ef8efb01053c13ce1f309871571e0fd6af9da2052f1d2e5dfedfd28814b1670",
+        "archiveFiles": 1695,
+        "uncompressedBytes": 17727586
+      },
+      {
+        "name": "NativeAI-Production-Readiness-Research-20260920(1).zip",
+        "sha256": "ddf830f9a21c5b13506b9f50935864b4609e8ac54200d0b8ee4b3f10a7390415",
+        "archiveFiles": 5,
+        "uncompressedBytes": 38104
+      }
+    ],
+    "sourceManifest": {
+      "entries": 1694,
+      "status": "PASS",
+      "mismatches": []
+    },
+    "researchDocuments": [
+      {
+        "source": "design-input/production-readiness-20260920/EXECUTION_PLAN.md",
+        "sha256": "c06863f6a3ce88662b10e5f87237150194fa8e8cfeb21008ecfc5c51b1e5ae4f",
+        "lines": 241,
+        "review": "Read in full; original preserved; decision/checklist mapping in docs/production/REQUIREMENTS.md"
+      },
+      {
+        "source": "design-input/production-readiness-20260920/PRODUCTION_BLUEPRINT.md",
+        "sha256": "33bf8c4b449de15b052d0de96cbb92258f282297ad2f61b01dc281651b3929d6",
+        "lines": 516,
+        "review": "Read in full; original preserved; decision/checklist mapping in docs/production/REQUIREMENTS.md"
+      },
+      {
+        "source": "design-input/production-readiness-20260920/QUALIFICATION_MATRIX.md",
+        "sha256": "4405a0e48da8c903f0e9a4dfebcdc66d948701528876d8a5a1e4a3521826bb32",
+        "lines": 207,
+        "review": "Read in full; original preserved; decision/checklist mapping in docs/production/REQUIREMENTS.md"
+      },
+      {
+        "source": "design-input/production-readiness-20260920/README.md",
+        "sha256": "5c10902e3de5ad4d1f6d964959f03c25a4a697a109a15c0dc3816baf4d6240f8",
+        "lines": 44,
+        "review": "Read in full; original preserved; decision/checklist mapping in docs/production/REQUIREMENTS.md"
+      },
+      {
+        "source": "design-input/production-readiness-20260920/RESEARCH_SOURCES.md",
+        "sha256": "6e54c4d28222e5c0852bf2625b0824e187d4e7cbd41bb30f6f5187dc8bdec98f",
+        "lines": 112,
+        "review": "Read in full; original preserved; decision/checklist mapping in docs/production/REQUIREMENTS.md"
+      }
+    ],
+    "scope": "Input bytes and preserved research are verified. Source analysis is critical reachable paths plus all manifests/syntax; not a claim that every source line or SDK was read."
+  },
+  "sourceEvidence": {
+    "status": "PASS",
+    "hashComparisons": 4549,
+    "distinctFiles": 1423,
+    "mismatches": [],
+    "reports": [
+      "portable.json",
+      "native-kernel.json",
+      "knowledge-local.json",
+      "chatgpt-wire.json",
+      "static-checks.json",
+      "manifest-evaluation.json",
+      "archive-recheck.json"
+    ],
+    "limits": "Digest equality binds tests/syntax to exact bytes; it does not expand platform or runtime scope."
+  },
+  "preservation": {
+    "modifiedManifests": [
+      "Providers/ChatGPT/Account/Package.swift",
+      "Providers/ChatGPT/Image/Package.swift",
+      "Providers/ChatGPT/Text/Package.swift"
+    ],
+    "manifestChangeReason": "One test target added to each existing package; products, main targets and external dependencies preserved.",
+    "resolvedPinChanges": [],
+    "migrationHoldChanges": [],
+    "licenseChanges": []
+  },
+  "tests": {
+    "uniqueSwiftTesting": 994,
+    "uniqueXCTest": 69,
+    "uniqueSwiftTotal": 1063,
+    "python": 23,
+    "byUnit": [
+      {
+        "unit": "model-core",
+        "swiftTesting": 57,
+        "xctest": 0,
+        "scope": "Core value contracts; no provider I/O"
+      },
+      {
+        "unit": "model-runtime",
+        "swiftTesting": 99,
+        "xctest": 0,
+        "scope": "Runtime/session/executor contracts with controlled provider fixtures"
+      },
+      {
+        "unit": "native-language-models",
+        "swiftTesting": 3,
+        "xctest": 0,
+        "scope": "Facade projection, not live inference"
+      },
+      {
+        "unit": "model-hub",
+        "swiftTesting": 10,
+        "xctest": 0,
+        "scope": "Hub contract tests, not a live download"
+      },
+      {
+        "unit": "apple-system-contract",
+        "swiftTesting": 10,
+        "xctest": 0,
+        "scope": "Common adapter tests; Apple-only tests are conditional and not qualified on Linux"
+      },
+      {
+        "unit": "chatgpt-account",
+        "swiftTesting": 31,
+        "xctest": 0,
+        "scope": "Actual account lifecycle; injected credential/authorization ports, no native login proof"
+      },
+      {
+        "unit": "chatgpt-text",
+        "swiftTesting": 3,
+        "xctest": 0,
+        "scope": "Actual Text + Account composition; controlled transport, no live subscription proof"
+      },
+      {
+        "unit": "chatgpt-image",
+        "swiftTesting": 3,
+        "xctest": 0,
+        "scope": "Actual Image + Account composition; completion ownership, not pixel/provider quality"
+      },
+      {
+        "unit": "native-agent-exact-source-kernel",
+        "swiftTesting": 571,
+        "xctest": 3,
+        "scope": "Selected exact source; Manager/Apple-only/native/live excluded"
+      },
+      {
+        "unit": "chatgpt-exact-source-wire",
+        "swiftTesting": 44,
+        "xctest": 0,
+        "scope": "Includes real local URLSession/socket; not remote service"
+      },
+      {
+        "unit": "knowledgecore",
+        "swiftTesting": 36,
+        "xctest": 0,
+        "scope": "Actual independent package manifest, not full ASK root"
+      },
+      {
+        "unit": "knowledgeruntime",
+        "swiftTesting": 109,
+        "xctest": 5,
+        "scope": "Actual independent package manifest, not full ASK root"
+      },
+      {
+        "unit": "markdownwiki",
+        "swiftTesting": 17,
+        "xctest": 0,
+        "scope": "Actual independent package manifest, not full ASK root"
+      },
+      {
+        "unit": "htmldocument",
+        "swiftTesting": 1,
+        "xctest": 61,
+        "scope": "Actual independent package manifest, not full ASK root"
+      }
+    ],
+    "debugPortable": "PASS",
+    "release": "PASS: Core/Runtime/Account/Text/Image tests plus TextProvider build",
+    "repeat": {
+      "packages": 4,
+      "iterations": 10,
+      "commands": 40,
+      "testExecutions": 1360
+    },
+    "localHTTPRepeat": {
+      "iterations": 3,
+      "testsPerRun": 44
+    },
+    "consumer": {
+      "status": "PASS",
+      "command": [
+        "swift",
+        "run",
+        "--package-path",
+        "$DATA_ROOT/build/relocated-public-consumer/consumer",
+        "-j",
+        "4",
+        "-Xswiftc",
+        "-warnings-as-errors",
+        "Consumer"
+      ],
+      "exitCode": 0,
+      "closureFilesVerified": 98,
+      "scope": "Actual relocated public products; README examples compile; only Core text projection executes. No native login/model/image generation.",
+      "log": "relocated-consumer-run.log"
+    },
+    "archive": {
+      "status": "PASS",
+      "runtimeTests": 99,
+      "accountTests": 31,
+      "executionInputs": 1414,
+      "executionInputsDigest": "fe938919d98550418a7d3cb0886608af104eec2538788aaaf10b09982c68999d",
+      "evidence": "archive-recheck.json"
+    }
+  },
+  "static": {
+    "status": "PASS",
+    "manifestCount": 53,
+    "heldManifestCount": 5,
+    "staticAssertions": 482,
+    "syntaxFiles": 1237,
+    "syntaxStatus": "EXECUTED"
+  },
+  "manifestEvaluation": {
+    "attempted": 53,
+    "passed": 48,
+    "failedToolsVersion": 5
+  },
+  "environmentFailures": [
+    {
+      "name": "chatgpt-composition-environment",
+      "command": [
+        "swift",
+        "test",
+        "--package-path",
+        "Qualification/ChatGPTCompositionChecks",
+        "--scratch-path",
+        "$DATA_ROOT/build/environment-chatgpt-composition",
+        "-j",
+        "4",
+        "-Xswiftc",
+        "-warnings-as-errors"
+      ],
+      "exitCode": 1,
+      "status": "FAILED_ENVIRONMENT",
+      "swiftTestingCount": null,
+      "xctestCount": null,
+      "seconds": 47.46,
+      "log": "docs/verification/current/chatgpt-composition-environment.log",
+      "observations": [
+        "$DATA_ROOT/work/NativeAI-Production-20260920/Agent/NativeAgent/Sources/NativeAgentManager/Response/AgentResponseLanguage.swift:2:8: error: no such module 'NaturalLanguage'",
+        "   |        `- error: no such module 'NaturalLanguage'",
+        "$DATA_ROOT/work/NativeAI-Production-20260920/Agent/NativeAgent/Sources/NativeAgentManager/Response/AgentResponseLanguage.swift:2:8: error: no such module 'NaturalLanguage'",
+        "   |        `- error: no such module 'NaturalLanguage'",
+        "$DATA_ROOT/work/NativeAI-Production-20260920/Agent/NativeAgent/Sources/NativeAgentManager/Response/AgentResponseLanguage.swift:2:8: error: no such module 'NaturalLanguage'",
+        "   |        `- error: no such module 'NaturalLanguage'"
+      ]
+    },
+    {
+      "name": "artifact-environment",
+      "command": [
+        "swift",
+        "test",
+        "--package-path",
+        "Model/ModelArtifactStore",
+        "--scratch-path",
+        "$DATA_ROOT/build/environment-artifact",
+        "-j",
+        "4",
+        "-Xswiftc",
+        "-warnings-as-errors"
+      ],
+      "exitCode": 1,
+      "status": "FAILED_ENVIRONMENT",
+      "swiftTestingCount": null,
+      "xctestCount": null,
+      "seconds": 8.29,
+      "log": "docs/verification/current/artifact-environment.log",
+      "observations": [
+        "$DATA_ROOT/work/NativeAI-Production-20260920/Model/ModelArtifactStore/Sources/ModelArtifactStore/ArtifactLock.swift:1:8: error: no such module 'CryptoKit'",
+        "    |        `- error: no such module 'CryptoKit'",
+        "error: emit-module command failed with exit code 1 (use -v to see invocation)",
+        "$DATA_ROOT/work/NativeAI-Production-20260920/Model/ModelArtifactStore/Sources/ModelArtifactStore/ArtifactLock.swift:1:8: error: no such module 'CryptoKit'",
+        "    |        `- error: no such module 'CryptoKit'",
+        "$DATA_ROOT/work/NativeAI-Production-20260920/Model/ModelArtifactStore/Sources/ModelArtifactStore/ArtifactLock.swift:1:8: error: no such module 'CryptoKit'"
+      ]
+    },
+    {
+      "name": "ask-agent-environment",
+      "command": [
+        "swift",
+        "test",
+        "--package-path",
+        "Knowledge/ASK/Packages/ASKAgentTools",
+        "--scratch-path",
+        "$DATA_ROOT/build/environment-ask-agent",
+        "-j",
+        "4",
+        "-Xswiftc",
+        "-warnings-as-errors",
+        "--cache-path",
+        "$DATA_ROOT/build/isolated-cache-ask-agent-environment"
+      ],
+      "exitCode": 1,
+      "status": "FAILED_DEPENDENCY_RESOLUTION",
+      "swiftTestingCount": null,
+      "xctestCount": null,
+      "seconds": 4.82,
+      "log": "docs/verification/current/ask-agent-environment.log",
+      "observations": [
+        "error: Git command 'git -C $DATA_ROOT/build/isolated-cache-ask-agent-environment/repositories/swift-markdown-5ccdcf70 config --get remote.origin.url' failed: fatal: cannot change to '$DATA_ROOT/build/isolated-cache-ask-agent-environment/repositories/swift-markdown-5ccdcf70': No such file or directory"
+      ],
+      "initialDiagnostic": "ask-agent-environment-initial.log"
+    },
+    {
+      "name": "mcp-environment",
+      "command": [
+        "swift",
+        "test",
+        "--package-path",
+        "Agent/NativeAgent/Packages/NativeAgentMCP",
+        "--scratch-path",
+        "$DATA_ROOT/build/environment-mcp",
+        "-j",
+        "4",
+        "-Xswiftc",
+        "-warnings-as-errors",
+        "--cache-path",
+        "$DATA_ROOT/build/isolated-cache-mcp-environment"
+      ],
+      "exitCode": 1,
+      "status": "FAILED_DEPENDENCY_RESOLUTION",
+      "swiftTestingCount": null,
+      "xctestCount": null,
+      "seconds": 5.87,
+      "log": "docs/verification/current/mcp-environment.log",
+      "observations": [
+        "error: Git command 'git -C $DATA_ROOT/build/isolated-cache-mcp-environment/repositories/swiftMcp-e499a16c config --get remote.origin.url' failed: fatal: cannot change to '$DATA_ROOT/build/isolated-cache-mcp-environment/repositories/swiftMcp-e499a16c': No such file or directory"
+      ],
+      "initialDiagnostic": "mcp-environment-initial.log"
+    }
+  ],
+  "whitespace": {
+    "status": "PASS",
+    "command": [
+      "git",
+      "diff",
+      "--check",
+      "--",
+      ".",
+      ":(exclude)**/*.log"
+    ],
+    "exitCode": 0,
+    "scope": "Tracked source/config/docs; raw command logs excluded because compiler diagnostics contain trailing spaces. No log rewriting to manufacture a clean diff."
+  },
+  "unverified": [
+    "Apple SDK compilation/linking and actual OS/device execution",
+    "Keychain/browser/NWListener/native accepted-connection settlement and cross-device credential rotation",
+    "MLX/LiteRT/LEAP/Apple native inference, resident unload and memory stabilization",
+    "Live ChatGPT text/image/account and supported third-party mobile service contract",
+    "Artifact crash durability, full ASK/MCP adapters and real remote effects",
+    "Actual iOS/macOS app background/logout/relaunch and security/release approval"
+  ],
+  "packaging": {
+    "sourceManifest": "SOURCE_MANIFEST.json",
+    "archiveIntegrity": "The final archive is separately extracted/checked after this report is sealed; see the external NativeAI-Production-Verification-20260920.json.",
+    "noNativeQualificationByHash": true
+  },
+  "documents": {
+    "status": "PASS",
+    "documents": 165,
+    "activeAnalysesChecked": 14,
+    "relativeLinksChecked": 538,
+    "externalLinksNotFetched": 68,
+    "errors": [],
+    "limits": [
+      "No runtime proof.",
+      "External URL availability is not checked.",
+      "Link existence is not semantic correctness."
+    ]
+  }
+}

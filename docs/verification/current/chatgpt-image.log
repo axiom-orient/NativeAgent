@@ -1,0 +1,806 @@
+Building for debugging...
+[Planning deferred tasks]
+[34 / 66]
+[35 / 67] ChatGPTAccount
+[43 / 117]
+[47 / 117]
+[54 / 117]
+[55 / 117]
+[59 / 117]
+[62 / 117]
+[69 / 117]
+[71 / 117]
+[72 / 117]
+$NATIVEAGENT_ROOT/Providers/ChatGPT/Account/Sources/ChatGPTAccount/LocalhostCallbackServer.swift:34:23: warning: conformance of 'NWConnection' to 'Sendable' is only available in macOS 14.0 or newer
+  7 | /// `@unchecked Sendable` is limited to this queue-confined I/O adapter; no UI work occurs here.
+  8 | /// Completion requires the listener, every accepted connection AND every submitted I/O callback.
+  9 | final class ChatGPTLocalhostCallbackServer: @unchecked Sendable {
+    |             `- note: add '@available' attribute to enclosing class
+ 10 |   static let registeredPorts = ChatGPTProtocolProfile.registeredCallbackPorts
+ 11 | 
+    :
+ 32 |   private let listener: NWListener
+ 33 |   private let queue = DispatchQueue(label: "com.openai.nativeagent.localhost-callback")
+ 34 |   private var state = ChatGPTCallbackState<NWConnection>()
+    |                       `- warning: conformance of 'NWConnection' to 'Sendable' is only available in macOS 14.0 or newer
+ 35 |   private var startID: UUID?
+ 36 |   private var startContinuation: CheckedContinuation<Void, any Error>?
+
+$NATIVEAGENT_ROOT/Providers/ChatGPT/Account/Sources/ChatGPTAccount/LocalhostCallbackServer.swift:34:56: warning: conformance of 'NWConnection' to 'Sendable' is only available in macOS 14.0 or newer
+  7 | /// `@unchecked Sendable` is limited to this queue-confined I/O adapter; no UI work occurs here.
+  8 | /// Completion requires the listener, every accepted connection AND every submitted I/O callback.
+  9 | final class ChatGPTLocalhostCallbackServer: @unchecked Sendable {
+    |             `- note: add '@available' attribute to enclosing class
+ 10 |   static let registeredPorts = ChatGPTProtocolProfile.registeredCallbackPorts
+ 11 | 
+    :
+ 32 |   private let listener: NWListener
+ 33 |   private let queue = DispatchQueue(label: "com.openai.nativeagent.localhost-callback")
+ 34 |   private var state = ChatGPTCallbackState<NWConnection>()
+    |                                                        `- warning: conformance of 'NWConnection' to 'Sendable' is only available in macOS 14.0 or newer
+ 35 |   private var startID: UUID?
+ 36 |   private var startContinuation: CheckedContinuation<Void, any Error>?
+
+$NATIVEAGENT_ROOT/Providers/ChatGPT/Account/Sources/ChatGPTAccount/LocalhostCallbackServer.swift:34:15: warning: conformance of 'NWConnection' to 'Sendable' is only available in macOS 14.0 or newer
+  7 | /// `@unchecked Sendable` is limited to this queue-confined I/O adapter; no UI work occurs here.
+  8 | /// Completion requires the listener, every accepted connection AND every submitted I/O callback.
+  9 | final class ChatGPTLocalhostCallbackServer: @unchecked Sendable {
+    |             `- note: add '@available' attribute to enclosing class
+ 10 |   static let registeredPorts = ChatGPTProtocolProfile.registeredCallbackPorts
+ 11 | 
+    :
+ 32 |   private let listener: NWListener
+ 33 |   private let queue = DispatchQueue(label: "com.openai.nativeagent.localhost-callback")
+ 34 |   private var state = ChatGPTCallbackState<NWConnection>()
+    |               `- warning: conformance of 'NWConnection' to 'Sendable' is only available in macOS 14.0 or newer
+ 35 |   private var startID: UUID?
+ 36 |   private var startContinuation: CheckedContinuation<Void, any Error>?
+[79 / 117] ChatGPTAccount
+$NATIVEAGENT_ROOT/Providers/ChatGPT/Account/Sources/ChatGPTAccount/LocalhostCallbackServer.swift:34:23: warning: conformance of 'NWConnection' to 'Sendable' is only available in macOS 14.0 or newer
+  7 | /// `@unchecked Sendable` is limited to this queue-confined I/O adapter; no UI work occurs here.
+  8 | /// Completion requires the listener, every accepted connection AND every submitted I/O callback.
+  9 | final class ChatGPTLocalhostCallbackServer: @unchecked Sendable {
+    |             `- note: add '@available' attribute to enclosing class
+ 10 |   static let registeredPorts = ChatGPTProtocolProfile.registeredCallbackPorts
+ 11 | 
+    :
+ 32 |   private let listener: NWListener
+ 33 |   private let queue = DispatchQueue(label: "com.openai.nativeagent.localhost-callback")
+ 34 |   private var state = ChatGPTCallbackState<NWConnection>()
+    |                       `- warning: conformance of 'NWConnection' to 'Sendable' is only available in macOS 14.0 or newer
+ 35 |   private var startID: UUID?
+ 36 |   private var startContinuation: CheckedContinuation<Void, any Error>?
+
+$NATIVEAGENT_ROOT/Providers/ChatGPT/Account/Sources/ChatGPTAccount/LocalhostCallbackServer.swift:34:56: warning: conformance of 'NWConnection' to 'Sendable' is only available in macOS 14.0 or newer
+  7 | /// `@unchecked Sendable` is limited to this queue-confined I/O adapter; no UI work occurs here.
+  8 | /// Completion requires the listener, every accepted connection AND every submitted I/O callback.
+  9 | final class ChatGPTLocalhostCallbackServer: @unchecked Sendable {
+    |             `- note: add '@available' attribute to enclosing class
+ 10 |   static let registeredPorts = ChatGPTProtocolProfile.registeredCallbackPorts
+ 11 | 
+    :
+ 32 |   private let listener: NWListener
+ 33 |   private let queue = DispatchQueue(label: "com.openai.nativeagent.localhost-callback")
+ 34 |   private var state = ChatGPTCallbackState<NWConnection>()
+    |                                                        `- warning: conformance of 'NWConnection' to 'Sendable' is only available in macOS 14.0 or newer
+ 35 |   private var startID: UUID?
+ 36 |   private var startContinuation: CheckedContinuation<Void, any Error>?
+[89 / 117] ChatGPTAccount-product
+[92 / 118]
+[92 / 118] ChatGPTAccount
+$NATIVEAGENT_ROOT/Providers/ChatGPT/Account/Sources/ChatGPTAccount/LocalhostCallbackServer.swift:34:23: warning: conformance of 'NWConnection' to 'Sendable' is only available in macOS 14.0 or newer
+  7 | /// `@unchecked Sendable` is limited to this queue-confined I/O adapter; no UI work occurs here.
+  8 | /// Completion requires the listener, every accepted connection AND every submitted I/O callback.
+  9 | final class ChatGPTLocalhostCallbackServer: @unchecked Sendable {
+    |             `- note: add '@available' attribute to enclosing class
+ 10 |   static let registeredPorts = ChatGPTProtocolProfile.registeredCallbackPorts
+ 11 | 
+    :
+ 32 |   private let listener: NWListener
+ 33 |   private let queue = DispatchQueue(label: "com.openai.nativeagent.localhost-callback")
+ 34 |   private var state = ChatGPTCallbackState<NWConnection>()
+    |                       `- warning: conformance of 'NWConnection' to 'Sendable' is only available in macOS 14.0 or newer
+ 35 |   private var startID: UUID?
+ 36 |   private var startContinuation: CheckedContinuation<Void, any Error>?
+
+$NATIVEAGENT_ROOT/Providers/ChatGPT/Account/Sources/ChatGPTAccount/LocalhostCallbackServer.swift:34:56: warning: conformance of 'NWConnection' to 'Sendable' is only available in macOS 14.0 or newer
+  7 | /// `@unchecked Sendable` is limited to this queue-confined I/O adapter; no UI work occurs here.
+  8 | /// Completion requires the listener, every accepted connection AND every submitted I/O callback.
+  9 | final class ChatGPTLocalhostCallbackServer: @unchecked Sendable {
+    |             `- note: add '@available' attribute to enclosing class
+ 10 |   static let registeredPorts = ChatGPTProtocolProfile.registeredCallbackPorts
+ 11 | 
+    :
+ 32 |   private let listener: NWListener
+ 33 |   private let queue = DispatchQueue(label: "com.openai.nativeagent.localhost-callback")
+ 34 |   private var state = ChatGPTCallbackState<NWConnection>()
+    |                                                        `- warning: conformance of 'NWConnection' to 'Sendable' is only available in macOS 14.0 or newer
+ 35 |   private var startID: UUID?
+ 36 |   private var startContinuation: CheckedContinuation<Void, any Error>?
+
+$NATIVEAGENT_ROOT/Providers/ChatGPT/Account/Sources/ChatGPTAccount/LocalhostCallbackServer.swift:34:15: warning: conformance of 'NWConnection' to 'Sendable' is only available in macOS 14.0 or newer
+  7 | /// `@unchecked Sendable` is limited to this queue-confined I/O adapter; no UI work occurs here.
+  8 | /// Completion requires the listener, every accepted connection AND every submitted I/O callback.
+  9 | final class ChatGPTLocalhostCallbackServer: @unchecked Sendable {
+    |             `- note: add '@available' attribute to enclosing class
+ 10 |   static let registeredPorts = ChatGPTProtocolProfile.registeredCallbackPorts
+ 11 | 
+    :
+ 32 |   private let listener: NWListener
+ 33 |   private let queue = DispatchQueue(label: "com.openai.nativeagent.localhost-callback")
+ 34 |   private var state = ChatGPTCallbackState<NWConnection>()
+    |               `- warning: conformance of 'NWConnection' to 'Sendable' is only available in macOS 14.0 or newer
+ 35 |   private var startID: UUID?
+ 36 |   private var startContinuation: CheckedContinuation<Void, any Error>?
+
+$NATIVEAGENT_ROOT/Providers/ChatGPT/Account/Sources/ChatGPTAccount/LocalhostCallbackServer.swift:72:28: warning: conformance of 'NWConnection' to 'Sendable' is only available in macOS 14.0 or newer
+  7 | /// `@unchecked Sendable` is limited to this queue-confined I/O adapter; no UI work occurs here.
+  8 | /// Completion requires the listener, every accepted connection AND every submitted I/O callback.
+  9 | final class ChatGPTLocalhostCallbackServer: @unchecked Sendable {
+    |             `- note: add '@available' attribute to enclosing class
+ 10 |   static let registeredPorts = ChatGPTProtocolProfile.registeredCallbackPorts
+ 11 | 
+    :
+ 59 |   }
+ 60 | 
+ 61 |   func start() async throws {
+    |        `- note: add '@available' attribute to enclosing instance method
+ 62 |     try Task.checkCancellation()
+ 63 |     let cancellation = CallbackCancellation()
+    :
+ 70 |             return
+ 71 |           }
+ 72 |           guard self.state.start() else {
+    |                            |- warning: conformance of 'NWConnection' to 'Sendable' is only available in macOS 14.0 or newer
+    |                            `- note: add 'if #available' version check
+ 73 |             continuation.resume(throwing: ChatGPTLocalhostCallbackError.alreadyStarted)
+ 74 |             return
+
+$NATIVEAGENT_ROOT/Providers/ChatGPT/Account/Sources/ChatGPTAccount/LocalhostCallbackServer.swift:102:57: warning: conformance of 'NWConnection' to 'Sendable' is only available in macOS 14.0 or newer
+  7 | /// `@unchecked Sendable` is limited to this queue-confined I/O adapter; no UI work occurs here.
+  8 | /// Completion requires the listener, every accepted connection AND every submitted I/O callback.
+  9 | final class ChatGPTLocalhostCallbackServer: @unchecked Sendable {
+    |             `- note: add '@available' attribute to enclosing class
+ 10 |   static let registeredPorts = ChatGPTProtocolProfile.registeredCallbackPorts
+ 11 | 
+    :
+ 90 | 
+ 91 |   /// A cancelled waiter still joins cleanup; an unrelated second waiter never cancels the owner.
+ 92 |   func waitForCallback(until expiration: Date) async throws -> URL {
+    |        `- note: add '@available' attribute to enclosing instance method
+ 93 |     let id = UUID()
+ 94 |     let cancellation = CallbackCancellation()
+    :
+100 |             return
+101 |           }
+102 |           guard self.outcome != nil || self.state.phase == .running else {
+    |                                                         |- warning: conformance of 'NWConnection' to 'Sendable' is only available in macOS 14.0 or newer
+    |                                                         `- note: add 'if #available' version check
+103 |             continuation.resume(returning: Delivery.rejected(ChatGPTLocalhostCallbackError.callbackAlreadyConsumed))
+104 |             return
+
+$NATIVEAGENT_ROOT/Providers/ChatGPT/Account/Sources/ChatGPTAccount/LocalhostCallbackServer.swift:102:51: warning: conformance of 'NWConnection' to 'Sendable' is only available in macOS 14.0 or newer
+  7 | /// `@unchecked Sendable` is limited to this queue-confined I/O adapter; no UI work occurs here.
+  8 | /// Completion requires the listener, every accepted connection AND every submitted I/O callback.
+  9 | final class ChatGPTLocalhostCallbackServer: @unchecked Sendable {
+    |             `- note: add '@available' attribute to enclosing class
+ 10 |   static let registeredPorts = ChatGPTProtocolProfile.registeredCallbackPorts
+ 11 | 
+    :
+ 90 | 
+ 91 |   /// A cancelled waiter still joins cleanup; an unrelated second waiter never cancels the owner.
+ 92 |   func waitForCallback(until expiration: Date) async throws -> URL {
+    |        `- note: add '@available' attribute to enclosing instance method
+ 93 |     let id = UUID()
+ 94 |     let cancellation = CallbackCancellation()
+    :
+100 |             return
+101 |           }
+102 |           guard self.outcome != nil || self.state.phase == .running else {
+    |                                                   |- warning: conformance of 'NWConnection' to 'Sendable' is only available in macOS 14.0 or newer
+    |                                                   `- note: add 'if #available' version check
+103 |             continuation.resume(returning: Delivery.rejected(ChatGPTLocalhostCallbackError.callbackAlreadyConsumed))
+104 |             return
+
+$NATIVEAGENT_ROOT/Providers/ChatGPT/Account/Sources/ChatGPTAccount/LocalhostCallbackServer.swift:102:61: warning: conformance of 'NWConnection' to 'Sendable' is only available in macOS 14.0 or newer
+  7 | /// `@unchecked Sendable` is limited to this queue-confined I/O adapter; no UI work occurs here.
+  8 | /// Completion requires the listener, every accepted connection AND every submitted I/O callback.
+  9 | final class ChatGPTLocalhostCallbackServer: @unchecked Sendable {
+    |             `- note: add '@available' attribute to enclosing class
+ 10 |   static let registeredPorts = ChatGPTProtocolProfile.registeredCallbackPorts
+ 11 | 
+    :
+ 90 | 
+ 91 |   /// A cancelled waiter still joins cleanup; an unrelated second waiter never cancels the owner.
+ 92 |   func waitForCallback(until expiration: Date) async throws -> URL {
+    |        `- note: add '@available' attribute to enclosing instance method
+ 93 |     let id = UUID()
+ 94 |     let cancellation = CallbackCancellation()
+    :
+100 |             return
+101 |           }
+102 |           guard self.outcome != nil || self.state.phase == .running else {
+    |                                                             |- warning: conformance of 'NWConnection' to 'Sendable' is only available in macOS 14.0 or newer
+    |                                                             `- note: add 'if #available' version check
+103 |             continuation.resume(returning: Delivery.rejected(ChatGPTLocalhostCallbackError.callbackAlreadyConsumed))
+104 |             return
+
+$NATIVEAGENT_ROOT/Providers/ChatGPT/Account/Sources/ChatGPTAccount/LocalhostCallbackServer.swift:160:73: warning: conformance of 'NWConnection' to 'Sendable' is only available in macOS 14.0 or newer
+  7 | /// `@unchecked Sendable` is limited to this queue-confined I/O adapter; no UI work occurs here.
+  8 | /// Completion requires the listener, every accepted connection AND every submitted I/O callback.
+  9 | final class ChatGPTLocalhostCallbackServer: @unchecked Sendable {
+    |             `- note: add '@available' attribute to enclosing class
+ 10 |   static let registeredPorts = ChatGPTProtocolProfile.registeredCallbackPorts
+ 11 | 
+    :
+156 | 
+157 |   // Internal diagnostic used by the native qualification to observe actual accepted connections.
+158 |   func activeConnectionCount() async -> Int {
+    |        `- note: add '@available' attribute to enclosing instance method
+159 |     await withCheckedContinuation { continuation in
+160 |       queue.async { [self] in continuation.resume(returning: self.state.connectionCount) }
+    |                                                                         |- warning: conformance of 'NWConnection' to 'Sendable' is only available in macOS 14.0 or newer
+    |                                                                         `- note: add 'if #available' version check
+161 |     }
+162 |   }
+
+$NATIVEAGENT_ROOT/Providers/ChatGPT/Account/Sources/ChatGPTAccount/LocalhostCallbackServer.swift:202:17: warning: conformance of 'NWConnection' to 'Sendable' is only available in macOS 14.0 or newer
+  7 | /// `@unchecked Sendable` is limited to this queue-confined I/O adapter; no UI work occurs here.
+  8 | /// Completion requires the listener, every accepted connection AND every submitted I/O callback.
+  9 | final class ChatGPTLocalhostCallbackServer: @unchecked Sendable {
+    |             `- note: add '@available' attribute to enclosing class
+ 10 |   static let registeredPorts = ChatGPTProtocolProfile.registeredCallbackPorts
+ 11 | 
+    :
+198 |   }
+199 | 
+200 |   private func accept(_ connection: NWConnection) {
+    |                `- note: add '@available' attribute to enclosing instance method
+201 |     dispatchPrecondition(condition: .onQueue(queue))
+202 |     guard state.track(connection) else { connection.cancel(); return }
+    |                 |- warning: conformance of 'NWConnection' to 'Sendable' is only available in macOS 14.0 or newer
+    |                 `- note: add 'if #available' version check
+203 |     connection.stateUpdateHandler = { [weak self, weak connection] update in
+204 |       guard let self, let connection else { return }
+
+$NATIVEAGENT_ROOT/Providers/ChatGPT/Account/Sources/ChatGPTAccount/LocalhostCallbackServer.swift:208:20: warning: conformance of 'NWConnection' to 'Sendable' is only available in macOS 14.0 or newer
+  7 | /// `@unchecked Sendable` is limited to this queue-confined I/O adapter; no UI work occurs here.
+  8 | /// Completion requires the listener, every accepted connection AND every submitted I/O callback.
+  9 | final class ChatGPTLocalhostCallbackServer: @unchecked Sendable {
+    |             `- note: add '@available' attribute to enclosing class
+ 10 |   static let registeredPorts = ChatGPTProtocolProfile.registeredCallbackPorts
+ 11 | 
+    :
+198 |   }
+199 | 
+200 |   private func accept(_ connection: NWConnection) {
+    |                `- note: add '@available' attribute to enclosing instance method
+201 |     dispatchPrecondition(condition: .onQueue(queue))
+202 |     guard state.track(connection) else { connection.cancel(); return }
+    :
+206 |       switch update {
+207 |       case .cancelled:
+208 |         self.state.connectionCancelled(connection)
+    |                    |- warning: conformance of 'NWConnection' to 'Sendable' is only available in macOS 14.0 or newer
+    |                    `- note: add 'if #available' version check
+209 |         self.resolveShutdownIfSettled()
+210 |       case .failed(let error), .waiting(let error):
+
+$NATIVEAGENT_ROOT/Providers/ChatGPT/Account/Sources/ChatGPTAccount/LocalhostCallbackServer.swift:217:23: warning: conformance of 'NWConnection' to 'Sendable' is only available in macOS 14.0 or newer
+  7 | /// `@unchecked Sendable` is limited to this queue-confined I/O adapter; no UI work occurs here.
+  8 | /// Completion requires the listener, every accepted connection AND every submitted I/O callback.
+  9 | final class ChatGPTLocalhostCallbackServer: @unchecked Sendable {
+    |             `- note: add '@available' attribute to enclosing class
+ 10 |   static let registeredPorts = ChatGPTProtocolProfile.registeredCallbackPorts
+ 11 | 
+    :
+198 |   }
+199 | 
+200 |   private func accept(_ connection: NWConnection) {
+    |                `- note: add '@available' attribute to enclosing instance method
+201 |     dispatchPrecondition(condition: .onQueue(queue))
+202 |     guard state.track(connection) else { connection.cancel(); return }
+    :
+215 |     }
+216 |     connection.start(queue: queue)
+217 |     guard state.phase == .running, outcome == nil, Self.isLoopback(connection.endpoint) else {
+    |                       |- warning: conformance of 'NWConnection' to 'Sendable' is only available in macOS 14.0 or newer
+    |                       `- note: add 'if #available' version check
+218 |       cancelConnection(connection)
+219 |       return
+
+$NATIVEAGENT_ROOT/Providers/ChatGPT/Account/Sources/ChatGPTAccount/LocalhostCallbackServer.swift:217:17: warning: conformance of 'NWConnection' to 'Sendable' is only available in macOS 14.0 or newer
+  7 | /// `@unchecked Sendable` is limited to this queue-confined I/O adapter; no UI work occurs here.
+  8 | /// Completion requires the listener, every accepted connection AND every submitted I/O callback.
+  9 | final class ChatGPTLocalhostCallbackServer: @unchecked Sendable {
+    |             `- note: add '@available' attribute to enclosing class
+ 10 |   static let registeredPorts = ChatGPTProtocolProfile.registeredCallbackPorts
+ 11 | 
+    :
+198 |   }
+199 | 
+200 |   private func accept(_ connection: NWConnection) {
+    |                `- note: add '@available' attribute to enclosing instance method
+201 |     dispatchPrecondition(condition: .onQueue(queue))
+202 |     guard state.track(connection) else { connection.cancel(); return }
+    :
+215 |     }
+216 |     connection.start(queue: queue)
+217 |     guard state.phase == .running, outcome == nil, Self.isLoopback(connection.endpoint) else {
+    |                 |- warning: conformance of 'NWConnection' to 'Sendable' is only available in macOS 14.0 or newer
+    |                 `- note: add 'if #available' version check
+218 |       cancelConnection(connection)
+219 |       return
+
+$NATIVEAGENT_ROOT/Providers/ChatGPT/Account/Sources/ChatGPTAccount/LocalhostCallbackServer.swift:217:27: warning: conformance of 'NWConnection' to 'Sendable' is only available in macOS 14.0 or newer
+  7 | /// `@unchecked Sendable` is limited to this queue-confined I/O adapter; no UI work occurs here.
+  8 | /// Completion requires the listener, every accepted connection AND every submitted I/O callback.
+  9 | final class ChatGPTLocalhostCallbackServer: @unchecked Sendable {
+    |             `- note: add '@available' attribute to enclosing class
+ 10 |   static let registeredPorts = ChatGPTProtocolProfile.registeredCallbackPorts
+ 11 | 
+    :
+198 |   }
+199 | 
+200 |   private func accept(_ connection: NWConnection) {
+    |                `- note: add '@available' attribute to enclosing instance method
+201 |     dispatchPrecondition(condition: .onQueue(queue))
+202 |     guard state.track(connection) else { connection.cancel(); return }
+    :
+215 |     }
+216 |     connection.start(queue: queue)
+217 |     guard state.phase == .running, outcome == nil, Self.isLoopback(connection.endpoint) else {
+    |                           |- warning: conformance of 'NWConnection' to 'Sendable' is only available in macOS 14.0 or newer
+    |                           `- note: add 'if #available' version check
+218 |       cancelConnection(connection)
+219 |       return
+
+$NATIVEAGENT_ROOT/Providers/ChatGPT/Account/Sources/ChatGPTAccount/LocalhostCallbackServer.swift:221:17: warning: conformance of 'NWConnection' to 'Sendable' is only available in macOS 14.0 or newer
+  7 | /// `@unchecked Sendable` is limited to this queue-confined I/O adapter; no UI work occurs here.
+  8 | /// Completion requires the listener, every accepted connection AND every submitted I/O callback.
+  9 | final class ChatGPTLocalhostCallbackServer: @unchecked Sendable {
+    |             `- note: add '@available' attribute to enclosing class
+ 10 |   static let registeredPorts = ChatGPTProtocolProfile.registeredCallbackPorts
+ 11 | 
+    :
+198 |   }
+199 | 
+200 |   private func accept(_ connection: NWConnection) {
+    |                `- note: add '@available' attribute to enclosing instance method
+201 |     dispatchPrecondition(condition: .onQueue(queue))
+202 |     guard state.track(connection) else { connection.cancel(); return }
+    :
+219 |       return
+220 |     }
+221 |     guard state.connectionCount <= ChatGPTCallbackPolicy.maximumConcurrentRequests else {
+    |                 |- warning: conformance of 'NWConnection' to 'Sendable' is only available in macOS 14.0 or newer
+    |                 `- note: add 'if #available' version check
+222 |       finish(.failure(ChatGPTLocalhostCallbackError.invalidRequest))
+223 |       return
+
+$NATIVEAGENT_ROOT/Providers/ChatGPT/Account/Sources/ChatGPTAccount/LocalhostCallbackServer.swift:231:17: warning: conformance of 'NWConnection' to 'Sendable' is only available in macOS 14.0 or newer
+  7 | /// `@unchecked Sendable` is limited to this queue-confined I/O adapter; no UI work occurs here.
+  8 | /// Completion requires the listener, every accepted connection AND every submitted I/O callback.
+  9 | final class ChatGPTLocalhostCallbackServer: @unchecked Sendable {
+    |             `- note: add '@available' attribute to enclosing class
+ 10 |   static let registeredPorts = ChatGPTProtocolProfile.registeredCallbackPorts
+ 11 | 
+    :
+226 |   }
+227 | 
+228 |   private func receive(on connection: NWConnection, buffer: Data) {
+    |                `- note: add '@available' attribute to enclosing instance method
+229 |     dispatchPrecondition(condition: .onQueue(queue))
+230 |     let operation = UUID()
+231 |     guard state.beginIO(on: connection, id: operation) else { return }
+    |                 |- warning: conformance of 'NWConnection' to 'Sendable' is only available in macOS 14.0 or newer
+    |                 `- note: add 'if #available' version check
+232 |     connection.receive(minimumIncompleteLength: 1,
+233 |       maximumLength: ChatGPTCallbackPolicy.maximumRequestBytes - buffer.count) { [weak self] data, _, complete, error in
+
+$NATIVEAGENT_ROOT/Providers/ChatGPT/Account/Sources/ChatGPTAccount/LocalhostCallbackServer.swift:236:24: warning: conformance of 'NWConnection' to 'Sendable' is only available in macOS 14.0 or newer
+  7 | /// `@unchecked Sendable` is limited to this queue-confined I/O adapter; no UI work occurs here.
+  8 | /// Completion requires the listener, every accepted connection AND every submitted I/O callback.
+  9 | final class ChatGPTLocalhostCallbackServer: @unchecked Sendable {
+    |             `- note: add '@available' attribute to enclosing class
+ 10 |   static let registeredPorts = ChatGPTProtocolProfile.registeredCallbackPorts
+ 11 | 
+    :
+226 |   }
+227 | 
+228 |   private func receive(on connection: NWConnection, buffer: Data) {
+    |                `- note: add '@available' attribute to enclosing instance method
+229 |     dispatchPrecondition(condition: .onQueue(queue))
+230 |     let operation = UUID()
+    :
+234 |       guard let self else { return }
+235 |       dispatchPrecondition(condition: .onQueue(self.queue))
+236 |       guard self.state.completeIO(on: connection, id: operation) else { return }
+    |                        |- warning: conformance of 'NWConnection' to 'Sendable' is only available in macOS 14.0 or newer
+    |                        `- note: add 'if #available' version check
+237 |       defer { self.resolveShutdownIfSettled() }
+238 |       guard self.state.phase == .running, self.outcome == nil else { return }
+
+$NATIVEAGENT_ROOT/Providers/ChatGPT/Account/Sources/ChatGPTAccount/LocalhostCallbackServer.swift:238:30: warning: conformance of 'NWConnection' to 'Sendable' is only available in macOS 14.0 or newer
+  7 | /// `@unchecked Sendable` is limited to this queue-confined I/O adapter; no UI work occurs here.
+  8 | /// Completion requires the listener, every accepted connection AND every submitted I/O callback.
+  9 | final class ChatGPTLocalhostCallbackServer: @unchecked Sendable {
+    |             `- note: add '@available' attribute to enclosing class
+ 10 |   static let registeredPorts = ChatGPTProtocolProfile.registeredCallbackPorts
+ 11 | 
+    :
+226 |   }
+227 | 
+228 |   private func receive(on connection: NWConnection, buffer: Data) {
+    |                `- note: add '@available' attribute to enclosing instance method
+229 |     dispatchPrecondition(condition: .onQueue(queue))
+230 |     let operation = UUID()
+    :
+236 |       guard self.state.completeIO(on: connection, id: operation) else { return }
+237 |       defer { self.resolveShutdownIfSettled() }
+238 |       guard self.state.phase == .running, self.outcome == nil else { return }
+    |                              |- warning: conformance of 'NWConnection' to 'Sendable' is only available in macOS 14.0 or newer
+    |                              `- note: add 'if #available' version check
+239 |       var request = buffer
+240 |       if let data { request.append(data) }
+
+$NATIVEAGENT_ROOT/Providers/ChatGPT/Account/Sources/ChatGPTAccount/LocalhostCallbackServer.swift:238:24: warning: conformance of 'NWConnection' to 'Sendable' is only available in macOS 14.0 or newer
+  7 | /// `@unchecked Sendable` is limited to this queue-confined I/O adapter; no UI work occurs here.
+  8 | /// Completion requires the listener, every accepted connection AND every submitted I/O callback.
+  9 | final class ChatGPTLocalhostCallbackServer: @unchecked Sendable {
+    |             `- note: add '@available' attribute to enclosing class
+ 10 |   static let registeredPorts = ChatGPTProtocolProfile.registeredCallbackPorts
+ 11 | 
+    :
+226 |   }
+227 | 
+228 |   private func receive(on connection: NWConnection, buffer: Data) {
+    |                `- note: add '@available' attribute to enclosing instance method
+229 |     dispatchPrecondition(condition: .onQueue(queue))
+230 |     let operation = UUID()
+    :
+236 |       guard self.state.completeIO(on: connection, id: operation) else { return }
+237 |       defer { self.resolveShutdownIfSettled() }
+238 |       guard self.state.phase == .running, self.outcome == nil else { return }
+    |                        |- warning: conformance of 'NWConnection' to 'Sendable' is only available in macOS 14.0 or newer
+    |                        `- note: add 'if #available' version check
+239 |       var request = buffer
+240 |       if let data { request.append(data) }
+
+$NATIVEAGENT_ROOT/Providers/ChatGPT/Account/Sources/ChatGPTAccount/LocalhostCallbackServer.swift:238:34: warning: conformance of 'NWConnection' to 'Sendable' is only available in macOS 14.0 or newer
+  7 | /// `@unchecked Sendable` is limited to this queue-confined I/O adapter; no UI work occurs here.
+  8 | /// Completion requires the listener, every accepted connection AND every submitted I/O callback.
+  9 | final class ChatGPTLocalhostCallbackServer: @unchecked Sendable {
+    |             `- note: add '@available' attribute to enclosing class
+ 10 |   static let registeredPorts = ChatGPTProtocolProfile.registeredCallbackPorts
+ 11 | 
+    :
+226 |   }
+227 | 
+228 |   private func receive(on connection: NWConnection, buffer: Data) {
+    |                `- note: add '@available' attribute to enclosing instance method
+229 |     dispatchPrecondition(condition: .onQueue(queue))
+230 |     let operation = UUID()
+    :
+236 |       guard self.state.completeIO(on: connection, id: operation) else { return }
+237 |       defer { self.resolveShutdownIfSettled() }
+238 |       guard self.state.phase == .running, self.outcome == nil else { return }
+    |                                  |- warning: conformance of 'NWConnection' to 'Sendable' is only available in macOS 14.0 or newer
+    |                                  `- note: add 'if #available' version check
+239 |       var request = buffer
+240 |       if let data { request.append(data) }
+
+$NATIVEAGENT_ROOT/Providers/ChatGPT/Account/Sources/ChatGPTAccount/LocalhostCallbackServer.swift:257:33: warning: conformance of 'NWConnection' to 'Sendable' is only available in macOS 14.0 or newer
+  7 | /// `@unchecked Sendable` is limited to this queue-confined I/O adapter; no UI work occurs here.
+  8 | /// Completion requires the listener, every accepted connection AND every submitted I/O callback.
+  9 | final class ChatGPTLocalhostCallbackServer: @unchecked Sendable {
+    |             `- note: add '@available' attribute to enclosing class
+ 10 |   static let registeredPorts = ChatGPTProtocolProfile.registeredCallbackPorts
+ 11 | 
+    :
+252 |   }
+253 | 
+254 |   private func respond(on connection: NWConnection, result: Result<URL, any Error>) {
+    |                `- note: add '@available' attribute to enclosing instance method
+255 |     dispatchPrecondition(condition: .onQueue(queue))
+256 |     let operation = UUID()
+257 |     guard outcome == nil, state.beginIO(on: connection, id: operation, response: true) else {
+    |                                 |- warning: conformance of 'NWConnection' to 'Sendable' is only available in macOS 14.0 or newer
+    |                                 `- note: add 'if #available' version check
+258 |       cancelConnection(connection)
+259 |       return
+
+$NATIVEAGENT_ROOT/Providers/ChatGPT/Account/Sources/ChatGPTAccount/LocalhostCallbackServer.swift:276:24: warning: conformance of 'NWConnection' to 'Sendable' is only available in macOS 14.0 or newer
+  7 | /// `@unchecked Sendable` is limited to this queue-confined I/O adapter; no UI work occurs here.
+  8 | /// Completion requires the listener, every accepted connection AND every submitted I/O callback.
+  9 | final class ChatGPTLocalhostCallbackServer: @unchecked Sendable {
+    |             `- note: add '@available' attribute to enclosing class
+ 10 |   static let registeredPorts = ChatGPTProtocolProfile.registeredCallbackPorts
+ 11 | 
+    :
+252 |   }
+253 | 
+254 |   private func respond(on connection: NWConnection, result: Result<URL, any Error>) {
+    |                `- note: add '@available' attribute to enclosing instance method
+255 |     dispatchPrecondition(condition: .onQueue(queue))
+256 |     let operation = UUID()
+    :
+274 |       guard let self else { return }
+275 |       dispatchPrecondition(condition: .onQueue(self.queue))
+276 |       guard self.state.completeIO(on: connection, id: operation) else { return }
+    |                        |- warning: conformance of 'NWConnection' to 'Sendable' is only available in macOS 14.0 or newer
+    |                        `- note: add 'if #available' version check
+277 |       self.cancelConnection(connection)
+278 |       self.resolveShutdownIfSettled()
+
+$NATIVEAGENT_ROOT/Providers/ChatGPT/Account/Sources/ChatGPTAccount/LocalhostCallbackServer.swift:293:32: warning: conformance of 'NWConnection' to 'Sendable' is only available in macOS 14.0 or newer
+  7 | /// `@unchecked Sendable` is limited to this queue-confined I/O adapter; no UI work occurs here.
+  8 | /// Completion requires the listener, every accepted connection AND every submitted I/O callback.
+  9 | final class ChatGPTLocalhostCallbackServer: @unchecked Sendable {
+    |             `- note: add '@available' attribute to enclosing class
+ 10 |   static let registeredPorts = ChatGPTProtocolProfile.registeredCallbackPorts
+ 11 | 
+    :
+283 |   }
+284 | 
+285 |   private func finish(_ result: Result<URL, any Error>, preservingResponse: NWConnection? = nil) {
+    |                `- note: add '@available' attribute to enclosing instance method
+286 |     dispatchPrecondition(condition: .onQueue(queue))
+287 |     guard outcome == nil else { return }
+    :
+291 |     deliver(result)
+292 |     if case .failure(let error) = result { resolveStart(.failure(error)) }
+293 |     let cancelListener = state.stopListener()
+    |                                |- warning: conformance of 'NWConnection' to 'Sendable' is only available in macOS 14.0 or newer
+    |                                `- note: add 'if #available' version check
+294 |     cancelConnections(preservingResponse: preservingResponse)
+295 |     if cancelListener { listener.cancel() }
+
+$NATIVEAGENT_ROOT/Providers/ChatGPT/Account/Sources/ChatGPTAccount/LocalhostCallbackServer.swift:296:15: warning: conformance of 'NWConnection' to 'Sendable' is only available in macOS 14.0 or newer
+  7 | /// `@unchecked Sendable` is limited to this queue-confined I/O adapter; no UI work occurs here.
+  8 | /// Completion requires the listener, every accepted connection AND every submitted I/O callback.
+  9 | final class ChatGPTLocalhostCallbackServer: @unchecked Sendable {
+    |             `- note: add '@available' attribute to enclosing class
+ 10 |   static let registeredPorts = ChatGPTProtocolProfile.registeredCallbackPorts
+ 11 | 
+    :
+283 |   }
+284 | 
+285 |   private func finish(_ result: Result<URL, any Error>, preservingResponse: NWConnection? = nil) {
+    |                `- note: add '@available' attribute to enclosing instance method
+286 |     dispatchPrecondition(condition: .onQueue(queue))
+287 |     guard outcome == nil else { return }
+    :
+294 |     cancelConnections(preservingResponse: preservingResponse)
+295 |     if cancelListener { listener.cancel() }
+296 |     if !state.isDrained {
+    |               |- warning: conformance of 'NWConnection' to 'Sendable' is only available in macOS 14.0 or newer
+    |               `- note: add 'if #available' version check
+297 |       let deadline = DispatchWorkItem { [weak self] in
+298 |         guard let self, !self.state.isDrained else { return }
+
+$NATIVEAGENT_ROOT/Providers/ChatGPT/Account/Sources/ChatGPTAccount/LocalhostCallbackServer.swift:298:37: warning: conformance of 'NWConnection' to 'Sendable' is only available in macOS 14.0 or newer
+  7 | /// `@unchecked Sendable` is limited to this queue-confined I/O adapter; no UI work occurs here.
+  8 | /// Completion requires the listener, every accepted connection AND every submitted I/O callback.
+  9 | final class ChatGPTLocalhostCallbackServer: @unchecked Sendable {
+    |             `- note: add '@available' attribute to enclosing class
+ 10 |   static let registeredPorts = ChatGPTProtocolProfile.registeredCallbackPorts
+ 11 | 
+    :
+283 |   }
+284 | 
+285 |   private func finish(_ result: Result<URL, any Error>, preservingResponse: NWConnection? = nil) {
+    |                `- note: add '@available' attribute to enclosing instance method
+286 |     dispatchPrecondition(condition: .onQueue(queue))
+287 |     guard outcome == nil else { return }
+    :
+296 |     if !state.isDrained {
+297 |       let deadline = DispatchWorkItem { [weak self] in
+298 |         guard let self, !self.state.isDrained else { return }
+    |                                     |- warning: conformance of 'NWConnection' to 'Sendable' is only available in macOS 14.0 or newer
+    |                                     `- note: add 'if #available' version check
+299 |         self.shutdownFailure = ChatGPTLocalhostCallbackError.shutdownTimedOut
+300 |         self.cancelConnections()
+
+$NATIVEAGENT_ROOT/Providers/ChatGPT/Account/Sources/ChatGPTAccount/LocalhostCallbackServer.swift:313:25: warning: conformance of 'NWConnection' to 'Sendable' is only available in macOS 14.0 or newer
+  7 | /// `@unchecked Sendable` is limited to this queue-confined I/O adapter; no UI work occurs here.
+  8 | /// Completion requires the listener, every accepted connection AND every submitted I/O callback.
+  9 | final class ChatGPTLocalhostCallbackServer: @unchecked Sendable {
+    |             `- note: add '@available' attribute to enclosing class
+ 10 |   static let registeredPorts = ChatGPTProtocolProfile.registeredCallbackPorts
+ 11 | 
+    :
+307 |   }
+308 | 
+309 |   private func handle(_ update: NWListener.State) {
+    |                `- note: add '@available' attribute to enclosing instance method
+310 |     dispatchPrecondition(condition: .onQueue(queue))
+311 |     switch update {
+312 |     case .ready:
+313 |       guard state.phase == .starting else { return }
+    |                         |- warning: conformance of 'NWConnection' to 'Sendable' is only available in macOS 14.0 or newer
+    |                         `- note: add 'if #available' version check
+314 |       guard listener.port?.rawValue == port else {
+315 |         finish(.failure(ChatGPTFailure(.invalidConfiguration)))
+
+$NATIVEAGENT_ROOT/Providers/ChatGPT/Account/Sources/ChatGPTAccount/LocalhostCallbackServer.swift:313:19: warning: conformance of 'NWConnection' to 'Sendable' is only available in macOS 14.0 or newer
+  7 | /// `@unchecked Sendable` is limited to this queue-confined I/O adapter; no UI work occurs here.
+  8 | /// Completion requires the listener, every accepted connection AND every submitted I/O callback.
+  9 | final class ChatGPTLocalhostCallbackServer: @unchecked Sendable {
+    |             `- note: add '@available' attribute to enclosing class
+ 10 |   static let registeredPorts = ChatGPTProtocolProfile.registeredCallbackPorts
+ 11 | 
+    :
+307 |   }
+308 | 
+309 |   private func handle(_ update: NWListener.State) {
+    |                `- note: add '@available' attribute to enclosing instance method
+310 |     dispatchPrecondition(condition: .onQueue(queue))
+311 |     switch update {
+312 |     case .ready:
+313 |       guard state.phase == .starting else { return }
+    |                   |- warning: conformance of 'NWConnection' to 'Sendable' is only available in macOS 14.0 or newer
+    |                   `- note: add 'if #available' version check
+314 |       guard listener.port?.rawValue == port else {
+315 |         finish(.failure(ChatGPTFailure(.invalidConfiguration)))
+
+$NATIVEAGENT_ROOT/Providers/ChatGPT/Account/Sources/ChatGPTAccount/LocalhostCallbackServer.swift:313:29: warning: conformance of 'NWConnection' to 'Sendable' is only available in macOS 14.0 or newer
+  7 | /// `@unchecked Sendable` is limited to this queue-confined I/O adapter; no UI work occurs here.
+  8 | /// Completion requires the listener, every accepted connection AND every submitted I/O callback.
+  9 | final class ChatGPTLocalhostCallbackServer: @unchecked Sendable {
+    |             `- note: add '@available' attribute to enclosing class
+ 10 |   static let registeredPorts = ChatGPTProtocolProfile.registeredCallbackPorts
+ 11 | 
+    :
+307 |   }
+308 | 
+309 |   private func handle(_ update: NWListener.State) {
+    |                `- note: add '@available' attribute to enclosing instance method
+310 |     dispatchPrecondition(condition: .onQueue(queue))
+311 |     switch update {
+312 |     case .ready:
+313 |       guard state.phase == .starting else { return }
+    |                             |- warning: conformance of 'NWConnection' to 'Sendable' is only available in macOS 14.0 or newer
+    |                             `- note: add 'if #available' version check
+314 |       guard listener.port?.rawValue == port else {
+315 |         finish(.failure(ChatGPTFailure(.invalidConfiguration)))
+
+$NATIVEAGENT_ROOT/Providers/ChatGPT/Account/Sources/ChatGPTAccount/LocalhostCallbackServer.swift:318:16: warning: conformance of 'NWConnection' to 'Sendable' is only available in macOS 14.0 or newer
+  7 | /// `@unchecked Sendable` is limited to this queue-confined I/O adapter; no UI work occurs here.
+  8 | /// Completion requires the listener, every accepted connection AND every submitted I/O callback.
+  9 | final class ChatGPTLocalhostCallbackServer: @unchecked Sendable {
+    |             `- note: add '@available' attribute to enclosing class
+ 10 |   static let registeredPorts = ChatGPTProtocolProfile.registeredCallbackPorts
+ 11 | 
+    :
+307 |   }
+308 | 
+309 |   private func handle(_ update: NWListener.State) {
+    |                `- note: add '@available' attribute to enclosing instance method
+310 |     dispatchPrecondition(condition: .onQueue(queue))
+311 |     switch update {
+    :
+316 |         return
+317 |       }
+318 |       if state.ready() { resolveStart(.success(())) }
+    |                |- warning: conformance of 'NWConnection' to 'Sendable' is only available in macOS 14.0 or newer
+    |                `- note: add 'if #available' version check
+319 |     case .waiting(let error), .failed(let error):
+320 |       finish(.failure(error))
+
+$NATIVEAGENT_ROOT/Providers/ChatGPT/Account/Sources/ChatGPTAccount/LocalhostCallbackServer.swift:324:13: warning: conformance of 'NWConnection' to 'Sendable' is only available in macOS 14.0 or newer
+  7 | /// `@unchecked Sendable` is limited to this queue-confined I/O adapter; no UI work occurs here.
+  8 | /// Completion requires the listener, every accepted connection AND every submitted I/O callback.
+  9 | final class ChatGPTLocalhostCallbackServer: @unchecked Sendable {
+    |             `- note: add '@available' attribute to enclosing class
+ 10 |   static let registeredPorts = ChatGPTProtocolProfile.registeredCallbackPorts
+ 11 | 
+    :
+307 |   }
+308 | 
+309 |   private func handle(_ update: NWListener.State) {
+    |                `- note: add '@available' attribute to enclosing instance method
+310 |     dispatchPrecondition(condition: .onQueue(queue))
+311 |     switch update {
+    :
+322 |       // Unexpected cancellation still terminates any pending callback and start waiter.
+323 |       finish(.failure(CancellationError()))
+324 |       state.listenerCancelled()
+    |             |- warning: conformance of 'NWConnection' to 'Sendable' is only available in macOS 14.0 or newer
+    |             `- note: add 'if #available' version check
+325 |       resolveStart(.failure(CancellationError()))
+326 |       resolveShutdownIfSettled()
+
+$NATIVEAGENT_ROOT/Providers/ChatGPT/Account/Sources/ChatGPTAccount/LocalhostCallbackServer.swift:339:11: warning: conformance of 'NWConnection' to 'Sendable' is only available in macOS 14.0 or newer
+  7 | /// `@unchecked Sendable` is limited to this queue-confined I/O adapter; no UI work occurs here.
+  8 | /// Completion requires the listener, every accepted connection AND every submitted I/O callback.
+  9 | final class ChatGPTLocalhostCallbackServer: @unchecked Sendable {
+    |             `- note: add '@available' attribute to enclosing class
+ 10 |   static let registeredPorts = ChatGPTProtocolProfile.registeredCallbackPorts
+ 11 | 
+    :
+336 |   }
+337 | 
+338 |   private func cancelConnection(_ connection: NWConnection) {
+    |                `- note: add '@available' attribute to enclosing instance method
+339 |     state.cancel(connection)?.cancel()
+    |           |- warning: conformance of 'NWConnection' to 'Sendable' is only available in macOS 14.0 or newer
+    |           `- note: add 'if #available' version check
+340 |   }
+341 | 
+
+$NATIVEAGENT_ROOT/Providers/ChatGPT/Account/Sources/ChatGPTAccount/LocalhostCallbackServer.swift:343:11: warning: conformance of 'NWConnection' to 'Sendable' is only available in macOS 14.0 or newer
+  7 | /// `@unchecked Sendable` is limited to this queue-confined I/O adapter; no UI work occurs here.
+  8 | /// Completion requires the listener, every accepted connection AND every submitted I/O callback.
+  9 | final class ChatGPTLocalhostCallbackServer: @unchecked Sendable {
+    |             `- note: add '@available' attribute to enclosing class
+ 10 |   static let registeredPorts = ChatGPTProtocolProfile.registeredCallbackPorts
+ 11 | 
+    :
+340 |   }
+341 | 
+342 |   private func cancelConnections(preservingResponse: NWConnection? = nil) {
+    |                `- note: add '@available' attribute to enclosing instance method
+343 |     state.cancelConnections(preserving: preservingResponse).forEach { $0.cancel() }
+    |           |- warning: conformance of 'NWConnection' to 'Sendable' is only available in macOS 14.0 or newer
+    |           `- note: add 'if #available' version check
+344 |   }
+345 | 
+
+$NATIVEAGENT_ROOT/Providers/ChatGPT/Account/Sources/ChatGPTAccount/LocalhostCallbackServer.swift:354:19: warning: conformance of 'NWConnection' to 'Sendable' is only available in macOS 14.0 or newer
+  7 | /// `@unchecked Sendable` is limited to this queue-confined I/O adapter; no UI work occurs here.
+  8 | /// Completion requires the listener, every accepted connection AND every submitted I/O callback.
+  9 | final class ChatGPTLocalhostCallbackServer: @unchecked Sendable {
+    |             `- note: add '@available' attribute to enclosing class
+ 10 |   static let registeredPorts = ChatGPTProtocolProfile.registeredCallbackPorts
+ 11 | 
+    :
+350 |   }
+351 | 
+352 |   private func joinShutdown(_ continuation: CheckedContinuation<Void, any Error>) {
+    |                `- note: add '@available' attribute to enclosing instance method
+353 |     if let shutdownFailure { continuation.resume(throwing: shutdownFailure) }
+354 |     else if state.isDrained { continuation.resume() }
+    |                   |- warning: conformance of 'NWConnection' to 'Sendable' is only available in macOS 14.0 or newer
+    |                   `- note: add 'if #available' version check
+355 |     else { shutdownContinuations.append(continuation) }
+356 |   }
+
+$NATIVEAGENT_ROOT/Providers/ChatGPT/Account/Sources/ChatGPTAccount/LocalhostCallbackServer.swift:365:17: warning: conformance of 'NWConnection' to 'Sendable' is only available in macOS 14.0 or newer
+  7 | /// `@unchecked Sendable` is limited to this queue-confined I/O adapter; no UI work occurs here.
+  8 | /// Completion requires the listener, every accepted connection AND every submitted I/O callback.
+  9 | final class ChatGPTLocalhostCallbackServer: @unchecked Sendable {
+    |             `- note: add '@available' attribute to enclosing class
+ 10 |   static let registeredPorts = ChatGPTProtocolProfile.registeredCallbackPorts
+ 11 | 
+    :
+362 |   }
+363 | 
+364 |   private func resolveShutdownIfSettled() {
+    |                `- note: add '@available' attribute to enclosing instance method
+365 |     guard state.isDrained || shutdownFailure != nil else { return }
+    |                 |- warning: conformance of 'NWConnection' to 'Sendable' is only available in macOS 14.0 or newer
+    |                 `- note: add 'if #available' version check
+366 |     shutdownDeadline?.cancel()
+367 |     shutdownDeadline = nil
+[97 / 123] ChatGPTImage
+[107 / 123] ChatGPTImage
+[113 / 124] ChatGPTImageTests-product
+[114 / 129]
+[118 / 129] ChatGPTImageTests-product
+[123 / 129] ChatGPTImageTests-product
+[125 / 129] ChatGPTImageTests-product
+Build complete! (6.03초)
+Test Suite 'All tests' started at 2026-09-20 22:42:47.041.
+Test Suite 'All tests' passed at 2026-09-20 22:42:47.042.
+	 Executed 0 tests, with 0 failures (0 unexpected) in 0.000 (0.001) seconds
+◇ Test run started.
+↳ Testing Library Version: 2084
+↳ Target Platform: arm64e-apple-macos14.0
+◇ Test settledImageParseFailureDoesNotQuarantineClient() started.
+◇ Test failedImageDrainQuarantinesSharedClientAndRetainsInvocation() started.
+◇ Test invalidImagePromptDoesNotEnterTransport() started.
+✔ Test invalidImagePromptDoesNotEnterTransport() passed after 0.001 seconds.
+✔ Test failedImageDrainQuarantinesSharedClientAndRetainsInvocation() passed after 0.002 seconds.
+✔ Test settledImageParseFailureDoesNotQuarantineClient() passed after 0.002 seconds.
+✔ Test run with 3 tests in 0 suites passed after 0.003 seconds.

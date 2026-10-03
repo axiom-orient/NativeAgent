@@ -1,0 +1,9 @@
+{
+  "input": "NativeAI-Reviewed-20260920(1).zip",
+  "inputSHA256": "ca15b0a29264f081c18fd28d31eb57e45c42c513294d0be1cd0b16ed2b9ccdfa",
+  "archiveFiles": 1673,
+  "manifestEntries": 1672,
+  "integrity": "PASS",
+  "failures": [],
+  "scope": "All input bytes hashed. All manifests inventoried. Critical execution paths reviewed; not a claim that every source line or external SDK was inspected."
+}

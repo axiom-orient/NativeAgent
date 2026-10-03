@@ -1,0 +1,18 @@
+{
+  "page_url": "https://docs.example.org/start",
+  "expected": {
+    "title": "Main fallback title",
+    "canonical_url": "https://docs.example.org/guide",
+    "language": "ko",
+    "description": null,
+    "published_at": "2026-02-14",
+    "site_name": "Docs",
+    "markdown": "## Guide introduction\n\nRuntime extraction can use main when article is absent.\n",
+    "fragments": [
+      {
+        "heading": "Guide introduction",
+        "text": "Runtime extraction can use main when article is absent."
+      }
+    ]
+  }
+}

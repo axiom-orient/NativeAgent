@@ -1,0 +1,18 @@
+{
+  "status": "PASS",
+  "command": [
+    "swift",
+    "run",
+    "--package-path",
+    "$DATA_ROOT/build/relocated-public-consumer/consumer",
+    "-j",
+    "4",
+    "-Xswiftc",
+    "-warnings-as-errors",
+    "Consumer"
+  ],
+  "exitCode": 0,
+  "closureFilesVerified": 98,
+  "scope": "Actual relocated public products; README examples compile; only Core text projection executes. No native login/model/image generation.",
+  "log": "relocated-consumer-run.log"
+}

@@ -1,0 +1,37 @@
+{
+  "proposed_writes": [
+    {
+      "document": {
+        "body_md": "# ASK\n\nCurrent version is 0.3.0.",
+        "generated_at": "2026-04-07T10:08:00Z",
+        "generated_from_hash": "e06d6e414bcfbcd0",
+        "metadata": {
+          "approval_required": false,
+          "authority_ids": [
+            "authority_candidate"
+          ],
+          "claim_ids": [
+            "claim_demo"
+          ],
+          "historical": false,
+          "projection_kind": "current_snapshot",
+          "projection_space": "wiki",
+          "source_ids": [
+            "src_demo"
+          ],
+          "source_version_checksums": {},
+          "subject_id": "ask",
+          "subject_kind": "project"
+        },
+        "slug": "current/project/ask",
+        "title": "ASK Current Snapshot",
+        "version": "knowledge-projection-document.v3"
+      },
+      "slug": "current/project/ask",
+      "state": "draft"
+    }
+  ],
+  "requested_at": "2026-04-07T10:09:00Z",
+  "trigger": "authority_changed",
+  "version": "knowledge-refresh-projection-request.v2"
+}

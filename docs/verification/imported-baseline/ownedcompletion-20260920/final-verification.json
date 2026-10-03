@@ -1,0 +1,445 @@
+{
+  "schema": "nativeai.verification/2",
+  "date": "2026-09-20",
+  "platform": "Linux x86_64",
+  "swift": "6.2.1",
+  "releaseReadiness": "NOT_QUALIFIED",
+  "implementationStatus": "PARTIAL_VERIFIED",
+  "reason": "Managed ChatGPT completion and local HTTP paths are verified below; full Apple Account/ModelClient, native SDK/device, live account, ASK/MCP and consuming apps remain unverified.",
+  "input": {
+    "input": "NativeAI-Reviewed-20260920(1).zip",
+    "inputSHA256": "ca15b0a29264f081c18fd28d31eb57e45c42c513294d0be1cd0b16ed2b9ccdfa",
+    "archiveFiles": 1673,
+    "manifestEntries": 1672,
+    "integrity": "PASS",
+    "failures": [],
+    "scope": "All input bytes hashed. All manifests inventoried. Critical execution paths reviewed; not a claim that every source line or external SDK was inspected."
+  },
+  "sourceEvidence": {
+    "status": "PASS",
+    "hashComparisons": 2877,
+    "distinctFiles": 1298,
+    "mismatches": [],
+    "reports": [
+      "portable.json",
+      "native-kernel.json",
+      "knowledge-local.json",
+      "chatgpt-wire.json",
+      "static-checks.json",
+      "manifest-evaluation.json"
+    ],
+    "limits": "Hash equality connects evidence to bytes; it does not expand compilation/runtime scope."
+  },
+  "preservation": {
+    "manifestsAndPins": {
+      "files": 75,
+      "status": "PASS",
+      "changed": []
+    },
+    "migrationHold": {
+      "files": 80,
+      "status": "PASS",
+      "changed": []
+    },
+    "licensesNotices": {
+      "files": 8,
+      "status": "PASS",
+      "changed": []
+    },
+    "runtimeResources": {
+      "files": 70,
+      "status": "PASS",
+      "changed": []
+    }
+  },
+  "changes": {
+    "productionSwiftFiles": [
+      "Providers/ChatGPT/Account/Sources/ChatGPTAccount/ChatGPTAccountSession.swift",
+      "Providers/ChatGPT/Account/Sources/ChatGPTAccount/ChatGPTTransport.swift",
+      "Providers/ChatGPT/Image/Sources/ChatGPTImage/ChatGPTImageWireCodec.swift",
+      "Providers/ChatGPT/Text/Sources/ChatGPTText/ChatGPTModelClient.swift",
+      "Providers/ChatGPT/Text/Sources/ChatGPTText/ChatGPTTextWire.swift"
+    ],
+    "changedExistingSwiftFiles": [
+      "Providers/ChatGPT/Account/Sources/ChatGPTAccount/ChatGPTAccountSession.swift",
+      "Providers/ChatGPT/Account/Sources/ChatGPTAccount/ChatGPTTransport.swift",
+      "Providers/ChatGPT/Image/Sources/ChatGPTImage/ChatGPTImageWireCodec.swift",
+      "Providers/ChatGPT/Text/Sources/ChatGPTText/ChatGPTModelClient.swift",
+      "Providers/ChatGPT/Text/Sources/ChatGPTText/ChatGPTTextWire.swift",
+      "Qualification/ChatGPTCompositionChecks/Tests/ChatGPTCompositionTests/ChatGPTLiveIntegrationTests.swift",
+      "Qualification/ChatGPTCompositionChecks/Tests/ChatGPTCompositionTests/ChatGPTTests.swift",
+      "Qualification/ChatGPTCompositionChecks/Tests/ChatGPTCompositionTests/ChatGPTWireBoundaryTests.swift"
+    ],
+    "deletedNonEvidenceFiles": [],
+    "historicalEvidenceMoved": "docs/verification/imported-baseline; not adopted as current success"
+  },
+  "tests": {
+    "portable": [
+      {
+        "name": "model-core",
+        "status": "PASS",
+        "exitCode": 0,
+        "scope": "Core value contracts; no provider I/O",
+        "swiftTestingCount": 56
+      },
+      {
+        "name": "model-runtime",
+        "status": "PASS",
+        "exitCode": 0,
+        "scope": "Runtime/session/executor contracts with controlled provider fixtures",
+        "swiftTestingCount": 98
+      },
+      {
+        "name": "native-language-models",
+        "status": "PASS",
+        "exitCode": 0,
+        "scope": "Facade projection, not live inference",
+        "swiftTestingCount": 3
+      },
+      {
+        "name": "model-hub",
+        "status": "PASS",
+        "exitCode": 0,
+        "scope": "Hub contract tests, not a live download",
+        "swiftTestingCount": 10
+      },
+      {
+        "name": "apple-system-contract",
+        "status": "PASS",
+        "exitCode": 0,
+        "scope": "Common adapter tests; Apple-only tests are conditional and not qualified on Linux",
+        "swiftTestingCount": 10
+      },
+      {
+        "name": "native-root-build",
+        "status": "PASS",
+        "exitCode": 0,
+        "scope": "Actual manifest kernel target; NOT the Manager or full package",
+        "swiftTestingCount": null
+      }
+    ],
+    "agentKernel": {
+      "status": "PASS",
+      "swiftTesting": 571,
+      "xctest": 3,
+      "log": "native-kernel.log",
+      "excluded": [
+        "NativeAgentManager",
+        "NativeAgentManagerTests",
+        "Apple-only conditional branches",
+        "actual providers/OS permissions/consumer UI"
+      ]
+    },
+    "knowledge": [
+      {
+        "name": "knowledgecore",
+        "status": "PASS",
+        "exitCode": 0,
+        "testCount": 36
+      },
+      {
+        "name": "knowledgeruntime",
+        "status": "PASS",
+        "exitCode": 0,
+        "testCount": 109
+      }
+    ],
+    "chatgptWire": {
+      "status": "PASS",
+      "tests": 44,
+      "repetitions": 10,
+      "realURLSessionHTTPTests": 10,
+      "localFixtureErrors": [],
+      "forbiddenDispatches": [],
+      "log": "chatgpt-wire.log",
+      "excluded": [
+        "ChatGPTAccountSession/CryptoKit/Keychain/loopback login",
+        "ChatGPTTextSession/ModelClient",
+        "ChatGPTImageClient",
+        "Agent adapters",
+        "live ChatGPT account/network E2E"
+      ]
+    },
+    "sourceExporter": {
+      "status": "PASS",
+      "unitTests": 9,
+      "log": "package-closure-tests.log"
+    },
+    "relocatedConsumer": [
+      {
+        "name": "relocated-model-tests",
+        "command": [
+          "swift",
+          "test",
+          "--package-path",
+          "$DATA_ROOT/relocated-source-check/model-runtime/Model/NativeLanguageModels",
+          "--scratch-path",
+          "$DATA_ROOT/build/relocated-model",
+          "-j",
+          "4",
+          "-Xswiftc",
+          "-warnings-as-errors"
+        ],
+        "exitCode": 0,
+        "status": "PASS",
+        "testCount": 3
+      },
+      {
+        "name": "relocated-consumer-build",
+        "command": [
+          "swift",
+          "build",
+          "--package-path",
+          "$DATA_ROOT/relocated-source-check/consumer",
+          "--scratch-path",
+          "$DATA_ROOT/build/relocated-consumer",
+          "-j",
+          "4",
+          "-Xswiftc",
+          "-warnings-as-errors"
+        ],
+        "exitCode": 0,
+        "status": "PASS",
+        "testCount": null
+      },
+      {
+        "name": "relocated-consumer-run",
+        "command": [
+          "swift",
+          "run",
+          "--skip-build",
+          "--package-path",
+          "$DATA_ROOT/relocated-source-check/consumer",
+          "--scratch-path",
+          "$DATA_ROOT/build/relocated-consumer",
+          "Consumer"
+        ],
+        "exitCode": 0,
+        "status": "PASS",
+        "testCount": null
+      }
+    ]
+  },
+  "static": {
+    "status": "PASS",
+    "manifests": 53,
+    "evaluated": 48,
+    "toolsVersionBlocked": 5,
+    "assertions": 482,
+    "swiftSyntaxFiles": 1225,
+    "scope": "Host manifest evaluation and syntax, not native typecheck"
+  },
+  "pythonSyntax": [
+    {
+      "path": "tools/check-boundaries.py",
+      "sha256": "15e7741b1f684e87e9a468fad37dd476b49af948a0ed9bcbf3fedb3dee04e023",
+      "status": "PASS"
+    },
+    {
+      "path": "tools/check-documents.py",
+      "sha256": "b2e1804e2e9be15e6acac3893107ef5bc7fae228f9b1a1c7f0e9da38d0d0ec37",
+      "status": "PASS"
+    },
+    {
+      "path": "tools/package-closure.py",
+      "sha256": "5efb17dd2b7174a92b78b716fbde12e328e0f0aa495d14262fb783060b02f8ca",
+      "status": "PASS"
+    },
+    {
+      "path": "tools/test-package-closure.py",
+      "sha256": "353abb0c79f393278d192b8b4b7924a122ff5c1410a1386e218a801e4f403241",
+      "status": "PASS"
+    },
+    {
+      "path": "tools/test-release-boundary.py",
+      "sha256": "aaecea27ba04bf32897253d175831390676456aeb6e0658690e47fd5d5ac61bb",
+      "status": "PASS"
+    },
+    {
+      "path": "tools/verify-chatgpt-wire.py",
+      "sha256": "18cd8dcadd3019da06f2d54207a787c8051e7ed06885bc4babe0952c2544860b",
+      "status": "PASS"
+    },
+    {
+      "path": "tools/verify-migration-hold.py",
+      "sha256": "0f8a960be1ae97f266d2f8a5e5efacc3e9ce8cd5e91eaaa10615ed016c7f9197",
+      "status": "PASS"
+    },
+    {
+      "path": "tools/verify-native-kernel.py",
+      "sha256": "db98438ac96a6314aa1d37ed3a359a41d37cc69356430dc4c80987be2593689c",
+      "status": "PASS"
+    },
+    {
+      "path": "tools/verify-portable.py",
+      "sha256": "a909d39c32d5f3002e5cfc7d075adb20e396aa6593bbad8c239a3a3b6c7dc0a9",
+      "status": "PASS"
+    }
+  ],
+  "whitespace": {
+    "command": "git diff --check",
+    "exitCode": 0
+  },
+  "sourceBundles": [
+    {
+      "name": "NativeAI-ModelRuntime-20260920.zip",
+      "status": "PASS",
+      "sourceFiles": 62,
+      "sha256": "7a17d3dd194c736cb316c1d71fefdffd94c3dc1c9278ebac31c40185ea5f3678"
+    },
+    {
+      "name": "NativeAI-ChatGPTText-20260920.zip",
+      "status": "PASS",
+      "sourceFiles": 54,
+      "sha256": "d9c21ebf7877da48d4c0befbc3fd38f51dd208d5c9b1caf9acd63aabf4ce2d20"
+    },
+    {
+      "name": "NativeAI-ChatGPTImage-20260920.zip",
+      "status": "PASS",
+      "sourceFiles": 15,
+      "sha256": "501666470302d1869290284c51c024c28ca5adcdb168920fe56e07e0d32c6bcb"
+    },
+    {
+      "name": "NativeAI-ChatGPTAgent-20260920.zip",
+      "status": "PASS",
+      "sourceFiles": 708,
+      "sha256": "f59225355affd71fcd611e2583d5e3461fefd084d11c1f4772dd6e4a8afe4eb3"
+    },
+    {
+      "name": "NativeAI-AppleSystemModel-20260920.zip",
+      "status": "PASS",
+      "sourceFiles": 65,
+      "sha256": "fb22934419b2ac95088084bd44c635d7cb0ac04e1c14f80e7baada2bcbc9cc74"
+    },
+    {
+      "name": "NativeAI-MLX-20260920.zip",
+      "status": "PASS",
+      "sourceFiles": 104,
+      "sha256": "0b7f343eb144e738a820c50b8b7753727984ed3f0b1b52355de043f7a7ef2c5c"
+    },
+    {
+      "name": "NativeAI-LiteRT-20260920.zip",
+      "status": "PASS",
+      "sourceFiles": 89,
+      "sha256": "234d074b9ebab9e0810c65f015d869d243ee13570dfc48f84b3915e82f5191b8"
+    },
+    {
+      "name": "NativeAI-LEAP-20260920.zip",
+      "status": "PASS",
+      "sourceFiles": 94,
+      "sha256": "14fec80d8641c9cff38951961fb95add0a8ee6ecffe6195a0c7adfbd0ed95159"
+    }
+  ],
+  "failedCommands": [
+    {
+      "name": "chatgpt-composition",
+      "command": [
+        "swift",
+        "test",
+        "--package-path",
+        "Qualification/ChatGPTCompositionChecks",
+        "--scratch-path",
+        "$DATA_ROOT/build/full-chatgpt",
+        "-j",
+        "4",
+        "-Xswiftc",
+        "-warnings-as-errors"
+      ],
+      "exitCode": 1,
+      "status": "FAILED_ENVIRONMENT",
+      "reason": "no such module CryptoKit; full module and new producer tests not typechecked or executed",
+      "log": "chatgpt-composition-environment.log"
+    },
+    {
+      "name": "artifact",
+      "command": [
+        "swift",
+        "test",
+        "--package-path",
+        "Model/ModelArtifactStore",
+        "--scratch-path",
+        "$DATA_ROOT/build/artifact",
+        "-j",
+        "4",
+        "-Xswiftc",
+        "-warnings-as-errors"
+      ],
+      "exitCode": 1,
+      "log": "artifact-environment.log"
+    },
+    {
+      "name": "ask-agent",
+      "command": [
+        "swift",
+        "test",
+        "--package-path",
+        "Knowledge/ASK/Packages/ASKAgentTools",
+        "--scratch-path",
+        "$DATA_ROOT/build/ask-agent",
+        "-j",
+        "4",
+        "-Xswiftc",
+        "-warnings-as-errors"
+      ],
+      "exitCode": 1,
+      "log": "ask-agent-environment.log"
+    },
+    {
+      "name": "mcp",
+      "command": [
+        "swift",
+        "test",
+        "--package-path",
+        "Agent/NativeAgent/Packages/NativeAgentMCP",
+        "--scratch-path",
+        "$DATA_ROOT/build/mcp",
+        "-j",
+        "4",
+        "-Xswiftc",
+        "-warnings-as-errors"
+      ],
+      "exitCode": 1,
+      "log": "mcp-environment.log"
+    }
+  ],
+  "notRun": [
+    "Full ChatGPT Account/Text/Image/ModelClient typecheck and tests (including 3 new owned producer tests)",
+    "Native provider SDK builds, load/generate/cancel-drain/reuse/shutdown on actual models and supported Apple hardware",
+    "Actual ChatGPT authentication, refresh, text/image output and remote outcomeUnknown recovery",
+    "ASKAgentTools/MCP dependency graph runtime and external receipt/peer integration",
+    "Global Account shared refresh shutdown/lifetime qualification",
+    "Actual iOS/macOS consuming app, signing, deployment, remote versioned release",
+    "Standalone full-project Swift formatter/style lint; scoped compiler warnings-as-errors and syntax/whitespace checks were run"
+  ],
+  "nonGuarantees": [
+    "Local settlement is not a remote rollback receipt.",
+    "A noncooperative transport can keep its join pending; no timeout is reported as cleanup success.",
+    "Source bundles are not independently published Git/registry products.",
+    "Stream-only custom ChatGPTTransport implementations must add invocation for managed service use; default fails before I/O."
+  ],
+  "documentation": {
+    "status": "PASS",
+    "documents": 161,
+    "activeAnalysesChecked": 14,
+    "relativeLinksChecked": 500,
+    "externalLinksNotFetched": 50,
+    "errors": [],
+    "limits": [
+      "No runtime proof.",
+      "External URL availability is not checked.",
+      "Link existence is not semantic correctness."
+    ]
+  },
+  "finalDocuments": {
+    "README.md": "f88287238ca7a508addca54f00a2154d1941f4a109b71ba0e1385e2690c2856f",
+    "AGENTS.md": "58763b97e6d847580be484692e97d83d28b03d3790192dda2881fcd9b048df75",
+    "HANDOFF.md": "889881538fe71b25505ccfb6aa5909adfe45ff800feb02d6583c714d11e55192",
+    "docs/REVIEW_20260920.md": "af925d0eda555674c3deb0307cf6549b4bad71bcc03b94aa38879930618504ab",
+    "docs/PACKAGING.md": "c1225c7db85d91bfc1f857c5473dc99a975f1a80fa559c388b44571635b2f5af",
+    "docs/PLAN.md": "6889e94c28854229b75eef8279f8794c677d9dc52822474c10dbcf233c315a54",
+    "docs/ARCHITECTURE.md": "672d4073b72c3662bdacf76893c24056e56af507d744b38311f110ef12ab1e67",
+    "docs/SPEC.md": "9f56c501344d47210957fb4f06bb9741c678e63a014cf8f7d477df33d329843b",
+    "docs/IMPLEMENTATION_STATUS.md": "8229c9993bc56daf1ce9c1d0f2df887826d4d9114a93fa107f5e7d1d84a3aeaf",
+    "docs/verification/README.md": "aaeb93f5d37befca23c4dff2b55f4cfd5c1675fde07107f6229e5d501123c926"
+  }
+}

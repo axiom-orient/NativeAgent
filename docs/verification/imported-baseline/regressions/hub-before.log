@@ -1,0 +1,48 @@
+[0/1] Planning build
+Building for debugging...
+[0/14] Write sources
+[3/14] Write swift-version--1BA0962812E73E12.txt
+[5/18] Compiling LanguageModelCore JSONValue+Bridging.swift
+[6/18] Compiling LanguageModelCore ModelGeneration.swift
+[7/18] Emitting module LanguageModelCore
+[8/18] Compiling LanguageModelCore JSONValue+Accessors.swift
+[10/20] Emitting module LanguageModelRuntime
+[11/20] Compiling LanguageModelRuntime ModelProviderRegistry.swift
+[13/21] Emitting module ModelHubTests
+[14/21] Compiling ModelHubTests HubImportBoundaryTests.swift
+[15/22] $DATA_ROOT/nativeai-build/model-hub/x86_64-unknown-linux-gnu/debug/ModelHubPackageDiscoveredTests.derived/all-discovered-tests.swift
+[16/23] Write sources
+[17/23] Wrapping AST for ModelHubTests for debugging
+[19/26] Compiling ModelHubPackageDiscoveredTests all-discovered-tests.swift
+[20/26] Compiling ModelHubPackageDiscoveredTests ModelHubTests.swift
+[21/26] Emitting module ModelHubPackageDiscoveredTests
+[22/24] Write Objects.LinkFileList
+[23/24] Linking ModelHubPackageTests.xctest
+Build complete! (2.23s)
+Test Suite 'Selected tests' started at 2026-09-20 02:11:36.834
+Test Suite 'Selected tests' passed at 2026-09-20 02:11:36.836
+	 Executed 0 tests, with 0 failures (0 unexpected) in 0.0 (0.0) seconds
+◇ Test run started.
+↳ Testing Library Version: 6.2.1 (c9d57c83568b06d)
+↳ Target Platform: x86_64-unknown-linux-gnu
+◇ Suite "Hub import effect boundaries" started.
+◇ Test observedInstalledResultIsNotDiscardedAfterCancellation() started.
+◇ Test cancelledDiscoveryNeverStartsInstallation() started.
+◇ Test cancelledCallerDoesNotDispatchAnExplicitInstall() started.
+◇ Test installationCannotReturnADifferentProvider() started.
+◇ Test installationValidatesTheReturnedDescriptor() started.
+✘ Test installationValidatesTheReturnedDescriptor() recorded an issue at HubImportBoundaryTests.swift:18:11: Expectation failed: an error was expected but none was thrown
+✘ Test cancelledCallerDoesNotDispatchAnExplicitInstall() recorded an issue at HubImportBoundaryTests.swift:119:17: Issue recorded
+↳ Cancelled import returned success
+✔ Test observedInstalledResultIsNotDiscardedAfterCancellation() passed after 0.001 seconds.
+✘ Test installationCannotReturnADifferentProvider() recorded an issue at HubImportBoundaryTests.swift:10:11: Expectation failed: an error was expected but none was thrown
+✘ Test cancelledDiscoveryNeverStartsInstallation() recorded an issue at HubImportBoundaryTests.swift:119:17: Issue recorded
+↳ Cancelled import returned success
+✘ Test cancelledCallerDoesNotDispatchAnExplicitInstall() recorded an issue at HubImportBoundaryTests.swift:50:5: Expectation failed: await probe.installs == 0
+✘ Test cancelledDiscoveryNeverStartsInstallation() recorded an issue at HubImportBoundaryTests.swift:33:5: Expectation failed: await probe.installs == 0
+✘ Test installationCannotReturnADifferentProvider() failed after 0.001 seconds with 1 issue.
+✘ Test installationValidatesTheReturnedDescriptor() failed after 0.001 seconds with 1 issue.
+✘ Test cancelledDiscoveryNeverStartsInstallation() failed after 0.001 seconds with 2 issues.
+✘ Test cancelledCallerDoesNotDispatchAnExplicitInstall() failed after 0.001 seconds with 2 issues.
+✘ Suite "Hub import effect boundaries" failed after 0.001 seconds with 6 issues.
+✘ Test run with 5 tests in 1 suite failed after 0.001 seconds with 6 issues.

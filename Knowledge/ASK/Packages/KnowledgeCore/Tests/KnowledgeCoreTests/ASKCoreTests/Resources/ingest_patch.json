@@ -1,0 +1,134 @@
+{
+  "authority_records": [],
+  "claim_evidence": [
+    {
+      "claim_id": "claim_fb4cd0e8604fcc0e",
+      "evidence_id": "evidence_fb4cd0e8604fcc0e",
+      "support_kind": "context"
+    },
+    {
+      "claim_id": "claim_fb4ccfe8604fca5b",
+      "evidence_id": "evidence_fb4ccfe8604fca5b",
+      "support_kind": "context"
+    }
+  ],
+  "claims": [
+    {
+      "authority_record_id": null,
+      "claim_id": "claim_fb4cd0e8604fcc0e",
+      "claim_kind": "extracted",
+      "claim_mode": "nondeterministic",
+      "confidence": "low",
+      "source_fragment_ids": [
+        "frag_001"
+      ],
+      "status": "provisional",
+      "subject_id": "src_demo",
+      "subject_kind": "source",
+      "text": "ASK is a file-backed knowledge compiler."
+    },
+    {
+      "authority_record_id": null,
+      "claim_id": "claim_fb4ccfe8604fca5b",
+      "claim_kind": "extracted",
+      "claim_mode": "nondeterministic",
+      "confidence": "medium",
+      "source_fragment_ids": [
+        "frag_002"
+      ],
+      "status": "provisional",
+      "subject_id": "src_demo",
+      "subject_kind": "source",
+      "text": "It keeps evidence immutable and projections derived."
+    }
+  ],
+  "evidence": [
+    {
+      "evidence_id": "evidence_fb4cd0e8604fcc0e",
+      "excerpt": "ASK is a file-backed knowledge compiler.",
+      "fragment_id": "frag_001",
+      "source_id": "src_demo"
+    },
+    {
+      "evidence_id": "evidence_fb4ccfe8604fca5b",
+      "excerpt": "It keeps evidence immutable and projections derived.",
+      "fragment_id": "frag_002",
+      "source_id": "src_demo"
+    }
+  ],
+  "generated_at": "2026-04-07T10:01:00Z",
+  "operations": [
+    {
+      "log_id": "log_60f7eddb6ec99571",
+      "occurred_at": "2026-04-07T10:01:00Z",
+      "op_kind": "evidence_ingest",
+      "summary": "ingested source src_demo with 2 fragments"
+    }
+  ],
+  "patch_id": "patch_4ce2de63732158a1",
+  "patch_kind": "evidence_ingest",
+  "projection_invalidations": [],
+  "projection_writes": [],
+  "review_items": [],
+  "source_fragments": [
+    {
+      "fingerprint": "f1",
+      "fragment_id": "frag_001",
+      "locator": {
+        "css": "article p:nth-of-type(1)"
+      },
+      "metadata": {},
+      "ordinal": 0,
+      "source_id": "src_demo",
+      "text": "ASK is a file-backed knowledge compiler.",
+      "version": "knowledge-source-fragment.v2"
+    },
+    {
+      "fingerprint": "f2",
+      "fragment_id": "frag_002",
+      "locator": {
+        "css": "article p:nth-of-type(2)"
+      },
+      "metadata": {},
+      "ordinal": 1,
+      "source_id": "src_demo",
+      "text": "It keeps evidence immutable and projections derived.",
+      "version": "knowledge-source-fragment.v2"
+    }
+  ],
+  "source_receipts": [
+    {
+      "canonical_uri": "ask://source/src_demo",
+      "captured_at": "2026-04-07T10:00:10Z",
+      "connector": "webcollect",
+      "content_hash": "sha256:demo",
+      "language": "en",
+      "metadata": {
+        "url": "https://example.com/demo"
+      },
+      "mime_type": "text/html",
+      "observed_at": "2026-04-07T10:00:00Z",
+      "raw_relpath": "raw/evidence/2026-04-07/src_demo.html",
+      "source_id": "src_demo",
+      "source_kind": "url",
+      "tags": [
+        "demo",
+        "web"
+      ],
+      "title": "Demo Source",
+      "version": "knowledge-source-receipt.v2"
+    }
+  ],
+  "verification": {
+    "disposition": "auto_publish",
+    "patch_id": "patch_4ce2de63732158a1",
+    "reasons": [
+      "low_risk_append_only"
+    ],
+    "requires_human_approval": false,
+    "requires_human_choice": false,
+    "risk_level": "low"
+  },
+  "version": "knowledge-patch-plan.v2",
+  "warnings": []
+}

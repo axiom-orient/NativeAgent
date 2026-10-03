@@ -1,0 +1,28 @@
+[0/1] Planning build
+Building for debugging...
+[0/10] Write sources
+[1/10] Write swift-version--1BA0962812E73E12.txt
+[3/12] Compiling ChatGPTAccountTests SignInLifecycleTests.swift
+[4/12] Compiling ChatGPTAccountTests UnprovedOperationOwnershipTests.swift
+[5/12] Emitting module ChatGPTAccountTests
+[6/13] $DATA_ROOT/build/baseline-portable/chatgpt-account/x86_64-unknown-linux-gnu/debug/ChatGPTAccountPackageDiscoveredTests.derived/all-discovered-tests.swift
+[7/14] Write sources
+[8/14] Wrapping AST for ChatGPTAccountTests for debugging
+[10/17] Emitting module ChatGPTAccountPackageDiscoveredTests
+[11/17] Compiling ChatGPTAccountPackageDiscoveredTests ChatGPTAccountTests.swift
+[12/17] Compiling ChatGPTAccountPackageDiscoveredTests all-discovered-tests.swift
+[13/15] Write Objects.LinkFileList
+[14/15] Linking ChatGPTAccountPackageTests.xctest
+Build complete! (2.33s)
+Test Suite 'Selected tests' started at 2026-09-20 06:52:32.762
+Test Suite 'Selected tests' passed at 2026-09-20 06:52:32.764
+	 Executed 0 tests, with 0 failures (0 unexpected) in 0.0 (0.0) seconds
+◇ Test run started.
+↳ Testing Library Version: 6.2.1 (c9d57c83568b06d)
+↳ Target Platform: x86_64-unknown-linux-gnu
+◇ Test accountRetainsEveryAlreadyAdmittedFailedOperation() started.
+✘ Test accountRetainsEveryAlreadyAdmittedFailedOperation() recorded an issue at UnprovedOperationOwnershipTests.swift:77:3: Expectation failed: (owners → ChatGPTAccountTests.(unknown context at $55da1274a114).WeakNativeOperations).allRetained → false
+↳ // Tasks only retain Bool, so the account must own BOTH unproved native operations.
+✘ Test accountRetainsEveryAlreadyAdmittedFailedOperation() recorded an issue at UnprovedOperationOwnershipTests.swift:79:3: Expectation failed: (owners → ChatGPTAccountTests.(unknown context at $55da1274a114).WeakNativeOperations).allRetained → false
+✘ Test accountRetainsEveryAlreadyAdmittedFailedOperation() failed after 0.010 seconds with 2 issues.
+✘ Test run with 1 test in 0 suites failed after 0.011 seconds with 2 issues.

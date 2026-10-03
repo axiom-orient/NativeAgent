@@ -1,0 +1,10 @@
+{
+  "output": "$DATA_ROOT/nativeai-build/ChatGPT-Verification-Closure.zip",
+  "sha256": "13bf073a8448c2c7dc9acacd654f8a59caafc90d1c9ab85618630b4bc585c5a5",
+  "packageCount": 6,
+  "fileCount": 104,
+  "entries": [
+    "Providers/ChatGPT/Image",
+    "Providers/ChatGPT/TextProvider"
+  ]
+}

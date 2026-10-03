@@ -1,0 +1,133 @@
+[0/1] Planning build
+Building for debugging...
+[0/10] Write sources
+[1/10] Write swift-version--1BA0962812E73E12.txt
+[3/12] Emitting module LanguageModelCoreTests
+[4/12] Compiling LanguageModelCoreTests JSONNumericBoundaryTests.swift
+[5/12] Compiling LanguageModelCoreTests FailureMessageBoundaryTests.swift
+[6/13] $DATA_ROOT/nativeai-build/model-core/x86_64-unknown-linux-gnu/debug/LanguageModelCorePackageDiscoveredTests.derived/all-discovered-tests.swift
+[7/14] Write sources
+[8/14] Wrapping AST for LanguageModelCoreTests for debugging
+[10/17] Compiling LanguageModelCorePackageDiscoveredTests LanguageModelCoreTests.swift
+[11/17] Emitting module LanguageModelCorePackageDiscoveredTests
+[12/17] Compiling LanguageModelCorePackageDiscoveredTests all-discovered-tests.swift
+[14/17] Emitting module LanguageModelCorePackageTests
+[15/17] Write Objects.LinkFileList
+[16/17] Linking LanguageModelCorePackageTests.xctest
+Build complete! (1.74s)
+Test Suite 'Selected tests' started at 2026-09-20 02:08:02.766
+Test Suite 'Selected tests' passed at 2026-09-20 02:08:02.768
+	 Executed 0 tests, with 0 failures (0 unexpected) in 0.0 (0.0) seconds
+◇ Test run started.
+↳ Testing Library Version: 6.2.1 (c9d57c83568b06d)
+↳ Target Platform: x86_64-unknown-linux-gnu
+◇ Suite "JSON integer conversion boundaries" started.
+◇ Test roundedUpperIntegerBoundReturnsNilWithoutTrapping() started.
+Swift/IntegerTypes.swift:8841: Fatal error: Double value cannot be converted to Int because the result would be greater than Int.max
+
+*** Signal 4: Backtracing from 0x7f8d104d2aa6... done ***
+
+*** Program crashed: Illegal instruction at 0x00007f8d104d2aa6 ***
+
+Platform: x86_64 Linux (Debian GNU/Linux 13 (trixie))
+
+Thread 0 "LanguageModelCo":
+
+  0      0x00007f8d0eba4687 <unknown> in libc.so.6
+  1 [ra] 0x00007f8d0ff39a39 _dispatch_sig_thread + 8 in libdispatch.so
+...
+
+Thread 1:
+
+  0  0x00007f8d0ebaf9ee <unknown> in libc.so.6
+...
+
+Thread 2:
+
+  0  0x00007f8d0ebaf9ee <unknown> in libc.so.6
+...
+
+Thread 3:
+
+  0      0x00007f8d0ebaf9ee <unknown> in libc.so.6
+  1 [ra] 0x00007f8d0ff38e02 _dispatch_mgr_invoke + 129 in libdispatch.so
+  2 [ra] 0x00007f8d0ff38d6d _dispatch_mgr_thread + 108 in libdispatch.so
+  3 [ra] 0x00007f8d0ff3bee5 _dispatch_worker_thread + 436 in libdispatch.so
+  4 [ra] 0x00007f8d0eba7b7b <unknown> in libc.so.6
+...
+
+Thread 4 crashed:
+
+  0                  0x00007f8d104d2aa6 _assertionFailure(_:_:file:line:flags:) + 438 in libswiftCore.so
+  1 [ra]             0x000055c2d0071723 JSONValue.intValue.getter + 1154 in LanguageModelCorePackageTests.xctest at $DATA_ROOT/work/NativeAI-Renewed-20260920/Model/LanguageModelCore/Sources/LanguageModelCore/JSON/JSONValue+Accessors.swift:71:20
+  2 [ra] [inlined]   0x000055c2d0108f88 freestanding macro expansion #1 of expect in module LanguageModelCoreTests file JSONNumericBoundaryTests.swift line 9 column 5 in LanguageModelCorePackageTests.xctest at $TMPDIR/swift-generated-sources/@__swiftmacro_22LanguageModelCoreTests0035JSONNumericBoundaryTestsswift_IgGGkfMX8_4_6expectfMf_.swift:1:66
+  3 [ra]             0x000055c2d0108f88 JSONNumericBoundaryTests.roundedUpperIntegerBoundReturnsNilWithoutTrapping() + 167 in LanguageModelCorePackageTests.xctest at $DATA_ROOT/work/NativeAI-Renewed-20260920/Model/LanguageModelCore/Tests/LanguageModelCoreTests/JSONNumericBoundaryTests.swift:9:5
+  4 [ra]             0x000055c2d010565d $s22LanguageModelCoreTests019JSONNumericBoundaryD0V49roundedUpperIntegerBoundReturnsNilWithoutTrapping4TestfMp_7__localfMu0_ #1 @Sendable (_:) in static JSONNumericBoundaryTests.$s22LanguageModelCoreTests019JSONNumericBoundaryD0V49roundedUpperIntegerBoundReturnsNilWithoutTrapping4TestfMp_17Z5b91adeebc3aae9dfMu_@Sendable () + 156 in LanguageModelCorePackageTests.xctest at $TMPDIR/swift-generated-sources/@__swiftmacro_22LanguageModelCoreTests019JSONNumericBoundaryD0V49roundedUpperIntegerBoundReturnsNilWithoutTrapping4TestfMp_.swift:5:224
+  5 [async]          0x000055c2d01052f0 static JSONNumericBoundaryTests.$s22LanguageModelCoreTests019JSONNumericBoundaryD0V49roundedUpperIntegerBoundReturnsNilWithoutTrapping4TestfMp_17Z5b91adeebc3aae9dfMu_@Sendable () in LanguageModelCorePackageTests.xctest at $TMPDIR/swift-generated-sources/@__swiftmacro_22LanguageModelCoreTests019JSONNumericBoundaryD0V49roundedUpperIntegerBoundReturnsNilWithoutTrapping4TestfMp_.swift:7
+  6 [async] [system] 0x000055c2d0105ac0 implicit closure #1 in static JSONNumericBoundaryTests.$s22LanguageModelCoreTests019JSONNumericBoundaryD0V49roundedUpperIntegerBoundReturnsNilWithoutTrapping4TestfMp_25generator5b91adeebc3aae9dfMu_@Sendable () in LanguageModelCorePackageTests.xctest at $TMPDIR/swift-generated-sources/@__swiftmacro_22LanguageModelCoreTests019JSONNumericBoundaryD0V49roundedUpperIntegerBoundReturnsNilWithoutTrapping4TestfMp_.swift
+  7 [async] [thunk]  0x000055c2d0108840 partial apply for implicit closure #1 in static JSONNumericBoundaryTests.$s22LanguageModelCoreTests019JSONNumericBoundaryD0V49roundedUpperIntegerBoundReturnsNilWithoutTrapping4TestfMp_25generator5b91adeebc3aae9derror: Exited with unexpected signal code 4
+fMu_@Sendable () in LanguageModelCorePackageTests.xctest at //<compiler-generated>
+  8 [async]          0x00007f8d0ef8e190 specialized closure #1 in closure #1 in closure #1 in static Runner._runTestCase(_:within:) in libTesting.so
+  9 [async]          0x00007f8d0ef7bc10 closure #1 in static Runner._runTestCase(_:within:) in libTesting.so
+ 10 [async] [thunk]  0x00007f8d0ef8f210 partial apply for closure #1 in static Runner._runTestCase(_:within:) in libTesting.so
+ 11 [async]          0x00007f8d0ef71990 specialized static Test.Case.withCurrent<A>(_:perform:) in libTesting.so
+ 12 [async]          0x00007f8d0ef7ab00 static Runner._runTestCase(_:within:) in libTesting.so
+ 13 [async]          0x00007f8d0ef7a270 closure #2 in static Runner._runTestCases<A>(_:within:) in libTesting.so
+ 14 [async] [thunk]  0x00007f8d0ef8f1f0 partial apply for closure #2 in static Runner._runTestCases<A>(_:within:) in libTesting.so
+ 15 [async]          0x00007f8d0ef8bd20 specialized closure #1 in closure #1 in static Runner._forEach<A, B>(in:_:) in libTesting.so
+ 16 [async] [thunk]  0x00007f8d0ef8f200 partial apply for specialized closure #1 in closure #1 in static Runner._forEach<A, B>(in:_:) in libTesting.so
+ 17 [async] [system] 0x00007f8d101be5e0 completeTaskWithClosure(swift::AsyncContext*, swift::SwiftError*) in libswift_Concurrency.so
+...
+
+Thread 5:
+
+  0  0x00007f8d0ebaf9ee <unknown> in libc.so.6
+...
+
+Thread 6:
+
+  0  0x00007f8d0ebaf9ee <unknown> in libc.so.6
+...
+
+Thread 7:
+
+  0  0x00007f8d0ebaf9ee <unknown> in libc.so.6
+...
+
+
+Registers:
+
+rax 0x0000000000000001  1
+rdx 0x0000000000000001  1
+rcx 0x00000007f8d00015  34239152149
+rbx 0x00007f8d000008e0  04 00 02 00 06 00 03 00 06 00 01 00 01 00 01 00  ················
+rsi 0x00007f8d000154b0  15 00 d0 f8 07 00 00 00 57 46 81 30 dc 30 cb 92  ··Ðø····WF·0Ü0Ë·
+rdi 0x0000000000000000  0
+rbp 0x00007f8d0ac6c770  80 c8 c6 0a 8d 7f 00 00 23 17 07 d0 c2 55 00 00  ·ÈÆ·····#··ÐÂU··
+rsp 0x00007f8d0ac6c6e0  00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  ················
+ r8 0x0000000000000070  112
+ r9 0x0000000000000058  88
+r10 0x0000000000000000  0
+r11 0x0000000000000000  0
+r12 0x00007f8d0ac6c6e0  00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  ················
+r13 0x00007f8d000185b0  20 19 1e 10 8d 7f 00 00 03 00 00 00 00 00 00 00   ···············
+r14 0x0000000000000002  2
+r15 0x00007f8d0ac6c6e0  00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  ················
+rip 0x00007f8d104d2aa6  0f 0b 48 8d 35 a1 09 fb ff 48 8d 55 80 45 31 e4  ··H·5¡·ûÿH·U·E1ä
+
+rflags 0x0000000000010202  
+
+cs 0x0033  fs 0x0000  gs 0x0000
+
+
+Images (17 omitted):
+
+0x000055c2d0044000–0x000055c2d017a025 2e1848e8796dd9bd2a1d1fe2e9b0e7d048d79d49 LanguageModelCorePackageTests.xctest $DATA_ROOT/nativeai-build/model-core/x86_64-unknown-linux-gnu/debug/LanguageModelCorePackageTests.xctest
+0x00007f8d0eb15000–0x00007f8d0ec9f8fd c495b62edadd6c356265942ec1282d98058a7b41 libc.so.6                            /usr/lib/x86_64-linux-gnu/libc.so.6
+0x00007f8d0ee64000–0x00007f8d0f00dd70 813fa676e65f062a46440cf2bee936590724bf39 libTesting.so                        /usr/local/swift/usr/lib/swift/linux/libTesting.so
+0x00007f8d0ff07000–0x00007f8d0ff4f240 c6fa65ca766b6c0742ff462bbd97f5f9937651df libdispatch.so                       /usr/local/swift/usr/lib/swift/linux/libdispatch.so
+0x00007f8d1014b000–0x00007f8d101db080 493a5257250e4963477b8a6d418481e8db54e2c4 libswift_Concurrency.so              /usr/local/swift/usr/lib/swift/linux/libswift_Concurrency.so
+0x00007f8d101f0000–0x00007f8d107a11e8 fd1782c519b557fc55329e9a457a811e94945645 libswiftCore.so                      /usr/local/swift/usr/lib/swift/linux/libswiftCore.so
+
+Backtrace took 0.04s
+

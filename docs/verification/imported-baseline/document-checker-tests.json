@@ -1,0 +1,41 @@
+{
+  "status": "PASS",
+  "scope": "Copied workspace only. Production/source documents were not mutated by negative tests.",
+  "cases": [
+    {
+      "case": "unchanged",
+      "expected": "PASS",
+      "exitCode": 0,
+      "observedErrorTypes": [],
+      "status": "PASS"
+    },
+    {
+      "case": "identity-axes",
+      "expected": "active-identity-four-axes",
+      "exitCode": 1,
+      "observedErrorTypes": [
+        "active-identity-four-axes"
+      ],
+      "status": "PASS"
+    },
+    {
+      "case": "analysis-header",
+      "expected": "analysis-boundary-table",
+      "exitCode": 1,
+      "observedErrorTypes": [
+        "analysis-boundary-table"
+      ],
+      "status": "PASS"
+    },
+    {
+      "case": "missing-link",
+      "expected": "missing-relative-target",
+      "exitCode": 1,
+      "observedErrorTypes": [
+        "missing-relative-target",
+        "readme-canonical-index"
+      ],
+      "status": "PASS"
+    }
+  ]
+}

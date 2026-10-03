@@ -1,0 +1,17 @@
+// swift-tools-version: 6.2
+import PackageDescription
+let package = Package(name: "ReadmeConsumer", dependencies: [
+.package(path: "../source/Model/LanguageModelCore"),
+.package(path: "../source/Model/LanguageModelRuntime"),
+.package(path: "../source/Providers/ChatGPT/Account"),
+.package(path: "../source/Providers/ChatGPT/Text"),
+.package(path: "../source/Providers/ChatGPT/Image"),
+.package(path: "../source/Providers/ChatGPT/TextProvider")
+], targets: [.executableTarget(name: "Consumer", dependencies: [
+.product(name: "LanguageModelCore", package: "LanguageModelCore"),
+.product(name: "LanguageModelRuntime", package: "LanguageModelRuntime"),
+.product(name: "ChatGPTAccount", package: "Account"),
+.product(name: "ChatGPTText", package: "Text"),
+.product(name: "ChatGPTImage", package: "Image"),
+.product(name: "ChatGPTTextProvider", package: "TextProvider")
+])], swiftLanguageModes: [.v6])

@@ -1,0 +1,45 @@
+{
+  "status": "PASS",
+  "scopeViolations": [],
+  "deletedNonDocumentationSource": [],
+  "baselineStates": {
+    "MODIFIED": 51,
+    "REGENERATED_AT_PACKAGING": 1,
+    "REGENERATED_SELF_REPORT": 1,
+    "REMOVED": 64,
+    "UNCHANGED": 1575
+  },
+  "modifiedProductionSwift": [
+    "Model/LanguageModelCore/Sources/LanguageModelCore/Contracts/ModelGeneration.swift",
+    "Model/LanguageModelCore/Sources/LanguageModelCore/JSON/JSONValue+Accessors.swift",
+    "Model/LanguageModelCore/Sources/LanguageModelCore/JSON/JSONValue+Bridging.swift",
+    "Model/LanguageModelRuntime/Sources/LanguageModelRuntime/ModelProviderRegistry.swift",
+    "Model/ModelHub/Sources/ModelHub/HubModelInstaller.swift"
+  ],
+  "newSourceFiles": "Four regression test files only",
+  "protectedCheck": "provenance.json",
+  "publicCheck": "public-api-snapshot.json",
+  "notes": [
+    "No existing tests, manifest, lockfile, runtime Markdown/resources/license or held API changed.",
+    "Ordinary documentation rewritten/integrated; stale historical evidence removed or regenerated.",
+    "tools/verify-portable.py executable bit restored from uploaded ZIP; content unchanged."
+  ],
+  "authoredWhitespaceCheck": {
+    "status": "PASS",
+    "command": [
+      "git",
+      "diff",
+      "--cached",
+      "--check",
+      "--",
+      ".",
+      ":(exclude,glob)docs/verification/current/**/*.log"
+    ],
+    "exitCode": 0
+  },
+  "rawLogWhitespace": {
+    "fullDiffExitCode": 2,
+    "diagnostic": "docs/verification/current/chatgpt-text-build.log:17: trailing whitespace.\n+  3 | \ndocs/verification/current/chatgpt-text-build.log:23: trailing whitespace.\n+  3 | \ndocs/verification/current/chatgpt-text-build.log:29: trailing whitespace.\n+  3 | \ndocs/verification/current/chatgpt-text-build.log:35: trailing whitespace.\n+  3 | \ndocs/verification/current/chatgpt-text-build.log:41: trailing whitespace.\n+  3 | \ndocs/verification/current/chatgpt-text-build.log:47: trailing whitespace.\n+  3 | \ndocs/verification/current/chatgpt-text-build.log:53: trailing whitespace.\n+  3 | \ndocs/verification/current/chatgpt-text-build.log:74: trailing whitespace.\n+  3 | \ndocs/verification/current/regressions/core-numeric-before.log:118: trailing whitespace.\n+rflags 0x0000000000010202  \ndocs/verification/current/regressions/core-numeric-before.log:133: new blank line at EOF.\n",
+    "decision": "Compiler/crash log trailing whitespace preserved verbatim; excluded only raw .log files from authored-code/document formatting check."
+  }
+}

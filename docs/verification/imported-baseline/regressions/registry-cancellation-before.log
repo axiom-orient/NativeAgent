@@ -1,0 +1,61 @@
+[0/1] Planning build
+Building for debugging...
+[0/11] Write sources
+[1/11] Write swift-version--1BA0962812E73E12.txt
+[3/11] Emitting module LanguageModelRuntimeTests
+[4/11] Compiling LanguageModelRuntimeTests ProviderAcquisitionCancellationTests.swift
+[5/12] Compiling LanguageModelRuntimeTests ModelRuntimeAccessTests.swift
+[6/13] $DATA_ROOT/nativeai-build/model-runtime/x86_64-unknown-linux-gnu/debug/LanguageModelRuntimePackageDiscoveredTests.derived/all-discovered-tests.swift
+[7/14] Write sources
+[8/14] Wrapping AST for LanguageModelRuntimeTests for debugging
+[10/17] Compiling LanguageModelRuntimePackageDiscoveredTests LanguageModelRuntimeTests.swift
+[11/17] Emitting module LanguageModelRuntimePackageDiscoveredTests
+[12/17] Compiling LanguageModelRuntimePackageDiscoveredTests all-discovered-tests.swift
+[14/17] Emitting module LanguageModelRuntimePackageTests
+[15/17] Write Objects.LinkFileList
+[16/17] Linking LanguageModelRuntimePackageTests.xctest
+Build complete! (3.09s)
+Test Suite 'Selected tests' started at 2026-09-20 02:08:36.193
+Test Suite 'Selected tests' passed at 2026-09-20 02:08:36.195
+	 Executed 0 tests, with 0 failures (0 unexpected) in 0.0 (0.0) seconds
+◇ Test run started.
+↳ Testing Library Version: 6.2.1 (c9d57c83568b06d)
+↳ Target Platform: x86_64-unknown-linux-gnu
+◇ Suite "Provider discovery and acquisition cancellation" started.
+◇ Test cancelledOwnedAcquisitionReleasesTheLateRuntime() started.
+◇ Test cancelledBorrowedAcquisitionDoesNotCloseTheHostRuntime() started.
+◇ Test cancelledAcquisitionDoesNotHideCleanupFailure() started.
+◇ Test cancelledAvailabilityDoesNotStartAcquisition() started.
+◇ Test cancelledCatalogDoesNotPublishLateModels() started.
+◇ Test cancelledReadinessDoesNotPublishLateAvailability() started.
+◇ Test cancelledBeforeEntryDoesNotCallTheConnector() started.
+✘ Test cancelledAvailabilityDoesNotStartAcquisition() recorded an issue at ProviderAcquisitionCancellationTests.swift:226:17: Issue recorded
+↳ Cancelled acquisition returned success
+✘ Test cancelledBorrowedAcquisitionDoesNotCloseTheHostRuntime() recorded an issue at ProviderAcquisitionCancellationTests.swift:226:17: Issue recorded
+↳ Cancelled acquisition returned success
+✘ Test cancelledOwnedAcquisitionReleasesTheLateRuntime() recorded an issue at ProviderAcquisitionCancellationTests.swift:226:17: Issue recorded
+↳ Cancelled acquisition returned success
+✘ Test cancelledCatalogDoesNotPublishLateModels() recorded an issue at ProviderAcquisitionCancellationTests.swift:110:19: Issue recorded
+↳ Cancelled catalog lookup returned success
+✘ Test cancelledAcquisitionDoesNotHideCleanupFailure() recorded an issue at ProviderAcquisitionCancellationTests.swift:89:19: Issue recorded
+↳ Cancelled acquisition returned a runtime whose release fails
+✘ Test cancelledAvailabilityDoesNotStartAcquisition() recorded an issue at ProviderAcquisitionCancellationTests.swift:38:5: Expectation failed: await probe.acquireCount == 0
+✘ Test cancelledOwnedAcquisitionReleasesTheLateRuntime() recorded an issue at ProviderAcquisitionCancellationTests.swift:54:5: Expectation failed: await runtime.status().phase == .closed
+✘ Test cancelledAcquisitionDoesNotHideCleanupFailure() recorded an issue at ProviderAcquisitionCancellationTests.swift:93:5: Expectation failed: await runtime.status().phase == .failed
+✘ Test cancelledOwnedAcquisitionReleasesTheLateRuntime() recorded an issue at ProviderAcquisitionCancellationTests.swift:55:5: Expectation failed: await probe.cleanupCount == 1
+✘ Test cancelledReadinessDoesNotPublishLateAvailability() recorded an issue at ProviderAcquisitionCancellationTests.swift:128:19: Issue recorded
+↳ Cancelled readiness lookup returned success
+✘ Test cancelledBeforeEntryDoesNotCallTheConnector() recorded an issue at ProviderAcquisitionCancellationTests.swift:226:17: Issue recorded
+↳ Cancelled acquisition returned success
+✘ Test cancelledAcquisitionDoesNotHideCleanupFailure() recorded an issue at ProviderAcquisitionCancellationTests.swift:94:5: Expectation failed: await probe.cleanupCount == 1
+✘ Test cancelledBeforeEntryDoesNotCallTheConnector() recorded an issue at ProviderAcquisitionCancellationTests.swift:21:5: Expectation failed: await probe.availabilityCount == 0
+✘ Test cancelledBeforeEntryDoesNotCallTheConnector() recorded an issue at ProviderAcquisitionCancellationTests.swift:22:5: Expectation failed: await probe.acquireCount == 0
+✘ Test cancelledBorrowedAcquisitionDoesNotCloseTheHostRuntime() failed after 0.001 seconds with 1 issue.
+✘ Test cancelledCatalogDoesNotPublishLateModels() failed after 0.001 seconds with 1 issue.
+✘ Test cancelledAcquisitionDoesNotHideCleanupFailure() failed after 0.001 seconds with 3 issues.
+✘ Test cancelledReadinessDoesNotPublishLateAvailability() failed after 0.001 seconds with 1 issue.
+✘ Test cancelledAvailabilityDoesNotStartAcquisition() failed after 0.001 seconds with 2 issues.
+✘ Test cancelledOwnedAcquisitionReleasesTheLateRuntime() failed after 0.001 seconds with 3 issues.
+✘ Test cancelledBeforeEntryDoesNotCallTheConnector() failed after 0.001 seconds with 3 issues.
+✘ Suite "Provider discovery and acquisition cancellation" failed after 0.002 seconds with 14 issues.
+✘ Test run with 7 tests in 1 suite failed after 0.002 seconds with 14 issues.

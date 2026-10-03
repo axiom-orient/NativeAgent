@@ -1,0 +1,15 @@
+{
+  "status": "PASS",
+  "platform": "Linux-6.18.44-x86_64-with-glibc2.41",
+  "swift": "Swift version 6.2.1 (swift-6.2.1-RELEASE)\nTarget: x86_64-unknown-linux-gnu",
+  "manifestCount": 53,
+  "heldManifestCount": 5,
+  "staticAssertions": 482,
+  "syntaxFiles": 1241,
+  "syntaxStatus": "EXECUTED",
+  "limits": [
+    "No remote dependency resolution, native SDK typecheck, linker or device proof.",
+    "MigrationHold is excluded from the active dependency graph, not deleted. P8 is NOT_COMPLETE.",
+    "Source guards and syntax parsing are not model inference evidence."
+  ]
+}

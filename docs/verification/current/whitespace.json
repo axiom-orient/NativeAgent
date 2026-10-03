@@ -1,0 +1,6 @@
+{
+  "status": "PASS",
+  "filesChecked": 31,
+  "errors": [],
+  "scope": "Changed/new authored source/docs only. Raw test logs preserve literal CRLF request fixtures and are excluded; full git diff --check reports those intentional log bytes."
+}

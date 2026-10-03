@@ -1,0 +1,31 @@
+[0/1] Planning build
+Building for debugging...
+[0/11] Write sources
+[1/11] Write swift-version--1BA0962812E73E12.txt
+[3/11] Emitting module LanguageModelRuntimeTests
+[4/11] Compiling LanguageModelRuntimeTests FailedInvocationRetentionTests.swift
+[5/12] $DATA_ROOT/build/baseline-portable/model-runtime/x86_64-unknown-linux-gnu/debug/LanguageModelRuntimePackageDiscoveredTests.derived/all-discovered-tests.swift
+[6/13] Write sources
+[7/13] Wrapping AST for LanguageModelRuntimeTests for debugging
+[9/16] Compiling LanguageModelRuntimePackageDiscoveredTests LanguageModelRuntimeTests.swift
+[10/16] Emitting module LanguageModelRuntimePackageDiscoveredTests
+[11/16] Compiling LanguageModelRuntimePackageDiscoveredTests all-discovered-tests.swift
+[13/16] Emitting module LanguageModelRuntimePackageTests
+[14/16] Write Objects.LinkFileList
+[15/16] Linking LanguageModelRuntimePackageTests.xctest
+Build complete! (2.83s)
+Test Suite 'Selected tests' started at 2026-09-20 06:42:56.093
+Test Suite 'Selected tests' passed at 2026-09-20 06:42:56.097
+	 Executed 0 tests, with 0 failures (0 unexpected) in 0.0 (0.0) seconds
+◇ Test run started.
+↳ Testing Library Version: 6.2.1 (c9d57c83568b06d)
+↳ Target Platform: x86_64-unknown-linux-gnu
+◇ Test quarantineRetainsExactFailedInvocationAfterPumpExits(throughModel:) started.
+◇ Test case passing 1 argument throughModel → false to quarantineRetainsExactFailedInvocationAfterPumpExits(throughModel:) started.
+◇ Test case passing 1 argument throughModel → true to quarantineRetainsExactFailedInvocationAfterPumpExits(throughModel:) started.
+✘ Test quarantineRetainsExactFailedInvocationAfterPumpExits(throughModel:) recorded an issue with 1 argument throughModel → false at FailedInvocationRetentionTests.swift:18:3: Expectation failed: (lifetime → LanguageModelRuntimeTests.(unknown context at $555ab3184588).InvocationLifetime).isAlive → false
+✘ Test quarantineRetainsExactFailedInvocationAfterPumpExits(throughModel:) recorded an issue with 1 argument throughModel → true at FailedInvocationRetentionTests.swift:18:3: Expectation failed: (lifetime → LanguageModelRuntimeTests.(unknown context at $555ab3184588).InvocationLifetime).isAlive → false
+✘ Test quarantineRetainsExactFailedInvocationAfterPumpExits(throughModel:) recorded an issue with 1 argument throughModel → false at FailedInvocationRetentionTests.swift:20:3: Expectation failed: (lifetime → LanguageModelRuntimeTests.(unknown context at $555ab3184588).InvocationLifetime).isAlive → false
+✘ Test quarantineRetainsExactFailedInvocationAfterPumpExits(throughModel:) recorded an issue with 1 argument throughModel → true at FailedInvocationRetentionTests.swift:20:3: Expectation failed: (lifetime → LanguageModelRuntimeTests.(unknown context at $555ab3184588).InvocationLifetime).isAlive → false
+✘ Test quarantineRetainsExactFailedInvocationAfterPumpExits(throughModel:) with 2 test cases failed after 0.006 seconds with 4 issues.
+✘ Test run with 1 test in 0 suites failed after 0.006 seconds with 4 issues.

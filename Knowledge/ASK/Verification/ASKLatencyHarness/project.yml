@@ -1,0 +1,36 @@
+name: ASKLatencyHarness
+options:
+  bundleIdPrefix: com.ask
+  deploymentTarget:
+    iOS: "17.0"
+packages:
+  ASKLatencyProbe:
+    path: ../../Verification/LatencyProbe
+targets:
+  ASKLatencyHarness:
+    type: application
+    platform: iOS
+    sources:
+      - App
+    dependencies:
+      - package: ASKLatencyProbe
+        products:
+          - ASKLatencyProbe
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.ask.latency-harness
+        PRODUCT_NAME: ASKLatencyHarness
+        PRODUCT_MODULE_NAME: ASKLatencyHarness
+        GENERATE_INFOPLIST_FILE: YES
+        INFOPLIST_KEY_CFBundleDisplayName: ASK Latency
+        SWIFT_VERSION: 6.0
+        SWIFT_STRICT_CONCURRENCY: complete
+        TARGETED_DEVICE_FAMILY: 1
+        CODE_SIGN_STYLE: Automatic
+schemes:
+  ASKLatencyHarness:
+    build:
+      targets:
+        ASKLatencyHarness: all
+    run:
+      config: Debug

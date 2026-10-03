@@ -1,0 +1,17 @@
+{
+  "status": "PASS",
+  "bindingCount": 1493,
+  "uniqueSourceFiles": 696,
+  "mismatches": [],
+  "reports": [
+    "chatgpt-wire.json",
+    "knowledge-local.json",
+    "native-kernel.json",
+    "portable.json",
+    "swift-lint.json"
+  ],
+  "limits": [
+    "Exact source bytes do not prove unexecuted conditional branches.",
+    "Repeated bindings across dependency graphs are not unique test counts."
+  ]
+}

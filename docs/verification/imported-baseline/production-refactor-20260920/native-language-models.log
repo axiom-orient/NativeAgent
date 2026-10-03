@@ -1,0 +1,22 @@
+[0/1] Planning build
+Building for debugging...
+[0/2] Write swift-version--1BA0962812E73E12.txt
+Build complete! (0.48s)
+Test Suite 'All tests' started at 2026-09-20 06:53:41.451
+Test Suite 'debug.xctest' started at 2026-09-20 06:53:41.453
+Test Suite 'debug.xctest' passed at 2026-09-20 06:53:41.453
+	 Executed 0 tests, with 0 failures (0 unexpected) in 0.0 (0.0) seconds
+Test Suite 'All tests' passed at 2026-09-20 06:53:41.453
+	 Executed 0 tests, with 0 failures (0 unexpected) in 0.0 (0.0) seconds
+◇ Test run started.
+↳ Testing Library Version: 6.2.1 (c9d57c83568b06d)
+↳ Target Platform: x86_64-unknown-linux-gnu
+◇ Suite "NativeLanguageModels projection" started.
+◇ Test unsupportedGuidedOutputDoesNotDispatch() started.
+◇ Test streamAndRespondCommitTheSameKindOfTranscript() started.
+◇ Test optionsAndToolCallsUseTheCanonicalRequestAndReturnWithoutExecution() started.
+✔ Test optionsAndToolCallsUseTheCanonicalRequestAndReturnWithoutExecution() passed after 0.003 seconds.
+✔ Test unsupportedGuidedOutputDoesNotDispatch() passed after 0.003 seconds.
+✔ Test streamAndRespondCommitTheSameKindOfTranscript() passed after 0.005 seconds.
+✔ Suite "NativeLanguageModels projection" passed after 0.006 seconds.
+✔ Test run with 3 tests in 1 suite passed after 0.006 seconds.

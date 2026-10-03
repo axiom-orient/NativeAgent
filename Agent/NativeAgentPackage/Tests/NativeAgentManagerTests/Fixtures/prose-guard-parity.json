@@ -1,0 +1,342 @@
+[
+  {
+    "source": "Agency A said A.\n",
+    "candidate": "Agency B said A.\n",
+    "anchors": [
+      "Agency A"
+    ],
+    "status": "MECHANICAL_FAIL"
+  },
+  {
+    "source": "It isn't difficult to read.\n",
+    "candidate": "It isn't hard to read.\n",
+    "anchors": [],
+    "status": "MECHANICAL_PASS_SEMANTICS_UNVERIFIED"
+  },
+  {
+    "source": "A.\n\nB.\n",
+    "candidate": "A.\n\n\nB.\n",
+    "anchors": [],
+    "status": "MECHANICAL_FAIL"
+  },
+  {
+    "source": "> Keep wording.\n",
+    "candidate": "> New wording.\n",
+    "anchors": [],
+    "status": "MECHANICAL_FAIL"
+  },
+  {
+    "source": "﻿A.\n",
+    "candidate": "A.\n",
+    "anchors": [],
+    "status": "MECHANICAL_FAIL"
+  },
+  {
+    "source": "`a` then `b`.\n",
+    "candidate": "`b` then `a`.\n",
+    "anchors": [],
+    "status": "MECHANICAL_FAIL"
+  },
+  {
+    "source": "A.\r\n\r\nB.\r\n",
+    "candidate": "A.\r\n\r\nB.\r\n",
+    "anchors": [],
+    "status": "MECHANICAL_PASS_SEMANTICS_UNVERIFIED"
+  },
+  {
+    "source": "2026-09-08 시작.\n",
+    "candidate": "2026-09-09 시작.\n",
+    "anchors": [],
+    "status": "MECHANICAL_FAIL"
+  },
+  {
+    "source": "Not all requests failed.\n",
+    "candidate": "All requests failed.\n",
+    "anchors": [],
+    "status": "MECHANICAL_PASS_SEMANTICS_UNVERIFIED"
+  },
+  {
+    "source": "Cats sleep.\n\nDogs bark.\n",
+    "candidate": "Dogs bark.\n\nCats sleep.\n",
+    "anchors": [],
+    "status": "MECHANICAL_PASS_SEMANTICS_UNVERIFIED"
+  },
+  {
+    "source": "A.\r\n",
+    "candidate": "A.\n",
+    "anchors": [],
+    "status": "MECHANICAL_FAIL"
+  },
+  {
+    "source": "```py\nx=1\n```\n",
+    "candidate": "```py\nx=2\n```\n",
+    "anchors": [],
+    "status": "MECHANICAL_FAIL"
+  },
+  {
+    "source": "---\nname: x\n---\n\nText.\n",
+    "candidate": "---\nname: y\n---\n\nText.\n",
+    "anchors": [],
+    "status": "MECHANICAL_FAIL"
+  },
+  {
+    "source": "# Title\n\nText.\n",
+    "candidate": "# Other\n\nText.\n",
+    "anchors": [],
+    "status": "MECHANICAL_FAIL"
+  },
+  {
+    "source": "<div>text</div>\n",
+    "candidate": "<div>text</div>\n",
+    "anchors": [],
+    "status": "UNSUPPORTED"
+  },
+  {
+    "source": "    keep = True\n",
+    "candidate": "    keep = False\n",
+    "anchors": [],
+    "status": "MECHANICAL_FAIL"
+  },
+  {
+    "source": "Use `foo()` now.\n",
+    "candidate": "Use `bar()` now.\n",
+    "anchors": [],
+    "status": "MECHANICAL_FAIL"
+  },
+  {
+    "source": "[Old label](https://example.org/a)\n",
+    "candidate": "[New label](https://example.org/a)\n",
+    "anchors": [],
+    "status": "MECHANICAL_PASS_SEMANTICS_UNVERIFIED"
+  },
+  {
+    "source": "* A.\n\n* B.\n",
+    "candidate": "* A.\n",
+    "anchors": [],
+    "status": "MECHANICAL_FAIL"
+  },
+  {
+    "source": "1. One.\n2. Two.\n",
+    "candidate": "1. One.\n3. Two.\n",
+    "anchors": [],
+    "status": "MECHANICAL_FAIL"
+  },
+  {
+    "source": "````text\n```\nsecret\n```\n````\n",
+    "candidate": "````text\n```\nchanged\n```\n````\n",
+    "anchors": [],
+    "status": "MECHANICAL_FAIL"
+  },
+  {
+    "source": "Let $x=1$ here.\n",
+    "candidate": "Let $x=1$ here.\n",
+    "anchors": [],
+    "status": "UNSUPPORTED"
+  },
+  {
+    "source": "A.",
+    "candidate": "A.",
+    "anchors": [
+      "absent"
+    ],
+    "status": "INPUT_ERROR"
+  },
+  {
+    "source": "A.\r\nB.\n",
+    "candidate": "A.\r\nB.\n",
+    "anchors": [],
+    "status": "UNSUPPORTED"
+  },
+  {
+    "source": "Use ``literal `tick` text`` here.\n",
+    "candidate": "Use ``literal `tick` text`` there.\n",
+    "anchors": [],
+    "status": "MECHANICAL_PASS_SEMANTICS_UNVERIFIED"
+  },
+  {
+    "source": "Use ``literal `tick` text`` here.\n",
+    "candidate": "Use ``literal `other` text`` here.\n",
+    "anchors": [],
+    "status": "MECHANICAL_FAIL"
+  },
+  {
+    "source": "* item\n  continued\n",
+    "candidate": "* item\n  continued\n",
+    "anchors": [],
+    "status": "UNSUPPORTED"
+  },
+  {
+    "source": "[Link](https://example.org/a_(b))\n",
+    "candidate": "[Link](https://example.org/a_(c))\n",
+    "anchors": [],
+    "status": "MECHANICAL_FAIL"
+  },
+  {
+    "source": "이미 자연스러운 문장입니다.\n",
+    "candidate": "이미 자연스러운 문장입니다.\n",
+    "anchors": [],
+    "status": "MECHANICAL_PASS_SEMANTICS_UNVERIFIED"
+  },
+  {
+    "source": "It costs 12.50.\n",
+    "candidate": "It costs 12.51.\n",
+    "anchors": [],
+    "status": "MECHANICAL_FAIL"
+  },
+  {
+    "source": "From 2 to 9.\n",
+    "candidate": "From 9 to 2.\n",
+    "anchors": [],
+    "status": "MECHANICAL_FAIL"
+  },
+  {
+    "source": "Change: -5.\n",
+    "candidate": "Change: 5.\n",
+    "anchors": [],
+    "status": "MECHANICAL_FAIL"
+  },
+  {
+    "source": "We conducted a review.\n",
+    "candidate": "We reviewed it.\n",
+    "anchors": [],
+    "status": "MECHANICAL_PASS_SEMANTICS_UNVERIFIED"
+  },
+  {
+    "source": "She said \"Keep this\".\n",
+    "candidate": "She said \"Change this\".\n",
+    "anchors": [],
+    "status": "MECHANICAL_FAIL"
+  },
+  {
+    "source": "She said 'Don't leave'.\n",
+    "candidate": "She said 'Don't stay'.\n",
+    "anchors": [],
+    "status": "MECHANICAL_FAIL"
+  },
+  {
+    "source": "他说「不要改变」。\n",
+    "candidate": "他说「可以改变」。\n",
+    "anchors": [],
+    "status": "MECHANICAL_FAIL"
+  },
+  {
+    "source": "She said “Keep this”.\n",
+    "candidate": "She said “Change this”.\n",
+    "anchors": [],
+    "status": "MECHANICAL_FAIL"
+  },
+  {
+    "source": "그는‘보존’이라 말했다.\n",
+    "candidate": "그는‘변경’이라 말했다.\n",
+    "anchors": [],
+    "status": "MECHANICAL_FAIL"
+  },
+  {
+    "source": "She said ‘don’t leave’.\n",
+    "candidate": "She said ‘don’t stay’.\n",
+    "anchors": [],
+    "status": "MECHANICAL_FAIL"
+  },
+  {
+    "source": "The text was ''.\n",
+    "candidate": "The text was 'new'.\n",
+    "anchors": [],
+    "status": "MECHANICAL_FAIL"
+  },
+  {
+    "source": "[doc]: /old\n",
+    "candidate": "[doc]: /new\n",
+    "anchors": [],
+    "status": "MECHANICAL_FAIL"
+  },
+  {
+    "source": "[Link](docs/a.md)\n",
+    "candidate": "[Link](docs/b.md)\n",
+    "anchors": [],
+    "status": "MECHANICAL_FAIL"
+  },
+  {
+    "source": "Title\n=====\n\nText.\n",
+    "candidate": "Other\n=====\n\nText.\n",
+    "anchors": [],
+    "status": "MECHANICAL_FAIL"
+  },
+  {
+    "source": "| A | B |\n|---|---|\n| x | y |\n",
+    "candidate": "| A | B |\n|---|---|\n| x | z |\n",
+    "anchors": [],
+    "status": "MECHANICAL_FAIL"
+  },
+  {
+    "source": "A.\n",
+    "candidate": "A.",
+    "anchors": [],
+    "status": "MECHANICAL_FAIL"
+  },
+  {
+    "source": "~~~txt\nkeep\n~~~\n",
+    "candidate": "~~~txt\nedit\n~~~\n",
+    "anchors": [],
+    "status": "MECHANICAL_FAIL"
+  },
+  {
+    "source": "[Link](docs/a.md\n",
+    "candidate": "[Link](docs/a.md\n",
+    "anchors": [],
+    "status": "UNSUPPORTED"
+  },
+  {
+    "source": "```\na\n",
+    "candidate": "```\na\n",
+    "anchors": [],
+    "status": "UNSUPPORTED"
+  },
+  {
+    "source": "Use `broken here.\n",
+    "candidate": "Use `broken here.\n",
+    "anchors": [],
+    "status": "UNSUPPORTED"
+  },
+  {
+    "source": "Read 5 MB.\n",
+    "candidate": "Read 5 Mb.\n",
+    "anchors": [],
+    "status": "MECHANICAL_FAIL"
+  },
+  {
+    "source": "等待5秒后执行。\n",
+    "candidate": "等待5年后执行。\n",
+    "anchors": [],
+    "status": "MECHANICAL_FAIL"
+  },
+  {
+    "source": "Speed 5 km/h.\n",
+    "candidate": "Speed 5 m/s.\n",
+    "anchors": [],
+    "status": "MECHANICAL_FAIL"
+  },
+  {
+    "source": "Wait 5 ms.\n",
+    "candidate": "Wait 5 kg.\n",
+    "anchors": [],
+    "status": "MECHANICAL_FAIL"
+  },
+  {
+    "source": "지연5초동안 대기.\n",
+    "candidate": "지연5분동안 대기.\n",
+    "anchors": [],
+    "status": "MECHANICAL_FAIL"
+  },
+  {
+    "source": "Wait 5 s.\n",
+    "candidate": "Wait 5 h.\n",
+    "anchors": [],
+    "status": "MECHANICAL_FAIL"
+  },
+  {
+    "source": "See https://example.org/a\n",
+    "candidate": "See https://example.org/b\n",
+    "anchors": [],
+    "status": "MECHANICAL_FAIL"
+  }
+]

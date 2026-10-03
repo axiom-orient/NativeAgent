@@ -1,0 +1,62 @@
+{
+  "results": [
+    {
+      "name": "portable",
+      "command": [
+        "python3",
+        "tools/verify-portable.py",
+        "--scratch",
+        "$DATA_ROOT/nativeai-build/portable"
+      ],
+      "exitCode": 0,
+      "durationSeconds": 163.458
+    },
+    {
+      "name": "wire",
+      "command": [
+        "python3",
+        "tools/verify-chatgpt-wire.py",
+        "--scratch",
+        "$DATA_ROOT/nativeai-build/wire"
+      ],
+      "exitCode": 0,
+      "durationSeconds": 24.682
+    },
+    {
+      "name": "kernel",
+      "command": [
+        "python3",
+        "tools/verify-native-kernel.py"
+      ],
+      "exitCode": 0,
+      "durationSeconds": 105.757
+    },
+    {
+      "name": "static",
+      "command": [
+        "python3",
+        "tools/check-boundaries.py"
+      ],
+      "exitCode": 0,
+      "durationSeconds": 21.885
+    },
+    {
+      "name": "closure",
+      "command": [
+        "python3",
+        "tools/test-package-closure.py"
+      ],
+      "exitCode": 0,
+      "durationSeconds": 1.079
+    },
+    {
+      "name": "release-boundary",
+      "command": [
+        "python3",
+        "tools/test-release-boundary.py"
+      ],
+      "exitCode": 0,
+      "durationSeconds": 1.221
+    }
+  ]
+}

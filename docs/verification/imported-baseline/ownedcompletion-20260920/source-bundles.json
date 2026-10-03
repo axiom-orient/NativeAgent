@@ -1,0 +1,202 @@
+{
+  "sourceBundles": [
+    {
+      "output": "$DATA_ROOT/NativeAI-ModelRuntime-20260920.zip",
+      "sha256": "7a17d3dd194c736cb316c1d71fefdffd94c3dc1c9278ebac31c40185ea5f3678",
+      "packageCount": 3,
+      "fileCount": 63,
+      "entries": [
+        "Model/NativeLanguageModels"
+      ],
+      "packages": [
+        "Model/LanguageModelCore",
+        "Model/LanguageModelRuntime",
+        "Model/NativeLanguageModels"
+      ],
+      "integrity": "PASS"
+    },
+    {
+      "output": "$DATA_ROOT/NativeAI-ChatGPTText-20260920.zip",
+      "sha256": "d9c21ebf7877da48d4c0befbc3fd38f51dd208d5c9b1caf9acd63aabf4ce2d20",
+      "packageCount": 3,
+      "fileCount": 55,
+      "entries": [
+        "Providers/ChatGPT/Text"
+      ],
+      "packages": [
+        "Model/LanguageModelCore",
+        "Providers/ChatGPT/Account",
+        "Providers/ChatGPT/Text"
+      ],
+      "integrity": "PASS"
+    },
+    {
+      "output": "$DATA_ROOT/NativeAI-ChatGPTImage-20260920.zip",
+      "sha256": "501666470302d1869290284c51c024c28ca5adcdb168920fe56e07e0d32c6bcb",
+      "packageCount": 2,
+      "fileCount": 16,
+      "entries": [
+        "Providers/ChatGPT/Image"
+      ],
+      "packages": [
+        "Providers/ChatGPT/Account",
+        "Providers/ChatGPT/Image"
+      ],
+      "integrity": "PASS"
+    },
+    {
+      "output": "$DATA_ROOT/NativeAI-ChatGPTAgent-20260920.zip",
+      "sha256": "f59225355affd71fcd611e2583d5e3461fefd084d11c1f4772dd6e4a8afe4eb3",
+      "packageCount": 9,
+      "fileCount": 709,
+      "entries": [
+        "Agent/NativeAgent/Packages/ChatGPTAgent",
+        "Agent/NativeAgent/Packages/ChatGPTImageCapability"
+      ],
+      "packages": [
+        "Agent/NativeAgent",
+        "Agent/NativeAgent/Packages/ChatGPTAgent",
+        "Agent/NativeAgent/Packages/ChatGPTImageCapability",
+        "Model/LanguageModelCore",
+        "Model/LanguageModelRuntime",
+        "Providers/ChatGPT/Account",
+        "Providers/ChatGPT/Image",
+        "Providers/ChatGPT/Text",
+        "Providers/ChatGPT/TextProvider"
+      ],
+      "integrity": "PASS"
+    },
+    {
+      "output": "$DATA_ROOT/NativeAI-AppleSystemModel-20260920.zip",
+      "sha256": "fb22934419b2ac95088084bd44c635d7cb0ac04e1c14f80e7baada2bcbc9cc74",
+      "packageCount": 3,
+      "fileCount": 66,
+      "entries": [
+        "Providers/AppleSystemModel"
+      ],
+      "packages": [
+        "Model/LanguageModelCore",
+        "Model/LanguageModelRuntime",
+        "Providers/AppleSystemModel"
+      ],
+      "integrity": "PASS",
+      "nativeVerification": "NOT_RUN",
+      "note": "Pinned vendor dependencies retained, not downloaded; no model weights."
+    },
+    {
+      "output": "$DATA_ROOT/NativeAI-MLX-20260920.zip",
+      "sha256": "0b7f343eb144e738a820c50b8b7753727984ed3f0b1b52355de043f7a7ef2c5c",
+      "packageCount": 5,
+      "fileCount": 105,
+      "entries": [
+        "Providers/MLX"
+      ],
+      "packages": [
+        "Model/LanguageModelCore",
+        "Model/LanguageModelRuntime",
+        "Model/ModelArtifactStore",
+        "Model/ModelHub",
+        "Providers/MLX"
+      ],
+      "integrity": "PASS",
+      "nativeVerification": "NOT_RUN",
+      "note": "Pinned vendor dependencies retained, not downloaded; no model weights."
+    },
+    {
+      "output": "$DATA_ROOT/NativeAI-LiteRT-20260920.zip",
+      "sha256": "234d074b9ebab9e0810c65f015d869d243ee13570dfc48f84b3915e82f5191b8",
+      "packageCount": 5,
+      "fileCount": 90,
+      "entries": [
+        "Providers/LiteRT"
+      ],
+      "packages": [
+        "Model/LanguageModelCore",
+        "Model/LanguageModelRuntime",
+        "Model/ModelArtifactStore",
+        "Model/ModelHub",
+        "Providers/LiteRT"
+      ],
+      "integrity": "PASS",
+      "nativeVerification": "NOT_RUN",
+      "note": "Pinned vendor dependencies retained, not downloaded; no model weights."
+    },
+    {
+      "output": "$DATA_ROOT/NativeAI-LEAP-20260920.zip",
+      "sha256": "14fec80d8641c9cff38951961fb95add0a8ee6ecffe6195a0c7adfbd0ed95159",
+      "packageCount": 6,
+      "fileCount": 95,
+      "entries": [
+        "Providers/LEAP"
+      ],
+      "packages": [
+        "Model/LanguageModelCore",
+        "Model/LanguageModelRuntime",
+        "Model/ModelArtifactStore",
+        "Model/ModelHub",
+        "Providers/LEAP",
+        "Providers/LEAP/Packages/NativeAILeapSDK"
+      ],
+      "integrity": "PASS",
+      "nativeVerification": "NOT_RUN",
+      "note": "Pinned vendor dependencies retained, not downloaded; no model weights."
+    }
+  ],
+  "relocatedChecks": [
+    {
+      "name": "relocated-model-tests",
+      "command": [
+        "swift",
+        "test",
+        "--package-path",
+        "$DATA_ROOT/relocated-source-check/model-runtime/Model/NativeLanguageModels",
+        "--scratch-path",
+        "$DATA_ROOT/build/relocated-model",
+        "-j",
+        "4",
+        "-Xswiftc",
+        "-warnings-as-errors"
+      ],
+      "exitCode": 0,
+      "status": "PASS",
+      "testCount": 3
+    },
+    {
+      "name": "relocated-consumer-build",
+      "command": [
+        "swift",
+        "build",
+        "--package-path",
+        "$DATA_ROOT/relocated-source-check/consumer",
+        "--scratch-path",
+        "$DATA_ROOT/build/relocated-consumer",
+        "-j",
+        "4",
+        "-Xswiftc",
+        "-warnings-as-errors"
+      ],
+      "exitCode": 0,
+      "status": "PASS",
+      "testCount": null
+    },
+    {
+      "name": "relocated-consumer-run",
+      "command": [
+        "swift",
+        "run",
+        "--skip-build",
+        "--package-path",
+        "$DATA_ROOT/relocated-source-check/consumer",
+        "--scratch-path",
+        "$DATA_ROOT/build/relocated-consumer",
+        "Consumer"
+      ],
+      "exitCode": 0,
+      "status": "PASS",
+      "testCount": null
+    }
+  ],
+  "consumerManifest": "// swift-tools-version: 6.2\nimport PackageDescription\nlet package = Package(name: \"Consumer\", dependencies: [\n.package(name: \"NativeLanguageModels\", path: \"../model-runtime/Model/NativeLanguageModels\")\n], targets: [.executableTarget(name: \"Consumer\", dependencies: [\n.product(name: \"NativeLanguageModels\", package: \"NativeLanguageModels\")\n], swiftSettings: [.swiftLanguageMode(.v6)])])\n",
+  "consumerSource": "import NativeLanguageModels\nlet options = GenerationOptions()\nprecondition(options.tools.isEmpty)\nprecondition(options.maxOutputBytes == nil)\nprint(\"Relocated NativeLanguageModels public API constructed. No inference attempted.\")\n",
+  "limits": "Only the common ModelRuntime/facade bundle is built/run here. ChatGPT and native provider bundles prove source integrity/dependency closure, not Apple, account, native SDK availability or model inference."
+}

@@ -1,0 +1,55 @@
+Building for debugging...
+[0/15] Write sources
+[3/15] Write swift-version--1BA0962812E73E12.txt
+[5/25] Compiling ChatGPTAccount ChatGPTAccountPayload.swift
+[6/25] Compiling ChatGPTAccount ChatGPTAccountSession.swift
+[7/25] Compiling ChatGPTAccount ChatGPTCallbackRequest.swift
+[8/27] Compiling ChatGPTAccount ChatGPTProtocol.swift
+[9/27] Compiling ChatGPTAccount ChatGPTSharedOperation.swift
+[10/27] Compiling ChatGPTAccount ChatGPTSignInSession.swift
+[11/27] Emitting module ChatGPTAccount
+[12/27] Compiling ChatGPTAccount ChatGPTCallbackState.swift
+[13/27] Compiling ChatGPTAccount ChatGPTCredentials.swift
+[14/27] Compiling ChatGPTAccount ChatGPTKeychainStore.swift
+[15/27] Compiling ChatGPTAccount ChatGPTTransport.swift
+[16/27] Compiling ChatGPTAccount LocalhostCallbackServer.swift
+[17/28] Wrapping AST for ChatGPTAccount for debugging
+[19/32] Emitting module ChatGPTImage
+[20/32] Compiling ChatGPTImage ChatGPTImageClient.swift
+[21/32] Compiling ChatGPTImage ChatGPTImageTypes.swift
+[22/32] Compiling ChatGPTImage ChatGPTImageLimits.swift
+[23/33] Compiling ChatGPTImage ChatGPTImageWireCodec.swift
+[24/34] Wrapping AST for ChatGPTImage for debugging
+[26/36] Emitting module ChatGPTImageTests
+[27/36] Compiling ChatGPTImageTests ImageCompletionTests.swift
+[28/37] $DATA_ROOT/nativeai-build/portable/chatgpt-image/x86_64-unknown-linux-gnu/debug/ChatGPTImagePackageDiscoveredTests.derived/all-discovered-tests.swift
+[29/37] Write sources
+[30/37] Wrapping AST for ChatGPTImageTests for debugging
+[32/40] Emitting module ChatGPTImagePackageDiscoveredTests
+[33/40] Compiling ChatGPTImagePackageDiscoveredTests all-discovered-tests.swift
+[34/40] Compiling ChatGPTImagePackageDiscoveredTests ChatGPTImageTests.swift
+[35/41] $DATA_ROOT/nativeai-build/portable/chatgpt-image/x86_64-unknown-linux-gnu/debug/ChatGPTImagePackageTests.derived/runner.swift
+[36/41] Write sources
+[37/41] Wrapping AST for ChatGPTImagePackageDiscoveredTests for debugging
+[39/43] Emitting module ChatGPTImagePackageTests
+[40/43] Compiling ChatGPTImagePackageTests runner.swift
+[41/44] Wrapping AST for ChatGPTImagePackageTests for debugging
+[42/44] Write Objects.LinkFileList
+[43/44] Linking ChatGPTImagePackageTests.xctest
+Build complete! (17.40s)
+Test Suite 'All tests' started at 2026-09-20 09:09:10.380
+Test Suite 'debug.xctest' started at 2026-09-20 09:09:10.381
+Test Suite 'debug.xctest' passed at 2026-09-20 09:09:10.381
+	 Executed 0 tests, with 0 failures (0 unexpected) in 0.0 (0.0) seconds
+Test Suite 'All tests' passed at 2026-09-20 09:09:10.381
+	 Executed 0 tests, with 0 failures (0 unexpected) in 0.0 (0.0) seconds
+◇ Test run started.
+↳ Testing Library Version: 6.2.1 (c9d57c83568b06d)
+↳ Target Platform: x86_64-unknown-linux-gnu
+◇ Test failedImageDrainQuarantinesSharedClientAndRetainsInvocation() started.
+◇ Test invalidImagePromptDoesNotEnterTransport() started.
+◇ Test settledImageParseFailureDoesNotQuarantineClient() started.
+✔ Test invalidImagePromptDoesNotEnterTransport() passed after 0.003 seconds.
+✔ Test failedImageDrainQuarantinesSharedClientAndRetainsInvocation() passed after 0.005 seconds.
+✔ Test settledImageParseFailureDoesNotQuarantineClient() passed after 0.007 seconds.
+✔ Test run with 3 tests in 0 suites passed after 0.008 seconds.

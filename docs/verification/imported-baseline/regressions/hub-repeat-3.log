@@ -1,0 +1,19 @@
+Test Suite 'Selected tests' started at 2026-09-20 02:25:47.434
+Test Suite 'Selected tests' passed at 2026-09-20 02:25:47.435
+	 Executed 0 tests, with 0 failures (0 unexpected) in 0.0 (0.0) seconds
+◇ Test run started.
+↳ Testing Library Version: 6.2.1 (c9d57c83568b06d)
+↳ Target Platform: x86_64-unknown-linux-gnu
+◇ Suite "Hub import effect boundaries" started.
+◇ Test observedInstalledResultIsNotDiscardedAfterCancellation() started.
+◇ Test cancelledDiscoveryNeverStartsInstallation() started.
+◇ Test installationValidatesTheReturnedDescriptor() started.
+◇ Test cancelledCallerDoesNotDispatchAnExplicitInstall() started.
+◇ Test installationCannotReturnADifferentProvider() started.
+✔ Test cancelledCallerDoesNotDispatchAnExplicitInstall() passed after 0.001 seconds.
+✔ Test cancelledDiscoveryNeverStartsInstallation() passed after 0.001 seconds.
+✔ Test observedInstalledResultIsNotDiscardedAfterCancellation() passed after 0.001 seconds.
+✔ Test installationCannotReturnADifferentProvider() passed after 0.001 seconds.
+✔ Test installationValidatesTheReturnedDescriptor() passed after 0.001 seconds.
+✔ Suite "Hub import effect boundaries" passed after 0.002 seconds.
+✔ Test run with 5 tests in 1 suite passed after 0.002 seconds.

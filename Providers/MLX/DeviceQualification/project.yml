@@ -1,0 +1,89 @@
+name: NativeAgentMLXDeviceQualification
+
+options:
+  bundleIdPrefix: com.nativeagent
+  createIntermediateGroups: true
+  deploymentTarget:
+    iOS: "17.0"
+
+packages:
+  NativeAgent:
+    path: ../../../Agent/NativeAgentPackage
+  ModelArtifactStore:
+    path: ../../../Model/ModelArtifactStore
+  MLXProvider:
+    path: ..
+
+settings:
+  base:
+    SWIFT_VERSION: "6.0"
+    IPHONEOS_DEPLOYMENT_TARGET: "17.0"
+    TARGETED_DEVICE_FAMILY: "1,2"
+    CODE_SIGN_STYLE: Automatic
+    CODE_SIGN_IDENTITY: Apple Development
+    DEVELOPMENT_TEAM: ""
+
+targets:
+  NativeAgentMLXDeviceQualification:
+    type: application
+    platform: iOS
+    sources:
+      - path: App
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.axiomorient.nativeagent.mlx-device-qualification
+        GENERATE_INFOPLIST_FILE: YES
+        INFOPLIST_KEY_NSSpeechRecognitionUsageDescription: Recognize the bundled synthetic speech fixture on this device.
+        INFOPLIST_KEY_CFBundleDisplayName: MLX Qualification
+        INFOPLIST_KEY_LSApplicationCategoryType: public.app-category.developer-tools
+    dependencies:
+      - package: NativeAgent
+        product: NativeAgent
+      - package: ModelArtifactStore
+        product: ModelArtifactStore
+      - package: NativeAgent
+        product: NativeAgentTools
+      - package: NativeAgent
+        product: NativeAgentManager
+      - package: NativeAgent
+        product: NativeAgentSkills
+      - package: NativeAgent
+        product: NativeAgentMemory
+      - package: NativeAgent
+        product: NativeAgentGoals
+      - package: NativeAgent
+        product: NativeAgentEvolution
+      - package: NativeAgent
+        product: NativeAgentConsensus
+      - package: MLXProvider
+        product: MLXProvider
+
+  NativeAgentMLXDeviceQualificationTests:
+    type: bundle.unit-test
+    platform: iOS
+    sources:
+      - path: Tests
+    dependencies:
+      - target: NativeAgentMLXDeviceQualification
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.axiomorient.nativeagent.mlx-device-qualification-tests
+        GENERATE_INFOPLIST_FILE: YES
+        TEST_HOST: "$(BUILT_PRODUCTS_DIR)/NativeAgentMLXDeviceQualification.app/NativeAgentMLXDeviceQualification"
+        BUNDLE_LOADER: "$(TEST_HOST)"
+
+schemes:
+  NativeAgentMLXDeviceQualification:
+    build:
+      targets:
+        NativeAgentMLXDeviceQualification: all
+        NativeAgentMLXDeviceQualificationTests: [test]
+    test:
+      config: Debug
+      targets:
+        - name: NativeAgentMLXDeviceQualificationTests
+          parallelizable: false
+          randomExecutionOrder: false
+      gatherCoverageData: false
+      environmentVariables:
+        NATIVE_AGENT_SOURCE_SHA256: "$(NATIVE_AGENT_SOURCE_SHA256)"

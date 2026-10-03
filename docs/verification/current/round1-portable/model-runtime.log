@@ -1,0 +1,248 @@
+[0/1] Planning build
+Building for debugging...
+[0/2] Write swift-version--1BA0962812E73E12.txt
+Build complete! (0.17s)
+Test Suite 'All tests' started at 2026-09-20 09:06:47.804
+Test Suite 'debug.xctest' started at 2026-09-20 09:06:47.806
+Test Suite 'debug.xctest' passed at 2026-09-20 09:06:47.806
+	 Executed 0 tests, with 0 failures (0 unexpected) in 0.0 (0.0) seconds
+Test Suite 'All tests' passed at 2026-09-20 09:06:47.806
+	 Executed 0 tests, with 0 failures (0 unexpected) in 0.0 (0.0) seconds
+◇ Test run started.
+↳ Testing Library Version: 6.2.1 (c9d57c83568b06d)
+↳ Target Platform: x86_64-unknown-linux-gnu
+◇ Suite "Descriptor / executor / reuse boundary" started.
+◇ Suite "Provider producer and native drain ownership" started.
+◇ Suite "Provider discovery and acquisition cancellation" started.
+◇ Suite "Explicit owned and borrowed runtime access" started.
+◇ Suite "ModelProviderRegistry" started.
+◇ Suite "Shared local backend lifetime" started.
+◇ Suite "Conversation authority and façade lifecycle" started.
+◇ Suite "ModelRuntime authority" started.
+◇ Test quarantineRetainsExactFailedInvocationAfterPumpExits(throughModel:) started.
+◇ Test trailingErrorAndDuplicateTerminalNeverBecomeSuccess() started.
+◇ Test failedShutdownStillAttemptsIndependentEntries() started.
+◇ Test differentConfigurationsAndExecutorTypesAreIsolated() started.
+◇ Test doesNotFallbackWhenSelectedProviderNeedsAuthentication() started.
+◇ Test existingConnectorsKeepOwnedCleanup() started.
+◇ Test clientModelRejectsDescriptorOverrideAndStandaloneSemantics() started.
+◇ Test shutdownIsIdempotentAndRejectsNewEntries() started.
+◇ Test resolvesOnlyExplicitProviderAndModel() started.
+◇ Test rejectedRuntimeIsShutdownBeforeRegistryThrows() started.
+◇ Test borrowedRuntimeCannotAccidentallyUseOwnershipTransferAPI() started.
+◇ Test wrongOwnedProviderIsRejectedAndReleased() started.
+◇ Test executorCompletionWaitsForSettlement() started.
+◇ Test sameConfigurationReusesOneAdmissionSlot() started.
+◇ Test unprovedDrainQuarantinesAndDoesNotShutdownExecutor() started.
+◇ Test wrongBorrowedProviderIsRejectedWithoutClosingTheHost() started.
+◇ Test cleanEOFCannotPublishCompletionOrIdleBeforeNativeDrain(throughModel:) started.
+◇ Test bufferedStartCannotBeMisreportedAsNoEffectAfterCancellation(throughModel:) started.
+◇ Test cancelledReadinessDoesNotPublishLateAvailability() started.
+◇ Test cancellationDoesNotPublishLateCompleted() started.
+◇ Test cancelledOwnedAcquisitionReleasesTheLateRuntime() started.
+◇ Test registryAndAppleBorrowTheSameHostRuntimeAcrossOperations() started.
+◇ Test shutdownDuringFailedDrainDoesNotMistakeFinishedPumpForSafeRelease(throughModel:) started.
+◇ Test capabilitiesAreRejectedBeforeExecutorEntry() started.
+◇ Test case passing 1 argument throughModel → true to quarantineRetainsExactFailedInvocationAfterPumpExits(throughModel:) started.
+◇ Test cancelledAcquisitionDoesNotHideCleanupFailure() started.
+◇ Test case passing 1 argument throughModel → false to quarantineRetainsExactFailedInvocationAfterPumpExits(throughModel:) started.
+◇ Test malformedStreamStillDrainsBeforeReleasingAdmission(throughModel:) started.
+◇ Test closedBackendIsUnavailableRatherThanReloadedOrSubstituted() started.
+◇ Test drainFailureQuarantinesAndNeverRunsCleanup(throughModel:) started.
+◇ Test clientBindingCopiesReuseButSeparateAccountsDoNotAlias() started.
+◇ Test shutdownTimeoutRetainsResidentEvenAfterLateDrain(throughModel:) started.
+◇ Test differentModelIsRejectedWithoutAffectingTheSelectedModel() started.
+◇ Test legacyRegistryMakeRuntimeStillTransfersOwnership() started.
+◇ Test deadlineCannotExposeBufferedLateSuccessWhileDrainIsPending(throughModel:) started.
+◇ Test cancelledCatalogDoesNotPublishLateModels() started.
+◇ Test sameConfigurationCannotChangeAuthoritativeDescriptor() started.
+◇ Test cancelledBeforeEntryDoesNotCallTheConnector() started.
+◇ Test cancelledBorrowedAcquisitionDoesNotCloseTheHostRuntime() started.
+◇ Test failedDrainAfterMalformedStreamQuarantines(throughModel:) started.
+◇ Test cancellationSignalsOwnedProducerAndJoinsNativeDrain(throughModel:) started.
+◇ Test cancelledAvailabilityDoesNotStartAcquisition() started.
+◇ Test twoFrontendsUseOneInvocationReservation() started.
+◇ Test concurrentLoadsReturnExactlyOneRuntime() started.
+◇ Test failedLoadRequiresAnExplicitRetry() started.
+◇ Test cancelledWaiterDoesNotCancelAnotherBorrower() started.
+◇ Test failedPartialLoadCleanupIsStickyAndDoesNotRetry() started.
+◇ Test releaseFailureIsStickyAndNeverReportedAsClosed() started.
+◇ Test precancelledLoadNeverEntersLoader() started.
+◇ Test cancelledCloseWaiterDoesNotAbandonTeardown() started.
+◇ Test shutdownJoinsLateSuccessfulLoadAndNeverPublishesIt() started.
+◇ Test shutdownJoinsCancelledPartialLoadCleanupWithoutCancellingIt() started.
+◇ Test concurrentShutdownReleasesExactlyOnceInOrder() started.
+◇ Test runtimeShutdownFailureQuarantinesWithoutReleasingResident() started.
+◇ Test closingUnloadedBackendDoesNotLoad() started.
+◇ Test closingIdleBorrowerNeverCancelsAnotherConversation() started.
+◇ Test failedResponseDoesNotCommitPendingInput() started.
+◇ Test pureReducerIgnoresStaleSuccessAndPreservesFullTurn() started.
+◇ Test closeRejectsNewPromptsAndWaitsForItsGeneration() started.
+◇ Test resumedTranscriptNeverCollidesWithGeneratedResponseIdentity() started.
+◇ Test pureReducerPreventsGenerationOverflowAndClosedCommit() started.
+◇ Test cancelledUnprovedDrainRemainsFailureNotSuccessfulBorrowedClose() started.
+◇ Test cancelledPromptDrainsAndNeverCommitsLateResponse() started.
+◇ Test streamTerminalImpliesCommittedHistory() started.
+◇ Test settledResponsesCommitAndSubsequentRequestsReuseHistory() started.
+◇ Test invalidInputDoesNotStartTaskOrMutateHistory() started.
+◇ Test concurrentPromptIsRejectedWithoutCorruptingTranscript() started.
+◇ Test concurrentStartsReserveExactlyOneRunBeforeAnyAwait() started.
+◇ Test typedProviderFailureCrossesRuntimeBoundaryIntact() started.
+◇ Test structuredOutputRequiresExplicitProviderCapability() started.
+◇ Test deadlineIsEnforcedByRuntimeWithoutFallback() started.
+◇ Test invalidAndMismatchedRequestsFailBeforeProviderInvocation() started.
+◇ Test staleReservationReleaseCannotClearNewerOwnership() started.
+◇ Test unsolicitedProviderCancellationIsTransportFailure() started.
+◇ Test preCancelledStartDoesNotAcquireRuntimeOrEnterProvider() started.
+◇ Test statusDecodeRejectsPhaseIncompatiblePayload() started.
+◇ Test shutdownIsIdempotentAndRunsCleanupExactlyOnce() started.
+◇ Test explicitCancellationWaitsUntilProviderPumpActuallyDrains() started.
+◇ Test eventCountIsBounded() started.
+◇ Test cancellingTheConsumerCancelsProviderWork() started.
+◇ Test reservationDefersProviderEntryUntilExplicitStart() started.
+◇ Test explicitCancellationTerminatesRunAndCancelsProvider() started.
+◇ Test streamContractMismatchIsRejected() started.
+◇ Test generateReturnsOnlyTheAuthoritativeCompletedTurnAfterEOF() started.
+◇ Test cancellingGenerateWaitsUntilProviderPumpActuallyDrains() started.
+◇ Test shutdownInvalidatesReservationWithoutEnteringProvider() started.
+◇ Test outputCapabilityIsDerivedEvenWhenCallerOmitsIt() started.
+◇ Test terminalResultAndFailurePublishPostRunStateBeforeReturning() started.
+◇ Test providerDescriptorConflictFailsClosed() started.
+◇ Test cleanupFailureIsVisibleAndRuntimeBecomesUnusable() started.
+◇ Test successfulRunUsesCanonicalDescriptorAndReturnsToIdle() started.
+◇ Test case passing 1 argument throughModel → false to bufferedStartCannotBeMisreportedAsNoEffectAfterCancellation(throughModel:) started.
+◇ Test completedEventIsWithheldUntilProviderEOF() started.
+◇ Test case passing 1 argument throughModel → true to bufferedStartCannotBeMisreportedAsNoEffectAfterCancellation(throughModel:) started.
+◇ Test case passing 1 argument throughModel → false to cleanEOFCannotPublishCompletionOrIdleBeforeNativeDrain(throughModel:) started.
+◇ Test case passing 1 argument throughModel → true to cleanEOFCannotPublishCompletionOrIdleBeforeNativeDrain(throughModel:) started.
+◇ Test cancellingGeneratePropagatesTaskCancellationAndCancelsProvider() started.
+◇ Test cancelledReservationStartKeepsTokenReleasable() started.
+◇ Test completedEventIsWithheldWhenTransportFailsAfterTerminal() started.
+◇ Test cancelActiveRunWaitsUntilProviderPumpActuallyDrains() started.
+◇ Test case passing 1 argument throughModel → false to shutdownDuringFailedDrainDoesNotMistakeFinishedPumpForSafeRelease(throughModel:) started.
+◇ Test case passing 1 argument throughModel → true to shutdownDuringFailedDrainDoesNotMistakeFinishedPumpForSafeRelease(throughModel:) started.
+◇ Test shutdownDoesNotPretendSuccessWhenProviderWillNotDrain() started.
+◇ Test acceptedTerminationWinsOverProviderFailure() started.
+◇ Test completionWinsAtomicallyOverLaterCancellation() started.
+◇ Test effectStateTracksProviderStartedBoundary() started.
+◇ Test case passing 1 argument throughModel → true to malformedStreamStillDrainsBeforeReleasingAdmission(throughModel:) started.
+◇ Test case passing 1 argument throughModel → false to malformedStreamStillDrainsBeforeReleasingAdmission(throughModel:) started.
+◇ Test case passing 1 argument throughModel → false to drainFailureQuarantinesAndNeverRunsCleanup(throughModel:) started.
+◇ Test invalidDescriptorCannotCreateRuntime() started.
+◇ Test case passing 1 argument throughModel → true to drainFailureQuarantinesAndNeverRunsCleanup(throughModel:) started.
+◇ Test case passing 1 argument throughModel → false to shutdownTimeoutRetainsResidentEvenAfterLateDrain(throughModel:) started.
+◇ Test case passing 1 argument throughModel → true to shutdownTimeoutRetainsResidentEvenAfterLateDrain(throughModel:) started.
+◇ Test case passing 1 argument throughModel → false to deadlineCannotExposeBufferedLateSuccessWhileDrainIsPending(throughModel:) started.
+◇ Test case passing 1 argument throughModel → true to deadlineCannotExposeBufferedLateSuccessWhileDrainIsPending(throughModel:) started.
+◇ Test case passing 1 argument throughModel → false to failedDrainAfterMalformedStreamQuarantines(throughModel:) started.
+◇ Test case passing 1 argument throughModel → true to failedDrainAfterMalformedStreamQuarantines(throughModel:) started.
+◇ Test case passing 1 argument throughModel → false to cancellationSignalsOwnedProducerAndJoinsNativeDrain(throughModel:) started.
+◇ Test case passing 1 argument throughModel → true to cancellationSignalsOwnedProducerAndJoinsNativeDrain(throughModel:) started.
+✔ Test doesNotFallbackWhenSelectedProviderNeedsAuthentication() passed after 0.023 seconds.
+✔ Test resolvesOnlyExplicitProviderAndModel() passed after 0.023 seconds.
+✔ Test clientModelRejectsDescriptorOverrideAndStandaloneSemantics() passed after 0.026 seconds.
+✔ Test closingUnloadedBackendDoesNotLoad() passed after 0.024 seconds.
+✔ Test resumedTranscriptNeverCollidesWithGeneratedResponseIdentity() passed after 0.024 seconds.
+✔ Test pureReducerIgnoresStaleSuccessAndPreservesFullTurn() passed after 0.024 seconds.
+✔ Test pureReducerPreventsGenerationOverflowAndClosedCommit() passed after 0.021 seconds.
+✔ Test structuredOutputRequiresExplicitProviderCapability() passed after 0.017 seconds.
+✔ Test staleReservationReleaseCannotClearNewerOwnership() passed after 0.016 seconds.
+✔ Test invalidAndMismatchedRequestsFailBeforeProviderInvocation() passed after 0.016 seconds.
+✔ Test statusDecodeRejectsPhaseIncompatiblePayload() passed after 0.017 seconds.
+✔ Test outputCapabilityIsDerivedEvenWhenCallerOmitsIt() passed after 0.016 seconds.
+✔ Test acceptedTerminationWinsOverProviderFailure() passed after 0.014 seconds.
+✔ Test completionWinsAtomicallyOverLaterCancellation() passed after 0.014 seconds.
+✔ Test invalidDescriptorCannotCreateRuntime() passed after 0.014 seconds.
+✔ Test existingConnectorsKeepOwnedCleanup() passed after 0.031 seconds.
+✔ Test rejectedRuntimeIsShutdownBeforeRegistryThrows() passed after 0.031 seconds.
+✔ Test wrongOwnedProviderIsRejectedAndReleased() passed after 0.031 seconds.
+✔ Test wrongBorrowedProviderIsRejectedWithoutClosingTheHost() passed after 0.031 seconds.
+✔ Test capabilitiesAreRejectedBeforeExecutorEntry() passed after 0.031 seconds.
+✔ Test legacyRegistryMakeRuntimeStillTransfersOwnership() passed after 0.030 seconds.
+✔ Test precancelledLoadNeverEntersLoader() passed after 0.029 seconds.
+✔ Test preCancelledStartDoesNotAcquireRuntimeOrEnterProvider() passed after 0.020 seconds.
+✔ Test shutdownInvalidatesReservationWithoutEnteringProvider() passed after 0.019 seconds.
+✔ Test cleanupFailureIsVisibleAndRuntimeBecomesUnusable() passed after 0.019 seconds.
+✔ Test cancelledReservationStartKeepsTokenReleasable() passed after 0.018 seconds.
+✔ Test quarantineRetainsExactFailedInvocationAfterPumpExits(throughModel:) with 2 test cases passed after 0.036 seconds.
+✔ Suite "ModelProviderRegistry" passed after 0.036 seconds.
+✔ Test sameConfigurationCannotChangeAuthoritativeDescriptor() passed after 0.034 seconds.
+✔ Test unprovedDrainQuarantinesAndDoesNotShutdownExecutor() passed after 0.036 seconds.
+✔ Test typedProviderFailureCrossesRuntimeBoundaryIntact() passed after 0.026 seconds.
+✔ Test unsolicitedProviderCancellationIsTransportFailure() passed after 0.024 seconds.
+✔ Test failedPartialLoadCleanupIsStickyAndDoesNotRetry() passed after 0.034 seconds.
+✔ Test invalidInputDoesNotStartTaskOrMutateHistory() passed after 0.027 seconds.
+✔ Test eventCountIsBounded() passed after 0.024 seconds.
+✔ Test streamContractMismatchIsRejected() passed after 0.024 seconds.
+✔ Test generateReturnsOnlyTheAuthoritativeCompletedTurnAfterEOF() passed after 0.024 seconds.
+✔ Test reservationDefersProviderEntryUntilExplicitStart() passed after 0.024 seconds.
+✔ Test providerDescriptorConflictFailsClosed() passed after 0.023 seconds.
+✔ Test successfulRunUsesCanonicalDescriptorAndReturnsToIdle() passed after 0.023 seconds.
+✔ Test failedDrainAfterMalformedStreamQuarantines(throughModel:) with 2 test cases passed after 0.035 seconds.
+✔ Test explicitCancellationTerminatesRunAndCancelsProvider() passed after 0.024 seconds.
+✔ Test completedEventIsWithheldUntilProviderEOF() passed after 0.023 seconds.
+✔ Test completedEventIsWithheldWhenTransportFailsAfterTerminal() passed after 0.022 seconds.
+✔ Test failedShutdownStillAttemptsIndependentEntries() passed after 0.039 seconds.
+✔ Test shutdownIsIdempotentAndRejectsNewEntries() passed after 0.038 seconds.
+✔ Test drainFailureQuarantinesAndNeverRunsCleanup(throughModel:) with 2 test cases passed after 0.037 seconds.
+✔ Test borrowedRuntimeCannotAccidentallyUseOwnershipTransferAPI() passed after 0.038 seconds.
+✔ Test cancelledReadinessDoesNotPublishLateAvailability() passed after 0.038 seconds.
+✔ Test cancelledOwnedAcquisitionReleasesTheLateRuntime() passed after 0.038 seconds.
+✔ Test registryAndAppleBorrowTheSameHostRuntimeAcrossOperations() passed after 0.038 seconds.
+✔ Test cancelledCatalogDoesNotPublishLateModels() passed after 0.037 seconds.
+✔ Test cancelledBeforeEntryDoesNotCallTheConnector() passed after 0.037 seconds.
+✔ Test cancelledAvailabilityDoesNotStartAcquisition() passed after 0.037 seconds.
+✔ Test cancelledBorrowedAcquisitionDoesNotCloseTheHostRuntime() passed after 0.037 seconds.
+✔ Test differentModelIsRejectedWithoutAffectingTheSelectedModel() passed after 0.038 seconds.
+✔ Test closedBackendIsUnavailableRatherThanReloadedOrSubstituted() passed after 0.038 seconds.
+✔ Test releaseFailureIsStickyAndNeverReportedAsClosed() passed after 0.037 seconds.
+✔ Test runtimeShutdownFailureQuarantinesWithoutReleasingResident() passed after 0.036 seconds.
+✔ Test shutdownIsIdempotentAndRunsCleanupExactlyOnce() passed after 0.027 seconds.
+✔ Test bufferedStartCannotBeMisreportedAsNoEffectAfterCancellation(throughModel:) with 2 test cases passed after 0.039 seconds.
+✔ Test cleanEOFCannotPublishCompletionOrIdleBeforeNativeDrain(throughModel:) with 2 test cases passed after 0.039 seconds.
+✔ Test executorCompletionWaitsForSettlement() passed after 0.039 seconds.
+✔ Test cancelledAcquisitionDoesNotHideCleanupFailure() passed after 0.039 seconds.
+✔ Test differentConfigurationsAndExecutorTypesAreIsolated() passed after 0.040 seconds.
+✔ Suite "Explicit owned and borrowed runtime access" passed after 0.041 seconds.
+✔ Test effectStateTracksProviderStartedBoundary() passed after 0.024 seconds.
+✔ Test malformedStreamStillDrainsBeforeReleasingAdmission(throughModel:) with 2 test cases passed after 0.039 seconds.
+✔ Test sameConfigurationReusesOneAdmissionSlot() passed after 0.040 seconds.
+✔ Suite "Provider discovery and acquisition cancellation" passed after 0.041 seconds.
+✔ Test cancelledCloseWaiterDoesNotAbandonTeardown() passed after 0.038 seconds.
+✔ Test failedLoadRequiresAnExplicitRetry() passed after 0.038 seconds.
+✔ Test cancellingGeneratePropagatesTaskCancellationAndCancelsProvider() passed after 0.025 seconds.
+✔ Test clientBindingCopiesReuseButSeparateAccountsDoNotAlias() passed after 0.039 seconds.
+✔ Test cancellationDoesNotPublishLateCompleted() passed after 0.040 seconds.
+✔ Test failedResponseDoesNotCommitPendingInput() passed after 0.037 seconds.
+✔ Test cancelledWaiterDoesNotCancelAnotherBorrower() passed after 0.038 seconds.
+✔ Test shutdownJoinsLateSuccessfulLoadAndNeverPublishesIt() passed after 0.038 seconds.
+✔ Test concurrentShutdownReleasesExactlyOnceInOrder() passed after 0.038 seconds.
+✔ Test streamTerminalImpliesCommittedHistory() passed after 0.032 seconds.
+✔ Test shutdownJoinsCancelledPartialLoadCleanupWithoutCancellingIt() passed after 0.038 seconds.
+✔ Test cancellationSignalsOwnedProducerAndJoinsNativeDrain(throughModel:) with 2 test cases passed after 0.039 seconds.
+✔ Test twoFrontendsUseOneInvocationReservation() passed after 0.039 seconds.
+✔ Test cancelledUnprovedDrainRemainsFailureNotSuccessfulBorrowedClose() passed after 0.033 seconds.
+✔ Test trailingErrorAndDuplicateTerminalNeverBecomeSuccess() passed after 0.041 seconds.
+✔ Test concurrentPromptIsRejectedWithoutCorruptingTranscript() passed after 0.032 seconds.
+✔ Test closeRejectsNewPromptsAndWaitsForItsGeneration() passed after 0.037 seconds.
+✔ Suite "Descriptor / executor / reuse boundary" passed after 0.042 seconds.
+✔ Test settledResponsesCommitAndSubsequentRequestsReuseHistory() passed after 0.032 seconds.
+✔ Test cancelledPromptDrainsAndNeverCommitsLateResponse() passed after 0.032 seconds.
+✔ Test closingIdleBorrowerNeverCancelsAnotherConversation() passed after 0.038 seconds.
+✔ Suite "Conversation authority and façade lifecycle" passed after 0.042 seconds.
+✔ Test concurrentLoadsReturnExactlyOneRuntime() passed after 0.039 seconds.
+✔ Suite "Shared local backend lifetime" passed after 0.042 seconds.
+✔ Test concurrentStartsReserveExactlyOneRunBeforeAnyAwait() passed after 0.032 seconds.
+✔ Test shutdownDuringFailedDrainDoesNotMistakeFinishedPumpForSafeRelease(throughModel:) with 2 test cases passed after 0.045 seconds.
+✔ Test cancellingTheConsumerCancelsProviderWork() passed after 0.033 seconds.
+✔ Test deadlineCannotExposeBufferedLateSuccessWhileDrainIsPending(throughModel:) with 2 test cases passed after 0.060 seconds.
+✔ Test explicitCancellationWaitsUntilProviderPumpActuallyDrains() passed after 0.048 seconds.
+✔ Test cancelActiveRunWaitsUntilProviderPumpActuallyDrains() passed after 0.048 seconds.
+✔ Test cancellingGenerateWaitsUntilProviderPumpActuallyDrains() passed after 0.050 seconds.
+✔ Test shutdownTimeoutRetainsResidentEvenAfterLateDrain(throughModel:) with 2 test cases passed after 0.063 seconds.
+✔ Suite "Provider producer and native drain ownership" passed after 0.065 seconds.
+✔ Test deadlineIsEnforcedByRuntimeWithoutFallback() passed after 0.059 seconds.
+✔ Test shutdownDoesNotPretendSuccessWhenProviderWillNotDrain() passed after 0.062 seconds.
+✔ Test terminalResultAndFailurePublishPostRunStateBeforeReturning() passed after 0.756 seconds.
+✔ Suite "ModelRuntime authority" passed after 0.771 seconds.
+✔ Test run with 99 tests in 8 suites passed after 0.772 seconds.

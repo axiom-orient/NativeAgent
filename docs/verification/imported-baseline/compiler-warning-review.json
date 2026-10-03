@@ -1,0 +1,18 @@
+{
+  "status": "PASS",
+  "warnings": [],
+  "logs": [
+    "model-core.log",
+    "model-runtime.log",
+    "native-language-models.log",
+    "model-hub.log",
+    "apple-system-contract.log",
+    "native-root-build.log",
+    "native-kernel.log",
+    "chatgpt-wire.log",
+    "knowledgecore.log",
+    "knowledgeruntime.log"
+  ],
+  "scope": "All successfully executed Swift compiler/test scopes in this review; -warnings-as-errors used by original package tests and generated exact-source qualification. Native/Apple/Manager/full ASK conditions are not certified.",
+  "wholeRepositoryConcurrencyWarnings": "UNKNOWN"
+}

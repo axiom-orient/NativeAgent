@@ -1,0 +1,440 @@
+{
+  "schema": "native-agent.qualification/1",
+  "currentEvidencePolicy": "NO_CARRY_FORWARD_WITHOUT_EXPLICIT_SCOPE",
+  "statusSemantics": {
+    "PASS": "Executed successfully against the explicitly identified source and environment. Carry-forward to the final candidate requires an explicit unchanged scope or comparison; this is not blanket release approval.",
+    "FAIL": "Executed against the explicitly identified source/environment and failed; later repair evidence is recorded separately.",
+    "UNKNOWN": "Not executed against the current sealed source in the required environment.",
+    "SKIPPED_ENV": "Execution was attempted but the required environment or external authority was unavailable.",
+    "NOT_APPLICABLE": "The check does not apply to this subject."
+  },
+  "subjects": [
+    {
+      "id": "kernel",
+      "surface": "NativeAgent",
+      "checks": [
+        {
+          "id": "macos-swiftpm-build-test",
+          "kind": "HOST_BUILD_TEST",
+          "status": "UNKNOWN",
+          "requiredEnvironment": "Apple Silicon macOS 26.6.2, Swift 6.3.3",
+          "evidence": {
+            "source": "docs/VERIFICATION.md",
+            "scope": "CURRENT CANDIDATE NOT_RUN. The following is an unverified prior-archive PASS record, not qualification of the 2026-09-20 package layout: 2026-09-10 Sumday integration SDK archive 5b147f23acf65708e01c11c05b5992dfd76c5b59694f9ca86310be6d7649ea06: 575 Swift Testing + 3 XCTest passed; 2 Apple live opt-ins skipped. Earlier Apple live PASS observations remain scoped to the hardening run. No blanket qualification of later source changes.",
+            "command": "swift test --package-path .",
+            "log": "$WORKSPACE_ROOT/agentNativeTools-artifacts/2026-09-10-sumday-integration/nativeagent-complete-clean-tests.log"
+          }
+        },
+        {
+          "id": "apple-intent-direct",
+          "kind": "PHYSICAL_APP_INTENT",
+          "status": "UNKNOWN",
+          "requiredEnvironment": "Signed iPhone host registering AppIntent",
+          "evidence": {
+            "source": "docs/VERIFICATION.md",
+            "scope": "CURRENT CANDIDATE NOT_RUN. The following is an unverified prior-archive PASS record, not qualification of the 2026-09-20 package layout: Executed independent Apple test in signed MLX qualification host on iPhone 15 iOS 26.6.1. Actual AppIntent.perform/file readback and previously authorized on-device Speech observed. Shortcuts UI/microphone not claimed.",
+            "command": "xcodebuild test-without-building; mlx-device-runtime.xcresult"
+          }
+        },
+        {
+          "id": "apple-speech-on-device",
+          "kind": "PHYSICAL_SPEECH",
+          "status": "UNKNOWN",
+          "requiredEnvironment": "User speech authorization and on-device en-US recognition",
+          "evidence": {
+            "source": "docs/VERIFICATION.md",
+            "scope": "CURRENT CANDIDATE NOT_RUN. The following is an unverified prior-archive PASS record, not qualification of the 2026-09-20 package layout: Executed independent Apple test in signed MLX qualification host on iPhone 15 iOS 26.6.1. Actual AppIntent.perform/file readback and previously authorized on-device Speech observed. Shortcuts UI/microphone not claimed.",
+            "command": "xcodebuild test-without-building; mlx-device-runtime.xcresult"
+          }
+        },
+        {
+          "id": "linux-swiftpm-regression",
+          "kind": "SOURCE_REGRESSION_TEST",
+          "status": "SKIPPED_ENV",
+          "requiredEnvironment": "Swift 6.2.1 on x86_64 Linux; Apple-only runtime paths excluded",
+          "evidence": {
+            "source": "docs/VERIFICATION.md",
+            "scope": "Full NativeAgent swift test was attempted on the 2026-09-20 package layout and stopped at missing NaturalLanguage on Linux. Exact-source kernel subset passed separately; it does not qualify the full package.",
+            "command": "swift test --package-path NativeAgent --scratch-path <external-scratch> -j 4 -Xswiftc -warnings-as-errors"
+          }
+        }
+      ]
+    },
+    {
+      "id": "app-group-recovery",
+      "surface": "NativeAgent",
+      "checks": [
+        {
+          "id": "real-process-death",
+          "kind": "APP_GROUP_MULTI_PROCESS_RECOVERY",
+          "status": "UNKNOWN",
+          "requiredEnvironment": "Signed host applications sharing a real App Group container"
+        }
+      ]
+    },
+    {
+      "id": "artifact-store",
+      "surface": "NativeAgentProviders",
+      "checks": [
+        {
+          "id": "host-build-test",
+          "kind": "HOST_BUILD_TEST",
+          "status": "UNKNOWN",
+          "requiredEnvironment": "Apple Silicon macOS 26.6.2, Swift 6.3.3",
+          "evidence": {
+            "source": "docs/VERIFICATION.md",
+            "scope": "CURRENT CANDIDATE NOT_RUN. The following is an unverified prior-archive PASS record, not qualification of the 2026-09-20 package layout: Current package host build/test: 19 executed cases passed; disabled live checks excluded. See per-package log labels in VERIFICATION.",
+            "command": "swift test --package-path Packages/NativeAgentArtifactStore"
+          }
+        }
+      ]
+    },
+    {
+      "id": "chatgpt",
+      "surface": "NativeAgentProviders",
+      "checks": [
+        {
+          "id": "host-build-test",
+          "kind": "HOST_BUILD_TEST",
+          "status": "SKIPPED_ENV",
+          "requiredEnvironment": "Apple host with Swift 6.2+ and native Security/CryptoKit/Network frameworks",
+          "evidence": {
+            "source": "docs/VERIFICATION.md",
+            "scope": "Split Account/Text/Image and Agent composition require fresh Apple-host build/tests. Linux exact-source codec checks do not qualify this gate.",
+            "command": "swift test --package-path ../../NativeAgent/Qualification/ChatGPTCompositionChecks"
+          }
+        },
+        {
+          "id": "live-account-streaming",
+          "kind": "REAL_ACCOUNT_RUNTIME",
+          "status": "SKIPPED_ENV",
+          "requiredEnvironment": "Real ChatGPT subscription account and network",
+          "evidence": {
+            "source": "docs/VERIFICATION.md",
+            "scope": "No explicit NATIVEAGENT_LIVE_AUTH_FILE supplied. Real credentials are not auto-discovered; fixture tests do not qualify account/image effects.",
+            "command": "Live opt-in not enabled; see docs/MACOS_MAINTENANCE.md"
+          }
+        },
+        {
+          "id": "live-cancellation",
+          "kind": "REAL_ACCOUNT_CANCELLATION",
+          "status": "SKIPPED_ENV",
+          "requiredEnvironment": "Real ChatGPT subscription account and network",
+          "evidence": {
+            "source": "docs/VERIFICATION.md",
+            "scope": "No explicit NATIVEAGENT_LIVE_AUTH_FILE supplied. Real credentials are not auto-discovered; fixture tests do not qualify account/image effects.",
+            "command": "Live opt-in not enabled; see docs/MACOS_MAINTENANCE.md"
+          }
+        },
+        {
+          "id": "live-optional-modules",
+          "kind": "REAL_ACCOUNT_MODULES",
+          "status": "SKIPPED_ENV",
+          "requiredEnvironment": "Existing ChatGPT subscription login and gpt-5.6-luna",
+          "evidence": {
+            "source": "docs/VERIFICATION.md",
+            "scope": "No explicit NATIVEAGENT_LIVE_AUTH_FILE supplied. Real credentials are not auto-discovered; fixture tests do not qualify account/image effects.",
+            "command": "Live opt-in not enabled; see docs/MACOS_MAINTENANCE.md"
+          }
+        },
+        {
+          "id": "source-contract-linux",
+          "kind": "SOURCE_CONTRACT_VALIDATION",
+          "status": "SKIPPED_ENV",
+          "requiredEnvironment": "Swift 6.2.1 on x86_64 Linux; Apple credential runtime excluded",
+          "evidence": {
+            "source": "docs/VERIFICATION.md",
+            "scope": "Current Linux execution not performed. Apple host direct dependency audit passed and all 25 public products built in an independent consumer.",
+            "command": "NOT_RUN"
+          }
+        },
+        {
+          "id": "live-image-generate-edit",
+          "kind": "REAL_ACCOUNT_IMAGE_RUNTIME",
+          "status": "SKIPPED_ENV",
+          "requiredEnvironment": "Current ChatGPT subscription account, network, iOS/macOS host, gpt-image-2 image capability",
+          "evidence": {
+            "source": "docs/VERIFICATION.md",
+            "scope": "No explicit NATIVEAGENT_LIVE_AUTH_FILE supplied. Real credentials are not auto-discovered; fixture tests do not qualify account/image effects.",
+            "command": "Live opt-in not enabled; see docs/MACOS_MAINTENANCE.md"
+          }
+        },
+        {
+          "id": "live-image-alpha-verification",
+          "kind": "REAL_ACCOUNT_IMAGE_ALPHA_RUNTIME",
+          "status": "SKIPPED_ENV",
+          "requiredEnvironment": "Current ChatGPT subscription account and Apple host capable of decoding returned PNG alpha",
+          "evidence": {
+            "source": "docs/VERIFICATION.md",
+            "scope": "No explicit NATIVEAGENT_LIVE_AUTH_FILE supplied. Real credentials are not auto-discovered; fixture tests do not qualify account/image effects.",
+            "command": "Live opt-in not enabled; see docs/MACOS_MAINTENANCE.md"
+          }
+        }
+      ]
+    },
+    {
+      "id": "mcp",
+      "surface": "NativeAgentProviders",
+      "checks": [
+        {
+          "id": "host-build-test",
+          "kind": "HOST_BUILD_TEST",
+          "status": "UNKNOWN",
+          "requiredEnvironment": "Apple Silicon macOS 26.6.2, Swift 6.3.3",
+          "evidence": {
+            "source": "docs/VERIFICATION.md",
+            "scope": "CURRENT CANDIDATE NOT_RUN. The following is an unverified prior-archive PASS record, not qualification of the 2026-09-20 package layout: Current package host build/test: 6 executed cases passed; disabled live checks excluded. See per-package log labels in VERIFICATION.",
+            "command": "swift test --package-path Packages/NativeAgentMCP"
+          }
+        },
+        {
+          "id": "external-peer-interoperability",
+          "kind": "REAL_MCP_PEER",
+          "status": "UNKNOWN",
+          "requiredEnvironment": "External MCP peer compatible with pinned swiftMcp 0.4.1",
+          "evidence": {
+            "source": "docs/VERIFICATION.md",
+            "scope": "CURRENT CANDIDATE NOT_RUN. The following is an unverified prior-archive PASS record, not qualification of the 2026-09-20 package layout: Pinned official TypeScript server 2.0.0 in independent process. File read-back and explicit reconnect observed; mcp-stdio-live log.",
+            "command": "Probe /absolute/node /scratch/peer.mjs /fresh/proof"
+          }
+        },
+        {
+          "id": "external-peer-cancellation-reconnect",
+          "kind": "REAL_MCP_PEER_LIFECYCLE",
+          "status": "UNKNOWN",
+          "requiredEnvironment": "External MCP peer with connection interruption control",
+          "evidence": {
+            "source": "docs/VERIFICATION.md",
+            "scope": "CURRENT CANDIDATE NOT_RUN. The following is an unverified prior-archive PASS record, not qualification of the 2026-09-20 package layout: Remote cancellation marker, post-cancel reuse, peer exit 42 failure, fresh reconnect and transport shutdown observed.",
+            "command": "Probe /absolute/node /scratch/peer.mjs /fresh/proof"
+          }
+        },
+        {
+          "id": "http-bearer-auth",
+          "kind": "REAL_MCP_AUTH",
+          "status": "UNKNOWN",
+          "requiredEnvironment": "Loopback official TypeScript peer + synthetic bearer token",
+          "evidence": {
+            "source": "docs/VERIFICATION.md",
+            "scope": "CURRENT CANDIDATE NOT_RUN. The following is an unverified prior-archive PASS record, not qualification of the 2026-09-20 package layout: Loopback real HTTP; none/wrong token returned 401 exactly once each, challenge preserved, valid bearer discovery succeeded.",
+            "command": "http.mjs + AuthProbe; mcp-http-live log"
+          }
+        }
+      ]
+    },
+    {
+      "id": "foundation-models",
+      "surface": "NativeAgentProviders",
+      "checks": [
+        {
+          "id": "host-build-test",
+          "kind": "HOST_BUILD_TEST",
+          "status": "UNKNOWN",
+          "requiredEnvironment": "Apple Silicon macOS 26.6.2, Swift 6.3.3",
+          "evidence": {
+            "source": "docs/VERIFICATION.md",
+            "scope": "CURRENT CANDIDATE NOT_RUN. The following is an unverified prior-archive PASS record, not qualification of the 2026-09-20 package layout: Current package host build/test: 7 executed cases passed; disabled live checks excluded. See per-package log labels in VERIFICATION.",
+            "command": "swift test --package-path Packages/NativeAgentProviderFoundationModels"
+          }
+        },
+        {
+          "id": "device-generation",
+          "kind": "PHYSICAL_DEVICE_RUNTIME",
+          "status": "UNKNOWN",
+          "requiredEnvironment": "Apple Silicon macOS 26.6.2, Swift 6.3.3 with Apple Intelligence enabled",
+          "evidence": {
+            "source": "docs/VERIFICATION.md",
+            "scope": "CURRENT CANDIDATE NOT_RUN. The following is an unverified prior-archive PASS record, not qualification of the 2026-09-20 package layout: Actual Apple system-model response observed on this Mac; iPhone not claimed.",
+            "command": "NATIVEAGENT_LIVE_FOUNDATION=1 swift test --filter foundationModelsRealGeneration"
+          }
+        },
+        {
+          "id": "device-cancellation",
+          "kind": "PHYSICAL_DEVICE_CANCELLATION",
+          "status": "UNKNOWN",
+          "requiredEnvironment": "Apple Silicon macOS 26.6.2, Swift 6.3.3 with Apple Intelligence enabled",
+          "evidence": {
+            "source": "docs/VERIFICATION.md",
+            "scope": "CURRENT CANDIDATE NOT_RUN. The following is an unverified prior-archive PASS record, not qualification of the 2026-09-20 package layout: Actual text delta then cancellation, drain, next generation and shutdown observed on this Mac.",
+            "command": "NATIVEAGENT_LIVE_FOUNDATION=1 swift test --filter foundationModelsRealCancellationAndReuse"
+          }
+        }
+      ]
+    },
+    {
+      "id": "leap",
+      "surface": "NativeAgentProviders",
+      "checks": [
+        {
+          "id": "host-build-test",
+          "kind": "HOST_BUILD_TEST",
+          "status": "UNKNOWN",
+          "requiredEnvironment": "Apple Silicon macOS 26.6.2, Swift 6.3.3",
+          "evidence": {
+            "source": "docs/VERIFICATION.md",
+            "scope": "CURRENT CANDIDATE NOT_RUN. The following is an unverified prior-archive PASS record, not qualification of the 2026-09-20 package layout: 2026-09-10 SDK archive 5b147f23acf65708e01c11c05b5992dfd76c5b59694f9ca86310be6d7649ea06: 45 passed, 0 compiler warnings, including outputFormat forwarding and native string-bound preflight. This supersedes the earlier 41-case package count, not the entire hardening inventory.",
+            "command": "swift test --package-path Packages/NativeAgentProviderLEAP",
+            "log": "$WORKSPACE_ROOT/agentNativeTools-artifacts/2026-09-10-sumday-integration/leap-tests-final-no-trace.log"
+          }
+        },
+        {
+          "id": "device-load-run",
+          "kind": "PHYSICAL_DEVICE_RUNTIME",
+          "status": "UNKNOWN",
+          "requiredEnvironment": "Signed Sumday review host on iPhone 15 iOS 26.6.1, LeapSDK 0.10.9, pinned QAD text artifact",
+          "evidence": {
+            "source": "docs/VERIFICATION.md",
+            "scope": "CURRENT CANDIDATE NOT_RUN. The following is an unverified prior-archive PASS record, not qualification of the 2026-09-20 package layout: Actual text load/generation, ASK evidence, JSON, original preservation and page disk read-back with SDK archive 5b147f23acf65708e01c11c05b5992dfd76c5b59694f9ca86310be6d7649ea06. QAD 2.6B and 1.2B observed; semantic polish/reply/page quality remains FAIL/PARTIAL. Voice, text cancellation, process-death and later source changes are separate checks.",
+            "command": "MoToolbox apple.app.launch.device; exact input: $TMPDIR/sumday-native-ask-20260910/device-final-receipts-1-launch.request.json",
+            "receipt": "$WORKSPACE_ROOT/agentNativeTools-artifacts/2026-09-10-sumday-integration/device-final-receiptsseries.json"
+          }
+        },
+        {
+          "id": "device-cancellation",
+          "kind": "PHYSICAL_DEVICE_CANCELLATION",
+          "status": "UNKNOWN",
+          "requiredEnvironment": "Physical iOS device with LeapSDK runtime",
+          "evidence": {
+            "source": "docs/VERIFICATION.md",
+            "scope": "CURRENT CANDIDATE NOT_RUN. The following is an unverified prior-archive PASS record, not qualification of the 2026-09-20 package layout: Voice-specific: actual PCM then consumer cancel, unload/drain, explicit reload and completed generation; leap-device-cancel.xcresult. Text QAD cancellation remains unqualified.",
+            "command": "xcodebuild test -scheme LeapQualification -only-testing:LeapQualificationTests/LiveTests/testVoiceCancellationDrainsAndReloads"
+          }
+        },
+        {
+          "id": "voice-device-generation",
+          "kind": "DEVICE_VOICE_RUNTIME",
+          "status": "UNKNOWN",
+          "requiredEnvironment": "Pinned LEAP voice model and companion files on signed device; QAD1.2 text cache does not satisfy this check",
+          "evidence": {
+            "source": "docs/VERIFICATION.md",
+            "scope": "CURRENT CANDIDATE NOT_RUN. The following is an unverified prior-archive PASS record, not qualification of the 2026-09-20 package layout: iPhone 15 iOS 26.6.1, exact 3 pinned model files size/SHA verified. TTS → ASR → S2S completed and native unload observed; leap-device.xcresult.",
+            "command": "xcodebuild test -scheme LeapQualification -only-testing:LeapQualificationTests/LiveTests/testVoiceRoundTrip"
+          }
+        }
+      ]
+    },
+    {
+      "id": "litert",
+      "surface": "NativeAgentProviders",
+      "checks": [
+        {
+          "id": "host-contract-build-test",
+          "kind": "HOST_BUILD_TEST",
+          "status": "UNKNOWN",
+          "requiredEnvironment": "Apple Silicon macOS 26.6.2, Swift 6.3.3",
+          "evidence": {
+            "source": "docs/VERIFICATION.md",
+            "scope": "CURRENT CANDIDATE NOT_RUN. The following is an unverified prior-archive PASS record, not qualification of the 2026-09-20 package layout: 8 executed contract tests passed on macOS. C iOS backend qualified separately.",
+            "command": "swift test --package-path Packages/NativeAgentProviderLiteRT"
+          }
+        },
+        {
+          "id": "device-generation",
+          "kind": "PHYSICAL_DEVICE_RUNTIME",
+          "status": "UNKNOWN",
+          "requiredEnvironment": "Supported Apple hardware with CLiteRTLM XCFramework",
+          "evidence": {
+            "source": "docs/VERIFICATION.md",
+            "scope": "CURRENT CANDIDATE NOT_RUN. The following is an unverified prior-archive PASS record, not qualification of the 2026-09-20 package layout: iPhone 15 iOS 26.6.1, exact pinned 963184864-byte model verified. CPU native generation/JSON/history; cancel invalidates engine, explicit reload regenerates; two tests passed.",
+            "command": "xcodebuild test -scheme LiteRTQualification; litert-device.xcresult"
+          }
+        },
+        {
+          "id": "device-cancellation",
+          "kind": "PHYSICAL_DEVICE_CANCELLATION",
+          "status": "UNKNOWN",
+          "requiredEnvironment": "Supported Apple hardware with CLiteRTLM XCFramework",
+          "evidence": {
+            "source": "docs/VERIFICATION.md",
+            "scope": "CURRENT CANDIDATE NOT_RUN. The following is an unverified prior-archive PASS record, not qualification of the 2026-09-20 package layout: iPhone 15 iOS 26.6.1, exact pinned 963184864-byte model verified. CPU native generation/JSON/history; cancel invalidates engine, explicit reload regenerates; two tests passed.",
+            "command": "xcodebuild test -scheme LiteRTQualification; litert-device.xcresult"
+          }
+        },
+        {
+          "id": "binary-sbom-notice",
+          "kind": "BINARY_PROVENANCE",
+          "status": "UNKNOWN",
+          "requiredEnvironment": "Upstream binary-specific SBOM/NOTICE evidence",
+          "evidence": {
+            "source": "docs/VERIFICATION.md",
+            "scope": "CURRENT CANDIDATE NOT_RUN. The following is an unverified prior-archive PASS record, not qualification of the 2026-09-20 package layout: Official v0.15.0 binary asset SHA matches package checksum; SBOM/NOTICE downloaded and hashes matched release assets. Original files and provenance preserved in ThirdPartyNotices. Per-object reproducible-build attestation not claimed.",
+            "command": "GitHub release API asset digests + SHA-256 of downloaded assets"
+          }
+        }
+      ]
+    },
+    {
+      "id": "mlx",
+      "surface": "NativeAgentProviders",
+      "checks": [
+        {
+          "id": "host-build-test",
+          "kind": "HOST_BUILD_TEST",
+          "status": "UNKNOWN",
+          "requiredEnvironment": "Apple Silicon macOS 26.6.2, Swift 6.3.3",
+          "evidence": {
+            "source": "docs/VERIFICATION.md",
+            "scope": "CURRENT CANDIDATE NOT_RUN. The following is an unverified prior-archive PASS record, not qualification of the 2026-09-20 package layout: Current package host build/test: 32 executed cases passed; disabled live checks excluded. See per-package log labels in VERIFICATION.",
+            "command": "swift test --package-path Packages/NativeAgentProviderMLX"
+          }
+        },
+        {
+          "id": "device-load-generate",
+          "kind": "PHYSICAL_DEVICE_RUNTIME",
+          "status": "UNKNOWN",
+          "requiredEnvironment": "Physical iOS device with Metal/MLX support",
+          "evidence": {
+            "source": "docs/VERIFICATION.md",
+            "scope": "CURRENT CANDIDATE NOT_RUN. The following is an unverified prior-archive PASS record, not qualification of the 2026-09-20 package layout: Signed iPhone 15 iOS 26.6.1; pinned Qwen3.5 0.8B generation/session reload, cancel/drain/unload and structured cancellation/byte-limit/reuse observed. 8 MLX cases passed; Consensus is separately FAIL. Shared runtime sources unchanged after this run; subsequent change only Consensus prompt and stronger qualification assertion.",
+            "command": "xcodebuild test-without-building; mlx-root-runtime.xcresult"
+          }
+        },
+        {
+          "id": "device-cancel-drain",
+          "kind": "PHYSICAL_DEVICE_CANCELLATION",
+          "status": "UNKNOWN",
+          "requiredEnvironment": "Physical iOS device with Metal/MLX support",
+          "evidence": {
+            "source": "docs/VERIFICATION.md",
+            "scope": "CURRENT CANDIDATE NOT_RUN. The following is an unverified prior-archive PASS record, not qualification of the 2026-09-20 package layout: Signed iPhone 15 iOS 26.6.1; pinned Qwen3.5 0.8B generation/session reload, cancel/drain/unload and structured cancellation/byte-limit/reuse observed. 8 MLX cases passed; Consensus is separately FAIL. Shared runtime sources unchanged after this run; subsequent change only Consensus prompt and stronger qualification assertion.",
+            "command": "xcodebuild test-without-building; mlx-root-runtime.xcresult"
+          }
+        },
+        {
+          "id": "qwen35-all-feature-runtime",
+          "kind": "DEVICE_FEATURE_RUNTIME",
+          "status": "UNKNOWN",
+          "requiredEnvironment": "iPhone 15 with pinned Qwen3.5 0.8B MLX 4bit",
+          "evidence": {
+            "source": "docs/VERIFICATION.md",
+            "scope": "CURRENT CANDIDATE NOT_RUN. The following is an unverified prior-archive FAIL record, not qualification of the 2026-09-20 package layout: 8 MLX cases passed, Consensus failed. Initial deadline exceeded. After explicit verdict rules, real output remained inconsistent: review_pass_inconsistent and challenge_clear_inconsistent. Semantic gate aborted and strengthened final.decision == accept assertion failed. No fallback or relaxed deadline.",
+            "command": "xcodebuild test-without-building -only-testing:NativeAgentMLXDeviceQualificationTests/NativeAgentMLXDeviceQualificationTests/testQwen35Consensus; mlx-consensus-runtime.xcresult"
+          }
+        }
+      ]
+    },
+    {
+      "id": "labs",
+      "surface": "NativeAgentLabs",
+      "checks": [
+        {
+          "id": "host-build-test",
+          "kind": "HOST_BUILD_TEST",
+          "status": "UNKNOWN",
+          "requiredEnvironment": "Apple Silicon macOS 26.6.2, Swift 6.3.3",
+          "evidence": {
+            "source": "docs/VERIFICATION.md",
+            "scope": "CURRENT CANDIDATE NOT_RUN. The following is an unverified prior-archive PASS record, not qualification of the 2026-09-20 package layout: Current NativeAgent package host tests and all public products independent consumer passed. Model/OS-specific scenarios remain separate.",
+            "command": "swift test --package-path Packages/NativeAgent; independent 25-product consumer"
+          }
+        }
+      ]
+    }
+  ],
+  "currentEvidenceSummary": {
+    "date": "2026-09-10",
+    "status": "PARTIAL",
+    "source": "docs/VERIFICATION.md",
+    "policy": "Evidence is scoped per source and environment: original hardening host 837 distinct passed cases; subsequent NativeAgent 575 Swift Testing + 3 XCTest passed (2 opt-ins skipped), LEAP 45 passed, and Sumday real QAD text flow observed. Counts are not additive across revisions. Original iPhone 16 PASS / MLX Consensus 1 FAIL remains its own run. Korean semantic quality FAIL/PARTIAL, ChatGPT live account and real App Group process-death remain unqualified. Documentation updates do not requalify all current source."
+  }
+}

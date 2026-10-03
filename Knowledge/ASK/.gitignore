@@ -1,0 +1,15 @@
+.DS_Store
+._*
+.build/
+.swiftpm/
+DerivedData/
+
+# SwiftPM resolves the root graph on demand. Package-level lockfiles under
+# Packages/ stay tracked because they pin external parser dependencies.
+/Package.resolved
+Apps/**/xcuserdata/
+.omo/
+*.o
+*.d
+*.dia
+*.swiftdeps

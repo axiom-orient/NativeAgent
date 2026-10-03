@@ -1,0 +1,111 @@
+{
+  "status": "PASS",
+  "decisions": [
+    {
+      "decision": "INTEGRATE",
+      "from": [
+        "docs/HANDOFF.md",
+        "docs/RENEWAL_REPORT.md",
+        "docs/DESIGN_READING_LEDGER.md"
+      ],
+      "to": [
+        "docs/IMPLEMENTATION_STATUS.md",
+        "docs/API_MAPPING.md",
+        "docs/PLAN.md",
+        "docs/adr/0005-runtime-and-effect-boundaries.md"
+      ],
+      "reason": "Current/규범/잔여 검증·지속적 경계를 정본에 통합; 과거 단계 서사/이전 입력 완료 주장 제거."
+    },
+    {
+      "decision": "REMOVE",
+      "scope": "previous imported-baseline and stale current logs/reports/symbolgraphs",
+      "reason": "이번 입력 source/run과 결속되지 않는 과거 결과. 새로운 archive/handoff를 만들지 않음."
+    },
+    {
+      "decision": "KEEP",
+      "scope": "docs/design-input, MigrationHold, all runtime Markdown/resources/skills/manifest/lockfile/attribution",
+      "reason": "고정 의도·미이행 public 기능·실행 입력은 중복 설명 문서가 아님."
+    },
+    {
+      "decision": "UNKNOWN",
+      "scope": "unobserved native/API parity and external consumer usage",
+      "reason": "검증 없이 소스/public capability 삭제하지 않음."
+    }
+  ],
+  "removedPaths": [
+    "docs/verification/current/LanguageModelCore-symbolgraph.log",
+    "docs/verification/current/LanguageModelRuntime-symbolgraph.log",
+    "docs/verification/current/NativeLanguageModels-symbolgraph.log",
+    "docs/verification/current/ask-tools-syntax.log",
+    "docs/verification/current/baseline/NativeAgentModelCore.exit",
+    "docs/verification/current/baseline/NativeAgentModelCore.log",
+    "docs/verification/current/baseline/NativeAgentModelRuntime.exit",
+    "docs/verification/current/baseline/NativeAgentModelRuntime.log",
+    "docs/verification/current/baseline/package-graph.json",
+    "docs/verification/current/bridge-toolchain-build.log",
+    "docs/verification/current/dependency-network-check.log",
+    "docs/verification/current/design-reading-ledger.json",
+    "docs/verification/current/held-release-boundary.log",
+    "docs/verification/current/migration-hold.json",
+    "docs/verification/current/migration-hold.log",
+    "docs/verification/current/owned-order-repeat.json",
+    "docs/verification/current/owned-order-repeat.log",
+    "docs/verification/current/regressions/final-runtime-before-order-fix.log",
+    "docs/verification/current/regressions/owned-order-focused.log",
+    "docs/verification/current/regressions/response-identity-before.log",
+    "docs/verification/current/regressions/session-regression-before.log",
+    "docs/verification/current/regressions/static-initial.out",
+    "docs/verification/current/symbolgraphs/LanguageModelCore.symbols.json",
+    "docs/verification/current/symbolgraphs/LanguageModelCore@FoundationEssentials.symbols.json",
+    "docs/verification/current/symbolgraphs/LanguageModelRuntime.symbols.json",
+    "docs/verification/current/symbolgraphs/NativeLanguageModels.symbols.json",
+    "docs/verification/imported-baseline/final-verification.json",
+    "docs/verification/imported-baseline/local-supervisor-regression.log",
+    "docs/verification/imported-baseline/local-supervisor-final.log",
+    "docs/verification/imported-baseline/static-boundaries-final.log",
+    "docs/verification/imported-baseline/tooling-syntax.json",
+    "docs/verification/imported-baseline/release-regression.log",
+    "docs/verification/imported-baseline/release-roundtrip.log",
+    "docs/verification/imported-baseline/native-kernel-run.log",
+    "docs/verification/imported-baseline/native-kernel.json",
+    "docs/verification/imported-baseline/manifest-evaluation.json",
+    "docs/verification/imported-baseline/static-checks.json",
+    "docs/verification/imported-baseline/release-package.log",
+    "docs/verification/imported-baseline/migration.json",
+    "docs/verification/imported-baseline/source-manifest.sha256",
+    "docs/verification/imported-baseline/execution.json",
+    "docs/verification/imported-baseline/static-boundaries-run.log",
+    "docs/verification/imported-baseline/model-runtime.log",
+    "docs/verification/imported-baseline/model-core.log",
+    "docs/verification/imported-baseline/chatgpt-wire-run.log",
+    "docs/verification/imported-baseline/document-check-final.log",
+    "docs/verification/imported-baseline/document-check.json",
+    "docs/verification/imported-baseline/apple-root-build.log",
+    "docs/verification/imported-baseline/native-kernel.log",
+    "docs/verification/imported-baseline/independent-consumer.json",
+    "docs/verification/imported-baseline/apple-adapter-build.log",
+    "docs/verification/imported-baseline/source-release-audit.log",
+    "docs/verification/imported-baseline/independent-consumer.log",
+    "docs/verification/imported-baseline/chatgpt-wire.json",
+    "docs/verification/imported-baseline/portable.log",
+    "docs/verification/imported-baseline/native-root-full-test.log",
+    "docs/verification/imported-baseline/package-regression-final.log",
+    "docs/verification/imported-baseline/portable-run.log",
+    "docs/verification/imported-baseline/chatgpt-wire.log",
+    "docs/verification/imported-baseline/native-root-build.log",
+    "docs/verification/imported-baseline/portable.json",
+    "docs/HANDOFF.md",
+    "docs/RENEWAL_REPORT.md",
+    "docs/DESIGN_READING_LEDGER.md"
+  ],
+  "replacedEvidencePaths": [
+    "docs/verification/current/document-check.json",
+    "docs/verification/current/evidence-source-check.json",
+    "docs/verification/current/final-verification.json",
+    "docs/verification/current/inputs.json",
+    "docs/verification/current/provenance.json",
+    "docs/verification/current/public-api-snapshot.json",
+    "docs/verification/current/tool-syntax.json"
+  ],
+  "note": "removedPaths는 최종 경로 부재만 뜻한다. replacedEvidencePaths는 이전 내용을 제거하고 현재 실행 증거로 재생성한 경로다."
+}

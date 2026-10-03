@@ -1,0 +1,78 @@
+import Foundation
+import LanguageModelCore
+import LanguageModelRuntime
+import ChatGPTAccount
+import ChatGPTText
+import ChatGPTImage
+import ChatGPTTextProvider
+func accountReadme() async throws {
+
+let account = try ChatGPTAccountSession(credentialNamespace: "com.example.app")
+let authorization = try await account.beginSignIn()
+// host가 authorization.authorizationURL을 외부/system browser로 엽니다.
+// 기존 localhost callback listener가 redirect를 수신합니다.
+let signedInAccount = try await account.completeSignIn(authorization)
+let status = try await account.status()
+// 명시 취소: try await account.cancelSignIn()
+// 명시 로그아웃: try await account.signOut()
+
+_ = (signedInAccount, status)
+}
+func textReadme(account: ChatGPTAccountSession, request: ModelRequest) async throws {
+
+// account는 host가 로그인한 공통 ChatGPTAccountSession입니다.
+let text = ChatGPTTextSession(account: account)
+let models = try await text.models()
+let limits = try await text.rateLimits()
+let client = try ChatGPTModelClient(text: text)
+// request는 호출자가 만든 유효한 ModelRequest입니다.
+let turn = try await client.generate(request: request)
+
+_ = (models, limits, turn)
+}
+func imageReadme(account: ChatGPTAccountSession, pngData: Data) async throws {
+
+let client = try ChatGPTImageClient(account: account)
+let generated = try await client.generate(.init(
+  prompt: "투명 배경의 파란 새 한 마리",
+  background: .transparent
+))
+// 사용자가 제공한 실제 PNG bytes를 전달합니다.
+let input = ChatGPTImageContent(mimeType: "image/png", data: pngData, filename: "input.png")
+let edited = try await client.edit(.init(images: [input], prompt: "새의 색만 초록색으로 바꾼다."))
+
+_ = (generated, edited)
+}
+func consume(
+  client: ChatGPTModelClient, request: ModelRequest,
+  receive: @Sendable (ModelEvent) -> Void
+) async throws {
+  let invocation = client.invocation(request: request, onStarted: {})
+  try await withTaskCancellationHandler {
+    let reading: Result<Void, any Error>
+    do {
+      for try await event in invocation.events { receive(event) }
+      reading = .success(())
+    } catch {
+      invocation.cancel()
+      reading = .failure(error)
+    }
+    // 실패한 receipt를 다시 기다려 성공으로 바꾸지 않는다.
+    try await invocation.waitForCompletion()
+    try Task.checkCancellation()
+    try reading.get()
+  } onCancel: {
+    invocation.cancel()
+  }
+}
+
+@main struct Main {
+  static func main() throws {
+    let request = ModelRequest(sessionID: "readme-consumer", messages: [.init(role: .user, content: "hello")], tools: [])
+    let descriptor = ModelDescriptor(id: "consumer", providerID: "contract-only", capabilities: .textOnly)
+    let text = try ModelTextRequest(request, descriptor: descriptor)
+    guard text.prompt == "hello" else { throw Check.failed }
+    print("CONSUMER_LINK_AND_CORE_CONTRACT_OK; no native login or inference executed")
+  }
+  enum Check: Error { case failed }
+}

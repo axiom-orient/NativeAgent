@@ -1,0 +1,78 @@
+Building for debugging...
+[0/17] Write sources
+[4/17] Write swift-version--1BA0962812E73E12.txt
+[6/49] Emitting module ChatGPTAccount
+[7/51] Compiling ChatGPTAccount ChatGPTTransport.swift
+[8/51] Compiling ChatGPTAccount LocalhostCallbackServer.swift
+[9/51] Compiling LanguageModelCore ModelContracts.swift
+[10/51] Compiling LanguageModelCore ModelGeneration.swift
+[11/51] Compiling LanguageModelCore ModelStreamContract.swift
+[12/51] Compiling LanguageModelCore ModelTextRequest.swift
+[13/51] Compiling LanguageModelCore ModelTextSnapshotAccumulator.swift
+[14/51] Compiling LanguageModelCore ModelTool.swift
+[15/51] Compiling LanguageModelCore LanguageModel.swift
+[16/51] Compiling LanguageModelCore ModelClient.swift
+[17/51] Compiling LanguageModelCore ModelClientInvocation.swift
+[25/52] Emitting module LanguageModelCore
+[31/58] Compiling LanguageModelCore SHA256HexDigest.swift
+[32/58] Compiling LanguageModelCore JSONCoding.swift
+[33/58] Compiling LanguageModelCore JSONValue+Accessors.swift
+[34/58] Compiling LanguageModelCore JSONValue+Bridging.swift
+[35/58] Compiling LanguageModelCore JSONValue+CanonicalCount.swift
+[36/58] Compiling LanguageModelCore JSONValue+Literals.swift
+[37/58] Compiling LanguageModelCore JSONValue+StructureValidation.swift
+[38/58] Compiling LanguageModelCore JSONValue.swift
+[39/58] Compiling LanguageModelCore ToolSchema+Containers.swift
+[40/58] Compiling LanguageModelCore ToolSchema+Numbers.swift
+[40/58] Wrapping AST for ChatGPTAccount for debugging
+[42/58] Compiling LanguageModelCore ToolSchema+String.swift
+[43/58] Compiling LanguageModelCore ToolSchema.swift
+[44/58] Compiling LanguageModelCore AgentMessage.swift
+[45/58] Compiling LanguageModelCore ModelContent.swift
+[46/58] Compiling LanguageModelCore ModelEvent.swift
+[47/58] Compiling LanguageModelCore ModelStopReason.swift
+[48/59] Wrapping AST for LanguageModelCore for debugging
+[50/66] Compiling ChatGPTText ChatGPTTextWire.swift
+[51/66] Compiling ChatGPTText ChatGPTToolWireCodec.swift
+[52/66] Compiling ChatGPTText ChatGPTTextSession.swift
+[53/66] Compiling ChatGPTText ChatGPTTextTypes.swift
+[54/67] Emitting module ChatGPTText
+[55/67] Compiling ChatGPTText ChatGPTModelClient.swift
+[56/67] Compiling ChatGPTText ChatGPTTextPayload.swift
+[57/67] Compiling ChatGPTText SSEParser.swift
+[58/70] Wrapping AST for ChatGPTText for debugging
+[60/70] Emitting module ChatGPTTextTests
+[61/70] Compiling ChatGPTTextTests ChatGPTModelCompletionTests.swift
+[62/71] $DATA_ROOT/nativeai-build/portable/chatgpt-text/x86_64-unknown-linux-gnu/debug/ChatGPTTextPackageDiscoveredTests.derived/all-discovered-tests.swift
+[63/71] Write sources
+[64/71] Wrapping AST for ChatGPTTextTests for debugging
+[66/74] Emitting module ChatGPTTextPackageDiscoveredTests
+[67/74] Compiling ChatGPTTextPackageDiscoveredTests ChatGPTTextTests.swift
+[68/74] Compiling ChatGPTTextPackageDiscoveredTests all-discovered-tests.swift
+[69/75] $DATA_ROOT/nativeai-build/portable/chatgpt-text/x86_64-unknown-linux-gnu/debug/ChatGPTTextPackageTests.derived/runner.swift
+[70/75] Write sources
+[71/75] Wrapping AST for ChatGPTTextPackageDiscoveredTests for debugging
+[73/77] Emitting module ChatGPTTextPackageTests
+[74/77] Compiling ChatGPTTextPackageTests runner.swift
+[75/78] Wrapping AST for ChatGPTTextPackageTests for debugging
+[76/78] Write Objects.LinkFileList
+[77/78] Linking ChatGPTTextPackageTests.xctest
+Build complete! (22.33s)
+Test Suite 'All tests' started at 2026-09-20 09:08:51.731
+Test Suite 'debug.xctest' started at 2026-09-20 09:08:51.733
+Test Suite 'debug.xctest' passed at 2026-09-20 09:08:51.733
+	 Executed 0 tests, with 0 failures (0 unexpected) in 0.0 (0.0) seconds
+Test Suite 'All tests' passed at 2026-09-20 09:08:51.733
+	 Executed 0 tests, with 0 failures (0 unexpected) in 0.0 (0.0) seconds
+◇ Test run started.
+↳ Testing Library Version: 6.2.1 (c9d57c83568b06d)
+↳ Target Platform: x86_64-unknown-linux-gnu
+◇ Test settledAuthenticationFailureDoesNotBecomeFailedProducerDrain() started.
+◇ Test failedAccountDrainFailsModelProducerReceipt(expired:) started.
+◇ Test unsupportedHostDoesNotSilentlyCreateAnAccount() started.
+◇ Test case passing 1 argument expired → false to failedAccountDrainFailsModelProducerReceipt(expired:) started.
+◇ Test case passing 1 argument expired → true to failedAccountDrainFailsModelProducerReceipt(expired:) started.
+✔ Test unsupportedHostDoesNotSilentlyCreateAnAccount() passed after 0.004 seconds.
+✔ Test settledAuthenticationFailureDoesNotBecomeFailedProducerDrain() passed after 0.007 seconds.
+✔ Test failedAccountDrainFailsModelProducerReceipt(expired:) with 2 test cases passed after 0.010 seconds.
+✔ Test run with 3 tests in 0 suites passed after 0.011 seconds.

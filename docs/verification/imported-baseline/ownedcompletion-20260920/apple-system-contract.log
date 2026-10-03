@@ -1,0 +1,104 @@
+Building for debugging...
+[0/17] Write sources
+[4/17] Write swift-version--1BA0962812E73E12.txt
+[6/39] Emitting module LanguageModelCore
+[7/45] Compiling LanguageModelCore ModelTextSnapshotAccumulator.swift
+[8/45] Compiling LanguageModelCore ModelTool.swift
+[9/45] Compiling LanguageModelCore DeterministicCoreDefaults.swift
+[10/45] Compiling LanguageModelCore SHA1HexDigest.swift
+[11/45] Compiling LanguageModelCore SHA256HexDigest.swift
+[12/45] Compiling LanguageModelCore JSONCoding.swift
+[13/45] Compiling LanguageModelCore JSONValue+Accessors.swift
+[14/45] Compiling LanguageModelCore JSONValue+Bridging.swift
+[15/45] Compiling LanguageModelCore JSONValue+CanonicalCount.swift
+[16/45] Compiling LanguageModelCore JSONValue+Literals.swift
+[17/45] Compiling LanguageModelCore JSONValue+StructureValidation.swift
+[18/45] Compiling LanguageModelCore JSONValue.swift
+[19/45] Compiling LanguageModelCore ToolSchema+Containers.swift
+[20/45] Compiling LanguageModelCore ToolSchema+Numbers.swift
+[21/45] Compiling LanguageModelCore ToolSchema+String.swift
+[22/45] Compiling LanguageModelCore ToolSchema.swift
+[23/45] Compiling LanguageModelCore AgentMessage.swift
+[24/45] Compiling LanguageModelCore ModelContent.swift
+[25/45] Compiling LanguageModelCore ModelEvent.swift
+[26/45] Compiling LanguageModelCore ModelStopReason.swift
+[27/45] Compiling LanguageModelCore LanguageModel.swift
+[28/45] Compiling LanguageModelCore ModelClient.swift
+[29/45] Compiling LanguageModelCore ModelClientInvocation.swift
+[30/45] Compiling LanguageModelCore ModelContracts.swift
+[31/45] Compiling LanguageModelCore ModelGeneration.swift
+[32/45] Compiling LanguageModelCore ModelStreamContract.swift
+[33/45] Compiling LanguageModelCore ModelTextRequest.swift
+[34/46] Wrapping AST for LanguageModelCore for debugging
+[36/56] Emitting module LanguageModelRuntime
+[37/59] Compiling LanguageModelRuntime LocalBackendConnector.swift
+[38/59] Compiling LanguageModelRuntime ModelExecutorStore.swift
+[39/59] Compiling LanguageModelRuntime ModelProviderRegistry.swift
+[40/59] Compiling LanguageModelRuntime ClientLanguageModel.swift
+[41/59] Compiling LanguageModelRuntime LanguageModelExecution.swift
+[42/59] Compiling LanguageModelRuntime LocalBackend.swift
+[43/59] Compiling LanguageModelRuntime ModelRunControl.swift
+[44/59] Compiling LanguageModelRuntime ModelRuntime.swift
+[45/59] Compiling LanguageModelRuntime ModelRuntimeAccess.swift
+[46/59] Compiling LanguageModelRuntime ModelRuntimeTypes.swift
+[47/59] Compiling LanguageModelRuntime ModelSession.swift
+[48/59] Compiling LanguageModelRuntime SessionLedger.swift
+[49/60] Wrapping AST for LanguageModelRuntime for debugging
+[51/64] Emitting module AppleSystemModelProvider
+[52/64] Compiling AppleSystemModelProvider FoundationModelsClient.swift
+[53/64] Compiling AppleSystemModelProvider FoundationModelsRuntimeFactory.swift
+[54/64] Compiling AppleSystemModelProvider FoundationModelsProviderConnector.swift
+[55/65] Wrapping AST for AppleSystemModelProvider for debugging
+[57/69] Compiling AppleSystemModelProviderTests FoundationModelsLiveTests.swift
+[58/69] Emitting module AppleSystemModelProviderTests
+[59/69] Compiling AppleSystemModelProviderTests FoundationModelsOwnershipTests.swift
+[60/69] Compiling AppleSystemModelProviderTests FoundationModelsClientTests.swift
+[61/70] $DATA_ROOT/build/portable/apple-system-contract/x86_64-unknown-linux-gnu/debug/AppleSystemModelProviderPackageDiscoveredTests.derived/all-discovered-tests.swift
+[62/70] Write sources
+[63/70] Wrapping AST for AppleSystemModelProviderTests for debugging
+[65/73] Compiling AppleSystemModelProviderPackageDiscoveredTests all-discovered-tests.swift
+[66/73] Compiling AppleSystemModelProviderPackageDiscoveredTests AppleSystemModelProviderTests.swift
+[67/73] Emitting module AppleSystemModelProviderPackageDiscoveredTests
+[68/74] $DATA_ROOT/build/portable/apple-system-contract/x86_64-unknown-linux-gnu/debug/AppleSystemModelProviderPackageTests.derived/runner.swift
+[69/74] Write sources
+[70/74] Wrapping AST for AppleSystemModelProviderPackageDiscoveredTests for debugging
+[72/76] Compiling AppleSystemModelProviderPackageTests runner.swift
+[73/76] Emitting module AppleSystemModelProviderPackageTests
+[74/77] Wrapping AST for AppleSystemModelProviderPackageTests for debugging
+[75/77] Write Objects.LinkFileList
+[76/77] Linking AppleSystemModelProviderPackageTests.xctest
+Build complete! (11.67s)
+Test Suite 'All tests' started at 2026-09-20 02:48:08.492
+Test Suite 'debug.xctest' started at 2026-09-20 02:48:08.493
+Test Suite 'debug.xctest' passed at 2026-09-20 02:48:08.493
+	 Executed 0 tests, with 0 failures (0 unexpected) in 0.0 (0.0) seconds
+Test Suite 'All tests' passed at 2026-09-20 02:48:08.493
+	 Executed 0 tests, with 0 failures (0 unexpected) in 0.0 (0.0) seconds
+◇ Test run started.
+↳ Testing Library Version: 6.2.1 (c9d57c83568b06d)
+↳ Target Platform: x86_64-unknown-linux-gnu
+◇ Suite "Apple text projection ownership" started.
+◇ Suite "Apple Foundation Models adapter" started.
+◇ Test eofCannotReleaseAdmissionBeforeSnapshotProducerSettlement() started.
+◇ Test cumulativeSnapshotsBecomeBoundedDeltasAndOneTerminalTurn() started.
+◇ Test unavailableModelFailsBeforeInvocation() started.
+◇ Test structuredOutputIsRejectedUntilNativeGuidedGenerationIsImplemented() started.
+◇ Test cancellationFinishesWithStableFailure() started.
+◇ Test mediaToolsAndToolMessagesFailBeforeInvocation() started.
+◇ Test emptyNativeSnapshotSequenceIsNotSuccessfulEmptyText() started.
+◇ Test failedNativePortJoinQuarantinesWithoutCleanupOrRetry() started.
+◇ Test snapshotsMustBeMonotonicAndRespectOutputBounds() started.
+◇ Test cancelJoinsNativePortBeforePermittingAnotherRequest() started.
+✔ Test structuredOutputIsRejectedUntilNativeGuidedGenerationIsImplemented() passed after 0.002 seconds.
+✔ Test emptyNativeSnapshotSequenceIsNotSuccessfulEmptyText() passed after 0.003 seconds.
+✔ Test cumulativeSnapshotsBecomeBoundedDeltasAndOneTerminalTurn() passed after 0.003 seconds.
+✔ Test cancellationFinishesWithStableFailure() passed after 0.003 seconds.
+✔ Test unavailableModelFailsBeforeInvocation() passed after 0.004 seconds.
+✔ Test failedNativePortJoinQuarantinesWithoutCleanupOrRetry() passed after 0.004 seconds.
+✔ Test eofCannotReleaseAdmissionBeforeSnapshotProducerSettlement() passed after 0.004 seconds.
+✔ Test mediaToolsAndToolMessagesFailBeforeInvocation() passed after 0.004 seconds.
+✔ Test snapshotsMustBeMonotonicAndRespectOutputBounds() passed after 0.004 seconds.
+✔ Suite "Apple Foundation Models adapter" passed after 0.004 seconds.
+✔ Test cancelJoinsNativePortBeforePermittingAnotherRequest() passed after 0.004 seconds.
+✔ Suite "Apple text projection ownership" passed after 0.005 seconds.
+✔ Test run with 10 tests in 2 suites passed after 0.005 seconds.

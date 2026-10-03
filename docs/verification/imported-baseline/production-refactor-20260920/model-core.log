@@ -1,0 +1,140 @@
+[0/1] Planning build
+Building for debugging...
+[0/2] Write swift-version--1BA0962812E73E12.txt
+Build complete! (0.15s)
+Test Suite 'All tests' started at 2026-09-20 06:53:38.194
+Test Suite 'debug.xctest' started at 2026-09-20 06:53:38.196
+Test Suite 'debug.xctest' passed at 2026-09-20 06:53:38.196
+	 Executed 0 tests, with 0 failures (0 unexpected) in 0.0 (0.0) seconds
+Test Suite 'All tests' passed at 2026-09-20 06:53:38.196
+	 Executed 0 tests, with 0 failures (0 unexpected) in 0.0 (0.0) seconds
+◇ Test run started.
+↳ Testing Library Version: 6.2.1 (c9d57c83568b06d)
+↳ Target Platform: x86_64-unknown-linux-gnu
+◇ Suite "Model generation contract" started.
+◇ Suite "Exact text projection" started.
+◇ Test jsonValueFromAnyFailsForUnsupportedArrayElements() started.
+◇ Test objectSubscriptIsPublicContractAndFailsClosedForNonObjects() started.
+◇ Suite "JSON integer conversion boundaries" started.
+◇ Test canonicalJSONStringThrowsOnNonFiniteNumbers() started.
+◇ Test jsonValueRoundTripsThroughCodable() started.
+◇ Suite "Bounded UTF-8 failure diagnostics" started.
+◇ Test modelRequestDerivesMediaAndToolRequirements() started.
+◇ Test largeIntegerRoundTripsWithoutPrecisionLoss() started.
+◇ Test descriptorValidationAllowsRepositoryPathsButRejectsWhitespaceAndUnknownCapabilities() started.
+◇ Test toolSchemaValidationRejectsReversedBounds() started.
+◇ Test integerAndNumberAccessorsPreserveSemantics() started.
+◇ Test modelVisibleToolErrorPreservesMachineFailureSemantics() started.
+◇ Test nonFiniteNumbersAreRejectedWithoutIdentityCollision() started.
+◇ Test coreDefaultIdentifiersAreDeterministicAndDoNotUseWallClockOrRandomUUID() started.
+◇ Test defaultStreamPreservesExistingOneShotProviderContract() started.
+◇ Test cancellationAtEOFDoesNotReturnSuccessfulCompletedTurn() started.
+◇ Test structuredOutputIsAnEffectiveCapability() started.
+◇ Test modelStreamContractRequiresOneStartedAndOneTerminalCompletedEvent() started.
+◇ Test canonicalCharacterCountMatchesCanonicalStringForNumberRepresentations() started.
+◇ Test canonicalStringSortsKeys() started.
+◇ Test modelVisibleToolContentUsesDurableStructuredOutput() started.
+◇ Test typedContentRoundTripsAndProducesTextProjection() started.
+◇ Test providerCancellationCodeWithoutCallerCancellationIsTransportFailure() started.
+◇ Test currentMessageAndTurnPayloadsRejectMissingOrContradictoryContentParts() started.
+◇ Test assistantTerminalFactsSurviveEventsAndCodableRoundTrip() started.
+◇ Test nonthrowingToolSchemaFactoriesPreserveValidatedBounds() started.
+◇ Test drainFailureRetainsOwnerWithoutPublishingItAsDiagnostics() started.
+◇ Test canonicalCharacterCountMatchesCanonicalStringForRepresentativeValues() started.
+◇ Test validatedToolSchemaFactoriesSurfaceTypedValidationErrors() started.
+◇ Test midTranscriptInstructionsAndReasoningCannotBeSilentlyDropped() started.
+◇ Test appendedCombiningMarkUsesBytePrefixNotCharacterCount() started.
+◇ Test noSnapshotIsNotAnEmptySuccessfulResponse() started.
+◇ Test cumulativeByteLimitIsEnforcedBeforeBuffering() started.
+◇ Test collectorBoundsAuxiliaryAndDeclaredBinaryOutput() started.
+◇ Test whitespaceAndHistoryOrderAreUnchanged() started.
+◇ Test canonicallyEquivalentRewriteIsNotAnExactExtension() started.
+◇ Test generationLimitsRejectUnsupportedContractVersion() started.
+◇ Test usageEventsMergeIntoTerminalAndConflictsFail() started.
+◇ Test requestDecodeRequiresExplicitGenerationContract(field:) started.
+◇ Test commonCapabilityValidationRejectsUnsupportedRequests() started.
+◇ Test toolCallMetadataRoundTripsAndParticipatesInDurableIdentity() started.
+◇ Test collectorRequiresOneTerminalAndMatchingAuthoritativeText() started.
+◇ Test requestFootprintUsesTheCanonicalGenerationByteAccounting() started.
+◇ Test unicodeDeltasRespectByteBoundsAndRoundTrip() started.
+◇ Test requestValidationRejectsInvalidIdentityInputAndOutputBounds() started.
+◇ Test textDeltaHonorsTheNarrowerFrameLimit() started.
+◇ Test modelToolContractIsTheSingleRequestAndTurnBound() started.
+◇ Test collectorValidatesUsageOutputLimitAndJSONObjectShape() started.
+◇ Test runtimeNormalizesDeadlineCancellationAndProviderCancellation() started.
+◇ Test requestRoundTripsThroughJSONValueWithoutChangingDurableIdentity() started.
+◇ Test nestedFoundationInputKeepsBooleansSeparateFromNumbers() started.
+◇ Test invalidNumericValuesNeverProduceAnInteger() started.
+◇ Test decodedUpperBoundaryUsesTheSameSafeAccessor() started.
+◇ Test exactIntegerConversionPreservesRepresentableValues() started.
+◇ Test roundedUpperIntegerBoundReturnsNilWithoutTrapping() started.
+◇ Test completeMultibyteScalarAtLimitIsPreserved() started.
+◇ Test incompleteLastScalarIsOmittedWithoutLosingThePrefix() started.
+◇ Test shortDiagnosticRemainsUnchanged() started.
+◇ Test foundationNumbersPreserveNumericIdentity() started.
+✔ Test jsonValueRoundTripsThroughCodable() passed after 0.010 seconds.
+✔ Test largeIntegerRoundTripsWithoutPrecisionLoss() passed after 0.010 seconds.
+✔ Test objectSubscriptIsPublicContractAndFailsClosedForNonObjects() passed after 0.010 seconds.
+✔ Test integerAndNumberAccessorsPreserveSemantics() passed after 0.009 seconds.
+✔ Test jsonValueFromAnyFailsForUnsupportedArrayElements() passed after 0.010 seconds.
+✔ Test defaultStreamPreservesExistingOneShotProviderContract() passed after 0.009 seconds.
+✔ Test modelRequestDerivesMediaAndToolRequirements() passed after 0.010 seconds.
+✔ Test coreDefaultIdentifiersAreDeterministicAndDoNotUseWallClockOrRandomUUID() passed after 0.009 seconds.
+✔ Test structuredOutputIsAnEffectiveCapability() passed after 0.009 seconds.
+✔ Test toolSchemaValidationRejectsReversedBounds() passed after 0.010 seconds.
+✔ Test modelStreamContractRequiresOneStartedAndOneTerminalCompletedEvent() passed after 0.009 seconds.
+✔ Test canonicalStringSortsKeys() passed after 0.009 seconds.
+✔ Test canonicalCharacterCountMatchesCanonicalStringForNumberRepresentations() passed after 0.009 seconds.
+✔ Test canonicalJSONStringThrowsOnNonFiniteNumbers() passed after 0.010 seconds.
+✔ Test nonFiniteNumbersAreRejectedWithoutIdentityCollision() passed after 0.010 seconds.
+✔ Test descriptorValidationAllowsRepositoryPathsButRejectsWhitespaceAndUnknownCapabilities() passed after 0.010 seconds.
+✔ Test typedContentRoundTripsAndProducesTextProjection() passed after 0.010 seconds.
+✔ Test nonthrowingToolSchemaFactoriesPreserveValidatedBounds() passed after 0.010 seconds.
+✔ Test modelVisibleToolErrorPreservesMachineFailureSemantics() passed after 0.010 seconds.
+✔ Test drainFailureRetainsOwnerWithoutPublishingItAsDiagnostics() passed after 0.010 seconds.
+◇ Test case passing 1 argument field → "outputFormat" to requestDecodeRequiresExplicitGenerationContract(field:) started.
+◇ Test case passing 1 argument field → "limits" to requestDecodeRequiresExplicitGenerationContract(field:) started.
+◇ Test case passing 1 argument field → "maxOutputBytes" to requestDecodeRequiresExplicitGenerationContract(field:) started.
+◇ Test case passing 1 argument field → "deadline" to requestDecodeRequiresExplicitGenerationContract(field:) started.
+✔ Test modelVisibleToolContentUsesDurableStructuredOutput() passed after 0.016 seconds.
+✔ Test canonicalCharacterCountMatchesCanonicalStringForRepresentativeValues() passed after 0.018 seconds.
+✔ Test appendedCombiningMarkUsesBytePrefixNotCharacterCount() passed after 0.012 seconds.
+✔ Test noSnapshotIsNotAnEmptySuccessfulResponse() passed after 0.012 seconds.
+✔ Test cumulativeByteLimitIsEnforcedBeforeBuffering() passed after 0.012 seconds.
+✔ Test midTranscriptInstructionsAndReasoningCannotBeSilentlyDropped() passed after 0.012 seconds.
+✔ Test collectorBoundsAuxiliaryAndDeclaredBinaryOutput() passed after 0.012 seconds.
+✔ Test whitespaceAndHistoryOrderAreUnchanged() passed after 0.012 seconds.
+✔ Test generationLimitsRejectUnsupportedContractVersion() passed after 0.012 seconds.
+✔ Test usageEventsMergeIntoTerminalAndConflictsFail() passed after 0.012 seconds.
+✔ Test currentMessageAndTurnPayloadsRejectMissingOrContradictoryContentParts() passed after 0.020 seconds.
+✔ Test canonicallyEquivalentRewriteIsNotAnExactExtension() passed after 0.012 seconds.
+✔ Test requestDecodeRequiresExplicitGenerationContract(field:) with 4 test cases passed after 0.012 seconds.
+✔ Test assistantTerminalFactsSurviveEventsAndCodableRoundTrip() passed after 0.020 seconds.
+✔ Test commonCapabilityValidationRejectsUnsupportedRequests() passed after 0.012 seconds.
+✔ Test toolCallMetadataRoundTripsAndParticipatesInDurableIdentity() passed after 0.012 seconds.
+✔ Test collectorRequiresOneTerminalAndMatchingAuthoritativeText() passed after 0.012 seconds.
+✔ Test unicodeDeltasRespectByteBoundsAndRoundTrip() passed after 0.011 seconds.
+✔ Test requestFootprintUsesTheCanonicalGenerationByteAccounting() passed after 0.012 seconds.
+✔ Test textDeltaHonorsTheNarrowerFrameLimit() passed after 0.012 seconds.
+✔ Test collectorValidatesUsageOutputLimitAndJSONObjectShape() passed after 0.011 seconds.
+✔ Test modelToolContractIsTheSingleRequestAndTurnBound() passed after 0.012 seconds.
+✔ Test nestedFoundationInputKeepsBooleansSeparateFromNumbers() passed after 0.011 seconds.
+✔ Test invalidNumericValuesNeverProduceAnInteger() passed after 0.011 seconds.
+✔ Test validatedToolSchemaFactoriesSurfaceTypedValidationErrors() passed after 0.018 seconds.
+✔ Test decodedUpperBoundaryUsesTheSameSafeAccessor() passed after 0.011 seconds.
+✔ Test roundedUpperIntegerBoundReturnsNilWithoutTrapping() passed after 0.011 seconds.
+✔ Test completeMultibyteScalarAtLimitIsPreserved() passed after 0.011 seconds.
+✔ Test foundationNumbersPreserveNumericIdentity() passed after 0.011 seconds.
+✔ Test shortDiagnosticRemainsUnchanged() passed after 0.011 seconds.
+✔ Test cancellationAtEOFDoesNotReturnSuccessfulCompletedTurn() passed after 0.021 seconds.
+✔ Test incompleteLastScalarIsOmittedWithoutLosingThePrefix() passed after 0.011 seconds.
+✔ Suite "Exact text projection" passed after 0.022 seconds.
+✔ Test requestRoundTripsThroughJSONValueWithoutChangingDurableIdentity() passed after 0.012 seconds.
+✔ Suite "Bounded UTF-8 failure diagnostics" passed after 0.022 seconds.
+✔ Test providerCancellationCodeWithoutCallerCancellationIsTransportFailure() passed after 0.021 seconds.
+✔ Test exactIntegerConversionPreservesRepresentableValues() passed after 0.012 seconds.
+✔ Suite "JSON integer conversion boundaries" passed after 0.022 seconds.
+✔ Test requestValidationRejectsInvalidIdentityInputAndOutputBounds() passed after 0.017 seconds.
+✔ Test runtimeNormalizesDeadlineCancellationAndProviderCancellation() passed after 0.033 seconds.
+✔ Suite "Model generation contract" passed after 0.043 seconds.
+✔ Test run with 57 tests in 4 suites passed after 0.043 seconds.

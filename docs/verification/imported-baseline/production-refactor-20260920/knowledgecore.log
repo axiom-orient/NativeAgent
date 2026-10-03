@@ -1,0 +1,147 @@
+Building for debugging...
+[0/13] Write sources
+[2/13] Write swift-version--1BA0962812E73E12.txt
+[4/29] Emitting module KnowledgeCore
+[5/33] Compiling KnowledgeCore RepresentationContracts.swift
+[6/33] Compiling KnowledgeCore RequestContracts.swift
+[7/33] Compiling KnowledgeCore ReviewPatchContracts.swift
+[8/33] Compiling KnowledgeCore SHA256.swift
+[9/33] Compiling KnowledgeCore SourceEvidenceContracts.swift
+[10/33] Compiling KnowledgeCore StableIdentity.swift
+[11/33] Compiling KnowledgeCore Taxonomy.swift
+[12/33] Compiling KnowledgeCore Timestamp.swift
+[13/33] Compiling KnowledgeCore Validation.swift
+[14/33] Compiling KnowledgeCore CanonicalJSON.swift
+[15/33] Compiling KnowledgeCore DecisionMemoryContracts.swift
+[16/33] Compiling KnowledgeCore Errors.swift
+[17/33] Compiling KnowledgeCore FieldsAndVersions.swift
+[18/33] Compiling KnowledgeCore ProjectionFamily.swift
+[19/33] Compiling KnowledgeCore CaptureManifest.swift
+[20/33] Compiling KnowledgeCore CollectedSource.swift
+[21/33] Compiling KnowledgeCore CollectedSourceIngest.swift
+[22/33] Compiling KnowledgeCore CollectedSourceTransforms.swift
+[23/33] Compiling KnowledgeCore AuthorityProjectionContracts.swift
+[24/34] Wrapping AST for KnowledgeCore for debugging
+[26/42] Compiling KnowledgeCoreTests SHA256Tests.swift
+[27/42] Compiling KnowledgeCoreTests TimestampOrderingTests.swift
+[28/44] Compiling KnowledgeCoreTests TimestampTests.swift
+[29/44] Compiling KnowledgeCoreTests SimulatorTestSupport.swift
+[30/44] Compiling KnowledgeCoreTests CoreParityTests.swift
+[31/44] Compiling KnowledgeCoreTests CurrentSchemaTests.swift
+[32/44] Compiling KnowledgeCoreTests DecisionMemoryContractsTests.swift
+[33/44] Compiling KnowledgeCoreTests FrontmatterEscapingTests.swift
+[34/44] Compiling KnowledgeCoreTests PathSafetyValidationTests.swift
+[35/44] Emitting module KnowledgeCoreTests
+[36/45] $DATA_ROOT/build/knowledgecore/x86_64-unknown-linux-gnu/debug/KnowledgeCorePackageDiscoveredTests.derived/all-discovered-tests.swift
+[37/45] Write sources
+[38/45] Wrapping AST for KnowledgeCoreTests for debugging
+[40/48] Compiling KnowledgeCorePackageDiscoveredTests all-discovered-tests.swift
+[41/48] Compiling KnowledgeCorePackageDiscoveredTests KnowledgeCoreTests.swift
+[42/48] Emitting module KnowledgeCorePackageDiscoveredTests
+[43/49] $DATA_ROOT/build/knowledgecore/x86_64-unknown-linux-gnu/debug/KnowledgeCorePackageTests.derived/runner.swift
+[44/49] Write sources
+[45/49] Wrapping AST for KnowledgeCorePackageDiscoveredTests for debugging
+[47/51] Emitting module KnowledgeCorePackageTests
+[48/51] Compiling KnowledgeCorePackageTests runner.swift
+[49/52] Wrapping AST for KnowledgeCorePackageTests for debugging
+[50/52] Write Objects.LinkFileList
+[51/52] Linking KnowledgeCorePackageTests.xctest
+Build complete! (18.23s)
+Test Suite 'All tests' started at 2026-09-20 06:53:55.962
+Test Suite 'debug.xctest' started at 2026-09-20 06:53:55.964
+Test Suite 'debug.xctest' passed at 2026-09-20 06:53:55.964
+	 Executed 0 tests, with 0 failures (0 unexpected) in 0.0 (0.0) seconds
+Test Suite 'All tests' passed at 2026-09-20 06:53:55.964
+	 Executed 0 tests, with 0 failures (0 unexpected) in 0.0 (0.0) seconds
+◇ Test run started.
+↳ Testing Library Version: 6.2.1 (c9d57c83568b06d)
+↳ Target Platform: x86_64-unknown-linux-gnu
+◇ Suite FrontmatterEscapingTests started.
+◇ Suite ASKCoreParityTests started.
+◇ Suite ASKPathSafetyValidationTests started.
+◇ Suite DecisionMemoryContractsTests started.
+◇ Suite CurrentSchemaTests started.
+◇ Suite ASKTimestampTests started.
+◇ Suite TimestampOrderingTests started.
+◇ Test ordinaryValuesKeepTheirExistingShape() started.
+◇ Test controlCharactersAreEncoded() started.
+◇ Test numericNSNumberIsNotRenderedAsABoolean() started.
+◇ Test backslashQuotePayloadCannotInjectFrontmatterDelimiter() started.
+◇ Test newlineInValueCannotInjectSiblingKeys() started.
+◇ Test hostileKeyIsQuotedInsteadOfAlteringStructure() started.
+◇ Test trailingBackslashCannotTerminateTheScalar() started.
+◇ Test projectionHashMatchesFixture() started.
+◇ Test canonicalJSONRoundTripsAcronymPropertyNames() started.
+◇ Suite ASKSHA256Tests started.
+◇ Test stableHashAndIDMatchPythonFixture() started.
+◇ Test representationContractsRejectUnsafePathBackedSourceIDs() started.
+◇ Test sourceClaimEvidenceAndPatchContractsRejectUnsafePathBackedIdentifiers() started.
+◇ Test pathSafeIDAcceptsLowercaseHyphenUnderscore() started.
+◇ Test reducerRejectsPromotionWithoutVerificationAndDirectLtsmPromotion() started.
+◇ Test authorityAndReviewContractsRejectUnsafePathBackedIdentifiers() started.
+◇ Test verificationRejectsStaleEvidenceAndExpiredRecordsLeaveActiveState() started.
+◇ Test supersessionIsAuditableAndExcludesThePriorRecord() started.
+◇ Test versionedRepresentationsRejectUnsupportedVersions() started.
+◇ Test verifiedRecordPromotesFromStimToMtemThenLtsm() started.
+◇ Test projectionRequiresCurrentVersionAndExplicitProvenanceField() started.
+◇ Test pageIndexMemoryRequiresExactVersionRangeAndDigest() started.
+◇ Test parsesRFC3339WithTimezoneOffset() started.
+◇ Test parsesRFC3339WithFractionalSeconds() started.
+◇ Test parsesRFC3339WithoutFractionalSeconds() started.
+◇ Test collectedSourceFixtureShapeIsStable() started.
+◇ Test authorityIntervalValidationUsesInstantOrder() started.
+◇ Test orderKeyMatchesCompareIncludingTheFastPath() started.
+◇ Test rejectsInvalidRFC3339() started.
+◇ Test unparseableValuesKeepATotalOrder() started.
+◇ Test offsetTimestampsAreOrderedByInstantNotByText() started.
+◇ Test equalInstantsFallBackToStableTextOrder() started.
+◇ Test openEndedSentinelSortsAfterEveryValidTimestamp() started.
+◇ Test fractionalSecondsAreOrderedByInstantNotByText() started.
+◇ Test operationLogOrderUsesInstantThenLogID() started.
+✔ Test hostileKeyIsQuotedInsteadOfAlteringStructure() passed after 0.009 seconds.
+✔ Test ordinaryValuesKeepTheirExistingShape() passed after 0.009 seconds.
+✔ Test trailingBackslashCannotTerminateTheScalar() passed after 0.009 seconds.
+◇ Test digestBytesAndHexDigestStayConsistent() started.
+✔ Test controlCharactersAreEncoded() passed after 0.009 seconds.
+✔ Test backslashQuotePayloadCannotInjectFrontmatterDelimiter() passed after 0.009 seconds.
+✔ Test numericNSNumberIsNotRenderedAsABoolean() passed after 0.009 seconds.
+◇ Test knownDigestVectorsMatchSHA256Specification() started.
+✔ Test pathSafeIDAcceptsLowercaseHyphenUnderscore() passed after 0.009 seconds.
+✔ Test stableHashAndIDMatchPythonFixture() passed after 0.009 seconds.
+✔ Test canonicalJSONRoundTripsAcronymPropertyNames() passed after 0.009 seconds.
+✔ Test authorityAndReviewContractsRejectUnsafePathBackedIdentifiers() passed after 0.009 seconds.
+✔ Test reducerRejectsPromotionWithoutVerificationAndDirectLtsmPromotion() passed after 0.009 seconds.
+✔ Test sourceClaimEvidenceAndPatchContractsRejectUnsafePathBackedIdentifiers() passed after 0.009 seconds.
+✔ Test versionedRepresentationsRejectUnsupportedVersions() passed after 0.009 seconds.
+✔ Test verifiedRecordPromotesFromStimToMtemThenLtsm() passed after 0.009 seconds.
+✔ Test pageIndexMemoryRequiresExactVersionRangeAndDigest() passed after 0.009 seconds.
+✔ Test parsesRFC3339WithTimezoneOffset() passed after 0.009 seconds.
+✔ Test parsesRFC3339WithFractionalSeconds() passed after 0.009 seconds.
+✔ Test parsesRFC3339WithoutFractionalSeconds() passed after 0.009 seconds.
+✔ Test verificationRejectsStaleEvidenceAndExpiredRecordsLeaveActiveState() passed after 0.009 seconds.
+✔ Test authorityIntervalValidationUsesInstantOrder() passed after 0.008 seconds.
+✔ Test representationContractsRejectUnsafePathBackedSourceIDs() passed after 0.009 seconds.
+✔ Test rejectsInvalidRFC3339() passed after 0.008 seconds.
+✔ Test unparseableValuesKeepATotalOrder() passed after 0.008 seconds.
+✔ Test offsetTimestampsAreOrderedByInstantNotByText() passed after 0.008 seconds.
+✔ Test equalInstantsFallBackToStableTextOrder() passed after 0.008 seconds.
+✔ Test openEndedSentinelSortsAfterEveryValidTimestamp() passed after 0.008 seconds.
+✔ Test supersessionIsAuditableAndExcludesThePriorRecord() passed after 0.009 seconds.
+✔ Test fractionalSecondsAreOrderedByInstantNotByText() passed after 0.008 seconds.
+✔ Test operationLogOrderUsesInstantThenLogID() passed after 0.008 seconds.
+✔ Test orderKeyMatchesCompareIncludingTheFastPath() passed after 0.008 seconds.
+✔ Test collectedSourceFixtureShapeIsStable() passed after 0.009 seconds.
+✔ Test newlineInValueCannotInjectSiblingKeys() passed after 0.009 seconds.
+✔ Test projectionHashMatchesFixture() passed after 0.009 seconds.
+✔ Suite ASKPathSafetyValidationTests passed after 0.010 seconds.
+✔ Suite ASKCoreParityTests passed after 0.010 seconds.
+✔ Suite DecisionMemoryContractsTests passed after 0.010 seconds.
+✔ Suite ASKTimestampTests passed after 0.010 seconds.
+✔ Suite TimestampOrderingTests passed after 0.010 seconds.
+✔ Suite FrontmatterEscapingTests passed after 0.011 seconds.
+✔ Test knownDigestVectorsMatchSHA256Specification() passed after 0.001 seconds.
+✔ Test digestBytesAndHexDigestStayConsistent() passed after 0.001 seconds.
+✔ Suite ASKSHA256Tests passed after 0.010 seconds.
+✔ Test projectionRequiresCurrentVersionAndExplicitProvenanceField() passed after 0.011 seconds.
+✔ Suite CurrentSchemaTests passed after 0.012 seconds.
+✔ Test run with 36 tests in 8 suites passed after 0.014 seconds.

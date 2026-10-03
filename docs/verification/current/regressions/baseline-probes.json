@@ -1,0 +1,38 @@
+{
+  "scope": "Unmodified original pure parser method and whole protocol file; not a Network.framework execution. Four rejection assertions and a separate Int.max crash probe.",
+  "sourceFile": "Providers/ChatGPT/Account/Sources/ChatGPTAccount/LocalhostCallbackServer.swift",
+  "sourceSHA256": "8bea7c7aa59611bd26cd9fc8124eaba11c7002f37b50e9289367ef3c2078217a",
+  "extractedMethodSHA256": "e3da49e9df6ee3a1ee1f7020124053b38d5573a371178b4314681a7c47c9e876",
+  "protocolSHA256": "40fea3be35f1b4ac754613cd020e0f00903ffc877e845e7f0e240604c606c7c2",
+  "buildCommand": [
+    "swiftc",
+    "-swift-version",
+    "6",
+    "-warnings-as-errors",
+    "$DATA_ROOT/nativeai-build/baseline-probes/ChatGPTProtocol.swift",
+    "$DATA_ROOT/nativeai-build/baseline-probes/OriginalParser.swift",
+    "$DATA_ROOT/nativeai-build/baseline-probes/main.swift",
+    "-o",
+    "$DATA_ROOT/nativeai-build/baseline-probes/probe"
+  ],
+  "buildExitCode": 0,
+  "results": [
+    {
+      "name": "parser-and-negative-retry",
+      "command": [
+        "$DATA_ROOT/nativeai-build/baseline-probes/probe"
+      ],
+      "exitCode": 1,
+      "expectedBaselineFailure": true
+    },
+    {
+      "name": "retry-max",
+      "command": [
+        "$DATA_ROOT/nativeai-build/baseline-probes/probe",
+        "retry-max"
+      ],
+      "exitCode": -4,
+      "expectedBaselineFailure": true
+    }
+  ]
+}

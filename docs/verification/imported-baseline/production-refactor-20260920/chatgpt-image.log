@@ -1,0 +1,32 @@
+[0/1] Planning build
+Building for debugging...
+[0/5] Write sources
+[2/5] Write swift-version--1BA0962812E73E12.txt
+[4/9] Compiling ChatGPTAccount ChatGPTTransport.swift
+[5/9] Compiling ChatGPTAccount ChatGPTAccountSession.swift
+[6/9] Compiling ChatGPTAccount ChatGPTSignInSession.swift
+[7/9] Emitting module ChatGPTAccount
+[8/10] Wrapping AST for ChatGPTAccount for debugging
+[10/19] Emitting module ChatGPTImage
+[11/19] Compiling ChatGPTImage ChatGPTImageClient.swift
+[13/21] Emitting module ChatGPTImageTests
+[14/21] Compiling ChatGPTImageTests ImageCompletionTests.swift
+[15/17] Write Objects.LinkFileList
+[16/17] Linking ChatGPTImagePackageTests.xctest
+Build complete! (3.05s)
+Test Suite 'All tests' started at 2026-09-20 06:53:57.269
+Test Suite 'debug.xctest' started at 2026-09-20 06:53:57.270
+Test Suite 'debug.xctest' passed at 2026-09-20 06:53:57.270
+	 Executed 0 tests, with 0 failures (0 unexpected) in 0.0 (0.0) seconds
+Test Suite 'All tests' passed at 2026-09-20 06:53:57.271
+	 Executed 0 tests, with 0 failures (0 unexpected) in 0.0 (0.0) seconds
+◇ Test run started.
+↳ Testing Library Version: 6.2.1 (c9d57c83568b06d)
+↳ Target Platform: x86_64-unknown-linux-gnu
+◇ Test settledImageParseFailureDoesNotQuarantineClient() started.
+◇ Test failedImageDrainQuarantinesSharedClientAndRetainsInvocation() started.
+◇ Test invalidImagePromptDoesNotEnterTransport() started.
+✔ Test invalidImagePromptDoesNotEnterTransport() passed after 0.004 seconds.
+✔ Test failedImageDrainQuarantinesSharedClientAndRetainsInvocation() passed after 0.004 seconds.
+✔ Test settledImageParseFailureDoesNotQuarantineClient() passed after 0.005 seconds.
+✔ Test run with 3 tests in 0 suites passed after 0.006 seconds.

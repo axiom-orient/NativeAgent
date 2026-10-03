@@ -1,0 +1,59 @@
+name: LeapQualification
+options:
+  deploymentTarget:
+    iOS: "17.0"
+packages:
+  NativeAgent:
+    path: ../../../Agent/NativeAgentPackage
+  LEAPProvider:
+    path: ..
+  ModelArtifactStore:
+    path: ../../../Model/ModelArtifactStore
+settings:
+  base:
+    SWIFT_VERSION: "6.0"
+    CODE_SIGN_STYLE: Automatic
+    GENERATE_INFOPLIST_FILE: YES
+targets:
+  LeapQualification:
+    type: application
+    platform: iOS
+    sources:
+      - App
+      - path: "${LEAP_VOICE_MODEL_DIR}/LFM2.5-Audio-1.5B-Q4_0.gguf"
+        buildPhase: resources
+      - path: "${LEAP_VOICE_MODEL_DIR}/mmproj-LFM2.5-Audio-1.5B-Q4_0.gguf"
+        buildPhase: resources
+      - path: "${LEAP_VOICE_MODEL_DIR}/vocoder-LFM2.5-Audio-1.5B-Q4_0.gguf"
+        buildPhase: resources
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.axiomorient.nativeagent.leap-qualification
+    postBuildScripts:
+      - name: Sign embedded LEAP libraries
+        script: '/bin/bash "${SRCROOT}/../../../Agent/NativeAgentPackage/scripts/sign_leap_embedded.sh"'
+        basedOnDependencyAnalysis: false
+    dependencies:
+      - package: NativeAgent
+        product: NativeAgent
+      - package: LEAPProvider
+      - package: ModelArtifactStore
+  LeapQualificationTests:
+    type: bundle.unit-test
+    platform: iOS
+    sources: [Tests]
+    dependencies:
+      - target: LeapQualification
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.axiomorient.nativeagent.leap-qualification-tests
+        TEST_HOST: "$(BUILT_PRODUCTS_DIR)/LeapQualification.app/LeapQualification"
+        BUNDLE_LOADER: "$(TEST_HOST)"
+schemes:
+  LeapQualification:
+    build:
+      targets:
+        LeapQualification: all
+        LeapQualificationTests: [test]
+    test:
+      targets: [LeapQualificationTests]

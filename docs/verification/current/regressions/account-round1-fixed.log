@@ -1,0 +1,212 @@
+Building for debugging...
+[0/10] Write sources
+[1/10] Write swift-version--1BA0962812E73E12.txt
+[3/12] Compiling ChatGPTAccountTests CredentialValidationTests.swift
+[4/12] Compiling ChatGPTAccountTests CallbackStateTests.swift
+[5/12] Emitting module ChatGPTAccountTests
+[6/13] $DATA_ROOT/nativeai-build/account/x86_64-unknown-linux-gnu/debug/ChatGPTAccountPackageDiscoveredTests.derived/all-discovered-tests.swift
+[7/14] Write sources
+[8/14] Wrapping AST for ChatGPTAccountTests for debugging
+[10/17] Compiling ChatGPTAccountPackageDiscoveredTests all-discovered-tests.swift
+[11/17] Compiling ChatGPTAccountPackageDiscoveredTests ChatGPTAccountTests.swift
+[12/17] Emitting module ChatGPTAccountPackageDiscoveredTests
+[14/17] Emitting module ChatGPTAccountPackageTests
+[15/17] Write Objects.LinkFileList
+[16/17] Linking ChatGPTAccountPackageTests.xctest
+Build complete! (3.62s)
+Test Suite 'All tests' started at 2026-09-20 08:59:46.097
+Test Suite 'debug.xctest' started at 2026-09-20 08:59:46.114
+Test Suite 'debug.xctest' passed at 2026-09-20 08:59:46.114
+	 Executed 0 tests, with 0 failures (0 unexpected) in 0.0 (0.0) seconds
+Test Suite 'All tests' passed at 2026-09-20 08:59:46.115
+	 Executed 0 tests, with 0 failures (0 unexpected) in 0.0 (0.0) seconds
+◇ Test run started.
+↳ Testing Library Version: 6.2.1 (c9d57c83568b06d)
+↳ Target Platform: x86_64-unknown-linux-gnu
+◇ Test failedAuthenticatedGETDrainRemainsBlockedAfterCredentialsAreDeleted() started.
+◇ Test callbackBodySmugglingAndMalformedHeadersAreRejected(header:) started.
+◇ Test signInCommitsOnlyValidatedAccount() started.
+◇ Test callbackInvalidEncodingAndUnregisteredRedirectAreRejected() started.
+◇ Test invalidExpirationDurationIsRejected(seconds:) started.
+◇ Test callbackDuplicateReadyCancelAndConnectionReceiptsAreIdempotent() started.
+◇ Test refreshPersistenceFailureNeverReusesPossiblyRotatedRefreshToken() started.
+◇ Test callbackFailureStopsListenerAndPreservesFailedStop(failStop:) started.
+◇ Test callbackCompleteInvalidRequestIsRejectedImmediately(request:) started.
+◇ Test transportDrainFailureDuringSignInBlocksNewAccountWork() started.
+◇ Test callbackParserAcceptsOnlyTheSelectedEndpoint() started.
+◇ Test callbackPipelinedOrTrailingBodyIsInvalid() started.
+◇ Test deleteFailureBlocksAccessUntilExplicitSuccessfulSignOut() started.
+◇ Test accountRetainsEveryAlreadyAdmittedFailedOperation() started.
+◇ Test callbackSizeBoundaryIncludesHeaderTerminator() started.
+◇ Test cancelledSignOutCallerStillJoinsCleanup() started.
+◇ Test signOutJoinsRefreshBeforeDeletingCredentials() started.
+◇ Test callbackParserKeepsEveryTruncatedValidPrefixIncomplete() started.
+◇ Test lastConsumerCancellationStillCancelsOrdinarySharedWork() started.
+◇ Test callbackSelectedResponseIsRetainedWhileOtherConnectionsAreCancelled() started.
+◇ Test transportReceiptFailureIsJoinedOnceAndOverridesParsingFailure() started.
+◇ Test staleAuthorizationSnapshotIsInvalidAfterSignOut() started.
+◇ Test cancelledReplacementReleasesItsAdmissionGateAfterJoiningRefresh() started.
+◇ Test callbackZeroLengthAndCaseInsensitiveHeaderNamesRemainValid() started.
+◇ Test unsafeAccountHeaderValuesAreRejected(value:) started.
+◇ Test callbackResourceLivesUntilItsLastReceipt() started.
+◇ Test callbackRejectedConnectionDuringShutdownIsStillOwned() started.
+◇ Test replacementWaitsForOldRefreshAndCannotCommitItsLateToken() started.
+◇ Test concurrentSignOutsShareCleanup() started.
+◇ Test signOutBlocksNewAuthorizationUntilCleanupSettles() started.
+◇ Test callbackLifecycleIsOneShotAndUnusedCancelHasNoNativeReceipt() started.
+◇ Test nonfiniteCredentialExpirationIsRejected(seconds:) started.
+◇ Test cancelledCleanupWaiterCannotCancelOwnedSharedTask() started.
+◇ Test callbackCancelledReadCannotSubmitAnotherReadOrResponse() started.
+◇ Test signInAfterLogoutReportsAuthorizationAndCanBeLoggedOutAgain() started.
+◇ Test cancelledAccessDoesNotStartRefresh() started.
+◇ Test refreshRejectionPreservesOnlyRecoverableCredentials(status:code:deletes:) started.
+◇ Test callbackDrainIsIndependentOfReceiptOrder(order:) started.
+◇ Test callbackShutdownRequiresListenerAndEveryAcceptedConnection() started.
+◇ Test callbackDuplicateAndStaleIOCannotSettleNewReceive() started.
+◇ Test clockInjectionControlsExpirationWithoutWallClockSleeps() started.
+◇ Test failedRefreshDrainCannotBeRetriedOrReportedAsSuccessfulLogout() started.
+◇ Test cancelledSignInCleanupCallerStillWaitsForListenerStop() started.
+◇ Test invalidOAuthCallbackNeverDispatchesTokenExchange(callback:) started.
+◇ Test logoutWinsAgainstLateCallback() started.
+◇ Test permanentRejectionDeleteFailureBlocksExistingAuthorization() started.
+◇ Test expirationBoundaryIsDeterministic(seconds:) started.
+◇ Test case passing 1 argument header → "Content-Length: -1" to callbackBodySmugglingAndMalformedHeadersAreRejected(header:) started.
+◇ Test case passing 1 argument header → "Content-Length: 8" to callbackBodySmugglingAndMalformedHeadersAreRejected(header:) started.
+◇ Test simultaneousExpiredCredentialReadsUseOneRefresh() started.
+◇ Test case passing 1 argument header → "Content-Length: 0
+Content-Length: 0" to callbackBodySmugglingAndMalformedHeadersAreRejected(header:) started.
+◇ Test case passing 1 argument header → "Transfer-Encoding: chunked" to callbackBodySmugglingAndMalformedHeadersAreRejected(header:) started.
+◇ Test case passing 1 argument header → "X Header: invalid" to callbackBodySmugglingAndMalformedHeadersAreRejected(header:) started.
+◇ Test case passing 1 argument header → "X-Test : whitespace" to callbackBodySmugglingAndMalformedHeadersAreRejected(header:) started.
+◇ Test case passing 1 argument header → "Host: localhost:1455" to callbackBodySmugglingAndMalformedHeadersAreRejected(header:) started.
+◇ Test case passing 1 argument header → "X-Test: bad◇ Test case passing 1 argument header → "X-Test: bad" to callbackBodySmugglingAndMalformedHeadersAreRejected(header:) started.
+◇ Test case passing 1 argument header → " folded: value" to callbackBodySmugglingAndMalformedHeadersAreRejected(header:) started.
+◇ Test case passing 1 argument seconds → 0.0 to invalidExpirationDurationIsRejected(seconds:) started.
+◇ Test case passing 1 argument seconds → 59.0 to invalidExpirationDurationIsRejected(seconds:) started.
+◇ Test case passing 1 argument seconds → -1.0 to invalidExpirationDurationIsRejected(seconds:) started.
+◇ Test case passing 1 argument failStop → false to callbackFailureStopsListenerAndPreservesFailedStop(failStop:) started.
+◇ Test case passing 1 argument failStop → true to callbackFailureStopsListenerAndPreservesFailedStop(failStop:) started.
+◇ Test case passing 1 argument request → "POST /auth/callback HTTP/1.1
+Host: localhost:1455
+
+" to callbackCompleteInvalidRequestIsRejectedImmediately(request:) started.
+◇ Test case passing 1 argument request → "GET /other HTTP/1.1
+Host: localhost:1455
+
+" to callbackCompleteInvalidRequestIsRejectedImmediately(request:) started.
+◇ Test case passing 1 argument request → "GET /auth/%63allback HTTP/1.1
+Host: localhost:1455
+
+" to callbackCompleteInvalidRequestIsRejectedImmediately(request:) started.
+◇ Test case passing 1 argument request → "GET //attacker.invalid/auth/callback HTTP/1.1
+Host: localhost:1455
+
+" to callbackCompleteInvalidRequestIsRejectedImmediately(request:) started.
+◇ Test case passing 1 argument seconds → inf to invalidExpirationDurationIsRejected(seconds:) started.
+◇ Test case passing 1 argument seconds → nan to invalidExpirationDurationIsRejected(seconds:) started.
+✘ Test callbackBodySmugglingAndMalformedHeadersAreRejected(header:) recorded an issue with 1 argument header → "X-Test: bad" at CallbackRequestTests.swift:48:3: Expectation failed: (ChatGPTCallbackRequest.parse(Data(request.utf8), matching: redirect) → .callback(http://localhost:1455/auth/callback)) == .invalid
+◇ Test case passing 1 argument request → "GET /auth/callback#fragment HTTP/1.1
+Host: localhost:1455
+
+" to callbackCompleteInvalidRequestIsRejectedImmediately(request:) started.
+◇ Test case passing 1 argument request → "GET /auth/callback HTTP/1.0
+Host: localhost:1455
+
+" to callbackCompleteInvalidRequestIsRejectedImmediately(request:) started.
+◇ Test case passing 1 argument request → "GET  /auth/callback HTTP/1.1
+Host: localhost:1455
+
+" to callbackCompleteInvalidRequestIsRejectedImmediately(request:) started.
+✘ Test callbackParserAcceptsOnlyTheSelectedEndpoint() recorded an issue at CallbackRequestTests.swift:10:3: Expectation failed: (ChatGPTCallbackRequest.parse(Data(callbackRequest.utf8), matching: redirect) → .invalid) == (.callback(expected) → .callback(http://localhost:1455/auth/callback?code=fixture&state=fixture))
+◇ Test case passing 1 argument request → "GET /auth/callback HTTP/1.1
+Host: localhost:1457
+
+" to callbackCompleteInvalidRequestIsRejectedImmediately(request:) started.
+✘ Test callbackBodySmugglingAndMalformedHeadersAreRejected(header:) recorded an issue with 1 argument header → "X-Test: bad◇ Test case passing 1 argument request → "GET /auth/callback HTTP/1.1
+Host: evil.invalid:1455
+
+" to callbackCompleteInvalidRequestIsRejectedImmediately(request:) started.
+◇ Test case passing 1 argument seconds → 31536001.0 to invalidExpirationDurationIsRejected(seconds:) started.
+◇ Test case passing 1 argument request → "GET /auth/callback HTTP/1.1
+
+" to callbackCompleteInvalidRequestIsRejectedImmediately(request:) started.
+◇ Test case passing 1 argument value → "" to unsafeAccountHeaderValuesAreRejected(value:) started.
+◇ Test case passing 1 argument value → "line
+injected:yes" to unsafeAccountHeaderValuesAreRejected(value:) started.
+◇ Test case passing 1 argument value → "space id" to unsafeAccountHeaderValuesAreRejected(value:) started.
+◇ Test case passing 1 argument value → "tab	" to unsafeAccountHeaderValuesAreRejected(value:) started.
+◇ Test case passing 1 argument value → "del" to unsafeAccountHeaderValuesAreRejected(value:) started.
+◇ Test case passing 1 argument value → "unicode한" to unsafeAccountHeaderValuesAreRejected(value:) started.
+◇ Test case passing 1 argument value → "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx" to unsafeAccountHeaderValuesAreRejected(value:) started.
+◇ Test case passing 1 argument seconds → nan to nonfiniteCredentialExpirationIsRejected(seconds:) started.
+◇ Test case passing 1 argument seconds → inf to nonfiniteCredentialExpirationIsRejected(seconds:) started.
+◇ Test case passing 1 argument seconds → -inf to nonfiniteCredentialExpirationIsRejected(seconds:) started.
+◇ Test case passing 3 arguments status → 400, code → "invalid_grant", deletes → true to refreshRejectionPreservesOnlyRecoverableCredentials(status:code:deletes:) started.
+◇ Test case passing 3 arguments status → 401, code → "invalid_token", deletes → true to refreshRejectionPreservesOnlyRecoverableCredentials(status:code:deletes:) started.
+◇ Test case passing 3 arguments status → 429, code → "rate_limited", deletes → false to refreshRejectionPreservesOnlyRecoverableCredentials(status:code:deletes:) started.
+◇ Test case passing 3 arguments status → 503, code → "unavailable", deletes → false to refreshRejectionPreservesOnlyRecoverableCredentials(status:code:deletes:) started.
+◇ Test case passing 3 arguments status → 429, code → "invalid_grant", deletes → false to refreshRejectionPreservesOnlyRecoverableCredentials(status:code:deletes:) started.
+◇ Test case passing 3 arguments status → 503, code → "invalid_grant", deletes → false to refreshRejectionPreservesOnlyRecoverableCredentials(status:code:deletes:) started.
+◇ Test case passing 1 argument order → [1, 0, 2] to callbackDrainIsIndependentOfReceiptOrder(order:) started.
+◇ Test case passing 1 argument order → [0, 2, 1] to callbackDrainIsIndependentOfReceiptOrder(order:) started.
+◇ Test case passing 1 argument order → [0, 1, 2] to callbackDrainIsIndependentOfReceiptOrder(order:) started.
+◇ Test case passing 1 argument order → [1, 2, 0] to callbackDrainIsIndependentOfReceiptOrder(order:) started.
+◇ Test case passing 1 argument order → [2, 0, 1] to callbackDrainIsIndependentOfReceiptOrder(order:) started.
+◇ Test case passing 1 argument order → [2, 1, 0] to callbackDrainIsIndependentOfReceiptOrder(order:) started.
+◇ Test case passing 1 argument callback → "http://localhost:1455/auth/callback?state=test-state&state=test-state&code=code" to invalidOAuthCallbackNeverDispatchesTokenExchange(callback:) started.
+◇ Test case passing 1 argument callback → "http://localhost:1457/auth/callback?state=test-state&code=code" to invalidOAuthCallbackNeverDispatchesTokenExchange(callback:) started.
+◇ Test case passing 1 argument callback → "http://attacker.invalid:1455/auth/callback?state=test-state&code=code" to invalidOAuthCallbackNeverDispatchesTokenExchange(callback:) started.
+◇ Test case passing 1 argument callback → "http://localhost:1455/other?state=test-state&code=code" to invalidOAuthCallbackNeverDispatchesTokenExchange(callback:) started.
+◇ Test case passing 1 argument seconds → 60.0 to expirationBoundaryIsDeterministic(seconds:) started.
+◇ Test case passing 1 argument seconds → 31536000.0 to expirationBoundaryIsDeterministic(seconds:) started.
+◇ Test case passing 1 argument callback → "http://localhost:1455/auth/callback?state=test-state&code=code#fragment" to invalidOAuthCallbackNeverDispatchesTokenExchange(callback:) started.
+✔ Test callbackInvalidEncodingAndUnregisteredRedirectAreRejected() passed after 0.093 seconds.
+◇ Test case passing 1 argument callback → "http://localhost:1455/auth/callback?state=wrong&code=code" to invalidOAuthCallbackNeverDispatchesTokenExchange(callback:) started.
+✘ Test callbackBodySmugglingAndMalformedHeadersAreRejected(header:) with 10 test cases failed after 0.096 seconds with 2 issues.
+✔ Test callbackCompleteInvalidRequestIsRejectedImmediately(request:) with 10 test cases passed after 0.094 seconds.
+✘ Test callbackParserAcceptsOnlyTheSelectedEndpoint() failed after 0.094 seconds with 1 issue.
+✔ Test callbackPipelinedOrTrailingBodyIsInvalid() passed after 0.093 seconds.
+✔ Test invalidExpirationDurationIsRejected(seconds:) with 6 test cases passed after 0.096 seconds.
+✔ Test callbackDuplicateReadyCancelAndConnectionReceiptsAreIdempotent() passed after 0.097 seconds.
+✔ Test callbackSelectedResponseIsRetainedWhileOtherConnectionsAreCancelled() passed after 0.092 seconds.
+✔ Test unsafeAccountHeaderValuesAreRejected(value:) with 7 test cases passed after 0.096 seconds.
+✔ Test callbackZeroLengthAndCaseInsensitiveHeaderNamesRemainValid() passed after 0.097 seconds.
+✔ Test callbackResourceLivesUntilItsLastReceipt() passed after 0.096 seconds.
+✔ Test callbackRejectedConnectionDuringShutdownIsStillOwned() passed after 0.096 seconds.
+✔ Test callbackLifecycleIsOneShotAndUnusedCancelHasNoNativeReceipt() passed after 0.097 seconds.
+✔ Test transportReceiptFailureIsJoinedOnceAndOverridesParsingFailure() passed after 0.100 seconds.
+✔ Test nonfiniteCredentialExpirationIsRejected(seconds:) with 3 test cases passed after 0.099 seconds.
+✔ Test callbackCancelledReadCannotSubmitAnotherReadOrResponse() passed after 0.099 seconds.
+✔ Test callbackParserKeepsEveryTruncatedValidPrefixIncomplete() passed after 0.092 seconds.
+✔ Test callbackShutdownRequiresListenerAndEveryAcceptedConnection() passed after 0.109 seconds.
+✔ Test callbackSizeBoundaryIncludesHeaderTerminator() passed after 0.116 seconds.
+✔ Test callbackDrainIsIndependentOfReceiptOrder(order:) with 6 test cases passed after 0.109 seconds.
+✔ Test callbackDuplicateAndStaleIOCannotSettleNewReceive() passed after 0.110 seconds.
+✔ Test expirationBoundaryIsDeterministic(seconds:) with 2 test cases passed after 0.110 seconds.
+✔ Test cancelledAccessDoesNotStartRefresh() passed after 0.117 seconds.
+✔ Test refreshRejectionPreservesOnlyRecoverableCredentials(status:code:deletes:) with 6 test cases passed after 0.126 seconds.
+✔ Test clockInjectionControlsExpirationWithoutWallClockSleeps() passed after 0.125 seconds.
+✔ Test deleteFailureBlocksAccessUntilExplicitSuccessfulSignOut() passed after 0.132 seconds.
+✔ Test permanentRejectionDeleteFailureBlocksExistingAuthorization() passed after 0.127 seconds.
+✔ Test refreshPersistenceFailureNeverReusesPossiblyRotatedRefreshToken() passed after 0.134 seconds.
+✔ Test staleAuthorizationSnapshotIsInvalidAfterSignOut() passed after 0.131 seconds.
+✔ Test invalidOAuthCallbackNeverDispatchesTokenExchange(callback:) with 6 test cases passed after 0.127 seconds.
+✔ Test failedAuthenticatedGETDrainRemainsBlockedAfterCredentialsAreDeleted() passed after 0.137 seconds.
+✔ Test cancelledCleanupWaiterCannotCancelOwnedSharedTask() passed after 0.131 seconds.
+✔ Test lastConsumerCancellationStillCancelsOrdinarySharedWork() passed after 0.132 seconds.
+✔ Test signInAfterLogoutReportsAuthorizationAndCanBeLoggedOutAgain() passed after 0.132 seconds.
+✔ Test callbackFailureStopsListenerAndPreservesFailedStop(failStop:) with 2 test cases passed after 0.135 seconds.
+✔ Test signOutJoinsRefreshBeforeDeletingCredentials() passed after 0.134 seconds.
+✔ Test concurrentSignOutsShareCleanup() passed after 0.133 seconds.
+✔ Test transportDrainFailureDuringSignInBlocksNewAccountWork() passed after 0.136 seconds.
+✔ Test cancelledSignOutCallerStillJoinsCleanup() passed after 0.134 seconds.
+✔ Test accountRetainsEveryAlreadyAdmittedFailedOperation() passed after 0.134 seconds.
+✔ Test signOutBlocksNewAuthorizationUntilCleanupSettles() passed after 0.133 seconds.
+✔ Test replacementWaitsForOldRefreshAndCannotCommitItsLateToken() passed after 0.133 seconds.
+✔ Test logoutWinsAgainstLateCallback() passed after 0.130 seconds.
+✔ Test cancelledReplacementReleasesItsAdmissionGateAfterJoiningRefresh() passed after 0.134 seconds.
+✔ Test simultaneousExpiredCredentialReadsUseOneRefresh() passed after 0.130 seconds.
+✔ Test cancelledSignInCleanupCallerStillWaitsForListenerStop() passed after 0.131 seconds.
+✔ Test signInCommitsOnlyValidatedAccount() passed after 0.142 seconds.
+✔ Test failedRefreshDrainCannotBeRetriedOrReportedAsSuccessfulLogout() passed after 0.137 seconds.
+✘ Test run with 48 tests in 0 suites failed after 0.149 seconds with 3 issues.

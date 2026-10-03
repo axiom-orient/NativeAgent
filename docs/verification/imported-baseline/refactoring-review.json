@@ -1,0 +1,107 @@
+{
+  "status": "PARTIAL",
+  "scope": {
+    "goal": "기존 public 의미를 보존하면서 재현 가능한 입력·취소·효과 경계를 수정한다.",
+    "nonGoals": [
+      "새 기능/SDK 업데이트/전체 재작성/public API rename",
+      "검증 불가 native 구현 수정",
+      "실서비스를 mock으로 대체"
+    ],
+    "completion": "실행 가능한 회귀·build·문서 검사 PASS; 남은 native/통합 P1은 환경 차단과 함께 PLAN에 유지한다.",
+    "method": "입력 seal → 정적 경계/역호출 분석 → 반례 test 실패 → 작은 source 수정 → 테스트/반복 → 문서/보존 diff"
+  },
+  "modifiedProductionSwift": [
+    "Model/LanguageModelCore/Sources/LanguageModelCore/Contracts/ModelGeneration.swift",
+    "Model/LanguageModelCore/Sources/LanguageModelCore/JSON/JSONValue+Accessors.swift",
+    "Model/LanguageModelCore/Sources/LanguageModelCore/JSON/JSONValue+Bridging.swift",
+    "Model/LanguageModelRuntime/Sources/LanguageModelRuntime/ModelProviderRegistry.swift",
+    "Model/ModelHub/Sources/ModelHub/HubModelInstaller.swift"
+  ],
+  "addedSwiftTests": [
+    "Model/LanguageModelCore/Tests/LanguageModelCoreTests/FailureMessageBoundaryTests.swift",
+    "Model/LanguageModelCore/Tests/LanguageModelCoreTests/JSONNumericBoundaryTests.swift",
+    "Model/LanguageModelRuntime/Tests/LanguageModelRuntimeTests/ProviderAcquisitionCancellationTests.swift",
+    "Model/ModelHub/Tests/ModelHubTests/HubImportBoundaryTests.swift"
+  ],
+  "newUniqueTests": 21,
+  "modifiedTool": "tools/check-documents.py",
+  "fixes": [
+    {
+      "id": "F01",
+      "priority": "P0",
+      "source": "Model/LanguageModelCore/Sources/LanguageModelCore/JSON/JSONValue+Accessors.swift",
+      "before": "regressions/core-numeric-before.log",
+      "failure": "SIGILL on rounded Double(Int.max)",
+      "tests": "JSONNumericBoundaryTests"
+    },
+    {
+      "id": "F02",
+      "priority": "P1",
+      "source": "Model/LanguageModelCore/Sources/LanguageModelCore/JSON/JSONValue+Bridging.swift",
+      "before": "regressions/core-bridging-before.log",
+      "failure": "NSNumber(0/1) decoded as Bool",
+      "tests": "JSONNumericBoundaryTests"
+    },
+    {
+      "id": "F03",
+      "priority": "P2",
+      "source": "Model/LanguageModelCore/Sources/LanguageModelCore/Contracts/ModelGeneration.swift",
+      "before": "regressions/core-utf8-before.log",
+      "failure": "Diagnostic replaced at multibyte UTF-8 boundary",
+      "tests": "FailureMessageBoundaryTests"
+    },
+    {
+      "id": "F04",
+      "priority": "P1",
+      "source": "Model/LanguageModelRuntime/Sources/LanguageModelRuntime/ModelProviderRegistry.swift",
+      "before": "regressions/registry-cancellation-before.log",
+      "failure": "7 failing tests: late acquisition/availability/catalog and cleanup",
+      "tests": "ProviderAcquisitionCancellationTests"
+    },
+    {
+      "id": "F05",
+      "priority": "P1",
+      "source": "Model/ModelHub/Sources/ModelHub/HubModelInstaller.swift",
+      "before": "regressions/hub-before.log",
+      "failure": "4/5 failing tests: cancellation before effect and invalid returned descriptor; committed result test already passed",
+      "tests": "HubImportBoundaryTests"
+    }
+  ],
+  "remaining": [
+    {
+      "id": "F06",
+      "priority": "P1",
+      "status": "NOT_IMPLEMENTED",
+      "target": "ChatGPT owned invocation/SSE/URLSession completion chain",
+      "blocker": "Full original Text build fails without CryptoKit; wire slice does not cover ModelClient/AccountSession."
+    },
+    {
+      "id": "F07",
+      "status": "DECISION_NEEDED",
+      "target": "cached runtime shutdown/recreation consumer policy"
+    },
+    {
+      "id": "F08-F10/F12",
+      "status": "NOT_RUN",
+      "target": "Apple/native/model/device/ASK root + Agent integrations"
+    },
+    {
+      "id": "F13",
+      "status": "DECISION_NEEDED",
+      "target": "raw provider failure diagnostics/durable identity requirements and redaction policy"
+    },
+    {
+      "id": "F14",
+      "status": "DECISION_NEEDED",
+      "target": "installAndLoad partial effect: use existing explicit install/acquire boundaries when a durable installation result is needed; a new public partial receipt contract requires caller evidence."
+    }
+  ],
+  "noNewProductionUncheckedSendable": true,
+  "publicDeclarationSnapshot": "public-api-snapshot.json",
+  "notClaimed": [
+    "Whole product complete",
+    "All native concurrency warnings fixed",
+    "Mock proves production",
+    "Independent external reviewer performed work"
+  ]
+}

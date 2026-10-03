@@ -1,0 +1,75 @@
+{
+  "note": "Repeated same 44 tests; not additional unique coverage. Production local URLSession, no live ChatGPT.",
+  "runs": [
+    {
+      "iteration": 1,
+      "exitCode": 0,
+      "status": "PASS",
+      "testCount": 44,
+      "forbiddenDispatches": []
+    },
+    {
+      "iteration": 2,
+      "exitCode": 0,
+      "status": "PASS",
+      "testCount": 44,
+      "forbiddenDispatches": []
+    },
+    {
+      "iteration": 3,
+      "exitCode": 0,
+      "status": "PASS",
+      "testCount": 44,
+      "forbiddenDispatches": []
+    },
+    {
+      "iteration": 4,
+      "exitCode": 0,
+      "status": "PASS",
+      "testCount": 44,
+      "forbiddenDispatches": []
+    },
+    {
+      "iteration": 5,
+      "exitCode": 0,
+      "status": "PASS",
+      "testCount": 44,
+      "forbiddenDispatches": []
+    },
+    {
+      "iteration": 6,
+      "exitCode": 0,
+      "status": "PASS",
+      "testCount": 44,
+      "forbiddenDispatches": []
+    },
+    {
+      "iteration": 7,
+      "exitCode": 0,
+      "status": "PASS",
+      "testCount": 44,
+      "forbiddenDispatches": []
+    },
+    {
+      "iteration": 8,
+      "exitCode": 0,
+      "status": "PASS",
+      "testCount": 44,
+      "forbiddenDispatches": []
+    },
+    {
+      "iteration": 9,
+      "exitCode": 0,
+      "status": "PASS",
+      "testCount": 44,
+      "forbiddenDispatches": []
+    },
+    {
+      "iteration": 10,
+      "exitCode": 0,
+      "status": "PASS",
+      "testCount": 44,
+      "forbiddenDispatches": []
+    }
+  ]
+}

@@ -1,0 +1,5 @@
+module ASKCSQLite [system] {
+    header "shim.h"
+    link "sqlite3"
+    export *
+}

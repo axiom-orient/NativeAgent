@@ -1,0 +1,22 @@
+{
+  "page_url": "https://ops.example.com/noise",
+  "expected": {
+    "title": "Noise Filter",
+    "canonical_url": "https://ops.example.com/noise",
+    "language": null,
+    "description": null,
+    "published_at": null,
+    "site_name": "Ops Notes",
+    "markdown": "# Noise Filter\n\nVisible content must stay after noise removal.\n\nAnother visible paragraph survives the pass.\n",
+    "fragments": [
+      {
+        "heading": "Noise Filter",
+        "text": "Visible content must stay after noise removal."
+      },
+      {
+        "heading": "Noise Filter",
+        "text": "Another visible paragraph survives the pass."
+      }
+    ]
+  }
+}

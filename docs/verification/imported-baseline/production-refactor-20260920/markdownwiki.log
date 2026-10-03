@@ -1,0 +1,71 @@
+Building for debugging...
+[0/13] Write sources
+[2/13] Write swift-version--1BA0962812E73E12.txt
+[4/17] Compiling MarkdownWiki ASKMarkdown.swift
+[5/17] Compiling MarkdownWiki ASKMarkdownWiki.swift
+[6/17] Emitting module MarkdownWiki
+[7/17] Compiling MarkdownWiki ASKMarkdownPathPolicy.swift
+[8/18] Wrapping AST for MarkdownWiki for debugging
+[10/20] Emitting module MarkdownWikiTests
+[11/20] Compiling MarkdownWikiTests MarkdownWikiTests.swift
+[12/21] $DATA_ROOT/build/markdownwiki/x86_64-unknown-linux-gnu/debug/MarkdownWikiPackageDiscoveredTests.derived/all-discovered-tests.swift
+[13/21] Write sources
+[14/21] Wrapping AST for MarkdownWikiTests for debugging
+[16/24] Compiling MarkdownWikiPackageDiscoveredTests all-discovered-tests.swift
+[17/24] Emitting module MarkdownWikiPackageDiscoveredTests
+[18/24] Compiling MarkdownWikiPackageDiscoveredTests MarkdownWikiTests.swift
+[19/25] $DATA_ROOT/build/markdownwiki/x86_64-unknown-linux-gnu/debug/MarkdownWikiPackageTests.derived/runner.swift
+[20/25] Write sources
+[21/25] Wrapping AST for MarkdownWikiPackageDiscoveredTests for debugging
+[23/27] Compiling MarkdownWikiPackageTests runner.swift
+[24/27] Emitting module MarkdownWikiPackageTests
+[25/28] Wrapping AST for MarkdownWikiPackageTests for debugging
+[26/28] Write Objects.LinkFileList
+[27/28] Linking MarkdownWikiPackageTests.xctest
+Build complete! (15.73s)
+Test Suite 'All tests' started at 2026-09-20 06:55:07.913
+Test Suite 'debug.xctest' started at 2026-09-20 06:55:07.914
+Test Suite 'debug.xctest' passed at 2026-09-20 06:55:07.914
+	 Executed 0 tests, with 0 failures (0 unexpected) in 0.0 (0.0) seconds
+Test Suite 'All tests' passed at 2026-09-20 06:55:07.914
+	 Executed 0 tests, with 0 failures (0 unexpected) in 0.0 (0.0) seconds
+◇ Test run started.
+↳ Testing Library Version: 6.2.1 (c9d57c83568b06d)
+↳ Target Platform: x86_64-unknown-linux-gnu
+◇ Suite MarkdownWikiTests started.
+◇ Test rollbackLeavesDifferentConcurrentContentUntouched() started.
+◇ Test readCanExcludeLogs() started.
+◇ Test writeBoundaryAllowsOnlyWikiMarkdown() started.
+◇ Test danglingManagedSymlinkCannotBeTreatedAsMissingPath() started.
+◇ Test createRejectsExistingPageExplicitly() started.
+◇ Test descriptorBoundMutationSurvivesManagedAncestorReplacement() started.
+◇ Test failedCreateRemovesNewPage() started.
+◇ Test pathPolicyRejectsTraversalAndAbsolutePaths() started.
+◇ Test bootstrapRejectsManagedSymlinkBeforeWriting() started.
+◇ Test failedWriteRestoresPreviousPageContent() started.
+◇ Test markdownTitleUsesFirstHeading() started.
+◇ Test readTextSeparatesMissingFileFromInvalidEncoding() started.
+◇ Test bootstrapRejectsManagedSymlinkAliasInsideRoot() started.
+◇ Test bootstrapAllowsCallerOwnedRootSymlink() started.
+◇ Test symlinkCannotEscapeWikiRoot() started.
+◇ Test bootstrapCreatesCanonicalLayoutAndSeedPages() started.
+◇ Test snapshotSurfacesInvalidUTF8InsteadOfCreatingEmptyEntry() started.
+✔ Test danglingManagedSymlinkCannotBeTreatedAsMissingPath() passed after 0.018 seconds.
+✔ Test descriptorBoundMutationSurvivesManagedAncestorReplacement() passed after 0.018 seconds.
+✔ Test readCanExcludeLogs() passed after 0.018 seconds.
+✔ Test pathPolicyRejectsTraversalAndAbsolutePaths() passed after 0.018 seconds.
+✔ Test bootstrapRejectsManagedSymlinkBeforeWriting() passed after 0.018 seconds.
+✔ Test createRejectsExistingPageExplicitly() passed after 0.018 seconds.
+✔ Test markdownTitleUsesFirstHeading() passed after 0.018 seconds.
+✔ Test rollbackLeavesDifferentConcurrentContentUntouched() passed after 0.018 seconds.
+✔ Test bootstrapRejectsManagedSymlinkAliasInsideRoot() passed after 0.018 seconds.
+✔ Test failedCreateRemovesNewPage() passed after 0.018 seconds.
+✔ Test symlinkCannotEscapeWikiRoot() passed after 0.018 seconds.
+✔ Test readTextSeparatesMissingFileFromInvalidEncoding() passed after 0.018 seconds.
+✔ Test bootstrapCreatesCanonicalLayoutAndSeedPages() passed after 0.018 seconds.
+✔ Test bootstrapAllowsCallerOwnedRootSymlink() passed after 0.019 seconds.
+✔ Test writeBoundaryAllowsOnlyWikiMarkdown() passed after 0.019 seconds.
+✔ Test failedWriteRestoresPreviousPageContent() passed after 0.020 seconds.
+✔ Test snapshotSurfacesInvalidUTF8InsteadOfCreatingEmptyEntry() passed after 0.021 seconds.
+✔ Suite MarkdownWikiTests passed after 0.022 seconds.
+✔ Test run with 17 tests in 1 suite passed after 0.023 seconds.

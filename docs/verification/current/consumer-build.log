@@ -1,0 +1,67 @@
+Building for debugging...
+[0/17] Write sources
+[7/17] Write swift-version--1BA0962812E73E12.txt
+[9/49] Compiling LanguageModelCore SHA1HexDigest.swift
+[10/49] Compiling LanguageModelCore SHA256HexDigest.swift
+[11/49] Compiling LanguageModelCore JSONCoding.swift
+[12/51] Compiling LanguageModelCore JSONValue+Accessors.swift
+[13/51] Compiling LanguageModelCore LanguageModel.swift
+[14/51] Compiling LanguageModelCore ModelClient.swift
+[15/51] Compiling LanguageModelCore ModelTextSnapshotAccumulator.swift
+[16/51] Compiling LanguageModelCore ModelTool.swift
+[17/51] Compiling LanguageModelCore DeterministicCoreDefaults.swift
+[18/51] Emitting module ChatGPTAccount
+[19/51] Compiling LanguageModelCore JSONValue+Bridging.swift
+[20/51] Compiling LanguageModelCore JSONValue+CanonicalCount.swift
+[21/51] Compiling LanguageModelCore JSONValue+Literals.swift
+[22/51] Compiling LanguageModelCore JSONValue+StructureValidation.swift
+[23/51] Compiling LanguageModelCore JSONValue.swift
+[24/51] Compiling LanguageModelCore ToolSchema+Containers.swift
+[25/51] Compiling LanguageModelCore ToolSchema+Numbers.swift
+[33/57] Emitting module LanguageModelCore
+[36/57] Compiling ChatGPTAccount ChatGPTTransport.swift
+[37/57] Compiling ChatGPTAccount LocalhostCallbackServer.swift
+[38/57] Compiling LanguageModelCore ModelGeneration.swift
+[39/57] Compiling LanguageModelCore ModelStreamContract.swift
+[40/57] Compiling LanguageModelCore ModelTextRequest.swift
+[43/58] Wrapping AST for ChatGPTAccount for debugging
+[45/62] Compiling LanguageModelCore ToolSchema+String.swift
+[46/62] Compiling LanguageModelCore ToolSchema.swift
+[47/62] Compiling LanguageModelCore AgentMessage.swift
+[48/62] Compiling LanguageModelCore ModelContent.swift
+[49/62] Compiling LanguageModelCore ModelEvent.swift
+[50/62] Compiling LanguageModelCore ModelStopReason.swift
+[51/62] Compiling ChatGPTImage ChatGPTImageTypes.swift
+[53/64] Compiling ChatGPTImage ChatGPTImageClient.swift
+[54/64] Emitting module ChatGPTImage
+[55/64] Compiling ChatGPTImage ChatGPTImageLimits.swift
+[55/64] Wrapping AST for LanguageModelCore for debugging
+[57/81] Compiling LanguageModelRuntime ModelRuntime.swift
+[58/81] Compiling LanguageModelRuntime ModelRuntimeAccess.swift
+[59/82] Emitting module LanguageModelRuntime
+[60/85] Compiling ChatGPTImage ChatGPTImageWireCodec.swift
+[61/86] Compiling ChatGPTText SSEParser.swift
+[62/86] Wrapping AST for ChatGPTImage for debugging
+[64/86] Compiling LanguageModelRuntime LocalBackend.swift
+[65/86] Compiling LanguageModelRuntime ModelRunControl.swift
+[66/86] Compiling LanguageModelRuntime ClientLanguageModel.swift
+[67/86] Compiling LanguageModelRuntime LanguageModelExecution.swift
+[71/86] Emitting module ChatGPTText
+[73/87] Compiling LanguageModelRuntime ModelRuntimeTypes.swift
+[74/87] Compiling LanguageModelRuntime ModelSession.swift
+[75/87] Compiling LanguageModelRuntime SessionLedger.swift
+[75/87] Wrapping AST for ChatGPTText for debugging
+[80/87] Compiling LanguageModelRuntime LocalBackendConnector.swift
+[81/87] Compiling LanguageModelRuntime ModelExecutorStore.swift
+[82/87] Compiling LanguageModelRuntime ModelProviderRegistry.swift
+[83/88] Wrapping AST for LanguageModelRuntime for debugging
+[85/91] Compiling ChatGPTTextProvider ChatGPTRuntime.swift
+[86/91] Compiling ChatGPTTextProvider ChatGPTProviderConnector.swift
+[87/91] Emitting module ChatGPTTextProvider
+[88/92] Wrapping AST for ChatGPTTextProvider for debugging
+[90/94] Emitting module QualificationConsumer
+[91/94] Compiling QualificationConsumer Consumer.swift
+[92/95] Wrapping AST for QualificationConsumer for debugging
+[93/95] Write Objects.LinkFileList
+[94/95] Linking QualificationConsumer
+Build complete! (31.61s)

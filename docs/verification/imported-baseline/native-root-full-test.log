@@ -1,0 +1,303 @@
+[0/1] Planning build
+Building for debugging...
+[0/82] Write sources
+[34/85] Copying Fixtures
+[34/85] Write sources
+[36/85] Copying ResponsePolicies
+[37/85] Write swift-version--1BA0962812E73E12.txt
+[39/106] Emitting module NativeAgentMemoryProjection
+[40/111] Compiling LanguageModelCore JSONValue+Bridging.swift
+[41/111] Compiling LanguageModelCore JSONValue+Accessors.swift
+[42/111] Compiling LanguageModelCore ModelGeneration.swift
+[43/111] Emitting module LanguageModelCore
+[45/112] Compiling NativeAgentMemoryProjection SQLiteSchema.swift
+[46/112] Compiling NativeAgentMemoryProjection Store.swift
+[47/112] Compiling NativeAgentMemoryProjection StoreTransactionState.swift
+[48/112] Compiling NativeAgentMemoryProjection Time.swift
+[49/112] Compiling NativeAgentMemoryProjection Workspace.swift
+[50/143] Compiling NativeAgentTools CNContactStoreToolService.swift
+[51/143] Compiling NativeAgentTools ContactsModels.swift
+[52/143] Compiling NativeAgentTools FilesToolPack+Definitions.swift
+[53/143] Compiling NativeAgentTools FilesToolPack+Executors.swift
+[54/143] Compiling NativeAgentTools FilesToolPack+Operations.swift
+[55/143] Emitting module NativeAgentWeb
+[56/143] Compiling NativeAgentWeb Web.swift
+[58/144] Compiling NativeAgentTools AppIntentsToolPack.swift
+[59/144] Compiling NativeAgentTools CalendarModels.swift
+[60/144] Compiling NativeAgentTools CalendarRequests.swift
+[61/144] Compiling NativeAgentTools CalendarToolPack.swift
+[62/144] Compiling NativeAgentTools CalendarToolRendering.swift
+[63/144] Compiling NativeAgentTools EventKitCalendarToolService.swift
+[64/144] Compiling NativeAgentTools FilesToolPack.swift
+[65/144] Compiling NativeAgentTools FilesToolPolicies.swift
+[66/144] Compiling NativeAgentTools HealthSummaryToolPack.swift
+[67/144] Compiling NativeAgentTools MapSearchToolPack.swift
+[68/144] Compiling NativeAgentTools NFCNDEFReaderToolPack.swift
+[70/200] Emitting module NativeAgentTools
+[71/200] Compiling NativeAgentSkills SkillLibrary+Preparation.swift
+[72/200] Compiling NativeAgentSkills SkillLibrary+RemotePlugins.swift
+[73/200] Compiling NativeAgentSkills SkillLibrary+RemoteState.swift
+[74/200] Compiling NativeAgentSkills SkillLibrary+Resolution.swift
+[75/200] Compiling NativeAgentSkills SkillLibrary+Secrets.swift
+[76/200] Compiling NativeAgentSkills SkillLibrary+Selection.swift
+[77/200] Compiling NativeAgentSkills SkillLibrary+Snapshot.swift
+[78/200] Compiling NativeAgentSkills SkillLibrary.swift
+[79/208] Compiling NativeAgentSkills SkillLibraryAccessCompletionPolicy.swift
+[80/208] Compiling NativeAgentSkills SkillLibraryAccessReducer.swift
+[81/208] Compiling NativeAgentSkills SkillLibraryPolicies.swift
+[82/208] Compiling NativeAgentSkills SkillPluginMutationReducer.swift
+[83/208] Compiling NativeAgentSkills SkillTemporaryWorkspace.swift
+[84/208] Compiling NativeAgentSkills SkillWorkspaceAccessCoordinator.swift
+[85/208] Compiling NativeAgentSkills SkillWorkspaceMutation.swift
+[86/208] Compiling NativeAgentSkills SkillWorkspaceTransaction.swift
+[87/208] Compiling NativeAgentSkills SkillWorkspaceTransactionExecutor.swift
+[88/208] Compiling NativeAgentSkills BoundedConcurrentMap.swift
+[89/208] Compiling NativeAgentSkills SkillAgentIntegration.swift
+[90/208] Compiling NativeAgentSkills SkillComposition.swift
+[91/208] Compiling NativeAgentSkills SkillIntentRouterService.swift
+[92/208] Compiling NativeAgentSkills SkillCustomTextPackageBuilder.swift
+[93/208] Compiling NativeAgentSkills SkillDocumentMutationReducer.swift
+[94/208] Compiling NativeAgentSkills SkillDocumentPostCommitFailure.swift
+[95/208] Compiling NativeAgentStoreTests StoreDataPolicyTests.swift
+[96/209] Emitting module NativeAgentWebTests
+[97/209] Compiling NativeAgentWebTests WebTests.swift
+[99/210] Emitting module NativeAgentSkills
+[100/232] Compiling NativeAgentTools PhotoLibraryToolPack.swift
+[101/232] Compiling NativeAgentTools AppleToolPackSupport.swift
+[102/232] Compiling NativeAgentTools ToolCatalogSources.swift
+[103/232] Compiling NativeAgentTools ToolPackBoundedFileReader.swift
+[104/232] Compiling NativeAgentTools ToolPackSupport.swift
+[105/232] Compiling NativeAgentTools ToolWorkspaceFileResolver.swift
+[106/232] Compiling NativeAgentTools SpeechTranscriptionToolPack.swift
+[107/232] Compiling NativeAgentTools VisionAnalysisToolPack.swift
+[109/233] Compiling NativeAgentStoreTests SQLitePreparationTests.swift
+[110/237] Compiling NativeAgentMemoryProjectionTests MemoryEngineBoundaryTests.swift
+[111/237] Compiling NativeAgentMemoryProjectionTests MemoryEngineDomainTests.swift
+[127/237] Compiling NativeAgentStoreTests StoreRootLocatorTests.swift
+[128/237] Compiling NativeAgentDomainTests SHA256HexDigestTests.swift
+[129/238] Compiling NativeAgentMemoryProjectionTests MemoryEngineQueryBuildingTests.swift
+[130/239] Compiling NativeAgentDomainTests OperationCleanupCompletionPolicyTests.swift
+[131/239] Compiling NativeAgentDomainTests SessionPageOverflowTests.swift
+[132/239] Emitting module NativeAgentDomainTests
+[133/239] Compiling NativeAgentMemoryProjectionTests MemoryEngineStoreTests.swift
+[134/239] Compiling NativeAgentDomainTests SessionReducerTests.swift
+[136/240] Compiling NativeAgentMemoryProjectionTests MemorySchemaContractTests.swift
+[137/240] Compiling NativeAgentSkills SkillMarkdownParser.swift
+[138/240] Compiling NativeAgentSkills ManagedSkillModels.swift
+[139/240] Compiling NativeAgentSkills SkillCapabilityRequirements.swift
+[140/240] Compiling NativeAgentSkills SkillToolCallArguments.swift
+[141/240] Compiling NativeAgentSkills SkillJSONPayload.swift
+[142/240] Compiling NativeAgentSkills SkillBoundedFileReader.swift
+[143/240] Compiling NativeAgentSkills SkillFilePolicies.swift
+[144/240] Compiling NativeAgentSkills SkillFileRemoval.swift
+[145/240] Compiling NativeAgentSkills SkillPathPolicies.swift
+[146/240] Compiling NativeAgentSkills SkillPromptLimits.swift
+[147/240] Compiling NativeAgentSkills SkillSystemPromptBuilder.swift
+[148/240] Compiling NativeAgentSkills GitHubRemoteSkillLocation.swift
+[149/240] Compiling NativeAgentSkills GitHubURLRequest.swift
+[150/240] Compiling NativeAgentSkills RemoteSkillFetcher.swift
+[151/240] Compiling NativeAgentSkills URLSessionRemoteSkillFetcher+GitHubContents.swift
+[152/240] Compiling NativeAgentSkills URLSessionRemoteSkillFetcher+GitHubPlugins.swift
+[153/240] Compiling NativeAgentSkills URLSessionRemoteSkillFetcher.swift
+[169/249] Compiling NativeAgentSkills SkillLibrary+Loading.swift
+[170/249] Compiling NativeAgentSkills SkillLibrary+PathValidation.swift
+[171/249] Compiling NativeAgentSkills SkillLibrary+Plugins.swift
+[172/250] Emitting module NativeAgentStoreTests
+[173/250] Compiling NativeAgentStoreTests ApplicationSupportSessionStoreTests.swift
+[174/251] Emitting module NativeAgentMemoryProjectionTests
+[175/251] Compiling NativeAgentToolsTests AppleNativeToolPackTests.swift
+[176/251] Compiling NativeAgentToolsTests AppleServicesLiveTests.swift
+[179/280] Compiling NativeAgentBrowser BrowserSession.swift
+[180/280] Compiling NativeAgentBrowser BrowserSnapshotRunner.swift
+[181/282] Emitting module NativeAgentBrowser
+[182/282] Compiling NativeAgentConsensus ConsensusRoutingModelClient.swift
+[183/282] Compiling NativeAgentConsensus ISO8601Codec.swift
+[184/282] Compiling NativeAgentConsensus JSONCoding.swift
+[185/282] Emitting module NativeAgentConsensus
+[186/288] Compiling NativeAgentBrowser BrowserPolicy.swift
+[187/288] Compiling NativeAgentBrowser BrowserSemanticBridge.swift
+[188/288] Compiling NativeAgentBrowser BrowserToolPack.swift
+[189/288] Compiling NativeAgentBrowser BrowserTypes.swift
+[191/291] Compiling NativeAgentConsensus ConsensusResponseRenderer.swift
+[192/291] Compiling NativeAgentConsensus ConsensusTurnBuilder.swift
+[193/291] Compiling NativeAgentConsensus ConsensusRoleDriver.swift
+[194/291] Compiling NativeAgentConsensus ConsensusRoleJSON.swift
+[195/291] Compiling NativeAgentConsensus ConsensusRolePromptFactory.swift
+[196/291] Compiling NativeAgentConsensus RoleBackedTriad.swift
+[197/291] Emitting module NativeAgentToolsTests
+[198/294] Compiling NativeAgentSkills SkillExecution.swift
+[199/294] Compiling NativeAgentSkills SkillExecutionSnapshot.swift
+[200/294] Compiling NativeAgentSkills SkillIntentToolSchemaValidator.swift
+[201/294] Compiling NativeAgentSkills SkillRuntime+Intent.swift
+[202/294] Compiling NativeAgentSkills SkillRuntime+LoadSkill.swift
+[203/294] Compiling NativeAgentSkills SkillRuntime+RunJS.swift
+[204/294] Compiling NativeAgentSkills SkillRuntime.swift
+[205/294] Compiling NativeAgentSkills SkillRuntimeArtifacts.swift
+[206/294] Compiling NativeAgentSkills SkillRuntimePolicies.swift
+[207/294] Compiling NativeAgentSkills SkillSupportingFileRead.swift
+[208/294] Compiling NativeAgentSkills SkillSecrets.swift
+[209/294] Compiling NativeAgentSkills SkillSnapshotPolicies.swift
+[210/294] Compiling NativeAgentSkills SkillStatePersistenceBoundary.swift
+[211/294] Compiling NativeAgentSkills SkillStatePolicies.swift
+[212/294] Compiling NativeAgentSkills SkillStateStore.swift
+[213/294] Compiling NativeAgentSkills SkillTextExtensions.swift
+[214/294] Compiling NativeAgentSkills SkillWorkspace.swift
+[216/295] Emitting module LanguageModelRuntime
+[217/295] Compiling NativeAgentConsensus SessionConsensusRoleDriver.swift
+[218/295] Compiling NativeAgentConsensus ScriptedActors.swift
+[219/295] Compiling NativeAgentConsensus ScriptedBundle.swift
+[220/295] Compiling NativeAgentConsensus ScriptedRoundResolver.swift
+[221/295] Compiling NativeAgentConsensus Normalization.swift
+[222/295] Compiling NativeAgentConsensus TextUtil.swift
+[223/297] Emitting module NativeAgentHTML
+[224/297] Compiling NativeAgentHTML InteractiveHTMLToolPack.swift
+[225/298] Compiling LanguageModelRuntime ModelProviderRegistry.swift
+[228/309] Compiling NativeAgentSkillsWeb WebKitSkillRunnerError.swift
+[229/309] Compiling NativeAgentSkillsWeb WebKitExecutor.swift
+[230/309] Compiling NativeAgentSkillsWeb WebKitNavigationBox.swift
+[231/311] Compiling NativeAgentSkillsWeb WebKitNoNetworkRuleListCache.swift
+[232/311] Compiling NativeAgentSkillsWeb WebKitPolicyGuardJavaScript.swift
+[233/311] Compiling NativeAgentSkillsWeb DefaultSkillScriptRunner.swift
+[234/311] Compiling NativeAgentSkillsWeb WebKitSkillRunner.swift
+[235/311] Compiling NativeAgentToolsTests ToolCatalogSourceTests.swift
+[236/311] Compiling NativeAgentToolsTests ToolPackFileBoundaryTests.swift
+[237/311] Compiling NativeAgentToolsTests ToolPackTestSupport.swift
+[238/311] Compiling NativeAgentConsensus RunModels.swift
+[244/311] Compiling NativeAgentSkillsWeb WebKitSkillScriptContract.swift
+[245/311] Compiling NativeAgentSkillsWeb WebKitSkillRunnerPolicy.swift
+[246/312] Emitting module NativeAgentSkillsWeb
+[247/312] Compiling NativeAgentHTMLTests InteractiveHTMLTests.swift
+[248/312] Emitting module NativeAgentHTMLTests
+[256/334] Emitting module NativeAgentTestSupport
+[257/342] Compiling NativeAgentTestSupport TestStoreReads.swift
+[258/342] Compiling NativeAgentTestSupport ScriptedModelClient.swift
+[259/342] Compiling NativeAgentTestSupport TestModelRuntime.swift
+error: emit-module command failed with exit code 1 (use -v to see invocation)
+[261/345] Emitting module NativeAgentManager
+$DATA_ROOT/work/NativeAI-Renewed-20260920/Agent/NativeAgent/Sources/NativeAgentManager/Response/AgentResponseLanguage.swift:2:8: error: no such module 'NaturalLanguage'
+ 1 | import Foundation
+ 2 | import NaturalLanguage
+   |        `- error: no such module 'NaturalLanguage'
+ 3 | 
+ 4 | public enum AgentResponseLanguage: String, Codable, CaseIterable, Sendable {
+[262/349] Compiling NativeAgentManager AgentDefinition.swift
+$DATA_ROOT/work/NativeAI-Renewed-20260920/Agent/NativeAgent/Sources/NativeAgentManager/Response/AgentResponseLanguage.swift:2:8: error: no such module 'NaturalLanguage'
+ 1 | import Foundation
+ 2 | import NaturalLanguage
+   |        `- error: no such module 'NaturalLanguage'
+ 3 | 
+ 4 | public enum AgentResponseLanguage: String, Codable, CaseIterable, Sendable {
+[263/349] Compiling NativeAgentManager AgentManager.swift
+$DATA_ROOT/work/NativeAI-Renewed-20260920/Agent/NativeAgent/Sources/NativeAgentManager/Response/AgentResponseLanguage.swift:2:8: error: no such module 'NaturalLanguage'
+ 1 | import Foundation
+ 2 | import NaturalLanguage
+   |        `- error: no such module 'NaturalLanguage'
+ 3 | 
+ 4 | public enum AgentResponseLanguage: String, Codable, CaseIterable, Sendable {
+[264/349] Compiling NativeAgentManager AgentSkillSnapshot.swift
+$DATA_ROOT/work/NativeAI-Renewed-20260920/Agent/NativeAgent/Sources/NativeAgentManager/Response/AgentResponseLanguage.swift:2:8: error: no such module 'NaturalLanguage'
+ 1 | import Foundation
+ 2 | import NaturalLanguage
+   |        `- error: no such module 'NaturalLanguage'
+ 3 | 
+ 4 | public enum AgentResponseLanguage: String, Codable, CaseIterable, Sendable {
+[265/349] Compiling NativeAgentManager AgentWorkspace.swift
+$DATA_ROOT/work/NativeAI-Renewed-20260920/Agent/NativeAgent/Sources/NativeAgentManager/Response/AgentResponseLanguage.swift:2:8: error: no such module 'NaturalLanguage'
+ 1 | import Foundation
+ 2 | import NaturalLanguage
+   |        `- error: no such module 'NaturalLanguage'
+ 3 | 
+ 4 | public enum AgentResponseLanguage: String, Codable, CaseIterable, Sendable {
+[266/349] Compiling NativeAgentManager AgentWorkspaceMutationFence.swift
+$DATA_ROOT/work/NativeAI-Renewed-20260920/Agent/NativeAgent/Sources/NativeAgentManager/Response/AgentResponseLanguage.swift:2:8: error: no such module 'NaturalLanguage'
+ 1 | import Foundation
+ 2 | import NaturalLanguage
+   |        `- error: no such module 'NaturalLanguage'
+ 3 | 
+ 4 | public enum AgentResponseLanguage: String, Codable, CaseIterable, Sendable {
+[269/349] Compiling NativeAgentManager AgentNativeWritingSkill.swift
+[270/351] Compiling NativeAgentMemory MemoryToolPack.swift
+$DATA_ROOT/work/NativeAI-Renewed-20260920/Agent/NativeAgent/Sources/NativeAgentManager/Response/AgentResponseLanguage.swift:2:8: error: no such module 'NaturalLanguage'
+ 1 | import Foundation
+ 2 | import NaturalLanguage
+   |        `- error: no such module 'NaturalLanguage'
+ 3 | 
+ 4 | public enum AgentResponseLanguage: String, Codable, CaseIterable, Sendable {
+[271/351] Compiling NativeAgentMemory MemoryTranscriptSource.swift
+$DATA_ROOT/work/NativeAI-Renewed-20260920/Agent/NativeAgent/Sources/NativeAgentManager/Response/AgentResponseLanguage.swift:2:8: error: no such module 'NaturalLanguage'
+ 1 | import Foundation
+ 2 | import NaturalLanguage
+   |        `- error: no such module 'NaturalLanguage'
+ 3 | 
+ 4 | public enum AgentResponseLanguage: String, Codable, CaseIterable, Sendable {
+[272/351] Compiling NativeAgentManager ManagedRunMetadata.swift
+$DATA_ROOT/work/NativeAI-Renewed-20260920/Agent/NativeAgent/Sources/NativeAgentManager/Response/AgentResponseLanguage.swift:2:8: error: no such module 'NaturalLanguage'
+ 1 | import Foundation
+ 2 | import NaturalLanguage
+   |        `- error: no such module 'NaturalLanguage'
+ 3 | 
+ 4 | public enum AgentResponseLanguage: String, Codable, CaseIterable, Sendable {
+[273/351] Compiling NativeAgentManager AgentCharacterProfile.swift
+$DATA_ROOT/work/NativeAI-Renewed-20260920/Agent/NativeAgent/Sources/NativeAgentManager/Response/AgentResponseLanguage.swift:2:8: error: no such module 'NaturalLanguage'
+ 1 | import Foundation
+ 2 | import NaturalLanguage
+   |        `- error: no such module 'NaturalLanguage'
+ 3 | 
+ 4 | public enum AgentResponseLanguage: String, Codable, CaseIterable, Sendable {
+$DATA_ROOT/work/NativeAI-Renewed-20260920/Agent/NativeAgent/Sources/NativeAgentManager/Response/AgentResponseLanguage.swift:2:8: error: no such module 'NaturalLanguage'
+ 1 | import Foundation
+ 2 | import NaturalLanguage
+   |        `- error: no such module 'NaturalLanguage'
+ 3 | 
+ 4 | public enum AgentResponseLanguage: String, Codable, CaseIterable, Sendable {
+[275/351] Compiling NativeAgentManager AgentProseGuard.swift
+$DATA_ROOT/work/NativeAI-Renewed-20260920/Agent/NativeAgent/Sources/NativeAgentManager/Response/AgentResponseLanguage.swift:2:8: error: no such module 'NaturalLanguage'
+ 1 | import Foundation
+ 2 | import NaturalLanguage
+   |        `- error: no such module 'NaturalLanguage'
+ 3 | 
+ 4 | public enum AgentResponseLanguage: String, Codable, CaseIterable, Sendable {
+[276/351] Compiling NativeAgentManager AgentResponseConfiguration.swift
+$DATA_ROOT/work/NativeAI-Renewed-20260920/Agent/NativeAgent/Sources/NativeAgentManager/Response/AgentResponseLanguage.swift:2:8: error: no such module 'NaturalLanguage'
+ 1 | import Foundation
+ 2 | import NaturalLanguage
+   |        `- error: no such module 'NaturalLanguage'
+ 3 | 
+ 4 | public enum AgentResponseLanguage: String, Codable, CaseIterable, Sendable {
+[277/351] Compiling NativeAgentManager AgentResponseLanguage.swift
+$DATA_ROOT/work/NativeAI-Renewed-20260920/Agent/NativeAgent/Sources/NativeAgentManager/Response/AgentResponseLanguage.swift:2:8: error: no such module 'NaturalLanguage'
+ 1 | import Foundation
+ 2 | import NaturalLanguage
+   |        `- error: no such module 'NaturalLanguage'
+ 3 | 
+ 4 | public enum AgentResponseLanguage: String, Codable, CaseIterable, Sendable {
+[283/351] Compiling NativeAgentManager AgentResponseLocale.swift
+$DATA_ROOT/work/NativeAI-Renewed-20260920/Agent/NativeAgent/Sources/NativeAgentManager/Response/AgentResponseLanguage.swift:2:8: error: no such module 'NaturalLanguage'
+ 1 | import Foundation
+ 2 | import NaturalLanguage
+   |        `- error: no such module 'NaturalLanguage'
+ 3 | 
+ 4 | public enum AgentResponseLanguage: String, Codable, CaseIterable, Sendable {
+[284/351] Compiling NativeAgentManager AgentResponseOptions.swift
+$DATA_ROOT/work/NativeAI-Renewed-20260920/Agent/NativeAgent/Sources/NativeAgentManager/Response/AgentResponseLanguage.swift:2:8: error: no such module 'NaturalLanguage'
+ 1 | import Foundation
+ 2 | import NaturalLanguage
+   |        `- error: no such module 'NaturalLanguage'
+ 3 | 
+ 4 | public enum AgentResponseLanguage: String, Codable, CaseIterable, Sendable {
+[285/351] Compiling NativeAgentManager AgentResponsePromptAugmentor.swift
+$DATA_ROOT/work/NativeAI-Renewed-20260920/Agent/NativeAgent/Sources/NativeAgentManager/Response/AgentResponseLanguage.swift:2:8: error: no such module 'NaturalLanguage'
+ 1 | import Foundation
+ 2 | import NaturalLanguage
+   |        `- error: no such module 'NaturalLanguage'
+ 3 | 
+ 4 | public enum AgentResponseLanguage: String, Codable, CaseIterable, Sendable {
+[286/351] Compiling NativeAgentManager resource_bundle_accessor.swift
+$DATA_ROOT/work/NativeAI-Renewed-20260920/Agent/NativeAgent/Sources/NativeAgentManager/Response/AgentResponseLanguage.swift:2:8: error: no such module 'NaturalLanguage'
+ 1 | import Foundation
+ 2 | import NaturalLanguage
+   |        `- error: no such module 'NaturalLanguage'
+ 3 | 
+ 4 | public enum AgentResponseLanguage: String, Codable, CaseIterable, Sendable {
+[287/351] Emitting module NativeAgentMemory
+error: fatalError

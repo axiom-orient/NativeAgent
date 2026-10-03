@@ -1,0 +1,18 @@
+Test Suite 'All tests' started at 2026-09-20 06:57:11.572
+Test Suite 'debug.xctest' started at 2026-09-20 06:57:11.574
+Test Suite 'debug.xctest' passed at 2026-09-20 06:57:11.574
+	 Executed 0 tests, with 0 failures (0 unexpected) in 0.0 (0.0) seconds
+Test Suite 'All tests' passed at 2026-09-20 06:57:11.574
+	 Executed 0 tests, with 0 failures (0 unexpected) in 0.0 (0.0) seconds
+◇ Test run started.
+↳ Testing Library Version: 6.2.1 (c9d57c83568b06d)
+↳ Target Platform: x86_64-unknown-linux-gnu
+◇ Test unsupportedHostDoesNotSilentlyCreateAnAccount() started.
+◇ Test settledAuthenticationFailureDoesNotBecomeFailedProducerDrain() started.
+◇ Test failedAccountDrainFailsModelProducerReceipt(expired:) started.
+◇ Test case passing 1 argument expired → false to failedAccountDrainFailsModelProducerReceipt(expired:) started.
+◇ Test case passing 1 argument expired → true to failedAccountDrainFailsModelProducerReceipt(expired:) started.
+✔ Test unsupportedHostDoesNotSilentlyCreateAnAccount() passed after 0.005 seconds.
+✔ Test settledAuthenticationFailureDoesNotBecomeFailedProducerDrain() passed after 0.006 seconds.
+✔ Test failedAccountDrainFailsModelProducerReceipt(expired:) with 2 test cases passed after 0.022 seconds.
+✔ Test run with 3 tests in 0 suites passed after 0.023 seconds.

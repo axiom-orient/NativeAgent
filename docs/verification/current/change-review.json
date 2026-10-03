@@ -1,0 +1,685 @@
+{
+  "status": "PASS",
+  "scope": "Input archive versus final authored source tree. Generated evidence is sealed separately by SOURCE_MANIFEST.",
+  "unexpectedMissingFiles": [],
+  "protectedUnchangedFiles": 253,
+  "manifestsUnchanged": 53,
+  "publicDeclarationTextUnchanged": true,
+  "protocolDelta": "Only permitsAuthenticationRefresh arithmetic/negative guard changed; remaining protocol bytes identical.",
+  "productionChanged": [
+    {
+      "path": "Providers/ChatGPT/Account/Sources/ChatGPTAccount/ChatGPTProtocol.swift",
+      "beforeSHA256": "40fea3be35f1b4ac754613cd020e0f00903ffc877e845e7f0e240604c606c7c2",
+      "afterSHA256": "5416c09485b167e5d148d1be73afce64c75cf2dac274c5db0313a32fdb946b36"
+    },
+    {
+      "path": "Providers/ChatGPT/Account/Sources/ChatGPTAccount/LocalhostCallbackServer.swift",
+      "beforeSHA256": "8bea7c7aa59611bd26cd9fc8124eaba11c7002f37b50e9289367ef3c2078217a",
+      "afterSHA256": "556ad84eacd80711b06b45677accde1199e1391451e258ae93f4f91fdffaedfe"
+    }
+  ],
+  "otherAuthoredChanged": [
+    "AGENTS.md",
+    "Agent/NativeAgent/ANALYSIS.md",
+    "Agent/NativeAgent/docs/QUALIFICATION.md",
+    "HANDOFF.md",
+    "Knowledge/ASK/ANALYSIS.md",
+    "Knowledge/ASK/docs/IMPLEMENTATION_STATUS.md",
+    "Model/LanguageModelRuntime/ANALYSIS.md",
+    "Model/ModelHub/ANALYSIS.md",
+    "Providers/ChatGPT/ANALYSIS.md",
+    "Providers/ChatGPT/Account/README.md",
+    "Providers/ChatGPT/Image/README.md",
+    "Qualification/ANALYSIS.md",
+    "Qualification/ChatGPTCompositionChecks/Tests/ChatGPTCompositionTests/ChatGPTTests.swift",
+    "README.md",
+    "docs/ARCHITECTURE.md",
+    "docs/IMPLEMENTATION_STATUS.md",
+    "docs/PACKAGING.md",
+    "docs/PLAN.md",
+    "docs/REVIEW_20260920.md",
+    "docs/SPEC.md",
+    "docs/production/IMPLEMENTATION_REVIEW.md",
+    "docs/production/QUALIFICATION.md",
+    "docs/production/REQUIREMENTS.md",
+    "docs/production/RESEARCH.md",
+    "docs/verification/README.md"
+  ],
+  "addedSwiftFiles": [
+    {
+      "path": "Providers/ChatGPT/Account/Sources/ChatGPTAccount/ChatGPTCallbackRequest.swift",
+      "sha256": "6049d7af5d29a493a3d73e461a72cffb012fc8d48b80f73228d16768a9fe6537"
+    },
+    {
+      "path": "Providers/ChatGPT/Account/Sources/ChatGPTAccount/ChatGPTCallbackState.swift",
+      "sha256": "45f31e9533df1fd58dc038a6bc4ad2cc9117b20fd18d66b91a36e9786ad827e8"
+    },
+    {
+      "path": "Providers/ChatGPT/Account/Tests/ChatGPTAccountTests/CallbackRequestTests.swift",
+      "sha256": "247b4e896bf5c4e803cf4fc7b75ad66bde31eddb653cb8da780cf621de1015b7"
+    },
+    {
+      "path": "Providers/ChatGPT/Account/Tests/ChatGPTAccountTests/CallbackStateTests.swift",
+      "sha256": "efcbd8712ba779ee1c9cfbe97517821691b372fb87bb8547f3f755cc8da77d3e"
+    },
+    {
+      "path": "Providers/ChatGPT/Account/Tests/ChatGPTAccountTests/LocalhostCallbackServerTests.swift",
+      "sha256": "ecef4aeed058f785ec88a1eec4e62a29584fd025e98039d001a6caeecb5b624f"
+    }
+  ],
+  "nativeTestMigration": {
+    "from": "Qualification/ChatGPTCompositionChecks/Tests/ChatGPTCompositionTests/LocalhostCallbackServerTests.swift",
+    "to": "Providers/ChatGPT/Account/Tests/ChatGPTAccountTests/LocalhostCallbackServerTests.swift",
+    "originalFunctionNames": [
+      "validatesTheExactSelectedCallback",
+      "callbackAndRebind",
+      "callbackPendingResultIsDeliveredAtomically",
+      "repeatedLifecycle",
+      "cancellationDuringStartAndWait",
+      "timeoutCleanup",
+      "addressInUseFallback",
+      "bothPortsOccupied",
+      "nonAddressInUseDoesNotFallback",
+      "availableTestPort",
+      "occupyIfAvailable",
+      "start",
+      "cancel"
+    ],
+    "retainedFunctionNames": [
+      "addressInUseFallback",
+      "availableTestPort",
+      "bothPortsOccupied",
+      "callbackAndRebind",
+      "callbackPendingResultIsDeliveredAtomically",
+      "cancellationDuringStartAndWait",
+      "nonAddressInUseDoesNotFallback",
+      "occupyIfAvailable",
+      "repeatedLifecycle",
+      "timeoutCleanup"
+    ],
+    "absentOriginalFunctions": [
+      "cancel",
+      "start",
+      "validatesTheExactSelectedCallback"
+    ],
+    "nativeTestsBefore": 8,
+    "nativeTestsAfter": 14,
+    "removedPureTest": "Integrated into CallbackRequestTests with expanded framing/endpoint cases.",
+    "status": "SOURCE_REVIEWED_NATIVE_NOT_RUN",
+    "removedPrivateHelpers": [
+      "TestPortOccupier.start",
+      "TestPortOccupier.cancel"
+    ],
+    "allEightOriginalNativeTestFunctionsRetained": true
+  },
+  "historicalEvidenceMoves": [
+    {
+      "from": "docs/verification/current/apple-system-contract.log",
+      "to": "docs/verification/imported-baseline/production-refactor-20260920/apple-system-contract.log",
+      "sha256": "2c0b761815c50e22c337c5c3cfd9be293485414dc5befcad2761ce8fa962e3ce"
+    },
+    {
+      "from": "docs/verification/current/archive-account-tests.log",
+      "to": "docs/verification/imported-baseline/production-refactor-20260920/archive-account-tests.log",
+      "sha256": "53bea17f5f648f100fe2fb77597caa43652a5029e270e6960b77442b0382f772"
+    },
+    {
+      "from": "docs/verification/current/archive-recheck.json",
+      "to": "docs/verification/imported-baseline/production-refactor-20260920/archive-recheck.json",
+      "sha256": "45190fa6ac52fde72276af2a11ecc0ca13210e2230291eb97a7384e48f1725a7"
+    },
+    {
+      "from": "docs/verification/current/artifact-environment.log",
+      "to": "docs/verification/imported-baseline/production-refactor-20260920/artifact-environment.log",
+      "sha256": "942291d0524cd66020fc9d72fd2b07d02a195f2c65ec44484c8243eb68125794"
+    },
+    {
+      "from": "docs/verification/current/ask-agent-environment-initial.log",
+      "to": "docs/verification/imported-baseline/production-refactor-20260920/ask-agent-environment-initial.log",
+      "sha256": "f93c69ce53537082fbe51522bd98516619f09f2d3ede12107e9e1009d40c2a36"
+    },
+    {
+      "from": "docs/verification/current/ask-agent-environment.log",
+      "to": "docs/verification/imported-baseline/production-refactor-20260920/ask-agent-environment.log",
+      "sha256": "215509ce46b71ccf11a442046d1302fd46892ce46d0e84dad9c8f6bee17eba97"
+    },
+    {
+      "from": "docs/verification/current/change-review.json",
+      "to": "docs/verification/imported-baseline/production-refactor-20260920/change-review.json",
+      "sha256": "0f17e9ed534d7bd99f6919a8fcb12b7b3ac14880b6d569d2595875c05e0bae97"
+    },
+    {
+      "from": "docs/verification/current/chatgpt-account.log",
+      "to": "docs/verification/imported-baseline/production-refactor-20260920/chatgpt-account.log",
+      "sha256": "49aaf0109fe938904ab5a797be9b301b3a35f1e8e20aed5e46440aa40b75aeb6"
+    },
+    {
+      "from": "docs/verification/current/chatgpt-composition-environment.log",
+      "to": "docs/verification/imported-baseline/production-refactor-20260920/chatgpt-composition-environment.log",
+      "sha256": "37bcfdf90a2d781581fd4df195e8f50a024c16e2f91c0c7e520686673792bb70"
+    },
+    {
+      "from": "docs/verification/current/chatgpt-image.log",
+      "to": "docs/verification/imported-baseline/production-refactor-20260920/chatgpt-image.log",
+      "sha256": "666c9df6b3347ee959e566a1b4b3956072fbe090043df57e9d38119c160b33ed"
+    },
+    {
+      "from": "docs/verification/current/chatgpt-text-provider.log",
+      "to": "docs/verification/imported-baseline/production-refactor-20260920/chatgpt-text-provider.log",
+      "sha256": "5e2bc5eb253ba96b107dfd0e49863d918d6f556bec9c42bf1af0a0fed77e3822"
+    },
+    {
+      "from": "docs/verification/current/chatgpt-text.log",
+      "to": "docs/verification/imported-baseline/production-refactor-20260920/chatgpt-text.log",
+      "sha256": "aea537b0a6e2ef67f710828416f3ae89a6bc2bbe80320b10d25dc5c0ec924ea5"
+    },
+    {
+      "from": "docs/verification/current/chatgpt-wire-repeat-1.log",
+      "to": "docs/verification/imported-baseline/production-refactor-20260920/chatgpt-wire-repeat-1.log",
+      "sha256": "c195f8f4f358d054a921b9432120c42fdb8cd37001037443b67a48c12240c542"
+    },
+    {
+      "from": "docs/verification/current/chatgpt-wire-repeat-2.log",
+      "to": "docs/verification/imported-baseline/production-refactor-20260920/chatgpt-wire-repeat-2.log",
+      "sha256": "3f7a9325c2819ab597bd5df5d1514d7f44d2538d732f2dbbcc2a45ead7ed5210"
+    },
+    {
+      "from": "docs/verification/current/chatgpt-wire-repeat-3.log",
+      "to": "docs/verification/imported-baseline/production-refactor-20260920/chatgpt-wire-repeat-3.log",
+      "sha256": "0072f064adf59a0088fb72025555dfecd554d71823d11012102e51bcedb40a8f"
+    },
+    {
+      "from": "docs/verification/current/chatgpt-wire-repeat.json",
+      "to": "docs/verification/imported-baseline/production-refactor-20260920/chatgpt-wire-repeat.json",
+      "sha256": "521349c77948635e941c1f221b28dcd4331adce6d7ef8b7996c02c4422bbc695"
+    },
+    {
+      "from": "docs/verification/current/chatgpt-wire.json",
+      "to": "docs/verification/imported-baseline/production-refactor-20260920/chatgpt-wire.json",
+      "sha256": "4fd60b51d61001be153fd9caf185bc3eabf5b72082f084d7abeb13db5ed35594"
+    },
+    {
+      "from": "docs/verification/current/chatgpt-wire.log",
+      "to": "docs/verification/imported-baseline/production-refactor-20260920/chatgpt-wire.log",
+      "sha256": "0072f064adf59a0088fb72025555dfecd554d71823d11012102e51bcedb40a8f"
+    },
+    {
+      "from": "docs/verification/current/consumer-example.swift.txt",
+      "to": "docs/verification/imported-baseline/production-refactor-20260920/consumer-example.swift.txt",
+      "sha256": "e6d0f440aada9cd64bee8402f49bf860cd65f8e15b52a1f0a2d0d2c521d09eaf"
+    },
+    {
+      "from": "docs/verification/current/consumer-manifest.swift.txt",
+      "to": "docs/verification/imported-baseline/production-refactor-20260920/consumer-manifest.swift.txt",
+      "sha256": "7af8082887725e92da45498318fefa717669e3dbe38060c24eea3a6c20335a24"
+    },
+    {
+      "from": "docs/verification/current/consumer-qualification.json",
+      "to": "docs/verification/imported-baseline/production-refactor-20260920/consumer-qualification.json",
+      "sha256": "9675799d8fb227b13ece2188d638a5e34eef71e5bdf15226c7b4bf2c3f2f6750"
+    },
+    {
+      "from": "docs/verification/current/consumer-readme-inputs.json",
+      "to": "docs/verification/imported-baseline/production-refactor-20260920/consumer-readme-inputs.json",
+      "sha256": "37ae934bfbb2a4c64a6b7ae36d4516e461c845eb8a689993930752f1a5127080"
+    },
+    {
+      "from": "docs/verification/current/document-check.json",
+      "to": "docs/verification/imported-baseline/production-refactor-20260920/document-check.json",
+      "sha256": "004b913e1dc56302425cbcc742270efe7f5dfdbb628ba2ca172344874a0d71b4"
+    },
+    {
+      "from": "docs/verification/current/environment-gates.json",
+      "to": "docs/verification/imported-baseline/production-refactor-20260920/environment-gates.json",
+      "sha256": "c1f53be6444631d8e0b404ab271d4632ab12f8d4216a449d75b937f1bb37389e"
+    },
+    {
+      "from": "docs/verification/current/final-verification.json",
+      "to": "docs/verification/imported-baseline/production-refactor-20260920/final-verification.json",
+      "sha256": "c37713c527209f0e23c140a78b0589ec570a975983c509f712163de19e1cf4f7"
+    },
+    {
+      "from": "docs/verification/current/htmldocument.log",
+      "to": "docs/verification/imported-baseline/production-refactor-20260920/htmldocument.log",
+      "sha256": "90f51163d380194a3515c205c39216496fc1ec0d0613f16344b410e632f70ac9"
+    },
+    {
+      "from": "docs/verification/current/knowledge-local.json",
+      "to": "docs/verification/imported-baseline/production-refactor-20260920/knowledge-local.json",
+      "sha256": "cb4704592ac1b0dd836f16f3a48a6eab624caa0a0831a37784dc6b727c6b2c8e"
+    },
+    {
+      "from": "docs/verification/current/knowledgecore.log",
+      "to": "docs/verification/imported-baseline/production-refactor-20260920/knowledgecore.log",
+      "sha256": "2bc9861d5ecc40e31c1688ebf52b5f5305ac7c449ec275eeab5c89fc96b2254d"
+    },
+    {
+      "from": "docs/verification/current/knowledgeruntime.log",
+      "to": "docs/verification/imported-baseline/production-refactor-20260920/knowledgeruntime.log",
+      "sha256": "c89f16aa098584705d612e83279ae79d784af542f7017b591dc46195eb253305"
+    },
+    {
+      "from": "docs/verification/current/manifest-evaluation.json",
+      "to": "docs/verification/imported-baseline/production-refactor-20260920/manifest-evaluation.json",
+      "sha256": "7ac6bf6bb461bf1048f28cbd5417ccb21acb7f22a0dddc23160f224f422204c1"
+    },
+    {
+      "from": "docs/verification/current/markdownwiki.log",
+      "to": "docs/verification/imported-baseline/production-refactor-20260920/markdownwiki.log",
+      "sha256": "ccc9c948bb864224c538ae78b7486fc67afe3a7d58013198773d72ca615e03e1"
+    },
+    {
+      "from": "docs/verification/current/mcp-environment-initial.log",
+      "to": "docs/verification/imported-baseline/production-refactor-20260920/mcp-environment-initial.log",
+      "sha256": "24b058fc35ef5e8c18900ddb807f1306fb89b6d3a68b8978e9477c1fa0b972a3"
+    },
+    {
+      "from": "docs/verification/current/mcp-environment.log",
+      "to": "docs/verification/imported-baseline/production-refactor-20260920/mcp-environment.log",
+      "sha256": "261e135eda64568a27332fb3c39fa87f85c64e55cd1ffb44cb6a21bc31b675c0"
+    },
+    {
+      "from": "docs/verification/current/model-core.log",
+      "to": "docs/verification/imported-baseline/production-refactor-20260920/model-core.log",
+      "sha256": "7f64eaf03144366eb81898c25a41e7c52d281dc4b2046d7a06702354378b80a1"
+    },
+    {
+      "from": "docs/verification/current/model-hub.log",
+      "to": "docs/verification/imported-baseline/production-refactor-20260920/model-hub.log",
+      "sha256": "d9b9e983f3744384473cf46c75f87b993bd3cee4b84967590899d5e47710dabd"
+    },
+    {
+      "from": "docs/verification/current/model-runtime.log",
+      "to": "docs/verification/imported-baseline/production-refactor-20260920/model-runtime.log",
+      "sha256": "f53826fedddde33f7f22918249be77f0e339e77a1284286a15ec5da958db69bf"
+    },
+    {
+      "from": "docs/verification/current/native-kernel.json",
+      "to": "docs/verification/imported-baseline/production-refactor-20260920/native-kernel.json",
+      "sha256": "e435c382fc0a2a67784e1de51dae47f9266de9ffa661f328dbb41a45347d1ab5"
+    },
+    {
+      "from": "docs/verification/current/native-kernel.log",
+      "to": "docs/verification/imported-baseline/production-refactor-20260920/native-kernel.log",
+      "sha256": "dc377868093d728eacfd8884cba8ccbdea9eba7969acae3c36d45ad19776c5bc"
+    },
+    {
+      "from": "docs/verification/current/native-language-models.log",
+      "to": "docs/verification/imported-baseline/production-refactor-20260920/native-language-models.log",
+      "sha256": "fdab93fd8160460a66f14bbbd47613d167990d8c1f5f06949b706e49811f1661"
+    },
+    {
+      "from": "docs/verification/current/native-root-build.log",
+      "to": "docs/verification/imported-baseline/production-refactor-20260920/native-root-build.log",
+      "sha256": "b4181315f85f9d99bebb88247c5a54d34f759927c2dabc247d0e49cf55874cb2"
+    },
+    {
+      "from": "docs/verification/current/package-closure-tests.log",
+      "to": "docs/verification/imported-baseline/production-refactor-20260920/package-closure-tests.log",
+      "sha256": "88e99df14c79b2b8b54e19bfe748593fc04331b4abf62e48aa612a926eb90bb4"
+    },
+    {
+      "from": "docs/verification/current/portable.json",
+      "to": "docs/verification/imported-baseline/production-refactor-20260920/portable.json",
+      "sha256": "efe8de6f29c536603ca8a98a2df3775e40ea0c7841ab3e9d6c0e4e145a325fac"
+    },
+    {
+      "from": "docs/verification/current/provenance.json",
+      "to": "docs/verification/imported-baseline/production-refactor-20260920/provenance.json",
+      "sha256": "165440e039a6af7a54e21739458051185331c567cfe357237ee6398fbe6da855"
+    },
+    {
+      "from": "docs/verification/current/regressions/account-parallel-red.log",
+      "to": "docs/verification/imported-baseline/production-refactor-20260920/regressions/account-parallel-red.log",
+      "sha256": "b85499f65069d62ddda99e4da09e38a5f6c23f9108704bd278bb6b9800c599dc"
+    },
+    {
+      "from": "docs/verification/current/regressions/account-red.log",
+      "to": "docs/verification/imported-baseline/production-refactor-20260920/regressions/account-red.log",
+      "sha256": "59995e2af8c0cdc0398bb5c3f117f9dab55fedc932036807d301c2deb7ee83ff"
+    },
+    {
+      "from": "docs/verification/current/regressions/account-relogin-red.log",
+      "to": "docs/verification/imported-baseline/production-refactor-20260920/regressions/account-relogin-red.log",
+      "sha256": "9ba31d14c5f73905df7d277e5a25b6618daa050a5060e6576437b6b9d4c99ca3"
+    },
+    {
+      "from": "docs/verification/current/regressions/consumer-harness-package-identity-red.log",
+      "to": "docs/verification/imported-baseline/production-refactor-20260920/regressions/consumer-harness-package-identity-red.log",
+      "sha256": "6a6b67976baebca4e34020f85119e87944d93f55acc3f8cedb4d86166436f2cc"
+    },
+    {
+      "from": "docs/verification/current/regressions/image-red.log",
+      "to": "docs/verification/imported-baseline/production-refactor-20260920/regressions/image-red.log",
+      "sha256": "c5f20cc719165d948715ac2c876e9bbcba6c6e58650c9c6cd4e7c4fd09e29cde"
+    },
+    {
+      "from": "docs/verification/current/regressions/redirect-callback-before.log",
+      "to": "docs/verification/imported-baseline/production-refactor-20260920/regressions/redirect-callback-before.log",
+      "sha256": "53832754f02aee49213964eaeba89d8e17ac471f385d68f9a329f78f3ffd9051"
+    },
+    {
+      "from": "docs/verification/current/regressions/runtime-retention-red.log",
+      "to": "docs/verification/imported-baseline/production-refactor-20260920/regressions/runtime-retention-red.log",
+      "sha256": "d4c2315e7a2cda3d021609789c12369a753c71bbfd804af0ee1acd4f4dc20911"
+    },
+    {
+      "from": "docs/verification/current/regressions/text-review-red.log",
+      "to": "docs/verification/imported-baseline/production-refactor-20260920/regressions/text-review-red.log",
+      "sha256": "c42f2a6146a4e18f11f088cf3b5fba74bb38f8a85eec11ddd72259a5affe0f88"
+    },
+    {
+      "from": "docs/verification/current/release-account.log",
+      "to": "docs/verification/imported-baseline/production-refactor-20260920/release-account.log",
+      "sha256": "b0acb5f9bd12b190fd0bd81176952b1aa7c204ddd6880e524a1f26a9d043f2ea"
+    },
+    {
+      "from": "docs/verification/current/release-boundary-tests.log",
+      "to": "docs/verification/imported-baseline/production-refactor-20260920/release-boundary-tests.log",
+      "sha256": "6b3eb412851f80635aa908237f68f8439526bed9d6fc1137feff5be5fb7177e9"
+    },
+    {
+      "from": "docs/verification/current/release-core.log",
+      "to": "docs/verification/imported-baseline/production-refactor-20260920/release-core.log",
+      "sha256": "77bec5f639ef2b69efaa0a7c8c3a2920b1a53d899ce5be72de3bd7d59008ac2f"
+    },
+    {
+      "from": "docs/verification/current/release-image.log",
+      "to": "docs/verification/imported-baseline/production-refactor-20260920/release-image.log",
+      "sha256": "9c49c74b06ad011127b9fbbe46ff3db65562be4446131722e229a21c00dcfdf2"
+    },
+    {
+      "from": "docs/verification/current/release-runtime.log",
+      "to": "docs/verification/imported-baseline/production-refactor-20260920/release-runtime.log",
+      "sha256": "aa19f8bc07e10d6028c9d13cbef02232173884657cb1e00c70afd9ccbfcd3178"
+    },
+    {
+      "from": "docs/verification/current/release-text-provider.log",
+      "to": "docs/verification/imported-baseline/production-refactor-20260920/release-text-provider.log",
+      "sha256": "c34323bff897829bd32f9a763f0b950eaab6d4880da5f321c6c6c1ffe241a695"
+    },
+    {
+      "from": "docs/verification/current/release-text.log",
+      "to": "docs/verification/imported-baseline/production-refactor-20260920/release-text.log",
+      "sha256": "42ed8027d66e87c1e22155428c1a51803f6a2cae9c96e1be6d2f2b87435c055c"
+    },
+    {
+      "from": "docs/verification/current/release.json",
+      "to": "docs/verification/imported-baseline/production-refactor-20260920/release.json",
+      "sha256": "51d388c9860ef7bef1818429e122d0d1626350c85050a9a02b56e5fdae733814"
+    },
+    {
+      "from": "docs/verification/current/relocated-consumer-build.log",
+      "to": "docs/verification/imported-baseline/production-refactor-20260920/relocated-consumer-build.log",
+      "sha256": "ef10155fd6bd7268858c656f9302deff173c099d58706565a22b2548bc9365ef"
+    },
+    {
+      "from": "docs/verification/current/relocated-consumer-run.log",
+      "to": "docs/verification/imported-baseline/production-refactor-20260920/relocated-consumer-run.log",
+      "sha256": "68229be925b8f5727d597d607ae119710550dc858bdf7f731861afe773b18120"
+    },
+    {
+      "from": "docs/verification/current/relocated-model-tests.log",
+      "to": "docs/verification/imported-baseline/production-refactor-20260920/relocated-model-tests.log",
+      "sha256": "9d9fdcd1cdfc93f3268731faacb8a211c121ca54b4dacd5bcba6d716d38db859"
+    },
+    {
+      "from": "docs/verification/current/repeat-01-chatgpt-account.log",
+      "to": "docs/verification/imported-baseline/production-refactor-20260920/repeat-01-chatgpt-account.log",
+      "sha256": "1d68e7d47837b4239f8c0fb861d925d38960669b2e0fd99c3fc234548f2dfd99"
+    },
+    {
+      "from": "docs/verification/current/repeat-01-chatgpt-image.log",
+      "to": "docs/verification/imported-baseline/production-refactor-20260920/repeat-01-chatgpt-image.log",
+      "sha256": "e2d697abc8c507fc7c23ae234b5acc1d8ccb04bcf21c637e5b5ea0cccdcfa68f"
+    },
+    {
+      "from": "docs/verification/current/repeat-01-chatgpt-text.log",
+      "to": "docs/verification/imported-baseline/production-refactor-20260920/repeat-01-chatgpt-text.log",
+      "sha256": "24d257e1c7b93b29b02c2426208b55d81f191cfb42eff38f7eabfc64f93bcc33"
+    },
+    {
+      "from": "docs/verification/current/repeat-01-model-runtime.log",
+      "to": "docs/verification/imported-baseline/production-refactor-20260920/repeat-01-model-runtime.log",
+      "sha256": "2234b83370f146262a8353889d0669210faefc53be3e62df5f923390ea75616d"
+    },
+    {
+      "from": "docs/verification/current/repeat-02-chatgpt-account.log",
+      "to": "docs/verification/imported-baseline/production-refactor-20260920/repeat-02-chatgpt-account.log",
+      "sha256": "89afeff0d53fd9690b157abe185b61da0d53a8ceb07d65248e322d7357826cc6"
+    },
+    {
+      "from": "docs/verification/current/repeat-02-chatgpt-image.log",
+      "to": "docs/verification/imported-baseline/production-refactor-20260920/repeat-02-chatgpt-image.log",
+      "sha256": "4add19648f6ef240153a80220038c1d63409d7a99de52e7449869a3f05381a77"
+    },
+    {
+      "from": "docs/verification/current/repeat-02-chatgpt-text.log",
+      "to": "docs/verification/imported-baseline/production-refactor-20260920/repeat-02-chatgpt-text.log",
+      "sha256": "81126e933020c213d54bc833feabb89dc73cf15b6db25d22ec080a5b0a96a5a1"
+    },
+    {
+      "from": "docs/verification/current/repeat-02-model-runtime.log",
+      "to": "docs/verification/imported-baseline/production-refactor-20260920/repeat-02-model-runtime.log",
+      "sha256": "0bcacea704bffb2b91cce4353621b94fcbfa5557ba3718eedb63b8018efc1ed7"
+    },
+    {
+      "from": "docs/verification/current/repeat-03-chatgpt-account.log",
+      "to": "docs/verification/imported-baseline/production-refactor-20260920/repeat-03-chatgpt-account.log",
+      "sha256": "32b1fe55eb3848ffef7c963de055db75853367014144c2ad3559add6250c76cf"
+    },
+    {
+      "from": "docs/verification/current/repeat-03-chatgpt-image.log",
+      "to": "docs/verification/imported-baseline/production-refactor-20260920/repeat-03-chatgpt-image.log",
+      "sha256": "cb48d1503d9cc8303a2f5fcbd37939fe208341dbe91a1f28661d14d328584636"
+    },
+    {
+      "from": "docs/verification/current/repeat-03-chatgpt-text.log",
+      "to": "docs/verification/imported-baseline/production-refactor-20260920/repeat-03-chatgpt-text.log",
+      "sha256": "a1bbc59a25c4141f69934ac87f0c2d97fddcbd1ba209530972f5389a6aa8597a"
+    },
+    {
+      "from": "docs/verification/current/repeat-03-model-runtime.log",
+      "to": "docs/verification/imported-baseline/production-refactor-20260920/repeat-03-model-runtime.log",
+      "sha256": "86360639fd4982abcb52367c4f9590e7e9cf7c0e94a85f29d540bdd0dc394224"
+    },
+    {
+      "from": "docs/verification/current/repeat-04-chatgpt-account.log",
+      "to": "docs/verification/imported-baseline/production-refactor-20260920/repeat-04-chatgpt-account.log",
+      "sha256": "9c8f8f5f44a7f698176d1ee423c392c59a0c07d0c080a64720208ea63ce0962f"
+    },
+    {
+      "from": "docs/verification/current/repeat-04-chatgpt-image.log",
+      "to": "docs/verification/imported-baseline/production-refactor-20260920/repeat-04-chatgpt-image.log",
+      "sha256": "61cd9bbff23f89a68dbaf853967758290d34d7d4ab70b38b489ac052f692d590"
+    },
+    {
+      "from": "docs/verification/current/repeat-04-chatgpt-text.log",
+      "to": "docs/verification/imported-baseline/production-refactor-20260920/repeat-04-chatgpt-text.log",
+      "sha256": "fc395a9329f5c1e4a1bb9343f6b4bf9a3244e6c69b73ab760bc592c64c40f862"
+    },
+    {
+      "from": "docs/verification/current/repeat-04-model-runtime.log",
+      "to": "docs/verification/imported-baseline/production-refactor-20260920/repeat-04-model-runtime.log",
+      "sha256": "376472551fe0363cb782fc88280cf619bf15a23ba5c78569e3894ac82efd72b1"
+    },
+    {
+      "from": "docs/verification/current/repeat-05-chatgpt-account.log",
+      "to": "docs/verification/imported-baseline/production-refactor-20260920/repeat-05-chatgpt-account.log",
+      "sha256": "cd1f87ad55a3698efdec2d446a0f2acc63f92d2bd6d9948ce36473e3907070b6"
+    },
+    {
+      "from": "docs/verification/current/repeat-05-chatgpt-image.log",
+      "to": "docs/verification/imported-baseline/production-refactor-20260920/repeat-05-chatgpt-image.log",
+      "sha256": "4fa7d6ba1d5593043e4bc87b78b0912361a4f2ee96d8c60a3b8955ec094b188f"
+    },
+    {
+      "from": "docs/verification/current/repeat-05-chatgpt-text.log",
+      "to": "docs/verification/imported-baseline/production-refactor-20260920/repeat-05-chatgpt-text.log",
+      "sha256": "3e18533e72bee9be42abda610928d486116769577acb3b0f19eee42a28a95862"
+    },
+    {
+      "from": "docs/verification/current/repeat-05-model-runtime.log",
+      "to": "docs/verification/imported-baseline/production-refactor-20260920/repeat-05-model-runtime.log",
+      "sha256": "b1e9bf3751d9c72887d051ce6b1d83666c1825c1b4665d6968322ee2e6c628e9"
+    },
+    {
+      "from": "docs/verification/current/repeat-06-chatgpt-account.log",
+      "to": "docs/verification/imported-baseline/production-refactor-20260920/repeat-06-chatgpt-account.log",
+      "sha256": "adf26e0c9446cb5f380e75fc9c5fec9f779f661dbab5b458dacf6080d3d5f6e6"
+    },
+    {
+      "from": "docs/verification/current/repeat-06-chatgpt-image.log",
+      "to": "docs/verification/imported-baseline/production-refactor-20260920/repeat-06-chatgpt-image.log",
+      "sha256": "dba5dbd3b014b8fddd2c1f51f3f918976df17494ec2b395614c19291d5927653"
+    },
+    {
+      "from": "docs/verification/current/repeat-06-chatgpt-text.log",
+      "to": "docs/verification/imported-baseline/production-refactor-20260920/repeat-06-chatgpt-text.log",
+      "sha256": "4cf8b85d2acaecc07f28808c9572fbf198af3037de9ee4b7bc91eda9f162c38c"
+    },
+    {
+      "from": "docs/verification/current/repeat-06-model-runtime.log",
+      "to": "docs/verification/imported-baseline/production-refactor-20260920/repeat-06-model-runtime.log",
+      "sha256": "664b2a60a1083b715243a70508053b11d67a64420f2521b2ed16cc3a95e7f437"
+    },
+    {
+      "from": "docs/verification/current/repeat-07-chatgpt-account.log",
+      "to": "docs/verification/imported-baseline/production-refactor-20260920/repeat-07-chatgpt-account.log",
+      "sha256": "19674f53c0a3081c7012b8571cdc8de8a97b128418a92312ad8215a86a63cd10"
+    },
+    {
+      "from": "docs/verification/current/repeat-07-chatgpt-image.log",
+      "to": "docs/verification/imported-baseline/production-refactor-20260920/repeat-07-chatgpt-image.log",
+      "sha256": "e9018935e660a5dff17d8f0203d55ebe51a0bf8d92db7da4e4043a9b39324155"
+    },
+    {
+      "from": "docs/verification/current/repeat-07-chatgpt-text.log",
+      "to": "docs/verification/imported-baseline/production-refactor-20260920/repeat-07-chatgpt-text.log",
+      "sha256": "04fa7b291442d3b783ff454ad9e4524887bb3ad891c2ea50d8bce0d5108a3901"
+    },
+    {
+      "from": "docs/verification/current/repeat-07-model-runtime.log",
+      "to": "docs/verification/imported-baseline/production-refactor-20260920/repeat-07-model-runtime.log",
+      "sha256": "b06955833fd3863c328f592a32466be28d66b7fcb1604e952ea07ccdabd966dd"
+    },
+    {
+      "from": "docs/verification/current/repeat-08-chatgpt-account.log",
+      "to": "docs/verification/imported-baseline/production-refactor-20260920/repeat-08-chatgpt-account.log",
+      "sha256": "cd87cb656b94aa89f179c8f163c57438dde90f83b7dcf6efa6945598668da8dc"
+    },
+    {
+      "from": "docs/verification/current/repeat-08-chatgpt-image.log",
+      "to": "docs/verification/imported-baseline/production-refactor-20260920/repeat-08-chatgpt-image.log",
+      "sha256": "2cd9d3baafb89507f4211f84ae000dd2a298532070f81eb205abd18ea6ff3a1a"
+    },
+    {
+      "from": "docs/verification/current/repeat-08-chatgpt-text.log",
+      "to": "docs/verification/imported-baseline/production-refactor-20260920/repeat-08-chatgpt-text.log",
+      "sha256": "79406b1cc5a3803607527a48f20b3fd45389b78baeae92907c689ffe2fa7d815"
+    },
+    {
+      "from": "docs/verification/current/repeat-08-model-runtime.log",
+      "to": "docs/verification/imported-baseline/production-refactor-20260920/repeat-08-model-runtime.log",
+      "sha256": "c66ea57de47bde1bcbc87f7a2ede1a64250c88b824a31931f7946bd605869bbc"
+    },
+    {
+      "from": "docs/verification/current/repeat-09-chatgpt-account.log",
+      "to": "docs/verification/imported-baseline/production-refactor-20260920/repeat-09-chatgpt-account.log",
+      "sha256": "4a8ec5c1cea11955a6de9ec188f39626ceb41f4637ba88ae2a8055bc551b4302"
+    },
+    {
+      "from": "docs/verification/current/repeat-09-chatgpt-image.log",
+      "to": "docs/verification/imported-baseline/production-refactor-20260920/repeat-09-chatgpt-image.log",
+      "sha256": "d9caa9e56a5baecbdbb79363c49b394e7219fe6e25d6d2f29182a65fcf886686"
+    },
+    {
+      "from": "docs/verification/current/repeat-09-chatgpt-text.log",
+      "to": "docs/verification/imported-baseline/production-refactor-20260920/repeat-09-chatgpt-text.log",
+      "sha256": "7cfcd30ec9cc20b7040e419beed0d7bf715c4e4dd461a13c434cc468a16151ba"
+    },
+    {
+      "from": "docs/verification/current/repeat-09-model-runtime.log",
+      "to": "docs/verification/imported-baseline/production-refactor-20260920/repeat-09-model-runtime.log",
+      "sha256": "bcab006cc8d70e306ab50215e5ade5af52412f19d32067993e5913e3dc473603"
+    },
+    {
+      "from": "docs/verification/current/repeat-10-chatgpt-account.log",
+      "to": "docs/verification/imported-baseline/production-refactor-20260920/repeat-10-chatgpt-account.log",
+      "sha256": "c8d93035cb7c3d5ca12bb1c92b3c1c7d62dbdbf3516a6b4c0b6b9a37e9c96812"
+    },
+    {
+      "from": "docs/verification/current/repeat-10-chatgpt-image.log",
+      "to": "docs/verification/imported-baseline/production-refactor-20260920/repeat-10-chatgpt-image.log",
+      "sha256": "474a70ebbae4be104ed2e7e8b149f7566a8502485e3373310de3039c84fb0758"
+    },
+    {
+      "from": "docs/verification/current/repeat-10-chatgpt-text.log",
+      "to": "docs/verification/imported-baseline/production-refactor-20260920/repeat-10-chatgpt-text.log",
+      "sha256": "ae8ea2ecbf3c793d38ee081bdc5f1a385b033a00cdd829b2d25fb3925e0e78cd"
+    },
+    {
+      "from": "docs/verification/current/repeat-10-model-runtime.log",
+      "to": "docs/verification/imported-baseline/production-refactor-20260920/repeat-10-model-runtime.log",
+      "sha256": "641407d127299fd0329f7a547f2daf8d41277ce9f532d59994b164eed017a8a2"
+    },
+    {
+      "from": "docs/verification/current/repeat-runs.json",
+      "to": "docs/verification/imported-baseline/production-refactor-20260920/repeat-runs.json",
+      "sha256": "e9149a0263126d73a4cc469f3f6e0c1ec1ecd69546546cf331ecd2fb2c3f98b9"
+    },
+    {
+      "from": "docs/verification/current/requirements.json",
+      "to": "docs/verification/imported-baseline/production-refactor-20260920/requirements.json",
+      "sha256": "c2944d7d9623681b5cbd306a9e7a740a652192cd05b921cbcb475f59457af685"
+    },
+    {
+      "from": "docs/verification/current/source-bundles.json",
+      "to": "docs/verification/imported-baseline/production-refactor-20260920/source-bundles.json",
+      "sha256": "eacd3aace48aedc76ed0c307146571dc3db56b595612d44c19c6ab849e0f48f6"
+    },
+    {
+      "from": "docs/verification/current/static-checks.json",
+      "to": "docs/verification/imported-baseline/production-refactor-20260920/static-checks.json",
+      "sha256": "c8cbfaf98b734f84eb6f9b7871383d92844f9b3cffdc94b6cecfd313fadf59d0"
+    },
+    {
+      "from": "docs/verification/current/supplemental.json",
+      "to": "docs/verification/imported-baseline/production-refactor-20260920/supplemental.json",
+      "sha256": "3608d7a28d9128306324ffbbdc6900a9782fdaa6d0f6f1a05ef2770db78ae610"
+    },
+    {
+      "from": "docs/verification/current/whitespace.json",
+      "to": "docs/verification/imported-baseline/production-refactor-20260920/whitespace.json",
+      "sha256": "1c92fbb0105e10df3d82241e1a12323af903c13138a5ba59ce8ad749ed295ea2"
+    }
+  ],
+  "dispositions": {
+    "REMOVE": [
+      "Per-callback MainActor Task hops",
+      "Duplicated shutdown/terminal booleans",
+      "Private Result convenience wrapper",
+      "TestPortOccupier wrapper"
+    ],
+    "INTEGRATE": [
+      "Pure callback parser",
+      "Pure connection/I/O completion ledger",
+      "Native callback tests into Account leaf"
+    ],
+    "KEEP": [
+      "Public products/API",
+      "All manifest/lockfiles/provider pins",
+      "OAuth profile/registered callback ports and ordering",
+      "Keychain policy",
+      "Text/Image independent products",
+      "Agent/ASK approval and journal",
+      "Optional Apple/MLX/LiteRT/LEAP/MCP and MigrationHold",
+      "Existing useful verification tools and raw historical evidence"
+    ]
+  },
+  "limits": [
+    "Textual public API preservation is not ABI compatibility proof.",
+    "Three-perspective self-review, not an independent external reviewer.",
+    "Apple SDK branches have not been typechecked or executed."
+  ]
+}

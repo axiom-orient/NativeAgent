@@ -1,0 +1,384 @@
+Building for debugging...
+[0/19] Write sources
+[5/19] Write swift-version--1BA0962812E73E12.txt
+[7/45] Compiling LanguageModelCore ModelTextSnapshotAccumulator.swift
+[8/45] Compiling LanguageModelCore ModelTool.swift
+[9/45] Compiling LanguageModelCore DeterministicCoreDefaults.swift
+[10/45] Compiling LanguageModelCore SHA1HexDigest.swift
+[11/45] Compiling LanguageModelCore SHA256HexDigest.swift
+[12/45] Compiling LanguageModelCore JSONCoding.swift
+[13/45] Compiling LanguageModelCore JSONValue+Accessors.swift
+[14/51] Compiling LanguageModelCore LanguageModel.swift
+[15/51] Compiling LanguageModelCore ModelClient.swift
+[16/51] Compiling LanguageModelCore ModelClientInvocation.swift
+[17/51] Compiling LanguageModelCore ModelContracts.swift
+[18/51] Compiling LanguageModelCore ModelGeneration.swift
+[19/51] Compiling LanguageModelCore ModelStreamContract.swift
+[20/51] Compiling LanguageModelCore ModelTextRequest.swift
+[21/51] Emitting module ChatGPTAccount
+[22/51] Compiling ChatGPTAccount ChatGPTTransport.swift
+[23/51] Compiling ChatGPTAccount ChatGPTAccountPayload.swift
+[24/51] Compiling ChatGPTAccount ChatGPTProtocol.swift
+[25/52] Wrapping AST for ChatGPTAccount for debugging
+[27/52] Compiling LanguageModelCore JSONValue+Bridging.swift
+[28/52] Compiling LanguageModelCore JSONValue+CanonicalCount.swift
+[29/52] Compiling LanguageModelCore JSONValue+Literals.swift
+[30/52] Compiling LanguageModelCore JSONValue+StructureValidation.swift
+[31/52] Compiling LanguageModelCore JSONValue.swift
+[32/52] Compiling LanguageModelCore ToolSchema+Containers.swift
+[33/52] Compiling LanguageModelCore ToolSchema+Numbers.swift
+[34/55] Emitting module LanguageModelCore
+[35/56] Compiling ChatGPTImage ChatGPTImageWireCodec.swift
+[36/56] Compiling ChatGPTImage ChatGPTImageLimits.swift
+[37/56] Compiling ChatGPTImage ChatGPTImageTypes.swift
+[38/56] Emitting module ChatGPTImage
+[39/56] Compiling LanguageModelCore ToolSchema+String.swift
+[40/56] Compiling LanguageModelCore ToolSchema.swift
+[41/56] Compiling LanguageModelCore AgentMessage.swift
+[42/56] Compiling LanguageModelCore ModelContent.swift
+[43/56] Compiling LanguageModelCore ModelEvent.swift
+[44/56] Compiling LanguageModelCore ModelStopReason.swift
+[46/58] Wrapping AST for ChatGPTImage for debugging
+[47/58] Wrapping AST for LanguageModelCore for debugging
+[49/63] Compiling ChatGPTText ChatGPTTextWire.swift
+[50/63] Compiling ChatGPTText ChatGPTToolWireCodec.swift
+[51/64] Compiling ChatGPTText SSEParser.swift
+[52/64] Compiling ChatGPTText ChatGPTTextPayload.swift
+[53/64] Compiling ChatGPTText ChatGPTTextTypes.swift
+[54/64] Emitting module ChatGPTText
+[55/65] Wrapping AST for ChatGPTText for debugging
+[57/70] Emitting module ChatGPTWireTests
+[58/70] Compiling ChatGPTWireTests ChatGPTAccountPayloadTests.swift
+[59/70] Compiling ChatGPTWireTests ChatGPTImageErrorTests.swift
+[60/70] Compiling ChatGPTWireTests ChatGPTURLSessionTests.swift
+[61/70] Compiling ChatGPTWireTests ChatGPTTransportLifecycleTests.swift
+[62/71] Compiling ChatGPTWireTests ChatGPTWireBoundaryTests.swift
+[63/72] $DATA_ROOT/build/chatgpt-wire/.build/x86_64-unknown-linux-gnu/debug/ChatGPTWireQualificationPackageDiscoveredTests.derived/all-discovered-tests.swift
+[64/72] Write sources
+[65/72] Wrapping AST for ChatGPTWireTests for debugging
+[67/75] Compiling ChatGPTWireQualificationPackageDiscoveredTests all-discovered-tests.swift
+[68/75] Compiling ChatGPTWireQualificationPackageDiscoveredTests ChatGPTWireTests.swift
+[69/75] Emitting module ChatGPTWireQualificationPackageDiscoveredTests
+[70/76] $DATA_ROOT/build/chatgpt-wire/.build/x86_64-unknown-linux-gnu/debug/ChatGPTWireQualificationPackageTests.derived/runner.swift
+[71/76] Write sources
+[72/76] Wrapping AST for ChatGPTWireQualificationPackageDiscoveredTests for debugging
+[74/78] Emitting module ChatGPTWireQualificationPackageTests
+[75/78] Compiling ChatGPTWireQualificationPackageTests runner.swift
+[76/79] Wrapping AST for ChatGPTWireQualificationPackageTests for debugging
+[77/79] Write Objects.LinkFileList
+[78/79] Linking ChatGPTWireQualificationPackageTests.xctest
+Build complete! (13.38s)
+Test Suite 'All tests' started at 2026-09-20 02:51:14.052
+Test Suite 'debug.xctest' started at 2026-09-20 02:51:14.053
+Test Suite 'debug.xctest' passed at 2026-09-20 02:51:14.053
+	 Executed 0 tests, with 0 failures (0 unexpected) in 0.0 (0.0) seconds
+Test Suite 'All tests' passed at 2026-09-20 02:51:14.053
+	 Executed 0 tests, with 0 failures (0 unexpected) in 0.0 (0.0) seconds
+◇ Test run started.
+↳ Testing Library Version: 6.2.1 (c9d57c83568b06d)
+↳ Target Platform: x86_64-unknown-linux-gnu
+◇ Suite ChatGPTRateLimitProjectionTests started.
+◇ Suite ChatGPTAccountPayloadTests started.
+◇ Suite ChatGPTWireBoundaryTests started.
+◇ Suite ChatGPTURLSessionTests started.
+◇ Suite ChatGPTTransportLifecycleTests started.
+◇ Test externallyConstructedRateLimitWindowCannotOverflow() started.
+◇ Test modelDecoderPreservesValidatedIdentityAndNumericFields() started.
+◇ Test booleanAndFractionalQuotaAreNotIntegers() started.
+◇ Test responseRejectsBodyBeforeHeadAndDuplicateHead() started.
+◇ Test responseMustBeBoundedNonemptyObject() started.
+◇ Test imageCodecRejectsMissingOrInvalidPNG() started.
+◇ Test visiblePriorityAndSlugDetermineRecommendation() started.
+◇ Suite ChatGPTImageErrorTests started.
+◇ Test malformedAdditionalLimitCannotDisappearSilently() started.
+◇ Test imageCodecRejectsEmptyPromptAndOversizedBody() started.
+◇ Test sseDiscardsUnterminatedEvent() started.
+◇ Test sseCancellationStillDrainsFromCancelledWaiter() started.
+◇ Test noVisibleModelFailsClosed() started.
+◇ Test legacyStreamDoesNotInventNativeCompletion() started.
+◇ Test serviceLeaseOriginRejectsCredentialLeakTargets() started.
+◇ Test abruptPeerDisconnectCannotBecomeSuccess() started.
+◇ Test sseBoundsEventCountAndFrameBytes() started.
+◇ Test retryBudgetPreservesSingleRefreshOnly() started.
+◇ Test imageNeverReturnsSuccessWhenTransportDrainFails() started.
+◇ Test sseHandlesSplitUTF8AndMultilineData() started.
+◇ Test sseEOFWaitsForTransportSettlement() started.
+◇ Test optionalNullSectionsAndQuotaValuesArePreserved() started.
+◇ Test responseEnforcesCumulativeByteBudget() started.
+◇ Test imageOwnsBytesWithoutModelCoreProjection() started.
+◇ Test imageParseFailureCancelsAndJoinsTransport() started.
+◇ Test invalidLimitIsRejectedBeforeDispatch() started.
+◇ Test imageResponseWaitsForTheSameTransportBoundary() started.
+◇ Test textSSEUsesRealTransportAndCanBeReused() started.
+◇ Test cancellingOneRequestDoesNotCancelAnother() started.
+◇ Test alreadyCancelledCallerCannotStartTransport() started.
+◇ Test successHasIdempotentConcurrentCompletion() started.
+◇ Test rejectedHTTPAttemptDrainsBeforeExposingRetryable401() started.
+◇ Test unprovedTransportDrainFailsBothSSEPorts() started.
+◇ Test redirectIsRejectedWithoutFollowingLocation() started.
+◇ Test chunkedCumulativeLimitFailsButDrains() started.
+◇ Test malformedSSEDrainsBeforeReportingParserFailure() started.
+◇ Test oversizedContentLengthFailsButDrains() started.
+◇ Test cancellationJoinsInvalidationEvenForCancelledCaller() started.
+◇ Test forbiddenIsNotMisreportedAsSignedOut() started.
+◇ Test requestIDLookupIsCaseInsensitiveAndBounded() started.
+✔ Test modelDecoderPreservesValidatedIdentityAndNumericFields() passed after 0.004 seconds.
+✔ Test externallyConstructedRateLimitWindowCannotOverflow() passed after 0.004 seconds.
+✔ Test visiblePriorityAndSlugDetermineRecommendation() passed after 0.004 seconds.
+◇ Test rejectionClassificationKeepsKnownCausesDistinct() started.
+◇ Test invalidRequestRetainsOnlySafeDiagnostics() started.
+✔ Test malformedAdditionalLimitCannotDisappearSilently() passed after 0.004 seconds.
+✔ Test booleanAndFractionalQuotaAreNotIntegers() passed after 0.004 seconds.
+✔ Test imageCodecRejectsMissingOrInvalidPNG() passed after 0.004 seconds.
+✔ Test responseRejectsBodyBeforeHeadAndDuplicateHead() passed after 0.004 seconds.
+✔ Test sseDiscardsUnterminatedEvent() passed after 0.004 seconds.
+✔ Test noVisibleModelFailsClosed() passed after 0.004 seconds.
+✔ Test retryBudgetPreservesSingleRefreshOnly() passed after 0.004 seconds.
+✔ Test sseHandlesSplitUTF8AndMultilineData() passed after 0.004 seconds.
+✔ Test imageOwnsBytesWithoutModelCoreProjection() passed after 0.004 seconds.
+✔ Test serviceLeaseOriginRejectsCredentialLeakTargets() passed after 0.004 seconds.
+✔ Test optionalNullSectionsAndQuotaValuesArePreserved() passed after 0.004 seconds.
+✔ Test sseBoundsEventCountAndFrameBytes() passed after 0.004 seconds.
+✔ Test responseEnforcesCumulativeByteBudget() passed after 0.004 seconds.
+✔ Test responseMustBeBoundedNonemptyObject() passed after 0.008 seconds.
+✔ Test imageCodecRejectsEmptyPromptAndOversizedBody() passed after 0.008 seconds.
+✔ Suite ChatGPTAccountPayloadTests passed after 0.010 seconds.
+✔ Suite ChatGPTRateLimitProjectionTests passed after 0.010 seconds.
+✔ Test forbiddenIsNotMisreportedAsSignedOut() passed after 0.005 seconds.
+✔ Test requestIDLookupIsCaseInsensitiveAndBounded() passed after 0.005 seconds.
+✔ Test invalidRequestRetainsOnlySafeDiagnostics() passed after 0.005 seconds.
+✔ Suite ChatGPTWireBoundaryTests passed after 0.010 seconds.
+✔ Test legacyStreamDoesNotInventNativeCompletion() passed after 0.010 seconds.
+✔ Test invalidLimitIsRejectedBeforeDispatch() passed after 0.010 seconds.
+✔ Test rejectionClassificationKeepsKnownCausesDistinct() passed after 0.006 seconds.
+✔ Test alreadyCancelledCallerCannotStartTransport() passed after 0.010 seconds.
+✔ Suite ChatGPTImageErrorTests passed after 0.011 seconds.
+✔ Test imageNeverReturnsSuccessWhenTransportDrainFails() passed after 0.011 seconds.
+✔ Test imageParseFailureCancelsAndJoinsTransport() passed after 0.010 seconds.
+✔ Test imageResponseWaitsForTheSameTransportBoundary() passed after 0.011 seconds.
+✔ Test sseCancellationStillDrainsFromCancelledWaiter() passed after 0.011 seconds.
+✔ Test sseEOFWaitsForTransportSettlement() passed after 0.011 seconds.
+✔ Test rejectedHTTPAttemptDrainsBeforeExposingRetryable401() passed after 0.011 seconds.
+✔ Test unprovedTransportDrainFailsBothSSEPorts() passed after 0.011 seconds.
+✔ Test malformedSSEDrainsBeforeReportingParserFailure() passed after 0.011 seconds.
+✔ Suite ChatGPTTransportLifecycleTests passed after 0.011 seconds.
+✔ Test successHasIdempotentConcurrentCompletion() passed after 0.014 seconds.
+FoundationNetworking/HTTPURLProtocol.swift:705: Fatal error: Received callback for HTTP redirection, but we're not waiting for it. Was it called multiple times?
+
+*** Signal 4: Backtracing from 0x7f35048f4788... done ***
+
+*** Program crashed: Illegal instruction at 0x00007f35048f4788 ***
+
+Platform: x86_64 Linux (Debian GNU/Linux 13 (trixie))
+
+Thread 0 "ChatGPTWireQual":
+
+  0      0x00007f3502ea7687 <unknown> in libc.so.6
+  1 [ra] 0x00007f350435ba39 _dispatch_sig_thread + 8 in libdispatch.so
+...
+
+Thread 1:
+
+  0  0x00007f3502eb29ee <unknown> in libc.so.6
+...
+
+Thread 2:
+
+  0              0x00007f3502f267b9 <unknown> in libc.so.6
+  1 [ra]         0x00007f3504366217 _dispatch_thread_event_wait_slow + 38 in libdispatch.so
+  2 [ra]         0x00007f350435c5bf __DISPATCH_WAIT_FOR_QUEUE__ + 286 in libdispatch.so
+  3 [ra]         0x00007f350435c0f6 _dispatch_sync_f_slow + 197 in libdispatch.so
+  4 [ra]         0x00007f3504317e22 DispatchQueue.sync(execute:) + 145 in libswiftDispatch.so
+  5 [ra]         0x0000564031443783 URLSessionChatGPTOperation.urlSession(_:dataTask:didReceive:) + 1538 in ChatGPTWireQualificationPackageTests.xctest at $DATA_ROOT/build/chatgpt-wire/Sources/ChatGPTAccount/ChatGPTTransport.swift:217:16
+  6 [ra] [thunk] 0x00005640314442d9 protocol witness for URLSessionDataDelegate.urlSession(_:dataTask:didReceive:) in conformance URLSessionChatGPTOperation + 8 in ChatGPTWireQualificationPackageTests.xctest at //<compiler-generated>
+  7 [ra] [thunk] 0x00007f35033fb349 partial apply for closure #1 in _NativeProtocol.notifyDelegate(aboutReceivedData:) + 40 in libFoundationNetworking.so
+  8 [ra] [thunk] 0x00007f3503ffaaa1 partial apply for thunk for @escaping @callee_guaranteed @Sendable () -> () + 16 in libFoundation.so
+  9 [ra]         0x00007f3503ffd132 BlockOperation.main() + 385 in libFoundation.so
+ 10 [ra]         0x00007f3503ffe28f OperationQueue._execute(_:) + 222 in libFoundation.so
+ 11 [ra]         0x00007f3503ffb92d Operation.start() + 476 in libFoundation.so
+ 12 [ra]         0x00007f3503ffd930 OperationQueue._schedule(_:) + 143 in libFoundation.so
+ 13 [ra] [thunk] 0x00007f3503ffafa7 partial apply for closure #2 in OperationQueue._addOperations(_:barrier:) + 22 in libFoundation.so
+ 14 [ra] [thunk] 0x00007f350401e889 thunk for @escaping @callee_guaranteed () -> () + 24 in libFoundation.so
+ 15 [ra]         0x00007f350435bddb _dispatch_block_async_invoke2 + 58 in libdispatch.so
+ 16 [ra]         0x00007f3504354ea8 _dispatch_continuation_pop + 279 in libdispatch.so
+ 17 [ra]         0x00007f3504354cd4 _dispatch_async_redirect_invoke + 195 in libdispatch.so
+ 18 [ra]         0x00007f350435dee5 _dispatch_worker_thread + 436 in libdispatch.so
+ 19 [ra]         0x00007f3502eaab7b <unknown> in libc.so.6
+...
+
+Thread 3:
+
+  0      0x00007f3502eb29ee <unknown> in libc.so.6
+  1 [ra] 0x00007f350435ae02 _dispatch_mgr_invoke + 129 in libdispatch.so
+  2 [ra] 0x00007f350435ad6d _dispatch_mgr_thread + 108 in libdispatch.so
+  3 [ra] 0x00007f350435dee5 _dispatch_worker_thread + 436 in libdispatch.so
+  4 [ra] 0x00007f3502eaab7b <unknown> in libc.so.6
+...
+
+Thread 4:
+
+  0              0x00007f3502f267b9 <unknown> in libc.so.6
+  1 [ra]         0x00007f3504366217 _dispatch_thread_event_wait_slow + 38 in libdispatch.so
+  2 [ra]         0x00007f350435c5bf __DISPATCH_WAIT_FOR_QUEUE__ + 286 in libdispatch.so
+  3 [ra]         0x00007f350435c0f6 _dispatch_sync_f_slow + 197 in libdispatch.so
+  4 [ra]         0x00007f3504317e22 DispatchQueue.sync(execute:) + 145 in libswiftDispatch.so
+  5 [ra]         0x0000564031443783 URLSessionChatGPTOperation.urlSession(_:dataTask:didReceive:) + 1538 in ChatGPTWireQualificationPackageTests.xctest at $DATA_ROOT/build/chatgpt-wire/Sources/ChatGPTAccount/ChatGPTTransport.swift:217:16
+  6 [ra] [thunk] 0x00005640314442d9 protocol witness for URLSessionDataDelegate.urlSession(_:dataTask:didReceive:) in conformance URLSessionChatGPTOperation + 8 in ChatGPTWireQualificationPackageTests.xctest at //<compiler-generated>
+  7 [ra] [thunk] 0x00007f35033fb349 partial apply for closure #1 in _NativeProtocol.notifyDelegate(aboutReceivedData:) + 40 in libFoundationNetworking.so
+  8 [ra] [thunk] 0x00007f3503ffaaa1 partial apply for thunk for @escaping @callee_guaranteed @Sendable () -> () + 16 in libFoundation.so
+  9 [ra]         0x00007f3503ffd132 BlockOperation.main() + 385 in libFoundation.so
+ 10 [ra]         0x00007f3503ffe28f OperationQueue._execute(_:) + 222 in libFoundation.so
+ 11 [ra]         0x00007f3503ffb92d Operation.start() + 476 in libFoundation.so
+ 12 [ra]         0x00007f3503ffd930 OperationQueue._schedule(_:) + 143 in libFoundation.so
+ 13 [ra] [thunk] 0x00007f3503ffafa7 partial apply for closure #2 in OperationQueue._addOperations(_:barrier:) + 22 in libFoundation.so
+ 14 [ra] [thunk] 0x00007f350401e889 thunk for @escaping @callee_guaranteed () -> () + 24 in libFoundation.so
+ 15 [ra]         0x00007f350435bddb _dispatch_block_async_invoke2 + 58 in libdispatch.so
+ 16 [ra]         0x00007f3504354ea8 _dispatch_continuation_pop + 279 in libdispatch.so
+ 17 [ra]         0x00007f3504354cd4 _dispatch_async_redirect_invoke + 195 in libdispatch.so
+ 18 [ra]         0x00007f350435dee5 _dispatch_worker_thread + 436 in libdispatch.so
+ 19 [ra]         0x00007f3502eaab7b <unknown> in libc.so.6
+...
+
+Thread 5:
+
+  0                  0x00007f3502f267b9 <unknown> in libc.so.6
+  1 [ra]             0x00007f3504366217 _dispatch_thread_event_wait_slow + 38 in libdispatch.so
+  2 [ra]             0x00007f350435c5bf __DISPATCH_WAIT_FOR_QUEUE__ + 286 in libdispatch.so
+  3 [ra]             0x00007f350435c0f6 _dispatch_sync_f_slow + 197 in libdispatch.so
+  4 [ra]             0x00007f3504317e22 DispatchQueue.sync(execute:) + 145 in libswiftDispatch.so
+  5 [ra]             0x00007f3503405a2e URLSession.invalidateAndCancel() + 189 in libFoundationNetworking.so
+  6 [ra]             0x000056403143e996 URLSessionChatGPTOperation.finish(throwing:) + 1013 in ChatGPTWireQualificationPackageTests.xctest at $DATA_ROOT/build/chatgpt-wire/Sources/ChatGPTAccount/ChatGPTTransport.swift:274:21
+  7 [ra]             0x00005640314427f5 URLSessionChatGPTOperation.cancel() + 84 in ChatGPTWireQualificationPackageTests.xctest at $DATA_ROOT/build/chatgpt-wire/Sources/ChatGPTAccount/ChatGPTTransport.swift:256:5
+  8 [ra]             0x000056403143df1b closure #2 in URLSessionChatGPTOperation.start(_:) + 26 in ChatGPTWireQualificationPackageTests.xctest at $DATA_ROOT/build/chatgpt-wire/Sources/ChatGPTAccount/ChatGPTTransport.swift:159:22
+  9 [ra]             0x00005640314ece8d ChatGPTURLSessionTests.cancellingOneRequestDoesNotCancelAnother() + 76 in ChatGPTWireQualificationPackageTests.xctest at $DATA_ROOT/build/chatgpt-wire/Tests/ChatGPTWireTests/ChatGPTURLSessionTests.swift:96:13
+ 10 [async]          0x00005640314ec4c0 static ChatGPTURLSessionTests.$s16ChatGPTWireTests0a13GPTURLSessionC0V40cancellingOneRequestDoesNotCancelAnother4TestfMp_16ee6ded5f184c406dfMu_@Sendable () in ChatGPTWireQualificationPackageTests.xctest at $TMPDIR/swift-generated-sources/@__swiftmacro_16ChatGPTWireTests0a13GPTURLSessionC0V40cancellingOneRequestDoesNotCancelAnother4TestfMp_.swift:4
+ 11 [async] [system] 0x00005640314ee0c0 implicit closure #1 in static ChatGPTURLSessionTests.$s16ChatGPTWireTests0a13GPTURLSessionC0V40cancellingOneRequestDoesNotCancelAnother4TestfMp_25generatoree6ded5f184c406dfMu_@Sendable () in ChatGPTWireQualificationPackageTests.xctest at $TMPDIR/swift-generated-sources/@__swiftmacro_16ChatGPTWireTests0a13GPTURLSessionC0V40cancellingOneRequestDoesNotCancelAnother4TestfMp_.swift
+ 12 [async] [thunk]  0x00005640314f2ad0 partial apply for implicit closure #1 in static ChatGPTURLSessionTests.$s16ChatGPTWireTests0a13GPTURLSessionC0V40cancellingOneRequestDoesNotCancelAnother4TestfMp_25generatoree6ded5f184c406dfMu_@Sendable () in ChatGPTWireQualificationPackageTests.xctest at //<compiler-generated>
+ 13 [async]          0x00007f35032903e0 closure #1 in closure #1 in closure #1 in closure #1 in static Runner._runTestCase(_:within:) in libTesting.so
+ 14 [async] [thunk]  0x00007f3503290270 partial apply for closure #1 in closure #1 in closure #1 in closure #1 in static Runner._runTestCase(_:within:) in libTesting.so
+ 15 [async] [thunk]  0x00007f35032903b0 thunk for @escaping @callee_guaranteed @Sendable @async () -> (@error @owned Error) in libTesting.so
+ 16 [async]          0x00007f3503290280 partial apply for thunk for @escaping @callee_guaranteed @Sendable @async () -> (@error @owned Error) in libTesting.so
+ 17 [async]          0x00007f350328f240 specialized closure #1 in closure #1 in closure #1 in static Runner._runTestCase(_:within:) in libTesting.so
+ 18 [async]          0x00007f350327d0b0 closure #1 in closure #1 in closure #1 in static Runner._runTestCase(_:within:) in libTesting.so
+ 19 [async] [thunk]  0x00007f3503290220 partial apply for closure #1 in closure #1 in closure #1 in static Runner._runTestCase(_:within:) in libTesting.so
+ 20 [async]          0x00007f35032d7ac0 closure #1 in withTimeLimit(for:configuration:_:timeoutHandler:) in libTesting.so
+ 21 [async] [thunk]  0x00007f350328f340 partial apply for closure #1 in withTimeLimit(for:configuration:_:timeoutHandler:) in libTesting.so
+ 22 [async] [thunk]  0x00007f35032903f0 thunk for @escaping @callee_guaranteed @Sendable @async () -> (@error @owned Error) in libTesting.so
+ 23 [async] [thunk]  0x00007f3503290250 partial apply for thunk for @escaping @callee_guaranteed @Sendable @async () -> (@error @owned Error) in libTesting.so
+ 24 [async] [thunk]  0x00007f3503290400 thunk for @escaping @isolated(any) @callee_guaranteed @async () -> (@error @owned Error) in libTesting.so
+ 25 [async] [thunk]  0x00007f3503290260 partial apply for thunk for @escaping @isolated(any) @callee_guaranteed @async () -> (@error @owned Error) in libTesting.so
+ 26 [async] [system] 0x00007f35045e05e0 completeTaskWithClosure(swift::AsyncContext*, swift::SwiftError*) in libswift_Concurrency.so
+...
+
+Thread 6:
+
+  0              0x00007f3502f267b9 <unknown> in libc.so.6
+  1 [ra]         0x00007f3504366217 _dispatch_thread_event_wait_slow + 38 in libdispatch.so
+  2 [ra]         0x00007f350435c5bf __DISPATCH_WAIT_FOR_QUEUE__ + 286 in libdispatch.so
+  3 [ra]         0x00007f350435c0f6 _dispatch_sync_f_slow + 197 in libdispatch.so
+  4 [ra]         0x00007f3504317e22 DispatchQueue.sync(execute:) + 145 in libswiftDispatch.so
+  5 [ra]         0x0000564031443783 URLSessionChatGPTOperation.urlSession(_:dataTask:didReceive:) + 1538 in ChatGPTWireQualificationPackageTests.xctest at $DATA_ROOT/build/chatgpt-wire/Sources/ChatGPTAccount/ChatGPTTransport.swift:217:16
+  6 [ra] [thunk] 0x00005640314442d9 protocol witness for URLSessionDataDelegate.urlSession(_:dataTask:didReceive:) in conformance URLSessionChatGPTOperation + 8 in ChatGPTWireQualificationPackageTests.xctest at //<compiler-generated>
+  7 [ra] [thunk] 0x00007f35033fb349 partial apply for closure #1 in _NativeProtocol.notifyDelegate(aboutReceivedData:) + 40 in libFoundationNetworking.so
+  8 [ra] [thunk] 0x00007f3503ffaaa1 partial apply for thunk for @escaping @callee_guaranteed @Sendable () -> () + 16 in libFoundation.so
+  9 [ra]         0x00007f3503ffd132 BlockOperation.main() + 385 in libFoundation.so
+ 10 [ra]         0x00007f3503ffe28f OperationQueue._execute(_:) + 222 in libFoundation.so
+ 11 [ra]         0x00007f3503ffb92d Operation.start() + 476 in libFoundation.so
+ 12 [ra]         0x00007f3503ffd930 OperationQueue._schedule(_:) + 143 in libFoundation.so
+ 13 [ra] [thunk] 0x00007f3503ffafa7 partial apply for closure #2 in OperationQueue._addOperations(_:barrier:) + 22 in libFoundation.so
+ 14 [ra] [thunk] 0x00007f350401e889 thunk for @escaping @callee_guaranteed () -> () + 24 in libFoundation.so
+ 15 [ra]         0x00007f350435bddb _dispatch_block_async_invoke2 + 58 in libdispatch.so
+ 16 [ra]         0x00007f3504354ea8 _dispatch_continuation_pop + 279 in libdispatch.so
+ 17 [ra]         0x00007f3504354cd4 _dispatch_async_redirect_invoke + 195 in libdispatch.so
+ 18 [ra]         0x00007f350435dee5 _dispatch_worker_thread + 436 in libdispatch.so
+ 19 [ra]         0x00007f3502eaab7b <unknown> in libc.so.6
+...
+
+Thread 7:
+
+  0                  0x00007f3502f267b9 <unknown> in libc.so.6
+  1 [ra]             0x00007f3504366217 _dispatch_thread_event_wait_slow + 38 in libdispatch.so
+  2 [ra]             0x00007f350435c5bf __DISPATCH_WAIT_FOR_QUEUE__ + 286 in libdispatch.so
+  3 [ra]             0x00007f350435c0f6 _dispatch_sync_f_slow + 197 in libdispatch.so
+  4 [ra]             0x00007f3504317e22 DispatchQueue.sync(execute:) + 145 in libswiftDispatch.so
+  5 [ra]             0x000056403143e996 URLSessionChatGPTOperation.finish(throwing:) + 1013 in ChatGPTWireQualificationPackageTests.xctest at $DATA_ROOT/build/chatgpt-wire/Sources/ChatGPTAccount/ChatGPTTransport.swift:274:21
+  6 [ra]             0x00005640314427f5 URLSessionChatGPTOperation.cancel() + 84 in ChatGPTWireQualificationPackageTests.xctest at $DATA_ROOT/build/chatgpt-wire/Sources/ChatGPTAccount/ChatGPTTransport.swift:256:5
+  7 [ra]             0x000056403143df1b closure #2 in URLSessionChatGPTOperation.start(_:) + 26 in ChatGPTWireQualificationPackageTests.xctest at $DATA_ROOT/build/chatgpt-wire/Sources/ChatGPTAccount/ChatGPTTransport.swift:159:22
+  8 [ra]             0x00005640314e40cb ChatGPTURLSessionTests.cancellationJoinsInvalidationEvenForCancelledCaller() + 250 in ChatGPTWireQualificationPackageTests.xctest at $DATA_ROOT/build/chatgpt-wire/Tests/ChatGPTWireTests/ChatGPTURLSessionTests.swift:32:15
+  9 [async]          0x00005640314e3980 static ChatGPTURLSessionTests.$s16ChatGPTWireTests0a13GPTURLSessionC0V51cancellationJoinsInvalidationEvenForCancelledCaller4TestfMp_16b93e72a13e5f360efMu_@Sendable () in ChatGPTWireQualificationPackageTests.xctest at $TMPDIR/swift-generated-sources/@__swiftmacro_16ChatGPTWireTests0a13GPTURLSessionC0V51cancellationJoinsInvalidationEvenForCancelledCaller4TestfMp_.swift:4
+ 10 [async] [system] 0x00005640314e5020 implicit closure #1 in static ChatGPTURLSessionTests.$s16ChatGPTWireTests0a13GPTURLSessionC0V51cancellationJoinsInvalidationEvenForCancelledCaller4TestfMp_25generatorb93e72a13e5f360efMu_@Sendable () in ChatGPTWireQualificationPackageTests.xctest at $TMPDIR/swift-generated-sources/@__swiftmacro_16ChatGPTWireTests0a13GPTURLSessionC0V51cancellationJoinsInvalidationEvenForCancelledCaller4TestfMp_.swift
+ 11 [async] [thunk]  0x00005640314f2000 partial apply for implicit closure #1 in static ChatGPTURLSessionTests.$s16ChatGPTWireTests0a13GPTURLSessionC0V51cancellationJoinsInvalidationEvenForCancelledCaller4TestfMp_25generatorb93e72a13e5f360efMu_@Sendable () in ChatGPTWireQualificationPackageTests.xctest at //<compiler-generated>
+ 12 [async]          0x00007f35032903e0 closure #1 in closure #1 in closure #1 in closure #1 in static Runner._runTestCase(_:within:) in libTesting.so
+ 13 [async] [thunk]  0x00007f3503290270 partial apply for closure #1 in closure #1 in closure #1 in closure #1 in static Runner._runTestCase(_:within:) in libTesting.so
+ 14 [async] [thunk]  0x00007f35032903b0 thunk for @escaping @callee_guaranteed @Sendable @async () -> (@error @owned Error) in libTesting.so
+ 15 [async]          0x00007f3503290280 partial apply for thunk for @escaping @callee_guaranteed @Sendable @async () -> (@error @owned Error) in libTesting.so
+ 16 [async]          0x00007f350328f240 specialized closure #1 in closure #1 in closure #1 in static Runner._runTestCase(_:within:) in libTesting.so
+ 17 [async]          0x00007f350327d0b0 closure #1 in closure #1 in closure #1 in static Runner._runTestCase(_:within:) in libTesting.so
+ 18 [async] [thunk]  0x00007f3503290220 partial apply for closure #1 in closure #1 in closure #1 in static Runner._runTestCase(_:within:) in libTesting.so
+ 19 [async]          0x00007f35032d7ac0 closure #1 in withTimeLimit(for:configuration:_:timeoutHandler:) in libTesting.so
+ 20 [async] [thunk]  0x00007f350328f340 partial apply for closure #1 in withTimeLimit(for:configuration:_:timeoutHandler:) in libTesting.so
+ 21 [async] [thunk]  0x00007f35032903f0 thunk for @escaping @callee_guaranteed @Sendable @async () -> (@error @owned Error) in libTesting.so
+ 22 [async] [thunk]  0x00007f3503290250 partial apply for thunk for @escaping @callee_guaranteed @Sendable @async () -> (@error @owned Error) in libTesting.so
+ 23 [async] [thunk]  0x00007f3503290400 thunk for @escaping @isolated(any) @callee_guaranteed @async () -> (@error @owned Error) in libTesting.so
+ 24 [async] [thunk]  0x00007f3503290260 partial apply for thunk for @escaping @isolated(any) @callee_guaranteed @async () -> (@error @owned Error) in libTesting.so
+ 25 [async] [system] 0x00007f35045e05e0 completeTaskWithClosure(swift::AsyncContext*, swift::SwiftError*) in libswift_Concurrency.so
+...
+
+Thread 8 crashed:
+
+  0              0x00007f35048f4788 _assertionFailure(_:_:file:line:flags:) + 264 in libswiftCore.so
+  1 [ra]         0x00007f35033e889e _HTTPURLProtocol.didCompleteRedirectCallback(_:) + 1117 in libFoundationNetworking.so
+  2 [ra] [thunk] 0x00007f35033ec66b partial apply for closure #1 in closure #1 in closure #1 in _HTTPURLProtocol.redirectFor(request:) + 26 in libFoundationNetworking.so
+  3 [ra] [thunk] 0x00007f35033c2b49 thunk for @escaping @callee_guaranteed @Sendable () -> () + 24 in libFoundationNetworking.so
+  4 [ra]         0x00007f350434e5dc _dispatch_call_block_and_release + 11 in libdispatch.so
+  5 [ra]         0x00007f3504357f43 _dispatch_lane_serial_drain + 514 in libdispatch.so
+  6 [ra]         0x00007f35043587fd _dispatch_lane_invoke + 236 in libdispatch.so
+  7 [ra]         0x00007f3504357e66 _dispatch_lane_serial_drain + 293 in libdispatch.so
+  8 [ra]         0x00007f35043587fd _dispatch_lane_invoke + 236 in libdispatch.so
+  9 [ra]         0x00007f3504357e66 _dispatch_lane_serial_drain + 293 in libdispatch.so
+ 10 [ra]         0x00007f35043587fd _dispatch_lane_invoke + 236 in libdispatch.so
+ 11 [ra]         0x00007f350435dee5 _dispatch_worker_thread + 436 in libdispatch.so
+ 12 [ra]         0x00007f3502eaab7b <unknown> in libc.so.6
+...
+
+
+Registers:
+
+rax 0x0000000000000000  0
+rdx 0x0000000000000002  2
+rcx 0x00007f330b4c113d  139857209594173
+rbx 0x00007f34dc0008e0  03 00error: Exited with unexpected signal code 4
+ 01 00 01 00 05 00 02 00 04 00 03 00 00 00  ················
+rsi 0x80007f3503451010  9223511902519627792
+rdi 0x0000000000000002  2
+rbp 0x00007f34e77fd590  60 d7 7f e7 34 7f 00 00 9e 88 3e 03 35 7f 00 00  `×·ç4·····>·5···
+rsp 0x00007f34e77fd520  00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  ················
+ r8 0x0000000000000080  128
+ r9 0x0000000000000063  99
+r10 0x0000000000000000  0
+r11 0x0000000000000000  0
+r12 0x0000000000000000  0
+r13 0x00007f34ec0602b0  48 ba 44 03 35 7f 00 00 90 41 81 9d e6 0f 00 c0  HºD·5····A··æ··À
+r14 0x0000000000000114  276
+r15 0x0000000000000000  0
+rip 0x00007f35048f4788  0f 0b 48 8d 35 7f 0c fb ff 48 8d 55 a0 45 31 e4  ··H·5··ûÿH·U E1ä
+
+rflags 0x0000000000010202  
+
+cs 0x0033  fs 0x0000  gs 0x0000
+
+
+Images (46 omitted):
+
+0x0000564031407000–0x000056403157b635 6b825998a8e2b7931ced415ecbb6f5f9964946bf ChatGPTWireQualificationPackageTests.xctest $DATA_ROOT/build/chatgpt-wire/.build/x86_64-unknown-linux-gnu/debug/ChatGPTWireQualificationPackageTests.xctest
+0x00007f3502e18000–0x00007f3502fa28fd c495b62edadd6c356265942ec1282d98058a7b41 libc.so.6                                   /usr/lib/x86_64-linux-gnu/libc.so.6
+0x00007f3503165000–0x00007f350330ed70 813fa676e65f062a46440cf2bee936590724bf39 libTesting.so                               /usr/local/swift/usr/lib/swift/linux/libTesting.so
+0x00007f350333e000–0x00007f35034404c8 5ba819d199db8bfb7763b1f55b9e68069ccf5a3c libFoundationNetworking.so                  /usr/local/swift/usr/lib/swift/linux/libFoundationNetworking.so
+0x00007f3503cc2000–0x00007f35041aa1b0 409ec140766d4b844de26a9d0b97800a632c809f libFoundation.so                            /usr/local/swift/usr/lib/swift/linux/libFoundation.so
+0x00007f35042f8000–0x00007f350431ea78 97c20e809215adbcc50d6e8b43f869b29ce8f493 libswiftDispatch.so                         /usr/local/swift/usr/lib/swift/linux/libswiftDispatch.so
+0x00007f3504329000–0x00007f3504371240 c6fa65ca766b6c0742ff462bbd97f5f9937651df libdispatch.so                              /usr/local/swift/usr/lib/swift/linux/libdispatch.so
+0x00007f350456d000–0x00007f35045fd080 493a5257250e4963477b8a6d418481e8db54e2c4 libswift_Concurrency.so                     /usr/local/swift/usr/lib/swift/linux/libswift_Concurrency.so
+0x00007f3504612000–0x00007f3504bc31e8 fd1782c519b557fc55329e9a457a811e94945645 libswiftCore.so                             /usr/local/swift/usr/lib/swift/linux/libswiftCore.so
+
+Backtrace took 0.10s
+

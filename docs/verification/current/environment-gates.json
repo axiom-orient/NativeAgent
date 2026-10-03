@@ -1,0 +1,65 @@
+{
+  "platform": "Linux-6.18.44-x86_64-with-glibc2.41",
+  "xcodebuild": null,
+  "xcrun": null,
+  "sdkImportProbes": [
+    {
+      "name": "environment-Network",
+      "command": [
+        "swiftc",
+        "-typecheck",
+        "-"
+      ],
+      "exitCode": 1,
+      "durationSeconds": 0.165,
+      "swiftTestingCount": null,
+      "stdin": "import Network\n"
+    },
+    {
+      "name": "environment-CryptoKit",
+      "command": [
+        "swiftc",
+        "-typecheck",
+        "-"
+      ],
+      "exitCode": 1,
+      "durationSeconds": 0.115,
+      "swiftTestingCount": null,
+      "stdin": "import CryptoKit\n"
+    },
+    {
+      "name": "environment-NaturalLanguage",
+      "command": [
+        "swiftc",
+        "-typecheck",
+        "-"
+      ],
+      "exitCode": 1,
+      "durationSeconds": 0.115,
+      "swiftTestingCount": null,
+      "stdin": "import NaturalLanguage\n"
+    }
+  ],
+  "capabilities": [
+    {
+      "name": "CallbackNativeTests / Keychain / PKCE",
+      "status": "NOT_RUN",
+      "reason": "Apple SDK unavailable. Direct Network/CryptoKit import probes failed; conditional code excluded by Linux builds."
+    },
+    {
+      "name": "Full ChatGPT composition / artifact / Apple providers",
+      "status": "NOT_RUN",
+      "reason": "Required Apple SDK unavailable. Full failing builds not repeated after SDK probes."
+    },
+    {
+      "name": "ASKAgentTools / MCP / MigrationHold native parity",
+      "status": "NOT_RUN",
+      "reason": "Unchanged optional dependency/native scope. Prior resolution/tools-version failures retained only as imported evidence; not relabeled as new runs."
+    },
+    {
+      "name": "Actual ChatGPT account / images / host UI / vendor inference",
+      "status": "NOT_RUN",
+      "reason": "No credentials, approved remote quota/effects, Apple host/device or model artifacts."
+    }
+  ]
+}
