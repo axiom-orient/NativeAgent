@@ -20,7 +20,7 @@
   ],
   "note": "Self-excluding Git-index inventory for the flattened public NativeAgent SwiftPM candidate. The root manifest has no local package dependencies; nested source manifests remain for development. Build outputs, SwiftPM state, editor state, bytecode, ignored package lockfiles and this manifest are excluded. Public verification records use environment placeholders. The tree is not externally signed and does not qualify native/live production behavior.",
   "fileCount": 1934,
-  "uncompressedBytes": 22308332,
+  "uncompressedBytes": 22308687,
   "files": [
     {
       "path": ".gitignore",
@@ -8144,8 +8144,8 @@
     },
     {
       "path": "docs/PACKAGING.md",
-      "bytes": 3697,
-      "sha256": "e40edd32c2b8f8d96f7eba8c3189e7bd16a82feabd95cd84c4e93d907fe316b7"
+      "bytes": 3732,
+      "sha256": "ec77b110df9cec2d5ae51e761f7d3272fbe1220aed9f5beca235b831ebc5a91a"
     },
     {
       "path": "docs/PLAN.md",
@@ -8464,8 +8464,8 @@
     },
     {
       "path": "docs/verification/current/predeploy-candidate.json",
-      "bytes": 9882,
-      "sha256": "4e0d249c5a58c1c030d239f3e3f062289caf71a0a247c4feaf0dcdfb11f0ee46"
+      "bytes": 10202,
+      "sha256": "ea4d17dd35a48657f062f835345bfb93c0ea8227a4c64b80f3e110f0b26ad8b0"
     },
     {
       "path": "docs/verification/current/provenance.json",

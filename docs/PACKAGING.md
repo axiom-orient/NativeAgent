@@ -63,9 +63,10 @@ two upstream remote packages. The prior path-based root was rejected by SwiftPM
 for tag, branch, and revision requirements and its `0.1.0` tag was withdrawn.
 The flattened root manifest contains 34 targets (the 33-target selected module
 closure plus `NativeAgentSumday`) and resolves its six pinned transitive package
-versions locally. The app's remote Xcode resolution is still pending. The next
-release candidate is `0.1.1`; publish its tag only after remote Xcode resolution
-and owner review. Do not retarget a published tag.
+versions locally. SumDay's Xcode project resolved the public `main` branch at
+`99668c7` without a build. The next release candidate is `0.1.1`; publish its tag
+only after the owner reviews the flattened manifest. Do not retarget a published
+tag.
 
 `swift build` or package tests verify only the executed package/host boundary.
 Apple SDK compilation, native callbacks, Keychain, device lifecycle, account

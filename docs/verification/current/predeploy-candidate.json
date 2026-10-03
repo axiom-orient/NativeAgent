@@ -8,9 +8,9 @@
     "plannedVersion": "0.1.1",
     "reviewState": "AWAITING_OWNER_REVIEW",
     "consumptionRequirement": "NativeAgentSumday 0.1.1; awaiting remote dependency resolution and owner review",
-    "releaseStatus": "AWAITING_REMOTE_XCODE_RESOLUTION_AND_OWNER_REVIEW",
+    "releaseStatus": "AWAITING_OWNER_REVIEW_FOR_0.1.1",
     "rootManifestSHA256": "0f7740d0c2af6c7b765677e823976823b72dccc4f95075b99495c9fa2fcc8a12",
-    "remoteSPMStatus": "FLATTENED_ROOT_RESOLUTION_PASS; REMOTE_XCODE_RESOLUTION_PENDING"
+    "remoteSPMStatus": "FLATTENED_ROOT_RESOLUTION_PASS; XCODE_REMOTE_RESOLUTION_PASS_FOR_99668C7; OWNER_REVIEW_PENDING"
   },
   "publication": {
     "githubRepositoryCreated": true,
@@ -143,16 +143,18 @@
     },
     {
       "name": "Remote Xcode branch dependency resolution after flattening",
-      "status": "NOT_RUN",
-      "command": "xcodebuild -resolvePackageDependencies -project App/Sumday.xcodeproj -scheme sumday",
-      "reason": "The flattened root manifest has not yet been pushed to main."
+      "status": "PASS",
+      "command": "xcodebuild -resolvePackageDependencies -project $SUMDAY_ROOT/App/Sumday.xcodeproj -scheme sumday",
+      "reason": "The flattened root manifest has not yet been pushed to main.",
+      "result": "Xcode resolved the public NativeAgent main branch at revision 99668c7c8f0e43ceb4bf77d4ca14c5fb440a730e and updated Package.resolved. This is package resolution only; the app was not built.",
+      "resolvedRevision": "99668c7c8f0e43ceb4bf77d4ca14c5fb440a730e"
     }
   ],
   "limits": [
-    "The flattened root manifest has resolved locally; the remote Xcode consumer must resolve the pushed commit before the local SDK copy can be retired.",
+    "The Xcode project now resolves the public main branch and records its commit in Package.resolved; the local SDK copy must remain until the owner reviews the flattened distribution manifest.",
     "This cleanup/migration turn runs no app build or tests. Product compilation, Simulator/device execution, native provider qualification, real account, model inference, and live image generation remain unverified.",
     "Production release remains blocked by the native/live SDK qualification gates.",
-    "The withdrawn 0.1.0 tag is not used. The replacement 0.1.1 tag awaits remote consumer resolution and owner review."
+    "The withdrawn 0.1.0 tag is not used. The replacement 0.1.1 semantic tag awaits owner review."
   ],
   "observedRecovery": [
     "The first fresh macOS build stopped on ENOSPC while task-owned scratch directories filled the disk. Those task scratch directories were removed and a clean macOS 15 build passed."
