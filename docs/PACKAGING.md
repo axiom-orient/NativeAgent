@@ -56,9 +56,12 @@ ChatGPT Account package and one host-owned account session.
 
 ## Version and release boundary
 
-The remote SPM version is the Git tag for a clean source revision. Update
-Sumday's root `Package.swift`, Xcode package reference, and checked-in
-`Package.resolved` to the same version. Do not retarget a released tag.
+The root distribution graph currently uses local path dependencies to its
+independent subpackages. SwiftPM therefore rejects it when requested as a stable
+Git tag. SumDay consumes the public `main` branch and commits its selected
+revision in the app's checked-in `Package.resolved`. Do not claim a semantic
+release until the root graph no longer depends on local packages. Do not retarget
+a released tag.
 
 `swift build` or package tests verify only the executed package/host boundary.
 Apple SDK compilation, native callbacks, Keychain, device lifecycle, account

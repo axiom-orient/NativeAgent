@@ -18,9 +18,9 @@
     "Knowledge/ASK/Package.resolved",
     "SOURCE_MANIFEST.json"
   ],
-  "note": "Self-excluding pre-publication inventory of the Git index. Build outputs, SwiftPM state, editor state, bytecode, intentionally ignored package lockfiles and this manifest are excluded; public verification records use environment placeholders. The tree is not externally signed and does not qualify native/live production behavior.",
+  "note": "Self-excluding inventory of the Git index for the public branch-consumption candidate. Build outputs, SwiftPM state, editor state, bytecode, intentionally ignored package lockfiles and this manifest are excluded; public verification records use environment placeholders. The tree is not externally signed and does not qualify native/live production behavior.",
   "fileCount": 1934,
-  "uncompressedBytes": 22291550,
+  "uncompressedBytes": 22292774,
   "files": [
     {
       "path": ".gitignore",
@@ -7314,8 +7314,8 @@
     },
     {
       "path": "Package.swift",
-      "bytes": 2820,
-      "sha256": "6174faa99ecb248da9468e90f70024b797a030b31130ee63d6d6d719e8785fa3"
+      "bytes": 2900,
+      "sha256": "5d4d2aa11ccabce47b1e99c526fc5b69cc8deb50ea160df8e7254c4ad4400b79"
     },
     {
       "path": "Providers/ANALYSIS.md",
@@ -8144,8 +8144,8 @@
     },
     {
       "path": "docs/PACKAGING.md",
-      "bytes": 3135,
-      "sha256": "841f051ed03a4c98fbc2d111c7f8e98c4203d9ae48c470ecc06cd78987fb83db"
+      "bytes": 3323,
+      "sha256": "7c588f2ed2b82eb88fa29dc8efc927df1d9799fecd9333159b55fe1d96e4da12"
     },
     {
       "path": "docs/PLAN.md",
@@ -8464,8 +8464,8 @@
     },
     {
       "path": "docs/verification/current/predeploy-candidate.json",
-      "bytes": 4372,
-      "sha256": "e8b0d66f132c963bbd0700a5ca71fa86d19cd3b4a77ff848537fddfb915e2d97"
+      "bytes": 5328,
+      "sha256": "0475a03ecc644b5156606bc2b21f363ce71e34aff6360ac4090f5bb4f7668e4f"
     },
     {
       "path": "docs/verification/current/provenance.json",

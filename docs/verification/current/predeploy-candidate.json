@@ -5,12 +5,13 @@
     "repository": "axiom-orient/NativeAgent",
     "packageIdentity": "NativeAgent",
     "product": "NativeAgentSumday",
-    "plannedVersion": "0.1.0",
-    "reviewState": "AWAITING_OWNER_REVIEW"
+    "plannedVersion": null,
+    "reviewState": "OWNER_APPROVED_BRANCH_CONSUMPTION",
+    "consumptionRequirement": "main branch; consuming Package.resolved records the selected commit"
   },
   "publication": {
-    "githubRepositoryCreated": false,
-    "pushed": false,
+    "githubRepositoryCreated": true,
+    "pushed": true,
     "tagCreated": false
   },
   "checks": [
@@ -47,7 +48,8 @@
         "NativeAgentPresentation",
         "NativeAgentUI",
         "NativeAgentSumday"
-      ]
+      ],
+      "scope": "Local package-path consumer smoke only; this does not prove stable Git-tag resolution."
     },
     {
       "name": "LocalBackendTests",
@@ -83,12 +85,20 @@
       "name": "Credential pattern scan",
       "status": "PARTIAL",
       "result": "No live credentials or credential files found. The custom pattern scan reported two benign matches in an SVG token-count test identifier and an MCP qualification placeholder. gitleaks is not installed."
+    },
+    {
+      "name": "Xcode stable-tag dependency resolution",
+      "status": "FAIL",
+      "command": "xcodebuild -resolvePackageDependencies -project App/Sumday.xcodeproj -scheme sumday -quiet",
+      "result": "SwiftPM rejected NativeAgent 0.1.0 because its root manifest depends on unstable local path package NativeAgentPackage. The Package.resolved file was not updated.",
+      "resolution": "Use the public main branch for the sole SumDay consumer; the checked-in Package.resolved pins the commit."
     }
   ],
   "limits": [
     "Sumday.xcodeproj has not yet been changed to consume the remote dependency; this follows publication of the reviewed package candidate.",
     "No iOS Simulator/device execution, native provider qualification, real account, model inference, or live image generation was run.",
-    "Production release remains BLOCKED by the SDK qualification gates."
+    "Production release remains BLOCKED by the SDK qualification gates.",
+    "The root product is not consumable through a stable semantic-version tag while its manifest retains local path dependencies. The public 0.1.0 tag is withdrawn; branch consumption is the current supported route for SumDay."
   ],
   "observedRecovery": [
     "The first fresh macOS build stopped on ENOSPC while task-owned scratch directories filled the disk. Those task scratch directories were removed and a clean macOS 15 build passed."

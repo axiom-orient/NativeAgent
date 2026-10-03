@@ -1,8 +1,9 @@
 // swift-tools-version: 6.2
 import PackageDescription
 
-// This distribution profile keeps the selected packages independent while
-// giving Sumday one versioned SwiftPM dependency for the products it consumes.
+// This distribution profile keeps selected packages independent while giving
+// Sumday one branch-pinned dependency-graph product. Its local package edges
+// prevent stable-version resolution; Package.resolved pins the consuming app.
 let package = Package(
     name: "NativeAgent",
     platforms: [.iOS(.v17), .macOS(.v15)],
