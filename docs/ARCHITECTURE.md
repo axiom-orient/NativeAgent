@@ -21,7 +21,7 @@ FoundationModelsBridge → Core + Apple FoundationModels
 Qualification → 필요한 production products (반대 의존 금지)
 ```
 
-루트는 package collection이다. Root `NativeAgentSumday` product는 현재 Sumday가 사용하는 독립 package products를 한 번에 선택하는 SwiftPM distribution profile이다. 이 target은 public runtime/API authority가 아니며 새 state나 provider routing을 갖지 않는다. 앱은 구체 모듈을 직접 import하고 host composition을 소유한다.
+루트는 범용 package collection이다. Root manifest는 기존 Agent/model/provider/account/image/knowledge/UI target을 각각 concrete product로 공개한다. 앱 이름의 product나 조합 target을 두지 않는다. 앱은 필요한 product를 선택하고 구체 모듈을 직접 import하며 host composition을 소유한다. Core/kernel의 의존 방향과 concern별 state owner는 배포 방식과 무관하게 유지한다.
 
 Agent kernel은 concrete provider·ASK·façade를 import하지 않는다. Providers는 Agent 승인/저장소를 import하지 않는다. same-process Swift composition에 새 HTTP/MCP gateway나 global manager를 끼우지 않는다. `MigrationHold`는 활성 graph 밖의 보존 API다.
 

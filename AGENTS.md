@@ -23,10 +23,12 @@ Resources/PromptSources/SkillSources/LICENSE/NOTICE는 단순 문서가 아니�
 
 ## 고정 경계
 
-- Repository-root `Package.swift`의 `NativeAgentSumday` product는 remote SPM
-  dependency-graph profile이다. 독립 package를 합친 runtime/API module이 아니며,
-  concrete module을 import하고 각 state owner를 그대로 사용한다. 새 state,
-  provider routing, re-export facade를 추가하지 않는다.
+- Repository-root `Package.swift`는 범용 Agent/model/account/provider/image/knowledge/UI
+  product를 각각 공개한다. 소비 앱은 필요한 concrete product만 선택하고 각 state
+  owner를 그대로 사용한다. 앱 전용 배포 product·target·facade를 추가하지 않는다.
+- Core는 request/event/schema 값 계약만 소유한다. Runtime은 실행 수명, Agent는
+  승인·effect 상태, provider는 외부 I/O, SDK UI는 표현을 소유한다. 앱 조립은 소비
+  앱에 남으며 Core/kernel에서 provider·knowledge·UI를 역으로 의존하지 않는다.
 - Root package/repository identity는 `NativeAgent`다. Nested
   `Agent/NativeAgentPackage` package identity와 충돌하지 않게 유지한다.
 - Agent root는 `Agent/NativeAgentPackage`; 모델 계층은 `Model`이다. 옛 `NativeAgent/Packages` 사본을 재생성하지 않는다.

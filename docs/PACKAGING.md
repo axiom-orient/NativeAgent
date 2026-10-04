@@ -3,23 +3,38 @@
 ## Remote product
 
 The repository root is a package collection, not one runtime or one public API
-module. Its root `Package.swift` exposes `NativeAgentSumday`. The root manifest
+module. Its root `Package.swift` exposes independent concrete products. The root manifest
 defines the selected dependency targets against their existing source paths, so
 a remote Git consumer does not traverse `.package(path:)` edges. The product adds
 no provider routing, credential state, storage, or runtime lifecycle.
 
-Add the repository once as an SPM dependency and select
-`NativeAgentSumday`. App source continues to import concrete modules, for
-example `NativeAgent`, `NativeAgentDomain`, `LanguageModelRuntime`, `ASK`,
-`ChatGPTText`, or `NativeAgentUI`. The selected product is a package-graph
-composition for Sumday, not a replacement facade API.
+Add the repository once as an SPM dependency and select only the products needed
+by each consumer target. Products include `NativeAgent`, `NativeAgentDomain`,
+`NativeAgentManager`, `LanguageModelCore`, `LanguageModelRuntime`,
+`ModelArtifactStore`, `LEAPProvider`, `ChatGPTAccount`, `ChatGPTText`,
+`ChatGPTTextProvider`, `ChatGPTImage`, `ChatGPTImageCapability`,
+`AppleSystemModelProvider`, `ASK`, `NativeAgentUI`, and `NativeAgentPresentation`.
+App source imports the same concrete module names. There is no app-specific
+distribution product or umbrella runtime. Consumer composition stays in the app.
 
-The remote root exposes only this composition product. Nested package manifests
-remain for local development and focused qualification; their source targets
+Nested package manifests remain for local development and focused qualification; their source targets
 are referenced directly by the root distribution manifest. SwiftPM does not let
-a Git URL select an arbitrary nested `Package.swift`. Add another remote
-composition only when a real consumer and its exact product closure are
-established.
+a Git URL select an arbitrary nested `Package.swift`. Do not combine remote root
+products with source copies of the same leaf packages.
+
+```swift
+.package(url: "https://github.com/axiom-orient/NativeAgent.git", revision: "<reviewed-commit>")
+// Select capabilities directly used by this consumer target:
+.product(name: "NativeAgent", package: "NativeAgent"),
+.product(name: "ChatGPTTextProvider", package: "NativeAgent"),
+.product(name: "AppleSystemModelProvider", package: "NativeAgent"),
+```
+
+Core keeps request/event/schema values. Runtime owns invocation lifecycle, Agent
+owns approval/effect state, providers own external I/O, and SDK UI owns presentation.
+Core and the Agent kernel must not acquire provider, knowledge, UI, or consumer
+dependencies. `AppleSystemModelProvider` retains its availability gates; product
+selection does not prove device/model availability or inference success.
 
 ## Source package closures
 
@@ -61,12 +76,11 @@ The root distribution graph has no local package dependencies. It targets the
 selected modules directly from the repository source tree and declares only its
 two upstream remote packages. The prior path-based root was rejected by SwiftPM
 for tag, branch, and revision requirements and its `0.1.0` tag was withdrawn.
-The flattened root manifest contains 34 targets (the 33-target selected module
-closure plus `NativeAgentSumday`) and resolves its six pinned transitive package
-versions locally. SumDay's Xcode project resolved the public `main` branch at
-`99668c7` without a build. The next release candidate is `0.1.1`; publish its tag
-only after the owner reviews the flattened manifest. Do not retarget a published
-tag.
+The flattened root manifest contains 35 targets: the existing independent module
+closure and two provider targets. Consumers pin a reviewed source commit.
+Publishing source products does not certify all optional native/live effects.
+Publish a semantic release tag only after its qualification scope is reviewed;
+do not retarget a published tag.
 
 `swift build` or package tests verify only the executed package/host boundary.
 Apple SDK compilation, native callbacks, Keychain, device lifecycle, account

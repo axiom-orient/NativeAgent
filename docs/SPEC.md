@@ -30,7 +30,7 @@ ChatGPT image는 text provider의 자동 기능이 아니라 별도 image client
 
 NativeLanguageModels는 공통 Runtime의 편의 façade이며 Apple generic API의 drop-in replacement가 아니다. FoundationModelsBridge의 text-only 계약에 structured/macros/audio parity를 포함하지 않는다. Apple SDK availability와 compile-time symbol 존재는 각각 확인한다.
 
-각 하위 package의 Swift tools/platform/dependency pin은 해당 Package.swift/lockfile이 정본이다. Remote Git URL은 repository-root `NativeAgentSumday` distribution product를 제공하고, 하위 manifest는 source-level 개발·검증 경계로 유지한다. 하위 package 폴더를 임의로 떼어 배포하지 않는다. [PACKAGING](PACKAGING.md)을 따른다.
+각 하위 package의 Swift tools/platform/dependency pin은 해당 Package.swift/lockfile이 정본이다. Remote Git URL은 repository-root의 범용 concrete products를 제공하고, 하위 manifest는 source-level 개발·검증 경계로 유지한다. 소비 앱의 product 조합을 SDK에 추가하지 않는다. 하위 package 폴더를 임의로 떼어 배포하지 않는다. [PACKAGING](PACKAGING.md)을 따른다.
 
 새 UI·전역 model router·자동 cloud fallback·새 retry queue·provider SDK 업그레이드·public API 삭제는 이번 계약에 포함하지 않는다.
 

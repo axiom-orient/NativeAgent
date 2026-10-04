@@ -7,34 +7,28 @@ let package = Package(
     name: "NativeAgent",
     platforms: [.iOS(.v17), .macOS(.v15)],
     products: [
-        .library(name: "NativeAgentSumday", targets: ["NativeAgentSumday"]),
+        .library(name: "NativeAgent", targets: ["NativeAgent"]),
+        .library(name: "NativeAgentDomain", targets: ["NativeAgentDomain"]),
+        .library(name: "NativeAgentManager", targets: ["NativeAgentManager"]),
+        .library(name: "LanguageModelCore", targets: ["LanguageModelCore"]),
+        .library(name: "LanguageModelRuntime", targets: ["LanguageModelRuntime"]),
+        .library(name: "ModelArtifactStore", targets: ["ModelArtifactStore"]),
+        .library(name: "LEAPProvider", targets: ["LEAPProvider"]),
+        .library(name: "ChatGPTAccount", targets: ["ChatGPTAccount"]),
+        .library(name: "ChatGPTText", targets: ["ChatGPTText"]),
+        .library(name: "ChatGPTTextProvider", targets: ["ChatGPTTextProvider"]),
+        .library(name: "ChatGPTImage", targets: ["ChatGPTImage"]),
+        .library(name: "ChatGPTImageCapability", targets: ["ChatGPTImageCapability"]),
+        .library(name: "AppleSystemModelProvider", targets: ["AppleSystemModelProvider"]),
+        .library(name: "ASK", targets: ["ASK"]),
+        .library(name: "NativeAgentUI", targets: ["NativeAgentUI"]),
+        .library(name: "NativeAgentPresentation", targets: ["NativeAgentPresentation"]),
     ],
     dependencies: [
         .package(url: "https://github.com/huggingface/swift-huggingface", exact: "0.10.2"),
         .package(url: "https://github.com/swiftlang/swift-markdown.git", exact: "0.8.0"),
     ],
     targets: [
-        .target(
-            name: "NativeAgentSumday",
-            dependencies: [
-                .target(name: "NativeAgent"),
-                .target(name: "NativeAgentDomain"),
-                .target(name: "NativeAgentManager"),
-                .target(name: "LanguageModelCore"),
-                .target(name: "LanguageModelRuntime"),
-                .target(name: "ModelArtifactStore"),
-                .target(name: "LEAPProvider"),
-                .target(name: "ChatGPTAccount"),
-                .target(name: "ChatGPTText"),
-                .target(name: "ChatGPTImage"),
-                .target(name: "ChatGPTImageCapability"),
-                .target(name: "ASK"),
-                .target(name: "NativeAgentUI"),
-                .target(name: "NativeAgentPresentation"),
-            ],
-            path: "Sources/NativeAgentSumday",
-            swiftSettings: [.swiftLanguageMode(.v6)]
-        ),
         .target(
             name: "ASK",
             dependencies: [
@@ -73,6 +67,18 @@ let package = Package(
                 .target(name: "ChatGPTAccount")
             ],
             path: "Providers/ChatGPT/Image/Sources/ChatGPTImage",
+            swiftSettings: [.swiftLanguageMode(.v6), .enableUpcomingFeature("ExistentialAny"), .enableUpcomingFeature("MemberImportVisibility"), .enableUpcomingFeature("ImmutableWeakCaptures")]
+        ),
+        .target(
+            name: "ChatGPTTextProvider",
+            dependencies: ["ChatGPTAccount", "ChatGPTText", "LanguageModelCore", "LanguageModelRuntime"],
+            path: "Providers/ChatGPT/TextProvider/Sources/ChatGPTTextProvider",
+            swiftSettings: [.swiftLanguageMode(.v6), .enableUpcomingFeature("ExistentialAny"), .enableUpcomingFeature("MemberImportVisibility"), .enableUpcomingFeature("ImmutableWeakCaptures")]
+        ),
+        .target(
+            name: "AppleSystemModelProvider",
+            dependencies: ["LanguageModelCore", "LanguageModelRuntime"],
+            path: "Providers/AppleSystemModel/Sources/AppleSystemModelProvider",
             swiftSettings: [.swiftLanguageMode(.v6), .enableUpcomingFeature("ExistentialAny"), .enableUpcomingFeature("MemberImportVisibility"), .enableUpcomingFeature("ImmutableWeakCaptures")]
         ),
         .target(

@@ -19,8 +19,8 @@
     "SOURCE_MANIFEST.json"
   ],
   "note": "Self-excluding Git-index inventory of the published NativeAgent SwiftPM source. Entries reflect staged source bytes, not unstaged local edits. Build outputs, SwiftPM state, editor state, ignored files and this manifest are excluded. This inventory does not qualify native or live behavior.",
-  "fileCount": 1935,
-  "uncompressedBytes": 22311595,
+  "fileCount": 1934,
+  "uncompressedBytes": 22316400,
   "files": [
     {
       "path": ".gitignore",
@@ -29,8 +29,8 @@
     },
     {
       "path": "AGENTS.md",
-      "bytes": 6841,
-      "sha256": "34b852f1f6a256d2be159fc34741227ccaa9749e3172e10e9e175afbd974b9f7"
+      "bytes": 7135,
+      "sha256": "8a958daf3bd6e1b1c245cb284082fa6655af39a079496c7cf4b51dfd30d879cf"
     },
     {
       "path": "Agent/NativeAgentPackage/.gitignore",
@@ -7314,8 +7314,8 @@
     },
     {
       "path": "Package.swift",
-      "bytes": 13690,
-      "sha256": "36f2db7b68c20a9636893afca4a632137add8cd78a26b208af0ca9dbc3e49a51"
+      "bytes": 14769,
+      "sha256": "55244e9d5deae5be8b255151f577eebbe4bcd20b7bc31dc95a75960c2eb88240"
     },
     {
       "path": "Providers/ANALYSIS.md",
@@ -8048,11 +8048,6 @@
       "sha256": "af67fc08db4a4c780184cd920397e49cdfbe53c941948ce711bd6a7e796a71c7"
     },
     {
-      "path": "Sources/NativeAgentSumday/NativeAgentSumday.swift",
-      "bytes": 272,
-      "sha256": "a01caf4615b89cf8374188f1df2ede72fa4c5f598e7f3428b2508800d50a82c1"
-    },
-    {
       "path": "UI/ANALYSIS.md",
       "bytes": 4246,
       "sha256": "52f17082b243079ea597d0a3b3eacf30b5abe5c17695c0a1c1174ab18c8c2b63"
@@ -8129,8 +8124,8 @@
     },
     {
       "path": "docs/ARCHITECTURE.md",
-      "bytes": 10433,
-      "sha256": "b36faa5717f446e9a2f34a1b66ca253a16edbfd08324286f92b4ce11262c25de"
+      "bytes": 10499,
+      "sha256": "91193d2842857348906ded15890b5895853f7c1d08a1ffe1391657393f3a6d15"
     },
     {
       "path": "docs/IDENTITY_AND_EVOLUTION.md",
@@ -8144,8 +8139,8 @@
     },
     {
       "path": "docs/PACKAGING.md",
-      "bytes": 3732,
-      "sha256": "ec77b110df9cec2d5ae51e761f7d3272fbe1220aed9f5beca235b831ebc5a91a"
+      "bytes": 4632,
+      "sha256": "a63bd26ee06a494b65f82c196890e7d0ca960aafda9770308b93d2347315a50f"
     },
     {
       "path": "docs/PLAN.md",
@@ -8164,8 +8159,8 @@
     },
     {
       "path": "docs/SPEC.md",
-      "bytes": 8814,
-      "sha256": "be5e48a11a0d504ea2e8fdfc36ad098174dc957b47e1cd1af3e9bd21de083eff"
+      "bytes": 8864,
+      "sha256": "4c1961dd3cff8884048c57f1ef6119ca76f28b6526cc585cd1000af6867331be"
     },
     {
       "path": "docs/adr/0001-local-backend-ownership.md",
@@ -9664,8 +9659,8 @@
     },
     {
       "path": "tools/test-distribution-manifest.py",
-      "bytes": 2748,
-      "sha256": "1fc4d3c21165182110ecbc041c50e5f85fe11ace1f52649e641234b46419f9c8"
+      "bytes": 5436,
+      "sha256": "8112e56b73722f3ea5a59ce2740d8d956c793e436162e5fbf5ab7ebe8bf07cd7"
     },
     {
       "path": "tools/test-package-closure.py",

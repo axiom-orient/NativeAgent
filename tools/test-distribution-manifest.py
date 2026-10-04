@@ -36,6 +36,16 @@ def distribution_errors(root, leaf, target):
     return errors
 
 
+def dependency_names(target):
+    return {next(iter(edge.values()))[0] for edge in target['dependencies']}
+
+
+def concrete_product_errors(manifest):
+    targets = {target['name'] for target in manifest['targets']}
+    return [product['name'] for product in manifest['products']
+            if product['targets'] != [product['name']] or product['name'] not in targets]
+
+
 class DistributionManifestTests(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
@@ -43,6 +53,11 @@ class DistributionManifestTests(unittest.TestCase):
         cls.leaves = {
             'MarkdownSyntax': dump(ROOT / 'Knowledge/ASK/Packages/DocumentCore'),
             'LEAPProvider': dump(ROOT / 'Providers/LEAP'),
+        }
+        cls.providers = {
+            'ChatGPTTextProvider': dump(ROOT / 'Providers/ChatGPT/TextProvider'),
+            'AppleSystemModelProvider': dump(ROOT / 'Providers/AppleSystemModel'),
+            'ChatGPTImageCapability': dump(ROOT / 'Agent/NativeAgentPackage/Packages/ChatGPTImageCapability'),
         }
 
     def test_external_edges_preserve_leaf_product_url_and_version(self):
@@ -60,6 +75,36 @@ class DistributionManifestTests(unittest.TestCase):
                     node['dependencies'] = [edge for edge in node['dependencies']
                                             if edge.get('product') != product]
                     self.assertTrue(distribution_errors(mutant, leaf, target))
+
+    def test_products_select_concrete_modules_without_composition_targets(self):
+        self.assertEqual(concrete_product_errors(self.root), [])
+        products = {product['name'] for product in self.root['products']}
+        for required in ['NativeAgent', 'NativeAgentDomain', 'LanguageModelCore',
+                         'LanguageModelRuntime', 'ChatGPTAccount', 'ChatGPTTextProvider',
+                         'ChatGPTImage', 'ChatGPTImageCapability', 'AppleSystemModelProvider']:
+            self.assertIn(required, products)
+        mutant = copy.deepcopy(self.root)
+        mutant['products'][0]['targets'].append('ChatGPTAccount')
+        self.assertTrue(concrete_product_errors(mutant))
+
+    def test_provider_edges_settings_and_resources_match_leaf_owners(self):
+        for name, leaf in self.providers.items():
+            with self.subTest(target=name):
+                actual = next(target for target in self.root['targets'] if target['name'] == name)
+                expected = next(target for target in leaf['targets'] if target['name'] == name)
+                self.assertEqual(dependency_names(actual), dependency_names(expected))
+                self.assertEqual(actual.get('settings', []), expected.get('settings', []))
+                self.assertEqual(actual.get('resources', []), expected.get('resources', []))
+                self.assertTrue((ROOT / actual['path']).is_dir())
+
+    def test_core_and_kernel_preserve_dependency_direction(self):
+        for name, forbidden in {
+            'LanguageModelCore': {'NativeAgent', 'ChatGPTAccount', 'ChatGPTText', 'ChatGPTImage', 'ASK', 'NativeAgentUI'},
+            'NativeAgentDomain': {'ChatGPTAccount', 'ChatGPTText', 'ChatGPTImage', 'ASK', 'NativeAgentUI'},
+        }.items():
+            target = next(target for target in self.root['targets'] if target['name'] == name)
+            self.assertFalse(dependency_names(target) & forbidden)
+        self.assertTrue(all('sourceControl' in edge for edge in self.root['dependencies']))
 
 
 if __name__ == '__main__':
