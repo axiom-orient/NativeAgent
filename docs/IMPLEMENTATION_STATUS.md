@@ -23,6 +23,7 @@
 | ASK 지식 실행 시스템 | [ANALYSIS](../Knowledge/ASK/ANALYSIS.md) |
 | ASKAgentTools | [ANALYSIS](../Knowledge/ASK/Packages/ASKAgentTools/ANALYSIS.md) |
 | ASKTutor | [ANALYSIS](../Knowledge/ASK/Packages/ASKTutor/ANALYSIS.md) |
+| UI 프레젠테이션 | [ANALYSIS](../UI/ANALYSIS.md) |
 | Qualification·검증 도구·외부 경계 | [ANALYSIS](../Qualification/ANALYSIS.md) |
 
 각 ANALYSIS가 caller/handler/input/state/effect/output·실제 경로·findings를 소유한다. 독립 제품 정체성은 [NativeAgent](../Agent/NativeAgentPackage/docs/IDENTITY_AND_EVOLUTION.md), [ASK](../Knowledge/ASK/docs/IDENTITY_AND_EVOLUTION.md), [ASKTutor](../Knowledge/ASK/Packages/ASKTutor/docs/IDENTITY_AND_EVOLUTION.md)가 소유한다. root는 이를 단일 제품으로 합치지 않는다.

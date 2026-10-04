@@ -4,7 +4,7 @@
 
 ## 먼저 읽기
 
-[README](README.md) → [정체성](docs/IDENTITY_AND_EVOLUTION.md) →
+[정체성](docs/IDENTITY_AND_EVOLUTION.md) →
 [구조](docs/ARCHITECTURE.md) → [계약](docs/SPEC.md) →
 [현재 상태](docs/IMPLEMENTATION_STATUS.md) → [PLAN](docs/PLAN.md).
 수정할 하위 패키지의 AGENTS/README/manifest/source/tests를 함께 읽는다.
@@ -65,7 +65,7 @@ ASK 변경은 실제 ASKAgentTools 테스트, Apple 변경은 SDK 26/27 compile/
 verification/current의 source hash와 실제 명령 결과만 이번 증거다. 이전 입력의 검증 기록을 현재 PASS로 승계하지 않는다.
 `MigrationHold/NativeAgentRelease`의 옛 release script는 현재 배포 도구가 아니다.
 
-README=시작/탐색, IDENTITY=목적/불변/발전, ARCHITECTURE=경계/owner,
+README=승인 안내·저작권, AGENTS=시작/탐색·운영 규칙, IDENTITY=목적/불변/발전, ARCHITECTURE=경계/owner,
 SPEC=규범, IMPLEMENTATION_STATUS=현재 사실, PLAN=남은 작업,
 분석 단위 ANALYSIS=세부 경계/근거/비판적 검토, verification=실행 증거로 책임을 나눈다.
 

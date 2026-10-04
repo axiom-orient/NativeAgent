@@ -10,7 +10,7 @@
 
 **방향:** MAINTAIN. 제공된 새 SDK 밖의 앱 소유 독립 표시 package로 유지하며 공개 product와 구현은 보존했다. **확신도:** 중간: manifest·공개 구현·주요 caller를 확인했으며 실환경 결과는 별도 판정한다.
 
-이 문서는 수정 후 Current다. 연결 상태와 계약 만족, 실행 검증은 독립적으로 판단한다. 전체 통합 판정은 [전체 Current](../../../docs/IMPLEMENTATION_STATUS.md)에서 소유한다.
+이 문서는 수정 후 Current다. 연결 상태와 계약 만족, 실행 검증은 독립적으로 판단한다. 전체 통합 판정은 [전체 Current](../docs/IMPLEMENTATION_STATUS.md)에서 소유한다.
 
 ## 공개 surface·입출력·호출·활성 조건
 
