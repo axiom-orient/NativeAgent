@@ -20,7 +20,7 @@
   ],
   "note": "Self-excluding Git-index inventory of the published NativeAgent SwiftPM source. Entries reflect staged source bytes, not unstaged local edits. Build outputs, SwiftPM state, editor state, ignored files and this manifest are excluded. This inventory does not qualify native or live behavior.",
   "fileCount": 1934,
-  "uncompressedBytes": 22316400,
+  "uncompressedBytes": 22317001,
   "files": [
     {
       "path": ".gitignore",
@@ -8044,13 +8044,13 @@
     },
     {
       "path": "README.md",
-      "bytes": 32,
-      "sha256": "af67fc08db4a4c780184cd920397e49cdfbe53c941948ce711bd6a7e796a71c7"
+      "bytes": 101,
+      "sha256": "1f3ef985d3ce27ba8f6db2826f776dfa02ec60b74ac9b80588243986df66d003"
     },
     {
       "path": "UI/ANALYSIS.md",
-      "bytes": 4246,
-      "sha256": "52f17082b243079ea597d0a3b3eacf30b5abe5c17695c0a1c1174ab18c8c2b63"
+      "bytes": 4240,
+      "sha256": "4b051b63b3af40f203f9ffde7561e5ad7b66f17635aa65bda8e28d1049ed9cab"
     },
     {
       "path": "UI/Package.swift",
@@ -8134,8 +8134,8 @@
     },
     {
       "path": "docs/IMPLEMENTATION_STATUS.md",
-      "bytes": 5977,
-      "sha256": "7313368f28a3e85733fd4b664373527c04fdee8af6fcfadef92213125a9cde6e"
+      "bytes": 6035,
+      "sha256": "ed05950d7c65f781b4639b11fc2ab3a3183ca1c94ddd540aec89f98d95df1099"
     },
     {
       "path": "docs/PACKAGING.md",
@@ -9649,8 +9649,8 @@
     },
     {
       "path": "tools/check-documents.py",
-      "bytes": 7736,
-      "sha256": "091979a98bcb780b1ca66a4470d578c048b49744c5bc872963c34dd96feddb1f"
+      "bytes": 8216,
+      "sha256": "bd52e30d18134c987fabbb9eddc1f713f14743ef4d9b574dad70331d9ce080f2"
     },
     {
       "path": "tools/package-closure.py",
