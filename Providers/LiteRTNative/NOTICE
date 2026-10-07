@@ -1,0 +1,11 @@
+LiteRT-LM 0.18.0 — Google LLC / The ODML Authors
+https://github.com/google-ai-edge/LiteRT-LM/releases/tag/v0.18.0
+
+Official binary archives are referenced by URL and exact SHA-256. This source
+package does not redistribute their binary bytes or model weights. LICENSE is
+copied verbatim from the official 0.18.0 iOS framework. When redistributing the
+framework, retain its upstream LICENSE and third_party_licenses.bundle.
+
+The former 0.15.0 SBOM/notice files are not provenance for 0.18.0 and were removed
+from this active provider tree. No old notice payload is presented as current.
+Model licensing remains attached to the exact separately acquired model artifact.

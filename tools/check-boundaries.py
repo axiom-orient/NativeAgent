@@ -2,10 +2,10 @@
 """NativeAI source/graph/syntax guards. Never a native SDK or inference qualification."""
 from pathlib import Path
 from concurrent.futures import ThreadPoolExecutor
-import argparse, hashlib, json, platform, re, subprocess
+import argparse, hashlib, json, os, platform, re, subprocess
 
 ROOT = Path(__file__).resolve().parents[1]
-OUT = ROOT / "docs/verification/current"
+OUT = Path(os.environ.get("NATIVEAI_VERIFICATION_OUTPUT", ROOT / "docs/verification/current")).resolve()
 HOLD = ROOT / "MigrationHold"
 IGNORED = {".git", ".build", ".swiftpm", "__pycache__", "design-input", "imported-baseline"}
 checks = []
@@ -127,7 +127,17 @@ check("ChatGPT text factory does not install image effects",
 check("ChatGPT text factory preserves supplied skill service", "skillIntentService: skillIntentService" in factory, "host composition")
 
 binary = [p for p in manifests if re.search(r'\.binaryTarget\(\s*name:\s*"LeapSDK"', p.read_text())]
-check("exactly one LeapSDK binary declaration", binary == [ROOT / "Providers/LEAP/Packages/NativeAILeapSDK/Package.swift"], "binary identity only, not SDK availability")
+sdk_manifest = ROOT / "Providers/LEAP/Packages/NativeAILeapSDK/Package.swift"
+check("LeapSDK declarations belong to leaf owner and root distribution",
+      set(binary) == {ROOT / "Package.swift", sdk_manifest}, "same binary in independent consumption graphs")
+def binary_binding(manifest):
+    declaration = re.search(r'\.binaryTarget\(\s*name:\s*"LeapSDK"[^)]*\)', manifest.read_text(), re.S)
+    if declaration is None:
+        return None
+    fields = [re.search(rf'{field}:\s*"([^\"]+)"', declaration[0]) for field in ('url', 'checksum')]
+    return tuple(field[1] for field in fields) if all(fields) else None
+check("root LeapSDK preserves leaf URL and checksum",
+      binary_binding(ROOT / "Package.swift") == binary_binding(sdk_manifest), "distribution artifact identity")
 for relative in ("Providers/LEAP/Package.swift", "MigrationHold/AppleLocalAI/Packages/AppleLocalAILEAP/Package.swift"):
     check("shared LeapSDK dependency: " + relative, '.product(name: "LeapSDK", package: "NativeAILeapSDK")' in read(relative), "one binary owner")
 for revision in ("901941965d82e4a216d4d117231d847d194c563d", "c6446cf7bfb7cea76408013b614d4b2c530eaa03"):

@@ -1,6 +1,19 @@
 // swift-tools-version: 6.2
 import PackageDescription
 
+var liteRTNativeTargets: [Target] = []
+var liteRTBinaryDependencies: [Target.Dependency] = []
+#if os(macOS)
+liteRTNativeTargets = [
+    .binaryTarget(name: "CLiteRTLM", url: "https://github.com/google-ai-edge/LiteRT-LM/releases/download/v0.18.0/CLiteRTLM.xcframework.zip", checksum: "d765b99592d4ec3d0c9e2bd69469454af06c834861340672da1891c0c121c347"),
+    .binaryTarget(name: "CLiteRTLM_mac", url: "https://github.com/google-ai-edge/LiteRT-LM/releases/download/v0.18.0/CLiteRTLM_mac.xcframework.zip", checksum: "5f6ee68d95eeccb084c6e66d5ee47255e3020fa0fb29696dd0301ae26d6cfb4f"),
+]
+liteRTBinaryDependencies = [
+    .target(name: "CLiteRTLM", condition: .when(platforms: [.iOS])),
+    .target(name: "CLiteRTLM_mac", condition: .when(platforms: [.macOS])),
+]
+#endif
+
 // Flattened remote distribution graph. Independent subpackage manifests remain
 // for local development; the Git package root has no local package dependencies.
 let package = Package(
@@ -13,6 +26,9 @@ let package = Package(
         .library(name: "LanguageModelCore", targets: ["LanguageModelCore"]),
         .library(name: "LanguageModelRuntime", targets: ["LanguageModelRuntime"]),
         .library(name: "ModelArtifactStore", targets: ["ModelArtifactStore"]),
+        .library(name: "EmbeddingCore", targets: ["EmbeddingCore"]),
+        .library(name: "LiteRTEmbeddingProvider", targets: ["LiteRTEmbeddingProvider"]),
+        .library(name: "LiteRTProvider", targets: ["LiteRTProvider"]),
         .library(name: "LEAPProvider", targets: ["LEAPProvider"]),
         .library(name: "ChatGPTAccount", targets: ["ChatGPTAccount"]),
         .library(name: "ChatGPTText", targets: ["ChatGPTText"]),
@@ -29,6 +45,16 @@ let package = Package(
         .package(url: "https://github.com/swiftlang/swift-markdown.git", exact: "0.8.0"),
     ],
     targets: [
+        .target(name: "EmbeddingCore", path: "Model/EmbeddingCore/Sources/EmbeddingCore"),
+        .target(name: "LiteRTNative", path: "Providers/LiteRTNative/Sources/LiteRTNative"),
+        .target(name: "LiteRTEmbeddingProvider", dependencies: [.target(name: "EmbeddingCore"), .target(name: "LiteRTNative")] + liteRTBinaryDependencies,
+                path: "Providers/LiteRTEmbedding/Sources/LiteRTEmbeddingProvider"),
+        .target(name: "LiteRTProvider", dependencies: [
+                .target(name: "LanguageModelCore"), .target(name: "LanguageModelRuntime"),
+                .target(name: "ModelArtifactStore"), .target(name: "ModelHub"), .target(name: "LiteRTNative"),
+                .product(name: "HuggingFace", package: "swift-huggingface"),
+            ] + liteRTBinaryDependencies, path: "Providers/LiteRT/Sources/LiteRTProvider",
+            swiftSettings: [.swiftLanguageMode(.v6), .enableUpcomingFeature("ExistentialAny"), .enableUpcomingFeature("MemberImportVisibility"), .enableUpcomingFeature("ImmutableWeakCaptures")]),
         .target(
             name: "ASK",
             dependencies: [
@@ -299,6 +325,6 @@ let package = Package(
             ],
             path: "Knowledge/ASK/Packages/WorkWiki/Sources/WorkWiki"
         ),
-    ],
+    ] + liteRTNativeTargets,
     swiftLanguageModes: [.v6]
  )

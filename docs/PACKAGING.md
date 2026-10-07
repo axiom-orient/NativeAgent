@@ -11,7 +11,7 @@ no provider routing, credential state, storage, or runtime lifecycle.
 Add the repository once as an SPM dependency and select only the products needed
 by each consumer target. Products include `NativeAgent`, `NativeAgentDomain`,
 `NativeAgentManager`, `LanguageModelCore`, `LanguageModelRuntime`,
-`ModelArtifactStore`, `LEAPProvider`, `ChatGPTAccount`, `ChatGPTText`,
+`ModelArtifactStore`, `EmbeddingCore`, `LiteRTProvider`, `LiteRTEmbeddingProvider`, `LEAPProvider`, `ChatGPTAccount`, `ChatGPTText`,
 `ChatGPTTextProvider`, `ChatGPTImage`, `ChatGPTImageCapability`,
 `AppleSystemModelProvider`, `ASK`, `NativeAgentUI`, and `NativeAgentPresentation`.
 App source imports the same concrete module names. There is no app-specific
@@ -76,8 +76,10 @@ The root distribution graph has no local package dependencies. It targets the
 selected modules directly from the repository source tree and declares only its
 two upstream remote packages. The prior path-based root was rejected by SwiftPM
 for tag, branch, and revision requirements and its `0.1.0` tag was withdrawn.
-The flattened root manifest contains 35 targets: the existing independent module
-closure and two provider targets. Consumers pin a reviewed source commit.
+The flattened root references the independent source modules and declares each upstream
+binary once. LiteRT text and embedding share the same 0.18.0 binary identity through
+`Providers/LiteRTNative`; they keep separate inference and resource owners. Consumers pin
+a reviewed source commit or a qualified preview tag.
 Publishing source products does not certify all optional native/live effects.
 Publish a semantic release tag only after its qualification scope is reviewed;
 do not retarget a published tag.

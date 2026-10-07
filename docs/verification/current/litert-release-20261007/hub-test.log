@@ -1,0 +1,67 @@
+Building for debugging...
+[Pre-planning 1 / 155]
+[Planning deferred tasks]
+[40 / 80]
+[41 / 81] LanguageModelCore
+[50 / 126]
+[53 / 126]
+[58 / 126]
+[60 / 126]
+[64 / 126]
+[67 / 126]
+[69 / 126]
+[72 / 126]
+[74 / 126]
+[75 / 126]
+[85 / 126] LanguageModelCore
+[86 / 126] LanguageModelCore
+[93 / 127] LanguageModelCore
+[94 / 127] LanguageModelCore
+[95 / 127] LanguageModelRuntime
+[106 / 138] LanguageModelRuntime
+[113 / 139] LanguageModelRuntime
+[119 / 143] ModelHub
+[127 / 143] ModelHub
+[133 / 144] ModelHubTests-product
+[134 / 149]
+[138 / 149] ModelHubTests-product
+[143 / 149] ModelHubTests-product
+[145 / 149] ModelHubTests-product
+Build complete! (10.19초)
+Test Suite 'All tests' started at 2026-10-07 17:02:36.085.
+Test Suite 'All tests' passed at 2026-10-07 17:02:36.087.
+	 Executed 0 tests, with 0 failures (0 unexpected) in 0.000 (0.002) seconds
+◇ Test run started.
+↳ Testing Library Version: 2084
+↳ Target Platform: arm64e-apple-macos14.0
+◇ Suite "Hugging Face model onboarding" started.
+◇ Suite "Hub import effect boundaries" started.
+◇ Test "candidate identity includes the provider authority" started.
+◇ Test "rejects repositories unsupported by every registered provider" started.
+◇ Test "automatically installs when exactly one backend accepts the repository" started.
+◇ Test "rejects unsafe or non-Hugging-Face addresses" started.
+◇ Test "uses one strict repository identity contract for addresses and candidates" started.
+◇ Test "accepts model pages and pins supported revision syntax" started.
+◇ Test "candidate identity cannot collide through artifact path delimiters" started.
+◇ Test "returns explicit backend choices instead of guessing for mixed repositories" started.
+◇ Test observedInstalledResultIsNotDiscardedAfterCancellation() started.
+◇ Test cancelledDiscoveryNeverStartsInstallation() started.
+◇ Test installationCannotReturnADifferentProvider() started.
+◇ Test cancelledCallerDoesNotDispatchAnExplicitInstall() started.
+◇ Test installationValidatesTheReturnedDescriptor() started.
+✔ Test "automatically installs when exactly one backend accepts the repository" passed after 0.001 seconds.
+✔ Test "rejects repositories unsupported by every registered provider" passed after 0.001 seconds.
+✔ Test observedInstalledResultIsNotDiscardedAfterCancellation() passed after 0.001 seconds.
+✔ Test cancelledDiscoveryNeverStartsInstallation() passed after 0.001 seconds.
+✔ Test "candidate identity cannot collide through artifact path delimiters" passed after 0.001 seconds.
+✔ Test "returns explicit backend choices instead of guessing for mixed repositories" passed after 0.001 seconds.
+✔ Test cancelledCallerDoesNotDispatchAnExplicitInstall() passed after 0.001 seconds.
+✔ Test installationCannotReturnADifferentProvider() passed after 0.001 seconds.
+✔ Test "candidate identity includes the provider authority" passed after 0.001 seconds.
+✔ Test "accepts model pages and pins supported revision syntax" passed after 0.001 seconds.
+✔ Test "uses one strict repository identity contract for addresses and candidates" passed after 0.001 seconds.
+✔ Test "rejects unsafe or non-Hugging-Face addresses" passed after 0.001 seconds.
+✔ Suite "Hugging Face model onboarding" passed after 0.001 seconds.
+✔ Test installationValidatesTheReturnedDescriptor() passed after 0.001 seconds.
+✔ Suite "Hub import effect boundaries" passed after 0.001 seconds.
+✔ Test run with 13 tests in 2 suites passed after 0.001 seconds.

@@ -1,4 +1,5 @@
 import Foundation
+import LiteRTNative
 import ModelArtifactStore
 import LanguageModelCore
 import LanguageModelRuntime
@@ -11,7 +12,7 @@ import LanguageModelRuntime
 
 public enum LiteRTProvider {
   public static let providerID = "litert-lm.text"
-  public static let upstreamVersion = "0.17.0"
+  public static let upstreamVersion = LiteRTNativeRuntime.version
   public static let capabilities: ModelCapabilities = [
     .textInput, .textOutput, .toolCalls, .structuredOutput,
   ]
@@ -78,7 +79,8 @@ public enum LiteRTProvider {
         try Task.checkCancellation()
         runtime = try ModelRuntime(
           id: runtimeID ?? ModelRuntimeID(rawValue: "litert-lm.\(model.id)"),
-          model: try ClientLanguageModel(client: client, descriptor: descriptor),
+          client: client,
+          descriptor: descriptor,
           policy: policy,
           cleanup: {
             resource.shutdown()
@@ -359,8 +361,8 @@ public enum LiteRTProvider {
         guard let sampler else {
           throw LiteRTProviderFailure(code: "samplerCreateFailed", message: "LiteRT-LM could not create the requested greedy sampler.")
         }
-        // The 0.15 CPU factory supports TOP_P only. Its top-k=1 stage
-        // leaves one maximum-logit token, with p=1 and temperature=1.
+        // TOP_P with top-k=1 leaves one maximum-logit token; p=1 and
+        // temperature=1 preserve the explicit greedy sampling contract.
         litert_lm_sampler_params_set_top_k(sampler, 1)
         litert_lm_sampler_params_set_top_p(sampler, 1)
         litert_lm_sampler_params_set_temperature(sampler, 1)

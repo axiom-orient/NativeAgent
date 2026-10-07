@@ -1,0 +1,6 @@
+{
+  "status": "PASS",
+  "qualifiedVersion": "0.18.0",
+  "errors": [],
+  "scope": "manifest/release identity only; native inference requires the companion consumer"
+}

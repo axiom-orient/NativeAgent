@@ -1,0 +1,105 @@
+{
+  "closedTextAdmissionRejected": true,
+  "embedding": {
+    "cancellationJoined": true,
+    "closedAdmissionRejected": true,
+    "inferenceMilliseconds": [
+      51.95125,
+      50.229,
+      50.7355,
+      53.208125,
+      56.229458,
+      52.384584,
+      58.070458,
+      53.236542
+    ],
+    "overflowRejected": true,
+    "positiveCount": 8,
+    "positiveMatches": 8,
+    "profile": {
+      "artifactSHA256": "2d079ee2f6f066b1f368e8d7c819f55214eaef1d0513b312321901f30ab286fb",
+      "dimensions": 256,
+      "inputPolicyRevision": "trim-bos-eos-max1024-overflow-error-v1",
+      "modelID": "google/embeddinggemma-2/text-270m",
+      "modelRevision": "9be6e8b90982095dc05c2bd162e4b954ee4dbac7",
+      "nativeDimensions": 768,
+      "normalizationRevision": "prefix-then-l2-v1",
+      "promptRevision": "google-model-card-2-20261006-search-v1",
+      "quantization": "generic-int4-weights-float32-activations-cpu",
+      "runtimeRevision": "litert-lm-0.18.0-cpu"
+    },
+    "reloadSucceeded": true,
+    "retrieval": [
+      {
+        "expected": 0,
+        "margin": 0.07978377660599889,
+        "query": "이를 검사하러 언제 가야 하지?",
+        "score": 0.8028968138598307,
+        "topDocument": 0
+      },
+      {
+        "expected": 1,
+        "margin": 0.09911736352180744,
+        "query": "친구랑 뛰기로 한 장소",
+        "score": 0.8174449514766635,
+        "topDocument": 1
+      },
+      {
+        "expected": 2,
+        "margin": 0.11820486547200282,
+        "query": "바닷가 여행 숙박 예약",
+        "score": 0.8099000773367074,
+        "topDocument": 2
+      },
+      {
+        "expected": 3,
+        "margin": 0.09089594015014746,
+        "query": "업무 이동에 쓴 돈을 환급받는 방법",
+        "score": 0.7728438180688101,
+        "topDocument": 3
+      },
+      {
+        "expected": 4,
+        "margin": 0.07061378715917166,
+        "query": "엄마 생일에 드릴 것",
+        "score": 0.8159599006944376,
+        "topDocument": 4
+      },
+      {
+        "expected": 5,
+        "margin": 0.10373337659732551,
+        "query": "설계 논의 전에 준비할 자료",
+        "score": 0.8208403809854563,
+        "topDocument": 5
+      },
+      {
+        "expected": 6,
+        "margin": 0.07432656345796262,
+        "query": "아빠에게 드릴 생일 선물",
+        "score": 0.8094982331161367,
+        "topDocument": 6
+      },
+      {
+        "expected": 7,
+        "margin": 0.07411267483249318,
+        "query": "책 이야기 나누는 모임",
+        "score": 0.8300488507130547,
+        "topDocument": 7
+      },
+      {
+        "margin": 0.007491344056592353,
+        "query": "화성 탐사선의 착륙 기록",
+        "score": 0.6556036368530863,
+        "topDocument": 6
+      }
+    ],
+    "reuseAfterCancellation": true
+  },
+  "embeddingUsableAfterTextShutdown": true,
+  "generatedText": "\n\nOK",
+  "runtimeVersion": "0.18.0",
+  "structuredJSON": "{\"ok\":true}",
+  "textBackend": "cpu",
+  "textCancellationJoined": true,
+  "textReloadSucceeded": true
+}
