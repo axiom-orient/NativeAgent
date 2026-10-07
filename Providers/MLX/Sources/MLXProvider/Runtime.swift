@@ -251,7 +251,8 @@ public actor MLXTextRuntime {
     )
     return try ModelRuntime(
       id: runtimeID ?? ModelRuntimeID(rawValue: "mlx.text.\(prepared.model.repositoryID)"),
-      model: try ClientLanguageModel(client: client, descriptor: descriptor),
+      client: client,
+      descriptor: descriptor,
       policy: policy,
       // The host-owned runtime is the authoritative resident lifecycle owner.
       // This ModelRuntime only owns its invocation slot and borrows the resident.

@@ -11,7 +11,7 @@ no provider routing, credential state, storage, or runtime lifecycle.
 Add the repository once as an SPM dependency and select only the products needed
 by each consumer target. Products include `NativeAgent`, `NativeAgentDomain`,
 `NativeAgentManager`, `LanguageModelCore`, `LanguageModelRuntime`,
-`ModelArtifactStore`, `EmbeddingCore`, `LiteRTProvider`, `LiteRTEmbeddingProvider`, `LEAPProvider`, `ChatGPTAccount`, `ChatGPTText`,
+`ModelArtifactStore`, `EmbeddingCore`, `LiteRTProvider`, `LiteRTEmbeddingProvider`, `MLXProvider`, `MLXModelRegistry`, `LEAPProvider`, `ChatGPTAccount`, `ChatGPTText`,
 `ChatGPTTextProvider`, `ChatGPTImage`, `ChatGPTImageCapability`,
 `AppleSystemModelProvider`, `ASK`, `NativeAgentUI`, and `NativeAgentPresentation`.
 App source imports the same concrete module names. There is no app-specific
@@ -73,8 +73,7 @@ ChatGPT Account package and one host-owned account session.
 ## Version and release boundary
 
 The root distribution graph has no local package dependencies. It targets the
-selected modules directly from the repository source tree and declares only its
-two upstream remote packages. The prior path-based root was rejected by SwiftPM
+selected modules directly from the repository source tree and declares the current upstream packages. The prior path-based root was rejected by SwiftPM
 for tag, branch, and revision requirements and its `0.1.0` tag was withdrawn.
 The flattened root references the independent source modules and declares each upstream
 binary once. LiteRT text and embedding share the same 0.18.0 binary identity through
@@ -91,13 +90,21 @@ access, and live provider effects have separate gates in
 does not convert a remaining native/live gate into PASS. No CI workflow or
 automated GitHub release is part of this package.
 
-## NativeAgent 0.1.1
+## Current NativeAgent 0.1.2
 
 ```swift
-.package(url: "https://github.com/axiom-orient/NativeAgent.git", exact: "0.1.1")
+.package(url: "https://github.com/axiom-orient/NativeAgent.git", exact: "0.1.2")
 ```
 
 The supported LiteRT baseline is the official 0.18.0 library, shared by text and
 embedding products. Lower LiteRT versions are not supported; iOS/macOS compilation
 requires the declared native module. Platform-unavailable hosts remain explicitly
 unavailable, without a provider fallback. Existing preview tags are historical artifacts.
+
+## NativeAgent 0.1.2 native baseline
+
+MLX Swift 0.32.3, MLX Swift LM 3.32.3 and Hugging Face 0.13.0 are exact dependencies. Transformers 1.3.4 and LiteRT-LM 0.18.0 remain current. LEAP 0.11.0-SNAPSHOT is the latest upstream prerelease and uses a sibling inference_engine framework. Root products now include MLXProvider and MLXModelRegistry. No migration/older-library compatibility packages or nested LEAP signing helper are provided. Version 0.1.1 remains immutable history.
+
+The current root distribution requires Swift 6.3, iOS 26.5 and macOS 26.0. The official LEAP 0.11 inference_engine Mach-O declares these OS floors, despite the upstream package declaration; NativeAgent follows the actual binary. Independent MLX and LiteRT source packages retain their own supported OS floors.
+
+The remaining direct remote SDK dependencies are Swift Markdown 0.9.0 and SwiftMCP 0.4.2. The SwiftMCP upstream comparison contains only its two README changes; no runtime/API change or migration is introduced. Parser and MCP adapters are verified separately from native inference.

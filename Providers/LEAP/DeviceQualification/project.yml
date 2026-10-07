@@ -1,7 +1,7 @@
 name: LeapQualification
 options:
   deploymentTarget:
-    iOS: "17.0"
+    iOS: "26.5"
 packages:
   NativeAgent:
     path: ../../../Agent/NativeAgentPackage
@@ -29,10 +29,6 @@ targets:
     settings:
       base:
         PRODUCT_BUNDLE_IDENTIFIER: com.axiomorient.nativeagent.leap-qualification
-    postBuildScripts:
-      - name: Sign embedded LEAP libraries
-        script: '/bin/bash "${SRCROOT}/../../../Agent/NativeAgentPackage/scripts/sign_leap_embedded.sh"'
-        basedOnDependencyAnalysis: false
     dependencies:
       - package: NativeAgent
         product: NativeAgent

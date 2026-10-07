@@ -17,7 +17,6 @@
 | ChatGPT wire slice | developer → verify-chatgpt-wire.py | 정확한 codec/transport/parser subset | temporary module graph | 22 wire tests; ModelClient 제외 | [verify-chatgpt-wire.py](../tools/verify-chatgpt-wire.py) |
 | graph/문서 | developer → check-boundaries/check-documents | manifests/imports/source assertions/links | read-only inspection; report files | 형식 PASS/FAIL; runtime proof 아님 | [check-boundaries.py](../tools/check-boundaries.py); [check-documents.py](../tools/check-documents.py) |
 | ASK process/corpus consumers | developer → Verification/* | 실제 workspace/corpus; 환경 전제 | Swift consumers/Python/C helpers | probe/kill/reopen/log | [README.md](../Knowledge/ASK/Verification/README.md) |
-| migration hold | developer → held API/guard | 현재 활성 graph와 분리 | 과거 API·release classifier 보존 | 현재 배포/호환 완료 아님 | [README.md](../MigrationHold/README.md) |
 
 ## 실제 흐름
 
@@ -50,8 +49,6 @@ production owner는 원래 package에 남는다. qualification 보고서는 사�
 | 대상 | 분류 | 이유 |
 |---|---|---|
 | native SDK·MLX repos·LeapSDK binary·LiteRT binary·swiftMcp·swift-markdown | 외부 경계 | pin/소비 API만 우리 통합 범위; 구현 소유권 없음 |
-| MigrationHold/AppleLocalAI | 보존·활성 범위 제외 | structured/macros/audio/profile consumer parity 미확정; Unused≠Dead |
-| MigrationHold/NativeAgentRelease | 보존된 과거 실행 도구 | 현재 분리 graph를 배포하는 도구가 아님 |
 | runtime Markdown/skills/prompts/catalog assets | 제품 실행 입력 | 삭제/일반 문서 통합 대상 아님 |
 | docs/design-input | 고정 의도 입력 | 규범/Current의 중복 writer가 아니라 원문 증거; 완료 주장은 승계하지 않음 |
 | .build/.git/.swiftpm/cache | 배포 제외 | 재생성 가능·개인/환경 상태 |

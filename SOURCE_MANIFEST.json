@@ -19,8 +19,8 @@
     "SOURCE_MANIFEST.json"
   ],
   "note": "Self-excluding Git-index inventory of the published NativeAgent SwiftPM source. Entries reflect staged source bytes, not unstaged local edits. Build outputs, SwiftPM state, editor state, ignored files and this manifest are excluded. This inventory does not qualify native or live behavior.",
-  "fileCount": 1967,
-  "uncompressedBytes": 18569484,
+  "fileCount": 1894,
+  "uncompressedBytes": 18269434,
   "files": [
     {
       "path": ".gitignore",
@@ -29,8 +29,8 @@
     },
     {
       "path": "AGENTS.md",
-      "bytes": 7135,
-      "sha256": "8a958daf3bd6e1b1c245cb284082fa6655af39a079496c7cf4b51dfd30d879cf"
+      "bytes": 7230,
+      "sha256": "7016e7bc106f26b2a7b804cd6126084c1ec7abfd6c0fcc58e75a0f31ad3f4d2b"
     },
     {
       "path": "Agent/NativeAgentPackage/.gitignore",
@@ -49,8 +49,8 @@
     },
     {
       "path": "Agent/NativeAgentPackage/Package.swift",
-      "bytes": 8249,
-      "sha256": "da7cb4daffd3ab7877bf5dfee1d48323ee106f899ca866d0da9b8b5cd3c5ab38"
+      "bytes": 8263,
+      "sha256": "703b5c089784d4c5c7409f2ec115c64656696fce295b13f6bfc22fa02f0b7dc7"
     },
     {
       "path": "Agent/NativeAgentPackage/Packages/ChatGPTAgent/Package.swift",
@@ -545,12 +545,12 @@
     {
       "path": "Agent/NativeAgentPackage/Packages/NativeAgentMCP/Package.resolved",
       "bytes": 390,
-      "sha256": "be93c5f3242a89f1fa798c58abc5b7c828aa379f6d8189678eeaab4b9ce10414"
+      "sha256": "be5f817e79b359e817dfec00bf96f56968843b6ba75e018765074465c72f3700"
     },
     {
       "path": "Agent/NativeAgentPackage/Packages/NativeAgentMCP/Package.swift",
-      "bytes": 1136,
-      "sha256": "18676f9e56032835c137763c57621c99e19ac61281e1d611a4ec771bbb32889b"
+      "bytes": 1150,
+      "sha256": "eca40f6dd6db43ddfde3baa0c3e25acfe000eb35c3f3624f76a7b5972b9eb7f3"
     },
     {
       "path": "Agent/NativeAgentPackage/Packages/NativeAgentMCP/Qualification/.gitignore",
@@ -565,7 +565,7 @@
     {
       "path": "Agent/NativeAgentPackage/Packages/NativeAgentMCP/Qualification/Package.swift",
       "bytes": 921,
-      "sha256": "770752bb48dff5c8e84298e27e759bb4e29b0b720d7f60cbc4b97f1112b681fd"
+      "sha256": "e86b9936801fc9004d41fe5b46de673790bb08e709c3cbd60214f5e5e733db68"
     },
     {
       "path": "Agent/NativeAgentPackage/Packages/NativeAgentMCP/Qualification/README.md",
@@ -634,8 +634,8 @@
     },
     {
       "path": "Agent/NativeAgentPackage/README.md",
-      "bytes": 3572,
-      "sha256": "8cb84dbb7e70d9013ffa4d02972f704fe9d4abefe06ec90bf3e985cd9ef32539"
+      "bytes": 3656,
+      "sha256": "d80167d87fd89c283afeb928fa1655aa2ed7027d256f3ba3a26a35cee93da228"
     },
     {
       "path": "Agent/NativeAgentPackage/Sources/CSQLite/CSQLite.h",
@@ -3064,8 +3064,8 @@
     },
     {
       "path": "Agent/NativeAgentPackage/docs/DISTRIBUTION.md",
-      "bytes": 597,
-      "sha256": "c596eb193cec1fb10a2ee32dddc697842dadd03fdc437e33d622d31326ec79f9"
+      "bytes": 681,
+      "sha256": "5295efc3fec39806413b74e4db96a847a0170e9743530004bf11cd76aa24fd57"
     },
     {
       "path": "Agent/NativeAgentPackage/docs/IDENTITY_AND_EVOLUTION.md",
@@ -3079,8 +3079,8 @@
     },
     {
       "path": "Agent/NativeAgentPackage/docs/LEAP_DEVICE_SETUP.md",
-      "bytes": 2132,
-      "sha256": "f6c4015170c41cd1c48e6d4f51e3284e7e30ab2fa088628b7cf912525e9ada0e"
+      "bytes": 2097,
+      "sha256": "39ddc2f8ebc66004e0a450489eb03db3a8a7d7c3e122daeaf697942ea6b8cbb5"
     },
     {
       "path": "Agent/NativeAgentPackage/docs/NATIVE_WRITING.md",
@@ -3139,8 +3139,8 @@
     },
     {
       "path": "Agent/NativeAgentPackage/docs/adr/001-authority-and-distribution.md",
-      "bytes": 2984,
-      "sha256": "47a1e5b4262bd079b547e767e538d028043474cb05aa6b0de55ea01b837b3cbf"
+      "bytes": 2888,
+      "sha256": "4e9a408c13852663d5fc9b67acf29d8668f69c5e2a7a064f61baa73a2beeb70d"
     },
     {
       "path": "Agent/NativeAgentPackage/docs/adr/003-v1-clean-break.md",
@@ -3221,11 +3221,6 @@
       "path": "Agent/NativeAgentPackage/scripts/check_verify_local.py",
       "bytes": 3844,
       "sha256": "737019660f8e51b83af91dd3b46adb5492b1766fcc764a5132dfc2f5c7bc0b3d"
-    },
-    {
-      "path": "Agent/NativeAgentPackage/scripts/sign_leap_embedded.sh",
-      "bytes": 1176,
-      "sha256": "dfbeecf596d9407965d5d39a42ae80dbc891e2373ecdb8dfb6282d1a3e99ab17"
     },
     {
       "path": "Agent/NativeAgentPackage/scripts/verify_local.py",
@@ -3349,13 +3344,13 @@
     },
     {
       "path": "Knowledge/ASK/Packages/ASKMCP/Package.resolved",
-      "bytes": 833,
-      "sha256": "9206912bdfc713d51c68288ac63635675d50e3fffc56b24bc905c0b6fb9eb4ad"
+      "bytes": 938,
+      "sha256": "2c526ac6bf4f74c3bc4e5ae2e75a7604bd1bcf126092f4e2092ba273949f4cca"
     },
     {
       "path": "Knowledge/ASK/Packages/ASKMCP/Package.swift",
       "bytes": 2081,
-      "sha256": "f342b3a43838336d1481c17c871a32281c17247e6fba231e61327dcd4471bb95"
+      "sha256": "d93eead73004b3ab2e40eede02bcb5f74bb7254ee2fe6e8aa017797111d49ef0"
     },
     {
       "path": "Knowledge/ASK/Packages/ASKMCP/Sources/ASKMCP/ASKMCPJSONBridge.swift",
@@ -3840,12 +3835,12 @@
     {
       "path": "Knowledge/ASK/Packages/DocumentCore/Package.resolved",
       "bytes": 670,
-      "sha256": "227953084d2b321095e08e448dcce8dd2e3741ccb543c7af6dd7032f9e13d280"
+      "sha256": "13328a71a206768f68c98c54abf732e3cd33ba28e5c7cba67e7efb5959dd34d3"
     },
     {
       "path": "Knowledge/ASK/Packages/DocumentCore/Package.swift",
       "bytes": 1086,
-      "sha256": "45e6a7b413871350d7d69b3b3316fe67704fdc08472058133e4255d022969547"
+      "sha256": "4cabf8e4952d9ae57508707a62bffdee8edcd6715eedf814f2001bd920d67b7c"
     },
     {
       "path": "Knowledge/ASK/Packages/DocumentCore/Sources/DocumentCore/Canvas/ASKCanvasElements.swift",
@@ -6493,391 +6488,6 @@
       "sha256": "525ace43a05242ddc5c18033b6ab15a63df745e6fd3c2fbabcbef5987195217e"
     },
     {
-      "path": "MigrationHold/AppleLocalAI/AGENTS.md",
-      "bytes": 1349,
-      "sha256": "e86eac89c8fe14c5805698606ffe7488d31d20176755fa110f649dfe1a703094"
-    },
-    {
-      "path": "MigrationHold/AppleLocalAI/Package.swift",
-      "bytes": 706,
-      "sha256": "448262fbe70823e749e83676e42c52a7812d228fd11517962a33367114bb2097"
-    },
-    {
-      "path": "MigrationHold/AppleLocalAI/Packages/AppleLocalAILEAP/Package.swift",
-      "bytes": 596,
-      "sha256": "771f4407460625a444771a87a4c5f04cbdb3b24b74d3ac0217af34d8d9c2e06a"
-    },
-    {
-      "path": "MigrationHold/AppleLocalAI/Packages/AppleLocalAILEAP/README.md",
-      "bytes": 752,
-      "sha256": "5002fb269bd610c277843625df709ca56b4a10cd6a668d472c2886b8ba0f15d4"
-    },
-    {
-      "path": "MigrationHold/AppleLocalAI/Packages/AppleLocalAILEAP/Sources/AppleLocalAILEAP/AppleLocalAILEAP.swift",
-      "bytes": 17233,
-      "sha256": "92f79e2954cbe96591a1ad342663062e94ca81b7271f12963f84b2d8c707df00"
-    },
-    {
-      "path": "MigrationHold/AppleLocalAI/Packages/AppleLocalAILEAP/Sources/AppleLocalAILEAP/AppleLocalAILEAPErrors.swift",
-      "bytes": 2054,
-      "sha256": "61ca4d2b6773d80f5e75e9c9276c0d9ccff9c5274a86b6407b7d7e025653904c"
-    },
-    {
-      "path": "MigrationHold/AppleLocalAI/Packages/AppleLocalAILEAP/Sources/AppleLocalAILEAP/LEAPArtifactStore.swift",
-      "bytes": 12461,
-      "sha256": "c82c1821d63176883f97ac1d8b3e22aca3f941f8faf8d550fb1fca5b67c8333c"
-    },
-    {
-      "path": "MigrationHold/AppleLocalAI/Packages/AppleLocalAILEAP/Sources/AppleLocalAILEAP/LEAPAudio.swift",
-      "bytes": 18254,
-      "sha256": "7d23471698f85de4dbf336c29dd4f22f2e476747e595228e23bceb0fd4d62513"
-    },
-    {
-      "path": "MigrationHold/AppleLocalAI/Packages/AppleLocalAILEAP/Sources/AppleLocalAILEAP/LEAPExecutor.swift",
-      "bytes": 4826,
-      "sha256": "176e481aaabca7863cdcbd26be5b0e5c6e57b37759dac3beb9633b1085f1305d"
-    },
-    {
-      "path": "MigrationHold/AppleLocalAI/Packages/AppleLocalAILEAP/Sources/AppleLocalAILEAP/LEAPLanguageModel.swift",
-      "bytes": 739,
-      "sha256": "312ac90e28eecada93e3f043cd285b8b9695393c686b4e76eeeb08271eb75fb0"
-    },
-    {
-      "path": "MigrationHold/AppleLocalAI/Packages/AppleLocalAILEAP/Sources/AppleLocalAILEAP/LEAPRuntimeActivity.swift",
-      "bytes": 319,
-      "sha256": "9e472610fc09ac7a7afce362ca5c831fd3cac0e4b3b615ef3585dd990605dd88"
-    },
-    {
-      "path": "MigrationHold/AppleLocalAI/Packages/AppleLocalAILEAP/Sources/AppleLocalAILEAP/LEAPTranscriptPlan.swift",
-      "bytes": 6063,
-      "sha256": "90119c33e0a50de2b28d66f4ff48ad91be2d978198e632d50c38a6003da11979"
-    },
-    {
-      "path": "MigrationHold/AppleLocalAI/Packages/AppleLocalAILEAP/Tests/AppleLocalAILEAPTests/LEAPAdapterTests.swift",
-      "bytes": 4329,
-      "sha256": "d0abf518a1e511296f69b7df0b7f1272c0aaf7f98c3df9ac14f2bd5f89ecf998"
-    },
-    {
-      "path": "MigrationHold/AppleLocalAI/Packages/AppleLocalAILEAP/Tests/AppleLocalAILEAPTests/LEAPArtifactAdmissionTests.swift",
-      "bytes": 1699,
-      "sha256": "c6c928b4a6e15333b038bb2d0988d6961b0930d35b2cc258d63042d6e1f13d83"
-    },
-    {
-      "path": "MigrationHold/AppleLocalAI/Packages/AppleLocalAILocalModels/Package.swift",
-      "bytes": 1700,
-      "sha256": "021a2e1e408ac92a0cbd8e145acae1c549414203030ba238022f0d87d0fa81b2"
-    },
-    {
-      "path": "MigrationHold/AppleLocalAI/Packages/AppleLocalAILocalModels/README.md",
-      "bytes": 666,
-      "sha256": "a7f230ccafa788e535dad30c6015b0e24aa6470bbde6b4cad329520718e59bcc"
-    },
-    {
-      "path": "MigrationHold/AppleLocalAI/Packages/AppleLocalAILocalModels/Sources/AppleLocalAILocalModels/AppleLocalAILocalModels.swift",
-      "bytes": 4543,
-      "sha256": "dc2c000f92747a8bc5e17b52c00086938aa3dda75ca23b5c6ab91928bc7a62fd"
-    },
-    {
-      "path": "MigrationHold/AppleLocalAI/Packages/AppleLocalAILocalModels/Sources/AppleLocalAILocalModels/CGImagePNG.swift",
-      "bytes": 1431,
-      "sha256": "8eaa6c2544604015718c91b53bc187cf87247540f59803d22600b6b7e4b4a9df"
-    },
-    {
-      "path": "MigrationHold/AppleLocalAI/Packages/AppleLocalAILocalModels/Sources/AppleLocalAILocalModels/LiteRTConfiguration.swift",
-      "bytes": 1225,
-      "sha256": "89e0f462db8e16032832afb3877dd143ed8fbf37c040d105a8c1aa241b904c52"
-    },
-    {
-      "path": "MigrationHold/AppleLocalAI/Packages/AppleLocalAILocalModels/Sources/AppleLocalAILocalModels/LiteRTEngineCache.swift",
-      "bytes": 4328,
-      "sha256": "e07f24755937eeace7ca999e272f44f27be19eb2fb3a030489745a0a0d24ebfb"
-    },
-    {
-      "path": "MigrationHold/AppleLocalAI/Packages/AppleLocalAILocalModels/Sources/AppleLocalAILocalModels/LiteRTErrors.swift",
-      "bytes": 1365,
-      "sha256": "98ed528e1d14eecfc039b763a155d360153b8fdc834164155213e5e9f4b0dc33"
-    },
-    {
-      "path": "MigrationHold/AppleLocalAI/Packages/AppleLocalAILocalModels/Sources/AppleLocalAILocalModels/LiteRTLMExecutor.swift",
-      "bytes": 5708,
-      "sha256": "fb860e9b3cdf4f1dc0d96ef4aa1953d352e2fde39ba07a219d18f00f2d8427d4"
-    },
-    {
-      "path": "MigrationHold/AppleLocalAI/Packages/AppleLocalAILocalModels/Sources/AppleLocalAILocalModels/LiteRTLanguageModel.swift",
-      "bytes": 3223,
-      "sha256": "613610a08a298ee32ad8d3087d40114e6907c9c749244e3ff84d0427b46db601"
-    },
-    {
-      "path": "MigrationHold/AppleLocalAI/Packages/AppleLocalAILocalModels/Sources/AppleLocalAILocalModels/LiteRTModelInspector.swift",
-      "bytes": 1267,
-      "sha256": "2147af8fb255c58696a1a2f58c5f0fb6bfeff58b731497350dcd0eeb39b64974"
-    },
-    {
-      "path": "MigrationHold/AppleLocalAI/Packages/AppleLocalAILocalModels/Sources/AppleLocalAILocalModels/LiteRTSampler.swift",
-      "bytes": 1928,
-      "sha256": "67524c8a78ab9b42cafad2b43875eb41f589fb0d67faf174a4088885e002c72a"
-    },
-    {
-      "path": "MigrationHold/AppleLocalAI/Packages/AppleLocalAILocalModels/Sources/AppleLocalAILocalModels/LiteRTSupport.swift",
-      "bytes": 1024,
-      "sha256": "0f66a661384b254ffd2ba4e682424b803c57cc0ef651f7b7ab00244499a8861f"
-    },
-    {
-      "path": "MigrationHold/AppleLocalAI/Packages/AppleLocalAILocalModels/Sources/AppleLocalAILocalModels/LiteRTToolCallEnvelope.swift",
-      "bytes": 1353,
-      "sha256": "50064195bc5378d0210d171359075b2036e61de1c793b87ae2897fb7bad05f86"
-    },
-    {
-      "path": "MigrationHold/AppleLocalAI/Packages/AppleLocalAILocalModels/Sources/AppleLocalAILocalModels/LiteRTTranscriptPlan.swift",
-      "bytes": 6537,
-      "sha256": "2cae8fedc5bf69cf81e814468237ad6993a7dc4f4045bbcb212436f93d61767c"
-    },
-    {
-      "path": "MigrationHold/AppleLocalAI/Packages/AppleLocalAILocalModels/Sources/AppleLocalAILocalModels/LocalModelAsset.swift",
-      "bytes": 3793,
-      "sha256": "97dd8383fdebf1ab6efc35059fe6d6cf307d9b209d667d16c20d5baa7c66c0ad"
-    },
-    {
-      "path": "MigrationHold/AppleLocalAI/Packages/AppleLocalAILocalModels/Sources/AppleLocalAILocalModels/LocalModelAssetAdmission.swift",
-      "bytes": 2285,
-      "sha256": "b39e726981fab3e341468c636be0cab4a9985de40ec916e337f27f53012bdaf1"
-    },
-    {
-      "path": "MigrationHold/AppleLocalAI/Packages/AppleLocalAILocalModels/Sources/AppleLocalAILocalModels/LocalModelFileFormat.swift",
-      "bytes": 1122,
-      "sha256": "798466c5303631af54c31b3ab6648e2ca7c8c7b91eede9e104ab4e081db65eb5"
-    },
-    {
-      "path": "MigrationHold/AppleLocalAI/Packages/AppleLocalAILocalModels/Sources/AppleLocalAILocalModels/ManagedModelAssetStore.swift",
-      "bytes": 6014,
-      "sha256": "dd6c0737679556e54b156f35b14d7ccf8118fb74a5dea9845bd57b3720f80909"
-    },
-    {
-      "path": "MigrationHold/AppleLocalAI/Packages/NativeAgentProviderAppleLocalAI/AGENTS.md",
-      "bytes": 748,
-      "sha256": "b9857747fc8ddb9cbc5a65e056a4dbe4b7198012c16772e94ec91e3e98dfa9c4"
-    },
-    {
-      "path": "MigrationHold/AppleLocalAI/Packages/NativeAgentProviderAppleLocalAI/Package.swift",
-      "bytes": 1265,
-      "sha256": "09ed7028f75b73da8ee7fc3eb5789a3d88d344fdffbb186f2121cac90b2d3ff0"
-    },
-    {
-      "path": "MigrationHold/AppleLocalAI/Packages/NativeAgentProviderAppleLocalAI/README.md",
-      "bytes": 2195,
-      "sha256": "8a76268afe1bf47f6e357283c66ce9ac12b340b7d79e9bed69d41233ac490ce3"
-    },
-    {
-      "path": "MigrationHold/AppleLocalAI/Packages/NativeAgentProviderAppleLocalAI/Sources/NativeAgentProviderAppleLocalAI/AppleLocalAIRuntimeFactory.swift",
-      "bytes": 4787,
-      "sha256": "6be3560e5d29460fa3ce00bf30bd2a593c5a263e907b49bda1cab813c731b3a8"
-    },
-    {
-      "path": "MigrationHold/AppleLocalAI/Packages/NativeAgentProviderAppleLocalAI/Sources/NativeAgentProviderAppleLocalAI/AppleLocalAITextClient.swift",
-      "bytes": 5266,
-      "sha256": "56907ef1fe170b17e8177b29cad26862ea25c9ff01085ab59910914a9efd64ca"
-    },
-    {
-      "path": "MigrationHold/AppleLocalAI/Packages/NativeAgentProviderAppleLocalAI/Sources/NativeAgentProviderAppleLocalAI/NativeRuntimeBinding.swift",
-      "bytes": 2201,
-      "sha256": "b9331a75bd5cb35efdba9b95315a6a0df1fd20d483434fb23982b12aaff766e0"
-    },
-    {
-      "path": "MigrationHold/AppleLocalAI/Packages/NativeAgentProviderAppleLocalAI/Sources/NativeAgentProviderAppleLocalAI/NativeRuntimeLanguageModel.swift",
-      "bytes": 6849,
-      "sha256": "4300bb4664394bcdba26f27cdde8f79f5ec4919d2eceea3f77f942d9d2417ac9"
-    },
-    {
-      "path": "MigrationHold/AppleLocalAI/Packages/NativeAgentProviderAppleLocalAI/Tests/NativeAgentProviderAppleLocalAITests/AppleLocalAITextClientTests.swift",
-      "bytes": 6211,
-      "sha256": "56dac0f0c164a855c44e10a9faa2934e5ebad03343b9c03687d05719685a63b4"
-    },
-    {
-      "path": "MigrationHold/AppleLocalAI/Packages/NativeAgentProviderAppleLocalAI/Tests/NativeAgentProviderAppleLocalAITests/NativeRuntimeBindingTests.swift",
-      "bytes": 5781,
-      "sha256": "14c1c632fa8388002c5578fa48909648d1a1d332e21682187e30f813b7594217"
-    },
-    {
-      "path": "MigrationHold/AppleLocalAI/Packages/NativeAgentProviderAppleLocalAI/Tests/NativeAgentProviderAppleLocalAITests/NativeRuntimeLanguageModelTests.swift",
-      "bytes": 5890,
-      "sha256": "722e6215027757f741f9146dbbf3a20022f1ee4d75b869a427bb9d6985440396"
-    },
-    {
-      "path": "MigrationHold/AppleLocalAI/Qualification/LocalBackendSmoke/Package.swift",
-      "bytes": 1181,
-      "sha256": "8315ea8ea0590f540e7b463ca9c4802fd5ecfc86dc665199258f898c7e55db9c"
-    },
-    {
-      "path": "MigrationHold/AppleLocalAI/Qualification/LocalBackendSmoke/README.md",
-      "bytes": 2269,
-      "sha256": "6e3b0719abe8ce435fc03862b00ddf57d71436bc47de207c6cad41f26f1269e1"
-    },
-    {
-      "path": "MigrationHold/AppleLocalAI/Qualification/LocalBackendSmoke/Sources/LocalBackendSmoke/LocalBackendSmoke.swift",
-      "bytes": 3433,
-      "sha256": "60dd6e11b88ba93446bf73c1c06f4d59dd22cec5532c48d99ae0ab46f202134c"
-    },
-    {
-      "path": "MigrationHold/AppleLocalAI/README.md",
-      "bytes": 2999,
-      "sha256": "e869a3db70f5dd3f846d9218d0d1f7271f079d65c36aecfa3a2b74c00fb58336"
-    },
-    {
-      "path": "MigrationHold/AppleLocalAI/Sources/AppleLocalAI/AppleLocalAIError.swift",
-      "bytes": 1208,
-      "sha256": "37ef29e3bd22cd2045d45022fe2fd79658d29f0d7d530bf1cb78d30ae2e2a7a2"
-    },
-    {
-      "path": "MigrationHold/AppleLocalAI/Sources/AppleLocalAI/AppleLocalAIModelCapabilities.swift",
-      "bytes": 906,
-      "sha256": "ab2d3d6595b4d90a23b42b5a1cc8c39f6b5d0340e0cc9302c49e27aa25f77db3"
-    },
-    {
-      "path": "MigrationHold/AppleLocalAI/Sources/AppleLocalAI/AppleLocalAIModels.swift",
-      "bytes": 2267,
-      "sha256": "2089a7274c217861327a0e8614f8d330869209085a65af64c6ebbd833bf8b6b2"
-    },
-    {
-      "path": "MigrationHold/AppleLocalAI/Sources/AppleLocalAI/AppleLocalAIProfile.swift",
-      "bytes": 4654,
-      "sha256": "fdea08745beb82ce775dbf2d2f7583945614cfce95b6ea5a89a8bd4d63e74f0f"
-    },
-    {
-      "path": "MigrationHold/AppleLocalAI/Sources/AppleLocalAI/AppleLocalAIRequest.swift",
-      "bytes": 1273,
-      "sha256": "ba5a55bd10431da6d16163dcc1e5c9cbb14f09f8069bc540401ad4567ffddb8f"
-    },
-    {
-      "path": "MigrationHold/AppleLocalAI/Sources/AppleLocalAI/AppleLocalAISession.swift",
-      "bytes": 9971,
-      "sha256": "d6ff8ec3334c1f4c09ddc79b42087819f2238e72b906c37fc612286f5ed4d90d"
-    },
-    {
-      "path": "MigrationHold/AppleLocalAI/Sources/AppleLocalAI/AppleLocalAITools.swift",
-      "bytes": 1402,
-      "sha256": "c9208539ee80d0dfaf73073079b378bac131a43d77b79472e85fdc0db818e7c8"
-    },
-    {
-      "path": "MigrationHold/AppleLocalAI/Sources/AppleLocalAI/DynamicProfile.swift",
-      "bytes": 3073,
-      "sha256": "9d672cfea6a81494a56b89daaa7457938ddcb48ebbe35a76a12d72868e687447"
-    },
-    {
-      "path": "MigrationHold/AppleLocalAI/Sources/AppleLocalAI/OperationController.swift",
-      "bytes": 2131,
-      "sha256": "577407fb7251886cc84ad25d66e4b29406ddd065f97794de29f9166903af810d"
-    },
-    {
-      "path": "MigrationHold/AppleLocalAI/Sources/AppleLocalAICore/HistoryWindow.swift",
-      "bytes": 747,
-      "sha256": "b93d5afdef8b3c1fb698515e4cc71176a85948654a701d09ea4b803a7b20dc6b"
-    },
-    {
-      "path": "MigrationHold/AppleLocalAI/Sources/AppleLocalAICore/OperationLifecycle.swift",
-      "bytes": 2049,
-      "sha256": "1c4aec4936c84f39090a1e28b4c1b6beb12f2aca54470c3ee4ad00b132e413a4"
-    },
-    {
-      "path": "MigrationHold/AppleLocalAI/Sources/AppleLocalAICore/RequestContract.swift",
-      "bytes": 394,
-      "sha256": "1b6a83221a741c08a3bfcaa526ca3f1e214f1618296c12a40a56ec57f123346e"
-    },
-    {
-      "path": "MigrationHold/AppleLocalAI/Tests/AppleLocalAICoreTests/HistoryWindowTests.swift",
-      "bytes": 457,
-      "sha256": "ba80ef268547eabf3c97829497bff74b40a19fdf97eabcb332f51c6e0570f153"
-    },
-    {
-      "path": "MigrationHold/AppleLocalAI/Tests/AppleLocalAICoreTests/OperationLifecycleTests.swift",
-      "bytes": 1399,
-      "sha256": "71914b0bb5d6a85b3d271282fcba4577102895dded8495be34e2d898f22e55b1"
-    },
-    {
-      "path": "MigrationHold/AppleLocalAI/Tests/AppleLocalAICoreTests/RequestContractTests.swift",
-      "bytes": 351,
-      "sha256": "c8c0610d0c7a30621ce5c83e297482ccc4cef514914ca4fe2eee84e2da82b103"
-    },
-    {
-      "path": "MigrationHold/AppleLocalAI/Tests/AppleLocalAITests/OperationControllerTests.swift",
-      "bytes": 3595,
-      "sha256": "7d66ded93d957f8fbf0988ce96431b42d24c90f118d06d09d83b3984b8b29420"
-    },
-    {
-      "path": "MigrationHold/AppleLocalAI/Tests/AppleLocalAITests/ProfileValidationTests.swift",
-      "bytes": 1245,
-      "sha256": "543eeb9b8273fbcd256dbcb68e8a9d7c94747ccc2c3f46efde3ec524e7c5adad"
-    },
-    {
-      "path": "MigrationHold/AppleLocalAI/docs/ARCHITECTURE.md",
-      "bytes": 1834,
-      "sha256": "85bbbdd7cf10116b32d90bb66372f83f2457ffc2cd8bf44cb3906b11730f1e43"
-    },
-    {
-      "path": "MigrationHold/AppleLocalAI/docs/IDENTITY_AND_EVOLUTION.md",
-      "bytes": 1416,
-      "sha256": "3ed7eb56cb3e54e72012d752c4c59d3b85a4de712fe488e9044f793834ae3cee"
-    },
-    {
-      "path": "MigrationHold/AppleLocalAI/docs/IMPLEMENTATION_STATUS.md",
-      "bytes": 1874,
-      "sha256": "47f7cd37f72cb519c0e1aa86afa3891010ac632bbcca712a4181142b2611ee1d"
-    },
-    {
-      "path": "MigrationHold/AppleLocalAI/docs/PLAN.md",
-      "bytes": 551,
-      "sha256": "25e88cbdafd036353379f3c9cac34e6d157c4123f6b0c1175b9f0335e502a3bd"
-    },
-    {
-      "path": "MigrationHold/AppleLocalAI/docs/SPEC.md",
-      "bytes": 1366,
-      "sha256": "6bc87d57d57fc704f58aaa39a5e5df3aadf904a24e50ed245696174833d3aec0"
-    },
-    {
-      "path": "MigrationHold/AppleLocalAI/docs/VERIFICATION.md",
-      "bytes": 1109,
-      "sha256": "9b985a7cfdca4dc9e36abcf069512a513eab2e9a12ecd6726c87c8e9b2ffb227"
-    },
-    {
-      "path": "MigrationHold/AppleLocalAI/docs/adr/0001-native-public-surface.md",
-      "bytes": 1265,
-      "sha256": "6e3c1c9821446e84e36b1a7ab730b9f6604b8c3018d91952f97a1138ac0a8404"
-    },
-    {
-      "path": "MigrationHold/AppleLocalAI/scripts/check-architecture.sh",
-      "bytes": 3314,
-      "sha256": "75d8311084cc9074dc66b67ef6e61e84c3d544f92bc36f0ee7a2b959eb393575"
-    },
-    {
-      "path": "MigrationHold/AppleLocalAI/scripts/sign-leap-embedded.sh",
-      "bytes": 760,
-      "sha256": "d237c6f59afc990ce575654a79ad970465adb8bdc7938cf679c17dc121ed46ed"
-    },
-    {
-      "path": "MigrationHold/NativeAgentRelease/README.md",
-      "bytes": 429,
-      "sha256": "054e6251d3c0c54fa3bc358fc5d434d675d1a4297aea5efa267942977a680499"
-    },
-    {
-      "path": "MigrationHold/NativeAgentRelease/release/qualification.json",
-      "bytes": 25818,
-      "sha256": "3207dec4989c6f93fb0ab86e2ae263432de31842fe853e933b47060e26eca5f9"
-    },
-    {
-      "path": "MigrationHold/NativeAgentRelease/release/surfaces.json",
-      "bytes": 6645,
-      "sha256": "c5686fb57a6a38bf2c1650fadc8a9b1e909c53177e1e5fd5c537466ca01c5c99"
-    },
-    {
-      "path": "MigrationHold/NativeAgentRelease/scripts/release.py",
-      "bytes": 36028,
-      "sha256": "3d3a6fc2c5cba1838774ab296d8ba1e15e933c4c031ccfb49470ff9c167b1cf1"
-    },
-    {
-      "path": "MigrationHold/README.md",
-      "bytes": 695,
-      "sha256": "a187b528476c4e89d04c7e25b38ca705e616aa577155c3ef2dbf1f26e031763b"
-    },
-    {
       "path": "Model/EmbeddingCore/Package.swift",
       "bytes": 381,
       "sha256": "da055959c686acdae8ad9d774781ea50cfb9fca5f53ce61e0dfb8dad437b0ace"
@@ -6899,8 +6509,8 @@
     },
     {
       "path": "Model/FoundationModelsBridge/ANALYSIS.md",
-      "bytes": 3966,
-      "sha256": "3b207f6a7b48160c03bf03aee1611134546644920e007cdbbd06ae186dc1b466"
+      "bytes": 4015,
+      "sha256": "dd4436d14517e460547b76b939f71e292178fdeea182935a3e335da5c77c77d0"
     },
     {
       "path": "Model/FoundationModelsBridge/Package.swift",
@@ -7329,13 +6939,13 @@
     },
     {
       "path": "Package.resolved",
-      "bytes": 1753,
-      "sha256": "5786a95a522679bb12fd9f143ebd0191eec4a9ad43be0d4884e23c647002d52c"
+      "bytes": 3928,
+      "sha256": "8f3db318ad4cb3fe9bb6df4a951ddf2f6957ff69534333ba224dac5dd5f93df1"
     },
     {
       "path": "Package.swift",
-      "bytes": 16829,
-      "sha256": "868bfcdd9a079830a70aba03d140611058daf1819150dec32314fdd98dcf2f9e"
+      "bytes": 19048,
+      "sha256": "37cc05ddff04a0f250debf9b83b0c874eda7417c2a7b74b4dba8d1cc4d2fc13b"
     },
     {
       "path": "Providers/ANALYSIS.md",
@@ -7609,8 +7219,8 @@
     },
     {
       "path": "Providers/LEAP/DeviceQualification/README.md",
-      "bytes": 1715,
-      "sha256": "d7353be45ac48e09a283a03dc27f92abe07430bf2323daf491193f5a1a3aa00d"
+      "bytes": 1993,
+      "sha256": "e4da19d8e7ff4ac4627a749352bf1a688cda27bcda2f1fae59784bf4e117a176"
     },
     {
       "path": "Providers/LEAP/DeviceQualification/Tests/LiveTests.swift",
@@ -7619,23 +7229,23 @@
     },
     {
       "path": "Providers/LEAP/DeviceQualification/project.yml",
-      "bytes": 1760,
-      "sha256": "206002066af68b5bee7d4bd27050891878324996a7759bacbd54663ede67cc33"
+      "bytes": 1549,
+      "sha256": "5b0fd60742c548600f7d8246422442aaae97f4f1a2e3fb3f64d56753a21a363d"
     },
     {
       "path": "Providers/LEAP/Package.swift",
-      "bytes": 1965,
-      "sha256": "73c594ce884cf533227d6770c858f93aae89df3d760a2babd503559b3d65cdce"
+      "bytes": 1981,
+      "sha256": "23fbf2ca4399399a02c17e1c26db5b04cfaa38bc490814c9ab998eb04eadac0d"
     },
     {
       "path": "Providers/LEAP/Packages/NativeAILeapSDK/Package.swift",
-      "bytes": 606,
-      "sha256": "7501dd2256201e3e7f5d17246be5af87bcaa0e5eae35cd288ed278270ee5ffdc"
+      "bytes": 891,
+      "sha256": "934d34fc9ced3183f58e1c5711a7e65bd2f43c6204f3733aa413a5f582073e3c"
     },
     {
       "path": "Providers/LEAP/Packages/NativeAILeapSDK/README.md",
-      "bytes": 1018,
-      "sha256": "a507bab10200a6fd6a28eab5658770f273b3ecbe11c4316c99fdb6ffad0be64e"
+      "bytes": 1041,
+      "sha256": "37cea14e40599cea9a70dff783722fa0d5fdd9c1d6c729c13fb51756e7cbdb1b"
     },
     {
       "path": "Providers/LEAP/Sources/LEAPProvider/Downloader.swift",
@@ -7654,8 +7264,13 @@
     },
     {
       "path": "Providers/LEAP/Sources/LEAPProvider/LeapAdapter.swift",
-      "bytes": 14435,
-      "sha256": "0ba726668a516fd379e1d00be2ddb2c516dc0b20a18a77391abea3e15c35a808"
+      "bytes": 14476,
+      "sha256": "166a296be6ba1033ab9b56c2efdb702a11c952a0fa342d3ce9e68c8b43acaf4c"
+    },
+    {
+      "path": "Providers/LEAP/Sources/LEAPProvider/LeapJSONOutput.swift",
+      "bytes": 1232,
+      "sha256": "fc2573d460b876a1e73710f82d178713a478f769b782169d49bfcb4cf650b44d"
     },
     {
       "path": "Providers/LEAP/Sources/LEAPProvider/LeapResultHandle.swift",
@@ -7674,13 +7289,13 @@
     },
     {
       "path": "Providers/LEAP/Sources/LEAPProvider/ModelClient.swift",
-      "bytes": 6562,
-      "sha256": "ff8136b62f8a9d6efab7868c7ae5b8deda2a2d62ef18021f60ae7a9f9e75bd6c"
+      "bytes": 7250,
+      "sha256": "1b1ea8ce9d3f0959f0aac24b306145a2b7582b733e4330ac3c91090df7555e40"
     },
     {
       "path": "Providers/LEAP/Sources/LEAPProvider/Runtime.swift",
-      "bytes": 48792,
-      "sha256": "b7c9b6f75efcf0b8eb03c69be99b5914f6b2d0ba85f439c114ad2934dc23ebbb"
+      "bytes": 48766,
+      "sha256": "def81ceb1e69ddfadcd0cc05e34eb31f3a27ae3b9e67e527c3ffcbe51ab06bc7"
     },
     {
       "path": "Providers/LEAP/Tests/LEAPProviderTests/LeapResultHandleTests.swift",
@@ -7689,13 +7304,13 @@
     },
     {
       "path": "Providers/LEAP/Tests/LEAPProviderTests/LeapTests.swift",
-      "bytes": 67203,
-      "sha256": "af640fe50d75c39d1607d8fab679d6d87dab5e823525ba2155e5906c127a74d7"
+      "bytes": 69307,
+      "sha256": "a843ba22116ca16bd0ddcd2c19d5fe92802349ec85cca40d23bfd45d8d3ff16e"
     },
     {
       "path": "Providers/LiteRT/Package.swift",
       "bytes": 2408,
-      "sha256": "5ede4df943a812ffd0f377e1c8239e96297b8a776cd80031111ee9be25b8bcea"
+      "sha256": "f55d69aa5a035a78fdbfa3211cacef1578f7a623789a32db0cdcb19f3e5c0d2f"
     },
     {
       "path": "Providers/LiteRT/README.md",
@@ -7815,7 +7430,7 @@
     {
       "path": "Providers/MLX/DeviceQualification/NativeAgentMLXDeviceQualification.xcodeproj/project.pbxproj",
       "bytes": 23594,
-      "sha256": "d0f0986e264378359b7e4c226822b3262c3cdef9695feda14cbcaea3eca013ae"
+      "sha256": "58b05e8d4c6605397c7cd4ecc1fb4dc58068784a36993095b916612646a95b5d"
     },
     {
       "path": "Providers/MLX/DeviceQualification/NativeAgentMLXDeviceQualification.xcodeproj/project.xcworkspace/contents.xcworkspacedata",
@@ -7835,17 +7450,17 @@
     {
       "path": "Providers/MLX/DeviceQualification/project.yml",
       "bytes": 2700,
-      "sha256": "113b0cb58eef699ff399f7d38e02bff7aaab725f165e9ec2ec5a260419b13ea8"
+      "sha256": "da29f7e5e179e15afdaca7a62bd95dc7517f17404977331a565ef5b009b8df35"
     },
     {
       "path": "Providers/MLX/Package.swift",
-      "bytes": 3143,
-      "sha256": "a4f488c1e6a4f5d1e70ba073a71787f995c71ac514bf3c2061237ef4fee00feb"
+      "bytes": 3069,
+      "sha256": "e3c7e04cee29183bd727f79dc556a159042ad77ac67290671a1aa88f9f7b6ae3"
     },
     {
       "path": "Providers/MLX/README.md",
-      "bytes": 4551,
-      "sha256": "fccbd1cd6db6d43be89842507c94360e976650e4fc9568496c0a40fdc6eb5bcb"
+      "bytes": 4485,
+      "sha256": "14a4fdfa6296870f5a8b81144b9505a263a9455b30f08b6200f795f349e6efc5"
     },
     {
       "path": "Providers/MLX/Sources/MLXModelRegistry/HubModel.swift",
@@ -7904,13 +7519,13 @@
     },
     {
       "path": "Providers/MLX/Sources/MLXProvider/Model.swift",
-      "bytes": 5190,
-      "sha256": "c45a4955a43c04471467707fcf0afedb9129150fd64600f50ae4af1e31d248d6"
+      "bytes": 5157,
+      "sha256": "f360880813b5041f739460277d44efac06a7527119e113aaca055ae4050ae399"
     },
     {
       "path": "Providers/MLX/Sources/MLXProvider/Runtime.swift",
-      "bytes": 25792,
-      "sha256": "a76d268052fbcd08317746942bffb9c073f57c4d5f37152a06625aafe5133516"
+      "bytes": 25766,
+      "sha256": "8c85e6f39ff8d81f7a322293f0f5b3b7a631370a77739d28376ca6ce9551cb58"
     },
     {
       "path": "Providers/MLX/Sources/MLXProvider/RuntimeDependencies.swift",
@@ -7934,13 +7549,13 @@
     },
     {
       "path": "Providers/MLX/Tests/MLXProviderTests/MLXTextTests.swift",
-      "bytes": 35844,
-      "sha256": "2b40ecc87be9c3fabca6663391aac4d520509d5983864ae493af89d3b4f7c65f"
+      "bytes": 35810,
+      "sha256": "296ed40bfa74564ec028acacddb6709a15ffe6feaea1b6c9f979ab42260957d8"
     },
     {
       "path": "Qualification/ANALYSIS.md",
-      "bytes": 5932,
-      "sha256": "7e7776b3de4834c15ae42e26bc9e3ca867f1c752eccb2311c761092e7cfbb1ea"
+      "bytes": 5469,
+      "sha256": "eef013328719b84c3462025d9f6614a27cf047b400e1ae07215da89e1c5a08fd"
     },
     {
       "path": "Qualification/ChatGPTCompositionChecks/Package.swift",
@@ -8198,34 +7813,34 @@
       "sha256": "6e54c4d28222e5c0852bf2625b0824e187d4e7cbd41bb30f6f5187dc8bdec98f"
     },
     {
-      "path": "docs/API_MAPPING.md",
-      "bytes": 3682,
-      "sha256": "cb72e6fb10f8a7be8e6954c22d2a895aa75b8637ca4e93ee3682a95869ef6f13"
+      "path": "docs/API.md",
+      "bytes": 2298,
+      "sha256": "bc5eb3798b712751fadfe9ece500d45bb50c6bbb88102fdb977c81665c203c1b"
     },
     {
       "path": "docs/ARCHITECTURE.md",
-      "bytes": 10499,
-      "sha256": "91193d2842857348906ded15890b5895853f7c1d08a1ffe1391657393f3a6d15"
+      "bytes": 10638,
+      "sha256": "ea5e1245cc2f454a443c65a40303b7e07cc31089542cb7fbcf5403ceac9f8b6c"
     },
     {
       "path": "docs/IDENTITY_AND_EVOLUTION.md",
-      "bytes": 3015,
-      "sha256": "fa6bdf6b37c2cca01923de6a9db602ab196389fbf8f52e7776b90e47fc5dc237"
+      "bytes": 3007,
+      "sha256": "dc4f778a4c795890fc8dd864353fbb33f30214972938366491215a3e60143edc"
     },
     {
       "path": "docs/IMPLEMENTATION_STATUS.md",
-      "bytes": 6035,
-      "sha256": "ed05950d7c65f781b4639b11fc2ab3a3183ca1c94ddd540aec89f98d95df1099"
+      "bytes": 6938,
+      "sha256": "01c76873bd07fd852850bdcac0c8a039bf4ef2f73a74b949680aaed705b1bc1d"
     },
     {
       "path": "docs/PACKAGING.md",
-      "bytes": 5297,
-      "sha256": "5d135b8af899c9236cbe1baec7432392eb93ad15d69ed0ed4c96edf60c02ee05"
+      "bytes": 6404,
+      "sha256": "1a052d9ada11bb50db4dade6f0a4a370216ef0aefe6fcee32079516832ed0140"
     },
     {
       "path": "docs/PLAN.md",
-      "bytes": 4577,
-      "sha256": "b38a8427d5e03094adb961f5235678b999e112f0bd46e9228f8d9db0e34b2662"
+      "bytes": 4643,
+      "sha256": "24712466a0129eeede7fb18a4abe33d356f8ea659a65d895fde9b8f4a7a484e8"
     },
     {
       "path": "docs/RESEARCH.md",
@@ -8239,8 +7854,8 @@
     },
     {
       "path": "docs/SPEC.md",
-      "bytes": 8864,
-      "sha256": "4c1961dd3cff8884048c57f1ef6119ca76f28b6526cc585cd1000af6867331be"
+      "bytes": 9006,
+      "sha256": "99a823209a70dee085a3ee8e9fa033897d4a1866029c0049325713a8d3314de9"
     },
     {
       "path": "docs/adr/0001-local-backend-ownership.md",
@@ -8568,16 +8183,6 @@
       "sha256": "45f4e987c0173455df95c0558da93479bf0e0ba930d6028576f1547d3adaf87f"
     },
     {
-      "path": "docs/verification/current/migration-hold.json",
-      "bytes": 3487,
-      "sha256": "a68fd8e84d7398f0035ec7d28f1f4f1eb7df9c014c93abc72ef448f5b143229c"
-    },
-    {
-      "path": "docs/verification/current/migration-hold.log",
-      "bytes": 19070,
-      "sha256": "a960b941ab43e0f0c5990ad1d77166e0c5d55a86172b8b8b6a6046dcd2373506"
-    },
-    {
       "path": "docs/verification/current/model-core.log",
       "bytes": 18858,
       "sha256": "c7975bcc9d26f085437df7d823324e00e2eafaec7151931c6f40f9f103b6dbdf"
@@ -8606,6 +8211,46 @@
       "path": "docs/verification/current/native-language-models.log",
       "bytes": 18995,
       "sha256": "fa323ba5646b59aa4876b1c585f68159c19d65eec43c05369e9a5604dc8c43eb"
+    },
+    {
+      "path": "docs/verification/current/native-libraries-20261007/REPORT.md",
+      "bytes": 3873,
+      "sha256": "ad8c8787e95049277e28705221b9f72578171ab8026f07973e07909673036703"
+    },
+    {
+      "path": "docs/verification/current/native-libraries-20261007/checks.json",
+      "bytes": 1931,
+      "sha256": "586097f420b25606d4addb4a5fe52e1d3f4a65919d91cc4e035fcbd7bbf8c07b"
+    },
+    {
+      "path": "docs/verification/current/native-libraries-20261007/document-check.json",
+      "bytes": 297,
+      "sha256": "9266d5052fb3c0c6d397a38d5bef5f473213b276c37107a82be1b896ed3c1824"
+    },
+    {
+      "path": "docs/verification/current/native-libraries-20261007/leap-binary-linkage.log",
+      "bytes": 3277,
+      "sha256": "1c73f0f4a735e85643571ca668d955a2bf05402b05701bae76ad4eeaf7115361"
+    },
+    {
+      "path": "docs/verification/current/native-libraries-20261007/mac-native-results.json",
+      "bytes": 444,
+      "sha256": "18a6ee18913d104d20f423b4bb9c6aca404e38919b63193b9a9eabb2239a681d"
+    },
+    {
+      "path": "docs/verification/current/native-libraries-20261007/resolved-native-versions.json",
+      "bytes": 556,
+      "sha256": "03f92b3bece22512af8066ea5602fd02f0b46d663573245a0a23b2809ac8665a"
+    },
+    {
+      "path": "docs/verification/current/native-libraries-20261007/source-hashes.json",
+      "bytes": 7731,
+      "sha256": "296bbe8280680360c7c9680e2403f85610a187fe6ac513745c8035aa5293879a"
+    },
+    {
+      "path": "docs/verification/current/native-libraries-20261007/static-checks.json",
+      "bytes": 470,
+      "sha256": "064675ceae1231d3f0d02bfa8314ce5d452a78b6f6447b55ec12d4f522dd4dbe"
     },
     {
       "path": "docs/verification/current/native-root-build.log",
@@ -9809,13 +9454,13 @@
     },
     {
       "path": "tools/check-boundaries.py",
-      "bytes": 15853,
-      "sha256": "82f169d1fa519edfe071ec0b60f695a6f47196fe2e170dc6df22b0e1b68b2f8f"
+      "bytes": 13635,
+      "sha256": "a995cf9b44fafac22ef90503ac4c57bf89a4c83b1ef47d6890b65583422969b6"
     },
     {
       "path": "tools/check-documents.py",
-      "bytes": 8294,
-      "sha256": "828bcb4be1e469bc03557fd37552739d82b7d23897251e9a58dcd1f7166b9afc"
+      "bytes": 8152,
+      "sha256": "7544830b117c2298b9bee9835cd83f8993cf67aff84afedb71cd65e87af7aa59"
     },
     {
       "path": "tools/package-closure.py",
@@ -9824,8 +9469,8 @@
     },
     {
       "path": "tools/test-distribution-manifest.py",
-      "bytes": 5436,
-      "sha256": "8112e56b73722f3ea5a59ce2740d8d956c793e436162e5fbf5ab7ebe8bf07cd7"
+      "bytes": 7631,
+      "sha256": "0188a5e994ceec0129f04ce443775393a09d0f7479db6567f5fea88d8e392449"
     },
     {
       "path": "tools/test-package-closure.py",
@@ -9833,19 +9478,9 @@
       "sha256": "8369fbfe088ea89cbca5464cf1d86f081b34eb4b4b1774603ed5c81e5357d2c7"
     },
     {
-      "path": "tools/test-release-boundary.py",
-      "bytes": 7264,
-      "sha256": "aaecea27ba04bf32897253d175831390676456aeb6e0658690e47fd5d5ac61bb"
-    },
-    {
       "path": "tools/verify-chatgpt-wire.py",
       "bytes": 9773,
       "sha256": "a9fae5aa369926968102669130416c41ff6951432d55c359910b1a5902397d9c"
-    },
-    {
-      "path": "tools/verify-migration-hold.py",
-      "bytes": 4681,
-      "sha256": "eefcfa3503b98689e7eec59596e6ed8e3f74504491b9b4404436e2ac89d14203"
     },
     {
       "path": "tools/verify-native-kernel.py",

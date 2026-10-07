@@ -30,7 +30,7 @@ let modelRuntime: Target.Dependency = .product(
 
 let package = Package(
   name: "NativeAgentPackage",
-  platforms: [.iOS(.v17)],
+  platforms: [.iOS(.v17), .macOS(.v13)],
   products: [.library(name: "NativeAgent", targets: ["NativeAgent"])]
     + [.library(name: "NativeAgentDomain", targets: ["NativeAgentDomain"])]
     + extensionProducts.map { .library(name: $0, targets: [$0]) },

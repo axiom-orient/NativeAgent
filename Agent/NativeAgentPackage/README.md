@@ -36,7 +36,7 @@ swift test
 
 전체 테스트는 `NaturalLanguage` 등 Apple framework가 있는 지원 환경에서 실행한다.
 모델 공유는 외부에서 준비한 `ModelRuntimeAccess`를 주입한다. 새 façade는 `Model/NativeLanguageModels`다.
-기존 AppleLocalAI의 완전 이행은 workspace MigrationHold에 보류돼 있다.
+현재 concrete provider를 사용한다. 이전 AppleLocalAI API는 명시적으로 폐기했으며 하위 버전 호환이나 자동 이행은 제공하지 않는다.
 
 ## 사용 시작
 

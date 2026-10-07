@@ -351,8 +351,8 @@ enum LeapTextGenerationPolicy {
     if case .jsonObject(let schema) = outputFormat {
       // The request owns the schema; the native decoder enforces it.
       // Plain text retains the model defaults and existing behavior.
-      options = options.with(jsonSchema: try schema.canonicalString())
-        .with(temperature: LeapTextGenerationPolicy.structuredOutputTemperature)
+      options = options.with(temperature: LeapTextGenerationPolicy.structuredOutputTemperature)
+      options.constraint = GenerationConstraint.JsonSchema(schema: try schema.canonicalString())
     }
     return options
   }

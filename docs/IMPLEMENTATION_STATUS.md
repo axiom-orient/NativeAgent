@@ -52,7 +52,7 @@ listener만 취소하고 accepted connection을 놓던 경로를 제거했다. �
 | ChatGPT wire | 44 테스트 × 3회, 실제 local HTTP | 원격 계정/서비스와 loopback 로그인 아님 |
 | 공개 consumer | 재배치 6-package compile/link + Core/미지원 host 거부 실행 | README의 서비스 함수는 컴파일만 하고 호출하지 않음 |
 | source / graph / syntax | 53 manifest graph, 482 static assertions, 1241 Swift files | native typecheck/link를 대체하지 않음 |
-| Knowledge / optional ASK/MCP / MigrationHold | 기존 source·계약 보존 | 이번 재검증 범위 밖; 이전 PASS 승계 없음 |
+| Knowledge / optional ASK/MCP | 기존 source·계약 보존 | 이번 native library 재검증 범위 밖; 이전 PASS 승계 없음 |
 | Apple / Keychain / 실제 계정·앱·모델 | NOT_RUN | 지원 SDK/device/credential/승인 부재 |
 
 한 번씩 집계한 결과는 **Swift Testing 850 + XCTest 3 = 853개**, Python 23개는 별도다. 반복 실행과 외부 consumer 체크를 고유 테스트 수에 더하지 않는다. 전체 source archive의 추출본 검증과 hash는 [final report](verification/current/final-verification.json)를 따른다.
@@ -60,3 +60,9 @@ listener만 취소하고 accepted connection을 놓던 경로를 제거했다. �
 ## UNKNOWN
 
 Network.framework compile/runtime와 callback receipt ordering, native drain deadline, Keychain/iCloud 경쟁, 전체 ChatGPT/Agent/ASK/MCP 조립, artifact crash durability, native provider/model 수명, 실제 계정 지원/이미지 품질, iOS/macOS 앱 lifecycle는 미확인이다. callback의 MainActor 제거는 구현되어 있으며 남은 것은 native 검증이다. 이를 미구현으로 다시 적거나 테스트 성공으로 덮지 않는다.
+
+## 2026-10-07 native baseline update
+
+현재 의존성은 MLX Swift 0.32.3, MLX Swift LM 3.32.3, Hugging Face 0.13.0, Transformers 1.3.4, LiteRT-LM 0.18.0, LEAP 0.11.0-SNAPSHOT이다. LEAP upstream은 프리릴리스다. Root는 MLXProvider/MLXModelRegistry를 공개하며 LEAP 형제 inference_engine을 함께 연결한다. 이전 AppleLocalAI/MigrationHold·옛 release 도구·nested LEAP 서명 도구는 명시적 폐기 요청으로 제거했다. 기존 게시 버전은 다시 쓰지 않는다. 실제 실행 상태는 새 검증 보고서에서 확인하며 unrelated SDK gate를 PASS로 승계하지 않는다.
+
+최신 dependency update의 범위와 실제 검증은 [0.1.2 보고서](verification/current/native-libraries-20261007/REPORT.md)가 소유한다. Swift Markdown 0.9.0 및 SwiftMCP 0.4.2도 갱신·검증했다. 실기기 실행 미확인은 보고서에 별도로 표시한다.

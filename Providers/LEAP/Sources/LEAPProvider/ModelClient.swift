@@ -46,39 +46,48 @@ struct LeapModelClient: ModelClientWithOwnedInvocation {
     let task = Task {
       do {
         try Task.checkCancellation()
-          let mapped = try Self.map(request)
-          if case .terminated = continuation.yield(.started(descriptor: modelDescriptor)) {
-            throw CancellationError()
+        let mapped = try Self.map(request)
+        if case .terminated = continuation.yield(.started(descriptor: modelDescriptor)) {
+          throw CancellationError()
         }
         onStarted()
         try Task.checkCancellation()
         let output = LeapTextOutputAccumulator()
-          let emit: @Sendable (String) -> Void = { chunk in
-            do {
-              for delta in try request.limits.boundedDeltas(for: chunk) {
-                try output.append(delta, maximumBytes: request.maxOutputBytes)
-                continuation.yield(.textDelta(delta))
-              }
-            } catch {
-              output.fail(error)
+        let isStructured: Bool
+        if case .jsonObject = request.outputFormat { isStructured = true } else { isStructured = false }
+        let (envelopedLimit, overflow) = request.maxOutputBytes.addingReportingOverflow(LeapJSONOutput.maximumEnvelopeBytes)
+        let nativeLimit = isStructured
+          ? min(LeapLimits.maxTextGenerationBytes, overflow ? LeapLimits.maxTextGenerationBytes : envelopedLimit)
+          : request.maxOutputBytes
+        let emit: @Sendable (String) -> Void = { chunk in
+          do {
+            for delta in try request.limits.boundedDeltas(for: chunk) {
+              try output.append(delta, maximumBytes: nativeLimit)
+              if !isStructured { continuation.yield(.textDelta(delta)) }
             }
-          }
-          let result = try await runtime.generateTextStream(
-            for: model,
-            history: mapped.history,
-            userMessage: mapped.user,
-            outputFormat: request.outputFormat,
-            emit: emit)
-          try Task.checkCancellation()
-          if let failure = output.failure { throw failure }
-          guard result == output.value, !output.value.isEmpty else {
-            throw LeapError.invalidRuntimeOutput
-          }
-          continuation.yield(.completed(ModelTurn(content: output.value, stopReason: .stop)))
-          continuation.finish()
-        } catch {
-          continuation.finish(throwing: Self.normalize(error))
+          } catch { output.fail(error) }
         }
+        let result = try await runtime.generateTextStream(
+          for: model,
+          history: mapped.history,
+          userMessage: mapped.user,
+          outputFormat: request.outputFormat,
+          emit: emit)
+        try Task.checkCancellation()
+        if let failure = output.failure { throw failure }
+        guard result == output.value, !output.value.isEmpty else {
+          throw LeapError.invalidRuntimeOutput
+        }
+        let content: String
+        if isStructured {
+          content = try LeapJSONOutput.decode(output.value, maximumBytes: request.maxOutputBytes)
+          for delta in try request.limits.boundedDeltas(for: content) {
+            continuation.yield(.textDelta(delta))
+          }
+        } else { content = output.value }
+        continuation.yield(.completed(ModelTurn(content: content, stopReason: .stop)))
+        continuation.finish()
+      } catch { continuation.finish(throwing: Self.normalize(error)) }
     }
     continuation.onTermination = { _ in task.cancel() }
     return ModelClientInvocation(

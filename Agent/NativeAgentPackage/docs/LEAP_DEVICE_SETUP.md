@@ -24,6 +24,6 @@ try await owner.unload()
 
 ## iOS host integration
 
-[sign_leap_embedded.sh](../scripts/sign_leap_embedded.sh)는 consumer app build의 Embed Frameworks 이후, 최종 CodeSign 전에 호출하도록 제공된 local signing helper다. 실행 결과를 실제 app bundle의 codesign check와 launch로 확인한다. Script 존재만으로 embedded SDK 서명이 성공했다고 보지 않는다.
+LEAP 0.11.0-SNAPSHOT은 `LeapSDK`와 `inference_engine`을 형제 framework로 제공한다. 두 framework를 product 의존성으로 연결하고 SwiftPM/Xcode의 embed/sign을 사용한다. 이전 nested dylib 서명 script는 제거했다. 실제 app bundle의 codesign 검증과 실행을 확인한다.
 
 Background download callback은 LeapBackgroundDownloads.handleEvents(for:completionHandler:)로 전달한다. Voice model, XcodeGen input과 실기기 test는 [LEAP DeviceQualification](../../../Providers/LEAP/DeviceQualification/README.md)에 있다. Text model, voice model, background completion, device process-death와 실제 audio quality는 각각 별도 qualification이다.

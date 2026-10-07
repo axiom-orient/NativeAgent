@@ -52,7 +52,7 @@ let package = Package(
     .package(name: "LanguageModelRuntime", path: "../../Model/LanguageModelRuntime"),
     .package(name: "ModelArtifactStore", path: "../../Model/ModelArtifactStore"),
     .package(name: "ModelHub", path: "../../Model/ModelHub"),
-    .package(url: "https://github.com/huggingface/swift-huggingface", exact: "0.10.2", traits: []),
+    .package(url: "https://github.com/huggingface/swift-huggingface", exact: "0.13.0", traits: []),
   ],
   targets: targets,
   swiftLanguageModes: [.v6]

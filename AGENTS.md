@@ -18,7 +18,7 @@ fixture는 계약 반례 검증용이다. 실제 inference/account/OS 권한의 
 
 상태의 authoritative owner는 concern마다 하나다. Pure transition과 effect를 분리한다.
 불필요한 protocol/target/actor/manager를 추가하지 않는다. 기존 public contract는 명시된
-[API 매핑](docs/API_MAPPING.md) 외에 근거 없이 바꾸지 않는다.
+[API 매핑](docs/API.md) 외에 근거 없이 바꾸지 않는다.
 Resources/PromptSources/SkillSources/LICENSE/NOTICE는 단순 문서가 아니라 제품 입력이다.
 
 ## 고정 경계
@@ -41,7 +41,7 @@ Resources/PromptSources/SkillSources/LICENSE/NOTICE는 단순 문서가 아니�
 - `NativeLanguageModels`: immutable façade. 별도 Task store/history/loader/provider routing을 만들지 않는다.
 - `ASKAgentTools`: ASK plan/dryRun/query/apply를 투영한다. 승인과 durable effect는 Agent, 지식/receipt는 ASK가 소유한다.
 - 이미지 생성은 텍스트 provider의 capability가 아니라 별도 선택형 effect다.
-- 활성 package는 `MigrationHold`에 의존하지 않는다. 실제 consumer/native parity gate를 충족하기 전 보존된 public API를 삭제하지 않는다.
+- 현재 concrete package만 사용한다. 사용자 승인으로 MigrationHold와 이전 AppleLocalAI API를 폐기했다. 하위 라이브러리 호환 wrapper나 데이터 마이그레이션을 재생성하지 않는다.
 
 ## 실패·동시성
 
@@ -65,7 +65,7 @@ python3 tools/check-documents.py
 ASK 변경은 실제 ASKAgentTools 테스트, Apple 변경은 SDK 26/27 compile/link/device matrix를 추가한다.
 미실행은 NOT_RUN, 환경으로 실패한 명령은 exit/log와 SKIPPED_ENV를 함께 남긴다.
 verification/current의 source hash와 실제 명령 결과만 이번 증거다. 이전 입력의 검증 기록을 현재 PASS로 승계하지 않는다.
-`MigrationHold/NativeAgentRelease`의 옛 release script는 현재 배포 도구가 아니다.
+배포는 검증한 source revision을 수동으로 게시한다. 이전 release script와 nested LEAP dylib 서명 도구는 제거했다.
 
 README=승인 안내·저작권, AGENTS=시작/탐색·운영 규칙, IDENTITY=목적/불변/발전, ARCHITECTURE=경계/owner,
 SPEC=규범, IMPLEMENTATION_STATUS=현재 사실, PLAN=남은 작업,

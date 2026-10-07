@@ -36,4 +36,4 @@ ASKAgentTools/MCP는 실제 dependency resolution과 root/adapter/peer 통합 �
 
 OpenAI API backend, App Server, 추가 native provider, ASK repository 분리는 제품 요구가 확정된 경우만 진행한다. `.transparent` 요청 의도와 실제 alpha 결과는 별개다. provider/manifest pin을 임의 갱신하지 않는다.
 
-MigrationHold와 optional/public surface는 dependency/import/caller/API parity/지원 consumer 증거가 있어야 제거한다. 과거 evidence는 imported-baseline으로 보존하며 현재 PASS와 혼합하지 않는다. correctness를 개선하지 않는 추가 추상화·wrapper·문서 복제는 만들지 않는다.
+MigrationHold와 이전 AppleLocalAI public API는 사용자의 명시적 폐기 요청으로 제거했다. 그 밖의 현재 optional/public surface는 consumer와 실제 계약을 확인한다. 과거 evidence는 imported-baseline으로 보존하며 현재 PASS와 혼합하지 않는다. correctness를 개선하지 않는 추가 추상화·wrapper·문서 복제는 만들지 않는다.

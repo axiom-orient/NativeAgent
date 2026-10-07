@@ -144,8 +144,8 @@ public struct MLXDownloadProgress: Hashable, Sendable {
 }
 
 public enum MLXPins {
-  public static let mlxSwift = "0.31.6"
-  public static let mlxSwiftLM = "e3d4a20e9e20e7b8ab39aded7bbfad4ae22c9438"
-  public static let swiftHuggingFace = "0.9.0"
-  public static let swiftTransformers = "1.3.3"
+  public static let mlxSwift = "0.32.3"
+  public static let mlxSwiftLM = "3.32.3"
+  public static let swiftHuggingFace = "0.13.0"
+  public static let swiftTransformers = "1.3.4"
 }
