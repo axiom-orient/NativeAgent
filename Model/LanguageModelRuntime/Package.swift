@@ -7,7 +7,7 @@ let strict: [SwiftSetting] = [
 ]
 let package = Package(
   name: "LanguageModelRuntime",
-  platforms: [.iOS(.v17)],
+  platforms: [.iOS(.v17), .macOS(.v13)],
   products: [.library(name: "LanguageModelRuntime", targets: ["LanguageModelRuntime"])],
   dependencies: [.package(name: "LanguageModelCore", path: "../LanguageModelCore")],
   targets: [

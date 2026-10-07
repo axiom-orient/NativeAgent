@@ -7,7 +7,7 @@ let strict: [SwiftSetting] = [
 ]
 let package = Package(
   name: "LanguageModelCore",
-  platforms: [.iOS(.v17)],
+  platforms: [.iOS(.v17), .macOS(.v13)],
   products: [.library(name: "LanguageModelCore", targets: ["LanguageModelCore"])],
   targets: [
     .target(name: "LanguageModelCore", swiftSettings: strict),

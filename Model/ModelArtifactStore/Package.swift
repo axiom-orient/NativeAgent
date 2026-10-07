@@ -7,7 +7,7 @@ let strict: [SwiftSetting] = [
 ]
 let package = Package(
   name: "ModelArtifactStore",
-  platforms: [.iOS(.v17)],
+  platforms: [.iOS(.v17), .macOS(.v13)],
   products: [.library(name: "ModelArtifactStore", targets: ["ModelArtifactStore"])],
   targets: [
     .target(name: "ModelArtifactStore", swiftSettings: strict),

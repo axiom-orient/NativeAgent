@@ -1,0 +1,82 @@
+Building for debugging...
+[Planning deferred tasks]
+[39 / 78]
+[40 / 79] ModelArtifactStore
+[50 / 122]
+[52 / 122]
+[58 / 122]
+[60 / 122]
+[64 / 122]
+[66 / 122]
+[67 / 122]
+[69 / 122]
+[73 / 122]
+[75 / 122]
+[76 / 122]
+[83 / 122] ModelArtifactStore
+[93 / 124] ModelArtifactStoreTestHelper
+[97 / 128] ModelArtifactStoreTestHelper
+[106 / 128] ModelArtifactStore
+[113 / 128] ModelArtifactStoreTestHelper
+[113 / 128] ModelArtifactStoreTestHelper-product
+[118 / 129] ModelArtifactStoreTests-product
+[132 / 163]
+[138 / 163]
+[142 / 163]
+[145 / 163]
+[148 / 163]
+[149 / 163]
+[157 / 163] ModelArtifactStoreTests-product
+[159 / 163] ModelArtifactStoreTests-product
+Build complete! (8.82초)
+Test Suite 'All tests' started at 2026-10-07 17:01:08.096.
+Test Suite 'ModelArtifactStoreTests.xctest' started at 2026-10-07 17:01:08.097.
+Test Suite 'ModelArtifactStoreTests' started at 2026-10-07 17:01:08.097.
+Test Case '-[ModelArtifactStoreTests.ModelArtifactStoreTests testArtifactIDCannotNameFilesystemTraversalComponents]' started.
+Test Case '-[ModelArtifactStoreTests.ModelArtifactStoreTests testArtifactIDCannotNameFilesystemTraversalComponents]' passed (0.002 seconds).
+Test Case '-[ModelArtifactStoreTests.ModelArtifactStoreTests testArtifactParentSymlinkCannotEscapeRoot]' started.
+Test Case '-[ModelArtifactStoreTests.ModelArtifactStoreTests testArtifactParentSymlinkCannotEscapeRoot]' passed (0.137 seconds).
+Test Case '-[ModelArtifactStoreTests.ModelArtifactStoreTests testCancelledDeduplicatedPublishNeverDeletesValidSnapshot]' started.
+Test Case '-[ModelArtifactStoreTests.ModelArtifactStoreTests testCancelledDeduplicatedPublishNeverDeletesValidSnapshot]' passed (0.028 seconds).
+Test Case '-[ModelArtifactStoreTests.ModelArtifactStoreTests testCancelledLockWaitDoesNotConsumeOrPublishStaging]' started.
+Test Case '-[ModelArtifactStoreTests.ModelArtifactStoreTests testCancelledLockWaitDoesNotConsumeOrPublishStaging]' passed (0.040 seconds).
+Test Case '-[ModelArtifactStoreTests.ModelArtifactStoreTests testCorruptDestinationIsRecoveredByVerifiedRestage]' started.
+Test Case '-[ModelArtifactStoreTests.ModelArtifactStoreTests testCorruptDestinationIsRecoveredByVerifiedRestage]' passed (0.019 seconds).
+Test Case '-[ModelArtifactStoreTests.ModelArtifactStoreTests testDecodedEntryCannotBypassPathValidation]' started.
+Test Case '-[ModelArtifactStoreTests.ModelArtifactStoreTests testDecodedEntryCannotBypassPathValidation]' passed (0.000 seconds).
+Test Case '-[ModelArtifactStoreTests.ModelArtifactStoreTests testDecodedManifestMustBeCurrentAndSelfConsistent]' started.
+Test Case '-[ModelArtifactStoreTests.ModelArtifactStoreTests testDecodedManifestMustBeCurrentAndSelfConsistent]' passed (0.000 seconds).
+Test Case '-[ModelArtifactStoreTests.ModelArtifactStoreTests testFlockExcludesAnotherProcessAndCrashReleasesLease]' started.
+Test Case '-[ModelArtifactStoreTests.ModelArtifactStoreTests testFlockExcludesAnotherProcessAndCrashReleasesLease]' passed (0.274 seconds).
+Test Case '-[ModelArtifactStoreTests.ModelArtifactStoreTests testHashMismatchNeverPublishesAndExistingVersionSurvives]' started.
+Test Case '-[ModelArtifactStoreTests.ModelArtifactStoreTests testHashMismatchNeverPublishesAndExistingVersionSurvives]' passed (0.029 seconds).
+Test Case '-[ModelArtifactStoreTests.ModelArtifactStoreTests testLowDiskAndLiveStagingRecoveryAreExplicit]' started.
+Test Case '-[ModelArtifactStoreTests.ModelArtifactStoreTests testLowDiskAndLiveStagingRecoveryAreExplicit]' passed (0.026 seconds).
+Test Case '-[ModelArtifactStoreTests.ModelArtifactStoreTests testManifestIsDeterministicAndStrict]' started.
+Test Case '-[ModelArtifactStoreTests.ModelArtifactStoreTests testManifestIsDeterministicAndStrict]' passed (0.001 seconds).
+Test Case '-[ModelArtifactStoreTests.ModelArtifactStoreTests testProcessResidencyRejectsDuplicateNativeOwners]' started.
+Test Case '-[ModelArtifactStoreTests.ModelArtifactStoreTests testProcessResidencyRejectsDuplicateNativeOwners]' passed (0.000 seconds).
+Test Case '-[ModelArtifactStoreTests.ModelArtifactStoreTests testPublishDeduplicatedSnapshotVerifiesExistingArtifactOnceAndReturnsLease]' started.
+Test Case '-[ModelArtifactStoreTests.ModelArtifactStoreTests testPublishDeduplicatedSnapshotVerifiesExistingArtifactOnceAndReturnsLease]' passed (0.021 seconds).
+Test Case '-[ModelArtifactStoreTests.ModelArtifactStoreTests testPublishOpenLeaseAndRemoveAcrossStores]' started.
+Test Case '-[ModelArtifactStoreTests.ModelArtifactStoreTests testPublishOpenLeaseAndRemoveAcrossStores]' passed (0.026 seconds).
+Test Case '-[ModelArtifactStoreTests.ModelArtifactStoreTests testPublishVerifiesNewSnapshotExactlyOnce]' started.
+Test Case '-[ModelArtifactStoreTests.ModelArtifactStoreTests testPublishVerifiesNewSnapshotExactlyOnce]' passed (0.004 seconds).
+Test Case '-[ModelArtifactStoreTests.ModelArtifactStoreTests testRepeatedCorruptOpenDoesNotLeakSnapshotDescriptors]' started.
+Test Case '-[ModelArtifactStoreTests.ModelArtifactStoreTests testRepeatedCorruptOpenDoesNotLeakSnapshotDescriptors]' passed (0.061 seconds).
+Test Case '-[ModelArtifactStoreTests.ModelArtifactStoreTests testStagingImportCancellationRemovesPartialFile]' started.
+Test Case '-[ModelArtifactStoreTests.ModelArtifactStoreTests testStagingImportCancellationRemovesPartialFile]' passed (0.031 seconds).
+Test Case '-[ModelArtifactStoreTests.ModelArtifactStoreTests testStagingImportUsesNoFollowFileDescriptors]' started.
+Test Case '-[ModelArtifactStoreTests.ModelArtifactStoreTests testStagingImportUsesNoFollowFileDescriptors]' passed (0.012 seconds).
+Test Case '-[ModelArtifactStoreTests.ModelArtifactStoreTests testSymlinkAndUnexpectedFileAreRejected]' started.
+Test Case '-[ModelArtifactStoreTests.ModelArtifactStoreTests testSymlinkAndUnexpectedFileAreRejected]' passed (0.010 seconds).
+Test Suite 'ModelArtifactStoreTests' passed at 2026-10-07 17:01:08.822.
+	 Executed 19 tests, with 0 failures (0 unexpected) in 0.723 (0.725) seconds
+Test Suite 'ModelArtifactStoreTests.xctest' passed at 2026-10-07 17:01:08.822.
+	 Executed 19 tests, with 0 failures (0 unexpected) in 0.723 (0.725) seconds
+Test Suite 'All tests' passed at 2026-10-07 17:01:08.822.
+	 Executed 19 tests, with 0 failures (0 unexpected) in 0.723 (0.726) seconds
+◇ Test run started.
+↳ Testing Library Version: 2084
+↳ Target Platform: arm64e-apple-macos14.0
+✔ Test run with 0 tests in 0 suites passed after 0.001 seconds.

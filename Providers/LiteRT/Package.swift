@@ -17,29 +17,12 @@ let huggingFace: Target.Dependency = .product(name: "HuggingFace", package: "swi
 var providerDependencies: [Target.Dependency] = [core, runtime, artifacts, modelHub, huggingFace]
 var targets: [Target] = []
 
-// CLiteRTLM is an Apple XCFramework. Do not make Linux package inspection or
-// contract tests fetch an unusable Apple artifact. macOS hosts (the supported
-// iOS build environment) receive the official v0.17.0 iOS/macOS binaries.
-// The upstream Swift wrapper 0.17.1 uses these same native artifacts.
+// Text and embedding consume the same native package, preventing duplicate
+// upstream C modules when both frontend products are linked by one host.
+providerDependencies.append(.product(name: "LiteRTNative", package: "LiteRTNative"))
 #if os(macOS)
-  targets.append(
-    .binaryTarget(
-      name: "CLiteRTLM",
-      url:
-        "https://github.com/google-ai-edge/LiteRT-LM/releases/download/v0.17.0/CLiteRTLM.xcframework.zip",
-      checksum: "c94fc12aa0403cb47208e419cc3bfe258214ea17035f7a63c16de536869f2186"
-    )
-  )
-  targets.append(
-    .binaryTarget(
-      name: "CLiteRTLM_mac",
-      url:
-        "https://github.com/google-ai-edge/LiteRT-LM/releases/download/v0.17.0/CLiteRTLM_mac.xcframework.zip",
-      checksum: "83efd536485c9d58fcd7fb7d4556ddb16ca46bb775b0449d08d9825c6836c1a4"
-    )
-  )
-  providerDependencies.append(.target(name: "CLiteRTLM", condition: .when(platforms: [.iOS])))
-  providerDependencies.append(.target(name: "CLiteRTLM_mac", condition: .when(platforms: [.macOS])))
+  providerDependencies.append(.product(name: "CLiteRTLM", package: "LiteRTNative", condition: .when(platforms: [.iOS])))
+  providerDependencies.append(.product(name: "CLiteRTLM_mac", package: "LiteRTNative", condition: .when(platforms: [.macOS])))
 #endif
 
 targets.append(
@@ -64,6 +47,7 @@ let package = Package(
     .library(name: "LiteRTProvider", targets: ["LiteRTProvider"])
   ],
   dependencies: [
+    .package(name: "LiteRTNative", path: "../LiteRTNative"),
     .package(name: "LanguageModelCore", path: "../../Model/LanguageModelCore"),
     .package(name: "LanguageModelRuntime", path: "../../Model/LanguageModelRuntime"),
     .package(name: "ModelArtifactStore", path: "../../Model/ModelArtifactStore"),

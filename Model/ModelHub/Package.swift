@@ -10,7 +10,7 @@ let strict: [SwiftSetting] = [
 
 let package = Package(
   name: "ModelHub",
-  platforms: [.iOS(.v17)],
+  platforms: [.iOS(.v17), .macOS(.v13)],
   products: [
     .library(name: "ModelHub", targets: ["ModelHub"])
   ],

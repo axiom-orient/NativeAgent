@@ -4,6 +4,7 @@ from pathlib import Path
 from urllib.parse import unquote, urlsplit
 from collections import Counter
 import json
+import os
 import re
 import sys
 
@@ -15,7 +16,7 @@ except ImportError as error:
     ) from error
 
 ROOT = Path(__file__).resolve().parents[1]
-OUT = ROOT / "docs/verification/current/document-check.json"
+OUT = Path(os.environ.get("NATIVEAI_VERIFICATION_OUTPUT", ROOT / "docs/verification/current")).resolve() / "document-check.json"
 PARSER = MarkdownIt("commonmark", {"html": True})
 DOCS = sorted(
     p for p in ROOT.rglob("*.md")

@@ -1,0 +1,58 @@
+Fetching binary artifact https://github.com/google-ai-edge/LiteRT-LM/releases/download/v0.18.0/CLiteRTLM.xcframework.zip from cache
+Fetching binary artifact https://github.com/google-ai-edge/LiteRT-LM/releases/download/v0.18.0/CLiteRTLM_mac.xcframework.zip from cache
+Fetched https://github.com/google-ai-edge/LiteRT-LM/releases/download/v0.18.0/CLiteRTLM.xcframework.zip from cache (7.94s)
+Fetched https://github.com/google-ai-edge/LiteRT-LM/releases/download/v0.18.0/CLiteRTLM_mac.xcframework.zip from cache (8.52s)
+Building for debugging...
+[Computing dependencies]
+[Pre-planning 1 / 157]
+[Planning deferred tasks]
+[11 / 81] LiteRTNative
+[25 / 81]
+[41 / 81]
+[43 / 83] LiteRTNative
+[47 / 87] LiteRTNative
+[53 / 87] EmbeddingCore
+[61 / 121]
+[63 / 121]
+[68 / 121]
+[70 / 121] LiteRTNative
+[72 / 121]
+[75 / 121]
+[77 / 121]
+[79 / 121]
+[81 / 121]
+[84 / 121]
+[85 / 121]
+[86 / 121]
+[87 / 121]
+[89 / 121] EmbeddingCore
+[96 / 122] LiteRTEmbeddingProvider
+[100 / 130]
+[104 / 130] LiteRTEmbeddingProvider
+[112 / 130] LiteRTEmbeddingProvider
+[114 / 130] LiteRTEmbeddingProvider
+[120 / 131] LiteRTEmbeddingProviderTests-product
+[121 / 136]
+[125 / 136] LiteRTEmbeddingProviderTests-product
+[130 / 136] LiteRTEmbeddingProviderTests-product
+[132 / 136] LiteRTEmbeddingProviderTests-product
+Build complete! (16.20초)
+Test Suite 'All tests' started at 2026-10-07 16:52:19.353.
+Test Suite 'All tests' passed at 2026-10-07 16:52:19.359.
+	 Executed 0 tests, with 0 failures (0 unexpected) in 0.000 (0.005) seconds
+◇ Test run started.
+↳ Testing Library Version: 2084
+↳ Target Platform: arm64e-apple-macos14.0
+◇ Test shutdownClosesIntakeAndDrainsBeforeSingleRelease() started.
+◇ Test cancellationJoinsNativeBeforeReuse() started.
+◇ Test rejectsWrongArtifactSizeAndDigestBeforeEngineCreation() started.
+◇ Test releaseFailureRemainsSticky() started.
+◇ Test rejectsRemoteArtifactBeforeNativeIO() started.
+◇ Test frozenPromptDialectUsesModelCardAndNeverLiteRTExampleDialect() started.
+✔ Test rejectsRemoteArtifactBeforeNativeIO() passed after 0.001 seconds.
+✔ Test frozenPromptDialectUsesModelCardAndNeverLiteRTExampleDialect() passed after 0.001 seconds.
+✔ Test shutdownClosesIntakeAndDrainsBeforeSingleRelease() passed after 0.001 seconds.
+✔ Test cancellationJoinsNativeBeforeReuse() passed after 0.001 seconds.
+✔ Test releaseFailureRemainsSticky() passed after 0.002 seconds.
+✔ Test rejectsWrongArtifactSizeAndDigestBeforeEngineCreation() passed after 0.152 seconds.
+✔ Test run with 6 tests in 0 suites passed after 0.153 seconds.

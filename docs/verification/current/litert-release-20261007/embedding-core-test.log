@@ -1,0 +1,39 @@
+Building for debugging...
+[Planning deferred tasks]
+[28 / 52]
+[29 / 53] EmbeddingCore
+[39 / 89]
+[46 / 89]
+[48 / 89]
+[52 / 89]
+[55 / 89]
+[60 / 89]
+[61 / 89]
+[62 / 89]
+[63 / 89]
+[65 / 89] EmbeddingCore
+[73 / 89] EmbeddingCore
+[79 / 90]
+[79 / 90] EmbeddingCoreTests-product
+[80 / 95]
+[84 / 95] EmbeddingCoreTests-product
+[89 / 95] EmbeddingCoreTests-product
+[91 / 95] EmbeddingCoreTests-product
+Build complete! (7.64초)
+Test Suite 'All tests' started at 2026-10-07 17:00:56.585.
+Test Suite 'All tests' passed at 2026-10-07 17:00:56.586.
+	 Executed 0 tests, with 0 failures (0 unexpected) in 0.000 (0.001) seconds
+◇ Test run started.
+↳ Testing Library Version: 2084
+↳ Target Platform: arm64e-apple-macos14.0
+◇ Test persistedProfilesCannotBypassIdentityValidation() started.
+◇ Test persistedVectorsCannotBypassValidation() started.
+◇ Test truncationPrecedesNormalizationAndPersistsIdentity() started.
+◇ Test validatesFullNativeOutputAndNonzeroTruncatedPrefix() started.
+◇ Test rejectsEveryMaterialIndexMismatch() started.
+✔ Test truncationPrecedesNormalizationAndPersistsIdentity() passed after 0.001 seconds.
+✔ Test validatesFullNativeOutputAndNonzeroTruncatedPrefix() passed after 0.001 seconds.
+✔ Test persistedProfilesCannotBypassIdentityValidation() passed after 0.001 seconds.
+✔ Test persistedVectorsCannotBypassValidation() passed after 0.001 seconds.
+✔ Test rejectsEveryMaterialIndexMismatch() passed after 0.001 seconds.
+✔ Test run with 5 tests in 0 suites passed after 0.001 seconds.
