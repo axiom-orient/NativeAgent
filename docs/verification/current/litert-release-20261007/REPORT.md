@@ -1,4 +1,4 @@
-# LiteRT source preview release — 2026-10-07
+# NativeAgent 0.1.1 — LiteRT 0.18.0 qualification
 
 Candidate based on published NativeAgent `98dafa0`, containing only scoped LiteRT
 text/embedding changes. Unrelated local staged changes are excluded. Release review
@@ -15,7 +15,7 @@ and exact-candidate execution results are recorded here before GitHub publicatio
 - Core/runtime/artifact/Hub manifests explicitly declare the macOS 13 floor required
   by Duration-based APIs; root/concrete providers retain macOS 15 and iOS 17.
 
-This is a source preview with a scoped LiteRT qualification, not a certification of
+This is the NativeAgent 0.1.1 release with a scoped LiteRT qualification, not a certification of
 all optional providers, live accounts, user-corpus search quality or future releases.
 The root production gates remain separate. No CI/workflow or Sumday pin update is added.
 
@@ -49,3 +49,16 @@ The original source guard's LeapSDK count did not account for the published flat
 root mirror. It now verifies the exact root/leaf owner set and matching URL/checksum;
 it does not ignore a duplicate or relax the native artifact identity. Validation output
 can be isolated without overwriting another task's current evidence.
+
+## 0.1.1 finalization
+
+The release version is 0.1.1, without a prerelease suffix. All supported iOS/macOS
+paths require the official 0.18.0 C module directly. Removed module-presence fallback
+and the obsolete 0.17 DeviceQualification project; the unified native qualification
+is the single current verification entry. Unsupported platforms remain unavailable.
+The older preview tag is preserved as immutable history, not a compatibility option.
+
+Final 0.1.1 source passed current macOS CPU/GPU real-model runs and iPhone 15 CPU/GPU
+execution after a transient disconnect/locked-device retry. The report file was read
+from that app only after the successful current-source launch. Required-native-module
+negative typechecking fails as expected; no module-presence fallback remains.

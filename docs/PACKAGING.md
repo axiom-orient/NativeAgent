@@ -79,7 +79,7 @@ for tag, branch, and revision requirements and its `0.1.0` tag was withdrawn.
 The flattened root references the independent source modules and declares each upstream
 binary once. LiteRT text and embedding share the same 0.18.0 binary identity through
 `Providers/LiteRTNative`; they keep separate inference and resource owners. Consumers pin
-a reviewed source commit or a qualified preview tag.
+a reviewed source commit or release tag.
 Publishing source products does not certify all optional native/live effects.
 Publish a semantic release tag only after its qualification scope is reviewed;
 do not retarget a published tag.
@@ -90,3 +90,14 @@ access, and live provider effects have separate gates in
 [`production/QUALIFICATION.md`](production/QUALIFICATION.md). A source release
 does not convert a remaining native/live gate into PASS. No CI workflow or
 automated GitHub release is part of this package.
+
+## NativeAgent 0.1.1
+
+```swift
+.package(url: "https://github.com/axiom-orient/NativeAgent.git", exact: "0.1.1")
+```
+
+The supported LiteRT baseline is the official 0.18.0 library, shared by text and
+embedding products. Lower LiteRT versions are not supported; iOS/macOS compilation
+requires the declared native module. Platform-unavailable hosts remain explicitly
+unavailable, without a provider fallback. Existing preview tags are historical artifacts.

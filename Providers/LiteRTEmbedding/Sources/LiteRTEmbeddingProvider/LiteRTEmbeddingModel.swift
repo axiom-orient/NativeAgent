@@ -33,7 +33,7 @@ public actor LiteRTEmbeddingModel: EmbeddingModel {
     guard modelURL.isFileURL, cacheDirectory.isFileURL,
       !modelURL.path.contains("\0"), !cacheDirectory.path.contains("\0")
     else { throw EmbeddingFailure.invalidInput }
-    #if canImport(CLiteRTLM) || canImport(CLiteRTLM_mac)
+    #if os(iOS) || os(macOS)
       let resident = NativeEmbeddingResident()
       do {
         try await resident.load(modelURL: modelURL, cacheDirectory: cacheDirectory)
