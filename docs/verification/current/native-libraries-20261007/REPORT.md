@@ -35,8 +35,10 @@ The actual LEAP inference_engine Mach-O requires iOS 26.5 / macOS 26.0, exceedin
 | macOS real LEAP | PASS: text/JSON, cancel/drain/closed admission/reload |
 | macOS LEAP voice | PASS: finite nonzero TTS PCM, synthetic ASR words, S2S text/PCM, cancel/drain/reload/unload |
 | iPhone app build / embed/sign | PASS: current root products, actual OS floor, exact bundled model hashes, deep/strict signature |
-| Physical iPhone execution | NOT_RUN: app installed; launch disconnected then was rejected because the device is locked |
+| Physical iPhone 15 / iOS 27.0.1 | PASS: current source, MLX text/JSON/tools, LEAP text/JSON and TTS/ASR/S2S, all cancel/drain/reload checks |
 
 Real immutable models: Qwen3-0.6B-4bit `73e3e38d981303bc594367cd910ea6eb48349da8`, LFM2-350M-Q4_0 `8fdc9d526b7ed346b19257551b05816c7912ecc2`, and pinned LFM2.5 audio `d78ca1db4adae8be7a7dbab003d128abdb5b94c6`. Sizes/SHA are verified; weights are external and never shipped. Native results are synthetic, without user prompts or credentials. Full failed/original logs and scratch consumers remain in the local evidence archive.
 
 This does not certify NPU, every architecture/model, human listening quality, live-account effects or unrelated whole-SDK production gates. Prior published tags remain immutable. Post-publication exact-version resolution is verified separately.
+
+The physical-device report was copied from the newly installed candidate only after successful launch and completion. Earlier disconnect/locked-device/timeout logs remain separate failed evidence. All 23 retained tracked source/qualification locks were resolved against the current manifests; stale direct selections were rejected.

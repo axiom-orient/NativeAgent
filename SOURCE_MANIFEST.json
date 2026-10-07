@@ -19,8 +19,8 @@
     "SOURCE_MANIFEST.json"
   ],
   "note": "Self-excluding Git-index inventory of the published NativeAgent SwiftPM source. Entries reflect staged source bytes, not unstaged local edits. Build outputs, SwiftPM state, editor state, ignored files and this manifest are excluded. This inventory does not qualify native or live behavior.",
-  "fileCount": 1894,
-  "uncompressedBytes": 18269434,
+  "fileCount": 1896,
+  "uncompressedBytes": 18272716,
   "files": [
     {
       "path": ".gitignore",
@@ -560,7 +560,7 @@
     {
       "path": "Agent/NativeAgentPackage/Packages/NativeAgentMCP/Qualification/Package.resolved",
       "bytes": 390,
-      "sha256": "5f0c29580a061b2f9326cbddd03b420376193e9aa27206137ecf2656738cbd26"
+      "sha256": "1d1e9a9171ffeef6b099c28e3d936ebcd7d54d8ec31af4d18878552a5dc30237"
     },
     {
       "path": "Agent/NativeAgentPackage/Packages/NativeAgentMCP/Qualification/Package.swift",
@@ -3260,7 +3260,7 @@
     {
       "path": "Knowledge/ASK/Packages/ASKAgentTools/Package.resolved",
       "bytes": 670,
-      "sha256": "76afc1536942c75ad3f1fd839b556cf82151c31d33c5fcac8ecc2c11b9cd1908"
+      "sha256": "07846cfdf0fb89755b2434f04f11f6671418bd9044f892dac1bc9dc31f6d78c6"
     },
     {
       "path": "Knowledge/ASK/Packages/ASKAgentTools/Package.swift",
@@ -3285,7 +3285,7 @@
     {
       "path": "Knowledge/ASK/Packages/ASKApplication/Package.resolved",
       "bytes": 670,
-      "sha256": "6a9171e44dfb5c27796a07f6ce19bb4fe43f4e7d523c87292a012b8b047db7fa"
+      "sha256": "ca5bf8e929517c80a9c915fe5277be587472d9d88d966620f40932e420d7cab7"
     },
     {
       "path": "Knowledge/ASK/Packages/ASKApplication/Package.swift",
@@ -3320,7 +3320,7 @@
     {
       "path": "Knowledge/ASK/Packages/ASKFoundationModels/Package.resolved",
       "bytes": 670,
-      "sha256": "bfe5ffb32057018c83d7ad3e8dc9568ea64864c408c40277a60f71e1ecb0753a"
+      "sha256": "3d69f46307d44d603496a8c91671774b205b4ee51408951464cd528a8bef5e55"
     },
     {
       "path": "Knowledge/ASK/Packages/ASKFoundationModels/Package.swift",
@@ -3420,7 +3420,7 @@
     {
       "path": "Knowledge/ASK/Packages/ASKTutor/Package.resolved",
       "bytes": 670,
-      "sha256": "2fab928616c72af591d20015c8f08b54f2e1a914d5acf850705e48e4788ed6d5"
+      "sha256": "0fdadd3c35d2e5290287ec8ee01ce922859577655e63b17abc676c8dd12882d0"
     },
     {
       "path": "Knowledge/ASK/Packages/ASKTutor/Package.swift",
@@ -4105,7 +4105,7 @@
     {
       "path": "Knowledge/ASK/Packages/DocumentRuntime/Package.resolved",
       "bytes": 670,
-      "sha256": "363bf185467adb4dee8d9d8ee872ea8dc2603f000e3b586717393e684ef78693"
+      "sha256": "30df412e733e7b2616c8674fffd21bfaa7eb7a6d7e3739aba445061af25daaf6"
     },
     {
       "path": "Knowledge/ASK/Packages/DocumentRuntime/Package.swift",
@@ -4180,7 +4180,7 @@
     {
       "path": "Knowledge/ASK/Packages/DocumentUI/Package.resolved",
       "bytes": 670,
-      "sha256": "4e34d34138d0b0f750632d83c4965f8f5df8c75b4071212a46fb2049785dabd5"
+      "sha256": "ddaf85812fb80b33972aaa00e6be333ca621b9c46f5d7c16c1d17d1cfd78e38e"
     },
     {
       "path": "Knowledge/ASK/Packages/DocumentUI/Package.swift",
@@ -4205,7 +4205,7 @@
     {
       "path": "Knowledge/ASK/Packages/EvidenceIndex/Package.resolved",
       "bytes": 670,
-      "sha256": "98bb2d13f42f08c8d87ae03c11efd7f9ee98ca63407e7bc0d6f8fa9b419f1708"
+      "sha256": "df694413e26bd25621b288d9ec42b720af488c73e28541abe77bddb75fd78f8a"
     },
     {
       "path": "Knowledge/ASK/Packages/EvidenceIndex/Package.swift",
@@ -4410,7 +4410,7 @@
     {
       "path": "Knowledge/ASK/Packages/HWPDocument/Package.resolved",
       "bytes": 670,
-      "sha256": "7a0078ff0a45b665252f98ae3ddbd0582f1e41d664b67f1801b70cc48171cc16"
+      "sha256": "72329cbed5e6bacc6ec52a2295e40eaaae800d3e39525f009618bf382dad58d8"
     },
     {
       "path": "Knowledge/ASK/Packages/HWPDocument/Package.swift",
@@ -4830,7 +4830,7 @@
     {
       "path": "Knowledge/ASK/Packages/KnowledgeHealth/Package.resolved",
       "bytes": 670,
-      "sha256": "65ce36d5bde61f42a209352cd901fdc3a3961bbc3e6cfbdb4144d04a8b41a4c0"
+      "sha256": "3c6c222a5dfb14bcce81d0ad7804da4fc82335a3c94250a2205b9e515768b4f9"
     },
     {
       "path": "Knowledge/ASK/Packages/KnowledgeHealth/Package.swift",
@@ -4850,7 +4850,7 @@
     {
       "path": "Knowledge/ASK/Packages/KnowledgePresentation/Package.resolved",
       "bytes": 670,
-      "sha256": "a92f6d5a616670b18febc4aa1af292500cfcc18ae6d6f6668c3915e68dfcdf13"
+      "sha256": "945bca9228c3bd4e0b3192de4d924bcab50ad29332424c398e579840dc47a6b1"
     },
     {
       "path": "Knowledge/ASK/Packages/KnowledgePresentation/Package.swift",
@@ -5340,7 +5340,7 @@
     {
       "path": "Knowledge/ASK/Packages/PageIndex/Package.resolved",
       "bytes": 670,
-      "sha256": "436019906c9b8c3e7d78362122d6650d51a046afd0358b9f22a10546c8591b94"
+      "sha256": "7d922ac8e2a8b09c57fff5669f5e102263fbedb0c1e1d8723d26f3cac24cc60a"
     },
     {
       "path": "Knowledge/ASK/Packages/PageIndex/Package.swift",
@@ -5845,7 +5845,7 @@
     {
       "path": "Knowledge/ASK/Packages/WorkWiki/Package.resolved",
       "bytes": 670,
-      "sha256": "7f834a84f3db899f5f640ea5553ef8424a015885fb649e7a4fbf022c60b2f93f"
+      "sha256": "6716e31f065a4f132543cbee02fff9a712432040f7fd9a6cf3a557984231c853"
     },
     {
       "path": "Knowledge/ASK/Packages/WorkWiki/Package.swift",
@@ -6325,7 +6325,7 @@
     {
       "path": "Knowledge/ASK/Verification/DeepConsumer/Package.resolved",
       "bytes": 670,
-      "sha256": "56fdcf0de66d90cada6f7b025f920e06dbbb662fea2432b8aef7039d33ad2088"
+      "sha256": "ee0078eaa7c7b2410c7cc8062934cbb6c5cc5fbc00be8274755cd1ed6486e859"
     },
     {
       "path": "Knowledge/ASK/Verification/DeepConsumer/Package.swift",
@@ -6340,7 +6340,7 @@
     {
       "path": "Knowledge/ASK/Verification/FacadeConsumer/Package.resolved",
       "bytes": 670,
-      "sha256": "dc07a2b904580e96d2bcff41a905f805857aa27a25020293d9b0b6c41355fcfe"
+      "sha256": "43d9af7610efb56be41f23fdcf1e5b563047633fb67291988d32ee2515a8fda0"
     },
     {
       "path": "Knowledge/ASK/Verification/FacadeConsumer/Package.swift",
@@ -6355,7 +6355,7 @@
     {
       "path": "Knowledge/ASK/Verification/HWPSampleConsumer/Package.resolved",
       "bytes": 670,
-      "sha256": "b9c6a1b65c48bb5516731b5647c0369d06a5af25f78e52c5aa82107c4147d197"
+      "sha256": "05054340229d8bb36b193e61426f8c82f18624d192277ffda48dfa3802f1e19b"
     },
     {
       "path": "Knowledge/ASK/Verification/HWPSampleConsumer/Package.swift",
@@ -6375,7 +6375,7 @@
     {
       "path": "Knowledge/ASK/Verification/LatencyProbe/Package.resolved",
       "bytes": 670,
-      "sha256": "2b0c2019f3e2d72eea27360122e406c6f093326315067215e5824a683a235364"
+      "sha256": "2be7c92dd7cf7ebe9c6d7b20e967ddfd24c7f5e03753c45c3e9c91a6be431637"
     },
     {
       "path": "Knowledge/ASK/Verification/LatencyProbe/Package.swift",
@@ -6420,7 +6420,7 @@
     {
       "path": "Knowledge/ASK/Verification/ProductionCorpusConsumer/Package.resolved",
       "bytes": 670,
-      "sha256": "04191b868376091dc0166a864ecd6eaddb6942db74577b2ae4dc5fd2074a5e64"
+      "sha256": "18fbf6f2bf95ccfe7cd484d0e5b0ac787d586f9b896bf75e8275ac93ce8aff64"
     },
     {
       "path": "Knowledge/ASK/Verification/ProductionCorpusConsumer/Package.swift",
@@ -6445,7 +6445,7 @@
     {
       "path": "Knowledge/ASK/Verification/ScenarioConsumer/Package.resolved",
       "bytes": 670,
-      "sha256": "27eb59aa34d1be5550ed77b40df8325da58de98e04706b514032cbccc79d63c2"
+      "sha256": "a435e3cc930207321c4886a193d9a900f44be51d2bbe30bfadcf4a1189454a08"
     },
     {
       "path": "Knowledge/ASK/Verification/ScenarioConsumer/Package.swift",
@@ -8214,13 +8214,18 @@
     },
     {
       "path": "docs/verification/current/native-libraries-20261007/REPORT.md",
-      "bytes": 3873,
-      "sha256": "ad8c8787e95049277e28705221b9f72578171ab8026f07973e07909673036703"
+      "bytes": 4227,
+      "sha256": "d24fb1ef963240b09d296ee474039301f7af02c51593f5adfb9d64c54be8c22e"
     },
     {
       "path": "docs/verification/current/native-libraries-20261007/checks.json",
       "bytes": 1931,
       "sha256": "586097f420b25606d4addb4a5fe52e1d3f4a65919d91cc4e035fcbd7bbf8c07b"
+    },
+    {
+      "path": "docs/verification/current/native-libraries-20261007/device-report.json",
+      "bytes": 406,
+      "sha256": "73627c1103d4d9cc14755da413d86631eb862eb2ea4956d2c269e6feaa34841b"
     },
     {
       "path": "docs/verification/current/native-libraries-20261007/document-check.json",
@@ -8238,14 +8243,19 @@
       "sha256": "18a6ee18913d104d20f423b4bb9c6aca404e38919b63193b9a9eabb2239a681d"
     },
     {
+      "path": "docs/verification/current/native-libraries-20261007/resolved-locks.json",
+      "bytes": 265,
+      "sha256": "43d309d6c87e8699c69a56638917eff75b91656e0447ebbaf69307e9fae356e4"
+    },
+    {
       "path": "docs/verification/current/native-libraries-20261007/resolved-native-versions.json",
       "bytes": 556,
       "sha256": "03f92b3bece22512af8066ea5602fd02f0b46d663573245a0a23b2809ac8665a"
     },
     {
       "path": "docs/verification/current/native-libraries-20261007/source-hashes.json",
-      "bytes": 7731,
-      "sha256": "296bbe8280680360c7c9680e2403f85610a187fe6ac513745c8035aa5293879a"
+      "bytes": 9988,
+      "sha256": "ad2013e0ac7fbe5d40ff03083ace2a8ed77bdcf49d5c6d48a94c8ac2e195699b"
     },
     {
       "path": "docs/verification/current/native-libraries-20261007/static-checks.json",
