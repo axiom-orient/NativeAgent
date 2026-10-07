@@ -1,0 +1,27 @@
+{
+  "dimensions": [
+    {
+      "corpusCount": 8,
+      "dimensions": 128,
+      "koreanMatches": 8
+    },
+    {
+      "corpusCount": 8,
+      "dimensions": 256,
+      "koreanMatches": 8
+    },
+    {
+      "corpusCount": 8,
+      "dimensions": 512,
+      "koreanMatches": 8
+    },
+    {
+      "corpusCount": 8,
+      "dimensions": 768,
+      "koreanMatches": 8
+    }
+  ],
+  "leasedRemovalRejected": true,
+  "releasedRemovalSucceeded": true,
+  "status": "PASS"
+}

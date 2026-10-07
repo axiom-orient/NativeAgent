@@ -2,6 +2,10 @@ import EmbeddingCore
 import Foundation
 import LiteRTNative
 
+public enum EmbeddingGemma2Dimensions: Int, Codable, CaseIterable, Sendable {
+  case d128 = 128, d256 = 256, d512 = 512, d768 = 768
+}
+
 /// Qualified generic CPU artifact; SoC variants, Gemma 1, other dimensions and
 /// prompt dialects require a different profile and an explicitly rebuilt index.
 public enum EmbeddingGemma2 {
@@ -9,7 +13,9 @@ public enum EmbeddingGemma2 {
   public static let artifactSHA256 = "2d079ee2f6f066b1f368e8d7c819f55214eaef1d0513b312321901f30ab286fb"
   public static let repositoryRevision = "9be6e8b90982095dc05c2bd162e4b954ee4dbac7"
   public static let maximumInputTokens = 1024
-  public static let profile: EmbeddingProfile = {
+  public static let profile = profile(for: .d256)
+
+  public static func profile(for dimensions: EmbeddingGemma2Dimensions) -> EmbeddingProfile {
     // All arguments are checked constants, not caller-controlled configuration.
     try! EmbeddingProfile(
       modelID: "google/embeddinggemma-2/text-270m",
@@ -18,9 +24,9 @@ public enum EmbeddingGemma2 {
       runtimeRevision: "litert-lm-\(LiteRTNativeRuntime.version)-cpu",
       promptRevision: "google-model-card-2-20261006-search-v1",
       inputPolicyRevision: "trim-bos-eos-max1024-overflow-error-v1",
-      nativeDimensions: 768, dimensions: 256
+      nativeDimensions: 768, dimensions: dimensions.rawValue
     )
-  }()
+  }
 
   public static func formattedText(for input: EmbeddingInput) throws -> String {
     func clean(_ value: String) throws -> String {

@@ -37,3 +37,16 @@ unsupported x86_64 simulator build) are preserved in the full logs. The macOS fl
 fixed in the manifests, the fixture now follows the public request limits, and arm64
 matches the official artifact and the user's permitted simulators. None is an inference
 fallback. [Current results](../../docs/verification/current/litert-release-20261007/REPORT.md).
+
+## EmbeddingGemma 2 complete workflow
+
+```sh
+swift run --package-path Qualification/LiteRTUnified -c release LiteRTUnifiedCLI embedding-workflow /absolute/isolated-store
+```
+
+This explicit command downloads the fixed 164 MB artifact if missing, verifies/publishes
+it through ModelArtifactStore, tests all four MRL dimensions with ordered document/query
+batches, validates persisted index restoration and Korean retrieval 8/8, rejects mixed
+profiles and proves that an active native lease blocks removal. After shutdown it removes
+only this command's exact qualified model artifact. Use a dedicated qualification store.
+It does not access user text or migrate an application database.

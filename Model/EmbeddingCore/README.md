@@ -27,3 +27,14 @@ swift test --package-path Model/EmbeddingCore -Xswiftc -warnings-as-errors
 
 These are value-contract tests, not actual model inference evidence. See
 [qualification](../../Qualification/LiteRTUnified/README.md).
+
+## Exact local retrieval
+
+EmbeddingRecord associates a host document ID with a validated immutable vector.
+EmbeddingIndex fixes one profile, validates an entire upsert before mutation and rejects
+duplicate IDs within an update. Existing IDs are replaced explicitly. Search validates
+the query once, computes exact cosine scores, orders ties by ID and optionally applies
+a caller-calibrated similarity filter. Invalid limits/thresholds and mismatched profiles
+fail even for an empty corpus. Codable restoration validates every record and rejects
+foreign profiles or duplicate IDs. The host owns persistence and ID-to-text resolution.
+Snapshots use formatVersion 1; unknown formats fail without migration. The value has no model, network, database or migration authority.
