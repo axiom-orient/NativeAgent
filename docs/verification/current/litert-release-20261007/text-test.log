@@ -1,147 +1,43 @@
-Fetching https://github.com/huggingface/swift-huggingface from cache
-Fetched https://github.com/huggingface/swift-huggingface from cache (1.04s)
-Computing version for https://github.com/huggingface/swift-huggingface
-Computed https://github.com/huggingface/swift-huggingface at 0.10.2 (1.59s)
-Fetching https://github.com/mattt/EventSource.git from cache
-Fetching https://github.com/apple/swift-crypto.git from cache
-Fetched https://github.com/mattt/EventSource.git from cache (1.19s)
-Fetched https://github.com/apple/swift-crypto.git from cache (1.31s)
-Computing version for https://github.com/mattt/EventSource.git
-Computed https://github.com/mattt/EventSource.git at 1.5.1 (2.31s)
-Computing version for https://github.com/apple/swift-crypto.git
-Computed https://github.com/apple/swift-crypto.git at 4.5.2 (1.20s)
-Fetching https://github.com/apple/swift-asn1.git from cache
-Fetched https://github.com/apple/swift-asn1.git from cache (1.10s)
-Computing version for https://github.com/apple/swift-asn1.git
-Computed https://github.com/apple/swift-asn1.git at 1.7.3 (1.81s)
-Creating working copy for https://github.com/huggingface/swift-huggingface
-Working copy of https://github.com/huggingface/swift-huggingface resolved at 0.10.2
-Creating working copy for https://github.com/mattt/EventSource.git
-Working copy of https://github.com/mattt/EventSource.git resolved at 1.5.1
-Creating working copy for https://github.com/apple/swift-crypto.git
-Working copy of https://github.com/apple/swift-crypto.git resolved at 4.5.2
-Creating working copy for https://github.com/apple/swift-asn1.git
-Working copy of https://github.com/apple/swift-asn1.git resolved at 1.7.3
-Fetching binary artifact https://github.com/google-ai-edge/LiteRT-LM/releases/download/v0.18.0/CLiteRTLM_mac.xcframework.zip from cache
-Fetching binary artifact https://github.com/google-ai-edge/LiteRT-LM/releases/download/v0.18.0/CLiteRTLM.xcframework.zip from cache
-Fetched https://github.com/google-ai-edge/LiteRT-LM/releases/download/v0.18.0/CLiteRTLM.xcframework.zip from cache (5.93s)
-Fetched https://github.com/google-ai-edge/LiteRT-LM/releases/download/v0.18.0/CLiteRTLM_mac.xcframework.zip from cache (6.70s)
 Building for debugging...
 [Computing dependencies]
-[Pre-planning 1 / 366]
-[Planning deferred tasks]
-[59 / 180] Crypto
-[74 / 180]
-[91 / 180]
-[96 / 185] LiteRTNative
-[98 / 189]
-[100 / 189] LiteRTNative
-[106 / 189] LanguageModelCore
-[114 / 270] ModelArtifactStore
-[119 / 278]
-[121 / 278]
-[122 / 278]
-[126 / 278] Crypto
-[126 / 292]
-[135 / 292]
-[138 / 292]
-[139 / 292]
-[142 / 292] LiteRTNative
-[144 / 292] LiteRTNative
-[144 / 292]
-[148 / 292]
-[150 / 292]
-[154 / 292]
-[158 / 292]
-[160 / 292]
-[164 / 292]
-[166 / 292]
-[167 / 292]
-[170 / 292]
-[172 / 292]
-[174 / 292]
-[175 / 292]
-[176 / 292]
-[186 / 292] LanguageModelCore
-[187 / 292] ModelArtifactStore
-[187 / 292] LanguageModelCore
-[188 / 292] ModelArtifactStore
-[195 / 292] ModelArtifactStore
-[202 / 292] EventSource
-[204 / 292] EventSource
-[216 / 292] LanguageModelCore
-[222 / 292] ModelArtifactStore
-[224 / 292] LanguageModelRuntime
-[228 / 292] Crypto
-[229 / 292] Crypto
-[230 / 292] Crypto-product
-[231 / 292] Crypto-product
-[232 / 292] Crypto
-[237 / 292]
-[238 / 293]
-[239 / 294] Crypto
-[239 / 294] ModelArtifactStore
-[239 / 294] LanguageModelRuntime
-[246 / 305] LanguageModelRuntime
-[247 / 343]
-[248 / 343]
-[250 / 343]
-[252 / 343]
-[253 / 343]
-[255 / 343] LanguageModelRuntime
-[258 / 343]
-[260 / 343]
-[266 / 343] LanguageModelRuntime
-[268 / 343] LanguageModelRuntime
-[275 / 343]
-[281 / 344]
-[283 / 344]
-[286 / 344] ModelHub
-[290 / 348] ModelHub
-[291 / 348]
-[292 / 348] ModelHub
-[298 / 348] LanguageModelRuntime
-[298 / 348] ModelHub
-[298 / 348] LanguageModelRuntime
-[300 / 348] ModelHub
-[303 / 348]
-[304 / 348]
-[315 / 348] HuggingFace
-[322 / 349] HuggingFace
-[322 / 349] LiteRTProvider
-[329 / 356] LiteRTProvider
-[339 / 356] HuggingFace
-[339 / 356] LiteRTProvider
-[346 / 357] LiteRTProviderTests-product
-[347 / 362]
-[348 / 362]
-[351 / 362] LiteRTProviderTests-product
-[356 / 362] LiteRTProviderTests-product
-[358 / 362] LiteRTProviderTests-product
-[360 / 362] LiteRTProviderTests-product
-Build complete! (42.17초)
-Test Suite 'All tests' started at 2026-10-07 16:52:57.405.
-Test Suite 'All tests' passed at 2026-10-07 16:52:57.406.
-	 Executed 0 tests, with 0 failures (0 unexpected) in 0.000 (0.001) seconds
+[Using on-disk description]
+[1 / 5]
+[1 / 6] Crypto
+[2 / 6] LiteRTNative
+[3 / 7] LiteRTNative
+[7 / 11] LiteRTProvider
+[8 / 12] LiteRTProvider
+[13 / 18] LiteRTNative
+[19 / 24] LiteRTProvider
+[21 / 25] LiteRTProvider
+[23 / 25] LiteRTProviderTests-product
+[24 / 28] LiteRTProviderTests-product
+[26 / 30] LiteRTProviderTests-product
+[31 / 33] LiteRTProviderTests-product
+[33 / 33] LiteRTProviderTests-product
+Build complete! (9.44초)
+Test Suite 'All tests' started at 2026-10-07 17:51:41.981.
+Test Suite 'All tests' passed at 2026-10-07 17:51:41.985.
+	 Executed 0 tests, with 0 failures (0 unexpected) in 0.000 (0.004) seconds
 ◇ Test run started.
 ↳ Testing Library Version: 2084
 ↳ Target Platform: arm64e-apple-macos14.0
 ◇ Suite "LiteRT public contract" started.
-◇ Test modelRequiresLocalFileURLs() started.
+◇ Test requestRendererPreservesStructuredToolObservation() started.
 ◇ Test capabilitiesDescribeImplementedSemanticSurfaceOnly() started.
+◇ Test modelRequiresLocalFileURLs() started.
+◇ Test responseParserPreservesTextAndToolCalls() started.
 ◇ Test requestRendererMapsToolsAndNativeJSONConstraint() started.
 ◇ Test modelToolSupportRequiresExplicitArtifactQualification() started.
-◇ Test responseParserPreservesTextAndToolCalls() started.
-◇ Test requestRendererKeepsSystemAndCurrentMessageSeparated() started.
-◇ Test requestRendererPreservesStructuredToolObservation() started.
 ◇ Test connectorDoesNotReportReadyWithoutNativeBackend() started.
-✔ Test capabilitiesDescribeImplementedSemanticSurfaceOnly() passed after 0.001 seconds.
-✔ Test modelRequiresLocalFileURLs() passed after 0.001 seconds.
-✔ Test modelToolSupportRequiresExplicitArtifactQualification() passed after 0.001 seconds.
-✔ Test responseParserPreservesTextAndToolCalls() passed after 0.001 seconds.
-✔ Test connectorDoesNotReportReadyWithoutNativeBackend() passed after 0.001 seconds.
-✔ Test requestRendererMapsToolsAndNativeJSONConstraint() passed after 0.007 seconds.
-✔ Test requestRendererKeepsSystemAndCurrentMessageSeparated() passed after 0.007 seconds.
-✔ Test requestRendererPreservesStructuredToolObservation() passed after 0.008 seconds.
-✔ Suite "LiteRT public contract" passed after 0.008 seconds.
-✔ Test run with 8 tests in 1 suite passed after 0.008 seconds.
+◇ Test requestRendererKeepsSystemAndCurrentMessageSeparated() started.
+✔ Test capabilitiesDescribeImplementedSemanticSurfaceOnly() passed after 0.008 seconds.
+✔ Test responseParserPreservesTextAndToolCalls() passed after 0.008 seconds.
+✔ Test connectorDoesNotReportReadyWithoutNativeBackend() passed after 0.008 seconds.
+✔ Test modelToolSupportRequiresExplicitArtifactQualification() passed after 0.008 seconds.
+✔ Test modelRequiresLocalFileURLs() passed after 0.015 seconds.
+✔ Test requestRendererKeepsSystemAndCurrentMessageSeparated() passed after 0.043 seconds.
+✔ Test requestRendererMapsToolsAndNativeJSONConstraint() passed after 0.043 seconds.
+✔ Test requestRendererPreservesStructuredToolObservation() passed after 0.045 seconds.
+✔ Suite "LiteRT public contract" passed after 0.045 seconds.
+✔ Test run with 8 tests in 1 suite passed after 0.046 seconds.

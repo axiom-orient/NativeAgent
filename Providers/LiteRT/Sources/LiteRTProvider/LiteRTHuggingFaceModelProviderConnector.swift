@@ -71,7 +71,7 @@ public actor LiteRTHuggingFaceModelProviderConnector: ModelProviderConnector, Hu
   }
 
   public func inspectModel(at address: HubModelAddress) async throws -> HubModelImportCandidate? {
-    #if !canImport(CLiteRTLM) && !canImport(CLiteRTLM_mac)
+    #if !os(iOS) && !os(macOS)
       return nil
     #else
     let (repositoryID, revision) = try await resolve(address)
@@ -231,13 +231,13 @@ public actor LiteRTHuggingFaceModelProviderConnector: ModelProviderConnector, Hu
 
   public func availability() async throws -> ModelProviderAvailability {
     try await loadCatalogIfNeeded()
-    #if canImport(CLiteRTLM) || canImport(CLiteRTLM_mac)
+    #if os(iOS) || os(macOS)
       let ready = modelsByID.values.contains {
         FileManager.default.fileExists(atPath: $0.modelURL.path)
       }
       return ready ? .available : .unavailable("No registered LiteRT-LM model artifact is present.")
     #else
-      return .unavailable("The pinned CLiteRTLM Apple binary is not present in this build.")
+      return .unavailable("LiteRT-LM is supported only on iOS and macOS.")
     #endif
   }
 

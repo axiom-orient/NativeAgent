@@ -4,10 +4,8 @@ import ModelArtifactStore
 import LanguageModelCore
 import LanguageModelRuntime
 
-#if canImport(CLiteRTLM)
+#if os(iOS) || os(macOS)
   import CLiteRTLM
-#elseif canImport(CLiteRTLM_mac)
-  import CLiteRTLM_mac
 #endif
 
 public enum LiteRTProvider {
@@ -48,7 +46,7 @@ public enum LiteRTProvider {
       if !transferredLease { artifactLease?.close() }
     }
     try Task.checkCancellation()
-    #if canImport(CLiteRTLM) || canImport(CLiteRTLM_mac)
+    #if os(iOS) || os(macOS)
       guard FileManager.default.fileExists(atPath: model.modelURL.path) else {
         throw ModelGenerationFailure(.sourceUnavailable, "The selected LiteRT-LM model is missing.")
       }
@@ -95,13 +93,13 @@ public enum LiteRTProvider {
     #else
       throw ModelGenerationFailure(
         .sourceUnavailable,
-        "LiteRT-LM is available only when the pinned CLiteRTLM Apple binary is present."
+        "LiteRT-LM is supported only on iOS and macOS."
       )
     #endif
   }
 }
 
-#if canImport(CLiteRTLM) || canImport(CLiteRTLM_mac)
+#if os(iOS) || os(macOS)
   private struct LiteRTModelClient: ModelClient, Sendable {
     let providerID = LiteRTProvider.providerID
     let modelDescriptor: ModelDescriptor?

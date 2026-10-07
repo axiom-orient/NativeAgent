@@ -4,14 +4,14 @@
     "cancellationJoined": true,
     "closedAdmissionRejected": true,
     "inferenceMilliseconds": [
-      77.048042,
-      63.386125,
-      66.132208,
-      73.202584,
-      63.300166,
-      57.111208,
-      81.342875,
-      67.253
+      84.817917,
+      82.801458,
+      61.863792,
+      71.94425,
+      68.712042,
+      64.948417,
+      62.077625,
+      60.012416
     ],
     "overflowRejected": true,
     "positiveCount": 8,

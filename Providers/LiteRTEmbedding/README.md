@@ -3,8 +3,8 @@
 Optional local text embedding adapter for the **generic EmbeddingGemma 2 text 270M**
 artifact and official LiteRT-LM **0.18.0** C embedding engine. It neither imports nor
 calls the text generation adapter. Both independent adapters now consume the same
-0.18.0 binary from `LiteRTNative`. Swift/C embedding APIs already exist in the official 0.17.0 source;
-0.18.0 adds announced EmbeddingGemma 2 support, not the first embedding API.
+0.18.0 binary from `LiteRTNative`. iOS/macOS builds require that pinned library; missing
+binaries or older C interfaces fail compilation rather than selecting a compatibility path.
 
 The root `NativeAgent` manifest exposes `EmbeddingCore` and `LiteRTEmbeddingProvider`
 as separate products. This leaf package depends only on `EmbeddingCore` and the pinned

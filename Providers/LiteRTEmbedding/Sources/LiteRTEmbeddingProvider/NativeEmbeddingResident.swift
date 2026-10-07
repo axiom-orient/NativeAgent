@@ -1,13 +1,9 @@
-#if canImport(CLiteRTLM) || canImport(CLiteRTLM_mac)
+#if os(iOS) || os(macOS)
 import CryptoKit
 import Dispatch
 import EmbeddingCore
 import Foundation
-#if canImport(CLiteRTLM)
 import CLiteRTLM
-#else
-import CLiteRTLM_mac
-#endif
 
 /// C I/O storage only. All pointer access occurs on this private serial queue;
 /// LiteRTEmbeddingModel alone decides admission, cancellation and shutdown.

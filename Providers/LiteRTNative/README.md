@@ -2,7 +2,8 @@
 
 The sole native binary owner for the independent LiteRT text and embedding source
 packages. Official release **0.18.0** is the latest stable release verified on 2026-10-07.
-This module exposes version identity only; it owns no engine, inference, task, cache,
+NativeAgent 0.1.1 requires this version on iOS/macOS; no lower-version compatibility
+or missing-native-module fallback is included. This module exposes version identity only; it owns no engine, inference, task, cache,
 admission or shutdown authority. Each frontend retains its existing resource owner.
 
 - iOS device + iOS Simulator: official CLiteRTLM 0.18.0, **arm64 only**.

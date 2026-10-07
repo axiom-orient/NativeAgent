@@ -19,8 +19,8 @@
     "SOURCE_MANIFEST.json"
   ],
   "note": "Self-excluding Git-index inventory of the published NativeAgent SwiftPM source. Entries reflect staged source bytes, not unstaged local edits. Build outputs, SwiftPM state, editor state, ignored files and this manifest are excluded. This inventory does not qualify native or live behavior.",
-  "fileCount": 1972,
-  "uncompressedBytes": 18581864,
+  "fileCount": 1967,
+  "uncompressedBytes": 18569484,
   "files": [
     {
       "path": ".gitignore",
@@ -7693,31 +7693,6 @@
       "sha256": "af640fe50d75c39d1607d8fab679d6d87dab5e823525ba2155e5906c127a74d7"
     },
     {
-      "path": "Providers/LiteRT/DeviceQualification/.gitignore",
-      "bytes": 13,
-      "sha256": "15170b9f18bf69246847520fd0c0a4e5db34e95935c4b8e2ba2b642503ee6c2c"
-    },
-    {
-      "path": "Providers/LiteRT/DeviceQualification/App/App.swift",
-      "bytes": 121,
-      "sha256": "4885a05ffa64cab0c9aaadfdac619c0c4917ef2d62f16b40a20efb2cf823af75"
-    },
-    {
-      "path": "Providers/LiteRT/DeviceQualification/README.md",
-      "bytes": 1950,
-      "sha256": "41f2aca9a2009999f86b040c7b27f9a28e2d833f484bbf6d6a49cc4ec3149d00"
-    },
-    {
-      "path": "Providers/LiteRT/DeviceQualification/Tests/LiveTests.swift",
-      "bytes": 4588,
-      "sha256": "2a262d86021be1aeec935d73f6510820a147b7faedefd48d69475ef54a1b5049"
-    },
-    {
-      "path": "Providers/LiteRT/DeviceQualification/project.yml",
-      "bytes": 1140,
-      "sha256": "3028d626c7c624737bcf4f1f3a9c09e1c4730bb962f0b6ce81464bb232c105d1"
-    },
-    {
       "path": "Providers/LiteRT/Package.swift",
       "bytes": 2408,
       "sha256": "5ede4df943a812ffd0f377e1c8239e96297b8a776cd80031111ee9be25b8bcea"
@@ -7729,8 +7704,8 @@
     },
     {
       "path": "Providers/LiteRT/Sources/LiteRTProvider/LiteRTHuggingFaceModelProviderConnector.swift",
-      "bytes": 16475,
-      "sha256": "cf14bf3436da598faec204f00ef300e6d526372300f1160b9982aeff6357405c"
+      "bytes": 16401,
+      "sha256": "3abea4aa20da7d80b1b770482eb7b4f075605aad36770ee1b1526a51da66d381"
     },
     {
       "path": "Providers/LiteRT/Sources/LiteRTProvider/LiteRTModel.swift",
@@ -7739,13 +7714,13 @@
     },
     {
       "path": "Providers/LiteRT/Sources/LiteRTProvider/LiteRTProviderConnector.swift",
-      "bytes": 2443,
-      "sha256": "6d44717c46d27510234ec651392a3284df18f21b9e28ed488e283ab7441c6d71"
+      "bytes": 2397,
+      "sha256": "e4547395ad30befd67ac076c95b5b9052930cf5f17b1abee151cd758d782672f"
     },
     {
       "path": "Providers/LiteRT/Sources/LiteRTProvider/LiteRTRuntime.swift",
-      "bytes": 22386,
-      "sha256": "757af6be02487399b4f1b5b5753982069bc7d91558257aa7692d00f52fe50a9c"
+      "bytes": 22241,
+      "sha256": "18c223da7c457899ac2696c56111d13c80ac2d547498dc6649ab2176f2dc000a"
     },
     {
       "path": "Providers/LiteRT/Sources/LiteRTProvider/LocalBackendFactory.swift",
@@ -7754,8 +7729,8 @@
     },
     {
       "path": "Providers/LiteRT/Tests/LiteRTProviderTests/LiteRTContractTests.swift",
-      "bytes": 8120,
-      "sha256": "4681fa26e29cfd13b3d70331292a02f2b5532f2cbfb6d428e2d624bfcd4bfeb3"
+      "bytes": 8092,
+      "sha256": "304690b60dc3be4e94d0bb9403ed46ea7113893156657403c95e91d926c68b58"
     },
     {
       "path": "Providers/LiteRTEmbedding/Package.swift",
@@ -7764,8 +7739,8 @@
     },
     {
       "path": "Providers/LiteRTEmbedding/README.md",
-      "bytes": 4575,
-      "sha256": "eea9a4350a6c3b861627b8460faf0d2f71cfa20af7fb97b50f562237bcb97b86"
+      "bytes": 4576,
+      "sha256": "3f8f6921a8c65fac3c6504b640b47a41e9660f09a23fb5afe83df1d913e0b0ed"
     },
     {
       "path": "Providers/LiteRTEmbedding/Sources/LiteRTEmbeddingProvider/EmbeddingGemma2.swift",
@@ -7774,13 +7749,13 @@
     },
     {
       "path": "Providers/LiteRTEmbedding/Sources/LiteRTEmbeddingProvider/LiteRTEmbeddingModel.swift",
-      "bytes": 3922,
-      "sha256": "d37c38097868010f4a7b885321d277927932f12b2324c9efbe3e96e7c1972a54"
+      "bytes": 3894,
+      "sha256": "d930458cd5c575b4e7bca315f3a14091a005b84014da2c6338847759d3f902ca"
     },
     {
       "path": "Providers/LiteRTEmbedding/Sources/LiteRTEmbeddingProvider/NativeEmbeddingResident.swift",
-      "bytes": 5560,
-      "sha256": "e2316dcfa8e1542af5b606f7248c697f2ec008c8e81614284e086921017ae6eb"
+      "bytes": 5473,
+      "sha256": "8a8af1b9219afa1b8354ce23c06b3bbdb07fde0700d7714d66a7525328ff1f71"
     },
     {
       "path": "Providers/LiteRTEmbedding/Tests/LiteRTEmbeddingProviderTests/EmbeddingOwnershipTests.swift",
@@ -7794,8 +7769,8 @@
     },
     {
       "path": "Providers/LiteRTNative/NOTICE",
-      "bytes": 670,
-      "sha256": "d06f84d36e6d4bcadad655900d22f1fa69c31f77378e0025a855dd9fe1fe0fec"
+      "bytes": 508,
+      "sha256": "df83e7c505e802a5b44c9561359ebe57022c8f16352e8f2c52782bbf7f2e36a5"
     },
     {
       "path": "Providers/LiteRTNative/Package.swift",
@@ -7804,8 +7779,8 @@
     },
     {
       "path": "Providers/LiteRTNative/README.md",
-      "bytes": 2008,
-      "sha256": "903b14ab70ec3a4c3b2cb78ee67531e7a1c7c7a8abd983624ac6d525badc4800"
+      "bytes": 2140,
+      "sha256": "e7a85c45a0a606ec4e55b1202eec983e1c41b53f91b61fbc4631886243818866"
     },
     {
       "path": "Providers/LiteRTNative/Sources/LiteRTNative/LiteRTNativeRuntime.swift",
@@ -8244,8 +8219,8 @@
     },
     {
       "path": "docs/PACKAGING.md",
-      "bytes": 4855,
-      "sha256": "1deee5b7d55db169f8f77e36dd171887a7935fe0bf192f2d6b72b83430e7135e"
+      "bytes": 5297,
+      "sha256": "5d135b8af899c9236cbe1baec7432392eb93ad15d69ed0ed4c96edf60c02ee05"
     },
     {
       "path": "docs/PLAN.md",
@@ -8509,8 +8484,8 @@
     },
     {
       "path": "docs/verification/current/litert-release-20261007/REPORT.md",
-      "bytes": 3167,
-      "sha256": "9d3bbf1b314c0d427131a6ac13fbd876e06a1edb88d6c50ac4b5aa72c780400b"
+      "bytes": 3967,
+      "sha256": "362c347fc05b4d0be3f5bff71d8bb2c394af028516d6a3f986c18a2be6a4f277"
     },
     {
       "path": "docs/verification/current/litert-release-20261007/artifact-test.log",
@@ -8520,7 +8495,7 @@
     {
       "path": "docs/verification/current/litert-release-20261007/closure-test.log",
       "bytes": 107,
-      "sha256": "cc89b6a480d4a065f7f21f7e2a1815834905919f98344b973a75bca21280b213"
+      "sha256": "7fc5f2f21d548c41100beac4e406a660cb9de1f9215153fa438389d418d8eb81"
     },
     {
       "path": "docs/verification/current/litert-release-20261007/core-test.log",
@@ -8529,13 +8504,13 @@
     },
     {
       "path": "docs/verification/current/litert-release-20261007/device-report.json",
-      "bytes": 6676,
-      "sha256": "85774e8bf1fcec4808f944d4e40f4e9e79065d54209dc6a5f81e6dea870b7de5"
+      "bytes": 6664,
+      "sha256": "48a99942c4a2bd0ab20cd74562d37e656a2427a2d6c9f01550caf2ed1361714a"
     },
     {
       "path": "docs/verification/current/litert-release-20261007/distribution-test.log",
       "bytes": 103,
-      "sha256": "91548dc6822929636a8c6e524242a2affc238dd1fa7d6c451d170ad06890acdb"
+      "sha256": "2a4568722718f8c7c13cfd210b6351c966ee298fcdf8ee8195d9abe471a1edad"
     },
     {
       "path": "docs/verification/current/litert-release-20261007/embedding-core-test.log",
@@ -8544,13 +8519,13 @@
     },
     {
       "path": "docs/verification/current/litert-release-20261007/embedding-test.log",
-      "bytes": 2665,
-      "sha256": "34f654d835d3fd00e447e16fec2945f13e6188470aac9bf9e15b5ef768d34d91"
+      "bytes": 1869,
+      "sha256": "40bcd85e4c836e2393c142225b5437a8d26b61a651ba1c1c959e322aa74a8d53"
     },
     {
       "path": "docs/verification/current/litert-release-20261007/final-manifest-test.log",
       "bytes": 105,
-      "sha256": "c0ecac1cc2c2c13f62b74133fdc4526df63851e3ce44562d9a4509513de0e561"
+      "sha256": "6d621189d54b0609861edff2fbbef588121baab8764a184db8f05000a0863d1b"
     },
     {
       "path": "docs/verification/current/litert-release-20261007/final-release-identity.log",
@@ -8564,13 +8539,13 @@
     },
     {
       "path": "docs/verification/current/litert-release-20261007/mac-cpu-report.json",
-      "bytes": 3041,
-      "sha256": "a2cda3a3cf70565920b79659f462eff8f29ff646b971bf31fa94833ca7417039"
+      "bytes": 3045,
+      "sha256": "a2795dfadbc236e4016a8f8708bfdd0d1442e2f7a1a6e0ac70bfae6efd323232"
     },
     {
       "path": "docs/verification/current/litert-release-20261007/mac-gpu-report.json",
-      "bytes": 3044,
-      "sha256": "c817ba6c0d7d08cf1e73e0609ecb2838a7f716ffcb0cd7f69ee9d6438063c138"
+      "bytes": 3047,
+      "sha256": "5958966142ae03ada1a80f6235410d0c2ee4b6c26fd2b54e05754de8bfba04c7"
     },
     {
       "path": "docs/verification/current/litert-release-20261007/relocated-report.json",
@@ -8584,13 +8559,13 @@
     },
     {
       "path": "docs/verification/current/litert-release-20261007/source-hashes.json",
-      "bytes": 5388,
-      "sha256": "f2117e6c6989d88eb20c657f650da8aab68b3a076adb4b0c2d266de5f07fd8b5"
+      "bytes": 4769,
+      "sha256": "f6a2dca0ce1621ad0ddc69f4d00de6c48be177c66ef501e246507a7ec1d6056d"
     },
     {
       "path": "docs/verification/current/litert-release-20261007/text-test.log",
-      "bytes": 6169,
-      "sha256": "6d40f64a3310f6e9c50f02ac1f6d7994fda17d580d78cc90fbb04558848d4b64"
+      "bytes": 2216,
+      "sha256": "45f4e987c0173455df95c0558da93479bf0e0ba930d6028576f1547d3adaf87f"
     },
     {
       "path": "docs/verification/current/migration-hold.json",

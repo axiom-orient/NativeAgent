@@ -181,7 +181,7 @@ struct LiteRTContractTests {
   }
 
   @Test func connectorDoesNotReportReadyWithoutNativeBackend() async throws {
-    #if !canImport(CLiteRTLM) && !canImport(CLiteRTLM_mac)
+    #if !os(iOS) && !os(macOS)
       let root = FileManager.default.temporaryDirectory
         .appendingPathComponent("litert-readiness-\(UUID().uuidString)")
       defer { try? FileManager.default.removeItem(at: root) }
