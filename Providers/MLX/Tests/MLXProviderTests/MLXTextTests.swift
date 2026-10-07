@@ -123,8 +123,8 @@ final class MLXTextTests: XCTestCase {
   }
 
   func testModelConfigurationUsesImmutableHubReferences() throws {
-    XCTAssertEqual(MLXPins.mlxSwift, "0.31.6")
-    XCTAssertEqual(MLXPins.mlxSwiftLM, "e3d4a20e9e20e7b8ab39aded7bbfad4ae22c9438")
+    XCTAssertEqual(MLXPins.mlxSwift, "0.32.3")
+    XCTAssertEqual(MLXPins.mlxSwiftLM, "3.32.3")
     let model = try MLXModel(
       repositoryID: "mlx-community/example", revision: String(repeating: "a", count: 40))
     XCTAssertEqual(model.revision.count, 40)

@@ -1,0 +1,6 @@
+{
+  "leap" : "leap text=\"OK.\" json={\n  \"ok\": true\n} cancellation=joined closed=rejected reload=passed",
+  "mlx" : "mlx versions=0.32.3\/3.32.3 text=\"OK\" json={\"ok\": true} tools=passed cancellation=joined closed=rejected reload=passed",
+  "status" : "PASS",
+  "voice" : "voice TTS=49440@24000 ASR=\"The bluebird sings in the garden.\" S2S=254880 cancellation=joined reload=passed cleanup=passed"
+}

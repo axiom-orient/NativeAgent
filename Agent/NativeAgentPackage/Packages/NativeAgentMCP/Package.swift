@@ -10,11 +10,11 @@ let strict: [SwiftSetting] = [
 
 let package = Package(
   name: "NativeAgentMCP",
-  platforms: [.iOS(.v17)],
+  platforms: [.iOS(.v17), .macOS(.v13)],
   products: [.library(name: "NativeAgentMCP", targets: ["NativeAgentMCP"])],
   dependencies: [
     .package(name: "NativeAgentPackage", path: "../.."),
-    .package(url: "https://github.com/axiom-orient/swiftMcp.git", exact: "0.4.1"),
+    .package(url: "https://github.com/axiom-orient/swiftMcp.git", exact: "0.4.2"),
   ],
   targets: [
     .target(

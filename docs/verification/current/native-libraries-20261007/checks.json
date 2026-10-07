@@ -1,0 +1,52 @@
+{
+  "markdown-contract.log": {
+    "status": "PASS",
+    "fullLogSHA256": "c2ed1de12367debd55a314e5f081d8de0c296671987c7d67e624488ba58faf6d",
+    "fullLogStorage": "local evidence archive"
+  },
+  "leap-contract-verified.log": {
+    "status": "PASS",
+    "fullLogSHA256": "4c93275076d8d59b048ac0f1fec37b6a8a2c86b00b5343f07b1d5426983186ce",
+    "fullLogStorage": "local evidence archive"
+  },
+  "distribution-candidate.log": {
+    "status": "PASS",
+    "fullLogSHA256": "676f55b691d6a94aa787bd95a1d81f2ca9db40a8e1727a04d833edf8de77ae27",
+    "fullLogStorage": "local evidence archive"
+  },
+  "litert-manifest.log": {
+    "status": "PASS",
+    "fullLogSHA256": "6f8036f501bacd079a429bfb87d6bad7354d5349ade0ee64108cee1096fe8097",
+    "fullLogStorage": "local evidence archive"
+  },
+  "agent-mcp-contract-verified.log": {
+    "status": "PASS",
+    "fullLogSHA256": "cd6e0f7a863af4061cf876ab7b7e48c80dc93a20d55ca646b8aae2e886419642",
+    "fullLogStorage": "local evidence archive"
+  },
+  "mlx-contract.log": {
+    "status": "PASS",
+    "fullLogSHA256": "6274be8ce937f8082a1077484aaf6a95ef8e279dacbaa48b4c825e3391d9ea5e",
+    "fullLogStorage": "local evidence archive"
+  },
+  "ask-mcp-contract.log": {
+    "status": "PASS",
+    "fullLogSHA256": "d89b4de97a9ed20964bfae59eda04e8ce50712fe843914d4f325c494a8fb3bae",
+    "fullLogStorage": "local evidence archive"
+  },
+  "documents-candidate.log": {
+    "status": "PASS",
+    "fullLogSHA256": "1e26dc20b19f1cbef4130c82dfa3aad8a9f60d549e9af935a6e6c883d81c9b6c",
+    "fullLogStorage": "local evidence archive"
+  },
+  "closure-final.log": {
+    "status": "PASS",
+    "fullLogSHA256": "092f3ef0c082b5e2a61888b77b1f68ffbd0afb7284e19601ea6250cb7141c478",
+    "fullLogStorage": "local evidence archive"
+  },
+  "litert-contract.log": {
+    "status": "PASS",
+    "fullLogSHA256": "c02585aa0134586db9fd0c983c59db74519204a2c16729f1e5a95f75576669d1",
+    "fullLogStorage": "local evidence archive"
+  }
+}

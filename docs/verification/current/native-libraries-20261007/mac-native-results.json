@@ -1,0 +1,5 @@
+{
+  "mlx": "NATIVE_QUALIFICATION mlx versions=0.32.3/3.32.3 text=\"OK\" json={\"ok\": true} tools=passed cancellation=joined closed=rejected reload=passed",
+  "leap": "NATIVE_QUALIFICATION leap text=\"OK\" json={\n  \"ok\": true\n} cancellation=joined closed=rejected reload=passed",
+  "voice": "NATIVE_QUALIFICATION voice TTS=55200@24000 ASR=\"The bluebird sings in the garden.\" S2S=325920 cancellation=joined reload=passed cleanup=passed"
+}

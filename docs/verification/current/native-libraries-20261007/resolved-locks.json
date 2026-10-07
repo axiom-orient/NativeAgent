@@ -1,0 +1,12 @@
+{
+  "status": "PASS",
+  "trackedLockCount": 23,
+  "currentDirectVersions": {
+    "mlx-swift": "0.32.3",
+    "mlx-swift-lm": "3.32.3",
+    "swift-huggingface": "0.13.0",
+    "swift-transformers": "1.3.4",
+    "swift-markdown": "0.9.0",
+    "swiftmcp": "0.4.2"
+  }
+}

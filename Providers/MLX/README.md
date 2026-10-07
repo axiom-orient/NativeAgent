@@ -2,7 +2,7 @@
 
 ## Shared backend composition — 2026-09-19
 
-Use the new `localBackend(for:)` factory once per host-selected prepared model. NativeAgent and AppleLocalAI borrow the same ModelRuntime; only the host LocalBackend shuts it down. Existing standalone APIs remain. Current dependency selections, limitations and native qualification are defined in the [ownership contract](../../docs/ARCHITECTURE.md) and its research/verification links. Older pin descriptions below are baseline history, not current resolver results.
+Use `localBackend(for:)` once per host-selected prepared model. Frontends borrow the same ModelRuntime; only the host LocalBackend shuts it down. Dependencies are exact current releases: MLX Swift 0.32.3, MLX Swift LM 3.32.3, Hugging Face 0.13.0 and Transformers 1.3.4. No older-library fallback or migration package is provided. The root Git package exports MLXProvider and MLXModelRegistry directly.
 
 `MLXProvider`는 앱 배포 후에도 사용자가 Hugging Face 모델 주소를 붙여 넣어 MLX 모델을 추가할 수 있는 SDK 경로를 제공합니다. 이 저장소에는 소비자 앱 UI가 없으므로, 앱은 주소 입력란과 아래 SDK 호출을 연결하면 됩니다.
 

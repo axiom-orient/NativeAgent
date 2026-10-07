@@ -26,4 +26,4 @@ Skill 외부/multi-process writer 지원, 새로운 tool/schema 지원, 원격 �
 
 ## 근거
 
-[공개 제품과 target](../../Package.swift), [Runtime](../../../../Model/LanguageModelRuntime/Sources/LanguageModelRuntime/ModelRuntime.swift), [Manager](../../Sources/NativeAgentManager/AgentManager.swift), [MLX borrowed wrapper](../../../../Providers/MLX/Sources/MLXProvider/Runtime.swift), [LEAP borrowed wrapper](../../../../Providers/LEAP/Sources/LEAPProvider/Runtime.swift), [배포 원본](../../../../MigrationHold/NativeAgentRelease/release/surfaces.json), [qualification 원본](../../../../MigrationHold/NativeAgentRelease/release/qualification.json).
+[공개 제품과 target](../../Package.swift), [Runtime](../../../../Model/LanguageModelRuntime/Sources/LanguageModelRuntime/ModelRuntime.swift), [Manager](../../Sources/NativeAgentManager/AgentManager.swift), [MLX borrowed wrapper](../../../../Providers/MLX/Sources/MLXProvider/Runtime.swift), [LEAP borrowed wrapper](../../../../Providers/LEAP/Sources/LEAPProvider/Runtime.swift), [현재 배포](../../../../docs/PACKAGING.md), [qualification](../QUALIFICATION.md).

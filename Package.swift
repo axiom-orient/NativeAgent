@@ -1,4 +1,4 @@
-// swift-tools-version: 6.2
+// swift-tools-version: 6.3
 import PackageDescription
 
 var liteRTNativeTargets: [Target] = []
@@ -18,7 +18,7 @@ liteRTBinaryDependencies = [
 // for local development; the Git package root has no local package dependencies.
 let package = Package(
     name: "NativeAgent",
-    platforms: [.iOS(.v17), .macOS(.v15)],
+    platforms: [.iOS("26.5"), .macOS(.v26)],
     products: [
         .library(name: "NativeAgent", targets: ["NativeAgent"]),
         .library(name: "NativeAgentDomain", targets: ["NativeAgentDomain"]),
@@ -30,6 +30,8 @@ let package = Package(
         .library(name: "LiteRTEmbeddingProvider", targets: ["LiteRTEmbeddingProvider"]),
         .library(name: "LiteRTProvider", targets: ["LiteRTProvider"]),
         .library(name: "LEAPProvider", targets: ["LEAPProvider"]),
+        .library(name: "MLXProvider", targets: ["MLXProvider"]),
+        .library(name: "MLXModelRegistry", targets: ["MLXModelRegistry"]),
         .library(name: "ChatGPTAccount", targets: ["ChatGPTAccount"]),
         .library(name: "ChatGPTText", targets: ["ChatGPTText"]),
         .library(name: "ChatGPTTextProvider", targets: ["ChatGPTTextProvider"]),
@@ -41,10 +43,40 @@ let package = Package(
         .library(name: "NativeAgentPresentation", targets: ["NativeAgentPresentation"]),
     ],
     dependencies: [
-        .package(url: "https://github.com/huggingface/swift-huggingface", exact: "0.10.2"),
-        .package(url: "https://github.com/swiftlang/swift-markdown.git", exact: "0.8.0"),
+        .package(url: "https://github.com/huggingface/swift-huggingface", exact: "0.13.0", traits: []),
+        .package(url: "https://github.com/swiftlang/swift-markdown.git", exact: "0.9.0"),
+        .package(url: "https://github.com/ml-explore/mlx-swift", exact: "0.32.3"),
+        .package(url: "https://github.com/ml-explore/mlx-swift-lm", exact: "3.32.3", traits: []),
+        .package(url: "https://github.com/huggingface/swift-transformers", exact: "1.3.4"),
     ],
     targets: [
+        .target(
+            name: "MLXModelRegistry",
+            dependencies: [
+                .target(name: "ModelArtifactStore"),
+                .target(name: "ModelHub"),
+                .product(name: "HuggingFace", package: "swift-huggingface"),
+            ],
+            path: "Providers/MLX/Sources/MLXModelRegistry",
+            swiftSettings: [.swiftLanguageMode(.v6), .enableUpcomingFeature("ExistentialAny"), .enableUpcomingFeature("MemberImportVisibility"), .enableUpcomingFeature("ImmutableWeakCaptures")]
+        ),
+        .target(
+            name: "MLXProvider",
+            dependencies: [
+                .target(name: "LanguageModelCore"),
+                .target(name: "LanguageModelRuntime"),
+                .target(name: "ModelArtifactStore"),
+                .target(name: "ModelHub"),
+                .target(name: "MLXModelRegistry"),
+                .product(name: "MLX", package: "mlx-swift"),
+                .product(name: "MLXLLM", package: "mlx-swift-lm"),
+                .product(name: "MLXGuidedGeneration", package: "mlx-swift-lm"),
+                .product(name: "MLXLMCommon", package: "mlx-swift-lm"),
+                .product(name: "Tokenizers", package: "swift-transformers"),
+            ],
+            path: "Providers/MLX/Sources/MLXProvider",
+            swiftSettings: [.swiftLanguageMode(.v6), .enableUpcomingFeature("ExistentialAny"), .enableUpcomingFeature("MemberImportVisibility"), .enableUpcomingFeature("ImmutableWeakCaptures")]
+        ),
         .target(name: "EmbeddingCore", path: "Model/EmbeddingCore/Sources/EmbeddingCore"),
         .target(name: "LiteRTNative", path: "Providers/LiteRTNative/Sources/LiteRTNative"),
         .target(name: "LiteRTEmbeddingProvider", dependencies: [.target(name: "EmbeddingCore"), .target(name: "LiteRTNative")] + liteRTBinaryDependencies,
@@ -196,7 +228,8 @@ let package = Package(
                 .target(name: "ModelArtifactStore"),
                 .target(name: "ModelHub"),
                 .product(name: "HuggingFace", package: "swift-huggingface"),
-                .target(name: "LeapSDK")
+                .target(name: "LeapSDK"),
+                .target(name: "inference_engine")
             ],
             path: "Providers/LEAP/Sources/LEAPProvider",
             swiftSettings: [.swiftLanguageMode(.v6), .enableUpcomingFeature("ExistentialAny"), .enableUpcomingFeature("MemberImportVisibility"), .enableUpcomingFeature("ImmutableWeakCaptures")]
@@ -214,7 +247,8 @@ let package = Package(
             path: "Model/LanguageModelRuntime/Sources/LanguageModelRuntime",
             swiftSettings: [.swiftLanguageMode(.v6), .enableUpcomingFeature("ExistentialAny"), .enableUpcomingFeature("MemberImportVisibility"), .enableUpcomingFeature("ImmutableWeakCaptures")]
         ),
-        .binaryTarget(name: "LeapSDK", url: "https://github.com/Liquid4All/leap-sdk/releases/download/v0.10.13-SNAPSHOT/LeapSDK.xcframework.zip", checksum: "99abbed6967de43dfa2b3ad03350f4146bf9ab9194a2fbc719d239066e6becc3"),
+        .binaryTarget(name: "inference_engine", url: "https://github.com/Liquid4All/leap-sdk/releases/download/v0.11.0-SNAPSHOT/inference_engine.xcframework.zip", checksum: "bd8f4ca176afc87713f48d49e24301090882e8a10761b476ebcf8ee2cced2ba2"),
+        .binaryTarget(name: "LeapSDK", url: "https://github.com/Liquid4All/leap-sdk/releases/download/v0.11.0-SNAPSHOT/LeapSDK.xcframework.zip", checksum: "f837346f81c73ac9f72e5cb115a9b4087a9155ae743cdc365b702361414343ac"),
         .target(
             name: "MarkdownSyntax",
             dependencies: [.product(name: "Markdown", package: "swift-markdown")],

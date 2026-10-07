@@ -3,7 +3,7 @@ import PackageDescription
 let strict: [SwiftSetting] = [.swiftLanguageMode(.v6), .enableUpcomingFeature("ExistentialAny"), .enableUpcomingFeature("MemberImportVisibility"), .enableUpcomingFeature("ImmutableWeakCaptures")]
 let package = Package(
   name: "LEAPProvider",
-  platforms: [.iOS(.v17)],
+  platforms: [.iOS("26.5"), .macOS(.v26)],
   products: [.library(name: "LEAPProvider", targets: ["LEAPProvider"])],
   dependencies: [
     .package(name: "NativeAILeapSDK", path: "Packages/NativeAILeapSDK"),
@@ -11,7 +11,7 @@ let package = Package(
     .package(name: "LanguageModelRuntime", path: "../../Model/LanguageModelRuntime"),
     .package(name: "ModelArtifactStore", path: "../../Model/ModelArtifactStore"),
     .package(name: "ModelHub", path: "../../Model/ModelHub"),
-    .package(url: "https://github.com/huggingface/swift-huggingface", exact: "0.10.2", traits: []),
+    .package(url: "https://github.com/huggingface/swift-huggingface", exact: "0.13.0", traits: []),
   ],
   targets: [
 

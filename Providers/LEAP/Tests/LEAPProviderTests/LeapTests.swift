@@ -439,14 +439,27 @@ final class LeapTests: XCTestCase {
     ]))))
   }
 
+  func testCurrentNativeJSONEnvelopeIsDecodedWithoutRepair() throws {
+    XCTAssertEqual(try LeapJSONOutput.decode("```json\n{\"ok\":true}\n```", maximumBytes: 11), "{\"ok\":true}")
+    XCTAssertEqual(try LeapJSONOutput.decode(" {} ", maximumBytes: 2), "{}")
+    for invalid in ["```python\n{}\n```", "before\n```json\n{}\n```", "```json\n{}\n```\nafter", "```json\n{} {}\n```", "```json\n[]\n```", "```json\n{\n```"] {
+      XCTAssertThrowsError(try LeapJSONOutput.decode(invalid, maximumBytes: 128))
+    }
+    XCTAssertThrowsError(try LeapJSONOutput.decode("```json\n{\"ok\":true}\n```", maximumBytes: 10))
+  }
+
+  func testCurrentNativeSDKVersion() {
+    XCTAssertEqual(LeapSDKVersion.shared.version, "0.11.0-SNAPSHOT")
+  }
+
   func testNativeGenerationOptionsPreserveSchemaWhenSettingSampling() throws {
     let schema = JSONValue.object(["type": .string("object")])
     let options = try LeapTextGenerationPolicy.options(for: .jsonObject(schema: schema))
-    XCTAssertEqual(options.jsonSchemaConstraint, try schema.canonicalString())
+    XCTAssertEqual((options.constraint as? GenerationConstraint.JsonSchema)?.schema, try schema.canonicalString())
     XCTAssertEqual(options.temperature?.floatValue, LeapTextGenerationPolicy.structuredOutputTemperature)
     XCTAssertEqual(options.maxTokens?.int32Value, LeapLimits.maxTextGenerationTokens)
     let textOptions = try LeapTextGenerationPolicy.options(for: .text)
-    XCTAssertNil(textOptions.jsonSchemaConstraint)
+    XCTAssertNil(textOptions.constraint)
     XCTAssertNil(textOptions.temperature)
   }
 
@@ -475,6 +488,30 @@ final class LeapTests: XCTestCase {
       sessionID: "text", messages: [AgentMessage(role: .user, content: "plain")], tools: []))
     let second = await recorder.value()
     XCTAssertEqual(second?.outputFormat, .text)
+    try await runtime.shutdown()
+    try await provider.unload()
+  }
+
+  func testNativeEnvelopeNeverLeaksIntoStructuredEvents() async throws {
+    let store = try ModelArtifactStore(rootURL: temporaryDirectory(), minimumFreeBytes: 0)
+    let provider = LeapRuntime(
+      store: store, downloader: FixtureDownloader(counters: Counters()),
+      loader: .init(load: { _ in FixtureSession(counters: Counters()) }),
+      textLoader: .init(load: { _ in RecordingTextSession(recorder: TextHistoryRecorder(),
+        jsonChunks: ["```js", "on\n{", "}", "\n``", "`"]) }))
+    let model = try tinyTextModel()
+    let runtime = try await provider.makeTextRuntime(provider.prepare(model))
+    let run = try await runtime.start(ModelRequest(
+      sessionID: "enveloped", messages: [.init(role: .user, content: "JSON")], tools: [],
+      outputFormat: .jsonObject(schema: .object(["type": .string("object")])), maxOutputBytes: 2))
+    var streamed = ""
+    var completed: String?
+    for try await event in run.events {
+      if case .textDelta(let delta) = event { streamed += delta }
+      if case .completed(let turn) = event { completed = turn.content }
+    }
+    XCTAssertEqual(streamed, "{}")
+    XCTAssertEqual(completed, "{}")
     try await runtime.shutdown()
     try await provider.unload()
   }
@@ -1373,7 +1410,11 @@ private actor TextHistoryRecorder {
 
 private final class RecordingTextSession: LeapTextSession, @unchecked Sendable {
   let recorder: TextHistoryRecorder
-  init(recorder: TextHistoryRecorder) { self.recorder = recorder }
+  let jsonChunks: [String]
+  init(recorder: TextHistoryRecorder, jsonChunks: [String] = [#"{"question":"What happened?"}"#]) {
+    self.recorder = recorder
+    self.jsonChunks = jsonChunks
+  }
 
   func generate(
     history: [LeapTextMessage],
@@ -1384,7 +1425,7 @@ private final class RecordingTextSession: LeapTextSession, @unchecked Sendable {
     await recorder.record(history: history, userMessage: userMessage, outputFormat: outputFormat)
     switch outputFormat {
     case .text: emit(.text("fixture response"))
-    case .jsonObject: emit(.text(#"{"question":"What happened?"}"#))
+    case .jsonObject: for chunk in jsonChunks { emit(.text(chunk)) }
     }
     emit(.completed)
   }

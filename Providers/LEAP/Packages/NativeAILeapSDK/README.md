@@ -1,9 +1,9 @@
 # NativeAILeapSDK
 
-`LeapSDK` upstream XCFramework의 **단일 SwiftPM binary declaration**을 제공한다. NativeAgent와 AppleLocalAI가 동일 URL/checksum을 각자 중복 선언하지 않도록 package identity만 공유한다.
+LEAP 0.11.0-SNAPSHOT의 검증된 `LeapSDK`와 `inference_engine` binary declarations를 소유한다. 현재 upstream release는 프리릴리스다. 하위 SDK 호환 경로는 없다.
 
-이 package는 model download, runtime residency, inference, cancellation, unload authority를 소유하지 않는다. 각 consumer runtime이 자신의 lifecycle을 소유하며, NativeAgent와 AppleLocalAI가 같은 resident를 공유할 때는 workspace `LocalBackend` ownership을 사용한다.
+SwiftPM product는 두 형제 framework를 함께 연결한다. SwiftPM/Xcode가 각 framework를 embed/sign하며, 이전 nested dylib 서명 script는 사용하지 않는다. Root Git 배포는 동일 URL/checksum을 그대로 선언한다.
 
-정확한 version/checksum은 [`Package.swift`](Package.swift)가 정본이다. 현재 dependency는 prerelease snapshot이므로 실기기 link/sign/runtime qualification 없이 stable production status를 주장하지 않는다.
+이 package는 download, residency, inference, cancellation 또는 unload를 소유하지 않는다. 모델 수명은 LEAPProvider와 host LocalBackend가 소유한다. 정확한 URL/checksum은 [Package.swift](Package.swift)가 정본이며 실제 동작은 별도 검증한다.
 
-관련 문서: [workspace architecture](../../../../docs/ARCHITECTURE.md) · [Agent providers](../../../../Agent/NativeAgentPackage/docs/PROVIDERS.md) · [Apple LEAP package](../../../../MigrationHold/AppleLocalAI/Packages/AppleLocalAILEAP/README.md).
+The current root distribution requires Swift 6.3, iOS 26.5 and macOS 26.0. The official LEAP 0.11 inference_engine Mach-O declares these OS floors, despite the upstream package declaration; NativeAgent follows the actual binary. Independent MLX and LiteRT source packages retain their own supported OS floors.

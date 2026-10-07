@@ -10,7 +10,7 @@ NativeAgent는 durable execution, ASK는 source/evidence/approved knowledge, ASK
 
 ## 변하면 안 되는 것
 
-공통 request/event/schema 의미와 명시된 public contract를 보존한다. 허용된 과거 이름 변경은 [API_MAPPING](API_MAPPING.md)이 소유하며 임의 호환 wrapper를 만들지 않는다.
+공통 request/event/schema 의미와 명시된 public contract를 보존한다. 허용된 과거 이름 변경은 [API_MAPPING](API.md)이 소유하며 임의 호환 wrapper를 만들지 않는다.
 
 같은 material state/decision의 authoritative owner는 하나다. 실행 승인·원격 수행·local producer 종료·durable commit·resource release를 구분한다. 실패·취소·unknown outcome을 성공이나 안전한 자동 재시도로 바꾸지 않는다. borrowed resource를 해제하지 않고 승인되지 않은 mutation을 실행하지 않는다.
 

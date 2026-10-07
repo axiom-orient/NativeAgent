@@ -23,7 +23,7 @@ Qualification → 필요한 production products (반대 의존 금지)
 
 루트는 범용 package collection이다. Root manifest는 기존 Agent/model/provider/account/image/knowledge/UI target을 각각 concrete product로 공개한다. 앱 이름의 product나 조합 target을 두지 않는다. 앱은 필요한 product를 선택하고 구체 모듈을 직접 import하며 host composition을 소유한다. Core/kernel의 의존 방향과 concern별 state owner는 배포 방식과 무관하게 유지한다.
 
-Agent kernel은 concrete provider·ASK·façade를 import하지 않는다. Providers는 Agent 승인/저장소를 import하지 않는다. same-process Swift composition에 새 HTTP/MCP gateway나 global manager를 끼우지 않는다. `MigrationHold`는 활성 graph 밖의 보존 API다.
+Agent kernel은 concrete provider·ASK·façade를 import하지 않는다. Providers는 Agent 승인/저장소를 import하지 않는다. same-process Swift composition에 새 HTTP/MCP gateway나 global manager를 끼우지 않는다. 이전 AppleLocalAI 보관 API와 과거 배포 도구는 명시적으로 폐기했다. 현재 provider만 연결하며 하위 라이브러리 호환이나 데이터 이행 경로를 두지 않는다.
 
 ## Authoritative owner
 
@@ -67,7 +67,7 @@ ASK process-wide mutation lane은 같은 process에서 겹치는 resource roots�
 
 Text와 Image는 Account를 공유할 수 있지만 서로를 필수 의존하지 않는다. Image·MCP·ASK/Agent integration은 host가 명시 등록한다. FoundationModelsBridge는 Apple→공통 모델의 단방향 text projection이다.
 
-새 adapter는 source contract, activation 조건, resource owner, cancellation/completion, partial effect, capability declaration, 실제 qualification 경계를 제시해야 한다. public API 이름 이동은 [API_MAPPING](API_MAPPING.md), 지속적인 결정은 [ADR](adr/0005-runtime-and-effect-boundaries.md)을 따른다.
+새 adapter는 source contract, activation 조건, resource owner, cancellation/completion, partial effect, capability declaration, 실제 qualification 경계를 제시해야 한다. public API 이름 이동은 [API_MAPPING](API.md), 지속적인 결정은 [ADR](adr/0005-runtime-and-effect-boundaries.md)을 따른다.
 
 ## ChatGPT의 완료 경계
 

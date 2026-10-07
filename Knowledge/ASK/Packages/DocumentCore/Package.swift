@@ -12,7 +12,7 @@ let package = Package(
         // Swift Markdown is backed by cmark-gfm. Pin the parser dialect rather
         // than letting PageIndex's persisted source anchors drift with an
         // unreviewed parser upgrade.
-        .package(url: "https://github.com/swiftlang/swift-markdown.git", exact: "0.8.0"),
+        .package(url: "https://github.com/swiftlang/swift-markdown.git", exact: "0.9.0"),
     ],
     targets: [
         .target(

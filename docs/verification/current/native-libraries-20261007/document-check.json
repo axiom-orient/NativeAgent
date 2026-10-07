@@ -1,0 +1,13 @@
+{
+  "status": "PASS",
+  "documents": 155,
+  "activeAnalysesChecked": 15,
+  "relativeLinksChecked": 501,
+  "externalLinksNotFetched": 71,
+  "errors": [],
+  "limits": [
+    "No runtime proof.",
+    "External URL availability is not checked.",
+    "Link existence is not semantic correctness."
+  ]
+}

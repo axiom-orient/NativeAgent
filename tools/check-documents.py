@@ -102,7 +102,6 @@ products = [
     ROOT / "Agent/NativeAgentPackage",
     ROOT / "Knowledge/ASK",
     ROOT / "Knowledge/ASK/Packages/ASKTutor",
-    ROOT / "MigrationHold/AppleLocalAI",
 ]
 canonical = ("IDENTITY_AND_EVOLUTION", "SPEC", "ARCHITECTURE", "IMPLEMENTATION_STATUS", "PLAN")
 for directory in products:
@@ -150,11 +149,9 @@ for doc in DOCS:
             })
 
 # Active product canonical headings and analysis navigation/shape are checked separately
-# from semantic correctness. The preserved migration hold is not an active design owner.
+# from semantic correctness. Current product contracts have one document owner.
 identity_headings = ["정체성", "변하면 안 되는 것", "변경 가능한 것", "발전 방향"]
 for directory in products:
-    if "MigrationHold" in directory.parts:
-        continue
     identity = directory / "docs/IDENTITY_AND_EVOLUTION.md"
     if not identity.is_file():
         errors.append({"type": "missing-identity", "document": str(identity.relative_to(ROOT))})
@@ -166,7 +163,7 @@ for directory in products:
 current = (ROOT / "docs/IMPLEMENTATION_STATUS.md").read_text()
 analysis_count = 0
 for doc in DOCS:
-    if doc.name != "ANALYSIS.md" or "MigrationHold" in doc.parts:
+    if doc.name != "ANALYSIS.md":
         continue
     analysis_count += 1
     text = doc.read_text()

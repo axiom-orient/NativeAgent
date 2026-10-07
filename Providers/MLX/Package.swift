@@ -1,4 +1,4 @@
-// swift-tools-version: 6.2
+// swift-tools-version: 6.3
 import PackageDescription
 
 let strict: [SwiftSetting] = [
@@ -20,13 +20,13 @@ let package = Package(
     .package(name: "LanguageModelRuntime", path: "../../Model/LanguageModelRuntime"),
     .package(name: "ModelArtifactStore", path: "../../Model/ModelArtifactStore"),
     .package(name: "ModelHub", path: "../../Model/ModelHub"),
-    .package(url: "https://github.com/huggingface/swift-huggingface", exact: "0.10.2", traits: []),
+    .package(url: "https://github.com/huggingface/swift-huggingface", exact: "0.13.0", traits: []),
     .package(
       url: "https://github.com/ml-explore/mlx-swift",
-      revision: "901941965d82e4a216d4d117231d847d194c563d"),
+      exact: "0.32.3"),
     .package(
       url: "https://github.com/ml-explore/mlx-swift-lm",
-      revision: "c6446cf7bfb7cea76408013b614d4b2c530eaa03", traits: []),
+      exact: "3.32.3", traits: []),
     .package(url: "https://github.com/huggingface/swift-transformers", exact: "1.3.4"),
   ],
   targets: [

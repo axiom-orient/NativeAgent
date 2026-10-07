@@ -1,6 +1,6 @@
 # NativeAI — SPEC
 
-이 문서는 확정 계약과 수용 기준이다. 실제 충족 여부는 [Current](IMPLEMENTATION_STATUS.md), 세부 public 이름은 [API_MAPPING](API_MAPPING.md), Swift 원본 선언이 소유한다.
+이 문서는 확정 계약과 수용 기준이다. 실제 충족 여부는 [Current](IMPLEMENTATION_STATUS.md), 세부 public 이름은 [API_MAPPING](API.md), Swift 원본 선언이 소유한다.
 
 ## 필수 계약
 
@@ -32,7 +32,7 @@ NativeLanguageModels는 공통 Runtime의 편의 façade이며 Apple generic API
 
 각 하위 package의 Swift tools/platform/dependency pin은 해당 Package.swift/lockfile이 정본이다. Remote Git URL은 repository-root의 범용 concrete products를 제공하고, 하위 manifest는 source-level 개발·검증 경계로 유지한다. 소비 앱의 product 조합을 SDK에 추가하지 않는다. 하위 package 폴더를 임의로 떼어 배포하지 않는다. [PACKAGING](PACKAGING.md)을 따른다.
 
-새 UI·전역 model router·자동 cloud fallback·새 retry queue·provider SDK 업그레이드·public API 삭제는 이번 계약에 포함하지 않는다.
+새 UI·전역 model router·자동 cloud fallback·새 retry queue는 이 계약에 포함하지 않는다. 2026-10-07 명시적으로 요청된 native SDK 업그레이드와 보관된 legacy API 폐기는 현재 baseline에 반영한다. 하위 버전 호환이나 데이터 이행을 제공하지 않는다.
 
 ## 검증 수용 규칙
 

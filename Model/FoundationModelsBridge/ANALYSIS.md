@@ -26,13 +26,13 @@ native framework가 실제 inference를 소유하고 공통 Runtime은 admission
 |---|---|---|---|---|
 | 기존 provider common adapter 계약 | PUBLIC_LIBRARY | SATISFIED | PASS — 10 common tests; native 본문 제외 | [FoundationModelsClient.swift](../../Providers/AppleSystemModel/Sources/AppleSystemModelProvider/FoundationModelsClient.swift) |
 | SDK 27 text bridge | PUBLIC_LIBRARY | UNKNOWN | NOT_RUN — native SDK signature/link/response | [FoundationLanguageModel.swift](Sources/FoundationModelsBridge/FoundationLanguageModel.swift) |
-| structured/macros/audio parity | ABSENT_IN_SCOPE | NOT_IMPLEMENTED | N/A — 현재 text bridge 비목표 | [API_MAPPING.md](../../docs/API_MAPPING.md) |
+| structured/macros/audio parity | ABSENT_IN_SCOPE | NOT_IMPLEMENTED | N/A — 현재 text bridge 비목표 | [API.md](../../docs/API.md) |
 
 ## 실패·취소·복구 / findings
 
 **F09 / 미검증.** source에 조건부 compilation과 availability가 있다고 설치 SDK에서 API가 맞는 것은 아니다. native symbols가 Linux compilation에서 제외되는 성공은 qualification으로 세지 않는다.
 
-**CONFLICT 방지:** 이 단방향 text bridge를 AppleLocalAISession 전체 대체로 기록하면 보존된 structured/audio/profile 계약이 사라진다. 실제 public parity가 검증되기 전 MigrationHold 제거 금지. 이번 검토는 OS/API version을 새로 확정하지 않았다.
+**CONFLICT 방지:** 이 단방향 text bridge를 AppleLocalAISession 전체 대체로 기록하면 보존된 structured/audio/profile 계약이 사라진다. 이전 보관 API는 사용자의 명시적 폐기 요청으로 제거했으며 이 bridge의 기능 동등성을 뜻하지 않는다. 이번 검토는 OS/API version을 새로 확정하지 않았다.
 
 ## Gap·검증·근거
 

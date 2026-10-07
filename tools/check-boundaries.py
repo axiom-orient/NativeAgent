@@ -138,37 +138,19 @@ def binary_binding(manifest):
     return tuple(field[1] for field in fields) if all(fields) else None
 check("root LeapSDK preserves leaf URL and checksum",
       binary_binding(ROOT / "Package.swift") == binary_binding(sdk_manifest), "distribution artifact identity")
-for relative in ("Providers/LEAP/Package.swift", "MigrationHold/AppleLocalAI/Packages/AppleLocalAILEAP/Package.swift"):
-    check("shared LeapSDK dependency: " + relative, '.product(name: "LeapSDK", package: "NativeAILeapSDK")' in read(relative), "one binary owner")
-for revision in ("901941965d82e4a216d4d117231d847d194c563d", "c6446cf7bfb7cea76408013b614d4b2c530eaa03"):
-    check("existing MLX revision preserved: " + revision,
-          revision in read("Providers/MLX/Package.swift") and revision in read("MigrationHold/AppleLocalAI/Packages/AppleLocalAILocalModels/Package.swift"), "declaration only, not dependency resolution")
-
-# Preserve earlier failure-specific guards for the held native implementations.
-for file, load_result in [('AppleLocalAILEAP.swift', 'return LEAPLanguageModel('), ('LEAPAudio.swift', 'return AppleLocalAILEAPAudioModel(')]:
-    path = f'MigrationHold/AppleLocalAI/Packages/AppleLocalAILEAP/Sources/AppleLocalAILEAP/{file}'
-    text = read(path)
-    check(f'{file}: activity enum replaces boolean', 'private var activity: LEAPRuntimeActivity = .idle' in text and 'generationActive' not in text, path)
-    # Exact implementation snippets deliberately make the guard fail on structural changes;
-    # these only prove source order, not scheduler/native SDK behavior.
-    native_load = r'Leap\.shared\.load' if file == 'AppleLocalAILEAP.swift' else r'LeapInferenceEngine\.shared\.loadModel'
-    check(f'{file}: load reserves before native await', bool(re.search(r'activity = \.loading\s+defer \{ activity = \.idle \}\s+do \{\s+runner = try await ' + native_load, text)), path)
-    check(f'{file}: unload reserves before native await', bool(re.search(r'activity = \.unloading\s+defer \{ activity = \.idle \}\s+do \{\s+try await runner\.unload\(', text)), path)
-    check(f'{file}: cancelled load cannot publish successful handle', bool(re.search(r'try Task\.checkCancellation\(\)\s+' + re.escape(load_result), text)), path)
-artifact_path = 'MigrationHold/AppleLocalAI/Packages/AppleLocalAILEAP/Sources/AppleLocalAILEAP/LEAPArtifactStore.swift'
-artifact = read(artifact_path)
-check('LEAP verified cache is checked before acquisition disk reserve', artifact.index('try validate(file: destination') < artifact.index('try checkDiskCapacity('), artifact_path)
-check('LEAP cached admission has no wrapping size sum', 'files.reduce(UInt64(0))' not in artifact and 'requiredArtifactBytes: file.byteCount' in artifact, artifact_path)
-check('LEAP prepare observes cancellation before empty result', artifact.index('try Task.checkCancellation()') < artifact.index('guard !files.isEmpty'), artifact_path)
-text_path = 'MigrationHold/AppleLocalAI/Packages/AppleLocalAILEAP/Sources/AppleLocalAILEAP/AppleLocalAILEAP.swift'
-text = read(text_path)
-generation = text[text.index('  func generate('):]
-check('LEAP Text re-reads resident runner after awaiting warmup', generation.index('let runner else') > generation.index('try await warmupTask.value'), text_path)
-
-
-command = ["sh", str(ROOT / "MigrationHold/AppleLocalAI/scripts/check-architecture.sh")]
-result = subprocess.run(command, capture_output=True, text=True, timeout=30)
-checks.append({"name": "migration-hold architecture guard", "status": "PASS" if result.returncode == 0 else "FAIL", "exitCode": result.returncode, "output": result.stdout + result.stderr, "scope": "held code ONLY; not production qualification"})
+check("LEAP consumes its native owner", '.product(name: "LeapSDK", package: "NativeAILeapSDK")' in read("Providers/LEAP/Package.swift"), "native package dependency")
+check("Retired migration entrypoints are absent",
+      not any((HOLD / path).is_file() for path in ("AppleLocalAI/Package.swift", "NativeAgentRelease/scripts/release.py")),
+      "explicit source/API retirement; ignored caches are outside scope")
+for url, version in (("https://github.com/ml-explore/mlx-swift", "0.32.3"),
+                     ("https://github.com/ml-explore/mlx-swift-lm", "3.32.3")):
+    pattern = re.escape(url) + r'"\s*,\s*exact:\s*"' + re.escape(version) + '"'
+    check("Current exact MLX pin: " + version,
+          all(re.search(pattern, read(path)) for path in ("Package.swift", "Providers/MLX/Package.swift")),
+          "declared versions; actual resolver/runtime qualification recorded separately")
+engine_owner = [p for p in manifests if re.search(r'\.binaryTarget\(\s*name:\s*"inference_engine"', p.read_text())]
+check("LEAP sibling engine belongs to native owner and root", set(engine_owner) == {ROOT / "Package.swift", sdk_manifest}, "0.11 framework layout")
+check("LEAP product includes the sibling engine", 'targets: ["LeapSDK", "inference_engine"]' in read("Providers/LEAP/Packages/NativeAILeapSDK/Package.swift"), "SwiftPM embed/sign dependency")
 
 for config in sorted(ROOT.rglob("project.yml")):
     section = re.search(r"^packages:\n(.*?)(?=^[A-Za-z]|\Z)", config.read_text(), re.M | re.S)
@@ -194,11 +176,10 @@ if not args.skip_syntax:
 report = {
     "status": "PASS" if all(c["status"] == "PASS" for c in checks + syntax) else "FAIL",
     "platform": platform.platform(), "swift": subprocess.check_output(["swift", "--version"], text=True).strip(),
-    "manifestCount": len(manifests), "heldManifestCount": sum(p.is_relative_to(HOLD) for p in manifests),
+    "manifestCount": len(manifests),
     "staticAssertions": len(checks), "syntaxFiles": len(syntax), "syntaxStatus": "NOT_RUN" if args.skip_syntax else "EXECUTED",
     "checks": checks, "syntax": syntax,
     "limits": ["No remote dependency resolution, native SDK typecheck, linker or device proof.",
-               "MigrationHold is excluded from the active dependency graph, not deleted. P8 is NOT_COMPLETE.",
                "Source guards and syntax parsing are not model inference evidence."]}
 OUT.mkdir(parents=True, exist_ok=True)
 (OUT / "static-checks.json").write_text(json.dumps(report, ensure_ascii=False, indent=2) + "\n")

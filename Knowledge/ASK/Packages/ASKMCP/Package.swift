@@ -16,7 +16,7 @@ let package = Package(
         .package(name: "KnowledgeCore", path: "../KnowledgeCore"),
         .package(
             url: "https://github.com/axiom-orient/swiftMcp.git",
-            exact: "0.4.1"
+            exact: "0.4.2"
         ),
     ],
     targets: [
