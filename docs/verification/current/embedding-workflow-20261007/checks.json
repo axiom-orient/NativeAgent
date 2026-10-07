@@ -1,0 +1,42 @@
+{
+  "core-final-tests.log": {
+    "status": "PASS",
+    "fullLogSHA256": "ddf91770e1d1bdfff53db4ad383760a37bd819ff4e79cb7f9b556e9a84eedd55",
+    "storage": "local evidence archive"
+  },
+  "provider-verified-tests.log": {
+    "status": "PASS",
+    "fullLogSHA256": "56e121842b7ff5f85720c2e195e9ac7596869ac8d2d770ca8922c6090380279f",
+    "storage": "local evidence archive"
+  },
+  "closure-tests.log": {
+    "status": "PASS",
+    "fullLogSHA256": "f9fd52ad1ff09651c49285b6e7e5150e81914830dccc08a31e4bc415681bbcbb",
+    "storage": "local evidence archive"
+  },
+  "manifest-tests.log": {
+    "status": "PASS",
+    "fullLogSHA256": "335bf1adbdcc3efe2e71d0a1e616026de1062d3ea1e3f53b1ba53d62381a8cea",
+    "storage": "local evidence archive"
+  },
+  "qualification-runtime.log": {
+    "status": "PASS",
+    "fullLogSHA256": "6b08471d6ea0d96a32cf618e8e0966ea2bfe94dbded2745d9c431a8d7633b7e3",
+    "storage": "local evidence archive"
+  },
+  "documents-current.log": {
+    "status": "PASS",
+    "fullLogSHA256": "1e26dc20b19f1cbef4130c82dfa3aad8a9f60d549e9af935a6e6c883d81c9b6c",
+    "storage": "local evidence archive"
+  },
+  "boundaries-final.log": {
+    "status": "PASS",
+    "fullLogSHA256": "5ed0c3642420dc51ebd6ad93f342b5228c05a12e71cfccc8aecd55a33b6d8a69",
+    "storage": "local evidence archive"
+  },
+  "device-build-final.log": {
+    "status": "PASS",
+    "fullLogSHA256": "1944ede9b4bee4772c5fba2e8052d5658114aa1435a501f03a03eca18db7b179",
+    "storage": "local evidence archive"
+  }
+}

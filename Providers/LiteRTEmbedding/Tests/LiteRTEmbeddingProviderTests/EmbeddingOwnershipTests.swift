@@ -1,5 +1,6 @@
 import EmbeddingCore
 import Foundation
+import ModelArtifactStore
 import Testing
 @testable import LiteRTEmbeddingProvider
 
@@ -9,9 +10,11 @@ private actor ControlledNativeCall {
   var released = false
   var releasedEarly = false
   var closeCount = 0
+  var callCount = 0
   private var continuation: CheckedContinuation<[Float], Never>?
   func compute(_ text: String) async -> [Float] {
     started = true
+    callCount += 1
     return await withCheckedContinuation { continuation = $0 }
   }
   func finish() {
@@ -113,3 +116,81 @@ private actor ControlledNativeCall {
   try FileManager.default.removeItem(at: directory)
 }
 #endif
+
+@Test func batchValidatesAllInputsBeforeAnyNativeCall() async throws {
+  let call = ControlledNativeCall()
+  let model = LiteRTEmbeddingModel(compute: { await call.compute($0) }, close: { await call.close() })
+  await #expect(throws: EmbeddingFailure.invalidInput) { try await model.embed([.query("valid"), .query(" ")]) }
+  await #expect(throws: EmbeddingFailure.invalidInput) { try await model.embed([]) }
+  await #expect(throws: EmbeddingFailure.invalidInput) { try await model.embed(Array(repeating: .query("x"), count: 65)) }
+  #expect(await call.callCount == 0)
+}
+
+@Test func cancelledBatchJoinsItsCallAndDoesNotStartFollowingInputs() async throws {
+  let call = ControlledNativeCall()
+  let model = LiteRTEmbeddingModel(compute: { await call.compute($0) }, close: { await call.close() })
+  let request = Task { try await model.embed([.query("first"), .query("second")]) }
+  while !(await call.started) { await Task.yield() }
+  await #expect(throws: EmbeddingFailure.busy) { try await model.embed(.query("overlap")) }
+  request.cancel()
+  await call.finish()
+  await #expect(throws: CancellationError.self) { try await request.value }
+  #expect(await call.callCount == 1)
+  #expect(await model.status() == .ready)
+  try await model.shutdown()
+}
+
+@Test func selectedMRLDimensionsAreNormalizedWithoutProfileMixing() async throws {
+  for dimension in EmbeddingGemma2Dimensions.allCases {
+    let profile = EmbeddingGemma2.profile(for: dimension)
+    let model = LiteRTEmbeddingModel(profile: profile, compute: { _ in Array(repeating: 1, count: 768) }, close: {})
+    let vectors = try await model.embed([.document(text: "document"), .query("query")])
+    #expect(vectors.count == 2)
+    #expect(vectors.allSatisfy { $0.values.count == dimension.rawValue })
+    #expect(abs(try vectors[0].cosineSimilarity(to: vectors[1]) - 1) < 0.0001)
+    if dimension != .d256 {
+      #expect(throws: EmbeddingFailure.incompatibleProfile) { try vectors[0].validate(for: EmbeddingGemma2.profile) }
+    }
+    try await model.shutdown()
+  }
+}
+
+@Test func artifactPreparationNeverPublishesWrongDownloadedBytes() async throws {
+  let root = FileManager.default.temporaryDirectory.appendingPathComponent(UUID().uuidString)
+  defer { try? FileManager.default.removeItem(at: root) }
+  let store = try ModelArtifactStore(rootURL: root, minimumFreeBytes: 0)
+  await #expect(throws: ArtifactStoreError.sizeMismatch) {
+    try await EmbeddingGemma2.prepare(in: store) { destination in
+      try Data("wrong artifact".utf8).write(to: destination)
+    }
+  }
+  await #expect(throws: ArtifactStoreError.missingFile) { try await store.open(EmbeddingGemma2.artifactManifest) }
+}
+
+@Test func corruptCacheIsNotSilentlyRedownloaded() async throws {
+  let root = FileManager.default.temporaryDirectory.appendingPathComponent(UUID().uuidString)
+  defer { try? FileManager.default.removeItem(at: root) }
+  let store = try ModelArtifactStore(rootURL: root, minimumFreeBytes: 0)
+  let manifest = EmbeddingGemma2.artifactManifest
+  let directory = root.appendingPathComponent("artifacts").appendingPathComponent(manifest.artifactID)
+    .appendingPathComponent(manifest.manifestDigest.rawValue)
+  try FileManager.default.createDirectory(at: directory, withIntermediateDirectories: true)
+  try Data("corrupt cache".utf8).write(to: directory.appendingPathComponent(EmbeddingGemma2.artifactFilename))
+  await #expect(throws: ArtifactStoreError.sizeMismatch) {
+    try await EmbeddingGemma2.prepare(in: store) { _ in Issue.record("Corrupt cache must not trigger download") }
+  }
+}
+
+@Test func failedBatchHasNoPartialResultAndRestoresAdmission() async throws {
+  let model = LiteRTEmbeddingModel(compute: { text in
+    if text.contains("fail-me") { throw EmbeddingFailure.nativeFailure(code: 7) }
+    return Array(repeating: 1, count: 768)
+  }, close: {})
+  await #expect(throws: EmbeddingFailure.nativeFailure(code: 7)) {
+    try await model.embed([.query("valid"), .query("fail-me")])
+  }
+  #expect(await model.status() == .ready)
+  let reused = try await model.embed(.query("reuse"))
+  #expect(reused.values.count == 256)
+  try await model.shutdown()
+}

@@ -90,10 +90,10 @@ access, and live provider effects have separate gates in
 does not convert a remaining native/live gate into PASS. No CI workflow or
 automated GitHub release is part of this package.
 
-## Current NativeAgent 0.1.2
+## Current NativeAgent 0.1.3
 
 ```swift
-.package(url: "https://github.com/axiom-orient/NativeAgent.git", exact: "0.1.2")
+.package(url: "https://github.com/axiom-orient/NativeAgent.git", exact: "0.1.3")
 ```
 
 The supported LiteRT baseline is the official 0.18.0 library, shared by text and
@@ -108,3 +108,5 @@ MLX Swift 0.32.3, MLX Swift LM 3.32.3 and Hugging Face 0.13.0 are exact dependen
 The current root distribution requires Swift 6.3, iOS 26.5 and macOS 26.0. The official LEAP 0.11 inference_engine Mach-O declares these OS floors, despite the upstream package declaration; NativeAgent follows the actual binary. Independent MLX and LiteRT source packages retain their own supported OS floors.
 
 The remaining direct remote SDK dependencies are Swift Markdown 0.9.0 and SwiftMCP 0.4.2. The SwiftMCP upstream comparison contains only its two README changes; no runtime/API change or migration is introduced. Parser and MCP adapters are verified separately from native inference.
+
+NativeAgent 0.1.3 adds explicit EmbeddingGemma 2 model preparation and leased loading, ordered batches, four MRL profiles and host-owned exact retrieval/index snapshots. [Current workflow evidence](verification/current/embedding-workflow-20261007/REPORT.md) records Mac and iPhone execution. No automatic kernel routing, network embedding upload or index migration is supplied.

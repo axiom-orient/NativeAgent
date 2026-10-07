@@ -19,8 +19,8 @@
     "SOURCE_MANIFEST.json"
   ],
   "note": "Self-excluding Git-index inventory of the published NativeAgent SwiftPM source. Entries reflect staged source bytes, not unstaged local edits. Build outputs, SwiftPM state, editor state, ignored files and this manifest are excluded. This inventory does not qualify native or live behavior.",
-  "fileCount": 1896,
-  "uncompressedBytes": 18272716,
+  "fileCount": 1907,
+  "uncompressedBytes": 18305931,
   "files": [
     {
       "path": ".gitignore",
@@ -6494,13 +6494,23 @@
     },
     {
       "path": "Model/EmbeddingCore/README.md",
-      "bytes": 1555,
-      "sha256": "448ce58d730fe6a821e85e9eaf1347d935ddb502af100d73862b1e7bdf8b158d"
+      "bytes": 2326,
+      "sha256": "14c226044cb0b31acc77f3b6909cec3b7a05dcce79cff9df25631f2b9d2ffba0"
     },
     {
       "path": "Model/EmbeddingCore/Sources/EmbeddingCore/Embedding.swift",
       "bytes": 5995,
       "sha256": "7b4d39303adb560424811f49a53de185e8b7daa85f2019fe06aa18eb4bde7d3d"
+    },
+    {
+      "path": "Model/EmbeddingCore/Sources/EmbeddingCore/EmbeddingIndex.swift",
+      "bytes": 4013,
+      "sha256": "76b924d0657eaaf1719a21bbbb65b8234aac1fd88a216d40f599f37d01386dca"
+    },
+    {
+      "path": "Model/EmbeddingCore/Tests/EmbeddingCoreTests/EmbeddingIndexTests.swift",
+      "bytes": 3562,
+      "sha256": "8719623069a3d28be17e0ea5bdae0ffc73101c731d87f0e8b80a27e0e9f37756"
     },
     {
       "path": "Model/EmbeddingCore/Tests/EmbeddingCoreTests/EmbeddingTests.swift",
@@ -6944,8 +6954,8 @@
     },
     {
       "path": "Package.swift",
-      "bytes": 19048,
-      "sha256": "37cc05ddff04a0f250debf9b83b0c874eda7417c2a7b74b4dba8d1cc4d2fc13b"
+      "bytes": 19146,
+      "sha256": "309982975998359d6466a9e2c67fdc2dc26e12c67bd531b8e03b999c266e99fb"
     },
     {
       "path": "Providers/ANALYSIS.md",
@@ -7349,23 +7359,28 @@
     },
     {
       "path": "Providers/LiteRTEmbedding/Package.swift",
-      "bytes": 1104,
-      "sha256": "e3b67b9fa792f66d96eb3f8e23940d72c95e15dc99a99387d02ffffe4548e28b"
+      "bytes": 1489,
+      "sha256": "d0f66809e114f69f5714cf10294ac41e118848422ec8081cefcd04d3678fb2cd"
     },
     {
       "path": "Providers/LiteRTEmbedding/README.md",
-      "bytes": 4576,
-      "sha256": "3f8f6921a8c65fac3c6504b640b47a41e9660f09a23fb5afe83df1d913e0b0ed"
+      "bytes": 6640,
+      "sha256": "80fe527ade2f275f9019401f6542b37511785201a7808c443ba3dff2f13e4482"
     },
     {
       "path": "Providers/LiteRTEmbedding/Sources/LiteRTEmbeddingProvider/EmbeddingGemma2.swift",
-      "bytes": 1808,
-      "sha256": "029b0446ae5779665ddcb5450e7332db137263b307e0b15532846e795903c1b5"
+      "bytes": 2052,
+      "sha256": "62299ecaaf849a530ef5648c546c8ca8c99ff379737de6b66afb09077c9b678f"
+    },
+    {
+      "path": "Providers/LiteRTEmbedding/Sources/LiteRTEmbeddingProvider/EmbeddingGemma2Artifact.swift",
+      "bytes": 2747,
+      "sha256": "5bad1e678463eb80831817c8758b6606c0dd0e6c5fab3ccce57f9eb4c952eb0c"
     },
     {
       "path": "Providers/LiteRTEmbedding/Sources/LiteRTEmbeddingProvider/LiteRTEmbeddingModel.swift",
-      "bytes": 3894,
-      "sha256": "d930458cd5c575b4e7bca315f3a14091a005b84014da2c6338847759d3f902ca"
+      "bytes": 5475,
+      "sha256": "42e2f9560d4143e846565c2514c43bf7b05890d09fc8613736557cc10a08ba27"
     },
     {
       "path": "Providers/LiteRTEmbedding/Sources/LiteRTEmbeddingProvider/NativeEmbeddingResident.swift",
@@ -7374,8 +7389,8 @@
     },
     {
       "path": "Providers/LiteRTEmbedding/Tests/LiteRTEmbeddingProviderTests/EmbeddingOwnershipTests.swift",
-      "bytes": 4793,
-      "sha256": "67ee7c828e16669ac86b7177553248c0ecf23d630719e016d944b6d301c87ec9"
+      "bytes": 8971,
+      "sha256": "c845157a183f31f828aed3d78eaaa08184720667fcbbd81cedd6a6ce8afbc37a"
     },
     {
       "path": "Providers/LiteRTNative/LICENSE",
@@ -7679,23 +7694,28 @@
     },
     {
       "path": "Qualification/LiteRTUnified/CLI/main.swift",
-      "bytes": 808,
-      "sha256": "ba81044c519420aade9cfa8a53f44c2cef1cbab604a3852d6eee778dedbe023a"
+      "bytes": 1086,
+      "sha256": "a712c9184ac7e00afe47f7ba3084ca5a6b3afc2197d7ed6df5bc2198be0cffe3"
     },
     {
       "path": "Qualification/LiteRTUnified/Package.swift",
-      "bytes": 1253,
-      "sha256": "a6856506447b91f8371719aff929e5e8c7fc93a56882f855cb99b50b77793b3f"
+      "bytes": 1410,
+      "sha256": "253202627d24dd1c7f0862882a009ff4c50841a3e94400c9ffaba2a46196423e"
     },
     {
       "path": "Qualification/LiteRTUnified/README.md",
-      "bytes": 2288,
-      "sha256": "6ca34cef5d5110512d38c657b0ba17d55c8ae7e27333fff9e82c6530a73b01ec"
+      "bytes": 2973,
+      "sha256": "330b97b7653cb19cb02b4d0dfdfa8df9c140b1692bb73b3465b9905f34630a6d"
     },
     {
       "path": "Qualification/LiteRTUnified/Shared/EmbeddingQualification.swift",
-      "bytes": 5781,
-      "sha256": "d0f5e84cc4858def03559620a20e7adfcb3d9d5ebd6811e15e9b44c4ab680bef"
+      "bytes": 5929,
+      "sha256": "0845d3abb4aed1113c0491ca363c03d680421428ad0cd926796600dd8727c4b0"
+    },
+    {
+      "path": "Qualification/LiteRTUnified/Shared/EmbeddingWorkflowQualification.swift",
+      "bytes": 3126,
+      "sha256": "a87b128234e5572588cfafc8444a48a7cbf03ea736fcd06629388235e06feb57"
     },
     {
       "path": "Qualification/LiteRTUnified/Shared/LiteRTUnifiedQualification.swift",
@@ -7814,8 +7834,8 @@
     },
     {
       "path": "docs/API.md",
-      "bytes": 2298,
-      "sha256": "bc5eb3798b712751fadfe9ece500d45bb50c6bbb88102fdb977c81665c203c1b"
+      "bytes": 2341,
+      "sha256": "712ccfd020147e3a7fb9fbb143485bc4d435c3322d23fc59cc53fc9ecc42b95f"
     },
     {
       "path": "docs/ARCHITECTURE.md",
@@ -7834,8 +7854,8 @@
     },
     {
       "path": "docs/PACKAGING.md",
-      "bytes": 6404,
-      "sha256": "1a052d9ada11bb50db4dade6f0a4a370216ef0aefe6fcee32079516832ed0140"
+      "bytes": 6783,
+      "sha256": "352c1a1880b98f1edaf38464cd48d3da3a66871c359042fc197a7e0d17489246"
     },
     {
       "path": "docs/PLAN.md",
@@ -8066,6 +8086,41 @@
       "path": "docs/verification/current/document-check.json",
       "bytes": 297,
       "sha256": "721627572ebfdc9906a972fbade563011be664f2151c26a16ec49e8265e2ffc2"
+    },
+    {
+      "path": "docs/verification/current/embedding-workflow-20261007/REPORT.md",
+      "bytes": 3434,
+      "sha256": "8c0ff9d9ba5f629bc4fc72fefb0f85aaeeec50f164ee00a4ecc579c982b16a45"
+    },
+    {
+      "path": "docs/verification/current/embedding-workflow-20261007/checks.json",
+      "bytes": 1485,
+      "sha256": "31b2c650d5e60fbfedd30ddc493e8a300d8de274282a4f709926456c153fd90e"
+    },
+    {
+      "path": "docs/verification/current/embedding-workflow-20261007/device-report.json",
+      "bytes": 477,
+      "sha256": "520c5a433d926140bb34c983bd08e0b1498bbfe81245775a25ca8bbc4df2e65a"
+    },
+    {
+      "path": "docs/verification/current/embedding-workflow-20261007/document-check.json",
+      "bytes": 297,
+      "sha256": "7446a8269eddcd4b35c73850e18234f892d9152b0706559f8fdc000a876d0a69"
+    },
+    {
+      "path": "docs/verification/current/embedding-workflow-20261007/mac-report.json",
+      "bytes": 462,
+      "sha256": "dd10ff6b0ce9ef38150b8e41425e7a411b56aa4bc1ceb70f95ee1cddef8cbff8"
+    },
+    {
+      "path": "docs/verification/current/embedding-workflow-20261007/source-hashes.json",
+      "bytes": 2131,
+      "sha256": "1b73b9cd304a38297eff35c9226f39987ee4f88b8d3d23e565a4baf2bc0da81a"
+    },
+    {
+      "path": "docs/verification/current/embedding-workflow-20261007/static-checks.json",
+      "bytes": 470,
+      "sha256": "25c10180e3c65e62eca9f4e4dc72f65fe191173f67a370ac4e296718d7d04eda"
     },
     {
       "path": "docs/verification/current/environment-CryptoKit.log",

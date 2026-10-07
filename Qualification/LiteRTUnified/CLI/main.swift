@@ -3,6 +3,11 @@ import LiteRTUnifiedQualification
 import LiteRTProvider
 @main struct Main {
   static func main() async throws {
+    if CommandLine.arguments.count == 3, CommandLine.arguments[1] == "embedding-workflow" {
+      let data = try await EmbeddingWorkflowQualification.run(root: URL(fileURLWithPath: CommandLine.arguments[2]))
+      print(String(decoding: data, as: UTF8.self))
+      return
+    }
     guard CommandLine.arguments.count == 4
       || (CommandLine.arguments.count == 5 && CommandLine.arguments[4] == "gpu") else {
       throw NSError(domain: "LiteRTQualification", code: 1)

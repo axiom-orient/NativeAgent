@@ -8,7 +8,7 @@
 | LanguageModelRuntime | 실행 admission/cancel/terminal/drain, ModelSession committed transcript |
 | ModelArtifactStore / ModelHub | 검증한 artifact publication/lease, host가 선택한 provider 설치 |
 | MLXProvider / MLXModelRegistry | 현재 MLX 라이브러리의 text/structured/tool adapter, 검증한 모델 catalog |
-| LiteRTProvider / LiteRTEmbeddingProvider / EmbeddingCore | 현재 LiteRT 라이브러리의 독립 text/embedding owner와 임베딩 값 |
+| LiteRTProvider / LiteRTEmbeddingProvider / EmbeddingCore | 독립 text/embedding owner, 검증된 모델 준비·lease, 순서 보존 일괄 임베딩, profile별 검색 인덱스 |
 | LEAPProvider | 현재 LEAP 라이브러리의 text/voice adapter와 resident |
 | AppleSystemModelProvider / FoundationModelsBridge | Apple OS gate를 지킨 text 계약 |
 | NativeAgent / NativeAgentManager | 승인, durable effect와 Agent 조립 |

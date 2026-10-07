@@ -7,26 +7,58 @@ calls the text generation adapter. Both independent adapters now consume the sam
 binaries or older C interfaces fail compilation rather than selecting a compatibility path.
 
 The root `NativeAgent` manifest exposes `EmbeddingCore` and `LiteRTEmbeddingProvider`
-as separate products. This leaf package depends only on `EmbeddingCore` and the pinned
-Apple binary. Agent, ASK, application databases and remote embedding services are absent.
+as separate products. The adapter uses the existing ModelArtifactStore for verified
+artifact preparation/leases and Hugging Face for the explicit fixed-revision download.
+Agent, ASK, application databases and remote embedding services remain absent.
 
 ```swift
 import EmbeddingCore
 import LiteRTEmbeddingProvider
+import ModelArtifactStore
 
+let store = try ModelArtifactStore(rootURL: modelStoreDirectory)
+try await EmbeddingGemma2.prepare(in: store) // explicit download; verified cache is reused
 let model = try await LiteRTEmbeddingModel.load(
-  modelURL: localImmutableModelURL,
-  cacheDirectory: existingWritableCacheDirectory)
-let document = try await model.embed(.document(text: "회의 전에 설계 문서를 읽는다."))
+  store: store, cacheDirectory: existingWritableCacheDirectory, dimensions: .d256)
+let vectors = try await model.embed([
+  .document(text: "회의 전에 설계 문서를 읽는다.", title: "회의 준비"),
+  .document(text: "주말에 한강에서 달린다.", title: "운동")
+])
+var index = try EmbeddingIndex(profile: model.profile)
+try index.upsert([
+  .init(id: "meeting", vector: vectors[0]),
+  .init(id: "exercise", vector: vectors[1])
+])
 let query = try await model.embed(.query("회의 준비 자료"))
-try document.validate(for: model.profile) // before inserting into this profile's index
-let score = try query.cosineSimilarity(to: document)
-try await model.shutdown() // explicit host-owned lifetime
+let matches = try index.search(query, limit: 3)
+let snapshot = try JSONEncoder().encode(index) // host chooses storage and document-ID mapping
+try await model.shutdown() // drains inference before releasing the model file lease
 ```
 
-The host obtains the model and maintains its immutable bytes until shutdown. Loading
-checks size, SHA-256 and actual native model type/dimension before engine creation.
-No download, automatic routing, remote upload or silent fallback is performed.
+`prepare(in:)` publishes only the exact size/SHA-verified immutable artifact. Only a
+missing cache downloads; corrupt cache, network, storage and cancellation failures
+propagate without redownload/repair fallback. `importArtifact(from:into:)` prepares
+an already-present exact file without network. Publication can finish before a late
+cancellation is observed; cancellation does not promise to remove committed bytes.
+`load(store:)` never downloads and owns its ArtifactLease until native shutdown, so
+store removal is rejected while the engine is resident. The existing `load(modelURL:)`
+path remains for hosts that explicitly own immutable external files.
+
+Batches contain 1...64 inputs and preserve order. All inputs validate before inference.
+One admission covers the entire batch: concurrent calls fail busy; cancellation joins
+the current native call, stops remaining items and returns no partial vector array.
+An overflow in any input fails the batch; there is no truncation or chunk averaging.
+
+MRL dimensions `.d128`, `.d256`, `.d512`, `.d768` select independent exact profiles.
+The default remains 256D. Every result validates the full 768D native output before
+truncation and L2 normalization. Mixed dimension/profile indices are rejected.
+
+`EmbeddingIndex` is a host-owned in-memory exact cosine index with stable ties,
+atomic bulk upsert, remove and validated Codable restoration. It stores vectors/IDs,
+not document text or a database. An optional minimumSimilarity is caller-calibrated;
+no threshold guarantees relevance. This small-corpus index is not an ANN database.
+A RAG host resolves returned IDs to its own text and supplies that context through the
+existing Agent/model API; the kernel does not load or route embedding providers.
 
 ## Frozen profile
 
@@ -35,7 +67,7 @@ No download, automatic routing, remote upload or silent fallback is performed.
 - File: `embeddinggemma-2-text-270m.litertlm`, **164,626,432 bytes**
 - SHA-256: `2d079ee2f6f066b1f368e8d7c819f55214eaef1d0513b312321901f30ab286fb`
 - CPU only, two threads, FLOAT32 activation; artifact contains INT4 weight tensors.
-- Full native output **768D**, leading **256D**, then L2 normalization and validation.
+- Full native output **768D**, selected leading **128/256/512/768D**, then L2 normalization and validation.
 - Trim surrounding whitespace; insert native BOS/EOS; maximum **1024 tokens including
   prefixes and special tokens**. Overflow returns the native error, without truncation
   or chunk averaging. The artifact contains signatures up to 8192, but its metadata
@@ -69,7 +101,7 @@ redeclares upstream binaries. Root distribution exposes both products over one n
 binary declaration. Both are qualified together with separate resident/operation owners;
 sharing a library does not merge model state or allow one caller to release another engine.
 
-GPU/NPU, other dimensions/models/quantizations, multimodal input and production
+GPU/NPU, other models/quantizations, multimodal input and production
 search thresholds are outside this profile. Relevant synthetic retrieval matches are
 not evidence of reliable abstention or general Korean search quality.
 

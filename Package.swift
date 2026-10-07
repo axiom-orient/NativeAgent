@@ -79,7 +79,7 @@ let package = Package(
         ),
         .target(name: "EmbeddingCore", path: "Model/EmbeddingCore/Sources/EmbeddingCore"),
         .target(name: "LiteRTNative", path: "Providers/LiteRTNative/Sources/LiteRTNative"),
-        .target(name: "LiteRTEmbeddingProvider", dependencies: [.target(name: "EmbeddingCore"), .target(name: "LiteRTNative")] + liteRTBinaryDependencies,
+        .target(name: "LiteRTEmbeddingProvider", dependencies: [.target(name: "EmbeddingCore"), .target(name: "LiteRTNative"), .target(name: "ModelArtifactStore"), .product(name: "HuggingFace", package: "swift-huggingface")] + liteRTBinaryDependencies,
                 path: "Providers/LiteRTEmbedding/Sources/LiteRTEmbeddingProvider"),
         .target(name: "LiteRTProvider", dependencies: [
                 .target(name: "LanguageModelCore"), .target(name: "LanguageModelRuntime"),

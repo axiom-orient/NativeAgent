@@ -33,27 +33,8 @@ public struct EmbeddingQualificationReport: Codable, Sendable {
 /// they do not redefine a quality failure as an inference failure or PASS.
 public enum EmbeddingQualification {
   public static func verifyAndClose(model: LiteRTEmbeddingModel, modelURL: URL, cacheDirectory: URL) async throws -> EmbeddingQualificationReport {
-    let documents = [
-      "금요일 오후 세 시에 치과 정기 검진을 예약했다. 보험증을 챙겨야 한다.",
-      "토요일 아침 한강 공원에서 친구와 달리기 운동을 하기로 했다.",
-      "부산 여행 숙소를 해운대 근처로 예약했다. 기차는 다음 주 월요일 출발한다.",
-      "회사 출장 택시 비용을 돌려받으려면 영수증을 제출하고 경비 신청서를 작성해야 한다.",
-      "어머니 생신 선물로 꽃다발을 주문했다. 배송일은 다음 달 십 일이다.",
-      "프로젝트 회의는 수요일 오전 열 시다. 회의 전에 설계 문서를 읽어야 한다.",
-      "아버지 생신 선물로 운동화를 주문했다. 배송일은 다음 달 십오 일이다.",
-      "주말 독서 모임에서 소설을 읽고 감상을 나누기로 했다."
-    ]
-    let queries: [(String, Int?)] = [
-      ("이를 검사하러 언제 가야 하지?", 0),
-      ("친구랑 뛰기로 한 장소", 1),
-      ("바닷가 여행 숙박 예약", 2),
-      ("업무 이동에 쓴 돈을 환급받는 방법", 3),
-      ("엄마 생일에 드릴 것", 4),
-      ("설계 논의 전에 준비할 자료", 5),
-      ("아빠에게 드릴 생일 선물", 6),
-      ("책 이야기 나누는 모임", 7),
-      ("화성 탐사선의 착륙 기록", nil)
-    ]
+    let documents = KoreanEmbeddingFixtures.documents
+    let queries = KoreanEmbeddingFixtures.queries
     do {
       var timings: [Double] = []
       var corpus: [EmbeddingVector] = []
@@ -123,4 +104,28 @@ public enum EmbeddingQualification {
       throw error
     }
   }
+}
+
+enum KoreanEmbeddingFixtures {
+  static let documents = [
+      "금요일 오후 세 시에 치과 정기 검진을 예약했다. 보험증을 챙겨야 한다.",
+      "토요일 아침 한강 공원에서 친구와 달리기 운동을 하기로 했다.",
+      "부산 여행 숙소를 해운대 근처로 예약했다. 기차는 다음 주 월요일 출발한다.",
+      "회사 출장 택시 비용을 돌려받으려면 영수증을 제출하고 경비 신청서를 작성해야 한다.",
+      "어머니 생신 선물로 꽃다발을 주문했다. 배송일은 다음 달 십 일이다.",
+      "프로젝트 회의는 수요일 오전 열 시다. 회의 전에 설계 문서를 읽어야 한다.",
+      "아버지 생신 선물로 운동화를 주문했다. 배송일은 다음 달 십오 일이다.",
+      "주말 독서 모임에서 소설을 읽고 감상을 나누기로 했다."
+    ]
+  static let queries: [(String, Int?)] = [
+      ("이를 검사하러 언제 가야 하지?", 0),
+      ("친구랑 뛰기로 한 장소", 1),
+      ("바닷가 여행 숙박 예약", 2),
+      ("업무 이동에 쓴 돈을 환급받는 방법", 3),
+      ("엄마 생일에 드릴 것", 4),
+      ("설계 논의 전에 준비할 자료", 5),
+      ("아빠에게 드릴 생일 선물", 6),
+      ("책 이야기 나누는 모임", 7),
+      ("화성 탐사선의 착륙 기록", nil)
+    ]
 }

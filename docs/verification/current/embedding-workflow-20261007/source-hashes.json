@@ -1,0 +1,19 @@
+{
+  "Model/EmbeddingCore/README.md": "14c226044cb0b31acc77f3b6909cec3b7a05dcce79cff9df25631f2b9d2ffba0",
+  "Model/EmbeddingCore/Sources/EmbeddingCore/EmbeddingIndex.swift": "76b924d0657eaaf1719a21bbbb65b8234aac1fd88a216d40f599f37d01386dca",
+  "Model/EmbeddingCore/Tests/EmbeddingCoreTests/EmbeddingIndexTests.swift": "8719623069a3d28be17e0ea5bdae0ffc73101c731d87f0e8b80a27e0e9f37756",
+  "Package.swift": "309982975998359d6466a9e2c67fdc2dc26e12c67bd531b8e03b999c266e99fb",
+  "Providers/LiteRTEmbedding/Package.swift": "d0f66809e114f69f5714cf10294ac41e118848422ec8081cefcd04d3678fb2cd",
+  "Providers/LiteRTEmbedding/README.md": "80fe527ade2f275f9019401f6542b37511785201a7808c443ba3dff2f13e4482",
+  "Providers/LiteRTEmbedding/Sources/LiteRTEmbeddingProvider/EmbeddingGemma2.swift": "62299ecaaf849a530ef5648c546c8ca8c99ff379737de6b66afb09077c9b678f",
+  "Providers/LiteRTEmbedding/Sources/LiteRTEmbeddingProvider/EmbeddingGemma2Artifact.swift": "5bad1e678463eb80831817c8758b6606c0dd0e6c5fab3ccce57f9eb4c952eb0c",
+  "Providers/LiteRTEmbedding/Sources/LiteRTEmbeddingProvider/LiteRTEmbeddingModel.swift": "42e2f9560d4143e846565c2514c43bf7b05890d09fc8613736557cc10a08ba27",
+  "Providers/LiteRTEmbedding/Tests/LiteRTEmbeddingProviderTests/EmbeddingOwnershipTests.swift": "c845157a183f31f828aed3d78eaaa08184720667fcbbd81cedd6a6ce8afbc37a",
+  "Qualification/LiteRTUnified/CLI/main.swift": "a712c9184ac7e00afe47f7ba3084ca5a6b3afc2197d7ed6df5bc2198be0cffe3",
+  "Qualification/LiteRTUnified/Package.swift": "253202627d24dd1c7f0862882a009ff4c50841a3e94400c9ffaba2a46196423e",
+  "Qualification/LiteRTUnified/README.md": "330b97b7653cb19cb02b4d0dfdfa8df9c140b1692bb73b3465b9905f34630a6d",
+  "Qualification/LiteRTUnified/Shared/EmbeddingQualification.swift": "0845d3abb4aed1113c0491ca363c03d680421428ad0cd926796600dd8727c4b0",
+  "Qualification/LiteRTUnified/Shared/EmbeddingWorkflowQualification.swift": "a87b128234e5572588cfafc8444a48a7cbf03ea736fcd06629388235e06feb57",
+  "docs/API.md": "712ccfd020147e3a7fb9fbb143485bc4d435c3322d23fc59cc53fc9ecc42b95f",
+  "docs/PACKAGING.md": "352c1a1880b98f1edaf38464cd48d3da3a66871c359042fc197a7e0d17489246"
+}

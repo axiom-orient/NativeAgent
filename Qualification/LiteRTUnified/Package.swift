@@ -8,6 +8,7 @@ let package = Package(
     .package(name: "LiteRTEmbeddingProvider", path: "../../Providers/LiteRTEmbedding"),
     .package(name: "LanguageModelCore", path: "../../Model/LanguageModelCore"),
     .package(name: "LanguageModelRuntime", path: "../../Model/LanguageModelRuntime"),
+    .package(name: "ModelArtifactStore", path: "../../Model/ModelArtifactStore"),
     .package(name: "EmbeddingCore", path: "../../Model/EmbeddingCore"),
   ],
   targets: [
@@ -16,6 +17,7 @@ let package = Package(
       .product(name: "LiteRTEmbeddingProvider", package: "LiteRTEmbeddingProvider"),
       .product(name: "LanguageModelCore", package: "LanguageModelCore"),
       .product(name: "LanguageModelRuntime", package: "LanguageModelRuntime"),
+      .product(name: "ModelArtifactStore", package: "ModelArtifactStore"),
       .product(name: "EmbeddingCore", package: "EmbeddingCore"),
     ], path: "Shared"),
     .executableTarget(name: "LiteRTUnifiedCLI", dependencies: ["LiteRTUnifiedQualification",
