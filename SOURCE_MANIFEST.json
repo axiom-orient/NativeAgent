@@ -20,7 +20,7 @@
   ],
   "note": "Self-excluding Git-index inventory of the published NativeAgent SwiftPM source. Entries reflect staged source bytes, not unstaged local edits. Build outputs, SwiftPM state, editor state, ignored files and this manifest are excluded. This inventory does not qualify native or live behavior.",
   "fileCount": 1935,
-  "uncompressedBytes": 22319147,
+  "uncompressedBytes": 22320147,
   "files": [
     {
       "path": ".gitignore",
@@ -7639,8 +7639,8 @@
     },
     {
       "path": "Providers/LEAP/Sources/LEAPProvider/LeapAdapter.swift",
-      "bytes": 14621,
-      "sha256": "6e1cbe64dbaacd7704d172288c72a22e2f11f9003fa6807d05c573a12de3bfe4"
+      "bytes": 15696,
+      "sha256": "5a8f4835846471bcb8d28d0bd895fcf5a50117f56017745596508537e0bd9a3f"
     },
     {
       "path": "Providers/LEAP/Sources/LEAPProvider/LeapResultHandle.swift",
@@ -7664,8 +7664,8 @@
     },
     {
       "path": "Providers/LEAP/Sources/LEAPProvider/Runtime.swift",
-      "bytes": 48861,
-      "sha256": "d176af0a2a568361273f4483e955bbad9a0a2fa53ebe7315aebb984201d5f7de"
+      "bytes": 48792,
+      "sha256": "b7c9b6f75efcf0b8eb03c69be99b5914f6b2d0ba85f439c114ad2934dc23ebbb"
     },
     {
       "path": "Providers/LEAP/Tests/LEAPProviderTests/LeapResultHandleTests.swift",
@@ -7674,8 +7674,8 @@
     },
     {
       "path": "Providers/LEAP/Tests/LEAPProviderTests/LeapTests.swift",
-      "bytes": 68690,
-      "sha256": "7cabdefe662de6f1354eeade0553e11bb510f23dd914f23b39abc187ebb6e8c7"
+      "bytes": 68684,
+      "sha256": "a9ba953bf76dd39ba994ed777b27439817b88c29c31866de4b3fcab5b9af9281"
     },
     {
       "path": "Providers/LiteRT/DeviceQualification/.gitignore",

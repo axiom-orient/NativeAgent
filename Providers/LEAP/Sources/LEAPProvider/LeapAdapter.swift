@@ -1,5 +1,6 @@
 import Foundation
 import LanguageModelCore
+import os
 @preconcurrency import LeapSDK
 
 protocol LeapVoiceSession: AnyObject, Sendable {
@@ -278,8 +279,29 @@ private final class LeapLiveTextSession: LeapTextSession, @unchecked Sendable {
         // Reasoning is native metadata, not user-visible text. It is not a
         // heartbeat; the runtime's event and inactivity bounds still apply.
       } else if let error = response as? MessageResponseError {
-        throw ModelGenerationFailure(.transportFailure,
-          "LEAP native generation failed: \(String(error.message.prefix(512)))")
+        // Native causes may contain user data. Keep normal error contracts
+        // redacted; only an explicit Debug diagnostic run may publish details.
+        var causes = [error.message]
+        var cause: KotlinThrowable? = error.throwable
+        for _ in 0..<3 {
+          guard let current = cause else { break }
+          causes.append("\(String(reflecting: type(of: current))): \(current.message ?? "<no message>")")
+          let trace = current.getStackTrace()
+          for index in 0..<min(trace.size, 6) {
+            if let frame = trace.get(index: index) { causes.append(frame as String) }
+          }
+          cause = current.cause
+        }
+        let detail = String(decoding: causes.joined(separator: "\n").utf8.prefix(2_048), as: UTF8.self)
+        let logger = Logger(subsystem: "nativeagent.leap", category: "text-generation")
+        logger.error("Native generation failed: \(detail, privacy: .private)")
+        #if DEBUG
+        if ProcessInfo.processInfo.arguments.contains("-native-agent-debug-diagnostics")
+          || ProcessInfo.processInfo.environment["NATIVE_AGENT_DEBUG_DIAGNOSTICS"] == "1" {
+          logger.error("Opt-in native diagnostic: \(detail, privacy: .public)")
+        }
+        #endif
+        throw LeapError.nativeFailure
       } else if response is MessageResponseFunctionCalls {
         throw LeapError.invalidRuntimeOutput
       } else if let complete = response as? MessageResponseComplete {
@@ -291,7 +313,7 @@ private final class LeapLiveTextSession: LeapTextSession, @unchecked Sendable {
         case .interrupted:
           throw LeapError.generationInterrupted
         case .error:
-          throw ModelGenerationFailure(.transportFailure, "LEAP text generation ended with error finish reason.")
+          throw LeapError.nativeFailure
         }
       } else {
         throw LeapError.invalidRuntimeOutput

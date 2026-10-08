@@ -428,22 +428,25 @@ final class LeapTests: XCTestCase {
     }
   }
 
-  func testNativeGenerationFailureSurvivesRuntimeAndModelClient() async throws {
-    let failure = ModelGenerationFailure(.transportFailure, "native engine rejected the request")
+  func testNativeTextStreamRedactsProviderDetails() async throws {
     let store = try ModelArtifactStore(rootURL: temporaryDirectory(), minimumFreeBytes: 0)
     let counters = Counters()
     let runtime = LeapRuntime(store: store,
       downloader: FixtureDownloader(counters: counters),
       loader: .init(load: { _ in FixtureSession(counters: counters) }),
-      textLoader: .init(load: { _ in FailingTextGenerationSession(failure: failure) }))
+      textLoader: .init(load: { _ in PrivateFailureTextSession() }))
     let model = try tinyTextModel()
-    try await runtime.load(runtime.prepare(model))
+    let prepared = try await runtime.prepare(model)
+    try await runtime.load(prepared)
+    let client = try await runtime.modelClient(for: model)
     do {
-      _ = try await runtime.modelClient(for: model).generate(request: ModelRequest(
-        sessionID: "native-error", messages: [AgentMessage(role: .user, content: "test")], tools: []))
+      for try await _ in client.stream(request: ModelRequest(sessionID: "private-failure",
+        messages: [AgentMessage(role: .user, content: "test")], tools: [])) {}
       XCTFail("A native failure must not become success")
     } catch let observed as ModelGenerationFailure {
-      XCTAssertEqual(observed, failure, "Both the failure code and bounded provider cause must survive")
+      XCTAssertEqual(observed.code, .transportFailure)
+      XCTAssertEqual(observed.message, "LEAP text generation failed.")
+      XCTAssertFalse(observed.message.contains("PRIVATE_DIARY_TEXT"))
     }
   }
 
@@ -1411,11 +1414,11 @@ private final class RecordingTextSession: LeapTextSession, @unchecked Sendable {
   func shutdown() async throws {}
 }
 
-private final class FailingTextGenerationSession: LeapTextSession, Sendable {
-  let failure: ModelGenerationFailure
-  init(failure: ModelGenerationFailure) { self.failure = failure }
+private final class PrivateFailureTextSession: LeapTextSession, Sendable {
   func generate(history: [LeapTextMessage], userMessage: String, outputFormat: ModelOutputFormat,
-                emit: @escaping @Sendable (LeapTextEvent) -> Void) async throws { throw failure }
+                emit: @escaping @Sendable (LeapTextEvent) -> Void) async throws {
+    throw ModelGenerationFailure(.transportFailure, "PRIVATE_DIARY_TEXT")
+  }
   func shutdown() async throws {}
 }
 
