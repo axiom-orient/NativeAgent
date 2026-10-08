@@ -39,7 +39,7 @@ let package = Package(
     .package(name: "LanguageModelRuntime", path: "../../Model/LanguageModelRuntime"),
   ],
   targets: [
-    .systemLibrary(name: "CSQLite"),
+    .target(name: "CSQLite", publicHeadersPath: ".", linkerSettings: [.linkedLibrary("sqlite3")]),
 
     // Minimum durable-Agent kernel.
     .target(name: "NativeAgentDomain", dependencies: [modelCore], swiftSettings: strict),

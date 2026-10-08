@@ -55,7 +55,10 @@ let package = Package(
             path: "Knowledge/ASK/Packages/ASKApplication/Sources/ASKApplication"
         ),
         .systemLibrary(name: "ASKCSQLite", path: "Knowledge/ASK/Packages/KnowledgeRuntime/Sources/CSQLite"),
-        .systemLibrary(name: "CSQLite", path: "Agent/NativeAgentPackage/Sources/CSQLite"),
+        // A concrete C build node survives Xcode's hosted-test dynamic-product
+        // promotion. The module and platform SQLite implementation stay unchanged.
+        .target(name: "CSQLite", path: "Agent/NativeAgentPackage/Sources/CSQLite",
+                publicHeadersPath: ".", linkerSettings: [.linkedLibrary("sqlite3")]),
         .target(
             name: "ChatGPTAccount",
             path: "Providers/ChatGPT/Account/Sources/ChatGPTAccount",
