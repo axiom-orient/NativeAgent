@@ -48,7 +48,8 @@ public enum ChatGPTRuntime {
 
     return try ModelRuntime(
       id: runtimeID ?? ModelRuntimeID(rawValue: "chatgpt.subscription.\(resolved.slug)"),
-      model: try ClientLanguageModel(client: client, descriptor: descriptor),
+      client: client,
+      descriptor: descriptor,
       policy: policy
     )
   }

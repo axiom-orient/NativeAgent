@@ -4,7 +4,7 @@ import Testing
 @testable import NativeAgentMemoryProjection
 
 @Test
-func transcriptSyncIsIdempotentAndExcludesSystemEvents() async throws {
+func transcriptSyncIsIdempotent() async throws {
     let root = FileManager.default.temporaryDirectory
         .appendingPathComponent("native-agent-memory-v1-sync-\(UUID().uuidString)", isDirectory: true)
     defer { try? FileManager.default.removeItem(at: root) }
@@ -16,9 +16,7 @@ func transcriptSyncIsIdempotentAndExcludesSystemEvents() async throws {
     let scope = AgentMemoryScope(profileID: "p", userID: "u", namespace: "shared")
     let sourceSession = "session-a"
     let messages = [
-        AgentMemoryIncomingMessage(id: "system", role: "system", content: "hidden system", occurredAtMS: 1, sourceIndex: 0, rawContentHash: "s"),
-        AgentMemoryIncomingMessage(id: "user", role: "user", content: "user evidence", occurredAtMS: 2, sourceIndex: 1, rawContentHash: "u"),
-        AgentMemoryIncomingMessage(id: "tool", role: "tool", content: "tool evidence", occurredAtMS: 3, toolName: "search", sourceIndex: 2, rawContentHash: "t")
+        AgentMemoryIncomingMessage(id: "user", role: "user", content: "user evidence", occurredAtMS: 1, sourceIndex: 0, rawContentHash: "u")
     ]
     let journal = AgentMemoryJournalState(messageCount: messages.count, revision: 1)
     let plan = try await engine.syncPlan(scope: scope, sessionID: sourceSession, journal: journal, lastMessage: nil)
@@ -30,9 +28,9 @@ func transcriptSyncIsIdempotentAndExcludesSystemEvents() async throws {
         page: AgentMemoryIncomingPage(offset: 0, totalCount: messages.count, messages: messages),
         expectedOffset: 0
     )
-    #expect(first.insertedEvents == 2)
+    #expect(first.insertedEvents == 1)
 
-    let last = messages[2]
+    let last = messages[0]
     let replayPlan = try await engine.syncPlan(
         scope: scope,
         sessionID: sourceSession,
@@ -40,6 +38,34 @@ func transcriptSyncIsIdempotentAndExcludesSystemEvents() async throws {
         lastMessage: last
     )
     #expect(replayPlan.noOp)
+    try await engine.close()
+}
+
+@Test
+func transcriptSyncExcludesSystemEventsAndRetainsToolEvidence() async throws {
+    let root = FileManager.default.temporaryDirectory
+        .appendingPathComponent("native-agent-memory-v1-sync-filter-\(UUID().uuidString)", isDirectory: true)
+    defer { try? FileManager.default.removeItem(at: root) }
+    let engine = AgentMemoryEngine(
+        configuration: AgentMemoryConfiguration(dataDirectory: root)
+    )
+    _ = try await engine.initialize()
+
+    let scope = AgentMemoryScope(profileID: "p", userID: "u", namespace: "shared")
+    let messages = [
+        AgentMemoryIncomingMessage(id: "system", role: "system", content: "hidden system", occurredAtMS: 1, sourceIndex: 0, rawContentHash: "s"),
+        AgentMemoryIncomingMessage(id: "user", role: "user", content: "user evidence", occurredAtMS: 2, sourceIndex: 1, rawContentHash: "u"),
+        AgentMemoryIncomingMessage(id: "tool", role: "tool", content: "tool evidence", occurredAtMS: 3, toolName: "search", sourceIndex: 2, rawContentHash: "t")
+    ]
+    let journal = AgentMemoryJournalState(messageCount: messages.count, revision: 1)
+    let first = try await engine.applySyncPage(
+        scope: scope,
+        sessionID: "session-a",
+        journal: journal,
+        page: AgentMemoryIncomingPage(offset: 0, totalCount: messages.count, messages: messages),
+        expectedOffset: 0
+    )
+    #expect(first.insertedEvents == 2)
 
     let eventHits = try await engine.search(
         scope: AgentMemoryScope(profileID: "p", userID: "u", namespace: "shared", sessionKey: "other"),
@@ -47,7 +73,7 @@ func transcriptSyncIsIdempotentAndExcludesSystemEvents() async throws {
     )
     #expect(eventHits.count == 1)
     #expect(eventHits[0].role == "tool")
-    #expect(eventHits[0].sourceSessionID == sourceSession)
+    #expect(eventHits[0].sourceSessionID == "session-a")
     try await engine.close()
 }
 
@@ -336,6 +362,49 @@ func staleSyncPageCannotOverwriteAnAdvancedCheckpoint() async throws {
         #expect(error.code == "stale_sync_result")
     }
     #expect(try await engine.checkpointMessageCount(scope: scope, sessionID: sessionID) == 2)
+    try await engine.close()
+}
+
+@Test
+func transcriptPageEndOverflowIsRejectedBeforeDatabaseMutation() async throws {
+    let root = FileManager.default.temporaryDirectory
+        .appendingPathComponent("native-agent-memory-v1-page-overflow-\(UUID().uuidString)", isDirectory: true)
+    defer { try? FileManager.default.removeItem(at: root) }
+    let engine = AgentMemoryEngine(
+        configuration: AgentMemoryConfiguration(dataDirectory: root)
+    )
+    _ = try await engine.initialize()
+
+    let scope = AgentMemoryScope(profileID: "p", userID: "u", namespace: "shared")
+    let offset = Int.max - 50
+    let messages = (0..<100).map { index in
+        AgentMemoryIncomingMessage(
+            id: "overflow-\(index)",
+            role: "user",
+            content: "message \(index)",
+            occurredAtMS: Int64(index + 1),
+            sourceIndex: index,
+            rawContentHash: "overflow-\(index)"
+        )
+    }
+    let journal = AgentMemoryJournalState(messageCount: Int.max, revision: 1)
+
+    do {
+        _ = try await engine.applySyncPage(
+            scope: scope,
+            sessionID: "session",
+            journal: journal,
+            page: AgentMemoryIncomingPage(
+                offset: offset,
+                totalCount: Int.max,
+                messages: messages
+            ),
+            expectedOffset: offset
+        )
+        Issue.record("expected overflowing transcript page end to be rejected")
+    } catch let error as AgentMemoryError {
+        #expect(error.code == "invalid_transcript_page")
+    }
     try await engine.close()
 }
 

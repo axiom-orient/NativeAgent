@@ -105,22 +105,12 @@ public struct ModelProviderSelection: Codable, Hashable, Sendable {
 /// Adapter boundary between account/model discovery and one concrete `ModelRuntime`.
 ///
 /// A connector may own authentication or model preparation state. It must not perform
-/// cross-provider routing or fallback. `makeRuntime(modelID:)` returns exactly one selected runtime.
+/// cross-provider routing or fallback. `acquireRuntime(modelID:)` returns the selected runtime and its ownership.
 public protocol ModelProviderConnector: Sendable {
   var descriptor: ModelProviderDescriptor { get }
   func availability() async throws -> ModelProviderAvailability
   func models() async throws -> [ModelDescriptor]
-  /// Transfers ownership of a new runtime wrapper. Shared connectors must
-  /// reject this API rather than falsely transferring host-owned resources.
-  func makeRuntime(modelID: String?) async throws -> ModelRuntime
   func acquireRuntime(modelID: String?) async throws -> ModelRuntimeAccess
-}
-
-extension ModelProviderConnector {
-  /// Existing connectors retain their operation-owned cleanup behavior.
-  public func acquireRuntime(modelID: String?) async throws -> ModelRuntimeAccess {
-    .owned(try await makeRuntime(modelID: modelID))
-  }
 }
 
 /// Closure-backed connector for local/custom providers without another wrapper type.
@@ -128,18 +118,18 @@ public struct ClosureModelProviderConnector: ModelProviderConnector {
   public let descriptor: ModelProviderDescriptor
   private let availabilityClosure: @Sendable () async throws -> ModelProviderAvailability
   private let modelsClosure: @Sendable () async throws -> [ModelDescriptor]
-  private let runtimeClosure: @Sendable (String?) async throws -> ModelRuntime
+  private let accessClosure: @Sendable (String?) async throws -> ModelRuntimeAccess
 
   public init(
     descriptor: ModelProviderDescriptor,
     availability: @escaping @Sendable () async throws -> ModelProviderAvailability,
     models: @escaping @Sendable () async throws -> [ModelDescriptor],
-    makeRuntime: @escaping @Sendable (String?) async throws -> ModelRuntime
+    acquireRuntime: @escaping @Sendable (String?) async throws -> ModelRuntimeAccess
   ) {
     self.descriptor = descriptor
     self.availabilityClosure = availability
     self.modelsClosure = models
-    self.runtimeClosure = makeRuntime
+    self.accessClosure = acquireRuntime
   }
 
   public func availability() async throws -> ModelProviderAvailability {
@@ -150,8 +140,8 @@ public struct ClosureModelProviderConnector: ModelProviderConnector {
     try await modelsClosure()
   }
 
-  public func makeRuntime(modelID: String?) async throws -> ModelRuntime {
-    try await runtimeClosure(modelID)
+  public func acquireRuntime(modelID: String?) async throws -> ModelRuntimeAccess {
+    try await accessClosure(modelID)
   }
 }
 
@@ -203,17 +193,6 @@ public actor ModelProviderRegistry {
     try Task.checkCancellation()
     try Self.validate(models: models, providerID: providerID)
     return models
-  }
-
-  /// Compatibility API with its original ownership-transfer contract.
-  public func makeRuntime(_ selection: ModelProviderSelection) async throws -> ModelRuntime {
-    let access = try await acquireRuntime(selection)
-    guard case .owned(let runtime) = access else {
-      throw ModelGenerationFailure(
-        .invalidRequest,
-        "A shared runtime cannot transfer ownership; use acquireRuntime and release its access.")
-    }
-    return runtime
   }
 
   public func acquireRuntime(_ selection: ModelProviderSelection) async throws -> ModelRuntimeAccess

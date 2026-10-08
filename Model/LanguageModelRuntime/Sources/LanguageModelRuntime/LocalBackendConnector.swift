@@ -33,12 +33,6 @@ private struct LocalBackendConnector: ModelProviderConnector {
 
   func models() async throws -> [ModelDescriptor] { [runtime.modelDescriptor] }
 
-  func makeRuntime(modelID: String?) async throws -> ModelRuntime {
-    throw ModelGenerationFailure(
-      .invalidRequest,
-      "LocalBackend retains shutdown authority; acquire a borrowed runtime instead.")
-  }
-
   func acquireRuntime(modelID: String?) async throws -> ModelRuntimeAccess {
     if let modelID, modelID != runtime.modelDescriptor.id {
       throw ModelGenerationFailure(

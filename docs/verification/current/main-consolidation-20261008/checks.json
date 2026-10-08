@@ -1,0 +1,1118 @@
+{
+  "agent-current.json": {
+    "status": "PASS",
+    "exitCode": 0,
+    "command": [
+      "swift",
+      "test",
+      "--package-path",
+      "/Users/ax/repoGithub/NativeAgent/Agent/NativeAgentPackage",
+      "--scratch-path",
+      "/Users/ax/Library/Caches/NativeAgentEmbeddingQualification/main-consolidation-20261008/fresh-checks/build-agent-current",
+      "-j",
+      "4",
+      "-Xswiftc",
+      "-warnings-as-errors",
+      "--no-parallel"
+    ],
+    "swiftTestingCount": 653,
+    "xctestCount": 0,
+    "scope": "Full actual Agent leaf manifest; current default SwiftPM build system and declared macOS 14 minimum.",
+    "swiftTestingCountsByTarget": [
+      6,
+      61,
+      27,
+      2,
+      48,
+      14,
+      112,
+      19,
+      26,
+      45,
+      1,
+      34,
+      189,
+      16,
+      6,
+      17,
+      14,
+      10,
+      6
+    ]
+  },
+  "account-current.json": {
+    "status": "PASS",
+    "exitCode": 0,
+    "command": [
+      "swift",
+      "test",
+      "--package-path",
+      "/Users/ax/repoGithub/NativeAgent/Providers/ChatGPT/Account",
+      "--scratch-path",
+      "/Users/ax/Library/Caches/NativeAgentEmbeddingQualification/main-consolidation-20261008/fresh-checks/build-account-current",
+      "-j",
+      "4",
+      "-Xswiftc",
+      "-warnings-as-errors",
+      "--no-parallel"
+    ]
+  },
+  "composition-current.json": {
+    "status": "PASS",
+    "command": [
+      "swift",
+      "test",
+      "--package-path",
+      "/Users/ax/repoGithub/NativeAgent/Qualification/ChatGPTCompositionChecks",
+      "--scratch-path",
+      "/Users/ax/Library/Caches/NativeAgentEmbeddingQualification/main-consolidation-20261008/fresh-checks/build-composition-current",
+      "-j",
+      "4",
+      "-Xswiftc",
+      "-warnings-as-errors",
+      "--no-parallel"
+    ],
+    "exitCode": 0,
+    "swiftTestingCount": 207,
+    "scope": "Actual composition contracts on macOS; live account tests remain opt-in. Local HTTP wire already qualified separately."
+  },
+  "mcp-current.json": {
+    "status": "PASS",
+    "exitCode": 0,
+    "command": [
+      "swift",
+      "test",
+      "--package-path",
+      "/Users/ax/repoGithub/NativeAgent/Agent/NativeAgentPackage/Packages/NativeAgentMCP",
+      "--scratch-path",
+      "/Users/ax/Library/Caches/NativeAgentEmbeddingQualification/main-consolidation-20261008/fresh-checks/build-mcp-current",
+      "-j",
+      "4",
+      "-Xswiftc",
+      "-warnings-as-errors",
+      "--no-parallel"
+    ],
+    "swiftTestingCount": 6
+  },
+  "leaf-checks.json": {
+    "status": "PASS",
+    "results": [
+      {
+        "name": "artifact-store",
+        "status": "PASS",
+        "exitCode": 0,
+        "command": [
+          "swift",
+          "test",
+          "--build-system",
+          "native",
+          "--package-path",
+          "/Users/ax/repoGithub/NativeAgent/Model/ModelArtifactStore",
+          "--scratch-path",
+          "/Users/ax/Library/Caches/NativeAgentEmbeddingQualification/main-consolidation-20261008/fresh-checks/build-artifact-store",
+          "-j",
+          "4",
+          "-Xswiftc",
+          "-warnings-as-errors",
+          "-Xswiftc",
+          "-target",
+          "-Xswiftc",
+          "arm64-apple-macosx26.0"
+        ],
+        "seconds": 48.32,
+        "swiftTestingCount": 0,
+        "xctestCount": 25,
+        "scope": "Actual leaf manifest on macOS; iOS-only code excluded."
+      },
+      {
+        "name": "embedding-core",
+        "status": "PASS",
+        "exitCode": 0,
+        "command": [
+          "swift",
+          "test",
+          "--build-system",
+          "native",
+          "--package-path",
+          "/Users/ax/repoGithub/NativeAgent/Model/EmbeddingCore",
+          "--scratch-path",
+          "/Users/ax/Library/Caches/NativeAgentEmbeddingQualification/main-consolidation-20261008/fresh-checks/build-embedding-core",
+          "-j",
+          "4",
+          "-Xswiftc",
+          "-warnings-as-errors",
+          "-Xswiftc",
+          "-target",
+          "-Xswiftc",
+          "arm64-apple-macosx26.0"
+        ],
+        "seconds": 11.65,
+        "swiftTestingCount": 8,
+        "xctestCount": 0,
+        "scope": "Actual leaf manifest on macOS; iOS-only code excluded."
+      },
+      {
+        "name": "embedding-provider",
+        "status": "PASS",
+        "exitCode": 0,
+        "command": [
+          "swift",
+          "test",
+          "--build-system",
+          "native",
+          "--package-path",
+          "/Users/ax/repoGithub/NativeAgent/Providers/LiteRTEmbedding",
+          "--scratch-path",
+          "/Users/ax/Library/Caches/NativeAgentEmbeddingQualification/main-consolidation-20261008/fresh-checks/build-embedding-provider",
+          "-j",
+          "4",
+          "-Xswiftc",
+          "-warnings-as-errors",
+          "-Xswiftc",
+          "-target",
+          "-Xswiftc",
+          "arm64-apple-macosx26.0"
+        ],
+        "seconds": 72.17,
+        "swiftTestingCount": 12,
+        "xctestCount": 0,
+        "scope": "Actual leaf manifest on macOS; iOS-only code excluded."
+      },
+      {
+        "name": "knowledge-runtime",
+        "status": "PASS",
+        "exitCode": 0,
+        "command": [
+          "swift",
+          "test",
+          "--build-system",
+          "native",
+          "--package-path",
+          "/Users/ax/repoGithub/NativeAgent/Knowledge/ASK/Packages/KnowledgeRuntime",
+          "--scratch-path",
+          "/Users/ax/Library/Caches/NativeAgentEmbeddingQualification/main-consolidation-20261008/fresh-checks/build-knowledge-runtime",
+          "-j",
+          "4",
+          "-Xswiftc",
+          "-warnings-as-errors",
+          "-Xswiftc",
+          "-target",
+          "-Xswiftc",
+          "arm64-apple-macosx26.0"
+        ],
+        "seconds": 46.9,
+        "swiftTestingCount": 114,
+        "xctestCount": 5,
+        "scope": "Actual leaf manifest on macOS; iOS-only code excluded."
+      },
+      {
+        "name": "hwp",
+        "status": "PASS",
+        "exitCode": 0,
+        "command": [
+          "swift",
+          "test",
+          "--build-system",
+          "native",
+          "--package-path",
+          "/Users/ax/repoGithub/NativeAgent/Knowledge/ASK/Packages/HWPDocument",
+          "--scratch-path",
+          "/Users/ax/Library/Caches/NativeAgentEmbeddingQualification/main-consolidation-20261008/fresh-checks/build-hwp",
+          "-j",
+          "4",
+          "-Xswiftc",
+          "-warnings-as-errors",
+          "-Xswiftc",
+          "-target",
+          "-Xswiftc",
+          "arm64-apple-macosx26.0"
+        ],
+        "seconds": 51.64,
+        "swiftTestingCount": 35,
+        "xctestCount": 0,
+        "scope": "Actual leaf manifest on macOS; iOS-only code excluded."
+      },
+      {
+        "name": "page-index",
+        "status": "PASS",
+        "exitCode": 0,
+        "command": [
+          "swift",
+          "test",
+          "--build-system",
+          "native",
+          "--package-path",
+          "/Users/ax/repoGithub/NativeAgent/Knowledge/ASK/Packages/PageIndex",
+          "--scratch-path",
+          "/Users/ax/Library/Caches/NativeAgentEmbeddingQualification/main-consolidation-20261008/fresh-checks/build-page-index",
+          "-j",
+          "4",
+          "-Xswiftc",
+          "-warnings-as-errors",
+          "-Xswiftc",
+          "-target",
+          "-Xswiftc",
+          "arm64-apple-macosx26.0"
+        ],
+        "seconds": 55.92,
+        "swiftTestingCount": 19,
+        "xctestCount": 3,
+        "scope": "Actual leaf manifest on macOS; iOS-only code excluded."
+      },
+      {
+        "name": "document-runtime",
+        "status": "PASS",
+        "exitCode": 0,
+        "command": [
+          "swift",
+          "test",
+          "--build-system",
+          "native",
+          "--package-path",
+          "/Users/ax/repoGithub/NativeAgent/Knowledge/ASK/Packages/DocumentRuntime",
+          "--scratch-path",
+          "/Users/ax/Library/Caches/NativeAgentEmbeddingQualification/main-consolidation-20261008/fresh-checks/build-document-runtime",
+          "-j",
+          "4",
+          "-Xswiftc",
+          "-warnings-as-errors",
+          "-Xswiftc",
+          "-target",
+          "-Xswiftc",
+          "arm64-apple-macosx26.0"
+        ],
+        "seconds": 17.01,
+        "swiftTestingCount": 22,
+        "xctestCount": 0,
+        "scope": "Actual leaf manifest on macOS; iOS-only code excluded."
+      },
+      {
+        "name": "markdown-wiki",
+        "status": "PASS",
+        "exitCode": 0,
+        "command": [
+          "swift",
+          "test",
+          "--build-system",
+          "native",
+          "--package-path",
+          "/Users/ax/repoGithub/NativeAgent/Knowledge/ASK/Packages/MarkdownWiki",
+          "--scratch-path",
+          "/Users/ax/Library/Caches/NativeAgentEmbeddingQualification/main-consolidation-20261008/fresh-checks/build-markdown-wiki",
+          "-j",
+          "4",
+          "-Xswiftc",
+          "-warnings-as-errors",
+          "-Xswiftc",
+          "-target",
+          "-Xswiftc",
+          "arm64-apple-macosx26.0"
+        ],
+        "seconds": 10.49,
+        "swiftTestingCount": 17,
+        "xctestCount": 0,
+        "scope": "Actual leaf manifest on macOS; iOS-only code excluded."
+      },
+      {
+        "name": "tutor",
+        "status": "PASS",
+        "exitCode": 0,
+        "command": [
+          "swift",
+          "test",
+          "--build-system",
+          "native",
+          "--package-path",
+          "/Users/ax/repoGithub/NativeAgent/Knowledge/ASK/Packages/ASKTutor",
+          "--scratch-path",
+          "/Users/ax/Library/Caches/NativeAgentEmbeddingQualification/main-consolidation-20261008/fresh-checks/build-tutor",
+          "-j",
+          "4",
+          "-Xswiftc",
+          "-warnings-as-errors",
+          "-Xswiftc",
+          "-target",
+          "-Xswiftc",
+          "arm64-apple-macosx26.0"
+        ],
+        "seconds": 43.5,
+        "swiftTestingCount": 45,
+        "xctestCount": 29,
+        "scope": "Actual leaf manifest on macOS; iOS-only code excluded."
+      },
+      {
+        "name": "ask-agent-tools",
+        "status": "PASS",
+        "exitCode": 0,
+        "command": [
+          "swift",
+          "test",
+          "--build-system",
+          "native",
+          "--package-path",
+          "/Users/ax/repoGithub/NativeAgent/Knowledge/ASK/Packages/ASKAgentTools",
+          "--scratch-path",
+          "/Users/ax/Library/Caches/NativeAgentEmbeddingQualification/main-consolidation-20261008/fresh-checks/build-ask-agent-tools",
+          "-j",
+          "4",
+          "-Xswiftc",
+          "-warnings-as-errors",
+          "-Xswiftc",
+          "-target",
+          "-Xswiftc",
+          "arm64-apple-macosx26.0"
+        ],
+        "seconds": 30.1,
+        "swiftTestingCount": 7,
+        "xctestCount": 0,
+        "scope": "Actual leaf manifest on macOS; iOS-only code excluded."
+      }
+    ]
+  },
+  "retirement-tests-current.json": [
+    {
+      "name": "runtime",
+      "command": [
+        "swift",
+        "test",
+        "--package-path",
+        "/Users/ax/repoGithub/NativeAgent/Model/LanguageModelRuntime",
+        "--scratch-path",
+        "/Users/ax/Library/Caches/NativeAgentEmbeddingQualification/main-consolidation-20261008/build-portable/model-runtime",
+        "-j",
+        "4",
+        "-Xswiftc",
+        "-warnings-as-errors",
+        "--no-parallel"
+      ],
+      "exitCode": 0,
+      "status": "PASS",
+      "swiftTestingCount": 98
+    },
+    {
+      "name": "facade",
+      "command": [
+        "swift",
+        "test",
+        "--package-path",
+        "/Users/ax/repoGithub/NativeAgent/Model/NativeLanguageModels",
+        "--scratch-path",
+        "/Users/ax/Library/Caches/NativeAgentEmbeddingQualification/main-consolidation-20261008/fresh-checks/build-retirement-facade",
+        "-j",
+        "4",
+        "-Xswiftc",
+        "-warnings-as-errors",
+        "--no-parallel"
+      ],
+      "exitCode": 0,
+      "status": "PASS",
+      "swiftTestingCount": 3
+    },
+    {
+      "name": "hub",
+      "command": [
+        "swift",
+        "test",
+        "--package-path",
+        "/Users/ax/repoGithub/NativeAgent/Model/ModelHub",
+        "--scratch-path",
+        "/Users/ax/Library/Caches/NativeAgentEmbeddingQualification/main-consolidation-20261008/fresh-checks/build-retirement-hub",
+        "-j",
+        "4",
+        "-Xswiftc",
+        "-warnings-as-errors",
+        "--no-parallel"
+      ],
+      "exitCode": 0,
+      "status": "PASS",
+      "swiftTestingCount": 13
+    }
+  ],
+  "retired-compiler-contracts.json": [
+    {
+      "name": "generate-only",
+      "status": "PASS",
+      "exitCode": 1,
+      "command": [
+        "swiftc",
+        "-typecheck",
+        "-swift-version",
+        "6",
+        "-target",
+        "arm64-apple-macosx26.0",
+        "/Users/ax/Library/Caches/NativeAgentEmbeddingQualification/main-consolidation-20261008/generate-only.swift",
+        "-I",
+        "/Users/ax/Library/Caches/NativeAgentEmbeddingQualification/main-consolidation-20261008/fresh-checks/build-retirement-core/arm64-apple-macosx/debug/Modules",
+        "-I",
+        "/Users/ax/Library/Caches/NativeAgentEmbeddingQualification/main-consolidation-20261008/build-portable/model-runtime/out/Products/Debug"
+      ],
+      "diagnostic": "/Users/ax/Library/Caches/NativeAgentEmbeddingQualification/main-consolidation-20261008/generate-only.swift:2:8: error: type 'OldClient' does not conform to protocol 'ModelClient'\n1 | import LanguageModelCore\n2 | struct OldClient: ModelClient { let providerID=\"old\"; func generate(request: ModelRequest) async throws -> ModelTurn { ModelTurn(content:\"old\") } }\n  |        |- error: type 'OldClient' does not conform to protocol 'ModelClient'\n  |        `- note: add stubs for conformance\n3 | \n\n/Users/ax/repoGithub/NativeAgent/Model/LanguageModelCore/Sources/LanguageModelCore/Contracts/ModelClient.swift:17:10: note: protocol requires function 'stream(request:)' with type '(ModelRequest) -> AsyncThrowingStream<ModelEvent, any Error>'\n15 |     var modelDescriptor: ModelDescriptor? { get }\n16 |     func generate(request: ModelRequest) async throws -> ModelTurn\n17 |     func stream(request: ModelRequest) -> AsyncThrowingStream<ModelEvent, any Error>\n   |          `- note: protocol requires function 'stream(request:)' with type '(ModelRequest) -> AsyncThrowingStream<ModelEvent, any Error>'\n18 | }\n19 | \n"
+    },
+    {
+      "name": "registry-owner-transfer",
+      "status": "PASS",
+      "exitCode": 1,
+      "command": [
+        "swiftc",
+        "-typecheck",
+        "-swift-version",
+        "6",
+        "-target",
+        "arm64-apple-macosx26.0",
+        "/Users/ax/Library/Caches/NativeAgentEmbeddingQualification/main-consolidation-20261008/registry-owner-transfer.swift",
+        "-I",
+        "/Users/ax/Library/Caches/NativeAgentEmbeddingQualification/main-consolidation-20261008/fresh-checks/build-retirement-core/arm64-apple-macosx/debug/Modules",
+        "-I",
+        "/Users/ax/Library/Caches/NativeAgentEmbeddingQualification/main-consolidation-20261008/build-portable/model-runtime/out/Products/Debug"
+      ],
+      "diagnostic": "/Users/ax/Library/Caches/NativeAgentEmbeddingQualification/main-consolidation-20261008/registry-owner-transfer.swift:2:124: error: value of type 'ModelProviderRegistry' has no member 'makeRuntime'\n1 | import LanguageModelRuntime\n2 | func oldCall(_ registry: ModelProviderRegistry, _ selection: ModelProviderSelection) async throws { _ = try await registry.makeRuntime(selection) }\n  |                                                                                                                            `- error: value of type 'ModelProviderRegistry' has no member 'makeRuntime'\n3 | \n"
+    },
+    {
+      "name": "stream-only-transport",
+      "command": [
+        "swiftc",
+        "-typecheck",
+        "-swift-version",
+        "6",
+        "-target",
+        "arm64-apple-macosx26.0",
+        "-I",
+        "/Users/ax/Library/Caches/NativeAgentEmbeddingQualification/main-consolidation-20261008/fresh-checks/build-account-current/out/Products/Debug",
+        "/Users/ax/Library/Caches/NativeAgentEmbeddingQualification/main-consolidation-20261008/stream-only-transport.swift"
+      ],
+      "exitCode": 1,
+      "status": "PASS",
+      "diagnostic": "/Users/ax/Library/Caches/NativeAgentEmbeddingQualification/main-consolidation-20261008/stream-only-transport.swift:3:8: error: type 'OldTransport' does not conform to protocol 'ChatGPTTransport'\n1 | import Foundation\n2 | import ChatGPTAccount\n3 | struct OldTransport: ChatGPTTransport { func stream(_ request: URLRequest, maxResponseBytes: Int) async throws -> AsyncThrowingStream<ChatGPTTransportElement, any Error> { AsyncThrowingStream { $0.finish() } } }\n  |        |- error: type 'OldTransport' does not conform to protocol 'ChatGPTTransport'\n  |        `- note: add stubs for conformance\n4 | \n\n/Users/ax/repoGithub/NativeAgent/Providers/ChatGPT/Account/Sources/ChatGPTAccount/ChatGPTTransport.swift:23:8: note: protocol requires function 'invocation(_:maxResponseBytes:)' with type '(URLRequest, Int) async throws -> ChatGPTTransportInvocation'\n 21 |   /// Returns the stream and the independent local transport settlement boundary.\n 22 |   /// Throwing before returning must leave no unowned transport work behind.\n 23 |   func invocation(_ request: URLRequest, maxResponseBytes: Int) async throws\n    |        `- note: protocol requires function 'invocation(_:maxResponseBytes:)' with type '(URLRequest, Int) async throws -> ChatGPTTransportInvocation'\n 24 |     -> ChatGPTTransportInvocation\n 25 | }\n"
+    }
+  ],
+  "retired-searches.json": [
+    {
+      "name": "generate-only default",
+      "status": "NOT_FOUND",
+      "command": [
+        "rg",
+        "-n",
+        "ModelFallbackStreamState",
+        "Model/LanguageModelCore/Sources",
+        "-g",
+        "*.swift",
+        "-g",
+        "!**/.build/**",
+        "-g",
+        "!**/.swiftpm/**"
+      ],
+      "matches": "",
+      "exitCode": 1
+    },
+    {
+      "name": "stream-only transport compatibility",
+      "status": "NOT_FOUND",
+      "command": [
+        "rg",
+        "-n",
+        "LegacyStreamOnlyTransport",
+        "Model",
+        "Providers",
+        "Agent",
+        "Qualification",
+        "-g",
+        "*.swift",
+        "-g",
+        "!**/.build/**",
+        "-g",
+        "!**/.swiftpm/**"
+      ],
+      "matches": "",
+      "exitCode": 1
+    },
+    {
+      "name": "ownership-transfer method",
+      "status": "NOT_FOUND",
+      "command": [
+        "rg",
+        "-n",
+        "func makeRuntime\\(modelID:",
+        "Model",
+        "Providers",
+        "Agent",
+        "Qualification",
+        "-g",
+        "*.swift",
+        "-g",
+        "!**/.build/**",
+        "-g",
+        "!**/.swiftpm/**"
+      ],
+      "matches": "",
+      "exitCode": 1
+    },
+    {
+      "name": "previous LEAP cache/session",
+      "status": "NOT_FOUND",
+      "command": [
+        "rg",
+        "-n",
+        "LEAPProvider.background-downloads.v1|nativeagent.leap.downloads.v1|func bind\\(",
+        "Providers/LEAP/Sources",
+        "-g",
+        "*.swift",
+        "-g",
+        "!**/.build/**",
+        "-g",
+        "!**/.swiftpm/**"
+      ],
+      "matches": "",
+      "exitCode": 1
+    }
+  ],
+  "native-consumers.json": {
+    "status": "PASS",
+    "results": [
+      {
+        "name": "embedding-consumer-build",
+        "command": [
+          "swift",
+          "build",
+          "--package-path",
+          "/Users/ax/Library/Caches/NativeAgentEmbeddingQualification/embedding-workflow-20261007/consumer",
+          "-j",
+          "2",
+          "-Xswiftc",
+          "-warnings-as-errors"
+        ],
+        "exitCode": 0,
+        "status": "PASS"
+      },
+      {
+        "name": "embedding-workflow-runtime",
+        "command": [
+          "/Users/ax/Library/Caches/NativeAgentEmbeddingQualification/embedding-workflow-20261007/consumer/.build/debug/EmbeddingWorkflowCLI",
+          "/Users/ax/Library/Caches/NativeAgentEmbeddingQualification/main-consolidation-20261008/fresh-checks/embedding-live-store"
+        ],
+        "exitCode": 0,
+        "status": "PASS",
+        "report": {
+          "dimensions": [
+            {
+              "corpusCount": 8,
+              "dimensions": 128,
+              "koreanMatches": 8
+            },
+            {
+              "corpusCount": 8,
+              "dimensions": 256,
+              "koreanMatches": 8
+            },
+            {
+              "corpusCount": 8,
+              "dimensions": 512,
+              "koreanMatches": 8
+            },
+            {
+              "corpusCount": 8,
+              "dimensions": 768,
+              "koreanMatches": 8
+            }
+          ],
+          "leasedRemovalRejected": true,
+          "releasedRemovalSucceeded": true,
+          "status": "PASS"
+        }
+      },
+      {
+        "name": "mlx-runtime",
+        "command": [
+          "/Users/ax/Library/Caches/NativeAgentEmbeddingQualification/native-libraries-20261007/consumer/.build/debug/CurrentNativeCLI",
+          "mlx",
+          "/Users/ax/Library/Caches/NativeAgentEmbeddingQualification/main-consolidation-20261008/fresh-checks/mlx-live-store",
+          "/Users/ax/Library/Caches/NativeAgentEmbeddingQualification/native-libraries-20261007/leap-model"
+        ],
+        "exitCode": 0,
+        "status": "PASS",
+        "report": "mlx versions=0.32.3/3.32.3 text=\"OK\" json={\"ok\": true} tools=passed cancellation=joined closed=rejected reload=passed"
+      },
+      {
+        "name": "native-consumer-build",
+        "command": [
+          "swift",
+          "build",
+          "--package-path",
+          "/Users/ax/Library/Caches/NativeAgentEmbeddingQualification/native-libraries-20261007/consumer",
+          "-j",
+          "2",
+          "-Xswiftc",
+          "-warnings-as-errors"
+        ],
+        "exitCode": 0,
+        "status": "PASS"
+      },
+      {
+        "name": "leap-runtime",
+        "command": [
+          "/Users/ax/Library/Caches/NativeAgentEmbeddingQualification/native-libraries-20261007/consumer/.build/debug/CurrentNativeCLI",
+          "leap",
+          "/Users/ax/Library/Caches/NativeAgentEmbeddingQualification/main-consolidation-20261008/fresh-checks/leap-live-store",
+          "/Users/ax/Library/Caches/NativeAgentEmbeddingQualification/native-libraries-20261007/leap-model"
+        ],
+        "exitCode": 0,
+        "status": "PASS",
+        "report": "leap text=\"OK\" json={\n  \"ok\": true\n} cancellation=joined closed=rejected reload=passed"
+      },
+      {
+        "name": "voice-runtime",
+        "command": [
+          "/Users/ax/Library/Caches/NativeAgentEmbeddingQualification/native-libraries-20261007/consumer/.build/debug/CurrentNativeCLI",
+          "voice",
+          "/Users/ax/Library/Caches/NativeAgentEmbeddingQualification/main-consolidation-20261008/fresh-checks/voice-live-store",
+          "/Users/ax/Library/Caches/NativeAgentEmbeddingQualification/native-libraries-20261007/voice-model"
+        ],
+        "exitCode": 0,
+        "status": "PASS",
+        "report": "voice TTS=55200@24000 ASR=\"The bluebird sings in the garden.\" S2S=325920 cancellation=joined reload=passed cleanup=passed"
+      }
+    ]
+  },
+  "final-consumer-builds.json": [
+    {
+      "name": "native",
+      "command": [
+        "swift",
+        "build",
+        "--package-path",
+        "/Users/ax/Library/Caches/NativeAgentEmbeddingQualification/native-libraries-20261007/consumer",
+        "-j",
+        "4",
+        "-Xswiftc",
+        "-warnings-as-errors"
+      ],
+      "exitCode": 0,
+      "status": "PASS"
+    },
+    {
+      "name": "embedding",
+      "command": [
+        "swift",
+        "build",
+        "--package-path",
+        "/Users/ax/Library/Caches/NativeAgentEmbeddingQualification/embedding-workflow-20261007/consumer",
+        "-j",
+        "4",
+        "-Xswiftc",
+        "-warnings-as-errors"
+      ],
+      "exitCode": 0,
+      "status": "PASS"
+    }
+  ],
+  "leap-isolated.json": [
+    {
+      "name": "leap-isolated-contracts",
+      "command": [
+        "xcodebuild",
+        "-scheme",
+        "LEAPProvider",
+        "-destination",
+        "platform=iOS Simulator,id=6F7E3B30-7343-4290-8F67-399ED0A20EBC",
+        "-derivedDataPath",
+        "/Users/ax/Library/Caches/NativeAgentEmbeddingQualification/main-consolidation-20261008/fresh-checks/build-leap-ios",
+        "-parallel-testing-enabled",
+        "NO",
+        "-jobs",
+        "4",
+        "-collect-test-diagnostics",
+        "never",
+        "IPHONEOS_DEPLOYMENT_TARGET=26.5",
+        "SWIFT_TREAT_WARNINGS_AS_ERRORS=YES",
+        "SWIFT_SUPPRESS_WARNINGS=NO",
+        "-skip-testing:LEAPProviderTests/LeapTests/testUnloadFailurePoisonsProcessResidency",
+        "test"
+      ],
+      "exitCode": 0,
+      "status": "PASS",
+      "swiftTestingCounts": [
+        13
+      ],
+      "xctestCount": 49
+    },
+    {
+      "name": "leap-process-poison",
+      "command": [
+        "xcodebuild",
+        "-scheme",
+        "LEAPProvider",
+        "-destination",
+        "platform=iOS Simulator,id=6F7E3B30-7343-4290-8F67-399ED0A20EBC",
+        "-derivedDataPath",
+        "/Users/ax/Library/Caches/NativeAgentEmbeddingQualification/main-consolidation-20261008/fresh-checks/build-leap-ios",
+        "-parallel-testing-enabled",
+        "NO",
+        "-jobs",
+        "4",
+        "-collect-test-diagnostics",
+        "never",
+        "IPHONEOS_DEPLOYMENT_TARGET=26.5",
+        "SWIFT_TREAT_WARNINGS_AS_ERRORS=YES",
+        "SWIFT_SUPPRESS_WARNINGS=NO",
+        "-only-testing:LEAPProviderTests/LeapTests/testUnloadFailurePoisonsProcessResidency",
+        "test"
+      ],
+      "exitCode": 0,
+      "status": "PASS",
+      "swiftTestingCounts": [],
+      "xctestCount": 1
+    }
+  ],
+  "ios-final.json": [
+    {
+      "name": "kernel-final",
+      "command": [
+        "xcodebuild",
+        "-scheme",
+        "NativeAgentPackage-Package",
+        "-destination",
+        "platform=iOS Simulator,id=6F7E3B30-7343-4290-8F67-399ED0A20EBC",
+        "-derivedDataPath",
+        "/Users/ax/Library/Caches/NativeAgentEmbeddingQualification/main-consolidation-20261008/ios-kernel/.derived-data",
+        "-parallel-testing-enabled",
+        "NO",
+        "-jobs",
+        "4",
+        "-collect-test-diagnostics",
+        "never",
+        "test",
+        "SWIFT_TREAT_WARNINGS_AS_ERRORS=YES",
+        "SWIFT_SUPPRESS_WARNINGS=NO"
+      ],
+      "exitCode": 0,
+      "status": "PASS",
+      "swiftTestingCounts": [
+        6,
+        58,
+        27,
+        2,
+        45,
+        10,
+        112,
+        19,
+        26,
+        1,
+        34,
+        189,
+        16,
+        6,
+        17,
+        14,
+        10,
+        6
+      ]
+    },
+    {
+      "name": "wire-final",
+      "command": [
+        "/opt/homebrew/opt/python@3.14/bin/python3.14",
+        "tools/verify-chatgpt-wire.py"
+      ],
+      "exitCode": 0,
+      "status": "PASS",
+      "swiftTestingCounts": []
+    }
+  ],
+  "chatgpt-wire.json": {
+    "status": "PASS",
+    "exitCode": 0,
+    "command": [
+      "xcodebuild",
+      "-scheme",
+      "ChatGPTWireQualification-Package",
+      "-destination",
+      "platform=iOS Simulator,id=6F7E3B30-7343-4290-8F67-399ED0A20EBC",
+      "-derivedDataPath",
+      "/var/folders/xg/fwdvj13x6n926j72y_lt6lyr0000gn/T/chatgpt-exact-wire-hvaqeilb/.derived-data",
+      "-parallelizeTargets",
+      "-jobs",
+      "4",
+      "-parallel-testing-enabled",
+      "NO",
+      "test",
+      "SWIFT_TREAT_WARNINGS_AS_ERRORS=YES",
+      "SWIFT_SUPPRESS_WARNINGS=NO"
+    ],
+    "cwd": "/var/folders/xg/fwdvj13x6n926j72y_lt6lyr0000gn/T/chatgpt-exact-wire-hvaqeilb",
+    "swiftTestingCount": 43,
+    "scope": [
+      {
+        "source": "Providers/ChatGPT/Account/Sources/ChatGPTAccount/ChatGPTProtocol.swift",
+        "sha256": "5416c09485b167e5d148d1be73afce64c75cf2dac274c5db0313a32fdb946b36"
+      },
+      {
+        "source": "Providers/ChatGPT/Account/Sources/ChatGPTAccount/ChatGPTAccountPayload.swift",
+        "sha256": "d60c83f4332119b246f013a21f7700f578c3ebc7003a5b16f5255e39e7db9147"
+      },
+      {
+        "source": "Providers/ChatGPT/Account/Sources/ChatGPTAccount/ChatGPTTransport.swift",
+        "sha256": "d21dbc93f59c4212ecbed7816c26649a1444a2356120abfbfc115c98ae1510ab"
+      },
+      {
+        "source": "Providers/ChatGPT/Text/Sources/ChatGPTText/ChatGPTTextTypes.swift",
+        "sha256": "cb34b12f726d96b6137710150a4b676a5b6a1d9fb74f28ce47cefadc4604fc56"
+      },
+      {
+        "source": "Providers/ChatGPT/Text/Sources/ChatGPTText/ChatGPTTextPayload.swift",
+        "sha256": "1f90ffcda89c3eff75fb93c88b3e11cf7b20ca0b5b079be12847bc3f4078646f"
+      },
+      {
+        "source": "Providers/ChatGPT/Text/Sources/ChatGPTText/SSEParser.swift",
+        "sha256": "0dbda75ad274be15b161b69a01e7cbfcc2e0a2968019204f491b721418f2ae37"
+      },
+      {
+        "source": "Providers/ChatGPT/Text/Sources/ChatGPTText/ChatGPTTextWire.swift",
+        "sha256": "90e80c820abebb3daac7cd6800c6daf18f0d9e95c7f472270767c56524510955"
+      },
+      {
+        "source": "Providers/ChatGPT/Text/Sources/ChatGPTText/ChatGPTToolWireCodec.swift",
+        "sha256": "180cee03bac386e5dbbfb0a6d2f753dc503dd2ca02930f29307ce9653e713483"
+      },
+      {
+        "source": "Providers/ChatGPT/Image/Sources/ChatGPTImage/ChatGPTImageTypes.swift",
+        "sha256": "14446190448dbfdb4e85b5c41aaa3c2c4bd1e6ff0162f35c110cae13778d946f"
+      },
+      {
+        "source": "Providers/ChatGPT/Image/Sources/ChatGPTImage/ChatGPTImageLimits.swift",
+        "sha256": "a45b2307f3b3988573bab902373dd74060c8796f69261acdc191bc3b1aa505ed"
+      },
+      {
+        "source": "Providers/ChatGPT/Image/Sources/ChatGPTImage/ChatGPTImageWireCodec.swift",
+        "sha256": "030657bd2674dd4bf2fbf4fbf4a0bb774bb603ba9d342f2b8691c35a94d45c91"
+      },
+      {
+        "source": "Qualification/ChatGPTCompositionChecks/Tests/ChatGPTCompositionTests/ChatGPTAccountPayloadTests.swift",
+        "sha256": "74df95c1f7d84ddab84d58093b7041053767fc7877f8e1a76c692bb4176ad0e1"
+      },
+      {
+        "source": "Qualification/ChatGPTCompositionChecks/Tests/ChatGPTCompositionTests/ChatGPTImageErrorTests.swift",
+        "sha256": "f3aa51a9067db2ecc1fef2742b357b1bbfc85ba8b8ec01fb605ac0ff0693204c"
+      },
+      {
+        "source": "Qualification/ChatGPTCompositionChecks/Tests/ChatGPTCompositionTests/ChatGPTWireBoundaryTests.swift",
+        "sha256": "e238923b8a3a435bf96f1a3ed57961ef9a75e55cf12ea155b7b6f7b20af61b80"
+      },
+      {
+        "source": "Qualification/ChatGPTCompositionChecks/Tests/ChatGPTCompositionTests/ChatGPTTransportLifecycleTests.swift",
+        "sha256": "5e43a2ac09bc8083790173597ad1f79e2cd00867db88b4a97482a12162c83ff4"
+      },
+      {
+        "source": "Qualification/ChatGPTCompositionChecks/Tests/ChatGPTCompositionTests/ChatGPTURLSessionTests.swift",
+        "sha256": "999c9e7904e0196016d7d605890c7057f5c1a425689400b2fce45c066d000c35"
+      },
+      {
+        "source": "Model/LanguageModelCore/Package.swift",
+        "sha256": "11f50e911481db2ab9fe0a7df47c36fb2d4aa7d8e4082f1e3fae15213f9cd1aa"
+      },
+      {
+        "source": "Model/LanguageModelCore/Sources/LanguageModelCore/Contracts/LanguageModel.swift",
+        "sha256": "d3e9f792eda580acb5450d1d25405ef8f2dee06d56a2b0d465794eaf4e61dd76"
+      },
+      {
+        "source": "Model/LanguageModelCore/Sources/LanguageModelCore/Contracts/ModelClient.swift",
+        "sha256": "213f040dd713a0c9a991999308b7c57aa7f52a85b7739fce3e4a967c0828fa31"
+      },
+      {
+        "source": "Model/LanguageModelCore/Sources/LanguageModelCore/Contracts/ModelClientInvocation.swift",
+        "sha256": "9f8e3875047a54049338dca3d12f6eb9624ba67ca72c56356bb5535d69fd4601"
+      },
+      {
+        "source": "Model/LanguageModelCore/Sources/LanguageModelCore/Contracts/ModelContracts.swift",
+        "sha256": "132758717390343d6adff60d38b83670b7a0f377e6a01c1b126bcb18764a7ce4"
+      },
+      {
+        "source": "Model/LanguageModelCore/Sources/LanguageModelCore/Contracts/ModelGeneration.swift",
+        "sha256": "ffd5b8dcd04a2d3747e5251799d5ac7cba8962326b8b61712886c6f025a16b0f"
+      },
+      {
+        "source": "Model/LanguageModelCore/Sources/LanguageModelCore/Contracts/ModelStreamContract.swift",
+        "sha256": "542e972df66e8404055812638959139d7f6dd5325d350247ae61e9c2e2716958"
+      },
+      {
+        "source": "Model/LanguageModelCore/Sources/LanguageModelCore/Contracts/ModelTextRequest.swift",
+        "sha256": "c0dad28ef6d966c344580253fba66462e241800520c7574a37ef18e2de953159"
+      },
+      {
+        "source": "Model/LanguageModelCore/Sources/LanguageModelCore/Contracts/ModelTextSnapshotAccumulator.swift",
+        "sha256": "8cbef4285de96ae339639b0b0c5e4255b7b85397517ae131432e2bb7e4d7649e"
+      },
+      {
+        "source": "Model/LanguageModelCore/Sources/LanguageModelCore/Contracts/ModelTool.swift",
+        "sha256": "d10a47d52b435587b668391b085fd55d2f9def1d4f9da6447081497b96db5150"
+      },
+      {
+        "source": "Model/LanguageModelCore/Sources/LanguageModelCore/Defaults/DeterministicCoreDefaults.swift",
+        "sha256": "901a6473611091d050b054f70debd0efa21c738b736385584f7c1fe19915011c"
+      },
+      {
+        "source": "Model/LanguageModelCore/Sources/LanguageModelCore/Hashing/SHA1HexDigest.swift",
+        "sha256": "465b27c45e00c8b823b38f3145f5de338af2399f49d443cf03f102d501c3b8ca"
+      },
+      {
+        "source": "Model/LanguageModelCore/Sources/LanguageModelCore/Hashing/SHA256HexDigest.swift",
+        "sha256": "173741fd7d4dd4718f7bcfcc062715e5dcdb269e0cad8a1b8bf5d0687624cba8"
+      },
+      {
+        "source": "Model/LanguageModelCore/Sources/LanguageModelCore/JSON/JSONCoding.swift",
+        "sha256": "7cf9b2e2429d5860f0fc58563052ea9891052515ca2ed4e58cc825aca6151b92"
+      },
+      {
+        "source": "Model/LanguageModelCore/Sources/LanguageModelCore/JSON/JSONValue+Accessors.swift",
+        "sha256": "b1dd907f288a9aa4ac6d6684e789f5d61b7f56ee125da9efbf676fe0df24bb21"
+      },
+      {
+        "source": "Model/LanguageModelCore/Sources/LanguageModelCore/JSON/JSONValue+Bridging.swift",
+        "sha256": "77a906921d1e96711125b483aa3b222e6177fd5da111d77b3ec79341ac4e3e35"
+      },
+      {
+        "source": "Model/LanguageModelCore/Sources/LanguageModelCore/JSON/JSONValue+CanonicalCount.swift",
+        "sha256": "89d4b1b3f69b90bcf4387982a45b260889f94038a7e135b32a367de97cadd4d2"
+      },
+      {
+        "source": "Model/LanguageModelCore/Sources/LanguageModelCore/JSON/JSONValue+Literals.swift",
+        "sha256": "68437bbafda5fbbaf6b27be087cf46e368e4707ec310aa8dfcb5d7ab41163d15"
+      },
+      {
+        "source": "Model/LanguageModelCore/Sources/LanguageModelCore/JSON/JSONValue+StructureValidation.swift",
+        "sha256": "8044d2c4d9e7f97420f68bdb6f442da62e7342a88de3596007b721b4705ee59e"
+      },
+      {
+        "source": "Model/LanguageModelCore/Sources/LanguageModelCore/JSON/JSONValue.swift",
+        "sha256": "aea59b612d6d464223f1992ecac044ce66b08f59337d5297f4ad0982d0dc7d50"
+      },
+      {
+        "source": "Model/LanguageModelCore/Sources/LanguageModelCore/Schema/ToolSchema+Containers.swift",
+        "sha256": "94ed73459e180b101e5a4c412c618d29037d24216c1875521618d3a7b7d4b827"
+      },
+      {
+        "source": "Model/LanguageModelCore/Sources/LanguageModelCore/Schema/ToolSchema+Numbers.swift",
+        "sha256": "a4f3d23e0689297d8061375c2a5ac2719abffaa4aada6790bd795a073da5735f"
+      },
+      {
+        "source": "Model/LanguageModelCore/Sources/LanguageModelCore/Schema/ToolSchema+String.swift",
+        "sha256": "91b91fde8181eb52fc202be899997f5219608f567e65800caaa6c2562f604e65"
+      },
+      {
+        "source": "Model/LanguageModelCore/Sources/LanguageModelCore/Schema/ToolSchema.swift",
+        "sha256": "d15831b6a01889885bf05d9bffe8462ba731923321aa18af15f00a678dcfe794"
+      },
+      {
+        "source": "Model/LanguageModelCore/Sources/LanguageModelCore/Values/AgentMessage.swift",
+        "sha256": "4ce2aa0839345955c807ccb30c57ea87551e21ef1b8219172fbe9d6729f5b421"
+      },
+      {
+        "source": "Model/LanguageModelCore/Sources/LanguageModelCore/Values/ModelContent.swift",
+        "sha256": "7a0879c1ceeac1c7ff65966a95cc4d481dc45b52cc73efad6df3028606a7768f"
+      },
+      {
+        "source": "Model/LanguageModelCore/Sources/LanguageModelCore/Values/ModelEvent.swift",
+        "sha256": "74a4303c4d558840412eba1e8bf56daf5e3faa4ae82f75834ea250aa7703a0a4"
+      },
+      {
+        "source": "Model/LanguageModelCore/Sources/LanguageModelCore/Values/ModelStopReason.swift",
+        "sha256": "6be969c3ff67614b14554960405785a3ffa9829a3a9c11c46cc8ee763374a2ea"
+      }
+    ],
+    "localHTTP": {
+      "requests": [
+        "/ok",
+        "/stall",
+        "/large",
+        "/chunked-large",
+        "/truncated",
+        "/redirect",
+        "/sse",
+        "/sse",
+        "/sse",
+        "/stall",
+        "/ok"
+      ],
+      "forbiddenDispatches": [],
+      "fixtureErrors": [],
+      "missingRequiredPaths": [],
+      "mechanism": "Production URLSessionChatGPTTransport + local HTTP sockets; no URLProtocol replacement."
+    },
+    "excluded": [
+      "ChatGPTAccountSession/CryptoKit/Keychain/loopback login",
+      "ChatGPTTextSession/ModelClient",
+      "ChatGPTImageClient",
+      "Agent adapters",
+      "live ChatGPT account/network E2E"
+    ],
+    "note": "Gate fixtures prove ordering only. On macOS the test runs on the discovered iOS Simulator. Local URLSession tests prove real local HTTP behavior, not ChatGPT service compatibility."
+  },
+  "python-final.json": [
+    {
+      "name": "test-package-runner.py",
+      "command": [
+        "python3",
+        "tools/test-package-runner.py"
+      ],
+      "exitCode": 0,
+      "status": "PASS",
+      "output": "..........\n----------------------------------------------------------------------\nRan 10 tests in 1.066s\n\nOK\n"
+    },
+    {
+      "name": "test-distribution-manifest.py",
+      "command": [
+        "python3",
+        "tools/test-distribution-manifest.py"
+      ],
+      "exitCode": 0,
+      "status": "PASS",
+      "output": ".........\n----------------------------------------------------------------------\nRan 9 tests in 9.015s\n\nOK\n"
+    },
+    {
+      "name": "test-package-closure.py",
+      "command": [
+        "python3",
+        "tools/test-package-closure.py"
+      ],
+      "exitCode": 0,
+      "status": "PASS",
+      "output": ".........\n----------------------------------------------------------------------\nRan 9 tests in 0.047s\n\nOK\n"
+    }
+  ],
+  "static-checks.json": {
+    "status": "PASS",
+    "platform": "macOS-27.0.1-arm64-arm-64bit-Mach-O",
+    "swift": "Apple Swift version 6.4 (swiftlang-6.4.0.34.1 clang-2100.3.34.1)\nTarget: arm64-apple-macosx27.0.0",
+    "manifestCount": 54,
+    "staticAssertions": 492,
+    "syntaxFiles": 1223,
+    "syntaxStatus": "EXECUTED",
+    "limits": [
+      "No remote dependency resolution, native SDK typecheck, linker or device proof.",
+      "Source guards and syntax parsing are not model inference evidence."
+    ],
+    "command": [
+      "python3",
+      "tools/check-boundaries.py"
+    ],
+    "inputHashes": "source-hashes.json"
+  },
+  "document-check.json": {
+    "status": "PASS",
+    "documents": 157,
+    "activeAnalysesChecked": 15,
+    "relativeLinksChecked": 509,
+    "externalLinksNotFetched": 82,
+    "errors": [],
+    "limits": [
+      "No runtime proof.",
+      "External URL availability is not checked.",
+      "Link existence is not semantic correctness."
+    ]
+  },
+  "status": "PASS",
+  "limits": [
+    "Fixed models/corpus/OS only; no general retrieval quality claim.",
+    "Live account/services, all OS permission flows, host background/relaunch and physical power-loss durability are not qualified.",
+    "Upstream SDK constraints retain Crypto4.5.2/Syntax603.0.2/yyjson0.12.0.",
+    "Native process-poison regression runs in an isolated process; no production guard reset."
+  ]
+}

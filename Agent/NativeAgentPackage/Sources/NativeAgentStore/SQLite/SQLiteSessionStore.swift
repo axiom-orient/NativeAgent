@@ -116,7 +116,8 @@ actor SQLiteSessionStore:
                 }
             }
             database = opened
-            try removeUnreferencedArtifactFiles()
+            // Missing DB references do not prove orphan custody: another store
+            // may have staged these bytes and still be committing their record.
         } catch {
             database = nil
             throw error

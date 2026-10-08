@@ -6,24 +6,7 @@ private enum MemoryStoreLimits {
 
 extension Store {
     func capabilities() throws -> AgentMemoryCapabilities {
-        let version = try db.query("SELECT sqlite_version()").first.map { try $0.text(0) } ?? ""
-        let foreignKeys = try db.query("PRAGMA foreign_keys").first.map { try $0.int(0) == 1 } ?? false
-        var strict = false
-        var fts = false
-        do {
-            try db.exec("CREATE TABLE temp.__native_agent_capability_strict_probe(x TEXT) STRICT")
-            try db.exec("DROP TABLE temp.__native_agent_capability_strict_probe")
-            strict = true
-            try db.exec("CREATE VIRTUAL TABLE temp.__native_agent_capability_fts_probe USING fts5(x)")
-            try db.exec("DROP TABLE temp.__native_agent_capability_fts_probe")
-            fts = true
-        } catch {
-            // The opening gate reports the actual failure; this read-only
-            // snapshot intentionally preserves the observed false flags.
-            try? db.exec("DROP TABLE temp.__native_agent_capability_strict_probe")
-            try? db.exec("DROP TABLE temp.__native_agent_capability_fts_probe")
-        }
-        return AgentMemoryCapabilities(sqliteVersion: version, foreignKeys: foreignKeys, strictTables: strict, fts5: fts)
+        capabilitySnapshot
     }
 
     func checkpoint(scope: Scope, sourceSessionID: String) throws -> MemoryCheckpoint? {
@@ -248,8 +231,11 @@ extension Store {
         }
         guard expectedOffset >= 0, expectedOffset < journal.messageCount,
               page.messages.isEmpty == false,
-              page.messages.count <= 100,
-              expectedOffset + page.messages.count <= journal.messageCount else {
+              page.messages.count <= 100 else {
+            throw AppError.storage("invalid_transcript_page", "transcript page is outside the journal")
+        }
+        let (pageEnd, pageEndOverflow) = expectedOffset.addingReportingOverflow(page.messages.count)
+        guard !pageEndOverflow, pageEnd <= journal.messageCount else {
             throw AppError.storage("invalid_transcript_page", "transcript page is outside the journal")
         }
         var seen: Set<String> = []
@@ -270,8 +256,10 @@ extension Store {
                 events.append(event)
             }
         }
-        let complete = expectedOffset + page.messages.count == journal.messageCount
-        let last = page.messages.last!
+        let complete = pageEnd == journal.messageCount
+        guard let last = page.messages.last else {
+            throw AppError.storage("invalid_transcript_page", "transcript page has no messages")
+        }
         var insertion = (inserted: 0, rowIDs: [Int64]())
         var committedMessageCount = 0
         var committedRevision: Int64 = 0
@@ -318,7 +306,7 @@ extension Store {
 
             let messageCount = replayingCommittedPrefix
                 ? (current?.messageCount ?? journal.messageCount)
-                : expectedOffset + page.messages.count
+                : pageEnd
             let revision = complete ? journal.revision : (current?.agentRevision ?? 0)
             let next = MemoryCheckpoint(
                 workspaceID: scope.workspaceID,
@@ -554,7 +542,11 @@ extension Store {
         if let fromMS = query.fromMS { conditions.append("COALESCE(r.valid_from_ms,r.created_at_ms)>=?"); params.append(.int(fromMS)) }
         if let toMS = query.toMS { conditions.append("COALESCE(r.valid_from_ms,r.created_at_ms)<=?"); params.append(.int(toMS)) }
         let terms = ftsQuery(query.query)
-        let limit = min(max(query.limit * 2, query.limit), 64)
+        // The public engine currently admits at most eight results, but this
+        // store boundary is also used by package-internal callers. Clamp before
+        // doubling so an invalid large request cannot trap during admission.
+        let requestedLimit = min(max(query.limit, 1), 32)
+        let limit = min(requestedLimit * 2, 64)
         let sql: String
         if terms.isEmpty {
             conditions.append("lower(r.content) LIKE ? ESCAPE '\\'")

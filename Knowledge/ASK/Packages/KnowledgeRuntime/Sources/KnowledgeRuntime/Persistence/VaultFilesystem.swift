@@ -60,21 +60,56 @@ extension Vault {
         guard fd >= 0 else {
             throw ASKError.apply("unable to open \(label) lock")
         }
-        defer { close(fd) }
         if flock(fd, LOCK_EX) != 0 {
+            let closeFailed = close(fd) != 0
+            if closeFailed {
+                throw ASKError.apply("unable to acquire \(label) lock; closing lock failed")
+            }
             throw ASKError.apply("unable to acquire \(label) lock")
         }
-        defer { _ = flock(fd, LOCK_UN) }
 
         let pidString = "\(getpid())"
-        _ = ftruncate(fd, 0)
-        _ = lseek(fd, 0, SEEK_SET)
-        pidString.withCString { cString in
-            _ = write(fd, cString, strlen(cString))
+        let bodyResult: Result<T, any Error>
+        do {
+            guard ftruncate(fd, 0) == 0 else {
+                throw ASKError.apply("unable to truncate \(label) lock")
+            }
+            guard lseek(fd, 0, SEEK_SET) >= 0 else {
+                throw ASKError.apply("unable to seek \(label) lock")
+            }
+            let expectedBytes = pidString.utf8.count
+            let written = pidString.withCString { cString in
+                write(fd, cString, expectedBytes)
+            }
+            guard written == expectedBytes else {
+                throw ASKError.apply("unable to write \(label) lock owner")
+            }
+            bodyResult = .success(try body())
+        } catch {
+            bodyResult = .failure(error)
         }
-        let result = try body()
-        _ = ftruncate(fd, 0)
-        return result
+
+        var cleanupFailures: [String] = []
+        if ftruncate(fd, 0) != 0 {
+            cleanupFailures.append("truncate")
+        }
+        if flock(fd, LOCK_UN) != 0 {
+            cleanupFailures.append("unlock")
+        }
+        if close(fd) != 0 {
+            cleanupFailures.append("close")
+        }
+
+        guard cleanupFailures.isEmpty else {
+            let cleanup = cleanupFailures.joined(separator: ", ")
+            switch bodyResult {
+            case .success:
+                throw ASKError.apply("\(label) lock cleanup failed: \(cleanup)")
+            case .failure(let error):
+                throw ASKError.apply("\(label) lock operation failed: \(error); cleanup failed: \(cleanup)")
+            }
+        }
+        return try bodyResult.get()
     }
 
     package func allFiles() throws -> [String] {

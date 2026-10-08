@@ -32,14 +32,6 @@ struct ChatGPTTransportLifecycleTests {
     #expect(state == .settled)
   }
 
-  @Test func legacyStreamDoesNotInventNativeCompletion() async throws {
-    let transport = LegacyStreamOnlyTransport()
-    await #expect(throws: ChatGPTFailure(.invalidConfiguration)) {
-      try await transport.invocation(request(), maxResponseBytes: 4096)
-    }
-    #expect(await transport.calls == 0)
-  }
-
   @Test func sseEOFWaitsForTransportSettlement() async throws {
     let gate = TransportSettlementGate()
     let operation = chatGPTSSE(
@@ -252,14 +244,7 @@ struct GatedTransport: ChatGPTTransport {
   }
 }
 
-private actor LegacyStreamOnlyTransport: ChatGPTTransport {
-  private(set) var calls = 0
-  func stream(_ request: URLRequest, maxResponseBytes: Int) async throws
-    -> AsyncThrowingStream<ChatGPTTransportElement, any Error> {
-    calls += 1
-    return AsyncThrowingStream { $0.finish() }
-  }
-}
+
 
 private final class TransportCancellationCounter: @unchecked Sendable {
   private let lock = NSLock()

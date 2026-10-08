@@ -40,6 +40,12 @@ package enum SessionAction: Sendable {
         updatedAt: Date,
         reason: SessionMutationReason
     )
+    case recordAssistantTurn(
+        message: AgentMessage,
+        continuationPrompt: AgentMessage?,
+        completesSession: Bool,
+        updatedAt: Date
+    )
     case replaceMessages(
         [AgentMessage],
         updatedAt: Date,
@@ -211,6 +217,40 @@ package enum SessionReducer {
                 artifacts: appendedArtifacts.isEmpty
                     ? .unchanged
                     : .append(startingAt: artifactStart, artifacts: appendedArtifacts)
+            )
+
+        case let .recordAssistantTurn(message, continuationPrompt, completesSession, updatedAt):
+            try require(
+                current.status == .running
+                    || (current.status == .waiting && current.waitState?.kind == .modelInvocation),
+                current,
+                "assistant outcome requires a running session or pending model invocation"
+            )
+            try require(message.role == .assistant, current, "model outcome must be an assistant message")
+            try require(
+                !completesSession || (message.toolCalls.isEmpty && continuationPrompt == nil),
+                current,
+                "a completed outcome cannot contain pending tools or a continuation prompt"
+            )
+            if let continuationPrompt {
+                try require(
+                    !completesSession && message.toolCalls.isEmpty
+                        && continuationPrompt.role == .user,
+                    current,
+                    "continuation requires a user prompt after a tool-free assistant outcome"
+                )
+            }
+            let messages = [message] + [continuationPrompt].compactMap { $0 }
+            reduced = current.applying(.assistantTurnRecorded(
+                messages: messages,
+                completesSession: completesSession,
+                updatedAt: updatedAt
+            ))
+            reason = completesSession ? .sessionCompleted
+                : (continuationPrompt == nil ? .assistantTurnAppended : .responseContinuationPromptAppended)
+            persistenceDelta = SessionPersistenceDelta(
+                expectedRevision: current.revision,
+                messages: .append(startingAt: current.messages.count, messages: messages)
             )
 
         case let .replaceMessages(messages, updatedAt, mutationReason):

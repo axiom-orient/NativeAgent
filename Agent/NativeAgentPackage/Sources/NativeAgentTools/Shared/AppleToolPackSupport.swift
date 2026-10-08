@@ -58,9 +58,11 @@ func optionalBoundedInt(
 /// Privacy usage strings belong to the app target, not to this package. Check
 /// before entering an Apple API that would otherwise terminate the host for a
 /// missing declaration.
-func requireHostUsageDescription(_ key: String, capability: String) throws {
+func requireHostUsageDescription(
+    _ key: String, capability: String, bundle: Bundle = .main
+) throws {
     try validateHostUsageDescription(
-        Bundle.main.object(forInfoDictionaryKey: key),
+        bundle.object(forInfoDictionaryKey: key),
         key: key,
         capability: capability
     )

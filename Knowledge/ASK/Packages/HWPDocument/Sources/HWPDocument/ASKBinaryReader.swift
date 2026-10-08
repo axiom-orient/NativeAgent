@@ -16,14 +16,17 @@ struct ASKByteCursor {
     }
 
     var isAtEnd: Bool { offset >= bytes.count }
-    var remainingCount: Int { max(bytes.count - offset, 0) }
+    var remainingCount: Int {
+        guard offset >= 0 else { return bytes.count }
+        return max(bytes.count - offset, 0)
+    }
 
     mutating func alignToByte() {
         // Byte cursor is already byte-aligned. Bit-level alignment lives in ASKDeflateBitReader.
     }
 
     mutating func readUInt8() throws -> UInt8 {
-        guard offset < bytes.count else { throw ASKHWPError.malformedContainer("Unexpected end of data at byte \(offset).") }
+        guard offset >= 0, offset < bytes.count else { throw ASKHWPError.malformedContainer("Unexpected end of data at byte \(offset).") }
         defer { offset += 1 }
         return bytes[offset]
     }
@@ -41,7 +44,8 @@ struct ASKByteCursor {
     }
 
     mutating func readBytes(count: Int) throws -> [UInt8] {
-        guard count >= 0, offset + count <= bytes.count else {
+        guard count >= 0, offset >= 0, offset <= bytes.count,
+              count <= bytes.count - offset else {
             throw ASKHWPError.malformedContainer("Unexpected end of data while reading \(count) bytes at byte \(offset).")
         }
         let result = Array(bytes[offset..<(offset + count)])
@@ -50,21 +54,22 @@ struct ASKByteCursor {
     }
 
     func slice(offset: Int, count: Int) throws -> [UInt8] {
-        guard count >= 0, offset >= 0, offset + count <= bytes.count else {
+        guard count >= 0, offset >= 0, offset <= bytes.count,
+              count <= bytes.count - offset else {
             throw ASKHWPError.malformedContainer("Invalid byte range offset=\(offset), count=\(count), size=\(bytes.count).")
         }
         return Array(bytes[offset..<(offset + count)])
     }
 
     static func uint16LE(_ bytes: [UInt8], at offset: Int) throws -> UInt16 {
-        guard offset >= 0, offset + 2 <= bytes.count else {
+        guard bytes.count >= 2, offset >= 0, offset <= bytes.count - 2 else {
             throw ASKHWPError.malformedContainer("Invalid UInt16 offset \(offset).")
         }
         return UInt16(bytes[offset]) | (UInt16(bytes[offset + 1]) << 8)
     }
 
     static func uint32LE(_ bytes: [UInt8], at offset: Int) throws -> UInt32 {
-        guard offset >= 0, offset + 4 <= bytes.count else {
+        guard bytes.count >= 4, offset >= 0, offset <= bytes.count - 4 else {
             throw ASKHWPError.malformedContainer("Invalid UInt32 offset \(offset).")
         }
         return UInt32(bytes[offset])
@@ -74,6 +79,9 @@ struct ASKByteCursor {
     }
 
     static func uint64LE(_ bytes: [UInt8], at offset: Int) throws -> UInt64 {
+        guard bytes.count >= 8, offset >= 0, offset <= bytes.count - 8 else {
+            throw ASKHWPError.malformedContainer("Invalid UInt64 offset \(offset).")
+        }
         let lower = UInt64(try uint32LE(bytes, at: offset))
         let upper = UInt64(try uint32LE(bytes, at: offset + 4))
         return lower | (upper << 32)

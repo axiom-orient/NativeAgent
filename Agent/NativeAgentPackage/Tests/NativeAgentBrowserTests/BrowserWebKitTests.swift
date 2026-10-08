@@ -1,3 +1,9 @@
+#if canImport(UIKit)
+import UIKit
+#elseif canImport(AppKit)
+import AppKit
+#endif
+import CoreGraphics
 import NativeAgentDomain
 import Foundation
 import Testing
@@ -179,9 +185,10 @@ func browserCloseRemovesTransientStateAndRejectsReuse() async throws {
 @Test(.timeLimit(.minutes(1)))
 func browserObservesAndActsThroughTypedPrivacyFilteredContract() async throws {
     let browser = BrowserSession(policy: .localOnly())
+    defer { try? browser.close() }
     _ = try await browser.loadHTML(
         """
-        <html><head><title>NativeAgent</title></head><body>
+        <html style="background:#f0e0d0"><head><title>NativeAgent</title></head><body>
           <p id="status">ready</p>
           <p hidden>hidden-secret</p>
           <button aria-label="Continue" onclick="document.getElementById('status').textContent='clicked'">Go</button>
@@ -252,6 +259,26 @@ func browserObservesAndActsThroughTypedPrivacyFilteredContract() async throws {
     let snapshot = try await browser.snapshot()
     #expect(snapshot.mimeType == "image/png")
     #expect(snapshot.data.starts(with: [0x89, 0x50, 0x4E, 0x47]))
+    // A native callback or PNG header alone cannot prove rendered content.
+    #if canImport(UIKit)
+    let image = try #require(UIImage(data: snapshot.data)?.cgImage)
+    #elseif canImport(AppKit)
+    let image = try #require(NSBitmapImageRep(data: snapshot.data)?.cgImage)
+    #endif
+    let center = try #require(image.cropping(to: CGRect(
+        x: image.width / 2, y: image.height / 2, width: 1, height: 1)))
+    var pixel = [UInt8](repeating: 0, count: 4)
+    try pixel.withUnsafeMutableBytes { buffer in
+        let context = try #require(CGContext(
+            data: buffer.baseAddress, width: 1, height: 1, bitsPerComponent: 8,
+            bytesPerRow: 4, space: CGColorSpaceCreateDeviceRGB(),
+            bitmapInfo: CGImageAlphaInfo.premultipliedLast.rawValue))
+        context.draw(center, in: CGRect(x: 0, y: 0, width: 1, height: 1))
+    }
+    #expect(abs(Int(pixel[0]) - 240) < 12)
+    #expect(abs(Int(pixel[1]) - 224) < 12)
+    #expect(abs(Int(pixel[2]) - 208) < 12)
+    #expect(pixel[3] == 255)
 }
 
 @MainActor

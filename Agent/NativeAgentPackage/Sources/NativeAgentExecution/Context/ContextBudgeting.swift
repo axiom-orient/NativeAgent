@@ -10,28 +10,39 @@ public struct ApproximateTokenEstimator: Sendable {
             let metadataTokens = try estimate(json: .object(message.metadata))
             var toolCallTokens = 0
             for call in message.toolCalls {
-                toolCallTokens += max(
-                    4,
-                    try estimate(json: call.arguments) + estimate(text: call.name) + 4
+                let argumentTokens = try estimate(json: call.arguments)
+                let nameTokens = try estimate(text: call.name)
+                let callTokens = try checkedAdd(
+                    try checkedAdd(argumentTokens, nameTokens),
+                    4
                 )
+                toolCallTokens = try checkedAdd(toolCallTokens, max(4, callTokens))
             }
-            messageTokens += max(
-                8,
-                estimate(text: message.content) + metadataTokens + toolCallTokens + 8
+            let contentTokens = try estimate(text: message.content)
+            let messageCost = try checkedAdd(
+                try checkedAdd(
+                    try checkedAdd(contentTokens, metadataTokens),
+                    toolCallTokens
+                ),
+                8
             )
+            messageTokens = try checkedAdd(messageTokens, max(8, messageCost))
         }
 
         var toolTokens = 0
         for tool in tools {
             let schemaTokens = try estimate(json: tool.inputSchema)
-            toolTokens += max(
-                12,
-                estimate(text: tool.name) + estimate(text: tool.description) +
-                    schemaTokens + 12
+            let toolCost = try checkedAdd(
+                try checkedAdd(
+                    try checkedAdd(try estimate(text: tool.name), try estimate(text: tool.description)),
+                    schemaTokens
+                ),
+                12
             )
+            toolTokens = try checkedAdd(toolTokens, max(12, toolCost))
         }
 
-        return messageTokens + toolTokens
+        return try checkedAdd(messageTokens, toolTokens)
     }
 
     public func estimate(json: JSONValue) throws -> Int {
@@ -39,17 +50,17 @@ public struct ApproximateTokenEstimator: Sendable {
         // bytes per token deliberately leaves headroom for tokenizers that
         // split CJK, emoji, escape-heavy strings, or source-like values more
         // finely than plain English prose. The provider remains authoritative.
-        roundedUpDivision(try json.canonicalUTF8ByteCount(), by: 2)
+        try roundedUpDivision(try json.canonicalUTF8ByteCount(), by: 2)
     }
 
-    private func estimate(text: String) -> Int {
+    private func estimate(text: String) throws -> Int {
         var asciiBytes = 0
         var nonASCIIBytes = 0
         for byte in text.utf8 {
             if byte < 0x80 {
-                asciiBytes += 1
+                asciiBytes = try checkedAdd(asciiBytes, 1)
             } else {
-                nonASCIIBytes += 1
+                nonASCIIBytes = try checkedAdd(nonASCIIBytes, 1)
             }
         }
 
@@ -57,13 +68,27 @@ public struct ApproximateTokenEstimator: Sendable {
         // groups, while non-ASCII text needs a smaller bytes-per-token ratio.
         // This avoids the old Character.count / 4 undercount for CJK without
         // forcing ordinary prompts to compact at a two-bytes-per-token rate.
-        return roundedUpDivision(asciiBytes, by: 3) +
-            roundedUpDivision(nonASCIIBytes, by: 2)
+        return try checkedAdd(
+            try roundedUpDivision(asciiBytes, by: 3),
+            try roundedUpDivision(nonASCIIBytes, by: 2)
+        )
     }
 
-    private func roundedUpDivision(_ value: Int, by divisor: Int) -> Int {
+    private func roundedUpDivision(_ value: Int, by divisor: Int) throws -> Int {
         guard value > 0 else { return 0 }
-        return (value + divisor - 1) / divisor
+        let (adjusted, overflow) = value.addingReportingOverflow(divisor - 1)
+        guard !overflow else {
+            throw AgentError.budgetExceeded("Approximate token count exceeded the supported integer range.")
+        }
+        return adjusted / divisor
+    }
+
+    private func checkedAdd(_ lhs: Int, _ rhs: Int) throws -> Int {
+        let (value, overflow) = lhs.addingReportingOverflow(rhs)
+        guard !overflow else {
+            throw AgentError.budgetExceeded("Approximate token count exceeded the supported integer range.")
+        }
+        return value
     }
 }
 
@@ -141,6 +166,9 @@ package struct ContextProjection: Sendable, Equatable {
 
 public struct ContextWindowCompactor: Sendable {
     public static let minimumMeaningfulSummaryCharacters = 64
+    private static let projectedMetadataKeys: Set<String> = [
+        "artifactReference", "attemptID", "callID", "effectState", "error", "operationID", "status"
+    ]
     private let estimator: ApproximateTokenEstimator
 
     public init(estimator: ApproximateTokenEstimator = ApproximateTokenEstimator()) {
@@ -237,8 +265,22 @@ public struct ContextWindowCompactor: Sendable {
         maximumProjectedMessages: Int?,
         minimumRetainedMessageIndex: Int?
     ) throws -> CompactionResult? {
-        guard policy.maxSummaryCharacters >= Self.minimumMeaningfulSummaryCharacters else {
-            return nil
+        try snapshot.validateState()
+        guard (1...ContextBudgetPolicy.supportedMaximumWindowTokens).contains(policy.windowTokens),
+              policy.reservedOutputTokens >= 0,
+              policy.reservedOutputTokens < policy.windowTokens,
+              policy.targetRatio.isFinite,
+              policy.triggerRatio.isFinite,
+              policy.targetRatio > 0,
+              policy.triggerRatio > policy.targetRatio,
+              policy.triggerRatio <= 1,
+              (0...ContextBudgetPolicy.supportedMaximumRecentMessages)
+                .contains(policy.keepRecentMessages),
+              (Self.minimumMeaningfulSummaryCharacters...ContextBudgetPolicy.supportedMaximumSummaryCharacters)
+                .contains(policy.maxSummaryCharacters) else {
+            throw AgentError.invalidConfiguration(
+                "Context compaction policy is outside its supported bounds."
+            )
         }
         let leadingSystemCount: Int
         if policy.preserveSystemMessages {
@@ -335,7 +377,7 @@ public struct ContextWindowCompactor: Sendable {
 
             let tailArray = Array(snapshot.messages.dropFirst(newCoveredMessageCount))
             let tailTokens = try estimator.estimate(messages: tailArray, tools: [])
-            let fixedTokens = prefixTokens + tailTokens + toolTokens
+            let fixedTokens = try checkedTokenSum(prefixTokens, tailTokens, toolTokens)
             let summaryMessage = try makeProjectionMessage(
                 compactable,
                 maximumCharacters: policy.maxSummaryCharacters,
@@ -352,7 +394,10 @@ public struct ContextWindowCompactor: Sendable {
                 // or incomplete tool history.
                 continue
             }
-            let after = try estimator.estimate(messages: [summaryMessage], tools: []) + fixedTokens
+            let after = try checkedTokenSum(
+                try estimator.estimate(messages: [summaryMessage], tools: []),
+                fixedTokens
+            )
 
             guard after < before else { continue }
             let result = CompactionResult(
@@ -410,7 +455,10 @@ public struct ContextWindowCompactor: Sendable {
 
         let maximum = max(1, maximumCharacters)
         var candidate = message(maximumCharacters: maximum)
-        var candidateTokens = try estimator.estimate(messages: [candidate], tools: []) + fixedTokens
+        var candidateTokens = try checkedTokenSum(
+            try estimator.estimate(messages: [candidate], tools: []),
+            fixedTokens
+        )
         guard candidateTokens > targetTokens, maximum > 1 else {
             return candidate
         }
@@ -423,7 +471,10 @@ public struct ContextWindowCompactor: Sendable {
         while lower <= upper {
             let midpoint = lower + (upper - lower) / 2
             let proposed = message(maximumCharacters: midpoint)
-            let tokens = try estimator.estimate(messages: [proposed], tools: []) + fixedTokens
+            let tokens = try checkedTokenSum(
+                try estimator.estimate(messages: [proposed], tools: []),
+                fixedTokens
+            )
             if tokens <= targetTokens {
                 best = proposed
                 lower = midpoint + 1
@@ -440,14 +491,40 @@ public struct ContextWindowCompactor: Sendable {
         // message and let the caller's exact ModelRequest contract make the
         // authoritative capacity decision. The public minimum prevents this
         // branch from becoming an information-free placeholder.
+        let (scaledMessageCount, scaleOverflow) = messages.count.multipliedReportingOverflow(by: 24)
+        let requestedEvidenceCharacters: Int
+        if scaleOverflow {
+            requestedEvidenceCharacters = Int.max
+        } else {
+            let (value, addOverflow) = scaledMessageCount.addingReportingOverflow(32)
+            requestedEvidenceCharacters = addOverflow ? Int.max : value
+        }
         let minimumEvidenceCharacters = min(
             maximum,
-            max(Self.minimumMeaningfulSummaryCharacters, messages.count * 24 + 32)
+            max(Self.minimumMeaningfulSummaryCharacters, requestedEvidenceCharacters)
         )
         candidate = message(maximumCharacters: minimumEvidenceCharacters)
-        candidateTokens = try estimator.estimate(messages: [candidate], tools: []) + fixedTokens
+        candidateTokens = try checkedTokenSum(
+            try estimator.estimate(messages: [candidate], tools: []),
+            fixedTokens
+        )
         _ = candidateTokens
         return candidate
+    }
+
+    private func checkedTokenSum(_ values: Int...) throws -> Int {
+        var total = 0
+        for value in values {
+            guard value >= 0 else {
+                throw AgentError.invariantViolation("Approximate token estimates must not be negative.")
+            }
+            let (next, overflow) = total.addingReportingOverflow(value)
+            guard !overflow else {
+                throw AgentError.budgetExceeded("Approximate token count exceeded the supported integer range.")
+            }
+            total = next
+        }
+        return total
     }
 
     private func boundedTranscriptExtract(
@@ -503,7 +580,7 @@ public struct ContextWindowCompactor: Sendable {
         switch message.role {
         case .assistant where message.toolCalls.isEmpty == false:
             let calls = message.toolCalls.map { call in
-                let arguments = (try? call.arguments.canonicalString()) ?? "{}"
+                let arguments = canonicalOrStableIdentity(call.arguments)
                 return "\(call.name)#\(call.id)(\(arguments))"
             }.joined(separator: ",")
             role = "assistant{tools=\(calls)}"
@@ -514,12 +591,11 @@ public struct ContextWindowCompactor: Sendable {
         default:
             role = message.role.rawValue
         }
-        let safeMetadataKeys = ["artifactReference", "attemptID", "callID", "effectState", "error", "operationID", "status"]
         let metadata = message.metadata.keys
-            .filter { safeMetadataKeys.contains($0) }
+            .filter { Self.projectedMetadataKeys.contains($0) }
             .sorted()
             .map { key in
-                let value = (try? message.metadata[key]!.canonicalString()) ?? "<invalid>"
+                let value = message.metadata[key].map { canonicalOrStableIdentity($0) } ?? "<missing>"
                 return "\(key)=\(value)"
             }
             .joined(separator: ",")
@@ -533,17 +609,24 @@ public struct ContextWindowCompactor: Sendable {
     ) -> Bool {
         let evidence = messages.flatMap { message -> [String] in
             var values = message.toolCalls.flatMap { call in
-                [call.id, call.name, (try? call.arguments.canonicalString()) ?? "{}"]
+                [call.id, call.name, canonicalOrStableIdentity(call.arguments)]
             }
             if let toolName = message.toolName { values.append(toolName) }
             if let toolCallID = message.toolCallID { values.append(toolCallID) }
-            let safeMetadataKeys = ["artifactReference", "attemptID", "callID", "effectState", "error", "operationID", "status"]
             values.append(contentsOf: message.metadata
-                .filter { safeMetadataKeys.contains($0.key) }
-                .compactMap { try? $0.value.canonicalString() })
+                .filter { Self.projectedMetadataKeys.contains($0.key) }
+                .map { canonicalOrStableIdentity($0.value) })
             return values.filter { !$0.isEmpty }
         }
         return evidence.allSatisfy(projection.content.contains)
+    }
+
+    private func canonicalOrStableIdentity(_ value: JSONValue) -> String {
+        do {
+            return try value.canonicalString()
+        } catch {
+            return value.stableIdentityString()
+        }
     }
 
     private func boundedExcerpt(_ text: String, maximumCharacters: Int) -> String {

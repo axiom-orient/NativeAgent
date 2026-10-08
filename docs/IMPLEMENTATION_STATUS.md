@@ -1,4 +1,18 @@
-# NativeAI — IMPLEMENTATION_STATUS
+# NativeAgent — IMPLEMENTATION_STATUS
+
+## 메인 통합 · 2026-10-08
+
+메인의 현재 라이브러리와 EmbeddingGemma 2 경로에 기존 저장·복구 개선을 통합한다.
+Agent 최종 응답·완료 receipt·continuation을 한 저장 transaction으로 처리하고,
+SQLite 파일 생성권, artifact sync/dedup, LEAP 설치·콜백의 작업 ID 소유권을 보강했다.
+Context/Memory/Tutor/HWP/PDF 입력과 정리 실패를 검증한다.
+MapKit은 OS 26의 location/address API를 사용한다.
+LEAP background cache/session은 현재 v2만 사용하며 이전 메타데이터 채택·마이그레이션은 없다.
+
+최종 명령·입력 hash·한계는 [메인 통합 검증](verification/current/main-consolidation-20261008/REPORT.md)이 소유한다.
+아래 과거 기록은 당시 source의 결과이며 현재 source의 PASS로 합산하지 않는다.
+
+## 이전 구현 기록
 
 ## 결론과 범위
 

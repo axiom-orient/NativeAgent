@@ -9,7 +9,7 @@ let strict: [SwiftSetting] = [
 
 let package = Package(
   name: "ChatGPTImage",
-  platforms: [.iOS(.v17)],
+  platforms: [.iOS(.v17), .macOS(.v14)],
   products: [.library(name: "ChatGPTImage", targets: ["ChatGPTImage"])],
   dependencies: [
     .package(name: "ChatGPTAccount", path: "../Account")

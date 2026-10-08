@@ -1,8 +1,8 @@
 import LanguageModelCore
 
 /// Adapts an existing exact-request provider port without replacing its native
-/// loader, credentials, cancellation or resident owner. This is the migration
-/// mapping from ModelClient to descriptor/executor, not another runtime.
+/// loader, credentials, cancellation or resident owner. It binds the current
+/// ModelClient port to the descriptor/executor contract.
 public struct ClientLanguageModel: LanguageModel {
   public let executorConfiguration: Executor.Configuration
   public var descriptor: ModelDescriptor { executorConfiguration.binding.descriptor }

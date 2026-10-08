@@ -19,7 +19,7 @@ let status = try await account.status()
 
 host가 같은 namespace/account scope에 하나의 actor를 생성하고 Text·Image에 전달해야 합니다. package가 프로세스 전역 registry나 여러 프로세스의 Keychain writer lock을 대신 만들지 않습니다. 기존 namespace를 임의 변경하면 다른 credential slot을 읽게 됩니다. 앱/browser 열기·UI·서명·OS 조건은 host 책임입니다.
 
-로그인 public API와 credential serialization은 보존합니다. catalog/`resolvedModel`/`rateLimits`는 [ChatGPTTextSession](../Text/README.md)으로 이동했습니다. 인증과 서비스 API 이동을 구분한 [migration](../../../docs/adr/0003-split-chatgpt-text-image.md)을 따릅니다.
+로그인 public API와 credential serialization은 보존합니다. catalog/`resolvedModel`/`rateLimits`는 [ChatGPTTextSession](../Text/README.md)으로 이동했습니다. 인증과 서비스 API 이동을 구분한 [현재 계정·텍스트·이미지 경계](../../../docs/adr/0003-split-chatgpt-text-image.md)을 따릅니다.
 
 ## 서비스 경계
 
@@ -60,3 +60,5 @@ swift test --package-path Providers/ChatGPT/Account --filter CallbackNativeTests
 ```
 
 Linux에서 위 filter가 선택한 native 테스트가 0개이면 PASS 증거가 아니다. 실제 gate와 남은 Keychain/PKCE/SDK 검증은 root Qualification을 따른다.
+
+사용자 정의 ChatGPTTransport는 stream과 invocation을 모두 구현해야 한다. stream-only transport를 위한 기본 invocation 구현은 제공하지 않는다.

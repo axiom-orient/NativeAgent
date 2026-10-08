@@ -120,6 +120,14 @@ struct NativeAgentSkillsWebTests {
         }
     }
 
+    private actor CancellationRecorder {
+        private var count = 0
+
+        func record() { count += 1 }
+
+        func recordedCount() -> Int { count }
+    }
+
     @Test
     @MainActor
     func timeoutPropagatesTaskCancellation() async throws {
@@ -134,6 +142,20 @@ struct NativeAgentSkillsWebTests {
         await Task.yield()
         task.cancel()
         await #expect(throws: CancellationError.self) { try await task.value }
+    }
+
+    @Test
+    @MainActor
+    func successfulTimeoutOperationDoesNotInvokeCancellationHook() async throws {
+        let recorder = CancellationRecorder()
+        let result = try await WebKitExecutor.withTimeout(
+            .seconds(30),
+            cancelOperation: { _ in await recorder.record() },
+            operation: { "completed" }
+        )
+
+        #expect(result == "completed")
+        #expect(await recorder.recordedCount() == 0)
     }
 
     @Test
@@ -157,8 +179,8 @@ struct NativeAgentSkillsWebTests {
     }
 
     @Test
-    func navigationErrorsRedactPathAndQueryDetails() {
-        let remote = URL(string: "https://example.com/private?token=secret")!
+    func navigationErrorsRedactPathAndQueryDetails() throws {
+        let remote = try #require(URL(string: "https://example.com/private?token=secret"))
         #expect(WebKitNavigationBox.redactedDestination(remote) == "https://example.com")
         let local = FileManager.default.temporaryDirectory
             .appendingPathComponent("private/user/secret/index.html")

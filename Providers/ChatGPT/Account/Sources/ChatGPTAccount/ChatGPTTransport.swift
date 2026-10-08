@@ -24,17 +24,6 @@ public protocol ChatGPTTransport: Sendable {
     -> ChatGPTTransportInvocation
 }
 
-public extension ChatGPTTransport {
-  /// Stream-only implementations remain source compatible for direct stream callers.
-  /// Services must not mistake an arbitrary buffered stream's EOF for native completion.
-  /// Injected transports opt into managed service execution by implementing invocation.
-  func invocation(_ request: URLRequest, maxResponseBytes: Int) async throws
-    -> ChatGPTTransportInvocation
-  {
-    throw ChatGPTFailure(.invalidConfiguration)
-  }
-}
-
 /// One HTTP operation, not an account/session owner or a remote rollback receipt.
 public struct ChatGPTTransportInvocation: Sendable {
   public let events: AsyncThrowingStream<ChatGPTTransportElement, any Error>

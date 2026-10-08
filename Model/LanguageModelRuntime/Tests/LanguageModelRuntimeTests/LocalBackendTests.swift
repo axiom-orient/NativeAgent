@@ -225,7 +225,8 @@ struct LocalBackendTests {
     #expect(await calls.values == ["load", "release"])
   }
 
-  @Test func cancelledLoadWaiterPreservesPartialLoadCleanupFailure() async throws {
+  @Test(arguments: [false, true])
+  func cancelledWaiterPreservesFailedPartialLoadCleanup(shutdownDuringLoad: Bool) async throws {
     let gate = BackendGate()
     let calls = BackendProbe()
     let backend = LocalBackend(
@@ -235,17 +236,26 @@ struct LocalBackendTests {
         throw BackendTestError.load
       },
       releaseResident: {
+        #expect(!Task.isCancelled)
         await calls.record("release")
         throw BackendTestError.cleanup
       })
     let load = Task { try await backend.load() }
     try await eventually { await calls.count("load") == 1 }
-
     load.cancel()
+    let close = shutdownDuringLoad ? Task { try await backend.shutdown() } : nil
+    if shutdownDuringLoad { try await eventually { await backend.status() == .closing } }
     await gate.open()
 
+    // Waiter cancellation does not prove safe resident release. Preserve the
+    // cleanup failure even when shutdown concurrently owns the load result.
     await #expect(throws: LocalBackendFailure.loadCleanupFailed) { _ = try await load.value }
+    if let close {
+      await #expect(throws: LocalBackendFailure.loadCleanupFailed) { try await close.value }
+    }
     #expect(await backend.status() == .failed(.loadCleanupFailed))
+    await #expect(throws: LocalBackendFailure.loadCleanupFailed) { _ = try await backend.load() }
+    await #expect(throws: LocalBackendFailure.loadCleanupFailed) { try await backend.shutdown() }
     #expect(await calls.values == ["load", "release"])
   }
 
@@ -316,6 +326,10 @@ private actor BackendGate {
   }
 }
 private struct BackendClient: ModelClient {
+    nonisolated func stream(request: ModelRequest) -> AsyncThrowingStream<ModelEvent, any Error> {
+        scriptedModelEvents(descriptor: modelDescriptor) { try await self.generate(request: request) }
+    }
+
   let providerID = "test.local"
   var modelDescriptor: ModelDescriptor? {
     ModelDescriptor(id: "test.model", providerID: providerID, capabilities: .textOnly)

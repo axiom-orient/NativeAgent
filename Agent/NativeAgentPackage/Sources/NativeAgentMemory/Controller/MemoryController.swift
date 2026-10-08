@@ -72,6 +72,9 @@ public actor MemoryController {
                 scope: AgentMemoryScope(sourceScope),
                 sessionID: sessionID
             )
+            guard count >= 0, checkpointCount >= 0, checkpointCount <= count else {
+                throw MemoryError.memoryFailure(code: "invalid_transcript_page", message: "transcript journal checkpoint is outside the committed journal")
+            }
             let probe: AgentMemoryIncomingMessage?
             if checkpointCount > 0 {
                 let page = try await transcriptPage(
@@ -97,6 +100,9 @@ public actor MemoryController {
             if plan.noOp {
                 return MemorySyncResult(sessionID: sessionID, scannedMessages: 0, insertedEvents: 0, messageCount: count, revision: journal.revision)
             }
+            guard plan.offset >= 0, plan.offset <= count else {
+                throw MemoryError.memoryFailure(code: "invalid_transcript_page", message: "transcript sync plan is outside the committed journal")
+            }
             var offset = plan.offset
             var scanned = 0
             var inserted = 0
@@ -111,11 +117,22 @@ public actor MemoryController {
                 )
                 guard page.sessionID == sessionID,
                       page.offset == offset, page.totalCount == count, page.messages.isEmpty == false,
-                      page.messages.count <= 100, offset + page.messages.count <= count else {
+                      page.messages.count <= 100 else {
+                    throw MemoryError.memoryFailure(code: "invalid_transcript_page", message: "transcript page is not contiguous or complete")
+                }
+                let pageEnd = try checkedMemoryAddition(
+                    offset, page.messages.count,
+                    message: "transcript page end overflowed the supported integer range"
+                )
+                guard pageEnd <= count else {
                     throw MemoryError.memoryFailure(code: "invalid_transcript_page", message: "transcript page is not contiguous or complete")
                 }
                 let incoming = try page.messages.enumerated().map { index, message in
-                    try incomingMessage(message, sourceIndex: offset + index)
+                    let sourceIndex = try checkedMemoryAddition(
+                        offset, index,
+                        message: "transcript message index overflowed the supported integer range"
+                    )
+                    return try incomingMessage(message, sourceIndex: sourceIndex)
                 }
                 let result = try await engine.applySyncPage(
                     scope: AgentMemoryScope(sourceScope), sessionID: sessionID,
@@ -123,9 +140,15 @@ public actor MemoryController {
                     page: AgentMemoryIncomingPage(offset: offset, totalCount: page.totalCount, messages: incoming),
                     expectedOffset: offset, expectedGeneration: generation
                 )
-                scanned += result.scannedMessages
-                inserted += result.insertedEvents
-                offset += page.messages.count
+                scanned = try checkedMemoryAddition(
+                    scanned, result.scannedMessages,
+                    message: "scanned transcript count overflowed the supported integer range"
+                )
+                inserted = try checkedMemoryAddition(
+                    inserted, result.insertedEvents,
+                    message: "inserted memory event count overflowed the supported integer range"
+                )
+                offset = pageEnd
             }
             return MemorySyncResult(sessionID: sessionID, scannedMessages: scanned, insertedEvents: inserted, messageCount: count, revision: journal.revision)
         } catch {
@@ -343,6 +366,18 @@ public actor MemoryController {
             cause: cause,
             context: context
         )
+    }
+
+    private func checkedMemoryAddition(
+        _ lhs: Int,
+        _ rhs: Int,
+        message: String
+    ) throws -> Int {
+        let (result, overflow) = lhs.addingReportingOverflow(rhs)
+        guard !overflow else {
+            throw MemoryError.memoryFailure(code: "invalid_transcript_page", message: message)
+        }
+        return result
     }
 
     private func incomingMessage(_ message: AgentMessage, sourceIndex: Int? = nil) throws -> AgentMemoryIncomingMessage {

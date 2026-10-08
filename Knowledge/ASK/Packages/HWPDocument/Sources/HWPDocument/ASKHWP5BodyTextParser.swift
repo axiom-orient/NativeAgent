@@ -31,7 +31,11 @@ struct ASKHWP5Record: Sendable, Hashable {
             guard cursor.remainingCount >= 4 else {
                 throw ASKHWPError.malformedDocument("Truncated HWP extended record size.")
             }
-            size = Int(try cursor.readUInt32LE())
+            let rawSize = try cursor.readUInt32LE()
+            guard let extendedSize = Int(exactly: rawSize) else {
+                throw ASKHWPError.malformedDocument("HWP record payload size exceeds host limits.")
+            }
+            size = extendedSize
         }
         guard size >= 0, cursor.remainingCount >= size else {
             throw ASKHWPError.malformedDocument(
@@ -214,7 +218,7 @@ struct ASKHWP5StyleCatalog: Sendable, Hashable {
     }
 
     private static func readUInt32(_ bytes: [UInt8], at offset: Int) -> UInt32? {
-        guard offset >= 0, offset + 4 <= bytes.count else { return nil }
+        guard bytes.count >= 4, offset >= 0, offset <= bytes.count - 4 else { return nil }
         return UInt32(bytes[offset])
             | (UInt32(bytes[offset + 1]) << 8)
             | (UInt32(bytes[offset + 2]) << 16)
@@ -670,7 +674,7 @@ struct ASKHWP5BodyTextParser: Sendable {
     private func parseCharShapeReferences(_ data: [UInt8]) -> [(start: Int, id: Int)] {
         var result: [(start: Int, id: Int)] = []
         var offset = 0
-        while offset + 8 <= data.count {
+        while offset >= 0, offset <= data.count, data.count - offset >= 8 {
             guard let start = readUInt32(data, at: offset), let id = readUInt32(data, at: offset + 4) else {
                 break
             }
@@ -684,7 +688,7 @@ struct ASKHWP5BodyTextParser: Sendable {
         var result = ""
         var offsets: [Int] = []
         var byteOffset = 0
-        while byteOffset + 1 < data.count {
+        while byteOffset >= 0, byteOffset <= data.count, data.count - byteOffset >= 2 {
             let codeUnit = readUInt16(data, at: byteOffset) ?? 0
             let codeUnitPosition = byteOffset / 2
             switch codeUnit {
@@ -787,12 +791,12 @@ struct ASKHWP5BodyTextParser: Sendable {
     }
 
     private func readUInt16(_ data: [UInt8], at offset: Int) -> UInt16? {
-        guard offset >= 0, offset + 2 <= data.count else { return nil }
+        guard data.count >= 2, offset >= 0, offset <= data.count - 2 else { return nil }
         return UInt16(data[offset]) | (UInt16(data[offset + 1]) << 8)
     }
 
     private func readUInt32(_ data: [UInt8], at offset: Int) -> UInt32? {
-        guard offset >= 0, offset + 4 <= data.count else { return nil }
+        guard data.count >= 4, offset >= 0, offset <= data.count - 4 else { return nil }
         return UInt32(data[offset])
             | (UInt32(data[offset + 1]) << 8)
             | (UInt32(data[offset + 2]) << 16)
@@ -814,24 +818,27 @@ private struct ASKHWP5ByteReader {
     private(set) var offset = 0
 
     mutating func readUInt8() -> UInt8? {
-        guard offset < bytes.count else { return nil }
+        guard offset >= 0, offset < bytes.count else { return nil }
         defer { offset += 1 }
         return bytes[offset]
     }
 
     mutating func readUInt16() -> UInt16? {
-        guard offset + 2 <= bytes.count else { return nil }
+        guard bytes.count >= 2, offset >= 0, offset <= bytes.count - 2 else { return nil }
         let value = UInt16(bytes[offset]) | (UInt16(bytes[offset + 1]) << 8)
         offset += 2
         return value
     }
 
     mutating func readHWPString() -> String? {
-        guard let count = readUInt16(), offset + Int(count) * 2 <= bytes.count else { return nil }
-        let values = stride(from: offset, to: offset + Int(count) * 2, by: 2).map {
+        guard let count = readUInt16() else { return nil }
+        let byteCount = Int(count) * 2
+        guard offset >= 0, offset <= bytes.count, byteCount <= bytes.count - offset else { return nil }
+        let end = offset + byteCount
+        let values = stride(from: offset, to: end, by: 2).map {
             UInt16(bytes[$0]) | (UInt16(bytes[$0 + 1]) << 8)
         }
-        offset += Int(count) * 2
+        offset = end
         return String(decoding: values, as: UTF16.self)
     }
 }

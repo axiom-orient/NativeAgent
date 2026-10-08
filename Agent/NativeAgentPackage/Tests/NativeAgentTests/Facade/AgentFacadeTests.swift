@@ -847,6 +847,10 @@ private struct RetryOnceDefiniteModelFailure: ModelClientFailure, EffectFailureC
 }
 
 private actor RetryOnceModelClient: ModelClient {
+    nonisolated func stream(request: ModelRequest) -> AsyncThrowingStream<ModelEvent, any Error> {
+        scriptedModelEvents(descriptor: modelDescriptor) { try await self.generate(request: request) }
+    }
+
     nonisolated let providerID = "retry-once"
     private var calls = 0
 

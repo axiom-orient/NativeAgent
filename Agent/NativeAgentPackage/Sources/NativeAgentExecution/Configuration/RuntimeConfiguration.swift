@@ -327,10 +327,10 @@ public struct RuntimeConfiguration: Sendable, Equatable {
             }
             guard (0...ContextBudgetPolicy.supportedMaximumRecentMessages)
                     .contains(contextBudgetPolicy.keepRecentMessages),
-                  (1...ContextBudgetPolicy.supportedMaximumSummaryCharacters)
+                  (ContextWindowCompactor.minimumMeaningfulSummaryCharacters...ContextBudgetPolicy.supportedMaximumSummaryCharacters)
                     .contains(contextBudgetPolicy.maxSummaryCharacters) else {
                 throw AgentError.invalidConfiguration(
-                    "Context keepRecentMessages or maxSummaryCharacters exceeds the supported bound."
+                    "Context keepRecentMessages or maxSummaryCharacters is outside the supported bounds."
                 )
             }
         }

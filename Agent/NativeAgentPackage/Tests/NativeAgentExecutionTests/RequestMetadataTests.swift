@@ -6,6 +6,10 @@ import Testing
 @testable import NativeAgentStore
 
 private actor RecordingProvider: ModelClient {
+    nonisolated func stream(request: ModelRequest) -> AsyncThrowingStream<ModelEvent, any Error> {
+        scriptedModelEvents(descriptor: modelDescriptor) { try await self.generate(request: request) }
+    }
+
     let providerID = "provider.recording"
     private let scriptedTurn: ModelTurn
     private var capturedRequests: [ModelRequest] = []

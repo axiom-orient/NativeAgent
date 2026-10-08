@@ -13,7 +13,7 @@
 | registry 선택·획득 | ManagedAgentAssembler / host → acquireRuntime | 명시 provider/model; availability; 취소; 반환 identity | registry=등록/획득, factory=resource 생성 | owned/borrowed access 또는 failure | [ModelProviderRegistry.swift](Sources/LanguageModelRuntime/ModelProviderRegistry.swift) |
 | descriptor 재사용 | host → ModelExecutorStore.runtime(for:) | Executor type + Hashable config + descriptor 일치 | host-owned store; 실제 저장값은 ModelRuntime | 동일 lane 반환; 충돌 거부 | [ModelExecutorStore.swift](Sources/LanguageModelRuntime/ModelExecutorStore.swift) |
 | 실행 예약·시작 | AgentLoop / generate → reserve → start | 동일 request, capability, reservation identity | ModelRuntime phase / ModelRunControl | events, turn, runtime failure | [ModelRuntime.swift](Sources/LanguageModelRuntime/ModelRuntime.swift) |
-| provider legacy/owned 적응 | Runtime → ClientLanguageModel executor | same ModelClient binding; owned invocation 지원 여부 | provider task / executor wait; runtime admission | response 또는 drain failure | [ClientLanguageModel.swift](Sources/LanguageModelRuntime/ClientLanguageModel.swift) |
+| 현재 provider port 적응 | Runtime → ClientLanguageModel executor | same ModelClient binding; owned invocation 지원 여부 | provider task / executor wait; runtime admission | response 또는 drain failure | [ClientLanguageModel.swift](Sources/LanguageModelRuntime/ClientLanguageModel.swift) |
 | 대화 응답·스트리밍 | façade / host → ModelSession | 입력, options, generation token | ModelSession + pure SessionLedger | 성공 transcript commit; 실패 rollback | [ModelSession.swift](Sources/LanguageModelRuntime/ModelSession.swift); [SessionLedger.swift](Sources/LanguageModelRuntime/SessionLedger.swift) |
 | resident load/종료 | host/LocalBackendConnector → LocalBackend | configuration 범위 load; 중복/late identity | LocalBackend loadTask + host resident release | shared runtime; failed state 보존 | [LocalBackend.swift](Sources/LanguageModelRuntime/LocalBackend.swift) |
 | borrowed/owned cleanup | AgentManager / host → ModelRuntimeAccess.release | ownership enum | owned만 runtime.shutdown | cleanup failure 또는 완료 | [ModelRuntimeAccess.swift](Sources/LanguageModelRuntime/ModelRuntimeAccess.swift) |
@@ -46,7 +46,7 @@
 
 **F04 / 수정.** availability/목록/획득 await 뒤 취소 확인이 없어 늦은 결과를 성공으로 노출 → 신규 7 tests 수정 전 모두 실패 → task cancellation을 factory가 반드시 처리한다고 가정 → 불필요한 resource load/late publication → await 전후 경계를 명시했다. 늦은 owned access는 release한 뒤 cancellation, borrowed는 보존한다. release 실패는 cancellation에 가리지 않는다.
 
-**F06 / 부분 검증.** generic legacy buffered stream에는 producer completion port가 없을 수 있다. ChatGPT는 이제 owned invocation으로 연결됐고 하위 HTTP/SSE를 join한다. 다만 full Apple client 검증은 아직 남았다. legacy fallback의 EOF를 native drain 증거로 확대하지 않는다. Runtime 전체를 새 manager로 재작성하는 해결책은 부적절하다.
+**F06 / 부분 검증.** 독립 buffered producer는 producer completion port를 제공해야 한다. ChatGPT는 이제 owned invocation으로 연결됐고 하위 HTTP/SSE를 join한다. 다만 full Apple client 검증은 아직 남았다. 명시적 stream EOF를 독립 native 작업의 drain 증거로 확대하지 않는다. Runtime 전체를 새 manager로 재작성하는 해결책은 부적절하다.
 
 **F07 / 제약.** 캐시된 runtime을 consumer가 직접 shutdown하면 store가 자동 회복/recreate하지 않는다. 현행 public 반환형을 유지한다. host가 store/session shutdown 순서를 소유하는 규칙을 문서화했으며, 재생성 정책 추가는 결정 필요다.
 

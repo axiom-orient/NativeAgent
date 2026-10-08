@@ -73,6 +73,10 @@ private actor FacadeProbe {
   }
 }
 private struct FacadeClient: ModelClient {
+    nonisolated func stream(request: ModelRequest) -> AsyncThrowingStream<ModelEvent, any Error> {
+        scriptedModelEvents(descriptor: modelDescriptor) { try await self.generate(request: request) }
+    }
+
   let probe: FacadeProbe
   let providerID = "fixture.facade"
   var modelDescriptor: ModelDescriptor? {

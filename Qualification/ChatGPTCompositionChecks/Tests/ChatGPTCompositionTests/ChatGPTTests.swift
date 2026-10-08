@@ -1136,7 +1136,7 @@ struct ChatGPTTests {
     let mediaSession = ChatGPTAccountSession(profile: .codexSubscription, store: MemoryCredentialStore(tokenResponse: tokenSet(expiration: Date().addingTimeInterval(3_600))), transport: mediaTransport)
     let mediaClient = try ChatGPTModelClient(
       account: mediaSession, model: .exact("gpt-subscription"), transport: mediaTransport)
-    let media = AgentMessage(role: .user, contentParts: [.image(ChatGPTImageContent(mimeType: "image/png", data: Data([1])))])
+    let media = AgentMessage(role: .user, contentParts: [.image(ModelBinaryContent(mimeType: "image/png", data: Data([1])))])
     let unsupported = ModelRequest(sessionID: "media-test", messages: [media], tools: [])
     await #expect(throws: ModelGenerationFailure.self) {
       _ = try await mediaClient.generate(request: unsupported)
@@ -1144,12 +1144,12 @@ struct ChatGPTTests {
     #expect(await mediaTransport.requests.isEmpty)
   }
 
-  @Test func imageProtocolProfileMatchesCodexRust01534Provenance() {
+  @Test func imageProtocolProfileMatchesCodexRust01610Provenance() {
     let profile = ChatGPTProtocolProfile.codexSubscription
-    #expect(profile.clientVersion == "0.153.4")
+    #expect(profile.clientVersion == "0.161.0")
     #expect(
       profile.sourceRevision
-        == "openai/codex:rust-v0.153.4@3d2ee51ca2d5db578f328aa75e20aa22c0197c9a")
+        == "openai/codex:rust-v0.161.0@979011409de0a60b52f179721948e65531d26144")
     #expect(
       profile.imageGenerationsEndpoint.absoluteString
         == "https://chatgpt.com/backend-api/codex/images/generations")
@@ -1197,13 +1197,13 @@ struct ChatGPTTests {
     #expect(request.url == ChatGPTProtocolProfile.codexSubscription.imageGenerationsEndpoint)
     #expect(request.value(forHTTPHeaderField: "Authorization") == "Bearer header.payload.signature")
     #expect(request.value(forHTTPHeaderField: "Chatgpt-Account-Id") == "account-1")
-    #expect(request.value(forHTTPHeaderField: "Version") == "0.153.4")
+    #expect(request.value(forHTTPHeaderField: "Version") == "0.161.0")
     #expect(request.value(forHTTPHeaderField: "Originator") == "codex_cli_rs")
     #expect(
       request.value(forHTTPHeaderField: "x-codex-image-turn-id")
         == "00000000-0000-4000-8000-000000000001")
     #if os(macOS)
-      #expect(request.value(forHTTPHeaderField: "User-Agent") == "codex_cli_rs/0.153.4 (macOS; arm64)")
+      #expect(request.value(forHTTPHeaderField: "User-Agent") == "codex_cli_rs/0.161.0 (macOS; arm64)")
     #endif
     let body = try #require(request.httpBody)
     let object = try #require(JSONSerialization.jsonObject(with: body) as? [String: Any])

@@ -19,8 +19,8 @@
     "SOURCE_MANIFEST.json"
   ],
   "note": "Self-excluding Git-index inventory of the published NativeAgent SwiftPM source. Entries reflect staged source bytes, not unstaged local edits. Build outputs, SwiftPM state, editor state, ignored files and this manifest are excluded. This inventory does not qualify native or live behavior.",
-  "fileCount": 1907,
-  "uncompressedBytes": 18305931,
+  "fileCount": 1920,
+  "uncompressedBytes": 18710718,
   "files": [
     {
       "path": ".gitignore",
@@ -50,12 +50,12 @@
     {
       "path": "Agent/NativeAgentPackage/Package.swift",
       "bytes": 8263,
-      "sha256": "703b5c089784d4c5c7409f2ec115c64656696fce295b13f6bfc22fa02f0b7dc7"
+      "sha256": "49d07fb2d473bbd75c25d1c0e7faaf44e616cb99e748edf3e86ba17e7db74ce0"
     },
     {
       "path": "Agent/NativeAgentPackage/Packages/ChatGPTAgent/Package.swift",
-      "bytes": 1424,
-      "sha256": "563556d81052f32665ae5ca5a69baf91e57761f614801b2ae915c3b7c2de798b"
+      "bytes": 1438,
+      "sha256": "4e25f995ce33f4863606fd2dfdf9c70c8e57b6bc7ef6635de0ce5cff86f53e30"
     },
     {
       "path": "Agent/NativeAgentPackage/Packages/ChatGPTAgent/README.md",
@@ -84,8 +84,8 @@
     },
     {
       "path": "Agent/NativeAgentPackage/Packages/ChatGPTImageCapability/Package.swift",
-      "bytes": 1346,
-      "sha256": "147756ef7180695f470242e900391d6e3618bba7412722867c4cd42868db7c93"
+      "bytes": 1360,
+      "sha256": "d993e0965588bb973ac61e57746f6946a3b134ce11f7c416dbab94adf6ed3f75"
     },
     {
       "path": "Agent/NativeAgentPackage/Packages/ChatGPTImageCapability/PromptSources/CATEGORY_EXAMPLES.md",
@@ -334,8 +334,8 @@
     },
     {
       "path": "Agent/NativeAgentPackage/Packages/ChatGPTImageCapability/Sources/ChatGPTImageCapability/ChatGPTSessionArtifactInputResolver.swift",
-      "bytes": 3620,
-      "sha256": "fc8a208babde857e28483fbecbb95cf5660fe2ab94e3cabfdfd4814452159c2b"
+      "bytes": 5276,
+      "sha256": "52a74a75ee76a1710de7b412f730dbcf123103ec4c41bb2a74803793eaef45c4"
     },
     {
       "path": "Agent/NativeAgentPackage/Packages/ChatGPTImageCapability/Sources/ChatGPTImageCapability/Resources/ImageCatalog/35mm-film-thumb.webp",
@@ -550,7 +550,7 @@
     {
       "path": "Agent/NativeAgentPackage/Packages/NativeAgentMCP/Package.swift",
       "bytes": 1150,
-      "sha256": "eca40f6dd6db43ddfde3baa0c3e25acfe000eb35c3f3624f76a7b5972b9eb7f3"
+      "sha256": "c3545c4612e0d2ac8b29148ee8e69d63c65000f17865e8d54a4999a45cc54825"
     },
     {
       "path": "Agent/NativeAgentPackage/Packages/NativeAgentMCP/Qualification/.gitignore",
@@ -739,8 +739,8 @@
     },
     {
       "path": "Agent/NativeAgentPackage/Sources/NativeAgentBrowser/BrowserSnapshotRunner.swift",
-      "bytes": 2954,
-      "sha256": "2b438971647e9138bb61ccdb6de55b421c3331bbb5b002e0ac94774ef7c76c99"
+      "bytes": 3711,
+      "sha256": "b2c1c71333dcc12636326328e48b95395fc27b2a596438a76224724062ede2c0"
     },
     {
       "path": "Agent/NativeAgentPackage/Sources/NativeAgentBrowser/BrowserToolPack.swift",
@@ -1024,8 +1024,8 @@
     },
     {
       "path": "Agent/NativeAgentPackage/Sources/NativeAgentDomain/Values/SessionReducer.swift",
-      "bytes": 17413,
-      "sha256": "e9e960ca9ba95e7987a2ce6a6a739cc7b0a8768aaa30938aac74acbe6036dc73"
+      "bytes": 19345,
+      "sha256": "058c1868a65488315b3177cc03bd2e14b1d28a2c7344f1a92e01e8ae3044df11"
     },
     {
       "path": "Agent/NativeAgentPackage/Sources/NativeAgentDomain/Values/SessionSignal.swift",
@@ -1034,8 +1034,8 @@
     },
     {
       "path": "Agent/NativeAgentPackage/Sources/NativeAgentDomain/Values/SessionSnapshot.swift",
-      "bytes": 13145,
-      "sha256": "31220feca1be6c1c6ecccc2e7d12d117f54889582678de055b86e0f49e3cc3cf"
+      "bytes": 13546,
+      "sha256": "b75a9df75ed5f2138aeff3606e93cf2a061fdee705d944ac124040a4d94479bb"
     },
     {
       "path": "Agent/NativeAgentPackage/Sources/NativeAgentDomain/Values/SessionWaitState.swift",
@@ -1154,13 +1154,13 @@
     },
     {
       "path": "Agent/NativeAgentPackage/Sources/NativeAgentExecution/AgentLoop/AgentLoop.swift",
-      "bytes": 25957,
-      "sha256": "d5c601cd33918cf2cf3ba4cb7b74b93984f165b4c8405faa43ff4bbb22cf63bf"
+      "bytes": 25410,
+      "sha256": "fd332a71d957fc138f92294139b599aef37800103a8c4b315720e420dc37abe9"
     },
     {
       "path": "Agent/NativeAgentPackage/Sources/NativeAgentExecution/AgentLoop/AgentLoopPolicies.swift",
-      "bytes": 14076,
-      "sha256": "e240801d0975ff3dd796ed8d570e6cbde781733194248a71356b488bbc8b6b1b"
+      "bytes": 14864,
+      "sha256": "4ae3936f922b750754b5199baaecdcb789de771ed3569ba77649d950455763cb"
     },
     {
       "path": "Agent/NativeAgentPackage/Sources/NativeAgentExecution/AgentLoop/AgentLoopRequestBuilder.swift",
@@ -1214,13 +1214,13 @@
     },
     {
       "path": "Agent/NativeAgentPackage/Sources/NativeAgentExecution/Configuration/RuntimeConfiguration.swift",
-      "bytes": 18202,
-      "sha256": "2a97203b9d74306d142a58ff8fa638321aa6acc391d2a6a11b6e43812232073f"
+      "bytes": 18262,
+      "sha256": "817f44a665e154d523636f51da0aabf0f9d476d1b1205c628c52d80dae241244"
     },
     {
       "path": "Agent/NativeAgentPackage/Sources/NativeAgentExecution/Context/ContextBudgeting.swift",
-      "bytes": 23614,
-      "sha256": "ab678e8bce32e965a0429d4dde9c35e7c755a16920bf24ea478605f923a34189"
+      "bytes": 27046,
+      "sha256": "329a2de600845c6435b97cab8a544d6cd1b4f3baf9dc33cac217dfc1d7df3496"
     },
     {
       "path": "Agent/NativeAgentPackage/Sources/NativeAgentExecution/Coordinator/SessionCoordinator+ApprovalWaits.swift",
@@ -1309,8 +1309,8 @@
     },
     {
       "path": "Agent/NativeAgentPackage/Sources/NativeAgentExecution/Recovery/ModelInvocationRecovery.swift",
-      "bytes": 31777,
-      "sha256": "4f81b763996427e4e068b10a1962807950579b2b008415b26889552dfb84e94c"
+      "bytes": 31034,
+      "sha256": "bd1e5f043372c43aa2c684bd873dc75b134e58c25f4fe6eee71dddf3fb53c2f9"
     },
     {
       "path": "Agent/NativeAgentPackage/Sources/NativeAgentExecution/Recovery/SessionRecoveryReader.swift",
@@ -1524,13 +1524,13 @@
     },
     {
       "path": "Agent/NativeAgentPackage/Sources/NativeAgentManager/AgentWorkspace.swift",
-      "bytes": 11579,
-      "sha256": "82211032d7add3c0efa258887b4bb066afa16ff719421adc07f3599515a92cdd"
+      "bytes": 12461,
+      "sha256": "864c13065ab001013b10e2335c9f7d4a8c4779341c5b37f9b346f95003515339"
     },
     {
       "path": "Agent/NativeAgentPackage/Sources/NativeAgentManager/AgentWorkspaceMutationFence.swift",
-      "bytes": 3822,
-      "sha256": "8a9fcb389450ec5ba674cbd8c49f01a3665eb5a3ad97efc496276a6eb26de4d8"
+      "bytes": 5290,
+      "sha256": "a24d71dd5de62f0cbf7f50f95d821ffb4cb7143dbac1d39351597a60de83835a"
     },
     {
       "path": "Agent/NativeAgentPackage/Sources/NativeAgentManager/ManagedAgent.swift",
@@ -1674,8 +1674,8 @@
     },
     {
       "path": "Agent/NativeAgentPackage/Sources/NativeAgentMemory/Controller/MemoryController.swift",
-      "bytes": 17097,
-      "sha256": "8c706de2ccf5ef89419df518a7af9000a2fb328e762436e1d744f43f95f98227"
+      "bytes": 18873,
+      "sha256": "dbbfaa235ce8b0cb1274fc10d5685cec98ef56bc6956433d02999e85df297b51"
     },
     {
       "path": "Agent/NativeAgentPackage/Sources/NativeAgentMemory/Errors/MemoryError.swift",
@@ -1789,8 +1789,8 @@
     },
     {
       "path": "Agent/NativeAgentPackage/Sources/NativeAgentMemoryProjection/Store/MemoryStoreOperations.swift",
-      "bytes": 40172,
-      "sha256": "f0f1e462ccaa046ee21fe38db6eab3b20311c25e67042d67712874fe7a6b2e61"
+      "bytes": 39611,
+      "sha256": "0f37604078c3ae8d557d2d2d5646972d2e5c1ab0543e389921ee8804415c6270"
     },
     {
       "path": "Agent/NativeAgentPackage/Sources/NativeAgentMemoryProjection/Store/SQLiteDB.swift",
@@ -1804,8 +1804,8 @@
     },
     {
       "path": "Agent/NativeAgentPackage/Sources/NativeAgentMemoryProjection/Store/Store.swift",
-      "bytes": 12860,
-      "sha256": "7db4ed00b14f97f0dd05229e4da9929595a3f0ca342a625108e07aa7902f9c24"
+      "bytes": 13870,
+      "sha256": "019669645c38a207107f9357fd896707bbedebc94970f3efc2dda7ba8291596b"
     },
     {
       "path": "Agent/NativeAgentPackage/Sources/NativeAgentMemoryProjection/Store/StoreTransactionState.swift",
@@ -2089,8 +2089,8 @@
     },
     {
       "path": "Agent/NativeAgentPackage/Sources/NativeAgentSkills/Runtime/SkillExecutionSnapshot.swift",
-      "bytes": 21717,
-      "sha256": "f2bc39d2c44d27bc78d6db421fa0c64c03ed35d404449af9c6d35706cee9818e"
+      "bytes": 25249,
+      "sha256": "65b042d43d3ce54da8526e07951a8d849ab634c31b90ca30b603f97e24e15994"
     },
     {
       "path": "Agent/NativeAgentPackage/Sources/NativeAgentSkills/Runtime/SkillIntentToolSchemaValidator.swift",
@@ -2134,8 +2134,8 @@
     },
     {
       "path": "Agent/NativeAgentPackage/Sources/NativeAgentSkills/State/SkillSecrets.swift",
-      "bytes": 12054,
-      "sha256": "61850c179d0787a0d084a61e8f227e9bfa015ac1d80f86ed6236466297eb4b96"
+      "bytes": 13004,
+      "sha256": "06b5e8da812cc886dc137b3373db24e146c9a0da074b37528ae5493a255da30e"
     },
     {
       "path": "Agent/NativeAgentPackage/Sources/NativeAgentSkills/State/SkillSnapshotPolicies.swift",
@@ -2174,8 +2174,8 @@
     },
     {
       "path": "Agent/NativeAgentPackage/Sources/NativeAgentSkillsWeb/Execution/WebKitExecutor.swift",
-      "bytes": 4666,
-      "sha256": "1dfb488995cf08565d843c0d447d8fc922dd2a906c22b7a99601a340c00440c6"
+      "bytes": 4623,
+      "sha256": "6fbf237b7323cf38a0ba86ce7cc04c615d953b9e908e1c3434a5b2f4b8f75fc5"
     },
     {
       "path": "Agent/NativeAgentPackage/Sources/NativeAgentSkillsWeb/Execution/WebKitNavigationBox.swift",
@@ -2214,8 +2214,8 @@
     },
     {
       "path": "Agent/NativeAgentPackage/Sources/NativeAgentStore/ApplicationSupport/ApplicationSupportFileExecutionClaimStore.swift",
-      "bytes": 5139,
-      "sha256": "bb00e11d26386a4adf9a0d1dd1a46d982015bebe1fd9fdef2cf00a0a006bf353"
+      "bytes": 5332,
+      "sha256": "60d699cc068b337ed7850de37cf6d7e9b9ee9a27f860e8d925ecff9419f13ac6"
     },
     {
       "path": "Agent/NativeAgentPackage/Sources/NativeAgentStore/ApplicationSupport/ApplicationSupportSessionStore.swift",
@@ -2224,8 +2224,8 @@
     },
     {
       "path": "Agent/NativeAgentPackage/Sources/NativeAgentStore/ApplicationSupport/StoreRootLocator.swift",
-      "bytes": 4369,
-      "sha256": "8b6998e2cf7716c4ad9d49328c29b0b5c67f07ca6d46e45c21770c2799c4aa1d"
+      "bytes": 4382,
+      "sha256": "4818d964bac25dc5ed12f7074e148c22bac7c6dcf099c54d084ebcf979c6a4a5"
     },
     {
       "path": "Agent/NativeAgentPackage/Sources/NativeAgentStore/Artifacts/StoreArtifactIntegrity.swift",
@@ -2259,18 +2259,13 @@
     },
     {
       "path": "Agent/NativeAgentPackage/Sources/NativeAgentStore/Policies/StorePolicies.swift",
-      "bytes": 5180,
-      "sha256": "3d212afe99145f253c72fc2e90078644f7754ac7ced7455774fec446055aea93"
-    },
-    {
-      "path": "Agent/NativeAgentPackage/Sources/NativeAgentStore/SQLite/SQLiteArtifactCleanup.swift",
-      "bytes": 1654,
-      "sha256": "ecba0ad55f2d34990011f7b683249a632090b6c3f6f4620112c508c4d5dc80f5"
+      "bytes": 5634,
+      "sha256": "ad74e8f66ef10a1c28d151c2e4858dad98fe0ce9e73b9a02e5b77b9332d5f7e5"
     },
     {
       "path": "Agent/NativeAgentPackage/Sources/NativeAgentStore/SQLite/SQLiteSessionArtifacts.swift",
-      "bytes": 6297,
-      "sha256": "02503e6d8a354a8347bf2a80beb1257c86bcbc84b2183b87dbb6fd16ce6a35ea"
+      "bytes": 7307,
+      "sha256": "883d3018e05dee449eae70d60858fdefd5cb01b1d11d7cf73d78aed385c6c79e"
     },
     {
       "path": "Agent/NativeAgentPackage/Sources/NativeAgentStore/SQLite/SQLiteSessionPersistence.swift",
@@ -2289,8 +2284,8 @@
     },
     {
       "path": "Agent/NativeAgentPackage/Sources/NativeAgentStore/SQLite/SQLiteSessionStore.swift",
-      "bytes": 12640,
-      "sha256": "103277c2eff73ca1ced7ff183b722dbc56fcdc2e19a73ba1b8ed89ef0d401e7f"
+      "bytes": 12751,
+      "sha256": "48249b59348205b7caa601afdd1e182e0e049bc281ee25dae33f83b8b1094b6c"
     },
     {
       "path": "Agent/NativeAgentPackage/Sources/NativeAgentStore/SQLite/StoreSQLiteConnection.swift",
@@ -2304,8 +2299,8 @@
     },
     {
       "path": "Agent/NativeAgentPackage/Sources/NativeAgentTools/Calendar/CalendarModels.swift",
-      "bytes": 3816,
-      "sha256": "1c31afe2629045fd7aa319db2268386fa9dd92a3c59593f63edf53d9a1ab8743"
+      "bytes": 3936,
+      "sha256": "8d0caf5e5f64ad556f5d8534870f558468ad1ac6b546618dac3883336242e4e9"
     },
     {
       "path": "Agent/NativeAgentPackage/Sources/NativeAgentTools/Calendar/CalendarRequests.swift",
@@ -2324,13 +2319,13 @@
     },
     {
       "path": "Agent/NativeAgentPackage/Sources/NativeAgentTools/Calendar/EventKitCalendarToolService.swift",
-      "bytes": 9557,
-      "sha256": "5e6d5ab63971572691cda25c2bb6d402d2c27fae84724df0acd9811da8b760ef"
+      "bytes": 9968,
+      "sha256": "8ec1cc5e625c42182a1bcadf59a41fc315dbb055eaf657e533656796bffe0772"
     },
     {
       "path": "Agent/NativeAgentPackage/Sources/NativeAgentTools/Contacts/CNContactStoreToolService.swift",
-      "bytes": 5391,
-      "sha256": "a086fe16c8f5c55e5fc9468f874608d74d3936d994863b986a8e7d91da240c06"
+      "bytes": 5547,
+      "sha256": "2f4448c0839ab4af9844bf13b9e3ed0aa26c79b5fcf1103152ae8f77001af26d"
     },
     {
       "path": "Agent/NativeAgentPackage/Sources/NativeAgentTools/Contacts/ContactsModels.swift",
@@ -2399,8 +2394,8 @@
     },
     {
       "path": "Agent/NativeAgentPackage/Sources/NativeAgentTools/Files/FilesToolPolicies.swift",
-      "bytes": 12431,
-      "sha256": "3f510cca5fdacda7ce848c32b17d4dc9227898fee594e21ae2efc8720dbc4170"
+      "bytes": 12885,
+      "sha256": "2ae0cde9150f9f9de087a8fd83757f3857210716e1fb0a67d977fe180c0a3031"
     },
     {
       "path": "Agent/NativeAgentPackage/Sources/NativeAgentTools/Health/HealthSummaryToolPack.swift",
@@ -2409,8 +2404,8 @@
     },
     {
       "path": "Agent/NativeAgentPackage/Sources/NativeAgentTools/Maps/MapSearchToolPack.swift",
-      "bytes": 8572,
-      "sha256": "764035d1b7e4b186582c8d48f0af710a46140c7913bbe30bef94bef187bfd167"
+      "bytes": 8585,
+      "sha256": "f2ef161c55b406f3580184c02ec9b3d455b12c39f1ebc09f4c7e09e3caa5aefb"
     },
     {
       "path": "Agent/NativeAgentPackage/Sources/NativeAgentTools/NFC/NFCNDEFReaderToolPack.swift",
@@ -2419,13 +2414,13 @@
     },
     {
       "path": "Agent/NativeAgentPackage/Sources/NativeAgentTools/Photos/PhotoLibraryToolPack.swift",
-      "bytes": 14104,
-      "sha256": "25e99fb82e2b439d5c35aa76a1f3bdb7b8ca5a5fa2afd95f7d36845d6f5bfb51"
+      "bytes": 14563,
+      "sha256": "4332e0fb45715bac61454b826870bd80a2c14bf254bb137174211a8c770d1d13"
     },
     {
       "path": "Agent/NativeAgentPackage/Sources/NativeAgentTools/Shared/AppleToolPackSupport.swift",
-      "bytes": 2463,
-      "sha256": "f30fff2d4896b3ed897f8f53474fee8e6b2fc10824a9daf0427c29c0bdf23e07"
+      "bytes": 2488,
+      "sha256": "0333676bf0c3b5afdd0e275074c3911937b78f0b59173f9f77795fd1b387b69a"
     },
     {
       "path": "Agent/NativeAgentPackage/Sources/NativeAgentTools/Shared/ToolCatalogSources.swift",
@@ -2464,18 +2459,23 @@
     },
     {
       "path": "Agent/NativeAgentPackage/Tests/LanguageModelRuntimeTests/AgentModelRuntimeTests.swift",
-      "bytes": 9241,
-      "sha256": "fae147c66b7ebea81af2db1c32cdba98a4cd4751d7b474a2f7bd10272e46fc8c"
+      "bytes": 9607,
+      "sha256": "af1755759ede8d880e0ffee129e8a3f54bb083d38eb4f31d76f82d940861c4a6"
+    },
+    {
+      "path": "Agent/NativeAgentPackage/Tests/NativeAgentBrowserTests/BrowserSnapshotOwnershipTests.swift",
+      "bytes": 3179,
+      "sha256": "36df789805a747c4c51f4b2fd0d90545dab4c7ab1849301856e666ded16cb5da"
     },
     {
       "path": "Agent/NativeAgentPackage/Tests/NativeAgentBrowserTests/BrowserWebKitTests.swift",
-      "bytes": 14945,
-      "sha256": "e8eeb41a0025ffa180f4cd95bc56edd46e38199480c206292cfc71ecd8edad3a"
+      "bytes": 16121,
+      "sha256": "534b2e9948bea4357149e206bf6f8538deb7844d63c63acd4a548ab210be4aeb"
     },
     {
       "path": "Agent/NativeAgentPackage/Tests/NativeAgentConsensusTests/ConsensusBoundaryTests.swift",
-      "bytes": 1285,
-      "sha256": "4f25103df01cf3f002cf7a168fb98c52980ece2fd7dbc54ef8828744984161d7"
+      "bytes": 1524,
+      "sha256": "dcd68a224a7cfb0d3e6b94587151a30aa765e2d605c7a522d1c44f881b56742b"
     },
     {
       "path": "Agent/NativeAgentPackage/Tests/NativeAgentConsensusTests/ConsensusCoreTests.swift",
@@ -2514,8 +2514,8 @@
     },
     {
       "path": "Agent/NativeAgentPackage/Tests/NativeAgentEvolutionTests/EvolutionKitTests.swift",
-      "bytes": 14671,
-      "sha256": "795b8bc6935769a27563b8f79436453d4f808307690aebe7924311fdd163f1b8"
+      "bytes": 14880,
+      "sha256": "6f456ad92fe8e5fdc83538a185c92ea6ec838c42582140a7bfc5600d1e3bc926"
     },
     {
       "path": "Agent/NativeAgentPackage/Tests/NativeAgentEvolutionTests/EvolutionReportStoreTransactionTests.swift",
@@ -2549,8 +2549,8 @@
     },
     {
       "path": "Agent/NativeAgentPackage/Tests/NativeAgentExecutionTests/FrozenRequestIdentityTests.swift",
-      "bytes": 2861,
-      "sha256": "962e0e29ffa91ea7669adf9580c21dbb1c5196c1cfc66e7c24d69ed7358caf55"
+      "bytes": 3070,
+      "sha256": "8cda9af80b96037372df9fa271cc8125c23b3786e014c37ff071b6e998cc849a"
     },
     {
       "path": "Agent/NativeAgentPackage/Tests/NativeAgentExecutionTests/InstructionAssemblyPromptAugmentorTests.swift",
@@ -2569,13 +2569,13 @@
     },
     {
       "path": "Agent/NativeAgentPackage/Tests/NativeAgentExecutionTests/ModelInvocationRecoveryIntegrationTests.swift",
-      "bytes": 31386,
-      "sha256": "688dd4579276f69644e8b41c4f6e16c4be2c3568bc8b1e9e2c36f72e061b3d2e"
+      "bytes": 40772,
+      "sha256": "3134de91054fc44b7d8d456cf052a89615967f0c4cb68f987266e80599692872"
     },
     {
       "path": "Agent/NativeAgentPackage/Tests/NativeAgentExecutionTests/PersistedTimestampRoundTripTests.swift",
-      "bytes": 1624,
-      "sha256": "b5beb3440db4331831a1bcde5dd83b657aa98b9a9a5e4173094dc3fb71cbf42e"
+      "bytes": 1833,
+      "sha256": "0ad892c2278b4fc6493890667e527d0498aa87d2200a4847e30b35f1465ba36f"
     },
     {
       "path": "Agent/NativeAgentPackage/Tests/NativeAgentExecutionTests/PromptAugmentorTests.swift",
@@ -2589,18 +2589,18 @@
     },
     {
       "path": "Agent/NativeAgentPackage/Tests/NativeAgentExecutionTests/RequestMetadataTests.swift",
-      "bytes": 4591,
-      "sha256": "f6cb7bc4e203afd392215d2d2e93cacb0e6c73923bf1b4a41ce11413eda1e9b0"
+      "bytes": 4800,
+      "sha256": "8f46d6b431519c0411adbc920717d00e147ec78a2cba9a7b7cf2c814a5871fb6"
     },
     {
       "path": "Agent/NativeAgentPackage/Tests/NativeAgentExecutionTests/ResponseContinuationTests.swift",
-      "bytes": 11252,
-      "sha256": "4ee29bda955fc808b84d29182e863d3a86384f85aa36edc8a483ad5bbeb7490d"
+      "bytes": 11461,
+      "sha256": "b42d1844e6fa115369fbb448da4c747df104ba14dd88924cf7a7941fee19d81a"
     },
     {
       "path": "Agent/NativeAgentPackage/Tests/NativeAgentExecutionTests/RuntimeBoundaryRegressionTests.swift",
-      "bytes": 7379,
-      "sha256": "a92fad676c96352851406c18d817431e5063fbe39a69d2b7a0e7169fbceee285"
+      "bytes": 7588,
+      "sha256": "4f4dd579f0e684f6d2001945e3bd3227e61b67340325aa8d31c7ee2a101a3792"
     },
     {
       "path": "Agent/NativeAgentPackage/Tests/NativeAgentExecutionTests/RuntimeObserverIntegrationTests.swift",
@@ -2619,8 +2619,8 @@
     },
     {
       "path": "Agent/NativeAgentPackage/Tests/NativeAgentExecutionTests/SessionCoordinatorTests.swift",
-      "bytes": 30495,
-      "sha256": "9d10c674986ecc19fdf501754faa081f1f54bf145ed9540fab5d1ac52914b615"
+      "bytes": 31334,
+      "sha256": "7636cc55de7f1e51d75b6cc14837b3271e64307aa7bb9c1155b1d7a4c1950e8d"
     },
     {
       "path": "Agent/NativeAgentPackage/Tests/NativeAgentExecutionTests/SessionExecutionSafetyTests.swift",
@@ -2629,8 +2629,8 @@
     },
     {
       "path": "Agent/NativeAgentPackage/Tests/NativeAgentExecutionTests/SessionJournalIntegrationTests.swift",
-      "bytes": 25618,
-      "sha256": "6b2c5e94257f28a89a3268131ae2b7c4aa99909bb0f257a7ee8673c73826f1be"
+      "bytes": 25768,
+      "sha256": "a2c51dfc31d1078dd3bdf7111c57a95a8e573fc80c6cbf56bdf8149c777eabd7"
     },
     {
       "path": "Agent/NativeAgentPackage/Tests/NativeAgentExecutionTests/ToolCallLoopGuardTests.swift",
@@ -2719,8 +2719,8 @@
     },
     {
       "path": "Agent/NativeAgentPackage/Tests/NativeAgentManagerTests/AgentManagerTests.swift",
-      "bytes": 35276,
-      "sha256": "15ffe61c576128c1e67100053088269452b41143672ef19fce49930317abfcc6"
+      "bytes": 35537,
+      "sha256": "ec84707134c00fb991dd566c8ab57f56d160b221dfb80f57a5a21d4fef81fbb1"
     },
     {
       "path": "Agent/NativeAgentPackage/Tests/NativeAgentManagerTests/AgentProseGuardTests.swift",
@@ -2729,8 +2729,8 @@
     },
     {
       "path": "Agent/NativeAgentPackage/Tests/NativeAgentManagerTests/AgentResponseTests.swift",
-      "bytes": 16231,
-      "sha256": "62dad1fd6b25bde6c8d301e72b4d01a0c67e378f8a711d6b942b22f4ba4c3034"
+      "bytes": 16242,
+      "sha256": "35b093d12fd63fa121ea5a4eb913deabbdaaac3307447ff5b86ca8da2c1ed814"
     },
     {
       "path": "Agent/NativeAgentPackage/Tests/NativeAgentManagerTests/Fixtures/prose-guard-parity.json",
@@ -2744,13 +2744,13 @@
     },
     {
       "path": "Agent/NativeAgentPackage/Tests/NativeAgentManagerTests/SharedLocalBackendManagerTests.swift",
-      "bytes": 1994,
-      "sha256": "78e15b061c4245e6d45f43feb359bec02d59f7635899d6a44e9283e9df6774f2"
+      "bytes": 2233,
+      "sha256": "10d0cc813597aa7508d94c55889def5eca53176006e64d03116805f50f999bd4"
     },
     {
       "path": "Agent/NativeAgentPackage/Tests/NativeAgentMemoryProjectionTests/MemoryEngineBoundaryTests.swift",
-      "bytes": 8676,
-      "sha256": "1950621993f4b14b45ea2039bf2c3becbe98757f16251101ad5a677962da21b9"
+      "bytes": 9472,
+      "sha256": "0bcefd644fabc2ac2b4609e79adf9d8ba718b65a30a993e7757165daf719f5a6"
     },
     {
       "path": "Agent/NativeAgentPackage/Tests/NativeAgentMemoryProjectionTests/MemoryEngineDomainTests.swift",
@@ -2764,13 +2764,13 @@
     },
     {
       "path": "Agent/NativeAgentPackage/Tests/NativeAgentMemoryProjectionTests/MemoryEngineStoreTests.swift",
-      "bytes": 17434,
-      "sha256": "16876a5486a19b9baa3782c5f4d5c7a974367aa47af4153526e30a9e33095b86"
+      "bytes": 20080,
+      "sha256": "ea5116803c96ccb2f44043ecfeda1c280afc7ac9e26553614230626df11c7674"
     },
     {
       "path": "Agent/NativeAgentPackage/Tests/NativeAgentMemoryProjectionTests/MemorySchemaContractTests.swift",
-      "bytes": 13066,
-      "sha256": "56dc20dcda4b69d19aa9a668e9189af338a763e93a36009800f984a4e4098290"
+      "bytes": 13063,
+      "sha256": "212dc3f7dbd23f2518424cbc09bdcd4b85b06f3463e47db375b1571eee2db9aa"
     },
     {
       "path": "Agent/NativeAgentPackage/Tests/NativeAgentMemoryTests/AgentMemoryTests.swift",
@@ -2794,8 +2794,8 @@
     },
     {
       "path": "Agent/NativeAgentPackage/Tests/NativeAgentMemoryTests/StandaloneBoundaryTests.swift",
-      "bytes": 4043,
-      "sha256": "da5559be4c86db4ae87229504d39882d793ec5e43d4340ce800f9ee7019c6807"
+      "bytes": 4282,
+      "sha256": "a4894c6495017cf13a302ee46ad16b401e451ff1add2ef4f30f31a8543681f86"
     },
     {
       "path": "Agent/NativeAgentPackage/Tests/NativeAgentMemoryTests/StoreTransactionTests.swift",
@@ -2829,8 +2829,8 @@
     },
     {
       "path": "Agent/NativeAgentPackage/Tests/NativeAgentSkillsTests/RemoteSkillTestDoubles.swift",
-      "bytes": 3085,
-      "sha256": "a76bc7f9b25c3f48595584e9bf571685c0d02bceefc92cd9dcb3b7bede305ee2"
+      "bytes": 3284,
+      "sha256": "66a4580aa7bcaf740e5167033cdea51217e4d89f1b8271d84b1bba34d1e42b1a"
     },
     {
       "path": "Agent/NativeAgentPackage/Tests/NativeAgentSkillsTests/ResourceLimitTests.swift",
@@ -2924,13 +2924,18 @@
     },
     {
       "path": "Agent/NativeAgentPackage/Tests/NativeAgentSkillsWebTests/SkillsWebKitTests.swift",
-      "bytes": 12078,
-      "sha256": "9e1c619be1a5dc099eb81ddc06f72e2002e681f4b7be464a1e799103eb98da7f"
+      "bytes": 12711,
+      "sha256": "33c4b6ce226962f0831b2b564185ea51ff2c59350f33a79abbc8b4f40e5b4f53"
     },
     {
       "path": "Agent/NativeAgentPackage/Tests/NativeAgentStoreTests/ApplicationSupportSessionStoreTests.swift",
       "bytes": 41626,
       "sha256": "49513566a281eb24a8df6a7a088ae78e5754d8f3171c1743ea61c820b16b0fbf"
+    },
+    {
+      "path": "Agent/NativeAgentPackage/Tests/NativeAgentStoreTests/SQLiteArtifactCustodyTests.swift",
+      "bytes": 8063,
+      "sha256": "144cf10379679b739dc78fcf9031062d1288a47cd913cf6ae7b040fbfe9cc1bc"
     },
     {
       "path": "Agent/NativeAgentPackage/Tests/NativeAgentStoreTests/SQLitePreparationTests.swift",
@@ -2944,8 +2949,8 @@
     },
     {
       "path": "Agent/NativeAgentPackage/Tests/NativeAgentStoreTests/StoreRootLocatorTests.swift",
-      "bytes": 5401,
-      "sha256": "42e1fb54341e81521135753eed9c29ed6a179c2a6cd05635da4d0ee6961edf20"
+      "bytes": 8516,
+      "sha256": "8ea4d707ea17a0c9c2c207375bc1146b1faae8a885bbb6a3e421441df96653ab"
     },
     {
       "path": "Agent/NativeAgentPackage/Tests/NativeAgentTestSupportTests/ScriptedModelClientTests.swift",
@@ -2959,18 +2964,18 @@
     },
     {
       "path": "Agent/NativeAgentPackage/Tests/NativeAgentTests/Facade/AgentFacadeTests.swift",
-      "bytes": 34146,
-      "sha256": "40c2bb59929dc4e3b511ad7a6d5eec38fb49c60dfc1998781b711523c542d3fe"
+      "bytes": 34355,
+      "sha256": "7bde0cb928c49988096a8da09e61ffd166fea37c461192d8be8e182814ccb6eb"
     },
     {
       "path": "Agent/NativeAgentPackage/Tests/NativeAgentTests/Facade/AgentRecoveryFacadeTests.swift",
-      "bytes": 12668,
-      "sha256": "a3a90bc1028b969d8ff7b0bd713c5680ed5be0412beca1d1f347ab4b6fab5881"
+      "bytes": 12877,
+      "sha256": "3e137537241307b5a97b8be2f8ff7f11f5a4b603d26c9f9f43875f9433e3af74"
     },
     {
       "path": "Agent/NativeAgentPackage/Tests/NativeAgentTests/Facade/SharedLocalBackendTests.swift",
-      "bytes": 1793,
-      "sha256": "5cfaaefec470c67524dd7e48643236c45c3eeba496abb69a93ad831d2fa8622c"
+      "bytes": 2032,
+      "sha256": "4e7f95abadf122247eb1d744718b12f7aea58e0f96ce87dcc30403e3d1e37649"
     },
     {
       "path": "Agent/NativeAgentPackage/Tests/NativeAgentToolsTests/AppleNativeToolPackTests.swift",
@@ -2979,8 +2984,8 @@
     },
     {
       "path": "Agent/NativeAgentPackage/Tests/NativeAgentToolsTests/AppleServicesLiveTests.swift",
-      "bytes": 3118,
-      "sha256": "88f4160866ad8f75bc4b9b52ebc72043bb85dedb4652afc136a7b9563a5ccf77"
+      "bytes": 3144,
+      "sha256": "db1a206a2a566d910d0ac2e344f16264b271e23c7bbec7cb9452cd84ef9259da"
     },
     {
       "path": "Agent/NativeAgentPackage/Tests/NativeAgentToolsTests/AppleToolPackAdapterTests.swift",
@@ -2989,8 +2994,8 @@
     },
     {
       "path": "Agent/NativeAgentPackage/Tests/NativeAgentToolsTests/AppleUsageDescriptionPreflightTests.swift",
-      "bytes": 2598,
-      "sha256": "8f286d6d498777dee3728190c54fc3fa0ecf1e6a361b7521233f722cbd06ab3e"
+      "bytes": 4197,
+      "sha256": "4710b7e7aff3731d74aca39474f5d2d6b7ba3f01ebffe3088ea29aa2ab77162b"
     },
     {
       "path": "Agent/NativeAgentPackage/Tests/NativeAgentToolsTests/CalendarToolPackTests.swift",
@@ -3039,8 +3044,13 @@
     },
     {
       "path": "Agent/NativeAgentPackage/Tests/Support/NativeAgentTestSupport/ModelClient/ScriptedModelClient.swift",
-      "bytes": 1381,
-      "sha256": "897cbd7cff591242f44de8a5ca4cb9310199d45e2999db52be31d9c793b99e05"
+      "bytes": 1597,
+      "sha256": "5b77697fef7e85755affc7335682b6601cfd9f358b118b80ef43b3a17705c8a0"
+    },
+    {
+      "path": "Agent/NativeAgentPackage/Tests/Support/NativeAgentTestSupport/ModelClient/ScriptedModelEvents.swift",
+      "bytes": 991,
+      "sha256": "da1366cebea87cd8c66ccb60ea1e5e929d5adc2f13dac1a20221b37a1678bc28"
     },
     {
       "path": "Agent/NativeAgentPackage/Tests/Support/NativeAgentTestSupport/ModelClient/TestModelRuntime.swift",
@@ -3474,8 +3484,8 @@
     },
     {
       "path": "Knowledge/ASK/Packages/ASKTutor/Sources/ASKTutor/TutorCore/TutorConfiguration.swift",
-      "bytes": 1207,
-      "sha256": "6259198d4e85d19bfca340991c4634f2518f33b904009a7f930d3ca4ad01cb27"
+      "bytes": 2881,
+      "sha256": "ec1a764938b5677edfd25832e612263bfe37001f781f56a3049dbe7a86509b0f"
     },
     {
       "path": "Knowledge/ASK/Packages/ASKTutor/Sources/ASKTutor/TutorCore/TutorConversationModels.swift",
@@ -3494,8 +3504,8 @@
     },
     {
       "path": "Knowledge/ASK/Packages/ASKTutor/Sources/ASKTutor/TutorCore/TutorKernel.swift",
-      "bytes": 7183,
-      "sha256": "7f39d8c24e7a8bfa47ad3670d5252e8be541e2451ee18b6c6d5d272fb3748138"
+      "bytes": 7303,
+      "sha256": "6ad85b736275041858120fa2c6f26f92988e18629d5ebb1f71a7872f0bb4dff2"
     },
     {
       "path": "Knowledge/ASK/Packages/ASKTutor/Sources/ASKTutor/TutorCore/TutorKernelSupport.swift",
@@ -3569,8 +3579,8 @@
     },
     {
       "path": "Knowledge/ASK/Packages/ASKTutor/Sources/ASKTutor/TutorCore/TutorPracticeSupport.swift",
-      "bytes": 4385,
-      "sha256": "703caf5004e38eadc2985c7b673e5fad3579b763d896ec65ca96ad6269ccf5a6"
+      "bytes": 4590,
+      "sha256": "032e68e2be3afc768d5dfeb3f40b0fc2aceac7460c1ebb9cdc58631e5c7650c1"
     },
     {
       "path": "Knowledge/ASK/Packages/ASKTutor/Sources/ASKTutor/TutorCore/TutorPracticeUseCase.swift",
@@ -3599,8 +3609,8 @@
     },
     {
       "path": "Knowledge/ASK/Packages/ASKTutor/Sources/ASKTutor/TutorCore/TutorScheduler.swift",
-      "bytes": 2071,
-      "sha256": "3655f9669340f18ffaa55b9132e2960c151862e30667cc6bffd05fc35f206d21"
+      "bytes": 2811,
+      "sha256": "ab984c503d897d4b5023813b4b29f0a8c734ca7d5b746568232666edce1aaaac"
     },
     {
       "path": "Knowledge/ASK/Packages/ASKTutor/Sources/ASKTutor/TutorCore/TutorStore.swift",
@@ -3778,6 +3788,11 @@
       "sha256": "7762a7ab651c409d5885ad30366e8b91ba1356133402560c7893156f02ba5d06"
     },
     {
+      "path": "Knowledge/ASK/Packages/ASKTutor/Tests/ASKTutorTests/ASKTutorCoreTests/TutorConfigurationTests.swift",
+      "bytes": 1130,
+      "sha256": "d79206090be5244b322eef8bcf92f05ff6de9bb13e561208ddced1862f415397"
+    },
+    {
       "path": "Knowledge/ASK/Packages/ASKTutor/Tests/ASKTutorTests/ASKTutorCoreTests/TutorKernelConcurrencyTests.swift",
       "bytes": 6849,
       "sha256": "3b8adaa75641783a942d6b1f17ab7aad91ef811c8cb49b5fd65db6c850e8b395"
@@ -3788,9 +3803,14 @@
       "sha256": "460f1060621ec09b8e08bff5afbe14866c0ceeda3404f6c3b90af274131542d7"
     },
     {
+      "path": "Knowledge/ASK/Packages/ASKTutor/Tests/ASKTutorTests/ASKTutorCoreTests/TutorPracticeEvaluationTests.swift",
+      "bytes": 2587,
+      "sha256": "01c7a43e48ca6162a407c6408f1f9110d8aeee4b5181ffa2b7216c68242e5ddc"
+    },
+    {
       "path": "Knowledge/ASK/Packages/ASKTutor/Tests/ASKTutorTests/ASKTutorCoreTests/TutorSchedulerTests.swift",
-      "bytes": 1700,
-      "sha256": "7e8cc9cb0f8f19932a4ee301f9e1eb3708516988edad0b6c5ea04351d22a301a"
+      "bytes": 3599,
+      "sha256": "cd74e80ef52590fff92ef32ad71d12c078e8cfe057a2bcc12f7f42881043acae"
     },
     {
       "path": "Knowledge/ASK/Packages/ASKTutor/Tests/ASKTutorTests/ASKTutorModelGatewayTests/TutorHTTPGatewayClientTests.swift",
@@ -4129,8 +4149,8 @@
     },
     {
       "path": "Knowledge/ASK/Packages/DocumentRuntime/Sources/DocumentRuntime/ASKPageFileSystemRuntimeLoader.swift",
-      "bytes": 11398,
-      "sha256": "ddadbef607df27401c63160470e205b8c27954a0bc0d4ae20e8bedbe9e3b8bdf"
+      "bytes": 14096,
+      "sha256": "3c34863ea73754f09be5552c4183175242b80c0bc7bce7ff8aa04103a1335c00"
     },
     {
       "path": "Knowledge/ASK/Packages/DocumentRuntime/Sources/DocumentRuntime/ASKPageRuntimeError.swift",
@@ -4419,28 +4439,28 @@
     },
     {
       "path": "Knowledge/ASK/Packages/HWPDocument/Sources/HWPDocument/ASKBinaryReader.swift",
-      "bytes": 3047,
-      "sha256": "c8ce08ff4729f32bc9da418eb98d55c8f7d3dd75efd04a792e355aa9e35a7c1e"
+      "bytes": 3429,
+      "sha256": "42acd3a06586570f320f377bee3f2d406b4f0c7da8615f399046aefdbcffeeda"
     },
     {
       "path": "Knowledge/ASK/Packages/HWPDocument/Sources/HWPDocument/ASKCFBReader.swift",
-      "bytes": 19102,
-      "sha256": "de29800e641f9dbb364cfa25281d4fc60754b06f1f86adfe4e9b99d377273459"
+      "bytes": 20389,
+      "sha256": "151b5aeb2bf66ec95f3c5796c13bf5bf63c5dc8ead1cedaf8cc3b2ffafaf6b5f"
     },
     {
       "path": "Knowledge/ASK/Packages/HWPDocument/Sources/HWPDocument/ASKDeflateDecoder.swift",
-      "bytes": 13857,
-      "sha256": "f0588f39c4fe49bb480a0e9c1c29cd31456e5f178e112c5224b49050a689c8a3"
+      "bytes": 13915,
+      "sha256": "58e8b3348065f5e1729e590c33a480f4040c62b822ead2d5376808a25343027c"
     },
     {
       "path": "Knowledge/ASK/Packages/HWPDocument/Sources/HWPDocument/ASKHWP5BodyTextParser.swift",
-      "bytes": 32943,
-      "sha256": "19909627429f28017b1ce05f262c7c2a65adeb89fa046656cfa56cf471a40b5c"
+      "bytes": 33440,
+      "sha256": "1ea370ddded411884dec7ee13bc7cfc7f964976b69b40783828b5d497cc23162"
     },
     {
       "path": "Knowledge/ASK/Packages/HWPDocument/Sources/HWPDocument/ASKHWPBinaryParser.swift",
-      "bytes": 9576,
-      "sha256": "937715abd1219dccd83942bbcb273279645168f94e51926d861f8c66bdac166b"
+      "bytes": 9868,
+      "sha256": "eb4f28c50c89cbc9e3dbd8dbdbde7fc65ad4ab95042ba653fab245a81a71203d"
     },
     {
       "path": "Knowledge/ASK/Packages/HWPDocument/Sources/HWPDocument/ASKHWPChartRendering.swift",
@@ -4479,8 +4499,8 @@
     },
     {
       "path": "Knowledge/ASK/Packages/HWPDocument/Sources/HWPDocument/ASKHWPParserLimits.swift",
-      "bytes": 2982,
-      "sha256": "a296c3f02d383aced8c1c9422f23ffd20c202ccb7b80525d9a7f27dffaf9e97d"
+      "bytes": 5273,
+      "sha256": "4953a756894c52fac57a374543a1d8c7e098be7f0a4ba7c3ab2121ec6841be5c"
     },
     {
       "path": "Knowledge/ASK/Packages/HWPDocument/Sources/HWPDocument/ASKHWPParserSupport.swift",
@@ -4529,8 +4549,8 @@
     },
     {
       "path": "Knowledge/ASK/Packages/HWPDocument/Sources/HWPDocument/ASKHWPXMLSupport.swift",
-      "bytes": 1806,
-      "sha256": "1ec390619fa29c2ae87ab92fd8f5ec4d4eadf454ff9671137cda4885234753ba"
+      "bytes": 2008,
+      "sha256": "dfae305527b76f5cd84f73e83f68a917565079782f120490cf1e5ea5ddc7863c"
     },
     {
       "path": "Knowledge/ASK/Packages/HWPDocument/Sources/HWPDocument/ASKHWPXMetadataXMLParser.swift",
@@ -4589,18 +4609,18 @@
     },
     {
       "path": "Knowledge/ASK/Packages/HWPDocument/Sources/HWPDocument/ASKPageHWPNativeLoader.swift",
-      "bytes": 10142,
-      "sha256": "087af59d15305ceb79cb5283bf3da0074a72f2604feada8f1267f586ec86d9c9"
+      "bytes": 12137,
+      "sha256": "4abfcd5a4692887bbd66f31d7903567aabf2f1a264b26e3585b6c834e645a378"
     },
     {
       "path": "Knowledge/ASK/Packages/HWPDocument/Sources/HWPDocument/ASKZIPArchive.swift",
-      "bytes": 10749,
-      "sha256": "37977e7c046f3e1a28773c5933ba6fa8c2362364df525a59b9ec57419491ccb7"
+      "bytes": 12273,
+      "sha256": "99a4b29b6b16814d80760e117628f7bc1124f91e4a96b824e317d243562fdd53"
     },
     {
       "path": "Knowledge/ASK/Packages/HWPDocument/Tests/HWPDocumentTests/HWPDocumentBoundaryTests.swift",
-      "bytes": 9790,
-      "sha256": "18e655f27e3fa5c9ff30b5abef193975541f72b3b52eb8352456d94be33ae556"
+      "bytes": 12081,
+      "sha256": "280bb1d6dfcb6a1809ed3d6d25281c0fabfa47a27fda025ac9d1d4bb6f5d95c5"
     },
     {
       "path": "Knowledge/ASK/Packages/HWPDocument/Tests/HWPDocumentTests/HWPGoldenAndRasterValidationTests.swift",
@@ -4929,13 +4949,13 @@
     },
     {
       "path": "Knowledge/ASK/Packages/KnowledgeRuntime/Sources/DecisionMemory/DecisionMemoryStore.swift",
-      "bytes": 17641,
-      "sha256": "f3a86121cf8845bd6f790424da4a4c4937ffa5ca93904a87b442ed123ee0f95a"
+      "bytes": 18547,
+      "sha256": "f1b248824d8ca09cb9209c2c273f0cb3a7e8bb9eb26e65e990dd753827fa18ba"
     },
     {
       "path": "Knowledge/ASK/Packages/KnowledgeRuntime/Sources/DecisionMemory/DeterministicContextCompiler.swift",
-      "bytes": 11646,
-      "sha256": "dcf01dfc6c16c159693e7c8bb831c3897dff4733f8aebfbca25b77a9955cf93c"
+      "bytes": 12986,
+      "sha256": "6c6beb1480543e52ac7e29681c88ba73660403431bf85a1068eb4ee1e9ed4565"
     },
     {
       "path": "Knowledge/ASK/Packages/KnowledgeRuntime/Sources/KnowledgeRuntime/API/ASKAPI.swift",
@@ -4969,8 +4989,8 @@
     },
     {
       "path": "Knowledge/ASK/Packages/KnowledgeRuntime/Sources/KnowledgeRuntime/Persistence/VaultArchive.swift",
-      "bytes": 11666,
-      "sha256": "e9acb2dc75baee7e62d0ee0b13eacb79facd223937b2ecbf97d2f1784f2a7016"
+      "bytes": 16207,
+      "sha256": "05505873a5f2253f98f03eec615e5027dea38d8dd0e0bfd6b15d655b91a0594e"
     },
     {
       "path": "Knowledge/ASK/Packages/KnowledgeRuntime/Sources/KnowledgeRuntime/Persistence/VaultCollectedImport.swift",
@@ -4979,18 +4999,18 @@
     },
     {
       "path": "Knowledge/ASK/Packages/KnowledgeRuntime/Sources/KnowledgeRuntime/Persistence/VaultDerivedOutputs.swift",
-      "bytes": 7090,
-      "sha256": "f025c04ae907e744f6db9133248d27b7ea53469b5cba78ea52edbc9d7826b8ee"
+      "bytes": 7622,
+      "sha256": "9cd49d924f727d90ae76fd0f0917fbf5d47a524ecd250acce754b05c483f6af9"
     },
     {
       "path": "Knowledge/ASK/Packages/KnowledgeRuntime/Sources/KnowledgeRuntime/Persistence/VaultFilesystem.swift",
-      "bytes": 3866,
-      "sha256": "fff5e79b49fa41b27cff3293f8e68a6faca09bcb35cf4a1018d9c7e78d449b10"
+      "bytes": 5256,
+      "sha256": "1e43b99645737f0978eeff608c3824178ca47b4762c6392db2a66c23662e71a1"
     },
     {
       "path": "Knowledge/ASK/Packages/KnowledgeRuntime/Sources/KnowledgeRuntime/Persistence/VaultJournal.swift",
-      "bytes": 22125,
-      "sha256": "46274551d24b5a638bb592e0e5df1ceb5a02d3638c9de84386f8459971389ca7"
+      "bytes": 23713,
+      "sha256": "e24703bd0a7ef0ed114fdc3dd0e4fe4656fa622ad974e02d5e7a9cfebef7b517"
     },
     {
       "path": "Knowledge/ASK/Packages/KnowledgeRuntime/Sources/KnowledgeRuntime/Persistence/VaultJournalIdentity.swift",
@@ -5094,8 +5114,8 @@
     },
     {
       "path": "Knowledge/ASK/Packages/KnowledgeRuntime/Sources/KnowledgeRuntime/Runtime/SearchPolicy.swift",
-      "bytes": 11307,
-      "sha256": "dbda5bcc33a73fba7c3e3af0ada667e6e73a874de66adc73f8dc884c81a48e13"
+      "bytes": 11522,
+      "sha256": "ef2417d5e88989de0ce338dd09ff6e7ee5a055f4427aa05b3eb76c0441996f12"
     },
     {
       "path": "Knowledge/ASK/Packages/KnowledgeRuntime/Sources/KnowledgeRuntime/Runtime/SearchText.swift",
@@ -5134,8 +5154,8 @@
     },
     {
       "path": "Knowledge/ASK/Packages/KnowledgeRuntime/Sources/KnowledgeRuntime/SQLite/SearchDocsFTS.swift",
-      "bytes": 2488,
-      "sha256": "a0ddc4a6ca8dc444719b86ea735027b2f2008b8cc9440577fcb7843a44b7c9ae"
+      "bytes": 2593,
+      "sha256": "163d295262141187c3fdcd9382d4e9d68e3f6a12a6e04b6d196fb43b91855b32"
     },
     {
       "path": "Knowledge/ASK/Packages/KnowledgeRuntime/Sources/KnowledgeRuntime/Storage/Contracts/StorageHealth.swift",
@@ -5164,8 +5184,8 @@
     },
     {
       "path": "Knowledge/ASK/Packages/KnowledgeRuntime/Tests/DecisionMemoryTests/DeterministicContextCompilerTests.swift",
-      "bytes": 5048,
-      "sha256": "3383fdc1af54728232485cff7fbdf7642841a3322008920abdc6cbb62ba18b45"
+      "bytes": 6341,
+      "sha256": "b9b2c62d79e72bb228d11816fcad0da09b03013578033f12ba32df8b1be1661b"
     },
     {
       "path": "Knowledge/ASK/Packages/KnowledgeRuntime/Tests/DecisionMemoryTests/ProjectionRetractionRegressionTests.swift",
@@ -5259,8 +5279,8 @@
     },
     {
       "path": "Knowledge/ASK/Packages/KnowledgeRuntime/Tests/KnowledgeRuntimeTests/ASKRuntimeTests/RuntimeSmokeTests.swift",
-      "bytes": 40328,
-      "sha256": "473c35e5479aaef9c4abfa57472185099979b34d699c871700771a44e451cc18"
+      "bytes": 41252,
+      "sha256": "071eea923f481a7cd26422dd23b0ad14ecee5e6eb2ed7e34c49e343497568f89"
     },
     {
       "path": "Knowledge/ASK/Packages/KnowledgeRuntime/Tests/KnowledgeRuntimeTests/ASKRuntimeTests/SearchTextTokenizationTests.swift",
@@ -5269,8 +5289,8 @@
     },
     {
       "path": "Knowledge/ASK/Packages/KnowledgeRuntime/Tests/KnowledgeRuntimeTests/ASKRuntimeTests/SearchValidationTests.swift",
-      "bytes": 1040,
-      "sha256": "5be8276795b403fdd6781a8001cbc1adce57d62bdf99913a08dfac9babd61c14"
+      "bytes": 1783,
+      "sha256": "8bca1ff79bb0ddcab7e9d8da3532eb2bedbea05529a7114ad9e09e30ad8ce6d2"
     },
     {
       "path": "Knowledge/ASK/Packages/KnowledgeRuntime/Tests/KnowledgeRuntimeTests/ASKRuntimeTests/VaultHardeningTests.swift",
@@ -5324,8 +5344,8 @@
     },
     {
       "path": "Knowledge/ASK/Packages/MarkdownWiki/Sources/MarkdownWiki/Service/ASKMarkdownWiki.swift",
-      "bytes": 26548,
-      "sha256": "1e76cfdc4348cdbed3760d3adc888aa3dc9d883d67ca1cc9deffafc8e526e47f"
+      "bytes": 30630,
+      "sha256": "fce8a1aa10a688e261d7af06d432664dcd65ebe723b1bd8f730769249ea7226c"
     },
     {
       "path": "Knowledge/ASK/Packages/MarkdownWiki/Sources/MarkdownWiki/Text/ASKMarkdown.swift",
@@ -5419,8 +5439,8 @@
     },
     {
       "path": "Knowledge/ASK/Packages/PageIndex/Sources/PageIndex/PDF/PDFUtilities.swift",
-      "bytes": 9743,
-      "sha256": "8bbfb5585eb1ef98461c585da74f4e92f843a736edf6792d89953ad3bb489c38"
+      "bytes": 11946,
+      "sha256": "33f6210b6963439a2d6e864d46ee9c27f4cd0ccc2031eed57ad12ea8675f7ba8"
     },
     {
       "path": "Knowledge/ASK/Packages/PageIndex/Sources/PageIndex/RAG/VectorlessTreeRAG.swift",
@@ -5449,8 +5469,8 @@
     },
     {
       "path": "Knowledge/ASK/Packages/PageIndex/Sources/PageIndex/Workspace/SourceIndexFileLock.swift",
-      "bytes": 2556,
-      "sha256": "e4a8c0f09953a81a0cf4fbfb2949b1c28b4518a9b539ee2ec24084b14de67dce"
+      "bytes": 4327,
+      "sha256": "ce670618982781e400a8c01ef7a05e07fe086478a82504fb29d754fb9a1345e3"
     },
     {
       "path": "Knowledge/ASK/Packages/PageIndex/Sources/PageIndex/Workspace/SourceIndexNavigator.swift",
@@ -5479,8 +5499,8 @@
     },
     {
       "path": "Knowledge/ASK/Packages/PageIndex/Sources/PageIndex/Workspace/SourceRelocationFileReader.swift",
-      "bytes": 3545,
-      "sha256": "4d3bdb8ae42ef30fec803e11fa4e5227691edf0ce74690d28053f5c78a719179"
+      "bytes": 5311,
+      "sha256": "859023dd2b4361b4f2319637aaa48e7ac357d9f896247aa358471c816b0fe490"
     },
     {
       "path": "Knowledge/ASK/Packages/PageIndex/Tests/PageIndexTests/ASKPageIndexASKTests/ASKPageIndexASKTests.swift",
@@ -5499,8 +5519,8 @@
     },
     {
       "path": "Knowledge/ASK/Packages/PageIndex/Tests/PageIndexTests/ASKPageIndexPDFTests/ASKPageIndexPDFTests.swift",
-      "bytes": 13159,
-      "sha256": "bef5b10d868caabda42f6e1077e78a4e4c42c9ded75d0356ebc546ea724c4d1f"
+      "bytes": 14058,
+      "sha256": "184c1dc0cf4c2685468edbdd66ac020bd3bb418c9e2d3d004d4e74812334c678"
     },
     {
       "path": "Knowledge/ASK/Packages/PageIndex/Tests/PageIndexTests/ASKPageIndexVectorlessRAGTests.swift",
@@ -6544,8 +6564,8 @@
     },
     {
       "path": "Model/LanguageModelCore/ANALYSIS.md",
-      "bytes": 6329,
-      "sha256": "6603513af05e9cbdaf0f0348223b9d6e2de22a640c819ac87e76769d22cae313"
+      "bytes": 6367,
+      "sha256": "67a5319ce837d64d2b0f2718dfbd53938ddc13be2dae812ff1bae48ae97d8612"
     },
     {
       "path": "Model/LanguageModelCore/Package.swift",
@@ -6554,8 +6574,8 @@
     },
     {
       "path": "Model/LanguageModelCore/README.md",
-      "bytes": 938,
-      "sha256": "f3517d103534c1ff959c37ca762d13d0c740d610610c291d126929e98717afb6"
+      "bytes": 1082,
+      "sha256": "766bfbd5145b6927c83bdf4da627d98eda391be3751343dcfce3fc93129457b9"
     },
     {
       "path": "Model/LanguageModelCore/Sources/LanguageModelCore/Contracts/LanguageModel.swift",
@@ -6564,8 +6584,8 @@
     },
     {
       "path": "Model/LanguageModelCore/Sources/LanguageModelCore/Contracts/ModelClient.swift",
-      "bytes": 2653,
-      "sha256": "70414101e7adf6c4f96ff1cb2ec8c118c90df49a767fec9127267a2613475c06"
+      "bytes": 1356,
+      "sha256": "213f040dd713a0c9a991999308b7c57aa7f52a85b7739fce3e4a967c0828fa31"
     },
     {
       "path": "Model/LanguageModelCore/Sources/LanguageModelCore/Contracts/ModelClientInvocation.swift",
@@ -6724,13 +6744,13 @@
     },
     {
       "path": "Model/LanguageModelCore/Tests/LanguageModelCoreTests/NativeModelContractTests.swift",
-      "bytes": 10157,
-      "sha256": "ab109b3703ef49b7df921bcaadedee861107add5e7420faf6687f33fc7020f18"
+      "bytes": 9527,
+      "sha256": "f9143d83d664cde2f8b6c0b35162137edf88600a9ee6c0bcb5dc731b54392ee3"
     },
     {
       "path": "Model/LanguageModelRuntime/ANALYSIS.md",
-      "bytes": 7599,
-      "sha256": "11aee36bc543853165a5bd1fe67bb4ff7ab3f12db860c731102de072549ce7c8"
+      "bytes": 7606,
+      "sha256": "3b0ad6ab009a7f5475a5d4eb0ca0a5822363c01831253f8a2ed8b500d2401d7c"
     },
     {
       "path": "Model/LanguageModelRuntime/Package.swift",
@@ -6744,23 +6764,23 @@
     },
     {
       "path": "Model/LanguageModelRuntime/Sources/LanguageModelRuntime/ClientLanguageModel.swift",
-      "bytes": 3866,
-      "sha256": "a7a026b2fefba823b3e28369b6ffba78911a972bfd5e1a4f0ec98de9ed086eca"
+      "bytes": 3849,
+      "sha256": "838b46c8b43a772d307a3e57ab84558d1748052eb138a8e5f0d546af18c0e41d"
     },
     {
       "path": "Model/LanguageModelRuntime/Sources/LanguageModelRuntime/LanguageModelExecution.swift",
-      "bytes": 3472,
-      "sha256": "dd153ae82fd38e4c5b9b028d12cfa112345b306ba0bacec84b90aade8b3357ac"
+      "bytes": 3616,
+      "sha256": "6cf1c912def2a640d03effca2ba097e720eec3a857b990cebe31b12cddb56199"
     },
     {
       "path": "Model/LanguageModelRuntime/Sources/LanguageModelRuntime/LocalBackend.swift",
-      "bytes": 8191,
-      "sha256": "4421c3fb5f0ed078b0fb73a7dc114b1b01c178e1f14853a7dae97d31e68fb621"
+      "bytes": 8341,
+      "sha256": "90a3cfb4b09103b2710e186fba898c3351af8a7cb4bc7469d5d098006ce8e06a"
     },
     {
       "path": "Model/LanguageModelRuntime/Sources/LanguageModelRuntime/LocalBackendConnector.swift",
-      "bytes": 1974,
-      "sha256": "a1cd34792c3495340924ff6676c704d6dfb6522411fcd0d6bd88495ac92ca9df"
+      "bytes": 1758,
+      "sha256": "d49cfb9f913ed7e21b3d27091c62d2fe68aef06998b60b6ad5c8c0aa61ac9e77"
     },
     {
       "path": "Model/LanguageModelRuntime/Sources/LanguageModelRuntime/ModelExecutorStore.swift",
@@ -6769,8 +6789,8 @@
     },
     {
       "path": "Model/LanguageModelRuntime/Sources/LanguageModelRuntime/ModelProviderRegistry.swift",
-      "bytes": 11216,
-      "sha256": "d8f75dd8f2e6a24ff27ebb05a3d983ccf61c2eecee916a707d62590b7ceda1e6"
+      "bytes": 10326,
+      "sha256": "c336d52628f0ddb7aaac53a9a0031a3a4788584b61af42a82360071701e037a3"
     },
     {
       "path": "Model/LanguageModelRuntime/Sources/LanguageModelRuntime/ModelRunControl.swift",
@@ -6809,38 +6829,43 @@
     },
     {
       "path": "Model/LanguageModelRuntime/Tests/LanguageModelRuntimeTests/LanguageModelExecutionTests.swift",
-      "bytes": 11652,
-      "sha256": "47342b53c441ab65ecae39653f558669f8b7af947b65ce3894fb1d318a8db6be"
+      "bytes": 11861,
+      "sha256": "141b8450c9216b5754c80e437ff95d8c4db205880520262abc606e17cdb09a3a"
     },
     {
       "path": "Model/LanguageModelRuntime/Tests/LanguageModelRuntimeTests/LocalBackendTests.swift",
-      "bytes": 12302,
-      "sha256": "52a50f57146fc89801359708654177eb6d813b6f5c64618d96aecbb7a13c5549"
+      "bytes": 13232,
+      "sha256": "bb74b58acee6ed9a3e745558d3164e30973364def567b324cebfbdbb29f8b4d9"
     },
     {
       "path": "Model/LanguageModelRuntime/Tests/LanguageModelRuntimeTests/ModelRuntimeAccessTests.swift",
-      "bytes": 6094,
-      "sha256": "036a161e3c9487cdf6b43a049aef9684146e59389899df0802eeac31e3120b1d"
+      "bytes": 5225,
+      "sha256": "662524b5279a0753c2d7e82a47f8fd6b02c53490a583a220a14be44fe45febdf"
     },
     {
       "path": "Model/LanguageModelRuntime/Tests/LanguageModelRuntimeTests/ModelRuntimeTests.swift",
-      "bytes": 46002,
-      "sha256": "fc6012be8e61d752c3d7ead9e0b4ce335d8ef457df9715378295431aa568672f"
+      "bytes": 46261,
+      "sha256": "c29b6b8185ff676936234a4ce778b5e11d7efd7fa287106ccfea0d9db706da0b"
     },
     {
       "path": "Model/LanguageModelRuntime/Tests/LanguageModelRuntimeTests/ModelSessionTests.swift",
-      "bytes": 12248,
-      "sha256": "1c24b7da7a0689931dd6f22625b28d17a71104cc8b6f66a88031515400fc2939"
+      "bytes": 12601,
+      "sha256": "3e2a708839493187e9ab01737d77f8eff86c1b8845f7c52ecef41d72fdd88359"
     },
     {
       "path": "Model/LanguageModelRuntime/Tests/LanguageModelRuntimeTests/OwnedInvocationTests.swift",
-      "bytes": 12270,
-      "sha256": "1adffda3443f6b8588e8bf669fea7b9dec15144c6aa741ed6dc24bc62a30aa06"
+      "bytes": 12414,
+      "sha256": "35d7183bc6b8b1d7c56618e0f1a67c5bc9ce6af42086a9e9f3df5aa3a43bc69a"
     },
     {
       "path": "Model/LanguageModelRuntime/Tests/LanguageModelRuntimeTests/ProviderAcquisitionCancellationTests.swift",
-      "bytes": 8307,
-      "sha256": "830a265fa9d7a89cbd50e29991186d8dfd0bbf17ca8dddc2767a4cd92b949048"
+      "bytes": 8439,
+      "sha256": "5da0f645b234c5e37cf35936307ad95c8f183d4fab4365610f1586200d62b226"
+    },
+    {
+      "path": "Model/LanguageModelRuntime/Tests/LanguageModelRuntimeTests/ScriptedModelEvents.swift",
+      "bytes": 984,
+      "sha256": "88dda2ac7a2b47b8e807f6bca67216d5a994687e7b39f3b6a4432c3814affcc4"
     },
     {
       "path": "Model/ModelArtifactStore/ANALYSIS.md",
@@ -6854,8 +6879,8 @@
     },
     {
       "path": "Model/ModelArtifactStore/Sources/ModelArtifactStore/ArtifactLock.swift",
-      "bytes": 12377,
-      "sha256": "ebc0375f30d5273231e878874748945a1f320201093143c3070bc7812a15dcd3"
+      "bytes": 12827,
+      "sha256": "bdf1f5464751d6632ea054e6957897fb5db290fe122160db03eb50a840dc27e0"
     },
     {
       "path": "Model/ModelArtifactStore/Sources/ModelArtifactStore/ArtifactManifest.swift",
@@ -6869,8 +6894,8 @@
     },
     {
       "path": "Model/ModelArtifactStore/Sources/ModelArtifactStore/ArtifactStore.swift",
-      "bytes": 13498,
-      "sha256": "b4f3a7e34c7c4929277b17890207750d86e4f22b5bf43a74e660bbf0b8e8c8aa"
+      "bytes": 14863,
+      "sha256": "9dc96566d4059670a5b67a59a0f029230e6d652d0142412f6be1997cd60f5b73"
     },
     {
       "path": "Model/ModelArtifactStore/Sources/ModelArtifactStore/ProcessResidency.swift",
@@ -6884,13 +6909,13 @@
     },
     {
       "path": "Model/ModelArtifactStore/Tests/ModelArtifactStoreTests/ArtifactStoreTests.swift",
-      "bytes": 20969,
-      "sha256": "57cf2bc0eb1949ac73bfe7cecb48e85438fae47e6ba4fb5f9892a58a031c641c"
+      "bytes": 30731,
+      "sha256": "65ead1c0ba8ea7d3d33f7ded56aa45cb1d5013ce94fd82349a2ecdd9bb957708"
     },
     {
       "path": "Model/ModelHub/ANALYSIS.md",
-      "bytes": 5250,
-      "sha256": "4c46b4e2a5e94c4afd2a1f64ae23f1eb31f6c682fbbf3d1f03a9238a5ce6b8a2"
+      "bytes": 5266,
+      "sha256": "e1274036595397218c010e5a0184d929ee00566087bf7d087b9ca59d95d71886"
     },
     {
       "path": "Model/ModelHub/Package.swift",
@@ -6899,8 +6924,8 @@
     },
     {
       "path": "Model/ModelHub/README.md",
-      "bytes": 12436,
-      "sha256": "d7007d6212506a38dbff273da3db01746e34b4787d7269310a2b0e33463a0374"
+      "bytes": 12516,
+      "sha256": "fda17dd14168401e41d488d60fa072855644b3237c5e6121d8636b78b255209c"
     },
     {
       "path": "Model/ModelHub/Sources/ModelHub/HubModelAddress.swift",
@@ -6909,8 +6934,8 @@
     },
     {
       "path": "Model/ModelHub/Sources/ModelHub/HubModelInstaller.swift",
-      "bytes": 8054,
-      "sha256": "2628e6f946d48b6174b4b142e0d0795b6221fa3be6bd2c9512d623abfb86e3b0"
+      "bytes": 8071,
+      "sha256": "9633780cb160bd9663a504943a733b5d44afd66f05e330aefd10f1201532dc63"
     },
     {
       "path": "Model/ModelHub/Sources/ModelHub/HubRepositorySyntax.swift",
@@ -6944,8 +6969,13 @@
     },
     {
       "path": "Model/NativeLanguageModels/Tests/NativeLanguageModelsTests/LanguageModelSessionTests.swift",
-      "bytes": 3278,
-      "sha256": "32bf3b93b86ef09540c40e5f89522f309dd9410797f1de93e4e2fdbc8f3409fe"
+      "bytes": 3487,
+      "sha256": "15a753231b74be143e515f31acc52c073e0c999f6cef4277ce1f929ca298389d"
+    },
+    {
+      "path": "Model/NativeLanguageModels/Tests/NativeLanguageModelsTests/ScriptedModelEvents.swift",
+      "bytes": 984,
+      "sha256": "88dda2ac7a2b47b8e807f6bca67216d5a994687e7b39f3b6a4432c3814affcc4"
     },
     {
       "path": "Package.resolved",
@@ -6974,18 +7004,18 @@
     },
     {
       "path": "Providers/AppleSystemModel/Sources/AppleSystemModelProvider/FoundationModelsProviderConnector.swift",
-      "bytes": 2020,
-      "sha256": "e66d4a8d3b37caadc9174e4d92a96ccad34e1f2a1452fefb4ece904649bc01f0"
+      "bytes": 2038,
+      "sha256": "7bcb2717f70405d0ddedc7f75a3ab9d9dbcb0f0fd01339dd33dca6695f76a9e7"
     },
     {
       "path": "Providers/AppleSystemModel/Sources/AppleSystemModelProvider/FoundationModelsRuntimeFactory.swift",
-      "bytes": 1270,
-      "sha256": "49b3f3a30d9892cea3df336406d7604e34c1abe5df2c7b7658483bb6c9645e13"
+      "bytes": 1229,
+      "sha256": "1dd19787a50a9df6f47893951634be6f27bd99c074f837fcf17b278ebeae4e81"
     },
     {
       "path": "Providers/AppleSystemModel/Tests/AppleSystemModelProviderTests/FoundationModelsClientTests.swift",
-      "bytes": 7106,
-      "sha256": "a83390404af65021939f7ef2f472af5c84e2e721289bc6b12d5f9d89760fb6b3"
+      "bytes": 7216,
+      "sha256": "75314436a586cbd0a9c9cc8fbabd3a2b173a1c8c29e5489ad014bacf5f2eb2e3"
     },
     {
       "path": "Providers/AppleSystemModel/Tests/AppleSystemModelProviderTests/FoundationModelsLiveTests.swift",
@@ -7004,13 +7034,13 @@
     },
     {
       "path": "Providers/ChatGPT/Account/Package.swift",
-      "bytes": 699,
-      "sha256": "d54734dcb2fcda5945e6fbf8ebe40f810042363c11ad2ddd730f600d068d4876"
+      "bytes": 713,
+      "sha256": "a81f1b34a262da269c8fe5f4113f2ffefdb41ee1f84d290f25eea6f93ab709d8"
     },
     {
       "path": "Providers/ChatGPT/Account/README.md",
-      "bytes": 6122,
-      "sha256": "821fc3d0f4625aba1679594c5538bf605e874eadaa26be561fea1b82afbc65ad"
+      "bytes": 6329,
+      "sha256": "4a128d86073dcad7bd9958f6fe2354721e55fc29b174d871533bc693e104dfe1"
     },
     {
       "path": "Providers/ChatGPT/Account/Sources/ChatGPTAccount/ChatGPTAccountPayload.swift",
@@ -7045,7 +7075,7 @@
     {
       "path": "Providers/ChatGPT/Account/Sources/ChatGPTAccount/ChatGPTProtocol.swift",
       "bytes": 7302,
-      "sha256": "5416c09485b167e5d148d1be73afce64c75cf2dac274c5db0313a32fdb946b36"
+      "sha256": "a435a8ec4e97257789ef4a10f91e2ff5aad8d0491e1f055c3395e08590751a58"
     },
     {
       "path": "Providers/ChatGPT/Account/Sources/ChatGPTAccount/ChatGPTSharedOperation.swift",
@@ -7059,8 +7089,8 @@
     },
     {
       "path": "Providers/ChatGPT/Account/Sources/ChatGPTAccount/ChatGPTTransport.swift",
-      "bytes": 14365,
-      "sha256": "bd431ba416c00a0ca572e995633fcebe8266f6b2dd0bc2a8022a117e29641e03"
+      "bytes": 13894,
+      "sha256": "d21dbc93f59c4212ecbed7816c26649a1444a2356120abfbfc115c98ae1510ab"
     },
     {
       "path": "Providers/ChatGPT/Account/Sources/ChatGPTAccount/LocalhostCallbackServer.swift",
@@ -7090,7 +7120,7 @@
     {
       "path": "Providers/ChatGPT/Account/Tests/ChatGPTAccountTests/CallbackStateTests.swift",
       "bytes": 7454,
-      "sha256": "efcbd8712ba779ee1c9cfbe97517821691b372fb87bb8547f3f755cc8da77d3e"
+      "sha256": "8207b080a04712e59d2dc5eea0d4f0171df55d445aab8321f74622feb5367766"
     },
     {
       "path": "Providers/ChatGPT/Account/Tests/ChatGPTAccountTests/CredentialValidationTests.swift",
@@ -7114,8 +7144,8 @@
     },
     {
       "path": "Providers/ChatGPT/Image/Package.swift",
-      "bytes": 828,
-      "sha256": "1f1cdbf1994f98199d7847e0bf9086cff156c8d089f1da3d414816273f2d25d8"
+      "bytes": 842,
+      "sha256": "8caf5e4da57363d8dbfe7a3436dfb3049b081ccb29fa4257aaf28690305202ee"
     },
     {
       "path": "Providers/ChatGPT/Image/README.md",
@@ -7149,8 +7179,8 @@
     },
     {
       "path": "Providers/ChatGPT/Text/Package.swift",
-      "bytes": 1001,
-      "sha256": "ce46c69a226a654b6ffcbcd924c109f98408c7bc5187879235e3e2e825ecdce3"
+      "bytes": 1015,
+      "sha256": "01021f1a7eb01cedf4695a501daadcc93a101310503fa6fde52fd82c93bdf982"
     },
     {
       "path": "Providers/ChatGPT/Text/README.md",
@@ -7199,8 +7229,8 @@
     },
     {
       "path": "Providers/ChatGPT/TextProvider/Package.swift",
-      "bytes": 1182,
-      "sha256": "96bfdcb7a0eccdb794a0f0a600370f45c84ceba6de22c770806c7c8c9e114617"
+      "bytes": 1493,
+      "sha256": "35361bd925a0e1bc3c32564c8174ee533ce063bd1127d968e6afcd7f9052c814"
     },
     {
       "path": "Providers/ChatGPT/TextProvider/README.md",
@@ -7209,13 +7239,18 @@
     },
     {
       "path": "Providers/ChatGPT/TextProvider/Sources/ChatGPTTextProvider/ChatGPTProviderConnector.swift",
-      "bytes": 1497,
-      "sha256": "296c3f84b5a6a1d31b58e0fa18d7965db2282e68d68e3e3a82925055da26da85"
+      "bytes": 1514,
+      "sha256": "dbedf139fd9ec4bba2be28271b7e062500f0c5be658f6036627532ada0f731ae"
     },
     {
       "path": "Providers/ChatGPT/TextProvider/Sources/ChatGPTTextProvider/ChatGPTRuntime.swift",
-      "bytes": 3555,
-      "sha256": "268a81d66ed96d8f991ead6d188d58fd06ca3d313a473784d8001a36da20cfe0"
+      "bytes": 3529,
+      "sha256": "b4d6fb00fcdeca54653df3c417d270a09b2dd412a2bafb31aa4ef866f3489c26"
+    },
+    {
+      "path": "Providers/ChatGPT/TextProvider/Tests/ChatGPTTextProviderTests/ChatGPTRuntimeAdmissionTests.swift",
+      "bytes": 1348,
+      "sha256": "c44c6730364336d92f7b57ac8acbb9981a2791b1c054b7e7dd47b561faba93fd"
     },
     {
       "path": "Providers/LEAP/DeviceQualification/.gitignore",
@@ -7259,18 +7294,18 @@
     },
     {
       "path": "Providers/LEAP/Sources/LEAPProvider/Downloader.swift",
-      "bytes": 30589,
-      "sha256": "797523394f2aca064f75c24f6e9b3adb8e378c8d2bcc01240cc4f2b6e4561fa5"
+      "bytes": 32109,
+      "sha256": "6632098a0028a63bce26ab9d60127821791210858fb22365d2b5cd8b4a823425"
     },
     {
       "path": "Providers/LEAP/Sources/LEAPProvider/LEAPHuggingFaceModelProviderConnector.swift",
-      "bytes": 16347,
-      "sha256": "e92475565da4f849716f1bd7769048f6cb41d62b6f936467e04690c000bcab0f"
+      "bytes": 16898,
+      "sha256": "045a7216dc1ea6775b5b512b79e69c352ceb1f0a5db29b63b210a0532fb8a181"
     },
     {
       "path": "Providers/LEAP/Sources/LEAPProvider/LEAPProviderConnector.swift",
-      "bytes": 3003,
-      "sha256": "517c52e457a3ce14b1a9754623ac35725832c4501d89b26abd352ead1f997886"
+      "bytes": 3020,
+      "sha256": "7135d6e33a6fa875ace3728822895889084775a3c21c73a34bd9ad0886a9b8f3"
     },
     {
       "path": "Providers/LEAP/Sources/LEAPProvider/LeapAdapter.swift",
@@ -7304,8 +7339,18 @@
     },
     {
       "path": "Providers/LEAP/Sources/LEAPProvider/Runtime.swift",
-      "bytes": 48766,
-      "sha256": "def81ceb1e69ddfadcd0cc05e34eb31f3a27ae3b9e67e527c3ffcbe51ab06bc7"
+      "bytes": 48906,
+      "sha256": "58378a01befeda05dbbe8cae1ab9a9b53d8154984c0fa7ae2f3ce8892286f268"
+    },
+    {
+      "path": "Providers/LEAP/Tests/LEAPProviderTests/LeapBackgroundDownloadOwnershipTests.swift",
+      "bytes": 11009,
+      "sha256": "69fe16a2f7f979b112ee8ee52156b2a5a5f166924da816397a61158d1da8617d"
+    },
+    {
+      "path": "Providers/LEAP/Tests/LEAPProviderTests/LeapInstallationOwnershipTests.swift",
+      "bytes": 3598,
+      "sha256": "114f3cc9dbf5964e13b655d2205ae0c95db0ba320717ec83d9b990ee2bdc4121"
     },
     {
       "path": "Providers/LEAP/Tests/LEAPProviderTests/LeapResultHandleTests.swift",
@@ -7314,8 +7359,8 @@
     },
     {
       "path": "Providers/LEAP/Tests/LEAPProviderTests/LeapTests.swift",
-      "bytes": 69307,
-      "sha256": "a843ba22116ca16bd0ddcd2c19d5fe92802349ec85cca40d23bfd45d8d3ff16e"
+      "bytes": 70392,
+      "sha256": "2ed980ad25a46c7a952141645f31b93431ceb2a7bd4294c1255c2969e6df2036"
     },
     {
       "path": "Providers/LiteRT/Package.swift",
@@ -7329,8 +7374,8 @@
     },
     {
       "path": "Providers/LiteRT/Sources/LiteRTProvider/LiteRTHuggingFaceModelProviderConnector.swift",
-      "bytes": 16401,
-      "sha256": "3abea4aa20da7d80b1b770482eb7b4f075605aad36770ee1b1526a51da66d381"
+      "bytes": 16418,
+      "sha256": "e1c4fc2c6118ea5dc323d45d9715661dc99bdf2a7bdd3164b6b9349774825bc9"
     },
     {
       "path": "Providers/LiteRT/Sources/LiteRTProvider/LiteRTModel.swift",
@@ -7339,8 +7384,8 @@
     },
     {
       "path": "Providers/LiteRT/Sources/LiteRTProvider/LiteRTProviderConnector.swift",
-      "bytes": 2397,
-      "sha256": "e4547395ad30befd67ac076c95b5b9052930cf5f17b1abee151cd758d782672f"
+      "bytes": 2414,
+      "sha256": "0a9b3dc0ffec4dc4d955705db9ed901cd5def8186eafa591fdd9c766893df819"
     },
     {
       "path": "Providers/LiteRT/Sources/LiteRTProvider/LiteRTRuntime.swift",
@@ -7429,8 +7474,8 @@
     },
     {
       "path": "Providers/MLX/DeviceQualification/App/FeatureQualification.swift",
-      "bytes": 16284,
-      "sha256": "beb13764273860dd5b187b5a2b7c565bff492bea68284012059d5fa82ef36112"
+      "bytes": 17047,
+      "sha256": "ce373d6a39f78b07584ead6bea4f2fe80d6f3582c69b876b737020479cd11531"
     },
     {
       "path": "Providers/MLX/DeviceQualification/App/Fixtures/speech.wav",
@@ -7474,8 +7519,8 @@
     },
     {
       "path": "Providers/MLX/README.md",
-      "bytes": 4485,
-      "sha256": "14a4fdfa6296870f5a8b81144b9505a263a9455b30f08b6200f795f349e6efc5"
+      "bytes": 4564,
+      "sha256": "2f8be61ac5fec683aa6d039613e893abab9713a82fde1bca45f7b15763ce8d08"
     },
     {
       "path": "Providers/MLX/Sources/MLXModelRegistry/HubModel.swift",
@@ -7509,8 +7554,8 @@
     },
     {
       "path": "Providers/MLX/Sources/MLXProvider/MLXHubModelProviderConnector.swift",
-      "bytes": 5763,
-      "sha256": "ecef4f59f5b149e0bb4957448831dc08c4b72809313a86ae37446293d9e154e4"
+      "bytes": 5780,
+      "sha256": "6e337a09c1e1a121b7217238bcb6f9b410b9d6b530934ce59029f158f82e50a5"
     },
     {
       "path": "Providers/MLX/Sources/MLXProvider/MLXOutputSchema.swift",
@@ -7519,8 +7564,8 @@
     },
     {
       "path": "Providers/MLX/Sources/MLXProvider/MLXProviderConnector.swift",
-      "bytes": 2773,
-      "sha256": "5f64e651bb52896bd6228468b0400b8e0ab354f1449381571248be21f79a7580"
+      "bytes": 2790,
+      "sha256": "c8a8341ddf89574e0186c9f86e00e82ada299477514464814b98a905b1cf5034"
     },
     {
       "path": "Providers/MLX/Sources/MLXProvider/MLXResultHandle.swift",
@@ -7539,8 +7584,8 @@
     },
     {
       "path": "Providers/MLX/Sources/MLXProvider/Runtime.swift",
-      "bytes": 25766,
-      "sha256": "8c85e6f39ff8d81f7a322293f0f5b3b7a631370a77739d28376ca6ce9551cb58"
+      "bytes": 25814,
+      "sha256": "984c37627c004f27559e421b85edbc1aa5ad6de3306f66060bec248234f46925"
     },
     {
       "path": "Providers/MLX/Sources/MLXProvider/RuntimeDependencies.swift",
@@ -7629,13 +7674,13 @@
     },
     {
       "path": "Qualification/ChatGPTCompositionChecks/Tests/ChatGPTCompositionTests/ChatGPTTests.swift",
-      "bytes": 89324,
-      "sha256": "c4122d48bda12b5623a943706cfb98e37147ab206b78765e035015b840996374"
+      "bytes": 89323,
+      "sha256": "68e581f8af4f3737c6a10afa64c13347a2f168f9385d7caa6e5a7bdea8b24342"
     },
     {
       "path": "Qualification/ChatGPTCompositionChecks/Tests/ChatGPTCompositionTests/ChatGPTTransportLifecycleTests.swift",
-      "bytes": 9351,
-      "sha256": "9b6a8070350f043989865bb5ceecea7ed35314d3794cef39d6abd10c1d27bded"
+      "bytes": 8747,
+      "sha256": "5e43a2ac09bc8083790173597ad1f79e2cd00867db88b4a97482a12162c83ff4"
     },
     {
       "path": "Qualification/ChatGPTCompositionChecks/Tests/ChatGPTCompositionTests/ChatGPTURLSessionTests.swift",
@@ -7834,8 +7879,8 @@
     },
     {
       "path": "docs/API.md",
-      "bytes": 2341,
-      "sha256": "712ccfd020147e3a7fb9fbb143485bc4d435c3322d23fc59cc53fc9ecc42b95f"
+      "bytes": 3466,
+      "sha256": "e39037a3e738859dfb1d411513eab77874abf024b8799645654d48bc7420a60a"
     },
     {
       "path": "docs/ARCHITECTURE.md",
@@ -7849,8 +7894,8 @@
     },
     {
       "path": "docs/IMPLEMENTATION_STATUS.md",
-      "bytes": 6938,
-      "sha256": "01c76873bd07fd852850bdcac0c8a039bf4ef2f73a74b949680aaed705b1bc1d"
+      "bytes": 7799,
+      "sha256": "c8c4728c91fc8bb0f6fd6c461f2ab7da24d4c8b25e16e7edfb09591325baaff3"
     },
     {
       "path": "docs/PACKAGING.md",
@@ -7864,8 +7909,8 @@
     },
     {
       "path": "docs/RESEARCH.md",
-      "bytes": 3774,
-      "sha256": "a60ef1dddcd4f0a8740dc90bc88ef62405cbc29e3f68f84de8016eb27e82b7c1"
+      "bytes": 3911,
+      "sha256": "6e9750fa1d6c028dc4e86061ff009977182488f36352577483ef1b05ae6a4c84"
     },
     {
       "path": "docs/REVIEW_20260920.md",
@@ -7979,8 +8024,8 @@
     },
     {
       "path": "docs/production/QUALIFICATION.md",
-      "bytes": 5220,
-      "sha256": "de2fc3cb394dfad7d22f4b429770de8c7ddd7e21e0d441f984b30176a525e84e"
+      "bytes": 5952,
+      "sha256": "541e15c23a001f690d62a478c16fcc86544188c676eaee4f06dee055f4d6d892"
     },
     {
       "path": "docs/production/REQUIREMENTS.md",
@@ -7994,8 +8039,8 @@
     },
     {
       "path": "docs/verification/README.md",
-      "bytes": 4855,
-      "sha256": "5a034afb6cda6d956a6ece5bf2ee95f6d8c4ed8d7902cb352f5dfd027702d2c4"
+      "bytes": 5363,
+      "sha256": "96ab7d5a47b0f291bcaad79c4e5a74009e645633a7d6e7df3233e0c4a58ca4de"
     },
     {
       "path": "docs/verification/current/apple-system-contract.log",
@@ -8236,6 +8281,21 @@
       "path": "docs/verification/current/litert-release-20261007/text-test.log",
       "bytes": 2216,
       "sha256": "45f4e987c0173455df95c0558da93479bf0e0ba930d6028576f1547d3adaf87f"
+    },
+    {
+      "path": "docs/verification/current/main-consolidation-20261008/REPORT.md",
+      "bytes": 6834,
+      "sha256": "ab7e16cfa515d20052c5fccb08e47ed61f68a7708fb321c2a628dbd4ced7a955"
+    },
+    {
+      "path": "docs/verification/current/main-consolidation-20261008/checks.json",
+      "bytes": 39807,
+      "sha256": "4ac8bc3963750bd3f7e06d631320ab4b87989f5a4b68c327b9790d801b3be1a0"
+    },
+    {
+      "path": "docs/verification/current/main-consolidation-20261008/source-hashes.json",
+      "bytes": 208978,
+      "sha256": "5f0514496b4a568cd9bcdd4a805195fd09c0905acb07ccaf942074fabe7b2263"
     },
     {
       "path": "docs/verification/current/model-core.log",
@@ -9514,13 +9574,13 @@
     },
     {
       "path": "tools/apple_package_runner.py",
-      "bytes": 2186,
-      "sha256": "ad058e4c6f063b71b60a9e52bc288c9f54c6bd3c2114e966358554bec182ef1e"
+      "bytes": 4953,
+      "sha256": "849f519548adfce96bc74119cd5bf9bd333ed2f0c090e33393625e2259e7aebe"
     },
     {
       "path": "tools/check-boundaries.py",
-      "bytes": 13635,
-      "sha256": "a995cf9b44fafac22ef90503ac4c57bf89a4c83b1ef47d6890b65583422969b6"
+      "bytes": 14685,
+      "sha256": "39c82790758109542deaa5461cb58522238db8d7107958fe4ae4be130946f6fa"
     },
     {
       "path": "tools/check-documents.py",
@@ -9534,8 +9594,8 @@
     },
     {
       "path": "tools/test-distribution-manifest.py",
-      "bytes": 7631,
-      "sha256": "0188a5e994ceec0129f04ce443775393a09d0f7479db6567f5fea88d8e392449"
+      "bytes": 9072,
+      "sha256": "3ccf9eb75dd3a068836425b7764f926d54d42c116d7f94b6aacba8fe0f3a6bc5"
     },
     {
       "path": "tools/test-package-closure.py",
@@ -9543,19 +9603,24 @@
       "sha256": "8369fbfe088ea89cbca5464cf1d86f081b34eb4b4b1774603ed5c81e5357d2c7"
     },
     {
+      "path": "tools/test-package-runner.py",
+      "bytes": 6706,
+      "sha256": "5102a996039154a3e41bd282950acef86ed1f60955d0f756668fdd6079c8485f"
+    },
+    {
       "path": "tools/verify-chatgpt-wire.py",
-      "bytes": 9773,
-      "sha256": "a9fae5aa369926968102669130416c41ff6951432d55c359910b1a5902397d9c"
+      "bytes": 9628,
+      "sha256": "fa641f489fb5dfb1678a7ee093ce80d9c11ea5fc09cfa2a80eb66789881f1037"
     },
     {
       "path": "tools/verify-native-kernel.py",
-      "bytes": 4292,
-      "sha256": "a62d1bef9ea34aea3bcfdd34ae7390cfc883ba12750fcc2d041098fcf78d44f3"
+      "bytes": 5501,
+      "sha256": "07eb98a20a2979b64ab6732411ed547cee54c90ef33c223246642a6255498d15"
     },
     {
       "path": "tools/verify-portable.py",
-      "bytes": 5795,
-      "sha256": "bf1baab73ad5a29f01b6fc66c24bd7596daf459ebe0158e6ba6b4f714dcddf6d"
+      "bytes": 5336,
+      "sha256": "450caebc1bf9c1501c843463945b501c5a10a8b7f553967f7f683b9a875c8c04"
     }
   ]
 }

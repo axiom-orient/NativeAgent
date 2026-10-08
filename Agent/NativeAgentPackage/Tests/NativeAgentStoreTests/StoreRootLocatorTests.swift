@@ -137,3 +137,82 @@ func defaultRootUsesAndContainsAppGroupBase() throws {
     #expect(rootURL.pathComponents.starts(with: standardizedBaseURL.pathComponents))
     #expect(rootURL.pathComponents.count > standardizedBaseURL.pathComponents.count)
 }
+
+#if os(macOS)
+@Test
+func defaultRootUsesAutomaticMacOSAppGroupResolutionWhenNoExplicitURLExists() throws {
+    let automaticBaseURL = FileManager.default.temporaryDirectory
+        .appendingPathComponent("native-agent-store-root-tests", isDirectory: true)
+        .appendingPathComponent("automatic-group", isDirectory: true)
+    let fileManager = MacOSAppGroupFileManager(containerURL: automaticBaseURL)
+
+    let rootURL = try StoreRootLocator.defaultRootURL(
+        appName: "My App",
+        appGroupIdentifier: "group.example.app",
+        subdirectoryName: "Agent Data",
+        fileManager: fileManager,
+        applicationSupportURL: FileManager.default.temporaryDirectory
+            .appendingPathComponent("must-not-be-used", isDirectory: true)
+    )
+
+    #expect(rootURL == automaticBaseURL.standardizedFileURL
+        .appendingPathComponent("My App", isDirectory: true)
+        .appendingPathComponent("Agent Data", isDirectory: true)
+        .standardizedFileURL)
+}
+
+@Test
+func defaultRootRejectsAnUnresolvedMacOSAppGroupWithoutAnExplicitURL() {
+    do {
+        _ = try StoreRootLocator.defaultRootURL(
+            appName: "My App",
+            appGroupIdentifier: "group.example.app",
+            fileManager: MacOSAppGroupFileManager(containerURL: nil),
+            applicationSupportURL: FileManager.default.temporaryDirectory
+                .appendingPathComponent("must-not-be-used", isDirectory: true)
+        )
+        Issue.record("An unresolved App Group must not fall back to Application Support.")
+    } catch let error as AgentError {
+        guard case .persistenceFailure = error else {
+            Issue.record("Expected persistence failure, received \(error).")
+            return
+        }
+    } catch {
+        Issue.record("Expected AgentError.persistenceFailure, received \(error).")
+    }
+}
+
+@Test
+func defaultRootPrefersExplicitAppGroupURLOverAutomaticMacOSResolution() throws {
+    let automaticBaseURL = FileManager.default.temporaryDirectory
+        .appendingPathComponent("native-agent-store-root-tests/automatic", isDirectory: true)
+    let explicitBaseURL = FileManager.default.temporaryDirectory
+        .appendingPathComponent("native-agent-store-root-tests/explicit", isDirectory: true)
+
+    let rootURL = try StoreRootLocator.defaultRootURL(
+        appName: "My App",
+        appGroupIdentifier: "group.example.app",
+        appGroupContainerURL: explicitBaseURL,
+        subdirectoryName: "Agent Data",
+        fileManager: MacOSAppGroupFileManager(containerURL: automaticBaseURL)
+    )
+
+    #expect(rootURL == explicitBaseURL.standardizedFileURL
+        .appendingPathComponent("My App", isDirectory: true)
+        .appendingPathComponent("Agent Data", isDirectory: true)
+        .standardizedFileURL)
+}
+
+private final class MacOSAppGroupFileManager: FileManager, @unchecked Sendable {
+    private let appGroupURL: URL?
+
+    init(containerURL: URL?) {
+        self.appGroupURL = containerURL
+        super.init()
+    }
+
+    override func containerURL(forSecurityApplicationGroupIdentifier groupIdentifier: String) -> URL? {
+        appGroupURL
+    }
+}
+#endif

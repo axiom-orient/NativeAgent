@@ -161,7 +161,8 @@ private final class LeapTextGenerationState: @unchecked Sendable {
       failure = .outputLimitExceeded
       return nil
     }
-    guard text.utf8.count + chunk.utf8.count <= LeapLimits.maxTextGenerationBytes else {
+    let (nextByteCount, byteOverflow) = text.utf8.count.addingReportingOverflow(chunk.utf8.count)
+    guard !byteOverflow, nextByteCount <= LeapLimits.maxTextGenerationBytes else {
       failure = .outputLimitExceeded
       return nil
     }
@@ -641,6 +642,7 @@ public actor LeapRuntime {
       displayName: model.displayName ?? "LEAP LFM2.5 QAD",
       capabilities: LeapModelClient.supportedCapabilities
     )
+    try descriptor.validateGenerationContract()
     let client = LeapModelClient(
       runtime: self,
       model: model,

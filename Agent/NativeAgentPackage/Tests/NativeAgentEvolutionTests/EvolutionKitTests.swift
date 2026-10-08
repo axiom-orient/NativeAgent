@@ -174,6 +174,10 @@ func evolutionReportCreatesHostApprovalApplyProposalForSelectedCandidate() async
 }
 
 private actor RecordingEvolutionModelClient: ModelClient {
+    nonisolated func stream(request: ModelRequest) -> AsyncThrowingStream<ModelEvent, any Error> {
+        scriptedModelEvents(descriptor: modelDescriptor) { try await self.generate(request: request) }
+    }
+
     let providerID = "recording-evolution-model"
     private let content: String
     private var requests: [ModelRequest] = []

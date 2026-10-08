@@ -35,14 +35,20 @@ struct AttributeLookup {
     for key in keys {
       guard let value = string([key]) else { continue }
       if let intValue = Int(value) { return intValue }
-      if let doubleValue = Double(value) { return Int(doubleValue.rounded()) }
+      if let doubleValue = Double(value), doubleValue.isFinite,
+        let roundedValue = Int(exactly: doubleValue.rounded())
+      {
+        return roundedValue
+      }
     }
     return nil
   }
 
   func double(_ keys: [String]) -> Double? {
     for key in keys {
-      guard let value = string([key]), let doubleValue = Double(value) else { continue }
+      guard let value = string([key]), let doubleValue = Double(value), doubleValue.isFinite else {
+        continue
+      }
       return doubleValue
     }
     return nil
@@ -63,9 +69,8 @@ struct AttributeLookup {
 
   func pointSize(_ keys: [String]) -> Double? {
     guard let raw = double(keys) else { return nil }
-    if raw > 200 {
-      return raw / 100.0
-    }
-    return raw
+    let normalized = raw > 200 ? raw / 100.0 : raw
+    guard normalized.isFinite, normalized > 0 else { return nil }
+    return normalized
   }
 }

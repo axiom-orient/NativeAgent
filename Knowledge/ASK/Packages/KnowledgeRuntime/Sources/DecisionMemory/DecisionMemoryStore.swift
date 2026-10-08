@@ -86,7 +86,10 @@ public actor DecisionMemoryStore {
                     let last = records[records.count - 1]
                     return try makeReplay(journal: journal, asOf: last.createdAt)
                 }
-                let finalAsOf = pendingFiles.last!.record.createdAt
+                guard let finalRecord = pendingFiles.last?.record else {
+                    throw ASKError.validation("decision-memory batch unexpectedly produced no pending files")
+                }
+                let finalAsOf = finalRecord.createdAt
                 let replay = try makeReplay(journal: journal, asOf: finalAsOf)
                 for (url, record, _) in pendingFiles {
                     try persistEntry(vault: vault, url: url, payload: record)
@@ -193,12 +196,29 @@ public actor DecisionMemoryStore {
     public func projectionDrift(asOf: String) throws -> DecisionMemoryProjectionDrift {
         let replay = try self.replay(asOf: asOf)
         let outputs = projectionOutputs(replay: replay)
-        var drift = outputs.compactMap { output -> String? in
-            let url = root.appendingPathComponent(output.relativePath)
-            guard let existing = try? String(contentsOf: url, encoding: .utf8), existing == normalized(output.content) else {
-                return output.relativePath
+        let vault = Vault(root: root)
+        var drift: [String] = []
+        for output in outputs {
+            let url = try vault.validatedVaultURL(root.appendingPathComponent(output.relativePath))
+            guard FileManager.default.fileExists(atPath: url.path) else {
+                drift.append(output.relativePath)
+                continue
             }
-            return nil
+            do {
+                let data = try Data(contentsOf: url)
+                guard let existing = String(data: data, encoding: .utf8),
+                      existing == normalized(output.content) else {
+                    drift.append(output.relativePath)
+                    continue
+                }
+            } catch let error as CocoaError
+                where error.code == .fileNoSuchFile || error.code == .fileReadNoSuchFile {
+                drift.append(output.relativePath)
+            } catch {
+                throw ASKError.apply(
+                    "unable to inspect decision-memory projection `\(output.relativePath)`: \(error)"
+                )
+            }
         }
         for path in projectionPaths(replay: replay).subtracting(outputs.map(\.relativePath)) {
             if FileManager.default.fileExists(atPath: root.appendingPathComponent(path).path) {

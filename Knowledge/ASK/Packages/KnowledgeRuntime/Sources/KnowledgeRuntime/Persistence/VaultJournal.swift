@@ -94,9 +94,16 @@ extension Vault {
         guard fd >= 0 else {
             throw ASKError.apply("unable to open journal file for sync: `\(url.path)`")
         }
-        defer { close(fd) }
-        guard fsync(fd) == 0 else {
+        let syncSucceeded = fsync(fd) == 0
+        let closeSucceeded = close(fd) == 0
+        guard syncSucceeded else {
+            if !closeSucceeded {
+                throw ASKError.apply("unable to sync journal file: `\(url.path)`; closing the sync descriptor also failed")
+            }
             throw ASKError.apply("unable to sync journal file: `\(url.path)`")
+        }
+        guard closeSucceeded else {
+            throw ASKError.apply("unable to close journal file sync descriptor: `\(url.path)`")
         }
     }
 
@@ -105,9 +112,16 @@ extension Vault {
         guard fd >= 0 else {
             throw ASKError.apply("unable to open journal directory for sync: `\(url.path)`")
         }
-        defer { close(fd) }
-        guard fsync(fd) == 0 else {
+        let syncSucceeded = fsync(fd) == 0
+        let closeSucceeded = close(fd) == 0
+        guard syncSucceeded else {
+            if !closeSucceeded {
+                throw ASKError.apply("unable to sync journal directory: `\(url.path)`; closing the sync descriptor also failed")
+            }
             throw ASKError.apply("unable to sync journal directory: `\(url.path)`")
+        }
+        guard closeSucceeded else {
+            throw ASKError.apply("unable to close journal directory sync descriptor: `\(url.path)`")
         }
     }
 
@@ -154,10 +168,25 @@ extension Vault {
             try fileManager.moveItem(at: staging, to: patchDir)
             try syncDirectory(at: patchesRoot)
         } catch {
-            try? fileManager.removeItem(at: staging)
+            let publicationError = error
+            if fileManager.fileExists(atPath: staging.path) {
+                do {
+                    try fileManager.removeItem(at: staging)
+                } catch {
+                    throw ASKError.apply(
+                        "journal publication failed: \(publicationError); staging cleanup failed: \(error)"
+                    )
+                }
+            }
             if fileManager.fileExists(atPath: patchDir.path) {
                 let patchURL = patchDir.appendingPathComponent("patch.json")
-                if let existing = try? CanonicalJSON.load(KnowledgePatchPlan.self, from: patchURL), existing == plan {
+                do {
+                    let existing = try CanonicalJSON.load(KnowledgePatchPlan.self, from: patchURL)
+                    guard existing == plan else {
+                        throw ASKError.journalConflict(
+                            "journal recovery found a different patch for `\(plan.patchID)`"
+                        )
+                    }
                     if let receipt {
                         let receiptURL = patchDir.appendingPathComponent("receipt.json")
                         try persistJournalFile(receiptURL, payload: receipt)
@@ -165,9 +194,13 @@ extension Vault {
                         try syncDirectory(at: patchDir)
                     }
                     return
+                } catch {
+                    throw ASKError.journalConflict(
+                        "journal publication failed: \(publicationError); existing patch recovery failed: \(error)"
+                    )
                 }
             }
-            throw error
+            throw publicationError
         }
     }
 

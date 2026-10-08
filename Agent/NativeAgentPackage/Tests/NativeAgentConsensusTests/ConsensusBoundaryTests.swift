@@ -1,3 +1,4 @@
+import NativeAgentTestSupport
 import Foundation
 import Testing
 import NativeAgentDomain
@@ -5,6 +6,10 @@ import NativeAgentConsensus
 import LanguageModelRuntime
 
 private struct StandaloneConsensusBase: ModelClient {
+    nonisolated func stream(request: ModelRequest) -> AsyncThrowingStream<ModelEvent, any Error> {
+        scriptedModelEvents(descriptor: modelDescriptor) { try await self.generate(request: request) }
+    }
+
     let providerID = "standalone"
     var invocationSemantics: ModelClientInvocationSemantics { .standaloneOnly }
     func generate(request: ModelRequest) async throws -> ModelTurn {

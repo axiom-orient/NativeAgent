@@ -36,7 +36,10 @@ struct ASKZIPArchive {
         }
         var declaredTotal = 0
         for entry in entries {
-            let (sum, overflowed) = declaredTotal.addingReportingOverflow(Int(entry.uncompressedSize))
+            guard let uncompressedSize = Int(exactly: entry.uncompressedSize) else {
+                throw ASKHWPError.unsupportedFeature("ZIP entry size does not fit the host integer width.")
+            }
+            let (sum, overflowed) = declaredTotal.addingReportingOverflow(uncompressedSize)
             guard !overflowed, sum <= limits.maximumDecodedTotalByteCount else {
                 throw ASKHWPError.unsupportedFeature("ZIP archive declares more than \(limits.maximumDecodedTotalByteCount) uncompressed bytes.")
             }
@@ -87,34 +90,45 @@ struct ASKZIPArchive {
         guard entry.compressedSize != UInt32.max, entry.uncompressedSize != UInt32.max else {
             throw ASKHWPError.unsupportedFeature("ZIP64 entries are not supported: \(entry.path)")
         }
-        guard Int(entry.uncompressedSize) <= limits.maximumDecodedStreamByteCount else {
+        guard let uncompressedSize = Int(exactly: entry.uncompressedSize),
+              uncompressedSize <= limits.maximumDecodedStreamByteCount else {
             throw ASKHWPError.unsupportedFeature("ZIP entry too large: \(entry.path) (\(entry.uncompressedSize) bytes)")
         }
 
-        let localOffset = Int(entry.localHeaderOffset)
+        guard let localOffset = Int(exactly: entry.localHeaderOffset),
+              Self.rangeEnd(offset: localOffset, length: 30, limit: data.count) != nil else {
+            throw ASKHWPError.malformedContainer("ZIP local header range escapes archive: \(entry.path).")
+        }
         guard try Self.uint32LE(data, at: localOffset) == 0x0403_4B50 else {
             throw ASKHWPError.malformedContainer("Invalid local ZIP header for \(entry.path).")
         }
         let fileNameLength = Int(try Self.uint16LE(data, at: localOffset + 26))
         let extraLength = Int(try Self.uint16LE(data, at: localOffset + 28))
-        let payloadOffset = localOffset + 30 + fileNameLength + extraLength
-        let compressedSize = Int(entry.compressedSize)
-        guard payloadOffset >= 0, payloadOffset + compressedSize <= data.count else {
+        guard let payloadOffset = Self.rangeEnd(
+          offset: localOffset,
+          length: 30 + fileNameLength + extraLength,
+          limit: data.count
+        ), let compressedSize = Int(exactly: entry.compressedSize),
+        let payloadEnd = Self.rangeEnd(
+          offset: payloadOffset,
+          length: compressedSize,
+          limit: data.count
+        ) else {
             throw ASKHWPError.malformedContainer("ZIP entry data range escapes archive: \(entry.path).")
         }
 
-        let payload = Data(data[payloadOffset..<(payloadOffset + compressedSize)])
+        let payload = Data(data[payloadOffset..<payloadEnd])
         let inflated: Data
         switch entry.compressionMethod {
         case 0:
             inflated = payload
         case 8:
-            inflated = try ASKDeflateDecoder.inflateRaw(payload, maxOutputSize: Int(entry.uncompressedSize))
+            inflated = try ASKDeflateDecoder.inflateRaw(payload, maxOutputSize: uncompressedSize)
         default:
             throw ASKHWPError.unsupportedFeature("ZIP compression method \(entry.compressionMethod) is not supported for \(entry.path).")
         }
 
-        guard inflated.count == Int(entry.uncompressedSize) else {
+        guard inflated.count == uncompressedSize else {
             throw ASKHWPError.decompressionFailed("ZIP entry size mismatch for \(entry.path): expected \(entry.uncompressedSize), got \(inflated.count).")
         }
         let actualCRC = Self.crc32(inflated)
@@ -128,7 +142,7 @@ struct ASKZIPArchive {
         guard data.count >= 22 else {
             throw ASKHWPError.malformedContainer("ZIP file is too short to contain an end-of-central-directory record.")
         }
-        let minimumOffset = max(0, data.count - 65_557)
+        let minimumOffset = data.count > 65_557 ? data.count - 65_557 : 0
         var offset = data.count - 22
         while offset >= minimumOffset {
             if try uint32LE(data, at: offset) == 0x0605_4B50 {
@@ -137,9 +151,11 @@ struct ASKZIPArchive {
                 guard diskNumber == 0, centralDirectoryDisk == 0 else {
                     throw ASKHWPError.unsupportedFeature("Multi-disk ZIP archives are not supported.")
                 }
-                let size = Int(try uint32LE(data, at: offset + 12))
-                let centralOffset = Int(try uint32LE(data, at: offset + 16))
-                guard centralOffset >= 0, size >= 0, centralOffset + size <= data.count else {
+                let rawSize = try uint32LE(data, at: offset + 12)
+                let rawCentralOffset = try uint32LE(data, at: offset + 16)
+                guard let size = Int(exactly: rawSize),
+                      let centralOffset = Int(exactly: rawCentralOffset),
+                      Self.rangeEnd(offset: centralOffset, length: size, limit: data.count) != nil else {
                     throw ASKHWPError.malformedContainer("ZIP central directory range escapes archive.")
                 }
                 return (centralOffset, size)
@@ -152,8 +168,13 @@ struct ASKZIPArchive {
     private static func readCentralDirectory(data: Data, offset: Int, size: Int) throws -> [Entry] {
         var entries: [Entry] = []
         var cursorOffset = offset
-        let endOffset = offset + size
+        guard let endOffset = rangeEnd(offset: offset, length: size, limit: data.count) else {
+            throw ASKHWPError.malformedContainer("ZIP central directory range escapes archive.")
+        }
         while cursorOffset < endOffset {
+            guard rangeEnd(offset: cursorOffset, length: 46, limit: endOffset) != nil else {
+                throw ASKHWPError.malformedContainer("ZIP central directory header is truncated.")
+            }
             guard try uint32LE(data, at: cursorOffset) == 0x0201_4B50 else {
                 throw ASKHWPError.malformedContainer("Invalid ZIP central directory header at byte \(cursorOffset).")
             }
@@ -167,8 +188,7 @@ struct ASKZIPArchive {
             let commentLength = Int(try uint16LE(data, at: cursorOffset + 32))
             let localHeaderOffset = try uint32LE(data, at: cursorOffset + 42)
             let nameStart = cursorOffset + 46
-            let nameEnd = nameStart + fileNameLength
-            guard nameEnd <= endOffset else {
+            guard let nameEnd = rangeEnd(offset: nameStart, length: fileNameLength, limit: endOffset) else {
                 throw ASKHWPError.malformedContainer("ZIP file name escapes central directory.")
             }
             let nameBytes = Data(data[nameStart..<nameEnd])
@@ -182,10 +202,14 @@ struct ASKZIPArchive {
                 uncompressedSize: uncompressedSize,
                 localHeaderOffset: localHeaderOffset
             ))
-            cursorOffset = nameEnd + extraLength + commentLength
-            guard cursorOffset <= endOffset else {
+            guard let nextOffset = rangeEnd(
+              offset: nameEnd,
+              length: extraLength + commentLength,
+              limit: endOffset
+            ) else {
                 throw ASKHWPError.malformedContainer("ZIP central directory entry escapes central directory.")
             }
+            cursorOffset = nextOffset
         }
         return entries
     }
@@ -217,19 +241,25 @@ struct ASKZIPArchive {
     }
 
     private static func uint16LE(_ data: Data, at offset: Int) throws -> UInt16 {
-        guard offset >= 0, offset + 2 <= data.count else {
+        guard data.count >= 2, offset >= 0, offset <= data.count - 2 else {
             throw ASKHWPError.malformedContainer("Invalid UInt16 offset \(offset).")
         }
         return UInt16(data[offset]) | (UInt16(data[offset + 1]) << 8)
     }
 
     private static func uint32LE(_ data: Data, at offset: Int) throws -> UInt32 {
-        guard offset >= 0, offset + 4 <= data.count else {
+        guard data.count >= 4, offset >= 0, offset <= data.count - 4 else {
             throw ASKHWPError.malformedContainer("Invalid UInt32 offset \(offset).")
         }
         return UInt32(data[offset])
             | (UInt32(data[offset + 1]) << 8)
             | (UInt32(data[offset + 2]) << 16)
             | (UInt32(data[offset + 3]) << 24)
+    }
+
+    private static func rangeEnd(offset: Int, length: Int, limit: Int) -> Int? {
+        guard offset >= 0, length >= 0, limit >= 0,
+              offset <= limit, length <= limit - offset else { return nil }
+        return offset + length
     }
 }

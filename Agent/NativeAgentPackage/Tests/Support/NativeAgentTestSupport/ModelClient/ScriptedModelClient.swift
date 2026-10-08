@@ -2,6 +2,10 @@ import Foundation
 import NativeAgentDomain
 
 public actor ScriptedModelClient: ModelClient {
+    public nonisolated func stream(request: ModelRequest) -> AsyncThrowingStream<ModelEvent, any Error> {
+        scriptedModelEvents(descriptor: modelDescriptor) { try await self.generate(request: request) }
+    }
+
     public let providerID: String
     public nonisolated let modelDescriptor: ModelDescriptor?
     private var scriptedTurns: [ModelTurn]

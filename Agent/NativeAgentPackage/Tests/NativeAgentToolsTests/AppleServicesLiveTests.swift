@@ -46,6 +46,7 @@ struct AppleServicesLiveTests {
   }
 
   @Test(.enabled(if: ProcessInfo.processInfo.environment["NATIVEAGENT_LIVE_APPLE"] == "1"))
+  @available(macOS 26, *)
   func realMapKitSearch() async throws {
     let service = MapKitSearchToolService()
     let region = try MapSearchRegion(latitude: 48.8584, longitude: 2.2945,

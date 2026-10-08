@@ -183,7 +183,7 @@ private struct AcquisitionConnector: ModelProviderConnector {
     await modelsGate?.pause()
     return [access.runtime.modelDescriptor]
   }
-  func makeRuntime(modelID: String?) async -> ModelRuntime { access.runtime }
+
   func acquireRuntime(modelID: String?) async -> ModelRuntimeAccess {
     await probe.acquire()
     await acquireGate?.pause()
@@ -203,6 +203,10 @@ private func connector(
 }
 
 private struct AcquisitionClient: ModelClient {
+    nonisolated func stream(request: ModelRequest) -> AsyncThrowingStream<ModelEvent, any Error> {
+        scriptedModelEvents(descriptor: modelDescriptor) { try await self.generate(request: request) }
+    }
+
   let providerID = "test.acquisition"
   var modelDescriptor: ModelDescriptor? {
     .init(id: "model", providerID: providerID, capabilities: .textOnly)

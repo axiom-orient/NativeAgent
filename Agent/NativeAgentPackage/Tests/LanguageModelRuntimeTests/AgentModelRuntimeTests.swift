@@ -12,108 +12,104 @@ struct LanguageModelRuntimeTests {
   @Test func completedRuntimeTurnCommitsAtomically() async throws {
     let client = ScriptedRuntimeClient(mode: .completed("hello"))
     let runtime = try makeRuntime(client: client)
-    let (agent, storage, root) = try makeAgent(runtime: runtime)
-    defer { try? FileManager.default.removeItem(at: root) }
+    try await withAgent(runtime: runtime) { agent, storage in
+      let result = try await agent.run("hi", sessionID: "session-complete")
 
-    let result = try await agent.run("hi", sessionID: "session-complete")
-
-    #expect(result.output == "hello")
-    let persisted = try await storage.session(id: "session-complete")
-    #expect(persisted.messages.filter { $0.role == .assistant }.map(\.content) == ["hello"])
-    #expect(persisted.modelID == runtime.modelDescriptor.id)
-    #expect(persisted.providerID == runtime.providerID)
-    #expect(persisted.waitState == nil)
+      #expect(result.output == "hello")
+      let persisted = try await storage.session(id: "session-complete")
+      #expect(persisted.messages.filter { $0.role == .assistant }.map(\.content) == ["hello"])
+      #expect(persisted.modelID == runtime.modelDescriptor.id)
+      #expect(persisted.providerID == runtime.providerID)
+      #expect(persisted.waitState == nil)
+    }
   }
 
   @Test func sessionModelIdentityComesOnlyFromSelectedRuntime() async throws {
     let client = ScriptedRuntimeClient(mode: .completed("identity"))
     let runtime = try makeRuntime(client: client)
-    let (agent, storage, root) = try makeAgent(runtime: runtime)
-    defer { try? FileManager.default.removeItem(at: root) }
+    try await withAgent(runtime: runtime) { agent, storage in
+      _ = try await agent.run("hello", sessionID: "session-model-identity")
 
-    _ = try await agent.run("hello", sessionID: "session-model-identity")
-
-    let persisted = try await storage.session(id: "session-model-identity")
-    #expect(persisted.modelID == runtime.modelDescriptor.id)
-    #expect(persisted.providerID == runtime.providerID)
+      let persisted = try await storage.session(id: "session-model-identity")
+      #expect(persisted.modelID == runtime.modelDescriptor.id)
+      #expect(persisted.providerID == runtime.providerID)
+    }
   }
 
   @Test func partialTransportFailureNeverCommitsAssistantTurn() async throws {
     let client = ScriptedRuntimeClient(mode: .partialThenFailure)
     let runtime = try makeRuntime(client: client)
-    let (agent, storage, root) = try makeAgent(runtime: runtime)
-    defer { try? FileManager.default.removeItem(at: root) }
+    try await withAgent(runtime: runtime) { agent, storage in
+      await #expect(throws: ModelGenerationFailure.self) {
+        _ = try await agent.run("hi", sessionID: "session-partial")
+      }
 
-    await #expect(throws: ModelGenerationFailure.self) {
-      _ = try await agent.run("hi", sessionID: "session-partial")
+      let persisted = try await storage.session(id: "session-partial")
+      #expect(persisted.messages.allSatisfy { $0.role != .assistant })
+      #expect(persisted.waitState != nil)
     }
-
-    let persisted = try await storage.session(id: "session-partial")
-    #expect(persisted.messages.allSatisfy { $0.role != .assistant })
-    #expect(persisted.waitState != nil)
   }
 
   @Test func cancellationAfterProviderEntryRequiresReconciliation() async throws {
     let client = ScriptedRuntimeClient(mode: .untilCancelled)
     let runtime = try makeRuntime(client: client)
-    let (agent, storage, root) = try makeAgent(runtime: runtime)
-    defer { try? FileManager.default.removeItem(at: root) }
+    try await withAgent(runtime: runtime) { agent, storage in
+      let task = Task {
+        try await agent.run("hi", sessionID: "session-cancel")
+      }
+      await client.waitUntilStarted()
+      task.cancel()
+      await #expect(throws: CancellationError.self) {
+        _ = try await task.value
+      }
 
-    let task = Task {
-      try await agent.run("hi", sessionID: "session-cancel")
+      let persisted = try await storage.session(id: "session-cancel")
+      #expect(persisted.messages.allSatisfy { $0.role != .assistant })
+      #expect(persisted.status == .waiting)
+      #expect(persisted.waitState?.kind == .modelInvocation)
+      #expect(persisted.failure == nil)
     }
-    await client.waitUntilStarted()
-    task.cancel()
-    await #expect(throws: CancellationError.self) {
-      _ = try await task.value
-    }
-
-    let persisted = try await storage.session(id: "session-cancel")
-    #expect(persisted.messages.allSatisfy { $0.role != .assistant })
-    #expect(persisted.status == .waiting)
-    #expect(persisted.waitState?.kind == .modelInvocation)
-    #expect(persisted.failure == nil)
   }
 
   @Test(.timeLimit(.minutes(1)))
   func bufferedProducerCanOutliveCancellationWithoutAuthorizingRetry() async throws {
     let client = ScriptedRuntimeClient(mode: .afterRelease)
     let runtime = try makeRuntime(client: client)
-    let (agent, storage, root) = try makeAgent(runtime: runtime)
-    defer { try? FileManager.default.removeItem(at: root) }
-    let operation = Task { try await agent.run("hi", sessionID: "buffered-cancel") }
-    await client.waitUntilStarted()
-    operation.cancel()
-    await #expect(throws: CancellationError.self) { _ = try await operation.value }
-    let producerStillRunning = await !client.hasFinished
-    await client.releaseProducer()
-    await client.waitUntilFinished()
-    #expect(producerStillRunning)
-    // Cancellation of AsyncThrowingStream consumption is not proof that the
-    // buffered producer stopped. Its late terminal result must not be committed.
-    let snapshot = try await storage.session(id: "buffered-cancel")
-    #expect(snapshot.status == .waiting)
-    #expect(snapshot.waitState?.kind == .modelInvocation)
-    #expect(snapshot.messages.allSatisfy { $0.role != .assistant })
-    #expect(snapshot.failure == nil)
+    try await withAgent(runtime: runtime) { agent, storage in
+      let operation = Task { try await agent.run("hi", sessionID: "buffered-cancel") }
+      await client.waitUntilStarted()
+      operation.cancel()
+      await #expect(throws: CancellationError.self) { _ = try await operation.value }
+      let producerStillRunning = await !client.hasFinished
+      await client.releaseProducer()
+      await client.waitUntilFinished()
+      #expect(producerStillRunning)
+      // Cancellation of AsyncThrowingStream consumption is not proof that the
+      // buffered producer stopped. Its late terminal result must not be committed.
+      let snapshot = try await storage.session(id: "buffered-cancel")
+      #expect(snapshot.status == .waiting)
+      #expect(snapshot.waitState?.kind == .modelInvocation)
+      #expect(snapshot.messages.allSatisfy { $0.role != .assistant })
+      #expect(snapshot.failure == nil)
+    }
   }
 
   @Test func providerDeadlineAfterEntryRequiresReconciliation() async throws {
     let client = ScriptedRuntimeClient(mode: .deadline)
     let runtime = try makeRuntime(client: client)
-    let (agent, storage, root) = try makeAgent(runtime: runtime)
-    defer { try? FileManager.default.removeItem(at: root) }
-    do {
-      _ = try await agent.run("hi", sessionID: "session-deadline")
-      Issue.record("A provider deadline returned success.")
-    } catch let failure as ModelGenerationFailure {
-      #expect(failure.code == .deadlineExceeded)
+    try await withAgent(runtime: runtime) { agent, storage in
+      do {
+        _ = try await agent.run("hi", sessionID: "session-deadline")
+        Issue.record("A provider deadline returned success.")
+      } catch let failure as ModelGenerationFailure {
+        #expect(failure.code == .deadlineExceeded)
+      }
+      let snapshot = try await storage.session(id: "session-deadline")
+      #expect(snapshot.status == .waiting)
+      #expect(snapshot.waitState?.kind == .modelInvocation)
+      #expect(snapshot.messages.allSatisfy { $0.role != .assistant })
+      #expect(snapshot.failure == nil)
     }
-    let snapshot = try await storage.session(id: "session-deadline")
-    #expect(snapshot.status == .waiting)
-    #expect(snapshot.waitState?.kind == .modelInvocation)
-    #expect(snapshot.messages.allSatisfy { $0.role != .assistant })
-    #expect(snapshot.failure == nil)
   }
 
   private func makeRuntime(client: ScriptedRuntimeClient) throws -> ModelRuntime {
@@ -123,17 +119,32 @@ struct LanguageModelRuntimeTests {
     )
   }
 
-  private func makeAgent(
-    runtime: ModelRuntime
-  ) throws -> (Agent, AgentStorage, URL) {
+  private func withAgent(
+    runtime: ModelRuntime,
+    operation: (Agent, AgentStorage) async throws -> Void
+  ) async throws {
     let root = FileManager.default.temporaryDirectory.appending(
       path: "native-agent-runtime-test-\(UUID().uuidString)",
       directoryHint: .isDirectory
     )
+    defer {
+      if FileManager.default.fileExists(atPath: root.path) {
+        do { try FileManager.default.removeItem(at: root) }
+        catch { Issue.record(error, "Unable to remove the runtime test directory.") }
+      }
+    }
+    // Return from the owning scope before unlinking SQLite's database and WAL files.
+    try await withAgentResources(runtime: runtime, root: root, operation: operation)
+  }
+
+  private func withAgentResources(
+    runtime: ModelRuntime, root: URL,
+    operation: (Agent, AgentStorage) async throws -> Void
+  ) async throws {
     let claimStore = InMemorySessionExecutionClaimStore()
     let storage = AgentStorage.directory(root, executionClaimStore: claimStore)
     let agent = try Agent(modelRuntime: runtime, storage: storage)
-    return (agent, storage, root)
+    try await operation(agent, storage)
   }
 }
 

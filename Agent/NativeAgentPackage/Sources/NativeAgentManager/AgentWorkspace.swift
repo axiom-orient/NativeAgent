@@ -35,15 +35,19 @@ actor AgentWorkspace {
   func definitions() throws -> [AgentDefinition] {
     let root = agentsRootURL
     guard fileManager.fileExists(atPath: root.path) else { return [] }
-    return try fileManager.contentsOfDirectory(
+    let entries = try fileManager.contentsOfDirectory(
       at: root,
       includingPropertiesForKeys: [.isDirectoryKey],
       options: [.skipsHiddenFiles]
     )
-    .filter { (try? $0.resourceValues(forKeys: [.isDirectoryKey]).isDirectory) == true }
-    .filter { !$0.lastPathComponent.hasPrefix(".creating-") }
-    .map { try loadDefinition(id: $0.lastPathComponent) }
-    .sorted { $0.id < $1.id }
+    var definitions: [AgentDefinition] = []
+    for entry in entries where !entry.lastPathComponent.hasPrefix(".creating-") {
+      guard try entry.resourceValues(forKeys: [.isDirectoryKey]).isDirectory == true else {
+        continue
+      }
+      definitions.append(try loadDefinition(id: entry.lastPathComponent))
+    }
+    return definitions.sorted { $0.id < $1.id }
   }
 
   func create(
@@ -105,8 +109,17 @@ actor AgentWorkspace {
         try fileManager.moveItem(at: staging, to: finalURL)
         return definition
       } catch {
-        try? fileManager.removeItem(at: staging)
-        throw error
+        let creationError = error
+        if fileManager.fileExists(atPath: staging.path) {
+          do {
+            try fileManager.removeItem(at: staging)
+          } catch {
+            throw AgentError.persistenceFailure(
+              "Agent creation failed: \(creationError); staging cleanup failed: \(error)"
+            )
+          }
+        }
+        throw creationError
       }
     }
   }
@@ -178,14 +191,30 @@ actor AgentWorkspace {
     _ = try loadDefinition(id: agentID)
     let url = agentRootURL(id: agentID).appendingPathComponent("RESPONSE.json")
     let handle = try FileHandle(forReadingFrom: url)
-    defer { try? handle.close() }
-    let data = try handle.read(upToCount: 16 * 1_024 + 1) ?? Data()
-    guard data.count <= 16 * 1_024 else {
-      throw ManagedAgentError.documentTooLarge("RESPONSE.json")
+    var closeAttempted = false
+    do {
+      let data = try handle.read(upToCount: 16 * 1_024 + 1) ?? Data()
+      guard data.count <= 16 * 1_024 else {
+        throw ManagedAgentError.documentTooLarge("RESPONSE.json")
+      }
+      let response = try JSONDecoder().decode(AgentResponseConfiguration.self, from: data)
+      try response.validate()
+      closeAttempted = true
+      try handle.close()
+      return response
+    } catch {
+      let primary = error
+      guard !closeAttempted else { throw primary }
+      closeAttempted = true
+      do {
+        try handle.close()
+      } catch {
+        throw AgentError.persistenceFailure(
+          "Reading RESPONSE.json failed: \(primary); file descriptor cleanup failed: \(error)"
+        )
+      }
+      throw primary
     }
-    let response = try JSONDecoder().decode(AgentResponseConfiguration.self, from: data)
-    try response.validate()
-    return response
   }
 
   func setResponseConfiguration(agentID: String, _ value: AgentResponseConfiguration) throws {

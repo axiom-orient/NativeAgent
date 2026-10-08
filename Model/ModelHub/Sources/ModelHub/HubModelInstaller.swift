@@ -149,12 +149,12 @@ public struct HubModelInstaller: Sendable {
   }
 
   /// Installs the uniquely compatible backend and immediately creates its selected runtime.
-  /// The returned runtime is owned by the caller and must be shut down after use.
+  /// The caller releases the returned access; borrowed runtime shutdown stays with its host.
   public func installAndLoad(
     from address: String,
     using registry: ModelProviderRegistry,
     progress: (@Sendable (HubModelDownloadProgress) -> Void)? = nil
-  ) async throws -> (model: ModelDescriptor, runtime: ModelRuntime) {
+  ) async throws -> (model: ModelDescriptor, access: ModelRuntimeAccess) {
     let selection = try await uniqueCandidate(for: address)
     let registeredProviders = await registry.providers()
     guard registeredProviders.contains(where: { $0.id == selection.providerID }) else {
@@ -162,8 +162,8 @@ public struct HubModelInstaller: Sendable {
     }
     let model = try await install(selection, progress: progress)
     let modelSelection = try ModelProviderSelection(providerID: model.providerID, modelID: model.id)
-    let runtime = try await registry.makeRuntime(modelSelection)
-    return (model, runtime)
+    let access = try await registry.acquireRuntime(modelSelection)
+    return (model, access)
   }
 
   private func uniqueCandidate(for address: String) async throws -> HubModelImportCandidate {

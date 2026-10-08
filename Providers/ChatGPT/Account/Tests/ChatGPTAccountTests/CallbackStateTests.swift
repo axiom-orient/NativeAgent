@@ -117,7 +117,7 @@ func callbackDrainIsIndependentOfReceiptOrder(order: [Int]) {
   #expect({ state.start() }())
   #expect({ state.ready() }())
   var connection: CallbackConnection? = CallbackConnection()
-  weak var probe = connection
+  weak let probe = connection
   #expect({ state.track(connection!) }())
   let operation = UUID()
   #expect({ state.beginIO(on: connection!, id: operation) }())

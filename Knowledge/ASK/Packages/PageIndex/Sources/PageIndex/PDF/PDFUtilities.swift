@@ -89,6 +89,7 @@ public struct SnapshotPDFPageExtractor: PDFPageExtracting, Sendable {
 
 public enum PDFPhysicalIndexUtilities {
     public static func findTOCPages(startPageIndex: Int, detectorResults: [String], tocCheckPageNum: Int) -> [Int] {
+        guard startPageIndex >= 0 else { return [] }
         var lastPageIsYes = false
         var tocPageList: [Int] = []
         var index = startPageIndex
@@ -122,11 +123,16 @@ public enum PDFPhysicalIndexUtilities {
         var differences: [Int] = []
         for pair in pairs {
             guard let physicalIndex = pair.physicalIndex, let pageNumber = pair.page else { continue }
-            differences.append(physicalIndex - pageNumber)
+            let (difference, overflow) = physicalIndex.subtractingReportingOverflow(pageNumber)
+            guard !overflow else { continue }
+            differences.append(difference)
         }
         guard !differences.isEmpty else { return nil }
         var counts: [Int: Int] = [:]
-        for diff in differences { counts[diff, default: 0] += 1 }
+        for diff in differences {
+            let count = counts[diff, default: 0]
+            counts[diff] = count == Int.max ? Int.max : count + 1
+        }
         return counts.max(by: { $0.value < $1.value })?.key
     }
 
@@ -134,7 +140,8 @@ public enum PDFPhysicalIndexUtilities {
         data.map {
             var copy = $0
             if let page = copy.page {
-                copy.physicalIndex = page + offset
+                let (physicalIndex, overflow) = page.addingReportingOverflow(offset)
+                copy.physicalIndex = overflow ? nil : physicalIndex
                 copy.page = nil
             }
             return copy
@@ -142,23 +149,45 @@ public enum PDFPhysicalIndexUtilities {
     }
 
     public static func pageListToGroupText(pageContents: [String], tokenLengths: [Int], maxTokens: Int = 20_000, overlapPage: Int = 1) -> [String] {
-        let tokenCount = tokenLengths.reduce(0, +)
+        guard pageContents.count == tokenLengths.count, maxTokens > 0, overlapPage >= 0,
+              tokenLengths.allSatisfy({ $0 >= 0 }) else { return [] }
+
+        var tokenCount = 0
+        for tokenLength in tokenLengths {
+            let (nextCount, overflow) = tokenCount.addingReportingOverflow(tokenLength)
+            guard !overflow else { return [] }
+            tokenCount = nextCount
+        }
         if tokenCount <= maxTokens { return [pageContents.joined()] }
         var subsets: [String] = []
         var currentSubset: [String] = []
         var currentTokenCount = 0
-        let expectedPartsNum = Int(ceil(Double(tokenCount) / Double(maxTokens)))
-        let averageTokensPerPart = Int(ceil(((Double(tokenCount) / Double(expectedPartsNum)) + Double(maxTokens)) / 2.0))
+        let expectedPartsNum = tokenCount / maxTokens + (tokenCount % maxTokens == 0 ? 0 : 1)
+        let averageDouble = ((Double(tokenCount) / Double(expectedPartsNum)) + Double(maxTokens)) / 2.0
+        let averageTokensPerPart: Int
+        if !averageDouble.isFinite || averageDouble >= Double(Int.max) {
+            averageTokensPerPart = Int.max
+        } else {
+            averageTokensPerPart = max(1, Int(ceil(averageDouble)))
+        }
         for (index, pair) in zip(pageContents.indices, zip(pageContents, tokenLengths)) {
             let (pageContent, pageTokens) = pair
-            if currentTokenCount + pageTokens > averageTokensPerPart {
+            let (nextTokenCount, tokenOverflow) = currentTokenCount.addingReportingOverflow(pageTokens)
+            if (tokenOverflow || nextTokenCount > averageTokensPerPart) && !currentSubset.isEmpty {
                 subsets.append(currentSubset.joined())
-                let overlapStart = max(index - overlapPage, 0)
+                let overlapStart = index > overlapPage ? index - overlapPage : 0
                 currentSubset = Array(pageContents[overlapStart..<index])
-                currentTokenCount = tokenLengths[overlapStart..<index].reduce(0, +)
+                currentTokenCount = 0
+                for overlapTokens in tokenLengths[overlapStart..<index] {
+                    let (nextCount, overflow) = currentTokenCount.addingReportingOverflow(overlapTokens)
+                    guard !overflow else { return [] }
+                    currentTokenCount = nextCount
+                }
             }
             currentSubset.append(pageContent)
-            currentTokenCount += pageTokens
+            let (updatedTokenCount, overflow) = currentTokenCount.addingReportingOverflow(pageTokens)
+            guard !overflow else { return [] }
+            currentTokenCount = updatedTokenCount
         }
         if !currentSubset.isEmpty { subsets.append(currentSubset.joined()) }
         return subsets
@@ -175,7 +204,22 @@ public enum PDFPhysicalIndexUtilities {
     }
 
     public static func validateAndTruncatePhysicalIndices(_ tocWithPageNumber: [FlatTOCEntry], pageListLength: Int, startIndex: Int = 1) -> [FlatTOCEntry] {
-        let maxAllowedPage = pageListLength + startIndex - 1
+        guard pageListLength >= 0 else {
+            return tocWithPageNumber.map { entry in
+                var copy = entry
+                copy.physicalIndex = nil
+                return copy
+            }
+        }
+        let (startOffset, startUnderflow) = startIndex.subtractingReportingOverflow(1)
+        let (maxAllowedPage, overflow) = pageListLength.addingReportingOverflow(startOffset)
+        guard !startUnderflow, !overflow else {
+            return tocWithPageNumber.map { entry in
+                var copy = entry
+                copy.physicalIndex = nil
+                return copy
+            }
+        }
         return tocWithPageNumber.map {
             var copy = $0
             if let originalIndex = copy.physicalIndex, originalIndex > maxAllowedPage {
@@ -192,7 +236,8 @@ public enum PDFPhysicalIndexUtilities {
             if index < mutable.count - 1 {
                 let next = mutable[index + 1]
                 if next.appearStart == .yes, let nextPhysicalIndex = next.physicalIndex {
-                    mutable[index].endIndex = nextPhysicalIndex - 1
+                    let (endIndex, overflow) = nextPhysicalIndex.subtractingReportingOverflow(1)
+                    mutable[index].endIndex = overflow ? nil : endIndex
                 } else {
                     mutable[index].endIndex = next.physicalIndex
                 }

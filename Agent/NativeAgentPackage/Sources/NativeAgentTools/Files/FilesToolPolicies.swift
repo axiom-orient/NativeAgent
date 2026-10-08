@@ -87,7 +87,18 @@ struct FilesSandboxPathResolver: Sendable {
             guard fileManager.fileExists(atPath: url.path) == false else {
                 throw error
             }
-            return (try? fileManager.destinationOfSymbolicLink(atPath: url.path)) != nil
+            do {
+                _ = try fileManager.destinationOfSymbolicLink(atPath: url.path)
+                return true
+            } catch let linkError {
+                let nsError = linkError as NSError
+                guard nsError.domain == NSCocoaErrorDomain,
+                      (nsError.code == CocoaError.Code.fileNoSuchFile.rawValue
+                        || nsError.code == CocoaError.Code.fileReadNoSuchFile.rawValue) else {
+                    throw linkError
+                }
+                return false
+            }
         }
     }
 }

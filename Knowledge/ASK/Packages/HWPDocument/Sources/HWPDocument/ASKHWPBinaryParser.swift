@@ -47,7 +47,14 @@ public struct ASKHWPBinaryParser: Sendable {
         }
 
         var sections: [ASKHWPSection] = []
-        var decodedPayloadByteCount = binaryObjects.values.reduce(0) { $0 + ($1.data?.count ?? 0) }
+        var decodedPayloadByteCount = 0
+        for object in binaryObjects.values {
+            let (next, overflowed) = decodedPayloadByteCount.addingReportingOverflow(object.data?.count ?? 0)
+            guard !overflowed else {
+                throw ASKHWPError.unsupportedFeature("HWP decoded payload size overflowed.")
+            }
+            decodedPayloadByteCount = next
+        }
         try limits.validateDecodedTotal(decodedPayloadByteCount)
         for (sectionIndex, path) in sectionPaths.enumerated() {
             var sectionData = try container.stream(named: path)

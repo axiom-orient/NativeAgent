@@ -303,7 +303,7 @@ struct AgentResponseTests {
     let connector = ClosureModelProviderConnector(
       descriptor: try .init(id: descriptor.providerID, displayName: "Test", kind: .onDevice),
       availability: { .available }, models: { [descriptor] },
-      makeRuntime: { _ in try makeTestModelRuntime(client) })
+      acquireRuntime: { _ in .owned(try makeTestModelRuntime(client)) })
     let manager = AgentManager(dataStore: .directory(root), providers: try .init([connector]))
     _ = try await manager.createAgent(
       id: "guide", name: "Guide",

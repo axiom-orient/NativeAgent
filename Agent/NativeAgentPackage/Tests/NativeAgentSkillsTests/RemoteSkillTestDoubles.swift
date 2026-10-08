@@ -1,5 +1,4 @@
 import Foundation
-import Synchronization
 import Testing
 
 @testable import NativeAgentDomain
@@ -62,12 +61,15 @@ final class StaticHTTPURLProtocol: URLProtocol {
         }
         let key = url.absoluteString
         let response = Self.state.response(for: key)
-        let http = HTTPURLResponse(
+        guard let http = HTTPURLResponse(
             url: url,
             statusCode: response.status,
             httpVersion: nil,
             headerFields: ["Content-Type": "application/json"]
-        )!
+        ) else {
+            client?.urlProtocol(self, didFailWithError: URLError(.badURL))
+            return
+        }
         client?.urlProtocol(self, didReceive: http, cacheStoragePolicy: .notAllowed)
         client?.urlProtocol(self, didLoad: response.data)
         client?.urlProtocolDidFinishLoading(self)
@@ -76,23 +78,25 @@ final class StaticHTTPURLProtocol: URLProtocol {
     override func stopLoading() {}
 }
 
-final class StaticHTTPURLProtocolState: Sendable {
-    private let storage = Mutex(StaticHTTPURLProtocolStorage())
+// Every access to storage is protected by the lock, including URLProtocol callbacks.
+final class StaticHTTPURLProtocolState: @unchecked Sendable {
+    private let lock = NSLock()
+    private var storage = StaticHTTPURLProtocolStorage()
 
     func configure(responses newResponses: [String: (status: Int, data: Data)]) {
-        storage.withLock { state in
-            state.responses.merge(newResponses) { _, new in new }
+        lock.withLock {
+            storage.responses.merge(newResponses) { _, new in new }
         }
     }
 
     func requestedURLs() -> [String] {
-        storage.withLock { $0.requested }
+        lock.withLock { storage.requested }
     }
 
     func response(for url: String) -> (status: Int, data: Data) {
-        storage.withLock { state in
-            state.requested.append(url)
-            return state.responses[url] ?? (404, Data())
+        lock.withLock {
+            storage.requested.append(url)
+            return storage.responses[url] ?? (404, Data())
         }
     }
 }

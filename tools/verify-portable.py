@@ -7,16 +7,15 @@ import json
 import os
 import platform
 import re
-import signal
 import subprocess
 import tempfile
 
-from apple_package_runner import uses_xcode_ios_runner, xcodebuild_command
+from apple_package_runner import run_package_command, uses_xcode_ios_runner, xcodebuild_command
 
 ROOT = Path(__file__).resolve().parents[1]
-OUT = ROOT / 'docs/verification/current'
+OUT = Path(os.environ.get('NATIVEAI_VERIFICATION_OUTPUT', ROOT / 'docs/verification/current')).resolve()
 JOBS = 4
-TIMEOUT_SECONDS = 240
+TIMEOUT_SECONDS = 600 if uses_xcode_ios_runner() else 240
 CASES = [
     ('model-core', 'test', 'Model/LanguageModelCore', None, 'Core value contracts; no provider I/O'),
     ('model-runtime', 'test', 'Model/LanguageModelRuntime', None, 'Runtime/session/executor contracts with controlled provider fixtures'),
@@ -27,7 +26,7 @@ CASES = [
     ('chatgpt-account', 'test', 'Providers/ChatGPT/Account', None, 'Actual account lifecycle; injected credential/authorization ports, no native login proof'),
     ('chatgpt-text', 'test', 'Providers/ChatGPT/Text', None, 'Actual Text + Account composition; controlled transport, no live subscription proof'),
     ('chatgpt-image', 'test', 'Providers/ChatGPT/Image', None, 'Actual Image + Account composition; completion ownership, not pixel/provider quality'),
-    ('chatgpt-text-provider', 'build', 'Providers/ChatGPT/TextProvider', None, 'Actual standalone provider binding build; no live inference'),
+    ('chatgpt-text-provider', 'test', 'Providers/ChatGPT/TextProvider', None, 'Actual standalone provider binding/admission tests; no live inference'),
 ]
 
 def hashes(package):
@@ -49,7 +48,7 @@ def run(scratch):
     for name, verb, relative, target, scope in CASES:
         package = ROOT / relative
         if uses_xcode_ios_runner():
-            command = xcodebuild_command(package, verb, scratch / name)
+            command = xcodebuild_command(package, verb, scratch / name, target)
         else:
             command = ['swift', verb, '--package-path', str(package), '--scratch-path',
                        str(scratch / name), '-j', str(JOBS), '-Xswiftc', '-warnings-as-errors']
@@ -57,22 +56,11 @@ def run(scratch):
                 command += ['--target', target]
         source_hashes = hashes(ROOT / relative)
         with (OUT / (name + '.log')).open('w') as log:
-            with subprocess.Popen(command, stdout=log, stderr=subprocess.STDOUT, start_new_session=True) as process:
-                try:
-                    code = process.wait(timeout=TIMEOUT_SECONDS)
-                except (subprocess.TimeoutExpired, KeyboardInterrupt):
-                    os.killpg(process.pid, signal.SIGTERM)
-                    try:
-                        process.wait(timeout=10)
-                    except subprocess.TimeoutExpired:
-                        os.killpg(process.pid, signal.SIGKILL)
-                        process.wait()
-                    code = 124
-                    log.write('\nInterrupted/timed out: owned compiler group was terminated.\n')
+            code = run_package_command(command, package, log, timeout=TIMEOUT_SECONDS)
         text = (OUT / (name + '.log')).read_text()
         tests = re.findall(r'Test run with (\d+) tests? .*passed', text)
         entry = {'name': name, 'status': 'PASS' if code == 0 else 'FAIL', 'exitCode': code,
-                 'command': command, 'scope': scope, 'swiftTestingCount': int(tests[-1]) if tests else None,
+                 'command': command, 'cwd': str(package), 'scope': scope, 'swiftTestingCount': int(tests[-1]) if tests else None,
                  'sourceHashes': source_hashes}
         results.append(entry)
         print(name, entry['status'], entry['swiftTestingCount'], flush=True)

@@ -36,6 +36,14 @@ def distribution_errors(root, leaf, target):
     return errors
 
 
+def binary_identity_errors(root, leaf):
+    root_binary = [target for target in root['targets'] if target['type'] == 'binary' and target['name'] == 'LeapSDK']
+    leaf_binary = [target for target in leaf['targets'] if target['type'] == 'binary' and target['name'] == 'LeapSDK']
+    if len(root_binary) != 1 or len(leaf_binary) != 1:
+        return ['LeapSDK requires one declaration per distribution graph']
+    return [f'LeapSDK {key} differs from the canonical leaf' for key in ['url', 'checksum']
+            if root_binary[0].get(key) != leaf_binary[0].get(key)]
+
 def dependency_names(target):
     return {next(iter(edge.values()))[0] for edge in target['dependencies']}
 
@@ -63,6 +71,7 @@ class DistributionManifestTests(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
         cls.root = dump(ROOT)
+        cls.binary_leaf = dump(ROOT / 'Providers/LEAP/Packages/NativeAILeapSDK')
         cls.leap_owner = dump(ROOT / "Providers/LEAP/Packages/NativeAILeapSDK")
         cls.leaves = {
             'MarkdownSyntax': dump(ROOT / 'Knowledge/ASK/Packages/DocumentCore'),
@@ -77,6 +86,19 @@ class DistributionManifestTests(unittest.TestCase):
             'AppleSystemModelProvider': dump(ROOT / 'Providers/AppleSystemModel'),
             'ChatGPTImageCapability': dump(ROOT / 'Agent/NativeAgentPackage/Packages/ChatGPTImageCapability'),
         }
+    def test_binary_distribution_preserves_leaf_url_and_checksum(self):
+        self.assertEqual(binary_identity_errors(self.root, self.binary_leaf), [])
+
+    def test_changed_binary_url_checksum_or_duplicate_is_rejected(self):
+        for key in ['url', 'checksum']:
+            mutant = copy.deepcopy(self.root)
+            binary = next(target for target in mutant['targets'] if target['name'] == 'LeapSDK')
+            binary[key] += '-changed'
+            self.assertTrue(binary_identity_errors(mutant, self.binary_leaf))
+        mutant = copy.deepcopy(self.root)
+        binary = next(target for target in mutant['targets'] if target['name'] == 'LeapSDK')
+        mutant['targets'].append(copy.deepcopy(binary))
+        self.assertTrue(binary_identity_errors(mutant, self.binary_leaf))
 
     def test_external_edges_preserve_leaf_product_url_and_version(self):
         for target, leaf in self.leaves.items():

@@ -264,13 +264,14 @@ struct LeapHTTPDownloader: LeapDownloading {
 }
 
 #if os(iOS)
-private struct LeapBackgroundTransferRecord: Codable {
+struct LeapBackgroundTransferRecord: Codable, Sendable {
   // Metadata only identifies an active task after a process restart.  It is
   // deliberately not the authority for a completed response: a process can
   // die after the validated payload rename and before this tiny JSON write.
-  enum State: String, Codable { case inFlight }
+  enum State: String, Codable, Sendable { case inFlight }
 
   let key: String
+  let taskIdentifier: Int
   let requestURL: String
   let expectedByteCount: UInt64
   var state: State
@@ -282,22 +283,26 @@ private struct LeapBackgroundTransferRecord: Codable {
 /// persisting a completed *verified-by-size* file here lets a later explicit
 /// `prepare` move it into a new staging transaction, where ArtifactStore still
 /// performs the authoritative digest verification and atomic publish.
-private final class LeapBackgroundDownloadCache: @unchecked Sendable {
-  private static let directoryName = "LEAPProvider.background-downloads.v1"
+final class LeapBackgroundDownloadCache: @unchecked Sendable {
+  private static let directoryName = "LEAPProvider.background-downloads.v2"
   private static let maximumCompletedTransfers = 4
 
   private let fileManager = FileManager.default
   private let directoryURL: URL
   private let lock = NSLock()
 
-  init() throws {
-    let caches = try fileManager.url(
-      for: .cachesDirectory,
-      in: .userDomainMask,
-      appropriateFor: nil,
-      create: true)
-    directoryURL = caches.appending(path: Self.directoryName, directoryHint: .isDirectory)
-    try fileManager.createDirectory(at: directoryURL, withIntermediateDirectories: true)
+  init(directoryURL: URL? = nil) throws {
+    if let directoryURL {
+      self.directoryURL = directoryURL
+    } else {
+      let caches = try fileManager.url(
+        for: .cachesDirectory,
+        in: .userDomainMask,
+        appropriateFor: nil,
+        create: true)
+      self.directoryURL = caches.appending(path: Self.directoryName, directoryHint: .isDirectory)
+    }
+    try fileManager.createDirectory(at: self.directoryURL, withIntermediateDirectories: true)
   }
 
   func key(for request: URLRequest, expectedByteCount: UInt64) throws -> String {
@@ -350,24 +355,25 @@ private final class LeapBackgroundDownloadCache: @unchecked Sendable {
     return false
   }
 
-  func hasActiveTransfer(
+  func activeTransfer(
     key: String,
     request: URLRequest,
     expectedByteCount: UInt64
-  ) throws -> Bool {
+  ) throws -> LeapBackgroundTransferRecord? {
     lock.lock()
     defer { lock.unlock() }
     if isExpectedFile(payloadURL(for: key), expectedByteCount: expectedByteCount) {
-      return false
+      return nil
     }
     guard let record = try read(key), recordMatches(record, request, expectedByteCount) else {
-      return false
+      return nil
     }
-    return record.state == .inFlight
+    return record.state == .inFlight ? record : nil
   }
 
   func begin(
     key: String,
+    taskIdentifier: Int,
     request: URLRequest,
     expectedByteCount: UInt64
   ) throws {
@@ -389,6 +395,7 @@ private final class LeapBackgroundDownloadCache: @unchecked Sendable {
     try write(
       .init(
         key: key,
+        taskIdentifier: taskIdentifier,
         requestURL: request.url!.absoluteString,
         expectedByteCount: expectedByteCount,
         state: .inFlight,
@@ -397,13 +404,15 @@ private final class LeapBackgroundDownloadCache: @unchecked Sendable {
 
   func complete(
     key: String,
+    taskIdentifier: Int,
     statusCode: Int?,
     expectedByteCount: UInt64,
     temporaryURL: URL
   ) throws {
     lock.lock()
     defer { lock.unlock() }
-    guard let record = try read(key), record.expectedByteCount == expectedByteCount,
+    guard let record = try read(key), record.taskIdentifier == taskIdentifier,
+      record.expectedByteCount == expectedByteCount,
       record.state == .inFlight
     else { throw LeapError.nativeFailure }
     do {
@@ -421,9 +430,12 @@ private final class LeapBackgroundDownloadCache: @unchecked Sendable {
     try trimCompleted(preserving: key)
   }
 
-  func remove(_ key: String) throws {
+  /// A URL/size key can already belong to a replacement task when an older
+  /// task's cancellation or terminal callback arrives.
+  func remove(_ key: String, taskIdentifier: Int) throws {
     lock.lock()
     defer { lock.unlock() }
+    guard try read(key)?.taskIdentifier == taskIdentifier else { return }
     try removeLocked(key)
   }
 
@@ -468,20 +480,14 @@ private final class LeapBackgroundDownloadCache: @unchecked Sendable {
     guard fileManager.fileExists(atPath: url.path) else { return nil }
     do {
       let record = try JSONDecoder().decode(LeapBackgroundTransferRecord.self, from: Data(contentsOf: url))
-      guard record.key == key, isSafeKey(record.key) else { throw LeapError.nativeFailure }
+      guard record.key == key, isSafeKey(record.key), record.taskIdentifier > 0,
+        record.updatedAt.isFinite
+      else { throw LeapError.nativeFailure }
       return record
     } catch {
-      if fileManager.fileExists(atPath: url.path) {
-        do {
-          try fileManager.removeItem(at: url)
-        } catch {
-          throw LeapError.nativeFailure
-        }
-      }
-      // Metadata is advisory recovery state.  A malformed record cannot
-      // publish anything; discard it so a later explicit prepare can use an
-      // exact payload or create a new task.
-      return nil
+      // Invalid current metadata is an explicit failure. No adoption, migration,
+      // automatic restart, or deletion of an unproven owner's files occurs.
+      throw LeapError.nativeFailure
     }
   }
 
@@ -543,7 +549,7 @@ public enum LeapBackgroundDownloads {
   }
 }
 
-private final class LeapBackgroundDownloadCoordinator: NSObject, URLSessionDownloadDelegate,
+final class LeapBackgroundDownloadCoordinator: NSObject, URLSessionDownloadDelegate,
   @unchecked Sendable
 {
   static let shared = LeapBackgroundDownloadCoordinator()
@@ -552,7 +558,7 @@ private final class LeapBackgroundDownloadCoordinator: NSObject, URLSessionDownl
     guard let bundleIdentifier = Bundle.main.bundleIdentifier, !bundleIdentifier.isEmpty else {
       return nil
     }
-    return bundleIdentifier + ".nativeagent.leap.downloads.v1"
+    return bundleIdentifier + ".nativeagent.leap.downloads.v2"
   }
 
   private struct Pending {
@@ -590,6 +596,11 @@ private final class LeapBackgroundDownloadCoordinator: NSObject, URLSessionDownl
 
   private override init() { super.init() }
 
+  init(cache: LeapBackgroundDownloadCache) {
+    downloadCache = cache
+    super.init()
+  }
+
   func download(
     request: URLRequest,
     expectedByteCount: UInt64,
@@ -610,17 +621,14 @@ private final class LeapBackgroundDownloadCoordinator: NSObject, URLSessionDownl
       return
     }
 
-    if try cache.hasActiveTransfer(key: key, request: request, expectedByteCount: expectedByteCount) {
-      if await hasSessionTask(withKey: key, in: session) { throw LeapError.busy }
-      // A process can die after the OS has discarded a failed task but before
-      // its error delegate runs.  No payload exists, so a new explicit prepare
-      // starts a new background task rather than pretending this one resumed.
-      try cache.remove(key)
-    }
+    try await reconcileActiveTransfer(
+      key: key, request: request, expectedByteCount: expectedByteCount, in: session)
 
     let task = session.downloadTask(with: request)
     task.taskDescription = key
-    try cache.begin(key: key, request: request, expectedByteCount: expectedByteCount)
+    try cache.begin(
+      key: key, taskIdentifier: task.taskIdentifier, request: request,
+      expectedByteCount: expectedByteCount)
     try await awaitTask(
       task,
       key: key,
@@ -694,7 +702,7 @@ private final class LeapBackgroundDownloadCoordinator: NSObject, URLSessionDownl
       return
     }
     finishOrphan(
-      taskDescription: downloadTask.taskDescription,
+      downloadTask: downloadTask,
       statusCode: (downloadTask.response as? HTTPURLResponse)?.statusCode,
       location: location)
   }
@@ -715,14 +723,14 @@ private final class LeapBackgroundDownloadCoordinator: NSObject, URLSessionDownl
       task.cancel()
       let result: Result<Void, any Error>
       do {
-        try cacheStore().remove(record.key)
+        try cacheStore().remove(record.key, taskIdentifier: task.taskIdentifier)
         result = .failure(error)
       } catch {
         result = .failure(LeapError.nativeFailure)
       }
       record.continuation.resume(with: result)
-    } else if !isFinishing {
-      failOrphan(taskDescription: task.taskDescription)
+    } else if !isFinishing, let downloadTask = task as? URLSessionDownloadTask {
+      failOrphan(downloadTask: downloadTask)
     }
   }
 
@@ -767,7 +775,7 @@ private final class LeapBackgroundDownloadCoordinator: NSObject, URLSessionDownl
         lock.unlock()
         if cancelledBeforeRegistration {
           task.cancel()
-          do { try cacheStore().remove(key) } catch {
+          do { try cacheStore().remove(key, taskIdentifier: taskIdentifier) } catch {
             continuation.resume(throwing: LeapError.nativeFailure)
             return
           }
@@ -792,6 +800,7 @@ private final class LeapBackgroundDownloadCoordinator: NSObject, URLSessionDownl
       let cache = try cacheStore()
       try cache.complete(
         key: record.key,
+        taskIdentifier: taskIdentifier,
         statusCode: statusCode,
         expectedByteCount: record.expectedByteCount,
         temporaryURL: location)
@@ -818,19 +827,24 @@ private final class LeapBackgroundDownloadCoordinator: NSObject, URLSessionDownl
     record.continuation.resume(with: result)
   }
 
-  private func finishOrphan(taskDescription: String?, statusCode: Int?, location: URL) {
-    guard let key = taskDescription, isSafeKey(key) else { return }
+  func finishOrphan(
+    downloadTask: URLSessionDownloadTask, statusCode: Int?, location: URL
+  ) {
+    guard let key = downloadTask.taskDescription, isSafeKey(key) else { return }
+    let taskIdentifier = downloadTask.taskIdentifier
     do {
       let cache = try cacheStore()
       guard let record = try cache.record(for: key), record.state == .inFlight else { return }
+      guard record.taskIdentifier == taskIdentifier else { return }
       try cache.complete(
         key: key,
+        taskIdentifier: taskIdentifier,
         statusCode: statusCode,
         expectedByteCount: record.expectedByteCount,
         temporaryURL: location)
     } catch {
       do {
-        try cacheStore().remove(key)
+        try cacheStore().remove(key, taskIdentifier: taskIdentifier)
       } catch {
         // No caller continuation remains after an orphan callback.  Leaving
         // its metadata untrusted only forces a later explicit prepare to
@@ -839,12 +853,12 @@ private final class LeapBackgroundDownloadCoordinator: NSObject, URLSessionDownl
     }
   }
 
-  private func failOrphan(taskDescription: String?) {
-    guard let key = taskDescription, isSafeKey(key) else { return }
+  private func failOrphan(downloadTask: URLSessionDownloadTask) {
+    guard let key = downloadTask.taskDescription, isSafeKey(key) else { return }
     do {
       let cache = try cacheStore()
       guard let record = try cache.record(for: key), record.state == .inFlight else { return }
-      try cache.remove(key)
+      try cache.remove(key, taskIdentifier: downloadTask.taskIdentifier)
     } catch {}
   }
 
@@ -862,7 +876,7 @@ private final class LeapBackgroundDownloadCoordinator: NSObject, URLSessionDownl
     if record.gate.requestCancellation() {
       let result: Result<Void, any Error>
       do {
-        try cacheStore().remove(record.key)
+        try cacheStore().remove(record.key, taskIdentifier: taskIdentifier)
         result = .failure(CancellationError())
       } catch {
         result = .failure(LeapError.nativeFailure)
@@ -871,12 +885,30 @@ private final class LeapBackgroundDownloadCoordinator: NSObject, URLSessionDownl
     }
   }
 
-  private func hasSessionTask(withKey key: String, in session: URLSession) async -> Bool {
-    await withCheckedContinuation { continuation in
+  func reconcileActiveTransfer(
+    key: String, request: URLRequest, expectedByteCount: UInt64, in session: URLSession
+  ) async throws {
+    let cache = try cacheStore()
+    guard let record = try cache.activeTransfer(
+      key: key, request: request, expectedByteCount: expectedByteCount)
+    else { return }
+    let observedTasks: [URLSessionDownloadTask] = await withCheckedContinuation { continuation in
       session.getAllTasks { tasks in
-        continuation.resume(returning: tasks.contains { $0.taskDescription == key })
+        continuation.resume(returning: tasks.compactMap { task in
+          guard let download = task as? URLSessionDownloadTask,
+            download.taskDescription == record.key,
+            download.originalRequest?.url?.absoluteString == record.requestURL
+          else { return nil }
+          return download
+        })
       }
     }
+    if observedTasks.contains(where: { $0.taskIdentifier == record.taskIdentifier }) {
+      throw LeapError.busy
+    }
+    // The current record has an explicit native owner. A missing native task
+    // permits removing only that owner's metadata before an explicit download.
+    try cache.remove(key, taskIdentifier: record.taskIdentifier)
   }
 
   private func urlSession() throws -> URLSession {
@@ -915,7 +947,7 @@ private final class LeapBackgroundDownloadCoordinator: NSObject, URLSessionDownl
   }
 }
 
-private extension LeapBackgroundDownloadCache {
+extension LeapBackgroundDownloadCache {
   func record(for key: String) throws -> LeapBackgroundTransferRecord? {
     lock.lock()
     defer { lock.unlock() }

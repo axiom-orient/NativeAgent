@@ -74,12 +74,12 @@ public struct LEAPProviderConnector: ModelProviderConnector {
     .sorted { $0.id < $1.id }
   }
 
-  public func makeRuntime(modelID: String?) async throws -> ModelRuntime {
+  public func acquireRuntime(modelID: String?) async throws -> ModelRuntimeAccess {
     let selectedID = modelID ?? defaultModelID
     guard let prepared = modelsByID[selectedID] else {
       throw ModelGenerationFailure(.invalidRequest, "Unknown LEAP text model: \(selectedID)")
     }
-    return try await runtime.makeTextRuntime(prepared, policy: policy)
+    return .owned(try await runtime.makeTextRuntime(prepared, policy: policy))
   }
 
   private static func modelID(_ prepared: LeapPreparedTextModel) -> String {

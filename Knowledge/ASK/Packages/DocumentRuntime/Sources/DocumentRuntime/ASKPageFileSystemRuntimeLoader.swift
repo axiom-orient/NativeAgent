@@ -140,20 +140,15 @@ public struct ASKPageFileSystemRuntimeLoader: Sendable, ASKPageRuntimePackageLoa
     }
 
     private func readUTF8Text(relativePath: String, rootURL: URL) throws -> String {
-        do {
-            let data = try ASKContainedRuntimeReader(
-                rootURL: rootURL,
-                readHook: readHook
-            ).readData(relativePath: relativePath)
-            guard let text = String(data: data, encoding: .utf8) else {
-                throw ASKPageRuntimeError.failedToReadText(relativePath)
-            }
-            return text
-        } catch let error as ASKPageRuntimeError {
-            throw error
-        } catch {
+        let data = try readData(
+            relativePath: relativePath,
+            rootURL: rootURL,
+            readError: ASKPageRuntimeError.failedToReadText
+        )
+        guard let text = String(data: data, encoding: .utf8) else {
             throw ASKPageRuntimeError.failedToReadText(relativePath)
         }
+        return text
     }
 }
 
@@ -193,38 +188,40 @@ private final class ASKContainedRuntimeReader {
             if code == ENOENT { throw ASKPageRuntimeError.fileNotFound(relativePath) }
             throw askRuntimePOSIXError(code, path: relativePath)
         }
-        defer { close(rootFD) }
-
-        let leaf: String
-        let parentComponents: [String]
-        if let last = components.last {
-            leaf = last
-            parentComponents = Array(components.dropLast())
-        } else {
-            throw ASKPageRuntimeError.fileNotFound(relativePath)
-        }
-
-        let parentFD = try openParentDirectory(
-            rootFD: rootFD,
-            components: parentComponents,
-            path: relativePath
-        )
-        defer { close(parentFD) }
-        readHook?(relativePath, canonicalRoot)
-
-        let fileFD = leaf.withCString {
-            openat(parentFD, $0, O_RDONLY | O_CLOEXEC | O_NOFOLLOW)
-        }
-        guard fileFD >= 0 else {
-            let code = errno
-            if code == ELOOP { throw ASKPageRuntimeError.filePathEscapesRoot(relativePath) }
-            if code == ENOENT || code == ENOTDIR {
+        return try askRuntimeWithCheckedClose(rootFD, path: relativePath) {
+            let leaf: String
+            let parentComponents: [String]
+            if let last = components.last {
+                leaf = last
+                parentComponents = Array(components.dropLast())
+            } else {
                 throw ASKPageRuntimeError.fileNotFound(relativePath)
             }
-            throw askRuntimePOSIXError(code, path: relativePath)
+
+            let parentFD = try openParentDirectory(
+                rootFD: rootFD,
+                components: parentComponents,
+                path: relativePath
+            )
+            return try askRuntimeWithCheckedClose(parentFD, path: relativePath) {
+                readHook?(relativePath, canonicalRoot)
+
+                let fileFD = leaf.withCString {
+                    openat(parentFD, $0, O_RDONLY | O_CLOEXEC | O_NOFOLLOW)
+                }
+                guard fileFD >= 0 else {
+                    let code = errno
+                    if code == ELOOP { throw ASKPageRuntimeError.filePathEscapesRoot(relativePath) }
+                    if code == ENOENT || code == ENOTDIR {
+                        throw ASKPageRuntimeError.fileNotFound(relativePath)
+                    }
+                    throw askRuntimePOSIXError(code, path: relativePath)
+                }
+                return try askRuntimeWithCheckedClose(fileFD, path: relativePath) {
+                    try readAll(fileFD: fileFD, path: relativePath)
+                }
+            }
         }
-        defer { close(fileFD) }
-        return try readAll(fileFD: fileFD, path: relativePath)
     }
 
     private func relativeComponents(candidatePath: String, rootPath: String) -> [String]? {
@@ -248,16 +245,33 @@ private final class ASKContainedRuntimeReader {
             }
             guard nextFD >= 0 else {
                 let code = errno
-                if ownsCurrent { close(currentFD) }
+                let primaryError: any Error
                 if code == ELOOP {
-                    throw ASKPageRuntimeError.filePathEscapesRoot(path)
+                    primaryError = ASKPageRuntimeError.filePathEscapesRoot(path)
+                } else if code == ENOENT || code == ENOTDIR {
+                    primaryError = ASKPageRuntimeError.fileNotFound(path)
+                } else {
+                    primaryError = askRuntimePOSIXError(code, path: path)
                 }
-                if code == ENOENT || code == ENOTDIR {
-                    throw ASKPageRuntimeError.fileNotFound(path)
+                if ownsCurrent, let closeError = askRuntimeCloseDescriptor(currentFD, path: path) {
+                    throw askRuntimeOperationCleanupError(
+                        operation: primaryError,
+                        cleanupErrors: [closeError],
+                        path: path
+                    )
                 }
-                throw askRuntimePOSIXError(code, path: path)
+                throw primaryError
             }
-            if ownsCurrent { close(currentFD) }
+            if ownsCurrent, let closeError = askRuntimeCloseDescriptor(currentFD, path: path) {
+                if let nextCloseError = askRuntimeCloseDescriptor(nextFD, path: path) {
+                    throw askRuntimeOperationCleanupError(
+                        operation: closeError,
+                        cleanupErrors: [nextCloseError],
+                        path: path
+                    )
+                }
+                throw closeError
+            }
             currentFD = nextFD
             ownsCurrent = true
         }
@@ -279,6 +293,66 @@ private final class ASKContainedRuntimeReader {
             data.append(contentsOf: buffer.prefix(count))
         }
     }
+}
+
+private func askRuntimeCloseDescriptor(_ descriptor: Int32, path: String) -> NSError? {
+    guard close(descriptor) != 0 else { return nil }
+    let code = errno
+    return askRuntimePOSIXError(code, path: path)
+}
+
+private func askRuntimeOperationCleanupError(
+    operation: any Error,
+    cleanupErrors: [any Error],
+    path: String
+) -> NSError {
+    let cleanupCode: Int
+    if let firstCleanupError = cleanupErrors.first {
+        cleanupCode = (firstCleanupError as NSError).code
+    } else {
+        cleanupCode = 1
+    }
+    return NSError(
+        domain: "com.axiomorient.nativeagent.document-runtime",
+        code: cleanupCode,
+        userInfo: [
+            NSFilePathErrorKey: path,
+            NSUnderlyingErrorKey: operation,
+            "cleanupError": cleanupErrors.map { $0.localizedDescription }.joined(separator: "; "),
+        ]
+    )
+}
+
+private func askRuntimeWithCheckedClose<T>(
+    _ descriptor: Int32,
+    path: String,
+    _ body: () throws -> T
+) throws -> T {
+    let result: Result<T, any Error>
+    do {
+        result = .success(try body())
+    } catch {
+        result = .failure(error)
+    }
+
+    guard close(descriptor) == 0 else {
+        let closeError = askRuntimePOSIXError(errno, path: path)
+        switch result {
+        case .success:
+            throw closeError
+        case .failure(let error):
+            throw NSError(
+                domain: "com.axiomorient.nativeagent.document-runtime",
+                code: closeError.code,
+                userInfo: [
+                    NSFilePathErrorKey: path,
+                    NSUnderlyingErrorKey: error,
+                    "cleanupError": closeError,
+                ]
+            )
+        }
+    }
+    return try result.get()
 }
 
 private func askRuntimePOSIXError(_ code: Int32, path: String) -> NSError {

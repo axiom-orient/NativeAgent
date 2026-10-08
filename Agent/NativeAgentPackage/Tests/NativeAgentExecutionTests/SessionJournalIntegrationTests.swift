@@ -133,7 +133,6 @@ func sessionJournalRecordsLifecycleForSuccessfulToolRun() async throws {
         .toolResultAppended,
         .snapshotSaved,
         .assistantTurnAppended,
-        .snapshotSaved,
         .sessionCompleted,
         .snapshotSaved
     ])
@@ -141,7 +140,6 @@ func sessionJournalRecordsLifecycleForSuccessfulToolRun() async throws {
         "session_created",
         "assistant_turn_appended",
         "tool_result_appended",
-        "assistant_turn_appended",
         "session_completed"
     ])
 
@@ -246,6 +244,10 @@ func sessionJournalRecordsWaitOnUnknownModelError() async throws {
     }
 
     struct FailingProvider: ModelClient {
+    nonisolated func stream(request: ModelRequest) -> AsyncThrowingStream<ModelEvent, any Error> {
+        scriptedModelEvents(descriptor: modelDescriptor) { try await self.generate(request: request) }
+    }
+
         let providerID = "provider.fail"
 
         func generate(request: ModelRequest) async throws -> ModelTurn {

@@ -21,15 +21,37 @@ enum SourceIndexFileLock {
       }
       return try body()
     }
-    defer { close(descriptor) }
-
     guard flock(descriptor, LOCK_SH) == 0 else {
+      let code = errno
+      let closeFailed = close(descriptor) != 0
+      let suffix = closeFailed ? "; closing lock failed" : ""
       throw ASKPageIndexError.invalidArguments(
-        "unable to acquire \(label) shared lock: \(lockURL.path) errno=\(errno)"
+        "unable to acquire \(label) shared lock: \(lockURL.path) errno=\(code)\(suffix)"
       )
     }
-    defer { _ = flock(descriptor, LOCK_UN) }
-    return try body()
+    let result: Result<T, any Error>
+    do {
+      result = .success(try body())
+    } catch {
+      result = .failure(error)
+    }
+    var cleanupFailures: [String] = []
+    if flock(descriptor, LOCK_UN) != 0 { cleanupFailures.append("unlock") }
+    if close(descriptor) != 0 { cleanupFailures.append("close") }
+    guard cleanupFailures.isEmpty else {
+      let cleanup = cleanupFailures.joined(separator: ", ")
+      switch result {
+      case .success:
+        throw ASKPageIndexError.invalidArguments(
+          "\(label) shared lock cleanup failed: \(cleanup): \(lockURL.path)"
+        )
+      case .failure(let error):
+        throw ASKPageIndexError.invalidArguments(
+          "\(label) shared lock operation failed [\(error)]; cleanup failed [\(cleanup)]: \(lockURL.path)"
+        )
+      }
+    }
+    return try result.get()
   }
 
   static func withExclusiveLock<T>(
@@ -47,19 +69,39 @@ enum SourceIndexFileLock {
         "unable to open \(label) lock: \(lockURL.path) errno=\(errno)"
       )
     }
-    defer { close(descriptor) }
-
     guard flock(descriptor, LOCK_EX) == 0 else {
+      let code = errno
+      let closeFailed = close(descriptor) != 0
+      let suffix = closeFailed ? "; closing lock failed" : ""
       throw ASKPageIndexError.invalidArguments(
-        "unable to acquire \(label) lock: \(lockURL.path) errno=\(errno)"
+        "unable to acquire \(label) lock: \(lockURL.path) errno=\(code)\(suffix)"
       )
     }
-    defer { _ = flock(descriptor, LOCK_UN) }
-
-    try writeOwner(descriptor: descriptor, label: label, lockURL: lockURL)
-    defer { _ = ftruncate(descriptor, 0) }
-
-    return try body()
+    let result: Result<T, any Error>
+    do {
+      try writeOwner(descriptor: descriptor, label: label, lockURL: lockURL)
+      result = .success(try body())
+    } catch {
+      result = .failure(error)
+    }
+    var cleanupFailures: [String] = []
+    if ftruncate(descriptor, 0) != 0 { cleanupFailures.append("truncate") }
+    if flock(descriptor, LOCK_UN) != 0 { cleanupFailures.append("unlock") }
+    if close(descriptor) != 0 { cleanupFailures.append("close") }
+    guard cleanupFailures.isEmpty else {
+      let cleanup = cleanupFailures.joined(separator: ", ")
+      switch result {
+      case .success:
+        throw ASKPageIndexError.invalidArguments(
+          "\(label) lock cleanup failed: \(cleanup): \(lockURL.path)"
+        )
+      case .failure(let error):
+        throw ASKPageIndexError.invalidArguments(
+          "\(label) lock operation failed [\(error)]; cleanup failed [\(cleanup)]: \(lockURL.path)"
+        )
+      }
+    }
+    return try result.get()
   }
 
   private static func writeOwner(

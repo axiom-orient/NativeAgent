@@ -9,6 +9,7 @@ public actor TutorKernel {
   private let study: TutorStudyUseCase
   private let reads: TutorReadUseCase
   private var mutationState = TutorMutationState()
+  private let configuration: TutorConfiguration
 
   /// Creates the production tutor over ASK's canonical knowledge workspace.
   /// ASK owns source/evidence/knowledge truth; ASKTutor owns only learner/session/practice state.
@@ -35,6 +36,7 @@ public actor TutorKernel {
     configuration: TutorConfiguration = TutorConfiguration()
   ) {
     let repository = TutorRepository(store: store)
+    self.configuration = configuration
     self.lifecycle = TutorLifecycleUseCase(
       knowledge: knowledge,
       repository: repository,
@@ -186,6 +188,7 @@ public actor TutorKernel {
   }
 
   private func acquire(_ scopes: Set<TutorMutationScope>) throws {
+    try configuration.validate()
     switch TutorMutationReducer.reduce(
       state: mutationState,
       event: .acquire(scopes)

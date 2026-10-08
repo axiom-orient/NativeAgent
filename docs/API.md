@@ -21,3 +21,15 @@ ModelClientWithOwnedInvocation의 events/cancel/waitForCompletion과 LocalBacken
 NativeLanguageModels와 FoundationModelsBridge는 Apple structured/macros/audio API의 drop-in replacement가 아니다. 이전 AppleLocalAI API는 이번 명시적 폐기 범위이며 동등성이나 자동 이행을 약속하지 않는다.
 
 실제 선언은 해당 Sources와 [SPEC](SPEC.md), [ARCHITECTURE](ARCHITECTURE.md)가 소유한다. 실행 증거는 [현재 검증](verification/README.md)에서 범위별로 확인한다.
+
+MapKitSearchToolService는 iOS/macOS 26 이상에서 location/address API를 사용한다.
+LEAP background 다운로드는 현재 v2 session/cache만 사용한다. 이전 캐시·task 메타데이터를 자동 채택하지 않는다.
+
+ModelClient 구현은 generate와 stream을 모두 제공한다. generate-only 자동 stream 경로는 제거했다.
+사용자 정의 ChatGPTTransport는 실제 cancel/waitForCompletion을 가진 invocation을 구현해야 한다.
+구형 기본 구현·호환 alias·마이그레이션은 제공하지 않는다. 기존 저장 schema·credential bytes는 이 폐기 범위의 변경 대상이 아니다.
+
+ModelProviderConnector와 ModelProviderRegistry는 acquireRuntime만 제공한다. 반환되는 ModelRuntimeAccess가 owned/borrowed를 명시한다.
+ClosureModelProviderConnector의 acquireRuntime closure도 ModelRuntimeAccess를 반환한다.
+ModelHubInstaller.installAndLoad는 (model, access)를 반환하며 사용이 끝나면 access.release()를 호출한다.
+makeRuntime(modelID:)·registry.makeRuntime(selection) 호환 API와 기본 ownership 추론 구현은 제거했다.

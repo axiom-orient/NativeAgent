@@ -153,18 +153,6 @@ func structuredOutputIsAnEffectiveCapability() throws {
 }
 
 @Test
-func defaultStreamPreservesExistingOneShotProviderContract() async throws {
-    let client = NativeContractOneShotClient()
-    let request = ModelRequest(sessionID: "session", messages: [], tools: [])
-    var events = [ModelEvent]()
-    for try await event in client.stream(request: request) {
-        events.append(event)
-    }
-
-    #expect(events == [.started(descriptor: nil), .completed(ModelTurn(content: "done"))])
-}
-
-@Test
 func modelStreamContractRequiresOneStartedAndOneTerminalCompletedEvent() async throws {
     let empty = ModelStreamContractState()
     #expect(throws: ModelStreamContractError.missingStartedEvent) {
@@ -202,14 +190,6 @@ func modelStreamContractRequiresOneStartedAndOneTerminalCompletedEvent() async t
     try duplicateCompletion.consume(.completed(turn))
     #expect(throws: ModelStreamContractError.duplicateCompletedEvent) {
         try duplicateCompletion.consume(.completed(turn))
-    }
-}
-
-private struct NativeContractOneShotClient: ModelClient {
-    let providerID = "test"
-
-    func generate(request: ModelRequest) async throws -> ModelTurn {
-        ModelTurn(content: "done")
     }
 }
 

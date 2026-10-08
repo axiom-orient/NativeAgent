@@ -246,7 +246,7 @@ public actor LiteRTHuggingFaceModelProviderConnector: ModelProviderConnector, Hu
     return modelsByID.values.map(LiteRTProvider.modelDescriptor(for:)).sorted { $0.id < $1.id }
   }
 
-  public func makeRuntime(modelID: String?) async throws -> ModelRuntime {
+  public func acquireRuntime(modelID: String?) async throws -> ModelRuntimeAccess {
     try await loadCatalogIfNeeded()
     guard !modelsByID.isEmpty else {
       throw ModelGenerationFailure(.sourceUnavailable, "No LiteRT-LM model has been installed.")
@@ -259,8 +259,8 @@ public actor LiteRTHuggingFaceModelProviderConnector: ModelProviderConnector, Hu
       throw ModelGenerationFailure(.sourceUnavailable, "The selected LiteRT-LM artifact manifest is missing.")
     }
     let runtimeLease = try await store.open(manifest)
-    return try await LiteRTProvider.loadRuntime(
-      model, policy: policy, artifactLease: runtimeLease)
+    return .owned(try await LiteRTProvider.loadRuntime(
+      model, policy: policy, artifactLease: runtimeLease))
   }
 
   private func resolve(_ address: HubModelAddress) async throws -> (String, String) {

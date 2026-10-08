@@ -241,6 +241,10 @@ private actor ExecutorProbe {
   }
 }
 private struct ExistingClient: ModelClient {
+    nonisolated func stream(request: ModelRequest) -> AsyncThrowingStream<ModelEvent, any Error> {
+        scriptedModelEvents(descriptor: modelDescriptor) { try await self.generate(request: request) }
+    }
+
   var standalone = false
   let providerID = "fixture"
   var invocationSemantics: ModelClientInvocationSemantics {

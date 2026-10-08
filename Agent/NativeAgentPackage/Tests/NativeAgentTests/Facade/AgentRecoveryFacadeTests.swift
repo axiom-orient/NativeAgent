@@ -213,6 +213,10 @@ extension AgentRecoveryFacadeTests {
 }
 
 private actor RecoveryFacadeCountingModelClient: ModelClient {
+    nonisolated func stream(request: ModelRequest) -> AsyncThrowingStream<ModelEvent, any Error> {
+        scriptedModelEvents(descriptor: modelDescriptor) { try await self.generate(request: request) }
+    }
+
     nonisolated let providerID = "provider.test.recovery-facade"
     private var invocationCount = 0
 

@@ -381,7 +381,7 @@ private final class ASKManagedWikiFileSystem {
 
     func ensureDirectory(path: String) throws {
         let fd = try openDirectory(components: pathComponents(path), create: true, path: path)
-        close(fd)
+        try askCloseDescriptor(fd, path: path)
     }
 
     func validateManagedPaths(_ paths: [String]) throws {
@@ -394,16 +394,17 @@ private final class ASKManagedWikiFileSystem {
                     create: false,
                     path: path
                 )
-                defer { close(parentFD) }
-                let fd = leaf.withCString {
-                    openat(parentFD, $0, O_RDONLY | O_CLOEXEC | O_NOFOLLOW)
-                }
-                if fd >= 0 {
-                    close(fd)
-                } else {
-                    let code = errno
-                    if code == ELOOP { throw ASKMarkdownWikiError.outsideRoot(path) }
-                    if code != ENOENT { throw askPOSIXError(code, path: path) }
+                try askWithClosedDescriptor(parentFD, path: path) {
+                    let fd = leaf.withCString {
+                        openat(parentFD, $0, O_RDONLY | O_CLOEXEC | O_NOFOLLOW)
+                    }
+                    if fd >= 0 {
+                        try askCloseDescriptor(fd, path: path)
+                    } else {
+                        let code = errno
+                        if code == ELOOP { throw ASKMarkdownWikiError.outsideRoot(path) }
+                        if code != ENOENT { throw askPOSIXError(code, path: path) }
+                    }
                 }
             } catch let error as NSError where askPOSIXCode(error) == ENOENT {
                 continue
@@ -442,19 +443,20 @@ private final class ASKManagedWikiFileSystem {
         } catch let error as NSError where askPOSIXCode(error) == ENOENT {
             return nil
         }
-        defer { close(parentFD) }
-
-        let fd = leaf.withCString {
-            openat(parentFD, $0, O_RDONLY | O_CLOEXEC | O_NOFOLLOW)
+        return try askWithClosedDescriptor(parentFD, path: path) {
+            let fd = leaf.withCString {
+                openat(parentFD, $0, O_RDONLY | O_CLOEXEC | O_NOFOLLOW)
+            }
+            guard fd >= 0 else {
+                let code = errno
+                if code == ENOENT { return nil }
+                if code == ELOOP { throw ASKMarkdownWikiError.outsideRoot(path) }
+                throw askPOSIXError(code, path: path)
+            }
+            return try askWithClosedDescriptor(fd, path: path) {
+                try askReadAll(fd: fd, path: path)
+            }
         }
-        guard fd >= 0 else {
-            let code = errno
-            if code == ENOENT { return nil }
-            if code == ELOOP { throw ASKMarkdownWikiError.outsideRoot(path) }
-            throw askPOSIXError(code, path: path)
-        }
-        defer { close(fd) }
-        return try askReadAll(fd: fd, path: path)
     }
 
     private func openDirectory(components: [String], create: Bool, path: String) throws -> Int32 {
@@ -476,10 +478,36 @@ private final class ASKManagedWikiFileSystem {
                     path: path
                 )
             } catch {
-                if ownsCurrent { close(currentFD) }
-                throw error
+                let operation = error
+                if ownsCurrent {
+                    do {
+                        try askCloseDescriptor(currentFD, path: path)
+                    } catch let cleanup {
+                        throw askOperationCleanupError(
+                            operation: operation,
+                            cleanup: cleanup,
+                            path: path
+                        )
+                    }
+                }
+                throw operation
             }
-            if ownsCurrent { close(currentFD) }
+            if ownsCurrent {
+                do {
+                    try askCloseDescriptor(currentFD, path: path)
+                } catch let cleanup {
+                    do {
+                        try askCloseDescriptor(nextFD, path: path)
+                    } catch let nextCleanup {
+                        throw askOperationCleanupError(
+                            operation: cleanup,
+                            cleanup: nextCleanup,
+                            path: path
+                        )
+                    }
+                    throw cleanup
+                }
+            }
             currentFD = nextFD
             ownsCurrent = true
         }
@@ -561,8 +589,9 @@ private final class ASKManagedWikiMutation {
             if code == ELOOP { throw ASKMarkdownWikiError.outsideRoot(path) }
             throw askPOSIXError(code, path: path)
         }
-        defer { close(fd) }
-        return try askReadAll(fd: fd, path: path)
+        return try askWithClosedDescriptor(fd, path: path) {
+            try askReadAll(fd: fd, path: path)
+        }
     }
 
     func writeAtomically(_ data: Data, requireAbsent: Bool) throws {
@@ -571,8 +600,17 @@ private final class ASKManagedWikiMutation {
                 openat(parentFD, $0, O_RDONLY | O_CLOEXEC | O_NOFOLLOW)
             }
             if existing >= 0 {
-                close(existing)
-                throw ASKMarkdownWikiError.pageAlreadyExists(path)
+                let operation = ASKMarkdownWikiError.pageAlreadyExists(path)
+                do {
+                    try askCloseDescriptor(existing, path: path)
+                } catch let cleanup {
+                    throw askOperationCleanupError(
+                        operation: operation,
+                        cleanup: cleanup,
+                        path: path
+                    )
+                }
+                throw operation
             }
             let code = errno
             if code == ELOOP { throw ASKMarkdownWikiError.outsideRoot(path) }
@@ -625,9 +663,34 @@ private final class ASKManagedWikiMutation {
                 }
             }
         } catch {
-            if !closed { close(temporaryFD) }
-            _ = temporary.withCString { unlinkat(parentFD, $0, 0) }
-            throw error
+            let operation = error
+            var cleanupMessages: [String] = []
+            var cleanupCode: Int32 = EIO
+            if !closed {
+                do {
+                    try askCloseDescriptor(temporaryFD, path: path)
+                } catch let cleanup {
+                    cleanupMessages.append(cleanup.localizedDescription)
+                    cleanupCode = Int32((cleanup as NSError).code)
+                }
+            }
+            let unlinkResult = temporary.withCString { unlinkat(parentFD, $0, 0) }
+            if unlinkResult != 0 {
+                let code = errno
+                if code != ENOENT {
+                    cleanupCode = cleanupMessages.isEmpty ? code : cleanupCode
+                    cleanupMessages.append(askPOSIXError(code, path: path).localizedDescription)
+                }
+            }
+            if !cleanupMessages.isEmpty {
+                let cleanup = NSError(
+                    domain: "com.axiomorient.nativeagent.markdown-wiki.cleanup",
+                    code: Int(cleanupCode),
+                    userInfo: [NSFilePathErrorKey: path, NSLocalizedDescriptionKey: cleanupMessages.joined(separator: "; ")]
+                )
+                throw askOperationCleanupError(operation: operation, cleanup: cleanup, path: path)
+            }
+            throw operation
         }
     }
 
@@ -657,6 +720,54 @@ private func askPOSIXError(_ code: Int32, path: String) -> NSError {
         code: Int(code),
         userInfo: [NSFilePathErrorKey: path]
     )
+}
+
+private func askCloseDescriptor(_ descriptor: Int32, path: String) throws {
+    guard close(descriptor) == 0 else {
+        let code = errno
+        throw askPOSIXError(code, path: path)
+    }
+}
+
+private func askOperationCleanupError(
+    operation: any Error,
+    cleanup: any Error,
+    path: String
+) -> NSError {
+    let cleanupError = cleanup as NSError
+    return NSError(
+        domain: "com.axiomorient.nativeagent.markdown-wiki",
+        code: cleanupError.code,
+        userInfo: [
+            NSFilePathErrorKey: path,
+            NSUnderlyingErrorKey: operation,
+            "cleanupError": cleanup.localizedDescription,
+        ]
+    )
+}
+
+private func askWithClosedDescriptor<T>(
+    _ descriptor: Int32,
+    path: String,
+    _ body: () throws -> T
+) throws -> T {
+    let result: Result<T, any Error>
+    do {
+        result = .success(try body())
+    } catch {
+        result = .failure(error)
+    }
+    do {
+        try askCloseDescriptor(descriptor, path: path)
+    } catch let cleanup {
+        switch result {
+        case .success:
+            throw cleanup
+        case .failure(let operation):
+            throw askOperationCleanupError(operation: operation, cleanup: cleanup, path: path)
+        }
+    }
+    return try result.get()
 }
 
 private func askReadAll(fd: Int32, path: String) throws -> Data {

@@ -1,4 +1,15 @@
-# Qualification — 이번 실행과 남은 gate
+# Qualification — 현재 배포 범위와 남은 gate
+
+## Current · 2026-10-08
+
+현재 source 게시 범위는 최신 native 라이브러리, EmbeddingGemma 2, 저장·복구 보강이다.
+[메인 통합 검증](../verification/current/main-consolidation-20261008/REPORT.md)과
+[native 라이브러리 실기기 결과](../verification/current/native-libraries-20261007/REPORT.md),
+[embedding 실기기 결과](../verification/current/embedding-workflow-20261007/REPORT.md)를 각각 따른다.
+전체 상용 qualification은 실제 계정·OS 권한·host background/relaunch·전원 손실 검증이 남아 BLOCKED다.
+수동 source 릴리스와 전체 상용 gate 판정을 구별한다. 이전 검증을 현재 통과로 승계하지 않는다.
+
+## Historical · 2026-09-20
 
 **Source refactor 검증: local PASS. Production release: BLOCKED.** Linux x86_64 / Swift 6.2.1. 정확한 command/exit/source hash는 [verification index](../verification/README.md)와 [final JSON](../verification/current/final-verification.json)을 따른다. 입력의 과거 PASS는 합산하지 않는다.
 

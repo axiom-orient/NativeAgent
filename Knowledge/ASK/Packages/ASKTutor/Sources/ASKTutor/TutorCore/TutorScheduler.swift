@@ -8,19 +8,34 @@ package struct TutorReviewScheduler: Sendable {
     }
 
     package func updateConcept(_ existing: TutorConceptState?, conceptID: String, label: String, score: Double, reviewedAt: String) throws -> TutorConceptState {
+        try configuration.validate()
         guard let reviewedDate = TutorTime.parse(reviewedAt) else {
             throw ASKTutorError.invalidInput("reviewedAt must be RFC3339")
         }
+        guard score.isFinite else {
+            throw ASKTutorError.invalidInput("score must be finite")
+        }
         let normalizedScore = min(max(score, 0), 1)
-        let attempts = (existing?.attempts ?? 0) + 1
+        let oldAttempts = existing?.attempts ?? 0
         let oldStreak = existing?.consecutiveSuccesses ?? 0
+        guard oldAttempts >= 0, oldStreak >= 0 else {
+            throw ASKTutorError.invalidInput("concept counters must be non-negative")
+        }
+        let (attempts, attemptsOverflow) = oldAttempts.addingReportingOverflow(1)
+        guard !attemptsOverflow else {
+            throw ASKTutorError.invalidInput("concept attempt counter overflow")
+        }
 
         let newStreak: Int
         let level: TutorMasteryLevel
         let nextDays: Int
 
         if normalizedScore >= configuration.highScoreThreshold {
-            newStreak = oldStreak + 1
+            let (advancedStreak, streakOverflow) = oldStreak.addingReportingOverflow(1)
+            guard !streakOverflow else {
+                throw ASKTutorError.invalidInput("concept success counter overflow")
+            }
+            newStreak = advancedStreak
             let intervalIndex = min(newStreak - 1, configuration.reviewIntervalsDays.count - 1)
             nextDays = configuration.reviewIntervalsDays[intervalIndex]
             switch newStreak {

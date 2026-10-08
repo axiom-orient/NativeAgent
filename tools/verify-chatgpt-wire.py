@@ -11,17 +11,16 @@ import json
 import os
 import re
 import shutil
-import signal
 import socket
 import subprocess
 import tempfile
 import threading
 import traceback
 
-from apple_package_runner import uses_xcode_ios_runner, xcodebuild_command
+from apple_package_runner import run_package_command, uses_xcode_ios_runner, xcodebuild_command
 
 ROOT = Path(__file__).resolve().parents[1]
-OUT = ROOT / 'docs/verification/current'
+OUT = Path(os.environ.get('NATIVEAI_VERIFICATION_OUTPUT', ROOT / 'docs/verification/current')).resolve()
 MODULES = {
     'ChatGPTAccount': ('Account', ['ChatGPTProtocol.swift', 'ChatGPTAccountPayload.swift', 'ChatGPTTransport.swift']),
     'ChatGPTText': ('Text', ['ChatGPTTextTypes.swift', 'ChatGPTTextPayload.swift', 'SSEParser.swift', 'ChatGPTTextWire.swift', 'ChatGPTToolWireCodec.swift']),
@@ -29,7 +28,7 @@ MODULES = {
 }
 TESTS = ['ChatGPTAccountPayloadTests.swift', 'ChatGPTImageErrorTests.swift',
          'ChatGPTWireBoundaryTests.swift', 'ChatGPTTransportLifecycleTests.swift', 'ChatGPTURLSessionTests.swift']
-TIMEOUT_SECONDS = 240
+TIMEOUT_SECONDS = 600 if uses_xcode_ios_runner() else 240
 
 @contextmanager
 def http_fixture():
@@ -149,28 +148,22 @@ let strict: [SwiftSetting] = [.swiftLanguageMode(.v6), .enableUpcomingFeature("E
         command = ['swift', 'test', '--package-path', str(work), '-j', '4', '-Xswiftc', '-warnings-as-errors']
     with http_fixture() as (url, requests, fixture_errors):
         environment = {**os.environ, 'NATIVEAI_HTTP_FIXTURE_URL': url}
+        if uses_xcode_ios_runner():
+            environment['TEST_RUNNER_NATIVEAI_HTTP_FIXTURE_URL'] = url
         with (OUT/'chatgpt-wire.log').open('w') as log:
-            with subprocess.Popen(command, env=environment, stdout=log, stderr=subprocess.STDOUT, start_new_session=True) as process:
-                try:
-                    code = process.wait(timeout=TIMEOUT_SECONDS)
-                except (subprocess.TimeoutExpired, KeyboardInterrupt):
-                    os.killpg(process.pid, signal.SIGTERM)
-                    try:
-                        process.wait(timeout=10)
-                    except subprocess.TimeoutExpired:
-                        os.killpg(process.pid, signal.SIGKILL)
-                        process.wait()
-                    code = 124
-                    log.write('\nQualification interrupted; owned compiler/test process group terminated.\n')
-        forbidden = [p for p in requests if p in ('/redirect-target', '/must-not-dispatch')]
+            code = run_package_command(
+                command, work, log, timeout=TIMEOUT_SECONDS, environment=environment)
+    forbidden = [p for p in requests if p in ('/redirect-target', '/must-not-dispatch')]
     text = (OUT/'chatgpt-wire.log').read_text()
     counts = re.findall(r'Test run with (\d+) tests? .*passed', text)
+    required_paths = {'/ok', '/stall', '/large', '/chunked-large', '/truncated', '/redirect', '/sse'}
+    missing_paths = sorted(required_paths - set(requests))
     report = {
-        'status': 'PASS' if code == 0 and not forbidden and not fixture_errors else 'FAIL',
-        'exitCode': code, 'command': command,
+        'status': 'PASS' if code == 0 and not forbidden and not fixture_errors and not missing_paths else 'FAIL',
+        'exitCode': code, 'command': command, 'cwd': str(work),
         'swiftTestingCount': int(counts[-1]) if counts else None,
         'scope': files,
-        'localHTTP': {'requests': requests, 'forbiddenDispatches': forbidden, 'fixtureErrors': fixture_errors,
+        'localHTTP': {'requests': requests, 'forbiddenDispatches': forbidden, 'fixtureErrors': fixture_errors, 'missingRequiredPaths': missing_paths,
                       'mechanism': 'Production URLSessionChatGPTTransport + local HTTP sockets; no URLProtocol replacement.'},
         'excluded': ['ChatGPTAccountSession/CryptoKit/Keychain/loopback login', 'ChatGPTTextSession/ModelClient',
                      'ChatGPTImageClient', 'Agent adapters', 'live ChatGPT account/network E2E'],

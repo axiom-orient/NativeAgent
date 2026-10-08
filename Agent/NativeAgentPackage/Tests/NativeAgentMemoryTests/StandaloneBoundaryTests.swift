@@ -1,3 +1,4 @@
+import NativeAgentTestSupport
 import Foundation
 import Testing
 import NativeAgent
@@ -16,6 +17,10 @@ private struct UnenteredTranscript: MemoryTranscriptSource {
     }
 }
 private struct UnenteredProvider: ModelClient {
+    nonisolated func stream(request: ModelRequest) -> AsyncThrowingStream<ModelEvent, any Error> {
+        scriptedModelEvents(descriptor: modelDescriptor) { try await self.generate(request: request) }
+    }
+
     let providerID = "identity.provider"
     var modelDescriptor: ModelDescriptor? {
         ModelDescriptor(id: "model", providerID: providerID, capabilities: .allKnown)

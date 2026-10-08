@@ -18,20 +18,13 @@ extension Vault {
             _ = try rebuildUnlocked()
             try FileManager.default.createDirectory(at: outputURL.deletingLastPathComponent(), withIntermediateDirectories: true)
 
-            var manifest = VaultExportManifest(files: [], sha256: [:])
-            var files: [(String, Data)] = []
+            var relativeFiles: [String] = []
             for relative in try allFiles().sorted() {
                 let transient = try isTransientPath(relative)
                 if relative.hasPrefix("mirror/") || transient { continue }
-                let fileURL = root.appendingPathComponent(relative)
-                let data = try Data(contentsOf: fileURL)
-                files.append((relative, data))
-                manifest.files.append(relative)
-                manifest.sha256[relative] = ASKSHA256.hexDigest(data)
+                relativeFiles.append(relative)
             }
-            let manifestData = try CanonicalJSON.data(for: manifest) + Data([0x0a])
-            files.append(("export-manifest.json", manifestData))
-            try writeArchiveEntries(files, to: outputURL)
+            try writeVaultArchive(relativeFiles: relativeFiles, from: root, to: outputURL)
         }
     }
 
@@ -135,43 +128,131 @@ package func archiveEntryNames(at archiveURL: URL) throws -> [String] {
 }
 
 package func writeArchiveEntries(_ entries: [(String, Data)], to outputURL: URL) throws {
-    #if os(macOS) || os(Linux)
-    if FileManager.default.fileExists(atPath: outputURL.path) {
-        try FileManager.default.removeItem(at: outputURL)
-    }
-    let stagingRoot = outputURL.deletingLastPathComponent().appendingPathComponent("ask-export-\(UUID().uuidString)", isDirectory: true)
-    try FileManager.default.createDirectory(at: stagingRoot, withIntermediateDirectories: true)
-
-    do {
+    try withArchiveStaging(to: outputURL) { stagingRoot in
         for (fileName, fileData) in entries {
             try ensureSafeArchiveEntryPath(fileName)
             let fileURL = stagingRoot.appendingPathComponent(fileName)
             try FileManager.default.createDirectory(at: fileURL.deletingLastPathComponent(), withIntermediateDirectories: true)
             try fileData.write(to: fileURL, options: .atomic)
         }
+    }
+}
+
+private func writeVaultArchive(relativeFiles: [String], from sourceRoot: URL, to outputURL: URL) throws {
+    var manifest = VaultExportManifest(files: [], sha256: [:])
+    try withArchiveStaging(to: outputURL) { stagingRoot in
+        for relative in relativeFiles {
+            try ensureSafeArchiveEntryPath(relative)
+            let sourceURL = sourceRoot.appendingPathComponent(relative)
+            let data = try Data(contentsOf: sourceURL)
+            let destinationURL = stagingRoot.appendingPathComponent(relative)
+            try FileManager.default.createDirectory(
+                at: destinationURL.deletingLastPathComponent(),
+                withIntermediateDirectories: true
+            )
+            try data.write(to: destinationURL, options: .atomic)
+            manifest.files.append(relative)
+            manifest.sha256[relative] = ASKSHA256.hexDigest(data)
+        }
+
+        let manifestData = try CanonicalJSON.data(for: manifest) + Data([0x0a])
+        let manifestURL = stagingRoot.appendingPathComponent("export-manifest.json")
+        try manifestData.write(to: manifestURL, options: .atomic)
+    }
+}
+
+private func withArchiveStaging(
+    to outputURL: URL,
+    populate: (URL) throws -> Void
+) throws {
+    #if os(macOS) || os(Linux)
+    let parent = outputURL.deletingLastPathComponent()
+    let stagingRoot = parent.appendingPathComponent("ask-export-\(UUID().uuidString)", isDirectory: true)
+    let stagedArchive = parent.appendingPathComponent("ask-export-\(UUID().uuidString).zip")
+    let backupArchive = parent.appendingPathComponent("ask-export-backup-\(UUID().uuidString).zip")
+    try FileManager.default.createDirectory(at: stagingRoot, withIntermediateDirectories: true)
+
+    do {
+        try populate(stagingRoot)
 
         _ = try runArchiveTool(
             .zip,
-            arguments: ["-q", "-r", outputURL.path, "."],
+            arguments: ["-q", "-r", stagedArchive.path, "."],
             currentDirectoryURL: stagingRoot,
             errorPrefix: "archive export failed"
         )
+        try replaceArchiveOutput(stagedArchive, at: outputURL, backup: backupArchive)
     } catch {
         let exportError = error
         do {
-            try removeArchivePathIfPresent(stagingRoot, label: "export staging directory")
+            try cleanupArchiveTemporaryPaths(stagingRoot: stagingRoot, stagedArchive: stagedArchive)
         } catch {
             throw ASKError.importIntegrity(
-                "archive export failed: \(exportError); staging cleanup failed: \(error)"
+                "archive export failed: \(exportError); temporary cleanup failed: \(error)"
             )
         }
         throw exportError
     }
-    try removeArchivePathIfPresent(stagingRoot, label: "export staging directory")
+    do {
+        try cleanupArchiveTemporaryPaths(stagingRoot: stagingRoot, stagedArchive: stagedArchive)
+    } catch {
+        throw ASKError.importIntegrity("archive export published but temporary cleanup failed: \(error)")
+    }
     #else
     throw ASKError.platformUnavailable("archive export requires /usr/bin/zip and is unavailable on this platform")
     #endif
 }
+
+#if os(macOS) || os(Linux)
+private func replaceArchiveOutput(_ stagedArchive: URL, at outputURL: URL, backup: URL) throws {
+    let fileManager = FileManager.default
+    let outputExists = fileManager.fileExists(atPath: outputURL.path)
+    if outputExists {
+        try fileManager.moveItem(at: outputURL, to: backup)
+    }
+
+    do {
+        try fileManager.moveItem(at: stagedArchive, to: outputURL)
+    } catch {
+        let replacementError = error
+        guard outputExists else { throw replacementError }
+        do {
+            try fileManager.moveItem(at: backup, to: outputURL)
+        } catch {
+            throw ASKError.importIntegrity(
+                "archive replacement failed: \(replacementError); previous archive restore failed: \(error)"
+            )
+        }
+        throw replacementError
+    }
+
+    guard outputExists else { return }
+    do {
+        try fileManager.removeItem(at: backup)
+    } catch {
+        throw ASKError.importIntegrity(
+            "archive published but previous output cleanup failed: \(error)"
+        )
+    }
+}
+
+private func cleanupArchiveTemporaryPaths(stagingRoot: URL, stagedArchive: URL) throws {
+    var failures: [String] = []
+    do {
+        try removeArchivePathIfPresent(stagingRoot, label: "export staging directory")
+    } catch {
+        failures.append("staging directory: \(error)")
+    }
+    do {
+        try removeArchivePathIfPresent(stagedArchive, label: "staged export archive")
+    } catch {
+        failures.append("staged archive: \(error)")
+    }
+    guard failures.isEmpty else {
+        throw ASKError.importIntegrity(failures.joined(separator: "; "))
+    }
+}
+#endif
 
 private func extractArchive(at archiveURL: URL, to destinationRoot: URL) throws {
     #if os(macOS) || os(Linux)
@@ -250,6 +331,9 @@ private func validateExtractedArchiveTree(at root: URL) throws {
 }
 
 #if os(macOS) || os(Linux)
+private let archiveToolOutputLimitBytes = 4 * 1_024 * 1_024
+private let archiveToolOutputChunkBytes = 64 * 1_024
+
 private func runArchiveTool(
     _ tool: ArchiveTool,
     arguments: [String],
@@ -267,8 +351,53 @@ private func runArchiveTool(
     process.standardOutput = outputPipe
     process.standardError = outputPipe
     try process.run()
-    let outputData = outputPipe.fileHandleForReading.readDataToEndOfFile()
+    let outputHandle = outputPipe.fileHandleForReading
+    var outputData = Data()
+    var outputExceededLimit = false
+    var readFailure: Error?
+    do {
+        while let chunk = try outputHandle.read(upToCount: archiveToolOutputChunkBytes), !chunk.isEmpty {
+            guard !outputExceededLimit else { continue }
+            let (nextCount, overflow) = outputData.count.addingReportingOverflow(chunk.count)
+            guard !overflow, nextCount <= archiveToolOutputLimitBytes else {
+                outputExceededLimit = true
+                if process.isRunning {
+                    process.terminate()
+                }
+                continue
+            }
+            outputData.append(chunk)
+        }
+    } catch {
+        readFailure = error
+        if process.isRunning {
+            process.terminate()
+        }
+    }
+
+    var closeFailure: Error?
+    do {
+        try outputHandle.close()
+    } catch {
+        closeFailure = error
+    }
     process.waitUntilExit()
+    if let readFailure {
+        if let closeFailure {
+            throw ASKError.importIntegrity(
+                "\(errorPrefix): failed to read tool output: \(readFailure); output cleanup failed: \(closeFailure)"
+            )
+        }
+        throw ASKError.importIntegrity("\(errorPrefix): failed to read tool output: \(readFailure)")
+    }
+    if let closeFailure {
+        throw ASKError.importIntegrity("\(errorPrefix): output cleanup failed: \(closeFailure)")
+    }
+    if outputExceededLimit {
+        throw ASKError.importIntegrity(
+            "\(errorPrefix): tool output exceeded \(archiveToolOutputLimitBytes) bytes"
+        )
+    }
     if process.terminationStatus != 0 {
         let diagnostics = String(decoding: outputData, as: UTF8.self).trimmingCharacters(in: .whitespacesAndNewlines)
         throw ASKError.importIntegrity(diagnostics.isEmpty ? errorPrefix : "\(errorPrefix): \(diagnostics)")

@@ -164,7 +164,7 @@ private func rankSearchRows(
     ftsRanks: [String: Double] = [:]
 ) -> [SearchHit] {
     let tokens = tokenize(query)
-    guard !tokens.isEmpty else { return [] }
+    guard !tokens.isEmpty, limit >= 0 else { return [] }
     let referenceDate = rankingReferenceDate(rows: rows)
 
     var hits: [SearchHit] = []
@@ -216,8 +216,12 @@ package func debugSearchRankingScores(rows: [SearchDocRow], query: String, limit
 }
 
 package func searchMirrorFirst(root: String, query: String, limit: Int) throws -> [SearchHitSummary] {
+    guard limit >= 0 else {
+        throw ASKError.validation("search limit must be non-negative")
+    }
     let vault = Vault(rootPath: root)
-    let candidateLimit = max(limit * 4, 24)
+    let (scaledLimit, overflow) = limit.multipliedReportingOverflow(by: 4)
+    let candidateLimit = max(overflow ? Int.max : scaledLimit, 24)
     if try mirrorIsFresh(vault: vault) {
         let mirrorHits = try searchMirrorCandidates(at: vault.mirrorURL(), query: query, limit: candidateLimit)
         return rankMirrorCandidates(mirrorHits, query: query, limit: candidateLimit).map(toSummary)

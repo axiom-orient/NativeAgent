@@ -34,4 +34,4 @@ Apple의 `didBecomeInvalidWithError` 계약은 `finishTasksAndInvalidate`가 마
 - [Apple: invalidateAndCancel](https://developer.apple.com/documentation/foundation/urlsession/invalidateandcancel())
 - [Swift 6.2.1 FoundationNetworking redirect implementation](https://github.com/swiftlang/swift-corelibs-foundation/blob/swift-6.2.1-RELEASE/Sources/FoundationNetworking/URLSession/HTTP/HTTPURLProtocol.swift)
 
-저장소의 Codex pin `rust-v0.153.4@3d2ee51ca2d5db578f328aa75e20aa22c0197c9a`는 공식 GitHub commit으로 존재를 확인했고 임의 갱신하지 않았다. commit의 존재가 실계정 text/image endpoint 호환성을 증명하지는 않는다.
+Codex protocol 참조는 공식 최신 [rust-v0.161.0](https://github.com/openai/codex/releases/tag/rust-v0.161.0)의 `979011409de0a60b52f179721948e65531d26144`로 갱신했다. 공식 login/auth/default client의 issuer·client ID·originator·callback port와 모델 backend 주소를 대조했다. commit의 존재가 실계정 text/image endpoint 호환성을 증명하지는 않는다.

@@ -25,8 +25,7 @@
           "Apple on-device Foundation Models is unavailable."
         )
       }
-      return try ModelRuntime(
-        id: runtimeID, model: try ClientLanguageModel(client: client), policy: policy)
+      return try ModelRuntime(id: runtimeID, client: client, policy: policy)
     }
   }
 

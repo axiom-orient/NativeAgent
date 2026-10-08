@@ -9,7 +9,7 @@ let strict: [SwiftSetting] = [
 
 let package = Package(
   name: "ChatGPTTextProvider",
-  platforms: [.iOS(.v17)],
+  platforms: [.iOS(.v17), .macOS(.v14)],
   products: [.library(name: "ChatGPTTextProvider", targets: ["ChatGPTTextProvider"])],
   dependencies: [
     .package(name: "ChatGPTAccount", path: "../Account"),
@@ -25,6 +25,15 @@ let package = Package(
         .product(name: "ChatGPTText", package: "ChatGPTText"),
         .product(name: "LanguageModelCore", package: "LanguageModelCore"),
         .product(name: "LanguageModelRuntime", package: "LanguageModelRuntime")
+      ],
+      swiftSettings: strict
+    ),
+    .testTarget(
+      name: "ChatGPTTextProviderTests",
+      dependencies: [
+        "ChatGPTTextProvider",
+        .product(name: "ChatGPTAccount", package: "ChatGPTAccount"),
+        .product(name: "LanguageModelCore", package: "LanguageModelCore")
       ],
       swiftSettings: strict
     )

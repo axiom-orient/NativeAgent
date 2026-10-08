@@ -14,6 +14,10 @@ private func makeRuntimeBoundaryTempRoot() -> URL {
 }
 
 private actor RuntimeContentionModelClient: ModelClient {
+    nonisolated func stream(request: ModelRequest) -> AsyncThrowingStream<ModelEvent, any Error> {
+        scriptedModelEvents(descriptor: modelDescriptor) { try await self.generate(request: request) }
+    }
+
   nonisolated let providerID = "provider.runtime-contention"
   nonisolated let modelDescriptor: ModelDescriptor? = ModelDescriptor(
     id: "runtime-contention-model",

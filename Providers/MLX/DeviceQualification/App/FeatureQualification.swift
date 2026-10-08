@@ -178,6 +178,10 @@ extension MLXFeatureQualification {
 }
 
 private struct MLXFeatureTraceClient: ModelClient {
+  func stream(request: ModelRequest) -> AsyncThrowingStream<ModelEvent, any Error> {
+    let sequence = MLXTraceEventSequence(client: self, request: request)
+    return AsyncThrowingStream(unfolding: { try await sequence.next() })
+  }
   let runtime: ModelRuntime
   var providerID: String { runtime.modelDescriptor.providerID }
   var modelDescriptor: ModelDescriptor? { runtime.modelDescriptor }
@@ -186,6 +190,23 @@ private struct MLXFeatureTraceClient: ModelClient {
     let turn = try await runtime.generate(request)
     print("NATIVE_AGENT_QWEN35_MODEL_TRACE session=\(request.sessionID) output=\(turn.content.prefix(6000))")
     return turn
+  }
+}
+
+private actor MLXTraceEventSequence {
+  let client: MLXFeatureTraceClient
+  let request: ModelRequest
+  var phase = 0
+  init(client: MLXFeatureTraceClient, request: ModelRequest) {
+    self.client = client; self.request = request
+  }
+  func next() async throws -> ModelEvent? {
+    try Task.checkCancellation()
+    switch phase {
+    case 0: phase = 1; return .started(descriptor: client.modelDescriptor)
+    case 1: phase = 2; return .completed(try await client.generate(request: request))
+    default: return nil
+    }
   }
 }
 

@@ -265,6 +265,12 @@ public struct SessionSnapshot: Codable, Sendable, Equatable {
       result.artifacts = artifacts
       result.waitState = nil
       result.failure = nil
+    case .assistantTurnRecorded(let messages, let completesSession, let updatedAt):
+      result.status = completesSession ? .completed : .running
+      result.updatedAt = updatedAt
+      result.messages.append(contentsOf: messages)
+      result.waitState = nil
+      result.failure = nil
     case .messagesReplaced(let messages, let updatedAt):
       result.updatedAt = updatedAt
       result.messages = messages
@@ -335,6 +341,11 @@ package enum SessionSnapshotEvent: Sendable {
   case waitResolvedAndAppended(
     messages: [AgentMessage],
     artifacts: [ArtifactRecord],
+    updatedAt: Date
+  )
+  case assistantTurnRecorded(
+    messages: [AgentMessage],
+    completesSession: Bool,
     updatedAt: Date
   )
   case messagesReplaced([AgentMessage], updatedAt: Date)

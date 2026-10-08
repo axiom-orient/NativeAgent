@@ -6,6 +6,10 @@ import Testing
 @testable import NativeAgentStore
 
 private struct SubmillisecondTimestampModelClient: ModelClient {
+    nonisolated func stream(request: ModelRequest) -> AsyncThrowingStream<ModelEvent, any Error> {
+        scriptedModelEvents(descriptor: modelDescriptor) { try await self.generate(request: request) }
+    }
+
     let providerID = "provider.timestamp-round-trip"
     let timestamp: Date
 

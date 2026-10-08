@@ -1302,6 +1302,10 @@ private enum WaitError: Error { case timedOut }
 @Suite("ModelProviderRegistry")
 struct ModelProviderRegistryTests {
   private struct ProviderClient: ModelClient {
+    nonisolated func stream(request: ModelRequest) -> AsyncThrowingStream<ModelEvent, any Error> {
+        scriptedModelEvents(descriptor: modelDescriptor) { try await self.generate(request: request) }
+    }
+
     let providerID: String
     let modelDescriptor: ModelDescriptor?
 
@@ -1319,16 +1323,14 @@ struct ModelProviderRegistryTests {
       descriptor: descriptor,
       availability: { .available },
       models: { [model] },
-      makeRuntime: { modelID in
-        guard modelID == nil || modelID == model.id else {
+      acquireRuntime: { modelID in guard modelID == nil || modelID == model.id else {
           throw ModelGenerationFailure(.invalidRequest, "unknown model")
         }
-        return try ModelRuntime(
+        return .owned(try ModelRuntime(
           id: ModelRuntimeID(rawValue: "local.test.runtime"),
           client: ProviderClient(providerID: descriptor.id, modelDescriptor: model),
           descriptor: model
-        )
-      }
+        )) }
     )
     let registry = try ModelProviderRegistry([connector])
 
@@ -1336,10 +1338,11 @@ struct ModelProviderRegistryTests {
     #expect(providers == [descriptor])
     let models = try await registry.models(providerID: descriptor.id)
     #expect(models == [model])
-    let runtime = try await registry.makeRuntime(
+    let access = try await registry.acquireRuntime(
       ModelProviderSelection(providerID: descriptor.id, modelID: model.id))
-    #expect(runtime.providerID == descriptor.id)
-    #expect(runtime.modelDescriptor.id == model.id)
+    #expect(access.runtime.providerID == descriptor.id)
+    #expect(access.runtime.modelDescriptor.id == model.id)
+    try await access.release()
   }
 
   @Test func rejectedRuntimeIsShutdownBeforeRegistryThrows() async throws {
@@ -1352,19 +1355,17 @@ struct ModelProviderRegistryTests {
       descriptor: descriptor,
       availability: { .available },
       models: { [] },
-      makeRuntime: { _ in
-        try ModelRuntime(
+      acquireRuntime: { _ in .owned(try ModelRuntime(
           id: ModelRuntimeID(rawValue: "wrong.runtime"),
           client: ProviderClient(providerID: wrongModel.providerID, modelDescriptor: wrongModel),
           descriptor: wrongModel,
           cleanup: { cleanup.record() }
-        )
-      }
+        )) }
     )
     let registry = try ModelProviderRegistry([connector])
 
     await #expect(throws: ModelGenerationFailure.self) {
-      _ = try await registry.makeRuntime(
+      _ = try await registry.acquireRuntime(
         ModelProviderSelection(providerID: descriptor.id)
       )
     }
@@ -1378,7 +1379,7 @@ struct ModelProviderRegistryTests {
       descriptor: descriptor,
       availability: { .authenticationRequired },
       models: { [] },
-      makeRuntime: { _ in
+      acquireRuntime: { _ in
         Issue.record("runtime must not be created before authentication")
         throw ModelGenerationFailure(.sourceUnavailable, "unreachable")
       }
@@ -1386,7 +1387,7 @@ struct ModelProviderRegistryTests {
     let registry = try ModelProviderRegistry([connector])
 
     do {
-      _ = try await registry.makeRuntime(ModelProviderSelection(providerID: descriptor.id))
+      _ = try await registry.acquireRuntime(ModelProviderSelection(providerID: descriptor.id))
       Issue.record("expected authentication failure")
     } catch let failure as ModelGenerationFailure {
       #expect(failure.code == .authenticationRequired)

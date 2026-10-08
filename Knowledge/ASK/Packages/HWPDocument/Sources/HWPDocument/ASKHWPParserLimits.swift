@@ -38,6 +38,57 @@ public struct ASKHWPParserLimits: Sendable, Hashable, Codable {
         self.maximumEntryOrSectionCount = maximumEntryOrSectionCount
     }
 
+    private enum CodingKeys: String, CodingKey {
+        case maximumInputByteCount
+        case maximumDecodedStreamByteCount
+        case maximumDecodedTotalByteCount
+        case maximumEntryOrSectionCount
+    }
+
+    public init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        let maximumInputByteCount = try container.decode(Int.self, forKey: .maximumInputByteCount)
+        let maximumDecodedStreamByteCount = try container.decode(Int.self, forKey: .maximumDecodedStreamByteCount)
+        let maximumDecodedTotalByteCount = try container.decode(Int.self, forKey: .maximumDecodedTotalByteCount)
+        let maximumEntryOrSectionCount = try container.decode(Int.self, forKey: .maximumEntryOrSectionCount)
+
+        guard maximumInputByteCount > 0 else {
+            throw DecodingError.dataCorruptedError(
+                forKey: .maximumInputByteCount,
+                in: container,
+                debugDescription: "maximumInputByteCount must be positive"
+            )
+        }
+        guard maximumDecodedStreamByteCount > 0 else {
+            throw DecodingError.dataCorruptedError(
+                forKey: .maximumDecodedStreamByteCount,
+                in: container,
+                debugDescription: "maximumDecodedStreamByteCount must be positive"
+            )
+        }
+        guard maximumDecodedTotalByteCount >= maximumDecodedStreamByteCount else {
+            throw DecodingError.dataCorruptedError(
+                forKey: .maximumDecodedTotalByteCount,
+                in: container,
+                debugDescription: "maximumDecodedTotalByteCount must cover one decoded stream"
+            )
+        }
+        guard maximumEntryOrSectionCount > 0 else {
+            throw DecodingError.dataCorruptedError(
+                forKey: .maximumEntryOrSectionCount,
+                in: container,
+                debugDescription: "maximumEntryOrSectionCount must be positive"
+            )
+        }
+
+        self.init(
+            maximumInputByteCount: maximumInputByteCount,
+            maximumDecodedStreamByteCount: maximumDecodedStreamByteCount,
+            maximumDecodedTotalByteCount: maximumDecodedTotalByteCount,
+            maximumEntryOrSectionCount: maximumEntryOrSectionCount
+        )
+    }
+
     func validateInputSize(_ byteCount: Int) throws {
         guard byteCount <= maximumInputByteCount else {
             throw ASKHWPError.unsupportedFeature(

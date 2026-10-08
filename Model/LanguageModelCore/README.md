@@ -17,3 +17,5 @@ swift test -Xswiftc -warnings-as-errors
 ```
 
 [전체 계약](../../docs/SPEC.md) · [검증](../../docs/verification/README.md)
+
+ModelClient는 generate와 stream을 모두 명시적으로 구현해야 한다. generate-only 기본 stream 구현은 제공하지 않는다.

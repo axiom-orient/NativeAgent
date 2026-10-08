@@ -13,6 +13,8 @@ public actor ModelArtifactStore {
   private let minimumFreeBytes: UInt64
   private let availableBytes: @Sendable (URL) throws -> UInt64
   private let verificationObserver: @Sendable () -> Void
+  private let synchronizeDirectory: @Sendable (Int32) throws -> Void
+  private let rootDescriptor: Int32
   private let stagingDescriptor: Int32
   private let artifactsDescriptor: Int32
   private let locksDescriptor: Int32
@@ -32,7 +34,8 @@ public actor ModelArtifactStore {
   init(
     rootURL: URL, minimumFreeBytes: UInt64,
     availableBytes: @escaping @Sendable (URL) throws -> UInt64,
-    verificationObserver: @escaping @Sendable () -> Void = {}
+    verificationObserver: @escaping @Sendable () -> Void = {},
+    synchronizeDirectory: @escaping @Sendable (Int32) throws -> Void = nativeAgentSynchronize
   ) throws {
     guard rootURL.isFileURL, minimumFreeBytes <= UInt64(Int64.max) else {
       throw ArtifactStoreError.storageFailure
@@ -41,27 +44,28 @@ public actor ModelArtifactStore {
     self.minimumFreeBytes = minimumFreeBytes
     self.availableBytes = availableBytes
     self.verificationObserver = verificationObserver
+    self.synchronizeDirectory = synchronizeDirectory
     if !FileManager.default.fileExists(atPath: root.path) {
       try FileManager.default.createDirectory(
         at: root, withIntermediateDirectories: true, attributes: [.posixPermissions: 0o700])
     }
-    let rootDescriptor = try nativeAgentOpenDirectory(path: root.path)
+    let openedRoot = try nativeAgentOpenDirectory(path: root.path)
     var openedStaging: Int32 = -1
     var openedArtifacts: Int32 = -1
     var openedLocks: Int32 = -1
     do {
       openedStaging = try nativeAgentOpenDirectory(
-        parent: rootDescriptor, name: "staging", create: true)
+        parent: openedRoot, name: "staging", create: true)
       openedArtifacts = try nativeAgentOpenDirectory(
-        parent: rootDescriptor, name: "artifacts", create: true)
-      openedLocks = try nativeAgentOpenDirectory(parent: rootDescriptor, name: "locks", create: true)
-      nativeAgentClose(rootDescriptor)
+        parent: openedRoot, name: "artifacts", create: true)
+      openedLocks = try nativeAgentOpenDirectory(parent: openedRoot, name: "locks", create: true)
     } catch {
       if openedArtifacts >= 0 { nativeAgentClose(openedArtifacts) }
       if openedStaging >= 0 { nativeAgentClose(openedStaging) }
-      nativeAgentClose(rootDescriptor)
+      nativeAgentClose(openedRoot)
       throw error
     }
+    rootDescriptor = openedRoot
     stagingDescriptor = openedStaging
     artifactsDescriptor = openedArtifacts
     locksDescriptor = openedLocks
@@ -71,6 +75,7 @@ public actor ModelArtifactStore {
     nativeAgentClose(stagingDescriptor)
     nativeAgentClose(artifactsDescriptor)
     nativeAgentClose(locksDescriptor)
+    nativeAgentClose(rootDescriptor)
   }
 
   public func beginStaging(for manifest: ArtifactManifest) throws -> ArtifactStaging {
@@ -95,7 +100,9 @@ public actor ModelArtifactStore {
 
   /// Publishes a verified staging transaction and transfers its artifact lock
   /// directly into a shared lease. The staging tree is hashed once before its
-  /// atomic rename; the same immutable snapshot then becomes the lease root,
+  /// atomic rename. Verified files and directories are synchronized before
+  /// publication, followed by the rename's parent directories before leasing.
+  /// The same immutable snapshot then becomes the lease root,
   /// so a large newly published artifact is never re-hashed merely to open it.
   public func publish(_ staging: ArtifactStaging) async throws -> ArtifactLease {
     try staging.manifest.validate()
@@ -123,16 +130,10 @@ public actor ModelArtifactStore {
     defer { artifactLock?.close() }
     try Task.checkCancellation()
     let digest = staging.manifest.manifestDigest.rawValue
-    if let existing = try nativeAgentOpenOptionalDirectory(parent: artifactParent, name: digest) {
+    var existingSnapshot = try nativeAgentOpenOptionalDirectory(parent: artifactParent, name: digest)
+    if let existing = existingSnapshot {
       do {
-        try verify(directory: existing, manifest: staging.manifest)
-        try nativeAgentRemoveTree(parent: stagingDescriptor, name: quarantine)
-        try artifactLock!.downgradeToShared()
-        let lock = artifactLock!
-        artifactLock = nil
-        return ArtifactLease(
-          directoryURL: artifactURL(for: staging.manifest), manifest: staging.manifest,
-          lock: lock, descriptor: existing)
+        try verify(directory: existing, manifest: staging.manifest, synchronizing: true)
       } catch is CancellationError {
         nativeAgentClose(existing)
         throw CancellationError()
@@ -141,6 +142,8 @@ public actor ModelArtifactStore {
         switch error {
         case .invalidManifest, .invalidPath, .unsupportedEntry, .limitExceeded,
           .sizeMismatch, .digestMismatch, .missingFile:
+          // Only a failed verification of this snapshot authorizes removing it.
+          existingSnapshot = nil
           try nativeAgentRemoveTree(parent: artifactParent, name: digest)
         case .busy, .consumedStaging, .storageFailure:
           throw error
@@ -150,7 +153,22 @@ public actor ModelArtifactStore {
         throw error
       }
     }
-    try verify(directory: stage, manifest: staging.manifest)
+    if let existing = existingSnapshot {
+      do {
+        try nativeAgentRemoveTree(parent: stagingDescriptor, name: quarantine)
+        try synchronizePublicationParents(artifactParent)
+        try artifactLock!.downgradeToShared()
+        let lock = artifactLock!
+        artifactLock = nil
+        return ArtifactLease(
+          directoryURL: artifactURL(for: staging.manifest), manifest: staging.manifest,
+          lock: lock, descriptor: existing)
+      } catch {
+        nativeAgentClose(existing)
+        throw error
+      }
+    }
+    try verify(directory: stage, manifest: staging.manifest, synchronizing: true)
     try Task.checkCancellation()
     guard
       quarantine.withCString({ oldName in
@@ -161,6 +179,7 @@ public actor ModelArtifactStore {
     else { throw ArtifactStoreError.storageFailure }
     let published = try nativeAgentOpenDirectory(parent: artifactParent, name: digest)
     do {
+      try synchronizePublicationParents(artifactParent)
       try artifactLock!.downgradeToShared()
       let lock = artifactLock!
       artifactLock = nil
@@ -169,9 +188,8 @@ public actor ModelArtifactStore {
         lock: lock, descriptor: published)
     } catch {
       nativeAgentClose(published)
-      do { try nativeAgentRemoveTree(parent: artifactParent, name: digest) } catch {
-        throw ArtifactStoreError.storageFailure
-      }
+      // The rename has committed a verified snapshot. A failed durability
+      // barrier or lease transition cannot authorize deleting those bytes.
       throw error
     }
   }
@@ -269,13 +287,25 @@ public actor ModelArtifactStore {
       directoryHint: .isDirectory)
   }
 
-  private func verify(directory: Int32, manifest: ArtifactManifest) throws {
+  private func synchronizePublicationParents(_ artifactParent: Int32) throws {
+    try synchronizeDirectory(artifactParent)
+    try synchronizeDirectory(stagingDescriptor)
+    try synchronizeDirectory(artifactsDescriptor)
+    try synchronizeDirectory(rootDescriptor)
+  }
+
+  private func verify(
+    directory: Int32, manifest: ArtifactManifest, synchronizing: Bool = false
+  ) throws {
     verificationObserver()
-    try Self.verify(directory: directory, manifest: manifest)
+    try Self.verify(
+      directory: directory, manifest: manifest,
+      synchronizeDirectory: synchronizing ? synchronizeDirectory : nil)
   }
 
   private static func verify(
-    directory: Int32, manifest: ArtifactManifest, checkingCancellation: Bool = true
+    directory: Int32, manifest: ArtifactManifest, checkingCancellation: Bool = true,
+    synchronizeDirectory: (@Sendable (Int32) throws -> Void)? = nil
   ) throws {
     let expected = Dictionary(uniqueKeysWithValues: manifest.files.map { ($0.path, $0) })
     var expectedDirectoryPrefixes: Set<String> = []
@@ -292,7 +322,7 @@ public actor ModelArtifactStore {
     let actual = try nativeAgentScanTree(
       directory: directory, expected: expected,
       expectedDirectoryPrefixes: expectedDirectoryPrefixes, visitedEntries: &visitedEntries,
-      checkingCancellation: checkingCancellation)
+      checkingCancellation: checkingCancellation, synchronizeDirectory: synchronizeDirectory)
     guard actual.count == manifest.files.count,
       manifest.files.allSatisfy({ actual[$0.path] != nil })
     else { throw ArtifactStoreError.missingFile }

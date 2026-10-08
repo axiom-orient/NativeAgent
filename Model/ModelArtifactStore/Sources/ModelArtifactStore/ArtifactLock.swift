@@ -22,6 +22,12 @@ func nativeAgentClose(_ descriptor: Int32) {
   #endif
 }
 
+func nativeAgentSynchronize(_ descriptor: Int32) throws {
+  while fsync(descriptor) != 0 {
+    guard errno == EINTR else { throw ArtifactStoreError.storageFailure }
+  }
+}
+
 func nativeAgentOpenDirectory(path: String) throws -> Int32 {
   let descriptor = path.withCString { open($0, O_RDONLY | O_DIRECTORY | O_NOFOLLOW | O_CLOEXEC) }
   guard descriptor >= 0 else { throw ArtifactStoreError.unsupportedEntry }
@@ -108,7 +114,8 @@ struct ArtifactScannedFile: Equatable {
 
 func nativeAgentScanTree(
   directory: Int32, prefix: String = "", expected: [String: ArtifactEntry],
-  expectedDirectoryPrefixes: Set<String>, visitedEntries: inout Int, checkingCancellation: Bool
+  expectedDirectoryPrefixes: Set<String>, visitedEntries: inout Int, checkingCancellation: Bool,
+  synchronizeDirectory: (@Sendable (Int32) throws -> Void)? = nil
 ) throws -> [String: ArtifactScannedFile] {
   let duplicate = dup(directory)
   guard duplicate >= 0, let stream = fdopendir(duplicate) else {
@@ -145,7 +152,8 @@ func nativeAgentScanTree(
         nested = try nativeAgentScanTree(
           directory: child, prefix: path, expected: expected,
           expectedDirectoryPrefixes: expectedDirectoryPrefixes, visitedEntries: &visitedEntries,
-          checkingCancellation: checkingCancellation)
+          checkingCancellation: checkingCancellation,
+          synchronizeDirectory: synchronizeDirectory)
       } catch {
         nativeAgentClose(child)
         throw error
@@ -164,7 +172,9 @@ func nativeAgentScanTree(
       guard UInt64(information.st_size) == expectedFile.byteCount else {
         throw ArtifactStoreError.sizeMismatch
       }
-      let descriptor = name.withCString { openat(directory, $0, O_RDONLY | O_CLOEXEC | O_NOFOLLOW) }
+      let descriptor = name.withCString {
+        openat(directory, $0, O_RDONLY | O_CLOEXEC | O_NOFOLLOW | O_NONBLOCK)
+      }
       guard descriptor >= 0 else { throw ArtifactStoreError.unsupportedEntry }
       var opened = stat()
       guard fstat(descriptor, &opened) == 0, opened.st_dev == information.st_dev,
@@ -175,19 +185,21 @@ func nativeAgentScanTree(
       }
       var hasher = SHA256()
       let handle = FileHandle(fileDescriptor: descriptor, closeOnDealloc: false)
+      let digest: ArtifactDigest
       do {
         while let data = try handle.read(upToCount: 1_048_576), !data.isEmpty {
           if checkingCancellation { try Task.checkCancellation() }
           hasher.update(data: data)
         }
+        digest = ArtifactDigest(
+          rawValue: hasher.finalize().map { String(format: "%02x", $0) }.joined())!
+        guard digest == expectedFile.sha256 else { throw ArtifactStoreError.digestMismatch }
+        if synchronizeDirectory != nil { try nativeAgentSynchronize(descriptor) }
       } catch {
         nativeAgentClose(descriptor)
         throw error
       }
       nativeAgentClose(descriptor)
-      let digest = ArtifactDigest(
-        rawValue: hasher.finalize().map { String(format: "%02x", $0) }.joined())!
-      guard digest == expectedFile.sha256 else { throw ArtifactStoreError.digestMismatch }
       guard
         files.updateValue(.init(byteCount: UInt64(opened.st_size), digest: digest), forKey: path)
           == nil
@@ -198,6 +210,7 @@ func nativeAgentScanTree(
     errno = 0
   }
   guard errno == 0 else { throw ArtifactStoreError.storageFailure }
+  try synchronizeDirectory?(directory)
   return files
 }
 
@@ -278,7 +291,7 @@ func nativeAgentCopyRegularFile(
   }
 
   let source = fileName.withCString {
-    openat(sourceParent, $0, O_RDONLY | O_CLOEXEC | O_NOFOLLOW)
+    openat(sourceParent, $0, O_RDONLY | O_CLOEXEC | O_NOFOLLOW | O_NONBLOCK)
   }
   guard source >= 0 else { throw ArtifactStoreError.unsupportedEntry }
   defer { nativeAgentClose(source) }
@@ -327,6 +340,6 @@ func nativeAgentCopyRegularFile(
     }
   }
   guard copied == entry.byteCount else { throw ArtifactStoreError.sizeMismatch }
-  guard fsync(destination) == 0 else { throw ArtifactStoreError.storageFailure }
+  try nativeAgentSynchronize(destination)
   keepDestination = true
 }

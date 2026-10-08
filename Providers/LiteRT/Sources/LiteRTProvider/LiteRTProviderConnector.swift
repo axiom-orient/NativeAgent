@@ -55,11 +55,11 @@ public struct LiteRTProviderConnector: ModelProviderConnector {
       .map(LiteRTProvider.modelDescriptor(for:))
   }
 
-  public func makeRuntime(modelID: String?) async throws -> ModelRuntime {
+  public func acquireRuntime(modelID: String?) async throws -> ModelRuntimeAccess {
     let selectedID = modelID ?? defaultModelID
     guard let model = modelsByID[selectedID] else {
       throw ModelGenerationFailure(.invalidRequest, "Unknown LiteRT-LM model: \(selectedID)")
     }
-    return try await LiteRTProvider.loadRuntime(model, policy: policy)
+    return .owned(try await LiteRTProvider.loadRuntime(model, policy: policy))
   }
 }

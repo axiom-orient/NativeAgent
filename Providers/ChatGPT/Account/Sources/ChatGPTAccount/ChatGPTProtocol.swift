@@ -83,8 +83,8 @@ public struct ChatGPTProtocolProfile: Hashable, Sendable {
     redirectURI: try! Self.callbackRedirectURI(port: Self.defaultCallbackPort),
     clientID: "app_EMoamEEZ73f0CkXaXp7hrann",
     originator: "codex_cli_rs",
-    clientVersion: "0.153.4",
-    sourceRevision: "openai/codex:rust-v0.153.4@3d2ee51ca2d5db578f328aa75e20aa22c0197c9a"
+    clientVersion: "0.161.0",
+    sourceRevision: "openai/codex:rust-v0.161.0@979011409de0a60b52f179721948e65531d26144"
   )
 
   /// Bearer-bearing service calls must stay on the pinned service origin.

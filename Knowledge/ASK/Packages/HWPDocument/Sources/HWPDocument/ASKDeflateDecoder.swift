@@ -278,7 +278,8 @@ private struct ASKDeflateBitReader {
         guard bitCount == 0 else {
             throw ASKHWPError.decompressionFailed("DEFLATE reader is not byte-aligned.")
         }
-        guard count >= 0, byteOffset + count <= bytes.count else {
+        guard count >= 0, byteOffset >= 0, byteOffset <= bytes.count,
+              count <= bytes.count - byteOffset else {
             throw ASKHWPError.decompressionFailed("Unexpected end of byte-aligned DEFLATE block.")
         }
         let result = Array(bytes[byteOffset..<(byteOffset + count)])

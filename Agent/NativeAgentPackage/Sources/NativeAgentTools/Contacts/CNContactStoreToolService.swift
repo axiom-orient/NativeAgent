@@ -8,7 +8,11 @@ import Contacts
 public actor CNContactStoreToolService: ContactsToolService {
     private let store = CNContactStore()
 
-    public init() {}
+    private let hostBundle: Bundle
+
+    public init() { self.hostBundle = .main }
+
+    init(hostBundle: Bundle) { self.hostBundle = hostBundle }
 
     public func search(
         query: String,
@@ -25,7 +29,8 @@ public actor CNContactStoreToolService: ContactsToolService {
         let decodedCursor = try decodeCursor(cursor, query: matcher.normalizedQuery)
         try requireHostUsageDescription(
             "NSContactsUsageDescription",
-            capability: "Contacts access"
+            capability: "Contacts access",
+            bundle: hostBundle
         )
 
         let granted = try await requestAccess()

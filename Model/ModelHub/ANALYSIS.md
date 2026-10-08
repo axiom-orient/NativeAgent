@@ -11,7 +11,7 @@
 | 주소 입력 | host → HubModelAddress | repo/Hub URL/revision syntax | pure parser | 주소 또는 invalid input | [HubModelAddress.swift](Sources/ModelHub/HubModelAddress.swift) |
 | 병렬 후보 조사 | host → candidates → backend.inspectModel | backend/provider/repository 일치; 취소 | structured task group; backend read I/O | 순서 유지 후보 또는 failure | [HubModelInstaller.swift](Sources/ModelHub/HubModelInstaller.swift) |
 | 설치 | host → install → backend.installModel | 선택 backend; 취소 gate; 반환 descriptor/provider | backend install effect | 관찰된 ModelDescriptor 또는 error | [HubModelInstaller.swift](Sources/ModelHub/HubModelInstaller.swift) |
-| 설치 후 load | host → installAndLoad → registry.makeRuntime | 등록 provider; 선택/반환 identity | installer orchestration / registry acquisition | model + caller-owned runtime | [HubModelInstaller.swift](Sources/ModelHub/HubModelInstaller.swift) |
+| 설치 후 load | host → installAndLoad → registry.acquireRuntime | 등록 provider; 선택/반환 identity | installer orchestration / registry acquisition | model + explicit owned/borrowed access | [HubModelInstaller.swift](Sources/ModelHub/HubModelInstaller.swift) |
 
 ## 실제 흐름
 
@@ -40,7 +40,7 @@ installer는 immutable backends 목록만 소유한다. 다운로드 progress는
 
 후보 inspection은 controlled backend fixture로 검증했다. 실제 remote download byte 수·revision 재해석·provider 설치의 crash recovery는 각 native backend gate다. 새 progress task, cache 또는 retry policy를 만들지 않았다.
 
-**F14 / 합성 API 제약.** `installAndLoad`는 설치 후 `registry.makeRuntime`을 호출한다. load 오류/취소 시 tuple 전체가 반환되지 않지만 앞선 install을 되돌리지 않는다. 오류만으로 미설치를 판단하면 안 된다. 설치 결과를 복구에 보존해야 하는 host는 기존 `install`과 `registry.acquireRuntime`을 명시적으로 분리해 descriptor를 먼저 보존한다. convenience API의 typed partial receipt 확대는 caller 요구 확인 전 결정하지 않는다.
+**F14 / 합성 API 제약.** `installAndLoad`는 설치 후 `registry.acquireRuntime`을 호출한다. load 오류/취소 시 tuple 전체가 반환되지 않지만 앞선 install을 되돌리지 않는다. 오류만으로 미설치를 판단하면 안 된다. 설치 결과를 복구에 보존해야 하는 host는 기존 `install`과 `registry.acquireRuntime`을 명시적으로 분리해 descriptor를 먼저 보존한다. convenience API의 typed partial receipt 확대는 caller 요구 확인 전 결정하지 않는다.
 
 
 ## 2026-09-20 identity/validation refactor

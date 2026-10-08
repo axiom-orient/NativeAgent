@@ -67,12 +67,12 @@ public struct MLXProviderConnector: ModelProviderConnector {
     .sorted { $0.id < $1.id }
   }
 
-  public func makeRuntime(modelID: String?) async throws -> ModelRuntime {
+  public func acquireRuntime(modelID: String?) async throws -> ModelRuntimeAccess {
     let selectedID = modelID ?? defaultModelID
     guard let prepared = modelsByID[selectedID] else {
       throw ModelGenerationFailure(.invalidRequest, "Unknown MLX model: \(selectedID)")
     }
-    return try await runtime.loadRuntime(prepared, policy: policy)
+    return .owned(try await runtime.loadRuntime(prepared, policy: policy))
   }
 
   private static func modelID(_ model: MLXModel) -> String {

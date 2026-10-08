@@ -163,6 +163,16 @@ public actor LEAPHuggingFaceModelProviderConnector: ModelProviderConnector, HubM
     monitor.cancel()
     try Task.checkCancellation()
 
+    return try await installDownloadedModel(candidate, from: temporaryDirectory)
+  }
+
+  /// The artifact import and catalog write are separate durable effects.
+  /// This boundary also accepts already-downloaded bytes without vendor I/O.
+  func installDownloadedModel(
+    _ candidate: HubModelImportCandidate, from temporaryDirectory: URL
+  ) async throws -> ModelDescriptor {
+    let modelPath = candidate.artifactPaths[0]
+    let destination = temporaryDirectory.appending(path: modelPath)
     let values = try destination.resourceValues(forKeys: [.isRegularFileKey, .fileSizeKey])
     guard values.isRegularFile == true, let fileSize = values.fileSize,
       fileSize >= 0, UInt64(fileSize) == candidate.totalBytes
@@ -182,17 +192,14 @@ public actor LEAPHuggingFaceModelProviderConnector: ModelProviderConnector, HubM
       displayName: candidate.displayName)
     let prepared = try await runtime.importModel(model, from: temporaryDirectory)
     let modelID = Self.modelID(prepared)
-    modelsByID[modelID] = prepared
+    let previous = modelsByID.updateValue(prepared, forKey: modelID)
     do {
       try persistCatalog()
     } catch let catalogError {
-      modelsByID.removeValue(forKey: modelID)
-      do {
-        try await runtime.remove(model)
-      } catch {
-        throw ModelGenerationFailure(
-          .sourceUnavailable, "The LEAP catalog write failed and the new artifact could not be rolled back.")
-      }
+      modelsByID[modelID] = previous
+      // importModel can borrow a prior publication, including one published
+      // by another runtime during import. No receipt proves exclusive creation;
+      // deleting here would erase bytes owned by an earlier successful install.
       throw catalogError
     }
     defaultModelID = modelID
@@ -219,7 +226,7 @@ public actor LEAPHuggingFaceModelProviderConnector: ModelProviderConnector, HubM
       .sorted { $0.id < $1.id }
   }
 
-  public func makeRuntime(modelID: String?) async throws -> ModelRuntime {
+  public func acquireRuntime(modelID: String?) async throws -> ModelRuntimeAccess {
     try await loadCatalogIfNeeded()
     guard !modelsByID.isEmpty else {
       throw ModelGenerationFailure(.sourceUnavailable, "No LFM2 model has been installed.")
@@ -228,7 +235,7 @@ public actor LEAPHuggingFaceModelProviderConnector: ModelProviderConnector, HubM
     guard let prepared = modelsByID[selectedID] else {
       throw ModelGenerationFailure(.invalidRequest, "Unknown LEAP model: \(selectedID)")
     }
-    return try await runtime.makeTextRuntime(prepared, policy: policy)
+    return .owned(try await runtime.makeTextRuntime(prepared, policy: policy))
   }
 
   private func resolve(_ address: HubModelAddress) async throws -> ResolvedHubReference {

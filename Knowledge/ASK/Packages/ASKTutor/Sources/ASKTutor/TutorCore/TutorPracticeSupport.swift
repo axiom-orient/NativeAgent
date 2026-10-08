@@ -62,6 +62,10 @@ enum TutorPracticeEvaluationReducer {
         configuration: TutorConfiguration,
         requestedAt: String
     ) throws -> TutorPracticeGradingOutcome {
+        guard draft.overallScore.isFinite,
+              draft.itemResults.allSatisfy({ $0.score.isFinite }) else {
+            throw ASKTutorError.invalidInput("practice scores must be finite")
+        }
         var updatedLearner = learner
         let scheduler = TutorReviewScheduler(configuration: configuration)
         var updatedStates: [TutorConceptState] = []

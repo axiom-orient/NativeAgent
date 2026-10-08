@@ -227,6 +227,10 @@ private actor SessionProbe {
   }
 }
 private struct SessionClient: ModelClient {
+    nonisolated func stream(request: ModelRequest) -> AsyncThrowingStream<ModelEvent, any Error> {
+        scriptedModelEvents(descriptor: modelDescriptor) { try await self.generate(request: request) }
+    }
+
   let probe: SessionProbe
   let providerID = "fixture"
   var modelDescriptor: ModelDescriptor? {
@@ -267,6 +271,9 @@ private actor FailingSessionDrain {
   }
 }
 private struct FailingDrainClient: ModelClientWithOwnedInvocation {
+  func stream(request: ModelRequest) -> AsyncThrowingStream<ModelEvent, any Error> {
+    invocation(request: request, onStarted: {}).events
+  }
   let drain: FailingSessionDrain
   let providerID = "fixture"
   var modelDescriptor: ModelDescriptor? {

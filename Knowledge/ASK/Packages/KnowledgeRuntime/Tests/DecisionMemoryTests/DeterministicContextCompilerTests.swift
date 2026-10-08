@@ -125,4 +125,33 @@ struct DeterministicContextCompilerTests {
         #expect(decision.kind == .block)
         #expect(decision.recordIDs == ["mem_ltsm"])
     }
+    @Test(arguments: [-1, Int.max])
+    func hostileTokenCounterCannotBypassOrOverflowBudget(cost: Int) throws {
+        struct Counter: DecisionMemoryTokenCounting {
+            let cost: Int
+            func countTokens(in text: String) -> Int {
+                text.hasPrefix("# Task context") ? 0 : cost
+            }
+        }
+        let snapshot = MemoryLifecycleSnapshot(states: [
+            state(recordID: "first", tier: .ltsm, verification: .verified, blocking: true),
+            state(recordID: "second", tier: .ltsm, verification: .verified, blocking: true),
+        ])
+        #expect(throws: DecisionMemoryContextError.self) {
+            _ = try DeterministicContextCompiler(tokenCounter: Counter(cost: cost)).compile(
+                snapshot: snapshot, frame: frame(), generation: "generation_001")
+        }
+    }
+
+    @Test
+    func negativeHeaderTokenCountIsRejected() throws {
+        struct Counter: DecisionMemoryTokenCounting {
+            func countTokens(in text: String) -> Int { -1 }
+        }
+        #expect(throws: DecisionMemoryContextError.self) {
+            _ = try DeterministicContextCompiler(tokenCounter: Counter()).compile(
+                snapshot: MemoryLifecycleSnapshot(states: []), frame: frame(), generation: "generation_001")
+        }
+    }
+
 }

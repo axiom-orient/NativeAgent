@@ -750,12 +750,16 @@ struct ModelInvocationRecoveryReconciler: Sendable {
         }
         return definition.containsSensitiveData
       }
-      let reduction = try transitions.resolvingWaitWithAssistantTurn(
+      let continuation = ResponseContinuationController(
+        policy: try ResponseContinuationMetadata.policy(from: snapshot.metadata)
+      )
+      let reduction = try transitions.recordingAssistantTurn(
         turn,
         containsSensitiveToolCall: containsSensitiveToolCall,
+        continuation: continuation,
         in: snapshot
       )
-      guard let assistantMessage = reduction.snapshot.messages.last else {
+      guard let assistantMessage = reduction.snapshot.messages.dropFirst(snapshot.messages.count).first else {
         throw AgentError.invariantViolation(
           "Model recovery did not append a durable assistant message."
         )
@@ -766,6 +770,7 @@ struct ModelInvocationRecoveryReconciler: Sendable {
         assistantMessage: assistantMessage
       )
       let assistantEntries = [SessionJournal.Entry.assistantTurn(assistantMessage)]
+        + (reduction.snapshot.status == .completed ? [.sessionCompleted] : [])
       let resolved = try await snapshotWriter.persist(
         reduction,
         effects: [completedEffect],
@@ -775,37 +780,9 @@ struct ModelInvocationRecoveryReconciler: Sendable {
         ] + assistantEntries
       )
 
-      if turn.toolCalls.isEmpty == false {
-        return ModelInvocationRecoveryReconciliation(
-          snapshot: resolved,
-          requiresContinuation: true
-        )
-      }
-
-      let continuation = ResponseContinuationController(
-        policy: try ResponseContinuationMetadata.policy(from: resolved.metadata)
-      )
-      if continuation.shouldContinue(after: turn, snapshot: resolved) {
-        let continued = try SessionSnapshotTransitions.appendingUserPrompt(
-          ResponseContinuationMetadata.syntheticPrompt,
-          requestMetadata: ResponseContinuationMetadata.syntheticRequestMetadata,
-          to: resolved,
-          messageID: idGenerator(),
-          timestamp: now()
-        )
-        return ModelInvocationRecoveryReconciliation(
-          snapshot: try await snapshotWriter.persist(continued),
-          requiresContinuation: true
-        )
-      }
-
-      let completed = try transitions.markingCompleted(resolved)
       return ModelInvocationRecoveryReconciliation(
-        snapshot: try await snapshotWriter.persist(
-          completed,
-          journalEntries: [.sessionCompleted]
-        ),
-        requiresContinuation: false
+        snapshot: resolved,
+        requiresContinuation: resolved.status == .running
       )
 
     case .retry(let rawReason):

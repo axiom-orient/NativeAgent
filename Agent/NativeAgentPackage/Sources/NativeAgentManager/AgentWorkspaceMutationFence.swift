@@ -21,8 +21,23 @@ struct AgentWorkspaceMutationFence: Sendable {
     defer { Self.processMutex.unlock() }
 
     let lock = try AgentWorkspaceFileLock(agentsRootURL: agentsRootURL, operation: operation)
-    defer { lock.unlock() }
-    return try body()
+    do {
+      let result = try body()
+      try lock.unlock()
+      return result
+    } catch {
+      let primary = error
+      do {
+        try lock.unlock()
+      } catch {
+        throw AgentWorkspaceMutationLockError(
+          operation: operation,
+          cause: "operation failed: \(primary.localizedDescription); unlock failed: \(error.localizedDescription)",
+          context: ["path": agentsRootURL.path]
+        )
+      }
+      throw primary
+    }
   }
 }
 
@@ -43,6 +58,7 @@ private struct AgentWorkspaceMutationLockError: Error, LocalizedError {
 
 private final class AgentWorkspaceFileLock: @unchecked Sendable {
   private let handle: FileHandle
+  private let operation: String
   private var locked = true
 
   init(agentsRootURL: URL, operation: String) throws {
@@ -65,8 +81,6 @@ private final class AgentWorkspaceFileLock: @unchecked Sendable {
     guard rootDescriptor >= 0 else {
       throw lockError(operation: operation, cause: "open-agents-root", path: agentsRootURL.path)
     }
-    defer { agentWorkspaceClose(rootDescriptor) }
-
     let descriptor = ".agent-mutation.lock".withCString {
       openat(
         rootDescriptor,
@@ -74,6 +88,10 @@ private final class AgentWorkspaceFileLock: @unchecked Sendable {
         O_RDWR | O_CREAT | O_CLOEXEC | O_NOFOLLOW,
         S_IRUSR | S_IWUSR
       )
+    }
+    guard agentWorkspaceClose(rootDescriptor) else {
+      if descriptor >= 0 { _ = agentWorkspaceClose(descriptor) }
+      throw lockError(operation: operation, cause: "close-agents-root", path: agentsRootURL.path)
     }
     guard descriptor >= 0 else {
       throw lockError(operation: operation, cause: "open-lock-file", path: agentsRootURL.path)
@@ -99,18 +117,41 @@ private final class AgentWorkspaceFileLock: @unchecked Sendable {
     }
 
     handle = FileHandle(fileDescriptor: descriptor, closeOnDealloc: true)
+    self.operation = operation
   }
 
-  func unlock() {
+  func unlock() throws {
     guard locked else { return }
-    _ = flock(handle.fileDescriptor, LOCK_UN)
-    try? handle.close()
     locked = false
+    let unlockSucceeded = flock(handle.fileDescriptor, LOCK_UN) == 0
+    let unlockErrno = errno
+    var closeError: (any Error)?
+    do {
+      try handle.close()
+    } catch {
+      closeError = error
+    }
+    guard unlockSucceeded, closeError == nil else {
+      let cause: String
+      switch (unlockSucceeded, closeError) {
+      case (false, let closeError?):
+        cause = "unlock errno=\(unlockErrno); close failed: \(closeError.localizedDescription)"
+      case (false, nil):
+        cause = "unlock errno=\(unlockErrno)"
+      case (true, let closeError?):
+        cause = "close failed: \(closeError.localizedDescription)"
+      case (true, nil):
+        cause = "unknown unlock failure"
+      }
+      throw AgentWorkspaceMutationLockError(
+        operation: operation,
+        cause: cause,
+        context: [:]
+      )
+    }
   }
 
-  deinit {
-    unlock()
-  }
+  deinit { try? unlock() }
 }
 
 private func lockError(operation: String, cause: String, path: String)
@@ -123,10 +164,11 @@ private func lockError(operation: String, cause: String, path: String)
   )
 }
 
-private func agentWorkspaceClose(_ descriptor: Int32) {
+@discardableResult
+private func agentWorkspaceClose(_ descriptor: Int32) -> Bool {
   #if canImport(Darwin)
-    _ = Darwin.close(descriptor)
+    return Darwin.close(descriptor) == 0
   #else
-    _ = Glibc.close(descriptor)
+    return Glibc.close(descriptor) == 0
   #endif
 }

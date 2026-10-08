@@ -34,6 +34,9 @@ private func decodeSearchRow(from statement: SQLiteStatement) throws -> SQLiteSe
 }
 
 package func searchMirrorCandidates(at path: URL, query: String, limit: Int = 24) throws -> [SQLiteSearchCandidate] {
+    guard limit >= 0 else {
+        throw ASKError.validation("search limit must be non-negative")
+    }
     let trimmed = query.trimmingCharacters(in: .whitespacesAndNewlines)
     guard !trimmed.isEmpty else { return [] }
     guard let matchQuery = ftsMatchQuery(trimmed) else { return [] }

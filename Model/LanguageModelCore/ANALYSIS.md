@@ -13,13 +13,13 @@
 | JSON public library | wire/tool caller → JSONValue accessors/from(any:) | NSNumber/Int64/Double; 정확한 정수 변환 | 순수 value 변환 | JSONValue 또는 nil/throw | [JSONValue+Accessors.swift](Sources/LanguageModelCore/JSON/JSONValue+Accessors.swift); [JSONValue+Bridging.swift](Sources/LanguageModelCore/JSON/JSONValue+Bridging.swift) |
 | generation contract | Runtime.reserve / registry / Hub → validateGenerationContract | descriptor, request limits, roles, schema | Core validator; 실행 권한 없음 | 유효값 또는 ModelGenerationFailure | [ModelGeneration.swift](Sources/LanguageModelCore/Contracts/ModelGeneration.swift) |
 | model/executor port | 외부 descriptor → LanguageModelExecutor | Sendable configuration/request; completion 계약 | 구현체가 effect; Core는 요구만 정의 | event sink / failure / drain failure | [LanguageModel.swift](Sources/LanguageModelCore/Contracts/LanguageModel.swift) |
-| legacy streaming port | ClientLanguageModel → ModelClient.stream | request와 client capability | default unfolding adapter; 별도 background producer 없음 | ModelEvent stream | [ModelClient.swift](Sources/LanguageModelCore/Contracts/ModelClient.swift) |
+| explicit streaming port | ClientLanguageModel → ModelClient.stream | request와 client capability | provider가 스트림·실행 수명을 명시적으로 구현 | ModelEvent stream | [ModelClient.swift](Sources/LanguageModelCore/Contracts/ModelClient.swift) |
 | owned invocation port | Runtime → cancel/waitForCompletion | 호출 identity와 완료 handle | provider가 실제 producer completion 소유 | 명시적 cancel/join 결과 | [ModelClientInvocation.swift](Sources/LanguageModelCore/Contracts/ModelClientInvocation.swift) |
 | schema·stream contract | tool/stream caller → ToolSchema / ModelStreamContract | 값 크기·타입·event 순서 | 순수 schema/contract state | validation 또는 contract failure | [ModelStreamContract.swift](Sources/LanguageModelCore/Contracts/ModelStreamContract.swift); [ToolSchema.swift](Sources/LanguageModelCore/Schema/ToolSchema.swift) |
 
 ## 실제 흐름
 
-`wire/host value → JSONValue → schema/request validation → Runtime가 허용한 effect`. Core 내부에서 DB/file/network effect로 연결되는 경로는 없다. `ModelClient`의 기본 stream 편의 구현은 호출자가 소비할 때 generate를 기다리며, 별도 buffered Task를 만드는 구체 provider까지 자동 join시키지는 않는다.
+`wire/host value → JSONValue → schema/request validation → Runtime가 허용한 effect`. Core 내부에서 DB/file/network effect로 연결되는 경로는 없다. `ModelClient.stream`은 provider의 필수 구현이다. generate-only 기본 stream 경로는 제거했다. 독립 producer/native 작업이 있으면 owned invocation의 cancel/waitForCompletion으로 drain을 증명한다.
 
 ## 현재 state·contract·I/O owner
 

@@ -108,22 +108,23 @@ enum WebKitExecutor {
         try await withThrowingTaskGroup(of: T.self) { group in
             group.addTask { try await operation() }
             group.addTask {
-                do {
-                    try await Task.sleep(for: timeout)
-                    let error = WebKitSkillRunnerError.timeout
-                    await cancelOperation(error)
-                    throw error
-                } catch is CancellationError {
-                    let error = CancellationError()
-                    await cancelOperation(error)
-                    throw error
+                try await Task.sleep(for: timeout)
+                try Task.checkCancellation()
+                throw WebKitSkillRunnerError.timeout
+            }
+            do {
+                guard let result = try await group.next() else {
+                    throw AgentError.unsupportedSurface(
+                        "WebKit timeout group returned no result."
+                    )
                 }
+                group.cancelAll()
+                return result
+            } catch {
+                group.cancelAll()
+                await cancelOperation(error)
+                throw error
             }
-            guard let result = try await group.next() else {
-                throw AgentError.unsupportedSurface("WebKit timeout group returned no result.")
-            }
-            group.cancelAll()
-            return result
         }
     }
 }

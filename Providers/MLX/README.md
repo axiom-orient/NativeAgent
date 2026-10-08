@@ -35,7 +35,9 @@ let model = try await mlxProvider.installModel(
 // It is now listed and can be selected immediately; this install is the current-session default.
 let availableModels = try await providers.models(providerID: "mlx.text")
 let selection = try ModelProviderSelection(providerID: "mlx.text", modelID: model.id)
-let runtime = try await providers.makeRuntime(selection)
+let access = try await providers.acquireRuntime(selection)
+let runtime = access.runtime
+// After generation: try await access.release()
 ```
 
 `installModel` resolves a branch/tag to its current 40-character commit, downloads the approved files, verifies and atomically publishes them, then records the model in the connector catalog. The commit—not a moving `main` reference—is saved, so the app can restore the catalog after relaunch. `ModelProviderRegistry` then creates the selected runtime without rebuilding or shipping a new app version.

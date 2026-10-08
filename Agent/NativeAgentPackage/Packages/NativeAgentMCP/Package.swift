@@ -10,7 +10,7 @@ let strict: [SwiftSetting] = [
 
 let package = Package(
   name: "NativeAgentMCP",
-  platforms: [.iOS(.v17), .macOS(.v13)],
+  platforms: [.iOS(.v17), .macOS(.v14)],
   products: [.library(name: "NativeAgentMCP", targets: ["NativeAgentMCP"])],
   dependencies: [
     .package(name: "NativeAgentPackage", path: "../.."),

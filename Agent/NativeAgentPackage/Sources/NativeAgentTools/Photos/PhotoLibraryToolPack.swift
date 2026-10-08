@@ -31,6 +31,10 @@ public struct PhotoAssetListRequest: Sendable, Equatable {
         guard (1...Self.maximumPageSize).contains(limit) else {
             throw AgentError.invalidToolCall("photos.listAssets page size must be between 1 and 100.")
         }
+        guard createdAfter?.timeIntervalSinceReferenceDate.isFinite ?? true,
+              createdBefore?.timeIntervalSinceReferenceDate.isFinite ?? true else {
+            throw AgentError.invalidToolCall("photos.listAssets dates must be finite.")
+        }
         if let createdAfter, let createdBefore, createdAfter >= createdBefore {
             throw AgentError.invalidToolCall("photos.listAssets createdAfter must be earlier than createdBefore.")
         }
@@ -228,7 +232,11 @@ public actor PHPhotoLibraryToolService: PhotoLibraryToolService {
         guard offset <= assets.count else {
             throw AgentError.invalidToolCall("Photos cursor no longer matches the current library view.")
         }
-        let endIndex = min(offset + request.limit, assets.count)
+        let (requestedEnd, overflow) = offset.addingReportingOverflow(request.limit)
+        guard !overflow else {
+            throw AgentError.invariantViolation("Photos cursor offset overflowed.")
+        }
+        let endIndex = min(requestedEnd, assets.count)
         var records: [PhotoAssetRecord] = []
         records.reserveCapacity(endIndex - offset)
         for index in offset..<endIndex {

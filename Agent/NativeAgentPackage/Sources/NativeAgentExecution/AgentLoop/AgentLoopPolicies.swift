@@ -66,17 +66,31 @@ struct AgentLoopSnapshotTransitions {
         )
     }
 
-    func resolvingWaitWithAssistantTurn(
+    /// Persist a model outcome and its next durable lifecycle in one revision.
+    /// A continuation prompt is committed with the truncated response so recovery
+    /// cannot lose its budget accounting or invoke again without that prompt.
+    func recordingAssistantTurn(
         _ turn: ModelTurn,
-        containsSensitiveToolCall: Bool = false,
+        containsSensitiveToolCall: Bool,
+        continuation: ResponseContinuationController,
         in snapshot: SessionSnapshot
     ) throws -> SessionReduction {
-        try SessionReducer.reduce(
-            .resolveWaitAndAppend(
-                messages: [assistantMessage(for: turn, containsSensitiveToolCall: containsSensitiveToolCall)],
-                artifacts: snapshot.artifacts,
-                updatedAt: now(),
-                reason: .assistantTurnAppended
+        let message = assistantMessage(for: turn, containsSensitiveToolCall: containsSensitiveToolCall)
+        let shouldContinue = turn.toolCalls.isEmpty
+            && continuation.shouldContinue(after: turn, snapshot: snapshot)
+        let continuationPrompt = shouldContinue ? AgentMessage(
+            id: idGenerator(),
+            role: .user,
+            content: ResponseContinuationMetadata.syntheticPrompt,
+            createdAt: now(),
+            metadata: ResponseContinuationMetadata.syntheticRequestMetadata
+        ) : nil
+        return try SessionReducer.reduce(
+            .recordAssistantTurn(
+                message: message,
+                continuationPrompt: continuationPrompt,
+                completesSession: turn.toolCalls.isEmpty && !shouldContinue,
+                updatedAt: now()
             ),
             state: snapshot
         )

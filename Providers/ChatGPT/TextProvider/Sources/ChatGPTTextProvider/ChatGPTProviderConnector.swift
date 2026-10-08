@@ -37,12 +37,12 @@ public struct ChatGPTProviderConnector: ModelProviderConnector {
     try await text.models().map(ChatGPTRuntime.descriptor(for:))
   }
 
-  public func makeRuntime(modelID: String?) async throws -> ModelRuntime {
+  public func acquireRuntime(modelID: String?) async throws -> ModelRuntimeAccess {
     let selection: ChatGPTModelSelection = modelID.map(ChatGPTModelSelection.exact) ?? .recommended
-    return try await ChatGPTRuntime.makeRuntime(
+    return .owned(try await ChatGPTRuntime.makeRuntime(
       text: text,
       model: selection,
       policy: policy
-    )
+    ))
   }
 }

@@ -23,43 +23,4 @@ public extension ModelClient {
     /// the wrapped client contract rather than masking it.
     var invocationSemantics: ModelClientInvocationSemantics { .exactRequest }
     var modelDescriptor: ModelDescriptor? { nil }
-
-    /// Safe fallback for providers which do not expose transport deltas yet.
-    /// `generate` is opaque to the runtime, so this fallback crosses the
-    /// provider-effect boundary before calling it. Providers that can perform
-    /// deterministic request/policy preflight must override `stream` and do
-    /// that work before emitting `.started`.
-    func stream(request: ModelRequest) -> AsyncThrowingStream<ModelEvent, any Error> {
-        let state = ModelFallbackStreamState()
-        let client = self as any ModelClient
-        return AsyncThrowingStream(unfolding: {
-            try await state.next(client: client, request: request)
-        })
-    }
-}
-
-private actor ModelFallbackStreamState {
-    private enum Phase {
-        case started
-        case completed
-        case finished
-    }
-
-    private var phase: Phase = .started
-
-    func next(
-        client: any ModelClient,
-        request: ModelRequest
-    ) async throws -> ModelEvent? {
-        switch phase {
-        case .started:
-            phase = .completed
-            return .started(descriptor: client.modelDescriptor)
-        case .completed:
-            phase = .finished
-            return .completed(try await client.generate(request: request))
-        case .finished:
-            return nil
-        }
-    }
 }

@@ -63,7 +63,7 @@ private final class FailingInitialSchemaDatabase: Database {
     defer { try? FileManager.default.removeItem(at: root) }
     let path = root.appendingPathComponent("memories.db").path
     let db = try FailingInitialSchemaDatabase(path)
-    #expect(throws: (any Error).self) { _ = try Store(database: db) }
+    #expect(throws: AppError.self) { _ = try Store(database: db) }
     #expect(try db.query("SELECT name FROM sqlite_master WHERE type='table'").isEmpty)
     #expect(try db.query("PRAGMA user_version").first?.int(0) == 0)
     try db.close()

@@ -65,7 +65,7 @@ let importBackends: [any HubModelImportBackend] = [mlx, leap, liteRT]
 let installer = try HubModelInstaller(backends: importBackends)
 ```
 
-LiteRT 모델 가져오기는 iOS 앱 빌드에 `CLiteRTLM` native backend가 연결된 경우에만 사용할 수 있습니다. 앱이 LiteRT를 포함하지 않거나 현재 빌드에서 native backend를 제공하지 않는다면 LiteRT 초기화와 목록 항목을 빼세요. 사용하지 않는 엔진을 등록하면 사용자에게 쓸 수 없는 선택지를 보여 주지 않도록 앱 설정과 일치시켜야 합니다.
+LiteRT 모델 가져오기는 iOS/macOS 앱 빌드에 `CLiteRTLM` native backend가 연결된 경우에만 사용할 수 있습니다. 앱이 LiteRT를 포함하지 않거나 현재 빌드에서 native backend를 제공하지 않는다면 LiteRT 초기화와 목록 항목을 빼세요. 사용하지 않는 엔진을 등록하면 사용자에게 쓸 수 없는 선택지를 보여 주지 않도록 앱 설정과 일치시켜야 합니다.
 
 ## 3. 주소 입력 화면을 SDK 호출에 연결
 
@@ -75,9 +75,9 @@ LiteRT 모델 가져오기는 iOS 앱 빌드에 `CLiteRTLM` native backend가 �
 
 ```swift
 // 다른 모델에서 바꾸는 경우에는 먼저 현재 대화를 끝내고 runtime을 종료합니다.
-if let current = viewModel.activeRuntime {
-  try await current.shutdown()
-  viewModel.activeRuntime = nil
+if let current = viewModel.activeAccess {
+  try await current.release()
+  viewModel.activeAccess = nil
 }
 
 let ready = try await installer.installAndLoad(
@@ -92,9 +92,9 @@ let ready = try await installer.installAndLoad(
     }
   })
 
-// 앱 상태에 저장합니다. `ready.runtime`으로 바로 모델 요청을 보낼 수 있습니다.
+// 앱 상태에 저장합니다. `ready.access.runtime`으로 바로 모델 요청을 보낼 수 있습니다.
 viewModel.selectedModel = ready.model
-viewModel.activeRuntime = ready.runtime
+viewModel.activeAccess = ready.access
 ```
 
 화면에서는 `completedBytes / totalBytes`로 진행 막대를 그리고 `currentFile`로 현재 파일을 보여 줄 수 있습니다. 설치 중에는 주소 입력과 중복 설치 버튼을 잠그고, 실패하면 원인을 보여 주어 다시 시도할 수 있게 하세요. 모델 크기·저장 공간과 모델 라이선스 안내도 앱이 사용자에게 제공해야 합니다.
@@ -133,7 +133,8 @@ let model = try await installer.install(chosen, progress: { progress in
 let selection = try ModelProviderSelection(
   providerID: model.providerID,
   modelID: model.id)
-let runtime = try await providers.makeRuntime(selection)
+let access = try await providers.acquireRuntime(selection)
+let runtime = access.runtime
 ```
 
 `choices`가 비어 있으면 현재 앱에 등록된 엔진 중 지원하는 형식을 찾지 못한 것입니다. 주소나 네트워크 검사 자체가 실패한 경우에는 별도 오류가 발생하므로, 이를 “지원하지 않는 모델”로 바꾸어 숨기지 말고 오류와 재시도 방법을 표시하세요.
@@ -143,7 +144,7 @@ let runtime = try await providers.makeRuntime(selection)
 간단한 텍스트 요청은 준비된 runtime에 `ModelRequest`를 전달합니다. 실제 앱에서는 기존 대화 기록을 `messages`로 넣고 반환된 `content`를 대화에 표시합니다.
 
 ```swift
-let turn = try await ready.runtime.generate(
+let turn = try await ready.access.runtime.generate(
   ModelRequest(
     sessionID: chatSessionID,
     modelID: ready.model.id,
@@ -162,10 +163,11 @@ let savedSelection = try ModelProviderSelection(
 saveToAppSettings(savedSelection) // 앱의 설정 저장 코드
 
 // 이후 앱 실행에서 provider와 카탈로그를 복원한 다음:
-let runtime = try await providers.makeRuntime(savedSelection)
+let access = try await providers.acquireRuntime(savedSelection)
+let runtime = access.runtime
 ```
 
-대화가 끝나거나 runtime을 교체할 때는 기존 runtime을 `try await runtime.shutdown()`으로 종료하고 오류를 처리하세요. 종료는 설치된 모델 파일을 삭제하지 않습니다. LEAP과 MLX는 process 안에서 native 모델을 공유할 수 있으므로 runtime wrapper 종료와 모델 상주 메모리 해제는 같지 않습니다. 모델을 교체할 때는 [provider 수명 안내](../../Agent/NativeAgentPackage/docs/PROVIDERS.md#native-resource-lifecycle)도 따르세요.
+대화가 끝나거나 runtime을 교체할 때는 기존 access를 `try await access.release()`으로 해제하고 오류를 처리하세요. 종료는 설치된 모델 파일을 삭제하지 않습니다. LEAP과 MLX는 process 안에서 native 모델을 공유할 수 있으므로 runtime wrapper 종료와 모델 상주 메모리 해제는 같지 않습니다. 모델을 교체할 때는 [provider 수명 안내](../../Agent/NativeAgentPackage/docs/PROVIDERS.md#native-resource-lifecycle)도 따르세요.
 
 설치된 파일을 지우는 일은 runtime 종료와 별개입니다. MLX connector에는 `removeModel(modelID:)`가 있습니다. 현재 LEAP·LiteRT Hub connector에는 같은 공개 삭제 API가 없으므로 파일을 임의 삭제하지 말고, 앱에서 지원한다고 안내하기 전에 해당 provider의 삭제 경로를 마련해야 합니다.
 
@@ -175,7 +177,7 @@ let runtime = try await providers.makeRuntime(savedSelection)
 |---|---|---|
 | MLX (`mlx`) | MLX text policy에 맞는 `config.json`과 safetensors | 호환 파일을 설치하고 commit revision을 카탈로그에 보관합니다. 모델 아키텍처는 앱에 포함된 `mlx-swift-lm`이 지원해야 합니다. |
 | LEAP / LFM (`leap-lfm`) | LFM2 text 모델의 GGUF | GGUF 하나를 선택합니다. 선호 순서는 Q4_0, Q4_K_M, Q4_K_S, Q5, Q8, 기타이며 같은 순위에서는 파일이 작은 쪽을 고릅니다. Audio/Vision 모델·부속 파일은 대상이 아닙니다. |
-| LiteRT-LM (`litert-lm`) | `.litertlm` 파일 정확히 하나 | `CLiteRTLM` native backend를 포함한 iOS 빌드에서만 후보가 됩니다. |
+| LiteRT-LM (`litert-lm`) | `.litertlm` 파일 정확히 하나 | `CLiteRTLM` native backend를 포함한 iOS/macOS 빌드에서만 후보가 됩니다. |
 
 모든 backend는 내려받을 revision을 고정 commit으로 해석합니다. MLX의 가져오기 전체 크기와 LEAP/LiteRT에서 선택한 파일에는 각각 8 GiB 상한이 있습니다. 파일 확장자는 후보 형식을 고르는 데 쓰이며, 실제 실행 가능 여부는 해당 native runtime이 판단합니다. 앱에는 필요한 디스크 공간과 네트워크 오류를 처리하는 UI가 필요합니다.
 

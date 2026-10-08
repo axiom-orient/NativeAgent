@@ -26,11 +26,19 @@ final class ASKPageIndexPDFTests: XCTestCase, @unchecked Sendable {
         XCTAssertEqual(pages, [1, 2])
     }
 
-    func testExtractMatchingPagePairsAndCalculateOffset() {
+    func testExtractMatchingPagePairsKeepsMatchingPhysicalEntries() {
         let tocPage = [FlatTOCEntry(title: "A", page: 1), FlatTOCEntry(title: "B", page: 2), FlatTOCEntry(title: "C", page: 3)]
         let tocPhysical = [FlatTOCEntry(title: "A", physicalIndex: 6), FlatTOCEntry(title: "B", physicalIndex: 7), FlatTOCEntry(title: "C", physicalIndex: 8)]
         let pairs = PDFPhysicalIndexUtilities.extractMatchingPagePairs(tocPage: tocPage, tocPhysicalIndex: tocPhysical, startPageIndex: 5)
         XCTAssertEqual(pairs.count, 3)
+    }
+
+    func testCalculatePageOffsetUsesTheDominantDifference() {
+        let pairs = [
+            MatchingPagePair(title: "A", page: 1, physicalIndex: 6),
+            MatchingPagePair(title: "B", page: 2, physicalIndex: 7),
+            MatchingPagePair(title: "C", page: 3, physicalIndex: 8),
+        ]
         XCTAssertEqual(PDFPhysicalIndexUtilities.calculatePageOffset(pairs), 5)
     }
 
@@ -43,6 +51,22 @@ final class ASKPageIndexPDFTests: XCTestCase, @unchecked Sendable {
     func testPageListToGroupTextUsesOverlap() {
         let groups = PDFPhysicalIndexUtilities.pageListToGroupText(pageContents: ["A", "B", "C"], tokenLengths: [100, 100, 100], maxTokens: 150, overlapPage: 1)
         XCTAssertEqual(groups, ["A", "AB", "BC"])
+    }
+
+    func testPageListToGroupTextRejectsMismatchedTokenLengths() {
+        XCTAssertTrue(
+            PDFPhysicalIndexUtilities.pageListToGroupText(
+                pageContents: ["A", "B"], tokenLengths: [1], maxTokens: 10
+            ).isEmpty
+        )
+    }
+
+    func testPageOffsetOverflowDoesNotPublishAnInvalidPhysicalIndex() {
+        let shifted = PDFPhysicalIndexUtilities.addPageOffsetToTOCJSON(
+            [FlatTOCEntry(title: "A", page: Int.max)], offset: 1
+        )
+        XCTAssertNil(shifted.first?.physicalIndex)
+        XCTAssertNil(shifted.first?.page)
     }
 
     func testAddPrefaceIfNeededInsertsPreface() {

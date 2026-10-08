@@ -71,7 +71,8 @@ private enum SessionExecutionFileLockError: Error {
 private final class SessionExecutionFileLock: @unchecked Sendable {
     private let handle: FileHandle
     private let mutex = NSLock()
-    private var locked = true
+    private var lockHeld = true
+    private var handleClosed = false
 
     init(rootURL: URL, sessionID: String) throws {
         try FileManager.default.createDirectory(at: rootURL, withIntermediateDirectories: true)
@@ -128,11 +129,18 @@ private final class SessionExecutionFileLock: @unchecked Sendable {
     func unlock() -> Bool {
         mutex.lock()
         defer { mutex.unlock() }
-        guard locked else { return true }
-        guard flock(handle.fileDescriptor, LOCK_UN) == 0 else { return false }
-        try? handle.close()
-        locked = false
-        return true
+        if lockHeld {
+            guard flock(handle.fileDescriptor, LOCK_UN) == 0 else { return false }
+            lockHeld = false
+        }
+        guard !handleClosed else { return true }
+        do {
+            try handle.close()
+            handleClosed = true
+            return true
+        } catch {
+            return false
+        }
     }
 
     deinit {

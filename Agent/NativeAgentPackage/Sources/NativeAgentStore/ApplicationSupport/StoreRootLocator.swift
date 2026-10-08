@@ -106,7 +106,7 @@ enum StoreRootLocator {
             return appGroupContainerURL.standardizedFileURL
         }
 
-        #if os(iOS)
+        #if os(iOS) || os(macOS)
         guard let resolved = fileManager.containerURL(forSecurityApplicationGroupIdentifier: appGroupIdentifier) else {
             throw AgentError.persistenceFailure("App Group container is unavailable: \(appGroupIdentifier)")
         }

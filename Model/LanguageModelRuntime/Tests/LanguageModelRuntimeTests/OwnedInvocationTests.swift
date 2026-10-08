@@ -271,6 +271,9 @@ private func until(_ condition: @escaping @Sendable () async -> Bool) async thro
 }
 
 private struct StartSignalFixture: ModelClientWithOwnedInvocation {
+  func stream(request: ModelRequest) -> AsyncThrowingStream<ModelEvent, any Error> {
+    invocation(request: request, onStarted: {}).events
+  }
   let started: CancellationSignal
   let providerID = "test.signal"
   var modelDescriptor: ModelDescriptor? {

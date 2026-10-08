@@ -27,4 +27,69 @@ struct TutorSchedulerTests {
         #expect(updated.level == TutorMasteryLevel.practiced)
         #expect(updated.consecutiveSuccesses == 1)
     }
+
+    @Test
+    func attemptCounterOverflowIsRejected() throws {
+        let scheduler = TutorReviewScheduler(configuration: TutorConfiguration())
+        let existing = TutorConceptState(
+            conceptID: "c1",
+            label: "Concept",
+            level: .exposed,
+            attempts: Int.max,
+            consecutiveSuccesses: 0,
+            lastScore: 0,
+            lastReviewedAt: nil,
+            nextReviewAt: nil
+        )
+
+        #expect(throws: ASKTutorError.self) {
+            _ = try scheduler.updateConcept(
+                existing,
+                conceptID: "c1",
+                label: "Concept",
+                score: 0.5,
+                reviewedAt: "2026-04-10T00:00:00Z"
+            )
+        }
+    }
+
+    @Test
+    func negativeConceptCountersAreRejected() throws {
+        let scheduler = TutorReviewScheduler(configuration: TutorConfiguration())
+        let existing = TutorConceptState(
+            conceptID: "c1",
+            label: "Concept",
+            level: .exposed,
+            attempts: -1,
+            consecutiveSuccesses: 0,
+            lastScore: 0,
+            lastReviewedAt: nil,
+            nextReviewAt: nil
+        )
+
+        #expect(throws: ASKTutorError.self) {
+            _ = try scheduler.updateConcept(
+                existing,
+                conceptID: "c1",
+                label: "Concept",
+                score: 0.5,
+                reviewedAt: "2026-04-10T00:00:00Z"
+            )
+        }
+    }
+
+    @Test
+    func nonFiniteScoreIsRejected() throws {
+        let scheduler = TutorReviewScheduler(configuration: TutorConfiguration())
+
+        #expect(throws: ASKTutorError.self) {
+            _ = try scheduler.updateConcept(
+                nil,
+                conceptID: "c1",
+                label: "Concept",
+                score: .nan,
+                reviewedAt: "2026-04-10T00:00:00Z"
+            )
+        }
+    }
 }

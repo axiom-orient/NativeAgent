@@ -133,16 +133,24 @@ struct ASKCFBReader {
         guard sectorID < 0xFFFF_FFF0 else {
             throw ASKHWPError.malformedContainer("Invalid CFB sector id \(sectorID).")
         }
-        let sectorIndex = Int(sectorID)
-        return (sectorIndex + 1) * sectorSize
+        guard let sectorIndex = Int(exactly: sectorID) else {
+            throw ASKHWPError.malformedContainer("CFB sector id cannot be represented.")
+        }
+        let (base, baseOverflow) = sectorIndex.addingReportingOverflow(1)
+        let (offset, offsetOverflow) = base.multipliedReportingOverflow(by: sectorSize)
+        guard !baseOverflow, !offsetOverflow else {
+            throw ASKHWPError.malformedContainer("CFB sector offset overflowed.")
+        }
+        return offset
     }
 
     private static func readSector(bytes: [UInt8], sectorID: UInt32, sectorSize: Int) throws -> [UInt8] {
         let offset = try sectorOffset(sectorID, sectorSize: sectorSize)
-        guard offset >= 0, offset + sectorSize <= bytes.count else {
+        let (end, overflow) = offset.addingReportingOverflow(sectorSize)
+        guard !overflow, offset >= 0, end <= bytes.count else {
             throw ASKHWPError.malformedContainer("CFB sector \(sectorID) escapes file bounds.")
         }
-        return Array(bytes[offset..<(offset + sectorSize)])
+        return Array(bytes[offset..<end])
     }
 
     private static func readDIFAT(bytes: [UInt8], header: Header) throws -> [UInt32] {
@@ -178,7 +186,12 @@ struct ASKCFBReader {
             throw ASKHWPError.malformedContainer("CFB FAT sector count is smaller than declared.")
         }
         var fat: [UInt32] = []
-        fat.reserveCapacity(Int(header.numberOfFATSectors) * header.sectorSize / 4)
+        let (fatBytes, fatBytesOverflow) = Int(header.numberOfFATSectors)
+            .multipliedReportingOverflow(by: header.sectorSize)
+        guard !fatBytesOverflow else {
+            throw ASKHWPError.malformedContainer("CFB FAT size overflowed.")
+        }
+        fat.reserveCapacity(fatBytes / 4)
         for sectorID in fatSectorIDs.prefix(Int(header.numberOfFATSectors)) {
             let sector = try readSector(bytes: bytes, sectorID: sectorID, sectorSize: header.sectorSize)
             for offset in stride(from: 0, to: header.sectorSize, by: 4) {
@@ -208,7 +221,7 @@ struct ASKCFBReader {
         var sectorID = startSector
         var visited = Set<UInt32>()
         while sectorID != Self.endOfChain {
-            guard sectorID < UInt32(fat.count) else {
+            guard UInt64(sectorID) < UInt64(fat.count) else {
                 throw ASKHWPError.malformedContainer("CFB FAT chain references out-of-range sector \(sectorID).")
             }
             guard visited.insert(sectorID).inserted else {
@@ -231,12 +244,17 @@ struct ASKCFBReader {
         guard header.numberOfMiniFATSectors > 0, header.firstMiniFATSector != Self.endOfChain else {
             return []
         }
+        let (miniFATByteCount, miniFATByteCountOverflow) = Int(header.numberOfMiniFATSectors)
+            .multipliedReportingOverflow(by: header.sectorSize)
+        guard !miniFATByteCountOverflow else {
+            throw ASKHWPError.malformedContainer("CFB mini FAT size overflowed.")
+        }
         let miniFATBytes = try readRegularStream(
             bytes: bytes,
             header: header,
             fat: fat,
             startSector: header.firstMiniFATSector,
-            expectedSize: Int(header.numberOfMiniFATSectors) * header.sectorSize
+            expectedSize: miniFATByteCount
         )
         var result: [UInt32] = []
         for offset in stride(from: 0, to: miniFATBytes.count - (miniFATBytes.count % 4), by: 4) {
@@ -262,17 +280,23 @@ struct ASKCFBReader {
         var sectorID = startMiniSector
         var visited = Set<UInt32>()
         while sectorID != Self.endOfChain {
-            guard sectorID < UInt32(miniFAT.count) else {
+            guard UInt64(sectorID) < UInt64(miniFAT.count) else {
                 throw ASKHWPError.malformedContainer("CFB mini FAT chain references out-of-range mini sector \(sectorID).")
             }
             guard visited.insert(sectorID).inserted else {
                 throw ASKHWPError.malformedContainer("CFB mini FAT chain contains a cycle at sector \(sectorID).")
             }
-            let offset = Int(sectorID) * header.miniSectorSize
-            guard offset >= 0, offset + header.miniSectorSize <= rootMiniStream.count else {
+            guard let miniSectorIndex = Int(exactly: sectorID) else {
+                throw ASKHWPError.malformedContainer("CFB mini sector id cannot be represented.")
+            }
+            let (offset, offsetOverflow) = miniSectorIndex.multipliedReportingOverflow(
+                by: header.miniSectorSize
+            )
+            let (end, endOverflow) = offset.addingReportingOverflow(header.miniSectorSize)
+            guard !offsetOverflow, !endOverflow, offset >= 0, end <= rootMiniStream.count else {
                 throw ASKHWPError.malformedContainer("CFB mini sector \(sectorID) escapes root mini stream.")
             }
-            result.append(contentsOf: rootMiniStream[offset..<(offset + header.miniSectorSize)])
+            result.append(contentsOf: rootMiniStream[offset..<end])
             sectorID = miniFAT[Int(sectorID)]
             if result.count >= expectedSize { break }
         }
@@ -309,7 +333,7 @@ struct ASKCFBReader {
         }
 
         func visitSiblingTree(_ id: UInt32, parentPath: String) {
-            guard id != Self.noStream, id < UInt32(entries.count) else { return }
+            guard id != Self.noStream, UInt64(id) < UInt64(entries.count) else { return }
             let index = Int(id)
             guard visited.insert(index).inserted else { return }
             let entry = entries[index]

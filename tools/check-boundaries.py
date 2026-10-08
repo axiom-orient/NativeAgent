@@ -129,16 +129,26 @@ check("ChatGPT text factory preserves supplied skill service", "skillIntentServi
 binary = [p for p in manifests if re.search(r'\.binaryTarget\(\s*name:\s*"LeapSDK"', p.read_text())]
 sdk_manifest = ROOT / "Providers/LEAP/Packages/NativeAILeapSDK/Package.swift"
 check("LeapSDK declarations belong to leaf owner and root distribution",
-      set(binary) == {ROOT / "Package.swift", sdk_manifest}, "same binary in independent consumption graphs")
+      set(binary) == {ROOT / "Package.swift", sdk_manifest}, "same binary in two independent consumption graphs")
 def binary_binding(manifest):
     declaration = re.search(r'\.binaryTarget\(\s*name:\s*"LeapSDK"[^)]*\)', manifest.read_text(), re.S)
     if declaration is None:
         return None
-    fields = [re.search(rf'{field}:\s*"([^\"]+)"', declaration[0]) for field in ('url', 'checksum')]
-    return tuple(field[1] for field in fields) if all(fields) else None
+    return tuple(re.search(rf'{field}:\s*"([^"]+)"', declaration[0])[1] for field in ('url', 'checksum'))
 check("root LeapSDK preserves leaf URL and checksum",
       binary_binding(ROOT / "Package.swift") == binary_binding(sdk_manifest), "distribution artifact identity")
 check("LEAP consumes its native owner", '.product(name: "LeapSDK", package: "NativeAILeapSDK")' in read("Providers/LEAP/Package.swift"), "native package dependency")
+check("Retired generate-only stream default is absent",
+      "ModelFallbackStreamState" not in (ROOT / "Model/LanguageModelCore/Sources/LanguageModelCore/Contracts/ModelClient.swift").read_text(), "retirement")
+check("Retired stream-only transport default is absent",
+      "public extension ChatGPTTransport" not in (ROOT / "Providers/ChatGPT/Account/Sources/ChatGPTAccount/ChatGPTTransport.swift").read_text(), "retirement")
+check("Provider registry uses explicit runtime acquisition only",
+      "func makeRuntime" not in (ROOT / "Model/LanguageModelRuntime/Sources/LanguageModelRuntime/ModelProviderRegistry.swift").read_text(), "retirement")
+check("LEAP previous cache/session adoption is absent",
+      ".downloads.v1" not in (ROOT / "Providers/LEAP/Sources/LEAPProvider/Downloader.swift").read_text()
+      and "func bind(" not in (ROOT / "Providers/LEAP/Sources/LEAPProvider/Downloader.swift").read_text(), "retirement")
+check("MapKit placemark API is absent",
+      ".placemark" not in (ROOT / "Agent/NativeAgentPackage/Sources/NativeAgentTools/Maps/MapSearchToolPack.swift").read_text(), "retirement")
 check("Retired migration entrypoints are absent",
       not any((HOLD / path).is_file() for path in ("AppleLocalAI/Package.swift", "NativeAgentRelease/scripts/release.py")),
       "explicit source/API retirement; ignored caches are outside scope")

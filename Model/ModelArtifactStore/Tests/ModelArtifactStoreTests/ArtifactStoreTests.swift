@@ -2,6 +2,12 @@ import CryptoKit
 import Foundation
 import XCTest
 
+#if canImport(Darwin)
+  import Darwin
+#else
+  import Glibc
+#endif
+
 @testable import ModelArtifactStore
 
 final class ModelArtifactStoreTests: XCTestCase {
@@ -141,6 +147,130 @@ final class ModelArtifactStoreTests: XCTestCase {
     deduplicated.close()
   }
 
+  func testPublishSynchronizesNestedDirectoriesAndRenameParentsBeforeLeasing() async throws {
+    let root = try temporaryDirectory()
+    let synchronization = DirectorySynchronizationProbe()
+    let store = try ModelArtifactStore(
+      rootURL: root, minimumFreeBytes: 0, availableBytes: { _ in UInt64.max },
+      synchronizeDirectory: { try synchronization.synchronize($0) })
+    let manifest = try ArtifactManifest(
+      artifactID: "model", files: [entry("nested/weight.bin", "verified")])
+    let staging = try await store.beginStaging(for: manifest)
+    let nested = staging.directoryURL.appending(path: "nested")
+    try FileManager.default.createDirectory(at: nested, withIntermediateDirectories: false)
+    try Data("verified".utf8).write(to: nested.appending(path: "weight.bin"))
+    let nestedIdentity = try DirectoryIdentity(url: nested)
+    let stageIdentity = try DirectoryIdentity(url: staging.directoryURL)
+
+    let lease = try await store.publish(staging)
+    defer { lease.close() }
+    XCTAssertEqual(synchronization.identities, [
+      nestedIdentity, stageIdentity,
+      try DirectoryIdentity(url: root.appending(path: "artifacts/model")),
+      try DirectoryIdentity(url: root.appending(path: "staging")),
+      try DirectoryIdentity(url: root.appending(path: "artifacts")),
+      try DirectoryIdentity(url: root),
+    ])
+    XCTAssertEqual(
+      try Data(contentsOf: lease.directoryURL.appending(path: "nested/weight.bin")),
+      Data("verified".utf8))
+  }
+
+  func testDirectorySynchronizationFailureBeforeRenameNeverPublishes() async throws {
+    let root = try temporaryDirectory()
+    let synchronization = DirectorySynchronizationProbe(failingCall: 1)
+    let store = try ModelArtifactStore(
+      rootURL: root, minimumFreeBytes: 0, availableBytes: { _ in UInt64.max },
+      synchronizeDirectory: { try synchronization.synchronize($0) })
+    let manifest = try ArtifactManifest(artifactID: "model", files: [entry("weight.bin", "good")])
+    let staging = try await store.beginStaging(for: manifest)
+    try Data("good".utf8).write(to: staging.directoryURL.appending(path: "weight.bin"))
+
+    do {
+      _ = try await store.publish(staging)
+      XCTFail("failed synchronization cannot produce a publication receipt")
+    } catch let error as ArtifactStoreError { XCTAssertEqual(error, .storageFailure) }
+    XCTAssertFalse(FileManager.default.fileExists(atPath: snapshotURL(root, manifest).path))
+    do {
+      _ = try await store.open(manifest)
+      XCTFail("snapshot must be missing before its publication rename")
+    } catch let error as ArtifactStoreError { XCTAssertEqual(error, .missingFile) }
+  }
+
+  func testDirectorySynchronizationFailureAfterRenamePreservesVerifiedSnapshot() async throws {
+    let root = try temporaryDirectory()
+    let synchronization = DirectorySynchronizationProbe(failingCall: 2)
+    let store = try ModelArtifactStore(
+      rootURL: root, minimumFreeBytes: 0, availableBytes: { _ in UInt64.max },
+      synchronizeDirectory: { try synchronization.synchronize($0) })
+    let manifest = try ArtifactManifest(artifactID: "model", files: [entry("weight.bin", "good")])
+    let staging = try await store.beginStaging(for: manifest)
+    try Data("good".utf8).write(to: staging.directoryURL.appending(path: "weight.bin"))
+
+    do {
+      _ = try await store.publish(staging)
+      XCTFail("failed parent synchronization cannot produce a publication receipt")
+    } catch let error as ArtifactStoreError { XCTAssertEqual(error, .storageFailure) }
+    XCTAssertEqual(
+      try Data(contentsOf: snapshotURL(root, manifest).appending(path: "weight.bin")),
+      Data("good".utf8))
+    let reopened = try ModelArtifactStore(rootURL: root, minimumFreeBytes: 0)
+    let lease = try await reopened.open(manifest)
+    lease.close()
+    try await reopened.remove(manifest)
+  }
+
+  func testDeduplicationSynchronizationFailurePreservesExistingSnapshot() async throws {
+    let root = try temporaryDirectory()
+    let initialStore = try ModelArtifactStore(rootURL: root, minimumFreeBytes: 0)
+    let manifest = try ArtifactManifest(artifactID: "model", files: [entry("weight.bin", "good")])
+    let initialStage = try await initialStore.beginStaging(for: manifest)
+    try Data("good".utf8).write(to: initialStage.directoryURL.appending(path: "weight.bin"))
+    let initialLease = try await initialStore.publish(initialStage)
+    initialLease.close()
+
+    let synchronization = DirectorySynchronizationProbe(failingCall: 1)
+    let store = try ModelArtifactStore(
+      rootURL: root, minimumFreeBytes: 0, availableBytes: { _ in UInt64.max },
+      synchronizeDirectory: { try synchronization.synchronize($0) })
+    let replacement = try await store.beginStaging(for: manifest)
+    try Data("good".utf8).write(to: replacement.directoryURL.appending(path: "weight.bin"))
+    do {
+      _ = try await store.publish(replacement)
+      XCTFail("failed existing-snapshot synchronization cannot produce a receipt")
+    } catch let error as ArtifactStoreError { XCTAssertEqual(error, .storageFailure) }
+
+    let lease = try await initialStore.open(manifest)
+    XCTAssertEqual(
+      try Data(contentsOf: lease.directoryURL.appending(path: "weight.bin")), Data("good".utf8))
+    lease.close()
+  }
+
+  func testDeduplicationCleanupFailurePreservesVerifiedExistingSnapshot() async throws {
+    let root = try temporaryDirectory()
+    let store = try ModelArtifactStore(rootURL: root, minimumFreeBytes: 0)
+    let manifest = try ArtifactManifest(artifactID: "model", files: [entry("weight.bin", "good")])
+    let initial = try await store.beginStaging(for: manifest)
+    try Data("good".utf8).write(to: initial.directoryURL.appending(path: "weight.bin"))
+    let initialLease = try await store.publish(initial)
+    initialLease.close()
+
+    let replacement = try await store.beginStaging(for: manifest)
+    try Data("good".utf8).write(to: replacement.directoryURL.appending(path: "weight.bin"))
+    try FileManager.default.createSymbolicLink(
+      at: replacement.directoryURL.appending(path: "unexpected-link"),
+      withDestinationURL: URL(fileURLWithPath: "/etc/hosts"))
+    do {
+      _ = try await store.publish(replacement)
+      XCTFail("unsupported quarantine entries must report a cleanup failure")
+    } catch let error as ArtifactStoreError { XCTAssertEqual(error, .unsupportedEntry) }
+
+    let lease = try await store.open(manifest)
+    XCTAssertEqual(
+      try Data(contentsOf: lease.directoryURL.appending(path: "weight.bin")), Data("good".utf8))
+    lease.close()
+  }
+
   func testHashMismatchNeverPublishesAndExistingVersionSurvives() async throws {
     let root = try temporaryDirectory()
     let store = try ModelArtifactStore(rootURL: root, minimumFreeBytes: 0)
@@ -228,6 +358,44 @@ final class ModelArtifactStoreTests: XCTestCase {
     } catch is CancellationError {}
     XCTAssertFalse(FileManager.default.fileExists(atPath: partial.path))
     staging.abandon()
+  }
+
+  func testStagingImportRejectsFIFOWithoutWaitingForAWriter() async throws {
+    let root = try temporaryDirectory()
+    let source = try temporaryDirectory()
+    let store = try ModelArtifactStore(rootURL: root, minimumFreeBytes: 0)
+    let manifest = try ArtifactManifest(
+      artifactID: "model", files: [entry("weight.bin", "x")])
+    let fifo = source.appending(path: "weight.bin")
+    XCTAssertEqual(fifo.path.withCString { mkfifo($0, S_IRUSR | S_IWUSR) }, 0)
+    let staging = try await store.beginStaging(for: manifest)
+    let completed = DispatchSemaphore(value: 0)
+    let task = Task.detached {
+      let result = Result { try staging.importFiles(from: source) }
+      completed.signal()
+      return result
+    }
+    let rejectedPromptly = await withCheckedContinuation { continuation in
+      DispatchQueue.global().async {
+        continuation.resume(returning: completed.wait(timeout: .now() + 1) == .success)
+      }
+    }
+    XCTAssertTrue(rejectedPromptly, "unsupported FIFO input must not block the import thread")
+
+    // Release a regressed blocking open so the test can fail without leaving a worker behind.
+    let rescue = rejectedPromptly ? -1 : fifo.path.withCString { open($0, O_RDWR | O_NONBLOCK) }
+    defer {
+      if rescue >= 0 { nativeAgentClose(rescue) }
+      staging.abandon()
+    }
+    switch await task.value {
+    case .success:
+      XCTFail("FIFO input must be rejected")
+    case .failure(let error):
+      XCTAssertEqual(error as? ArtifactStoreError, .sizeMismatch)
+    }
+    XCTAssertFalse(
+      FileManager.default.fileExists(atPath: staging.directoryURL.appending(path: "weight.bin").path))
   }
 
   func testArtifactParentSymlinkCannotEscapeRoot() async throws {
@@ -412,6 +580,10 @@ final class ModelArtifactStoreTests: XCTestCase {
     return url
   }
 
+  private func snapshotURL(_ root: URL, _ manifest: ArtifactManifest) -> URL {
+    root.appending(path: "artifacts/\(manifest.artifactID)/\(manifest.manifestDigest.rawValue)")
+  }
+
   private func entry(_ path: String, _ value: String) throws -> ArtifactEntry {
     try ArtifactEntry(path: path, byteCount: UInt64(value.utf8.count), sha256: digest(value))
   }
@@ -458,4 +630,48 @@ private final class VerificationCounter: @unchecked Sendable {
 
 
 
+}
+
+private struct DirectoryIdentity: Equatable, Sendable {
+  let device: dev_t
+  let inode: ino_t
+
+  init(descriptor: Int32) throws {
+    var information = stat()
+    guard fstat(descriptor, &information) == 0,
+      information.st_mode & mode_t(S_IFMT) == mode_t(S_IFDIR)
+    else { throw ArtifactStoreError.storageFailure }
+    device = information.st_dev
+    inode = information.st_ino
+  }
+
+  init(url: URL) throws {
+    let descriptor = try nativeAgentOpenDirectory(path: url.path)
+    defer { nativeAgentClose(descriptor) }
+    try self.init(descriptor: descriptor)
+  }
+}
+
+private final class DirectorySynchronizationProbe: @unchecked Sendable {
+  private let lock = NSLock()
+  private let failingCall: Int?
+  private var synchronizedDirectories: [DirectoryIdentity] = []
+
+  init(failingCall: Int? = nil) { self.failingCall = failingCall }
+
+  var identities: [DirectoryIdentity] {
+    lock.lock()
+    defer { lock.unlock() }
+    return synchronizedDirectories
+  }
+
+  func synchronize(_ descriptor: Int32) throws {
+    let identity = try DirectoryIdentity(descriptor: descriptor)
+    lock.lock()
+    synchronizedDirectories.append(identity)
+    let shouldFail = synchronizedDirectories.count == failingCall
+    lock.unlock()
+    if shouldFail { throw ArtifactStoreError.storageFailure }
+    try nativeAgentSynchronize(descriptor)
+  }
 }

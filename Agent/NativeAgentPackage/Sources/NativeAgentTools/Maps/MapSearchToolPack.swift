@@ -171,7 +171,7 @@ public struct MapSearchToolPack: ToolPack {
 #if canImport(MapKit)
 @preconcurrency import MapKit
 
-@available(iOS 17, *)
+@available(iOS 26, macOS 26, *)
 public actor MapKitSearchToolService: MapSearchToolService {
     private var activeSearch: MKLocalSearch?
 
@@ -205,9 +205,9 @@ public actor MapKitSearchToolService: MapSearchToolService {
         return response.mapItems.map { item in
             MapSearchResult(
                 name: item.name,
-                formattedAddress: item.placemark.title,
-                latitude: item.placemark.coordinate.latitude,
-                longitude: item.placemark.coordinate.longitude,
+                formattedAddress: item.address?.fullAddress,
+                latitude: item.location.coordinate.latitude,
+                longitude: item.location.coordinate.longitude,
                 phoneNumber: item.phoneNumber,
                 website: item.url?.absoluteString
             )

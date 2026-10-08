@@ -1,3 +1,4 @@
+import NativeAgentTestSupport
 import Foundation
 import NativeAgent
 import LanguageModelCore
@@ -33,6 +34,10 @@ struct SharedLocalBackendTests {
   }
 }
 private struct SharedKernelFixture: ModelClient {
+    nonisolated func stream(request: ModelRequest) -> AsyncThrowingStream<ModelEvent, any Error> {
+        scriptedModelEvents(descriptor: modelDescriptor) { try await self.generate(request: request) }
+    }
+
   let providerID = "test.shared"
   var modelDescriptor: ModelDescriptor? {
     .init(id: "shared", providerID: providerID, capabilities: .textOnly)

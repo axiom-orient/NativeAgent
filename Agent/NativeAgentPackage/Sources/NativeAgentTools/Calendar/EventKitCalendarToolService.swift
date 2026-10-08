@@ -7,9 +7,16 @@ import EventKit
 @available(iOS 17, *)
 public actor EventKitCalendarToolService: CalendarToolService, CalendarEventVerificationService {
     private let store: EKEventStore
+    private let hostBundle: Bundle
 
     public init() {
         self.store = EKEventStore()
+        self.hostBundle = .main
+    }
+
+    init(hostBundle: Bundle) {
+        self.store = EKEventStore()
+        self.hostBundle = hostBundle
     }
 
     public func listEvents(
@@ -36,6 +43,9 @@ public actor EventKitCalendarToolService: CalendarToolService, CalendarEventVeri
                 position.windowStart.addingTimeInterval(Self.scanWindow),
                 endDate
             )
+            guard windowEnd > position.windowStart else {
+                throw AgentError.invariantViolation("Calendar scan window did not advance.")
+            }
             let predicate = store.predicateForEvents(
                 withStart: position.windowStart,
                 end: windowEnd,
@@ -180,7 +190,8 @@ public actor EventKitCalendarToolService: CalendarToolService, CalendarEventVeri
         let granted: Bool
         try requireHostUsageDescription(
             "NSCalendarsFullAccessUsageDescription",
-            capability: "Calendar full access"
+            capability: "Calendar full access",
+            bundle: hostBundle
         )
         granted = try await store.requestFullAccessToEvents()
         guard granted else {
@@ -195,7 +206,8 @@ public actor EventKitCalendarToolService: CalendarToolService, CalendarEventVeri
         default:
             try requireHostUsageDescription(
                 "NSCalendarsWriteOnlyAccessUsageDescription",
-                capability: "Calendar write-only access"
+                capability: "Calendar write-only access",
+                bundle: hostBundle
             )
             let granted = try await store.requestWriteOnlyAccessToEvents()
             guard granted else {

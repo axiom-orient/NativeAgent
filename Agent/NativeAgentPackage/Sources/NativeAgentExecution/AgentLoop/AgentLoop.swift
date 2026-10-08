@@ -291,12 +291,13 @@ struct AgentLoop: Sendable {
           throw AgentError.modelFailure(message)
         }
 
-        let assistantReduction = try transitions.appendingAssistantTurn(
+        let assistantReduction = try transitions.recordingAssistantTurn(
           turn,
           containsSensitiveToolCall: registry.containsSensitiveData(in: turn.toolCalls),
-          to: snapshot
+          continuation: responseContinuation,
+          in: snapshot
         )
-        let assistantMessage = try assistantReduction.snapshot.messages.last.map { $0 } ?? {
+        let assistantMessage = try assistantReduction.snapshot.messages.dropFirst(snapshot.messages.count).first.map { $0 } ?? {
           throw AgentError.invariantViolation(
             "Assistant turn transition did not append a durable assistant message."
           )
@@ -323,6 +324,7 @@ struct AgentLoop: Sendable {
           throw error
         }
         let assistantEntries = [SessionJournal.Entry.assistantTurn(assistantMessage)]
+          + (assistantReduction.snapshot.status == .completed ? [.sessionCompleted] : [])
         snapshot = try await snapshotWriter.persist(
           assistantReduction,
           effects: [completedInvocationEffect].compactMap { $0 },
@@ -330,23 +332,7 @@ struct AgentLoop: Sendable {
         )
 
         if turn.toolCalls.isEmpty {
-          if responseContinuation.shouldContinue(after: turn, snapshot: snapshot) {
-            let continuationReduction = try SessionSnapshotTransitions.appendingUserPrompt(
-              ResponseContinuationMetadata.syntheticPrompt,
-              requestMetadata: ResponseContinuationMetadata.syntheticRequestMetadata,
-              to: snapshot,
-              messageID: idGenerator(),
-              timestamp: now()
-            )
-            snapshot = try await snapshotWriter.persist(continuationReduction)
-            continue
-          }
-
-          let completedReduction = try transitions.markingCompleted(snapshot)
-          snapshot = try await snapshotWriter.persist(
-            completedReduction,
-            journalEntries: [.sessionCompleted]
-          )
+          if snapshot.status == .running { continue }
           return snapshot
         }
 

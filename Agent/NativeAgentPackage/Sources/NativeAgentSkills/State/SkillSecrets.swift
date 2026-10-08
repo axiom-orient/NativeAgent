@@ -44,23 +44,46 @@ struct SkillSecretFileWriter: Sendable {
                 "Skill secrets staging file could not be created."
             )
         }
-        defer { try? fileManager.removeItem(at: temporaryURL) }
-
-        let handle = try FileHandle(forWritingTo: temporaryURL)
         do {
-            try handle.write(contentsOf: data)
-            try handle.synchronize()
-            try handle.close()
-        } catch {
-            try? handle.close()
-            throw error
-        }
+            let handle = try FileHandle(forWritingTo: temporaryURL)
+            var closeAttempted = false
+            do {
+                try handle.write(contentsOf: data)
+                try handle.synchronize()
+                closeAttempted = true
+                try handle.close()
+            } catch {
+                let primary = error
+                guard !closeAttempted else { throw primary }
+                closeAttempted = true
+                do {
+                    try handle.close()
+                } catch {
+                    throw AgentError.persistenceFailure(
+                        "Writing skill secrets failed: \(primary); file descriptor cleanup failed: \(error)"
+                    )
+                }
+                throw primary
+            }
 
-        // Reassert before publication in case the host filesystem ignored creation attributes.
-        // There is no post-commit fallible metadata step: a reported save failure must not hide
-        // that a replacement was already published.
-        try fileManager.setAttributes(attributes, ofItemAtPath: temporaryURL.path)
-        try replaceOperation(temporaryURL, fileURL)
+            // Reassert before publication in case the host filesystem ignored creation attributes.
+            // There is no post-commit fallible metadata step: a reported save failure must not hide
+            // that a replacement was already published.
+            try fileManager.setAttributes(attributes, ofItemAtPath: temporaryURL.path)
+            try replaceOperation(temporaryURL, fileURL)
+        } catch {
+            let primary = error
+            if fileManager.fileExists(atPath: temporaryURL.path) {
+                do {
+                    try fileManager.removeItem(at: temporaryURL)
+                } catch {
+                    throw AgentError.persistenceFailure(
+                        "Writing skill secrets failed: \(primary); staging cleanup failed: \(error)"
+                    )
+                }
+            }
+            throw primary
+        }
     }
 
     private static func replaceAtomically(_ source: URL, _ destination: URL) throws {
@@ -210,7 +233,7 @@ enum SkillKeychainSecretPolicy {
     }
 
     static func synchronizable() -> CFBoolean {
-        kCFBooleanFalse!
+        kCFBooleanFalse
     }
 }
 

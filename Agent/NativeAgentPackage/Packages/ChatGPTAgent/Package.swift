@@ -6,7 +6,7 @@ let strict: [SwiftSetting] = [
   .enableUpcomingFeature("MemberImportVisibility"), .enableUpcomingFeature("ImmutableWeakCaptures"),
 ]
 let package = Package(
-  name: "ChatGPTAgent", platforms: [.iOS(.v17)],
+  name: "ChatGPTAgent", platforms: [.iOS(.v17), .macOS(.v14)],
   products: [.library(name: "ChatGPTAgent", targets: ["ChatGPTAgent"])],
   dependencies: [
     .package(name: "NativeAgentPackage", path: "../.."),

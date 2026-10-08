@@ -152,7 +152,7 @@ struct ASKRuntimeTests {
         try Data("{".utf8).write(to: corruptPatchDir.appendingPathComponent("patch.json"))
 
         // A stale derived mirror must not conceal malformed canonical input.
-        #expect(throws: (any Error).self) {
+        #expect(throws: DecodingError.self) {
             _ = try runtime.search("actor isolation", limit: 5)
         }
     }
@@ -294,6 +294,21 @@ struct ASKRuntimeTests {
     }
 
     @Test
+    func archiveExportFailurePreservesPreviousOutput() throws {
+        let archiveURL = FileManager.default.temporaryDirectory
+            .appendingPathComponent("ask-preserved-export-\(UUID().uuidString).zip")
+        defer { try? FileManager.default.removeItem(at: archiveURL) }
+
+        let previous = Data("previous archive".utf8)
+        try previous.write(to: archiveURL, options: .atomic)
+
+        #expect(throws: ASKError.self) {
+            try writeArchiveEntries([("../unsafe", Data("replacement".utf8))], to: archiveURL)
+        }
+        #expect(try Data(contentsOf: archiveURL) == previous)
+    }
+
+    @Test
     func vaultImportRejectsUnsafeArchivePaths() throws {
         let importRoot = URL(fileURLWithPath: NSTemporaryDirectory()).appendingPathComponent("ask-unsafe-import-\(UUID().uuidString)")
         let archiveURL = importRoot.deletingLastPathComponent().appendingPathComponent("unsafe-\(UUID().uuidString).zip")
@@ -305,7 +320,7 @@ struct ASKRuntimeTests {
         let payload = Data("unsafe".utf8)
         try writeUnsafeArchive(at: archiveURL, payload: payload)
 
-        #expect(throws: Error.self) {
+        #expect(throws: ASKError.self) {
             _ = try ASKRuntime(root: importRoot).importVault(from: archiveURL)
         }
     }
@@ -324,9 +339,15 @@ struct ASKRuntimeTests {
         do {
             _ = try ASKRuntime(root: importRoot).importVault(from: archiveURL)
             Issue.record("Expected symbolic-link archive entry to be rejected")
+        } catch let error as ASKError {
+            guard case let .importIntegrity(message) = error else {
+                Issue.record("expected archive integrity failure, got: \(error)")
+                return
+            }
+            #expect(message.contains("symbolic link"))
+            #expect(message.contains("escape.txt"))
         } catch {
-            #expect(String(describing: error).contains("symbolic link"))
-            #expect(String(describing: error).contains("escape.txt"))
+            Issue.record("unexpected archive import error: \(error)")
         }
     }
 
@@ -550,7 +571,8 @@ struct ASKRuntimeTests {
 
         _ = try ASKRuntime(root: vaultRoot).ensureVault()
         let sentinel = vaultRoot.appendingPathComponent("keep.txt")
-        try "keep".data(using: .utf8)!.write(to: sentinel)
+        let sentinelData = Data("keep".utf8)
+        try sentinelData.write(to: sentinel)
 
         let archiveURL = vaultRoot.deletingLastPathComponent().appendingPathComponent("invalid-import-\(UUID().uuidString).zip")
         defer { try? FileManager.default.removeItem(at: archiveURL) }
@@ -558,7 +580,7 @@ struct ASKRuntimeTests {
         let payload = Data("payload".utf8)
         try writeArchiveEntries([("notes.txt", payload)], to: archiveURL)
 
-        #expect(throws: Error.self) {
+        #expect(throws: ASKError.self) {
             _ = try ASKRuntime(root: vaultRoot).importVault(from: archiveURL)
         }
         #expect(FileManager.default.fileExists(atPath: sentinel.path))

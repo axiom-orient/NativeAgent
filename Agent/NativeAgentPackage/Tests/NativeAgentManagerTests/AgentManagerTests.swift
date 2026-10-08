@@ -430,7 +430,7 @@ struct AgentManagerTests {
       descriptor: provider,
       availability: { await availability.value() },
       models: { [descriptor] },
-      makeRuntime: { _ in try makeTestModelRuntime(client) }
+      acquireRuntime: { _ in .owned(try makeTestModelRuntime(client)) }
     )
     let registry = try ModelProviderRegistry([connector])
     let manager = AgentManager(dataStore: .directory(root), providers: registry)
@@ -498,7 +498,7 @@ struct AgentManagerTests {
       descriptor: provider,
       availability: { await availability.value() },
       models: { [descriptor] },
-      makeRuntime: { _ in try makeTestModelRuntime(client) }
+      acquireRuntime: { _ in .owned(try makeTestModelRuntime(client)) }
     )
     let manager = AgentManager(
       dataStore: .directory(root),
@@ -596,7 +596,7 @@ struct AgentManagerTests {
       descriptor: provider,
       availability: { await availability.value() },
       models: { [descriptor] },
-      makeRuntime: { _ in try makeTestModelRuntime(client) }
+      acquireRuntime: { _ in .owned(try makeTestModelRuntime(client)) }
     )
     let manager = AgentManager(
       dataStore: .directory(root),
@@ -662,7 +662,7 @@ struct AgentManagerTests {
       descriptor: provider,
       availability: { await availability.value() },
       models: { [descriptor] },
-      makeRuntime: { _ in try makeTestModelRuntime(client) }
+      acquireRuntime: { _ in .owned(try makeTestModelRuntime(client)) }
     )
     let registry = try ModelProviderRegistry([connector])
     let manager = AgentManager(
@@ -737,10 +737,8 @@ struct AgentManagerTests {
       descriptor: provider,
       availability: { .available },
       models: { [descriptor] },
-      makeRuntime: { _ in
-        try await mutation.applyIfConfigured()
-        return try makeTestModelRuntime(client)
-      }
+      acquireRuntime: { _ in try await mutation.applyIfConfigured()
+        return .owned(try makeTestModelRuntime(client)) }
     )
     let registry = try ModelProviderRegistry([connector])
     let manager = AgentManager(dataStore: .directory(root), providers: registry)
@@ -816,7 +814,7 @@ struct AgentManagerTests {
       descriptor: provider,
       availability: { .available },
       models: { [descriptor] },
-      makeRuntime: { _ in try makeTestModelRuntime(client) }
+      acquireRuntime: { _ in .owned(try makeTestModelRuntime(client)) }
     )
   }
 
@@ -905,6 +903,10 @@ func independentAgentWorkspacesSerializeSharedRootMutation() async throws {
 }
 
 private actor FailingModelClient: ModelClient {
+    nonisolated func stream(request: ModelRequest) -> AsyncThrowingStream<ModelEvent, any Error> {
+        scriptedModelEvents(descriptor: modelDescriptor) { try await self.generate(request: request) }
+    }
+
   nonisolated let providerID: String
   nonisolated let modelDescriptor: ModelDescriptor?
 

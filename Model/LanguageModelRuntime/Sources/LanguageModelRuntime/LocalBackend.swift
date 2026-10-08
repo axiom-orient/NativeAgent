@@ -163,9 +163,14 @@ public actor LocalBackend {
           state = .unloaded  // Explicit retry only after proven partial cleanup.
         }
       }
-      // A failed cleanup is authoritative even when this waiter was cancelled.
-      // Hiding it as cancellation would make an unsafe resident look retryable.
-      if error as? LocalBackendFailure == .loadCleanupFailed { throw error }
+      // Cancelling a waiter proves nothing about resident cleanup. Preserve
+      // teardown failure even if shutdown already took ownership of this load.
+      if let failure = error as? LocalBackendFailure {
+        switch failure {
+        case .loadCleanupFailed, .runtimeShutdownFailed, .residentReleaseFailed: throw failure
+        case .closing, .closed: break
+        }
+      }
       if Task.isCancelled { throw CancellationError() }
       throw error
     }

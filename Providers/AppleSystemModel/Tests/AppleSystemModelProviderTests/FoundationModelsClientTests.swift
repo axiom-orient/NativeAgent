@@ -11,6 +11,7 @@ import Testing
 @Suite("Apple Foundation Models adapter")
 struct FoundationModelsClientTests {
   #if canImport(FoundationModels)
+    @available(iOS 26.0, macOS 26.0, visionOS 26.0, *)
     @Test func canonicalMultiTurnHistoryBecomesNativeTranscript() throws {
       let request = ModelRequest(
         sessionID: "history",
@@ -168,6 +169,7 @@ struct FoundationModelsClientTests {
   }
 
   #if canImport(FoundationModels)
+    @available(iOS 26.0, macOS 26.0, visionOS 26.0, *)
     private func text(_ segments: [Transcript.Segment]) -> String? {
       guard segments.count == 1, case .text(let text) = segments[0] else { return nil }
       return text.content

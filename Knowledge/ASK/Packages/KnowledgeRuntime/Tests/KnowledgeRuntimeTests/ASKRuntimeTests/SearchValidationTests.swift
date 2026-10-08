@@ -1,7 +1,7 @@
 import Foundation
 import Testing
 import KnowledgeCore
-import KnowledgeRuntime
+@testable import KnowledgeRuntime
 
 struct SearchValidationTests {
     @Test
@@ -14,6 +14,28 @@ struct SearchValidationTests {
             try ASKRuntime(root: root).search("query", limit: -1)
         }
         #expect(!FileManager.default.fileExists(atPath: root.path))
+    }
+
+    @Test
+    func mirrorFirstRejectsNegativeSearchLimitBeforeOpeningVault() {
+        #expect(throws: ASKError.validation("search limit must be non-negative")) {
+            try searchMirrorFirst(
+                root: "/tmp/ask-search-validation-missing",
+                query: "query",
+                limit: -1
+            )
+        }
+    }
+
+    @Test
+    func mirrorCandidatesRejectNegativeSearchLimitBeforeOpeningDatabase() {
+        #expect(throws: ASKError.validation("search limit must be non-negative")) {
+            try searchMirrorCandidates(
+                at: URL(fileURLWithPath: "/tmp/ask-search-validation-missing.sqlite"),
+                query: "query",
+                limit: -1
+            )
+        }
     }
 
     @Test

@@ -117,7 +117,7 @@ public actor MLXHubModelProviderConnector: ModelProviderConnector, HubModelImpor
     return registeredModels.map(MLXTextRuntime.modelDescriptor(for:))
   }
 
-  public func makeRuntime(modelID: String?) async throws -> ModelRuntime {
+  public func acquireRuntime(modelID: String?) async throws -> ModelRuntimeAccess {
     let models = try await runtime.registeredModels()
     guard !models.isEmpty else {
       throw ModelGenerationFailure(.sourceUnavailable, "No Hugging Face MLX model is installed.")
@@ -129,7 +129,7 @@ public actor MLXHubModelProviderConnector: ModelProviderConnector, HubModelImpor
     // Re-prepare the pinned revision if the local artifact was removed or found to be damaged.
     let prepared = try await runtime.prepare(model)
     if defaultModelID == nil { defaultModelID = selectedID }
-    return try await runtime.loadRuntime(prepared, policy: policy)
+    return .owned(try await runtime.loadRuntime(prepared, policy: policy))
   }
 
   private func beginModelMutation() throws {

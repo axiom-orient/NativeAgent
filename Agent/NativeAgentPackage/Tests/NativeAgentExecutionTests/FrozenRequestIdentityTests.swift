@@ -6,6 +6,10 @@ import NativeAgentTestSupport
 @testable import NativeAgentStore
 
 private actor RequestIdentityProbe: ModelClient {
+    nonisolated func stream(request: ModelRequest) -> AsyncThrowingStream<ModelEvent, any Error> {
+        scriptedModelEvents(descriptor: modelDescriptor) { try await self.generate(request: request) }
+    }
+
     nonisolated let providerID = "identity.probe"
     private var requests: [ModelRequest] = []
     func generate(request: ModelRequest) async throws -> ModelTurn {

@@ -113,8 +113,20 @@ package final class SkillExecutionSnapshot: Sendable, SkillPromptSource {
                 rootsBySkillName: roots
             )
         } catch {
-            try? fileManager.removeItem(at: stagingRoot)
-            throw error
+            let captureError = error
+            if fileManager.fileExists(atPath: stagingRoot.path) {
+                do {
+                    try fileManager.removeItem(at: stagingRoot)
+                } catch {
+                    throw SkillTemporaryWorkspaceFailure(
+                        operation: "Skill execution snapshot capture",
+                        operationCommitted: false,
+                        operationFailure: captureError.localizedDescription,
+                        cleanupFailure: error.localizedDescription
+                    )
+                }
+            }
+            throw captureError
         }
     }
 
@@ -209,6 +221,7 @@ package final class SkillExecutionSnapshot: Sendable, SkillPromptSource {
         do {
             try fileManager.moveItem(at: stagingRoot, to: finalRoot)
         } catch {
+            let promotionError = error
             if fileManager.fileExists(atPath: finalRoot.path) {
                 try validateCachedSnapshot(
                     at: finalRoot,
@@ -216,10 +229,21 @@ package final class SkillExecutionSnapshot: Sendable, SkillPromptSource {
                     digest: digest,
                     fileManager: fileManager
                 )
-                try? fileManager.removeItem(at: stagingRoot)
+                if fileManager.fileExists(atPath: stagingRoot.path) {
+                    do {
+                        try fileManager.removeItem(at: stagingRoot)
+                    } catch {
+                        throw SkillTemporaryWorkspaceFailure(
+                            operation: "Skill execution snapshot promotion",
+                            operationCommitted: true,
+                            operationFailure: promotionError.localizedDescription,
+                            cleanupFailure: error.localizedDescription
+                        )
+                    }
+                }
                 return
             }
-            throw error
+            throw promotionError
         }
     }
 
@@ -447,17 +471,47 @@ package final class SkillExecutionSnapshot: Sendable, SkillPromptSource {
             }
 
             let input = try FileHandle(forReadingFrom: file)
-            let output = try FileHandle(forWritingTo: destination)
+            let output: FileHandle
+            do {
+                output = try FileHandle(forWritingTo: destination)
+            } catch {
+                let outputOpenError = error
+                do {
+                    try input.close()
+                } catch {
+                    throw AgentError.persistenceFailure(
+                        "Opening the Skill snapshot destination failed: \(outputOpenError); input descriptor cleanup failed: \(error)"
+                    )
+                }
+                throw outputOpenError
+            }
+            var inputCloseAttempted = false
+            var outputCloseAttempted = false
             do {
                 while let chunk = try input.read(upToCount: 64 * 1_024), !chunk.isEmpty {
                     try output.write(contentsOf: chunk)
                 }
+                inputCloseAttempted = true
                 try input.close()
+                outputCloseAttempted = true
                 try output.close()
             } catch {
-                try? input.close()
-                try? output.close()
-                throw error
+                let primary = error
+                var cleanupFailures: [String] = []
+                if !inputCloseAttempted {
+                    inputCloseAttempted = true
+                    do { try input.close() } catch { cleanupFailures.append("input: \(error)") }
+                }
+                if !outputCloseAttempted {
+                    outputCloseAttempted = true
+                    do { try output.close() } catch { cleanupFailures.append("output: \(error)") }
+                }
+                guard cleanupFailures.isEmpty else {
+                    throw AgentError.persistenceFailure(
+                        "Skill snapshot file copy failed: \(primary); descriptor cleanup failed: \(cleanupFailures.joined(separator: "; "))"
+                    )
+                }
+                throw primary
             }
         }
     }
@@ -473,14 +527,25 @@ package final class SkillExecutionSnapshot: Sendable, SkillPromptSource {
             accumulator.update(Data([0]))
 
             let input = try FileHandle(forReadingFrom: file)
+            var closeAttempted = false
             do {
                 while let chunk = try input.read(upToCount: 64 * 1_024), !chunk.isEmpty {
                     accumulator.update(chunk)
                 }
+                closeAttempted = true
                 try input.close()
             } catch {
-                try? input.close()
-                throw error
+                let primary = error
+                guard !closeAttempted else { throw primary }
+                closeAttempted = true
+                do {
+                    try input.close()
+                } catch {
+                    throw AgentError.persistenceFailure(
+                        "Skill snapshot hashing failed: \(primary); descriptor cleanup failed: \(error)"
+                    )
+                }
+                throw primary
             }
             accumulator.update(Data([0]))
         }
@@ -521,7 +586,24 @@ package final class SkillExecutionSnapshot: Sendable, SkillPromptSource {
 
     private static func readPrefix(_ fileURL: URL, maxBytes: Int) throws -> Data {
         let handle = try FileHandle(forReadingFrom: fileURL)
-        defer { try? handle.close() }
-        return (try handle.read(upToCount: maxBytes)) ?? Data()
+        var closeAttempted = false
+        do {
+            let data = (try handle.read(upToCount: maxBytes)) ?? Data()
+            closeAttempted = true
+            try handle.close()
+            return data
+        } catch {
+            let primary = error
+            guard !closeAttempted else { throw primary }
+            closeAttempted = true
+            do {
+                try handle.close()
+            } catch {
+                throw AgentError.persistenceFailure(
+                    "Reading the Skill preview failed: \(primary); descriptor cleanup failed: \(error)"
+                )
+            }
+            throw primary
+        }
     }
 }

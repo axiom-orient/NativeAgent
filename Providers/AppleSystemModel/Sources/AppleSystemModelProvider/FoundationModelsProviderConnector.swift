@@ -49,12 +49,13 @@
       ]
     }
 
-    public func makeRuntime(modelID: String?) async throws -> ModelRuntime {
+    public func acquireRuntime(modelID: String?) async throws -> ModelRuntimeAccess {
       if let modelID, modelID != "system-language-model" {
         throw ModelGenerationFailure(
           .invalidRequest, "Unknown Apple Foundation Models model: \(modelID)")
       }
-      return try AppleSystemModelProvider.makeRuntime(model: model, policy: policy)
+      return .owned(try AppleSystemModelProvider.makeRuntime(model: model, policy: policy))
+
     }
   }
 

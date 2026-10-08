@@ -95,8 +95,20 @@ extension Vault {
         for relative in plan.files.keys.sorted() {
             guard let desired = plan.files[relative] else { continue }
             let url = try validatedVaultURL(root.appendingPathComponent(relative))
-            if owned.contains(relative), let existing = try? Data(contentsOf: url), existing == desired {
-                continue
+            if owned.contains(relative) {
+                do {
+                    if try Data(contentsOf: url) == desired {
+                        continue
+                    }
+                } catch let error as CocoaError
+                    where error.code == .fileNoSuchFile || error.code == .fileReadNoSuchFile {
+                    // The output disappeared after discovery; the normal write
+                    // path below recreates the owned file.
+                } catch {
+                    throw ASKError.apply(
+                        "unable to inspect existing derived output `\(relative)`: \(error)"
+                    )
+                }
             }
             try writeBytesFile(url, content: desired)
         }

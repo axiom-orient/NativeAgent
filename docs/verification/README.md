@@ -1,6 +1,13 @@
 # Verification — NativeAgent SPM Candidate
 
-## Current candidate · 2026-10-03
+## Current · 2026-10-08
+
+[메인 통합 검증](current/main-consolidation-20261008/REPORT.md)이 현재 변경의 명령·입력 hash·실행 한계를 소유한다.
+[현재 native 라이브러리](current/native-libraries-20261007/REPORT.md)와
+[EmbeddingGemma 2](current/embedding-workflow-20261007/REPORT.md)의 고정 모델·실기기 결과를 별도로 확인한다.
+원격 source ZIP은 정확한 Git revision의 self-excluding SOURCE_MANIFEST와 SHA-256을 검증해 수동 게시한다.
+
+## Historical candidate · 2026-10-03
 
 This is the current evidence for the local `NativeAgentSumday` package candidate. It does not verify the Sumday Xcode app integration, device behavior, live accounts/providers, or production qualification. The candidate has not been pushed or tagged. See [the exact checks](current/predeploy-candidate.json). **Production release remains BLOCKED.**
 
@@ -42,7 +49,7 @@ python3 tools/verify-portable.py
 python3 tools/verify-native-kernel.py
 python3 tools/verify-chatgpt-wire.py
 python3 tools/test-package-closure.py
-python3 tools/test-release-boundary.py
+python3 tools/test-distribution-manifest.py
 python3 tools/check-boundaries.py
 python3 tools/check-documents.py
 ```

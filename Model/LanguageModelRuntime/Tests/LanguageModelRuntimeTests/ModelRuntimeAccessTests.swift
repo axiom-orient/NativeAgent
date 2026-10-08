@@ -6,9 +6,9 @@ import Testing
 
 @Suite("Explicit owned and borrowed runtime access")
 struct ModelRuntimeAccessTests {
-  @Test func existingConnectorsKeepOwnedCleanup() async throws {
+  @Test func explicitOwnedConnectorsKeepOwnedCleanup() async throws {
     let runtime = try runtimeFixture()
-    let connector = try legacyConnector(runtime)
+    let connector = try ownedConnector(runtime)
     let registry = try ModelProviderRegistry([connector])
     let access = try await registry.acquireRuntime(selection())
     guard case .owned = access else {
@@ -19,14 +19,6 @@ struct ModelRuntimeAccessTests {
     try await access.release()
     try await access.release()
     #expect(await runtime.status().phase == .closed)
-  }
-
-  @Test func legacyRegistryMakeRuntimeStillTransfersOwnership() async throws {
-    let runtime = try runtimeFixture()
-    let registry = try ModelProviderRegistry([legacyConnector(runtime)])
-    #expect(try await registry.makeRuntime(selection()) === runtime)
-    #expect(await runtime.status().phase == .idle)
-    try await runtime.shutdown()
   }
 
   @Test func registryAndAppleBorrowTheSameHostRuntimeAcrossOperations() async throws {
@@ -48,21 +40,6 @@ struct ModelRuntimeAccessTests {
     try await second.release()
     try await backend.shutdown()
     #expect(await runtime.status().phase == .closed)
-  }
-
-  @Test func borrowedRuntimeCannotAccidentallyUseOwnershipTransferAPI() async throws {
-    let runtime = try runtimeFixture()
-    let backend = LocalBackend(load: { runtime }, releaseResident: {})
-    let connector = try await backend.providerConnector(displayName: "Local")
-    let registry = try ModelProviderRegistry([connector])
-    await #expect(throws: ModelGenerationFailure.self) {
-      _ = try await registry.makeRuntime(selection())
-    }
-    await #expect(throws: ModelGenerationFailure.self) {
-      _ = try await connector.makeRuntime(modelID: nil)
-    }
-    #expect(await runtime.status().phase == .idle)
-    try await backend.shutdown()
   }
 
   @Test func wrongBorrowedProviderIsRejectedWithoutClosingTheHost() async throws {
@@ -114,6 +91,10 @@ struct ModelRuntimeAccessTests {
 }
 
 private struct AccessFixture: ModelClient {
+    nonisolated func stream(request: ModelRequest) -> AsyncThrowingStream<ModelEvent, any Error> {
+        scriptedModelEvents(descriptor: modelDescriptor) { try await self.generate(request: request) }
+    }
+
   let providerID = "test.access"
   var modelDescriptor: ModelDescriptor? {
     .init(id: "model", providerID: providerID, capabilities: .textOnly)
@@ -126,11 +107,11 @@ private func runtimeFixture() throws -> ModelRuntime {
 private func selection() throws -> ModelProviderSelection {
   try .init(providerID: "test.access", modelID: "model")
 }
-private func legacyConnector(_ runtime: ModelRuntime) throws -> ClosureModelProviderConnector {
+private func ownedConnector(_ runtime: ModelRuntime) throws -> ClosureModelProviderConnector {
   ClosureModelProviderConnector(
-    descriptor: try .init(id: runtime.providerID, displayName: "Legacy", kind: .onDevice),
+    descriptor: try .init(id: runtime.providerID, displayName: "Owned", kind: .onDevice),
     availability: { .available }, models: { [runtime.modelDescriptor] },
-    makeRuntime: { _ in runtime })
+    acquireRuntime: { _ in .owned(runtime) })
 }
 private struct WrongIdentityConnector: ModelProviderConnector {
   let access: ModelRuntimeAccess
@@ -139,6 +120,6 @@ private struct WrongIdentityConnector: ModelProviderConnector {
   }
   func availability() async throws -> ModelProviderAvailability { .available }
   func models() async throws -> [ModelDescriptor] { [] }
-  func makeRuntime(modelID: String?) async throws -> ModelRuntime { access.runtime }
+
   func acquireRuntime(modelID: String?) async throws -> ModelRuntimeAccess { access }
 }

@@ -39,10 +39,10 @@ public struct DeterministicContextCompiler: Sendable {
 
         let header = "# Task context\n\n- task: \(frame.taskID)\n- generation: \(generation)\n"
         let headerTokens = tokenCounter.countTokens(in: header)
-        guard headerTokens <= budget.totalTokens else {
+        guard headerTokens >= 0, headerTokens <= budget.totalTokens else {
             throw DecisionMemoryContextError.budgetUnsatisfied(
                 recordIDs: [],
-                requiredTokens: headerTokens,
+                requiredTokens: headerTokens >= 0 ? headerTokens : Int.max,
                 availableTokens: budget.totalTokens
             )
         }
@@ -56,7 +56,19 @@ public struct DeterministicContextCompiler: Sendable {
         let blockingLTSM = candidates.filter {
             $0.state.tier == .ltsm && $0.state.record.blocking && $0.state.verification == .verified
         }
-        let mandatoryCost = blockingLTSM.reduce(0) { $0 + tokenCounter.countTokens(in: render($1)) }
+        var mandatoryCost = 0
+        for candidate in blockingLTSM {
+            let cost = try validatedTokenCost(for: candidate)
+            let (nextCost, overflow) = mandatoryCost.addingReportingOverflow(cost)
+            guard !overflow else {
+                throw DecisionMemoryContextError.budgetUnsatisfied(
+                    recordIDs: blockingLTSM.map { $0.state.record.recordID },
+                    requiredTokens: Int.max,
+                    availableTokens: min(budget.blockingLTSMTokens, remainingTotal)
+                )
+            }
+            mandatoryCost = nextCost
+        }
         guard mandatoryCost <= budget.blockingLTSMTokens, mandatoryCost <= remainingTotal else {
             throw DecisionMemoryContextError.budgetUnsatisfied(
                 recordIDs: blockingLTSM.map { $0.state.record.recordID },
@@ -104,10 +116,10 @@ public struct DeterministicContextCompiler: Sendable {
         let records = ordered.map(contextRecord)
         let markdown = header + ordered.map(render).joined(separator: "\n\n") + (ordered.isEmpty ? "" : "\n")
         let tokenCount = tokenCounter.countTokens(in: markdown)
-        guard tokenCount <= budget.totalTokens else {
+        guard tokenCount >= 0, tokenCount <= budget.totalTokens else {
             throw DecisionMemoryContextError.budgetUnsatisfied(
                 recordIDs: ordered.map { $0.state.record.recordID },
-                requiredTokens: tokenCount,
+                requiredTokens: tokenCount >= 0 ? tokenCount : Int.max,
                 availableTokens: budget.totalTokens
             )
         }
@@ -158,16 +170,29 @@ public struct DeterministicContextCompiler: Sendable {
     ) throws -> Int {
         var used = 0
         for candidate in candidates.sorted(by: candidateOrder) {
-            let cost = tokenCounter.countTokens(in: render(candidate))
-            if used + cost <= segmentCap, cost <= remainingTotal {
+            let cost = try validatedTokenCost(for: candidate)
+            let (nextUsed, overflow) = used.addingReportingOverflow(cost)
+            if !overflow, nextUsed <= segmentCap, cost <= remainingTotal {
                 selected.append(candidate)
-                used += cost
+                used = nextUsed
                 remainingTotal -= cost
             } else {
                 omitted.append(OmissionDiagnostic(recordID: candidate.state.record.recordID, reason: .budget))
             }
         }
         return used
+    }
+
+    private func validatedTokenCost(for candidate: Candidate) throws -> Int {
+        let cost = tokenCounter.countTokens(in: render(candidate))
+        guard cost >= 0 else {
+            throw DecisionMemoryContextError.budgetUnsatisfied(
+                recordIDs: [candidate.state.record.recordID],
+                requiredTokens: Int.max,
+                availableTokens: 0
+            )
+        }
+        return cost
     }
 
     private func scopeMatches(_ scope: MemoryScope, frame: TaskFrame) -> Bool {
@@ -189,11 +214,19 @@ public struct DeterministicContextCompiler: Sendable {
     }
 
     private func specificity(of scope: MemoryScope) -> Int {
-        scope.projectIDs.count
-            + scope.pathPrefixes.count
-            + scope.capabilityTags.count
-            + scope.riskTags.count
-            + scope.consequenceTags.count
+        var total = 0
+        for count in [
+            scope.projectIDs.count,
+            scope.pathPrefixes.count,
+            scope.capabilityTags.count,
+            scope.riskTags.count,
+            scope.consequenceTags.count,
+        ] {
+            let (next, overflow) = total.addingReportingOverflow(count)
+            guard !overflow else { return Int.max }
+            total = next
+        }
+        return total
     }
 
     private func candidateOrder(_ lhs: Candidate, _ rhs: Candidate) -> Bool {

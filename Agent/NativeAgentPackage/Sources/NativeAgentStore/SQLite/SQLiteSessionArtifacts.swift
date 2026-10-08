@@ -1,5 +1,10 @@
 import Foundation
 import NativeAgentDomain
+#if canImport(Darwin)
+import Darwin
+#else
+import Glibc
+#endif
 
 // Artifact custody shares the session-store authority; it is not another persistence owner.
 extension SQLiteSessionStore {
@@ -42,13 +47,41 @@ extension SQLiteSessionStore {
         artifactID: artifactID
       )
       let absoluteURL = try sandboxGuard.validateFileURL(plan.absoluteURL)
-      stagedURL = absoluteURL
-      guard fileManager.fileExists(atPath: absoluteURL.path) == false else {
+      // Exclusive creation establishes this attempt's custody before any write
+      // or rollback. An atomic Data write can replace another store's bytes.
+      let descriptor = open(
+        absoluteURL.path,
+        O_WRONLY | O_CREAT | O_EXCL | O_NOFOLLOW | O_CLOEXEC,
+        mode_t(S_IRUSR | S_IWUSR)
+      )
+      guard descriptor >= 0 else {
+        if errno == EEXIST {
+          throw AgentError.persistenceFailure(
+            "Artifact file already exists: \(plan.filename)."
+          )
+        }
         throw AgentError.persistenceFailure(
-          "Artifact file already exists: \(plan.filename)."
+          "Unable to create artifact file: \(String(cString: strerror(errno)))."
         )
       }
-      try artifact.data.write(to: absoluteURL, options: .atomic)
+      stagedURL = absoluteURL
+      let handle = FileHandle(fileDescriptor: descriptor, closeOnDealloc: true)
+      do {
+        try handle.write(contentsOf: artifact.data)
+        try handle.synchronize()
+      } catch {
+        let writeError = error
+        do {
+          try handle.close()
+        } catch {
+          throw AgentError.persistenceFailure(
+            "Artifact write failed [\(writeError.localizedDescription)] "
+              + "and close also failed [\(error.localizedDescription)]."
+          )
+        }
+        throw writeError
+      }
+      try handle.close()
       try dataPolicy.apply(to: absoluteURL, fileManager: fileManager)
 
       return ArtifactRecord(

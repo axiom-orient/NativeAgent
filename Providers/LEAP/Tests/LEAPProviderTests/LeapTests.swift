@@ -544,6 +544,31 @@ final class LeapTests: XCTestCase {
     XCTAssertEqual(residentShutdowns, 1)
   }
 
+  func testPreparedTextRuntimeRetainsDescriptorValidationFailureAfterNativeLoad() async throws {
+    let store = try ModelArtifactStore(rootURL: temporaryDirectory(), minimumFreeBytes: 0)
+    let counters = Counters()
+    let provider = LeapRuntime(
+      store: store,
+      downloader: FixtureDownloader(counters: counters),
+      loader: .init(load: { _ in FixtureSession(counters: counters) }),
+      textLoader: .init(load: { _ in
+        await counters.loaded()
+        return TextFixtureSession(counters: counters)
+      }))
+    let prepared = try await provider.prepare(try tinyTextModel(displayName: "invalid\nname"))
+
+    do {
+      _ = try await provider.makeTextRuntime(prepared)
+      XCTFail("An invalid descriptor must not publish a runtime")
+    } catch let failure as ModelGenerationFailure {
+      XCTAssertEqual(failure.code, .invalidRequest)
+    }
+
+    let loads = await counters.loads
+    XCTAssertEqual(loads, 1, "Validation remains after the loaded resident boundary")
+    try await provider.unload()
+  }
+
   func testConcurrentSameModelLoadsShareOneNativeLoadAndCommitMatchingToken() async throws {
     let store = try ModelArtifactStore(rootURL: temporaryDirectory(), minimumFreeBytes: 0)
     let counters = Counters()
@@ -1745,6 +1770,7 @@ private let fixtureVoiceModel = try! tinyVoiceModel()
 
 private func tinyTextModel(
   artifactID: String = "text-fixture",
+  displayName: String? = nil,
   revision: String = String(repeating: "b", count: 40)
 ) throws -> LeapTextModel {
   let value = Data("fixture".utf8)
@@ -1758,5 +1784,5 @@ private func tinyTextModel(
     ])
   return try LeapTextModel(
     repositoryID: "fixture/local", revision: revision,
-    modelPath: "model.gguf", manifest: manifest)
+    modelPath: "model.gguf", manifest: manifest, displayName: displayName)
 }

@@ -243,6 +243,7 @@ public actor MLXTextRuntime {
 
     let providerID = "mlx.text"
     let descriptor = Self.modelDescriptor(for: prepared.model)
+    try descriptor.validateGenerationContract()
     let client = MLXTextModelClient(
       runtime: self,
       specification: prepared.specification,

@@ -4,6 +4,7 @@ import Foundation
 final class Store {
     let db: any Database
     let workspaceID: String
+    let capabilitySnapshot: AgentMemoryCapabilities
     private var transactionState = StoreTransactionState.idle
 
     convenience init(path: String) throws {
@@ -13,16 +14,12 @@ final class Store {
     init(database: any Database) throws {
         db = database
         workspaceID = try Self.prepareSchema(on: database)
-        try verifySQLiteCapabilities()
+        capabilitySnapshot = try Self.verifySQLiteCapabilities(on: database)
 
         // External-content FTS tables can be restored independently of their
         // triggers. Rebuilding at open keeps the derived projection searchable.
         try db.exec("INSERT INTO memory_record_fts(memory_record_fts) VALUES('rebuild')")
         try db.exec("INSERT INTO memory_event_fts(memory_event_fts) VALUES('rebuild')")
-        let foreignKeys = try db.query("PRAGMA foreign_keys").first.map { try $0.int(0) } ?? 0
-        guard foreignKeys == 1 else {
-            throw AppError.storage("foreign_keys_disabled", "SQLite foreign keys are required")
-        }
     }
 
     func close() throws { try db.close() }
@@ -155,20 +152,57 @@ final class Store {
         }
     }
 
-    private func verifySQLiteCapabilities() throws {
-        guard let version = try db.query("SELECT sqlite_version()").first,
-              !(try version.text(0)).isEmpty else {
+    private static func verifySQLiteCapabilities(on db: any Database) throws -> AgentMemoryCapabilities {
+        guard let versionRow = try db.query("SELECT sqlite_version()").first,
+              !(try versionRow.text(0)).isEmpty else {
             throw AppError.storage("unsupported_sqlite_capability", "SQLite version is unavailable")
         }
+        let foreignKeys = try db.query("PRAGMA foreign_keys").first.map { try $0.int(0) == 1 } ?? false
+        guard foreignKeys else {
+            throw AppError.storage("foreign_keys_disabled", "SQLite foreign keys are required")
+        }
+
+        try verifyTemporaryProbe(
+            on: db,
+            createSQL: "CREATE TABLE temp.__native_agent_strict_probe(x TEXT) STRICT",
+            dropSQL: "DROP TABLE temp.__native_agent_strict_probe",
+            capability: "SQLite STRICT tables"
+        )
+        try verifyTemporaryProbe(
+            on: db,
+            createSQL: "CREATE VIRTUAL TABLE temp.__native_agent_fts_probe USING fts5(x)",
+            dropSQL: "DROP TABLE temp.__native_agent_fts_probe",
+            capability: "SQLite FTS5"
+        )
+        return AgentMemoryCapabilities(
+            sqliteVersion: try versionRow.text(0),
+            foreignKeys: true,
+            strictTables: true,
+            fts5: true
+        )
+    }
+
+    private static func verifyTemporaryProbe(
+        on db: any Database,
+        createSQL: String,
+        dropSQL: String,
+        capability: String
+    ) throws {
         do {
-            try db.exec("CREATE TABLE temp.__native_agent_strict_probe(x TEXT) STRICT")
-            try db.exec("DROP TABLE temp.__native_agent_strict_probe")
-            try db.exec("CREATE VIRTUAL TABLE temp.__native_agent_fts_probe USING fts5(x)")
-            try db.exec("DROP TABLE temp.__native_agent_fts_probe")
+            try db.exec(createSQL)
         } catch {
             throw AppError.storage(
                 "unsupported_sqlite_capability",
-                "SQLite STRICT and FTS5 are required",
+                "\(capability) is required",
+                error
+            )
+        }
+        do {
+            try db.exec(dropSQL)
+        } catch {
+            throw AppError.storage(
+                "sqlite_probe_cleanup_failed",
+                "could not remove the temporary \(capability) probe",
                 error
             )
         }

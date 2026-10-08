@@ -63,6 +63,30 @@ func v1SchemaRequiresStrictFtsAndForeignKeys() async throws {
 }
 
 @Test
+func capabilityProbeLeavesNoTemporaryTables() async throws {
+    let root = memoryTestRoot("capability-probe")
+    defer { try? FileManager.default.removeItem(at: root) }
+
+    let engine = AgentMemoryEngine(
+        configuration: AgentMemoryConfiguration(dataDirectory: root)
+    )
+    let info = try await engine.initialize()
+    try await engine.close()
+    let store = try Store(path: info.databaseFile.path)
+    let names = Set(try store.db.query(
+        "SELECT name FROM sqlite_temp_master WHERE type='table'"
+    ).map { try $0.text(0) })
+
+    #expect(names.isDisjoint(with: [
+        "__native_agent_strict_probe",
+        "__native_agent_fts_probe",
+        "__native_agent_capability_strict_probe",
+        "__native_agent_capability_fts_probe"
+    ]))
+    try store.close()
+}
+
+@Test
 func foreignDatabaseSchemaIsExplicitlyRejected() async throws {
     let root = memoryTestRoot("foreign-schema")
     defer { try? FileManager.default.removeItem(at: root) }

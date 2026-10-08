@@ -106,7 +106,9 @@ enum CalendarListPolicy {
 }
 
 func validateDateRange(startDate: Date, endDate: Date) throws {
-    guard endDate > startDate else {
+    guard startDate.timeIntervalSinceReferenceDate.isFinite,
+          endDate.timeIntervalSinceReferenceDate.isFinite,
+          endDate > startDate else {
         throw AgentError.invalidToolCall("endDate must be later than startDate.")
     }
 }

@@ -3,6 +3,8 @@ import DocumentCore
 import DocumentRuntime
 
 public struct ASKPageHWPNativeParser: Sendable {
+    private static let fileReadChunkByteCount = 64 * 1_024
+
     public let limits: ASKHWPParserLimits
 
     public init(limits: ASKHWPParserLimits = .default) {
@@ -38,13 +40,66 @@ public struct ASKPageHWPNativeParser: Sendable {
             if let fileSize = values.fileSize {
                 try limits.validateInputSize(fileSize)
             }
-            let data = try Data(contentsOf: fileURL, options: [.mappedIfSafe])
+            let data = try readBoundedFile(fileURL)
             return try parse(data: data, fileURL: fileURL, format: explicitFormat)
         } catch let error as ASKHWPError {
             throw error
         } catch {
             throw ASKHWPError.fileReadFailed(fileURL.path)
         }
+    }
+
+    private func readBoundedFile(_ fileURL: URL) throws -> Data {
+        let handle = try FileHandle(forReadingFrom: fileURL)
+        var operation: Result<Data, any Error>
+
+        do {
+            var data = Data()
+            data.reserveCapacity(min(limits.maximumInputByteCount, Self.fileReadChunkByteCount))
+
+            while true {
+                let remaining = limits.maximumInputByteCount - data.count
+                let requestCount = remaining == 0
+                    ? 1
+                    : min(remaining, Self.fileReadChunkByteCount)
+                let chunk = try handle.read(upToCount: requestCount) ?? Data()
+                if chunk.isEmpty {
+                    break
+                }
+                guard chunk.count <= remaining else {
+                    throw ASKHWPError.unsupportedFeature("HWP/HWPX input exceeds its configured byte limit.")
+                }
+                data.append(chunk)
+                if data.count == limits.maximumInputByteCount {
+                    // The one-byte probe above detects growth after the initial stat
+                    // check without allocating the entire oversized file.
+                    continue
+                }
+            }
+            operation = .success(data)
+        } catch {
+            operation = .failure(error)
+        }
+
+        let cleanupError: (any Error)?
+        do {
+            try handle.close()
+            cleanupError = nil
+        } catch {
+            cleanupError = error
+        }
+
+        if let cleanupError {
+            if case .failure(let primary) = operation {
+                throw ASKHWPError.fileReadFailed(
+                    "\(fileURL.path): \(primary); file descriptor cleanup failed: \(cleanupError)"
+                )
+            }
+            throw ASKHWPError.fileReadFailed(
+                "\(fileURL.path): file descriptor cleanup failed: \(cleanupError)"
+            )
+        }
+        return try operation.get()
     }
 }
 

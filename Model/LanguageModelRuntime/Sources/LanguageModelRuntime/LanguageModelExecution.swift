@@ -29,6 +29,9 @@ extension ModelRuntime {
 }
 
 private struct ExecutorClient<Model: LanguageModel>: ModelClientWithOwnedInvocation {
+  func stream(request: ModelRequest) -> AsyncThrowingStream<ModelEvent, any Error> {
+    invocation(request: request, onStarted: {}).events
+  }
   let model: Model
   let executor: Model.Executor
   let maximumPendingEvents: Int

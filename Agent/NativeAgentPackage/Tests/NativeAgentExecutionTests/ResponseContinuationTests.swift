@@ -22,6 +22,10 @@ private actor CapturedContinuationSnapshot {
 }
 
 private struct FailingContinuationModelClient: ModelClient {
+    nonisolated func stream(request: ModelRequest) -> AsyncThrowingStream<ModelEvent, any Error> {
+        scriptedModelEvents(descriptor: modelDescriptor) { try await self.generate(request: request) }
+    }
+
     let providerID = "provider.test.failing-continuation"
     let store: ApplicationSupportSessionStore
     let sessionID: String

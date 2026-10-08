@@ -247,6 +247,27 @@ func exactModelMessageLimitForcesCompactionBelowApproximateTokenTrigger() throws
 }
 
 @Test
+func compactorRejectsCheckpointOutsideDurableTranscript() throws {
+  let snapshot = SessionSnapshot(
+    sessionID: "invalid-context-checkpoint",
+    messages: [AgentMessage(role: .user, content: "hello")],
+    contextCheckpoint: SessionContextCheckpoint(
+      preservedSystemMessageCount: 0,
+      coveredMessageCount: 2,
+      summaryMessage: AgentMessage(role: .assistant, content: "summary")
+    )
+  )
+
+  #expect(throws: AgentError.self) {
+    _ = try ContextWindowCompactor().compactIfNeeded(
+      snapshot: snapshot,
+      tools: [],
+      policy: ContextBudgetPolicy(windowTokens: 1_000)
+    )
+  }
+}
+
+@Test
 func hardCompactionDoesNotHideAnOversizedNewestMessage() throws {
   let oversized = String(
     repeating: "x",
@@ -437,6 +458,10 @@ func resumingFailedSessionRequiresExplicitRetryIdentity() async throws {
 @Test
 func cancellationAfterModelInvocationStartsRequiresReconciliation() async throws {
   struct CancelOnGenerateProvider: ModelClient {
+    nonisolated func stream(request: ModelRequest) -> AsyncThrowingStream<ModelEvent, any Error> {
+        scriptedModelEvents(descriptor: modelDescriptor) { try await self.generate(request: request) }
+    }
+
     let providerID = "provider.cancel"
     let gate: ModelInvocationCancellationGate
 
@@ -518,8 +543,8 @@ func compactionPreservesSystemAuthorityAndUsesExtractiveProjection() throws {
     tools: [],
     policy: ContextBudgetPolicy(
       windowTokens: 1_000,
-      triggerRatio: 0.30,
-      targetRatio: 0.85,
+      triggerRatio: 0.85,
+      targetRatio: 0.30,
       keepRecentMessages: 2,
       maxSummaryCharacters: 2_000,
       preserveSystemMessages: true
@@ -570,24 +595,24 @@ func compactionNeverReplacesEarlierContextWithInformationFreePlaceholder() throw
 @Test
 func compactionRefusesAnInformationFreeSummaryBudget() throws {
   let longText = String(repeating: "abcdefghij", count: 120)
-  let result = try ContextWindowCompactor().compactIfNeeded(
-    messages: [
-      AgentMessage(role: .user, content: "constraint-alpha \(longText)"),
-      AgentMessage(role: .assistant, content: "evidence-beta \(longText)"),
-      AgentMessage(role: .user, content: "recent-gamma \(longText)"),
-    ],
-    tools: [],
-    policy: ContextBudgetPolicy(
-      windowTokens: 500,
-      reservedOutputTokens: 100,
-      triggerRatio: 0.20,
-      targetRatio: 0.10,
-      keepRecentMessages: 1,
-      maxSummaryCharacters: 1
+  #expect(throws: AgentError.self) {
+    _ = try ContextWindowCompactor().compactIfNeeded(
+      messages: [
+        AgentMessage(role: .user, content: "constraint-alpha \(longText)"),
+        AgentMessage(role: .assistant, content: "evidence-beta \(longText)"),
+        AgentMessage(role: .user, content: "recent-gamma \(longText)"),
+      ],
+      tools: [],
+      policy: ContextBudgetPolicy(
+        windowTokens: 500,
+        reservedOutputTokens: 100,
+        triggerRatio: 0.20,
+        targetRatio: 0.10,
+        keepRecentMessages: 1,
+        maxSummaryCharacters: 1
+      )
     )
-  )
-
-  #expect(result == nil)
+  }
 }
 
 @Test
@@ -620,16 +645,16 @@ func compactionRetainsToolIdentityArgumentsAndSafeMetadata() throws {
         AgentMessage(role: .user, content: "constraint-alpha \(longText)"),
         toolMessage,
         toolResultMessage,
-        AgentMessage(role: .user, content: "recent-gamma \(longText)"),
+        AgentMessage(role: .user, content: "recent-gamma"),
       ],
       tools: [],
       policy: ContextBudgetPolicy(
-        windowTokens: 500,
-        reservedOutputTokens: 100,
-        triggerRatio: 0.20,
-        targetRatio: 0.70,
-        keepRecentMessages: 1,
-        maxSummaryCharacters: 1_000
+      windowTokens: 500,
+      reservedOutputTokens: 100,
+      triggerRatio: 0.70,
+      targetRatio: 0.50,
+      keepRecentMessages: 1,
+      maxSummaryCharacters: 2_000
       )
     )
   )
@@ -658,8 +683,8 @@ func uncompactableOverBudgetTranscriptIsReportedAsNoCompactionNotAsFailure() thr
   func policy(windowTokens: Int) -> ContextBudgetPolicy {
     ContextBudgetPolicy(
       windowTokens: windowTokens,
-      triggerRatio: 0.10,
-      targetRatio: 0.50,
+      triggerRatio: 0.50,
+      targetRatio: 0.10,
       keepRecentMessages: 2,
       maxSummaryCharacters: 2_000,
       preserveSystemMessages: true
@@ -691,7 +716,7 @@ func compactionUsesOnlyInputCapacityAfterOutputReservation() throws {
   let policy = ContextBudgetPolicy(
     windowTokens: 1_000,
     reservedOutputTokens: 400,
-    triggerRatio: 0.50,
+    triggerRatio: 0.70,
     targetRatio: 0.50,
     keepRecentMessages: 8,
     maxSummaryCharacters: 1_000

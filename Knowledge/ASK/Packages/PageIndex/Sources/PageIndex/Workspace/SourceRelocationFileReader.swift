@@ -29,31 +29,71 @@ enum SourceRelocationFileReader {
         let rootPath = root.resolvingSymlinksInPath().path
         var directoryFD = open(rootPath, O_RDONLY | O_DIRECTORY | O_NOFOLLOW | O_CLOEXEC)
         guard directoryFD >= 0 else { throw failure("Cannot open owned relocation root") }
-        defer { close(directoryFD) }
-        for component in parts.dropLast() {
-            let next = openat(directoryFD, component, O_RDONLY | O_DIRECTORY | O_NOFOLLOW | O_CLOEXEC)
-            guard next >= 0 else { throw failure("Relocation ancestor is missing or not a real directory") }
-            close(directoryFD)
-            directoryFD = next
+        var directoryNeedsClose = true
+        do {
+            for component in parts.dropLast() {
+                let next = openat(directoryFD, component, O_RDONLY | O_DIRECTORY | O_NOFOLLOW | O_CLOEXEC)
+                guard next >= 0 else {
+                    throw failure("Relocation ancestor is missing or not a real directory")
+                }
+                directoryNeedsClose = false
+                guard close(directoryFD) == 0 else {
+                    guard close(next) == 0 else {
+                        throw failure("Relocation directory descriptors could not be closed")
+                    }
+                    throw failure("Relocation ancestor descriptor could not be closed")
+                }
+                directoryFD = next
+                directoryNeedsClose = true
+            }
+            guard let leaf = parts.last else {
+                throw failure("Relocation target path is empty")
+            }
+            let descriptor = openat(directoryFD, leaf, O_RDONLY | O_NOFOLLOW | O_NONBLOCK | O_CLOEXEC)
+            guard descriptor >= 0 else { throw failure("Relocation target is missing or is a symbolic link") }
+            let handle = FileHandle(fileDescriptor: descriptor, closeOnDealloc: true)
+            var closeAttempted = false
+            do {
+                var status = stat()
+                guard fstat(descriptor, &status) == 0,
+                      status.st_mode & mode_t(S_IFMT) == mode_t(S_IFREG),
+                      status.st_size >= 0, status.st_size == off_t(expectedBytes) else {
+                    throw failure("Relocation target is not a regular file with the indexed byte count")
+                }
+                var data = Data()
+                while data.count <= expectedBytes {
+                    let capacity = min(65_536, expectedBytes - data.count + 1)
+                    guard let chunk = try handle.read(upToCount: capacity), !chunk.isEmpty else { break }
+                    data.append(chunk)
+                }
+                guard data.count == expectedBytes else { throw failure("Relocation target changed while reading") }
+                closeAttempted = true
+                try handle.close()
+                directoryNeedsClose = false
+                guard close(directoryFD) == 0 else {
+                    throw failure("Relocation directory descriptor could not be closed")
+                }
+                return data
+            } catch {
+                let primary = error
+                guard !closeAttempted else { throw primary }
+                closeAttempted = true
+                do {
+                    try handle.close()
+                } catch {
+                    throw failure("Relocation target read failed: \(primary); descriptor cleanup failed: \(error)")
+                }
+                throw primary
+            }
+        } catch {
+            let primary = error
+            guard directoryNeedsClose else { throw primary }
+            directoryNeedsClose = false
+            guard close(directoryFD) == 0 else {
+                throw failure("Relocation read failed: \(primary); directory descriptor cleanup failed")
+            }
+            throw primary
         }
-        let descriptor = openat(directoryFD, parts.last!, O_RDONLY | O_NOFOLLOW | O_NONBLOCK | O_CLOEXEC)
-        guard descriptor >= 0 else { throw failure("Relocation target is missing or is a symbolic link") }
-        let handle = FileHandle(fileDescriptor: descriptor, closeOnDealloc: true)
-        defer { try? handle.close() }
-        var status = stat()
-        guard fstat(descriptor, &status) == 0,
-              status.st_mode & mode_t(S_IFMT) == mode_t(S_IFREG),
-              status.st_size >= 0, status.st_size == off_t(expectedBytes) else {
-            throw failure("Relocation target is not a regular file with the indexed byte count")
-        }
-        var data = Data()
-        while data.count <= expectedBytes {
-            let capacity = min(65_536, expectedBytes - data.count + 1)
-            guard let chunk = try handle.read(upToCount: capacity), !chunk.isEmpty else { break }
-            data.append(chunk)
-        }
-        guard data.count == expectedBytes else { throw failure("Relocation target changed while reading") }
-        return data
     }
 
     static func requireMissing(_ path: String) throws {
