@@ -20,7 +20,7 @@
   ],
   "note": "Self-excluding Git-index inventory of the published NativeAgent SwiftPM source. Entries reflect staged source bytes, not unstaged local edits. Build outputs, SwiftPM state, editor state, ignored files and this manifest are excluded. This inventory does not qualify native or live behavior.",
   "fileCount": 1920,
-  "uncompressedBytes": 18710718,
+  "uncompressedBytes": 18710978,
   "files": [
     {
       "path": ".gitignore",
@@ -7309,8 +7309,8 @@
     },
     {
       "path": "Providers/LEAP/Sources/LEAPProvider/LeapAdapter.swift",
-      "bytes": 14476,
-      "sha256": "166a296be6ba1033ab9b56c2efdb702a11c952a0fa342d3ce9e68c8b43acaf4c"
+      "bytes": 14642,
+      "sha256": "36505b50d29c136fa84081771f516bed9d998a279fa038880ccbe160e7a37235"
     },
     {
       "path": "Providers/LEAP/Sources/LEAPProvider/LeapJSONOutput.swift",
@@ -7359,8 +7359,8 @@
     },
     {
       "path": "Providers/LEAP/Tests/LEAPProviderTests/LeapTests.swift",
-      "bytes": 70392,
-      "sha256": "2ed980ad25a46c7a952141645f31b93431ceb2a7bd4294c1255c2969e6df2036"
+      "bytes": 70486,
+      "sha256": "10bb0c4e5581801785a0af996ec64614a2d0a642a2c675dc0e38f386cd17e033"
     },
     {
       "path": "Providers/LiteRT/Package.swift",
