@@ -428,6 +428,25 @@ final class LeapTests: XCTestCase {
     }
   }
 
+  func testNativeGenerationFailureSurvivesRuntimeAndModelClient() async throws {
+    let failure = ModelGenerationFailure(.transportFailure, "native engine rejected the request")
+    let store = try ModelArtifactStore(rootURL: temporaryDirectory(), minimumFreeBytes: 0)
+    let counters = Counters()
+    let runtime = LeapRuntime(store: store,
+      downloader: FixtureDownloader(counters: counters),
+      loader: .init(load: { _ in FixtureSession(counters: counters) }),
+      textLoader: .init(load: { _ in FailingTextGenerationSession(failure: failure) }))
+    let model = try tinyTextModel()
+    try await runtime.load(runtime.prepare(model))
+    do {
+      _ = try await runtime.modelClient(for: model).generate(request: ModelRequest(
+        sessionID: "native-error", messages: [AgentMessage(role: .user, content: "test")], tools: []))
+      XCTFail("A native failure must not become success")
+    } catch let observed as ModelGenerationFailure {
+      XCTAssertEqual(observed, failure, "Both the failure code and bounded provider cause must survive")
+    }
+  }
+
   func testSchemaBoundsWalkDefinitionsButPreserveLiteralData() throws {
     let literal = JSONValue.object(["maxLength": .integer(16_384)])
     XCTAssertNoThrow(try LeapTextGenerationPolicy.validate(.jsonObject(schema: .object([
@@ -1389,6 +1408,14 @@ private final class RecordingTextSession: LeapTextSession, @unchecked Sendable {
     emit(.completed)
   }
 
+  func shutdown() async throws {}
+}
+
+private final class FailingTextGenerationSession: LeapTextSession, Sendable {
+  let failure: ModelGenerationFailure
+  init(failure: ModelGenerationFailure) { self.failure = failure }
+  func generate(history: [LeapTextMessage], userMessage: String, outputFormat: ModelOutputFormat,
+                emit: @escaping @Sendable (LeapTextEvent) -> Void) async throws { throw failure }
   func shutdown() async throws {}
 }
 

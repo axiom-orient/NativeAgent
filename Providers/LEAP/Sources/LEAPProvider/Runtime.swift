@@ -1534,6 +1534,7 @@ public actor LeapRuntime {
 
   private static func normalize(_ error: any Error) -> any Error {
     if error is CancellationError { return CancellationError() }
+    if let error = error as? ModelGenerationFailure { return error }
     if let error = error as? LeapError { return error }
     return LeapError.nativeFailure
   }

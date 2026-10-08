@@ -277,8 +277,9 @@ private final class LeapLiveTextSession: LeapTextSession, @unchecked Sendable {
       } else if response is MessageResponseReasoningChunk {
         // Reasoning is native metadata, not user-visible text. It is not a
         // heartbeat; the runtime's event and inactivity bounds still apply.
-      } else if response is MessageResponseError {
-        throw LeapError.nativeFailure
+      } else if let error = response as? MessageResponseError {
+        throw ModelGenerationFailure(.transportFailure,
+          "LEAP native generation failed: \(String(error.message.prefix(512)))")
       } else if response is MessageResponseFunctionCalls {
         throw LeapError.invalidRuntimeOutput
       } else if let complete = response as? MessageResponseComplete {
@@ -290,7 +291,7 @@ private final class LeapLiveTextSession: LeapTextSession, @unchecked Sendable {
         case .interrupted:
           throw LeapError.generationInterrupted
         case .error:
-          throw LeapError.nativeFailure
+          throw ModelGenerationFailure(.transportFailure, "LEAP text generation ended with error finish reason.")
         }
       } else {
         throw LeapError.invalidRuntimeOutput
