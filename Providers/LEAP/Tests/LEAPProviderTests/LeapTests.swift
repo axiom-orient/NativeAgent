@@ -458,9 +458,11 @@ final class LeapTests: XCTestCase {
     XCTAssertEqual((options.constraint as? GenerationConstraint.JsonSchema)?.schema, try schema.canonicalString())
     XCTAssertEqual(options.temperature?.floatValue, LeapTextGenerationPolicy.structuredOutputTemperature)
     XCTAssertEqual(options.maxTokens?.int32Value, LeapLimits.maxTextGenerationTokens)
+    XCTAssertNil(options.functionCallParser)
     let textOptions = try LeapTextGenerationPolicy.options(for: .text)
     XCTAssertNil(textOptions.constraint)
     XCTAssertNil(textOptions.temperature)
+    XCTAssertNil(textOptions.functionCallParser)
   }
 
   func testStructuredOutputReachesNativeSessionAndKeepsTextMode() async throws {

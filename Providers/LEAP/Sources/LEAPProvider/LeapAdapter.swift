@@ -354,6 +354,9 @@ enum LeapTextGenerationPolicy {
       options = options.with(temperature: LeapTextGenerationPolicy.structuredOutputTemperature)
       options.constraint = GenerationConstraint.JsonSchema(schema: try schema.canonicalString())
     }
+    // This adapter admits no tools. Ordinary JSON/text must not enter the
+    // native SDK's default LFM function-call parser.
+    options.functionCallParser = nil
     return options
   }
 }
