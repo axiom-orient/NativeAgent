@@ -19,8 +19,8 @@
     "SOURCE_MANIFEST.json"
   ],
   "note": "Self-excluding Git-index inventory of the published NativeAgent SwiftPM source. Entries reflect staged source bytes, not unstaged local edits. Build outputs, SwiftPM state, editor state, ignored files and this manifest are excluded. This inventory does not qualify native or live behavior.",
-  "fileCount": 1920,
-  "uncompressedBytes": 18710718,
+  "fileCount": 1921,
+  "uncompressedBytes": 18711122,
   "files": [
     {
       "path": ".gitignore",
@@ -49,8 +49,8 @@
     },
     {
       "path": "Agent/NativeAgentPackage/Package.swift",
-      "bytes": 8263,
-      "sha256": "49d07fb2d473bbd75c25d1c0e7faaf44e616cb99e748edf3e86ba17e7db74ce0"
+      "bytes": 8325,
+      "sha256": "e3cae9c8311d8082d822f0485b3c57ba1ad1b2948544a2f351d8c1ff1a023b63"
     },
     {
       "path": "Agent/NativeAgentPackage/Packages/ChatGPTAgent/Package.swift",
@@ -636,6 +636,11 @@
       "path": "Agent/NativeAgentPackage/README.md",
       "bytes": 3656,
       "sha256": "d80167d87fd89c283afeb928fa1655aa2ed7027d256f3ba3a26a35cee93da228"
+    },
+    {
+      "path": "Agent/NativeAgentPackage/Sources/CSQLite/CSQLite.c",
+      "bytes": 100,
+      "sha256": "4baf286a3abcd6a1d9669bcc63ef24473daa84d18d75ae9a79ed3eb8a4e57379"
     },
     {
       "path": "Agent/NativeAgentPackage/Sources/CSQLite/CSQLite.h",
@@ -6984,8 +6989,8 @@
     },
     {
       "path": "Package.swift",
-      "bytes": 19146,
-      "sha256": "309982975998359d6466a9e2c67fdc2dc26e12c67bd531b8e03b999c266e99fb"
+      "bytes": 19388,
+      "sha256": "0be4aa71f3749274cd188a01379410a2b11665722d441e897479cc73b6633e51"
     },
     {
       "path": "Providers/ANALYSIS.md",
