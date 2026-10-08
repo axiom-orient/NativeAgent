@@ -465,6 +465,8 @@ final class LeapTests: XCTestCase {
     let schema = JSONValue.object(["type": .string("object")])
     let options = try LeapTextGenerationPolicy.options(for: .jsonObject(schema: schema))
     XCTAssertEqual(options.jsonSchemaConstraint, try schema.canonicalString())
+    XCTAssertNil(options.functionCallParser, "Tool-free text generation must disable the native default function parser")
+    XCTAssertNil(try LeapTextGenerationPolicy.options(for: .text).functionCallParser)
     XCTAssertEqual(options.temperature?.floatValue, LeapTextGenerationPolicy.structuredOutputTemperature)
     XCTAssertEqual(options.maxTokens?.int32Value, LeapLimits.maxTextGenerationTokens)
     let textOptions = try LeapTextGenerationPolicy.options(for: .text)

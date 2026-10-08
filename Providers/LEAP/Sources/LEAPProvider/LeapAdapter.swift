@@ -377,6 +377,9 @@ enum LeapTextGenerationPolicy {
       options = options.with(jsonSchema: try schema.canonicalString())
         .with(temperature: LeapTextGenerationPolicy.structuredOutputTemperature)
     }
+    // This adapter admits no tools. The SDK defaults to an LFM function-call
+    // parser; ordinary JSON/text must never enter that parser.
+    options.functionCallParser = nil
     return options
   }
 }
